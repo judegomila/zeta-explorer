@@ -38,7 +38,7 @@
  * imp-35810 machinery verbatim (identical K, delta, S_inf, aOf, measure). The imp-34714a machine certificate
  * REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35810-cancellation-onset-height (single-tol onset; C2/C3 asserted qualitatively)
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (B3 flagged the float-cancellation artifact)
@@ -214,7 +214,7 @@ export const IMP35848_CANCELLATION_ONSET_TOL_LADDER = {
     'double-precision artifact. Measurement only on the inherited imp-3220/imp-3406 surrogate; reuses the ' +
     'imp-35266/imp-35766/imp-34996/imp-35810 machinery (identical K, delta, S_inf, aOf, measure); the C_C 1/8 ' +
     'ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35810 (single-tol onset; C2/C3 asserted qualitatively); imp-35766 (B3 float-cancellation artifact); ' +
     'imp-35266 (2:1 split -dFP/dG ~ 2.00042); imp-34996 (S_inf = 1/(2 delta) floor); imp-2642 (C_C 1/8 ansatz); ' +
@@ -252,15 +252,15 @@ export const IMP35848_CANCELLATION_ONSET_TOL_LADDER_ASSERTIONS = [
       STRICTEST_MARGIN_SAFE === true,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35848-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35848_CANCELLATION_ONSET_TOL_LADDER.isRigorous === false &&
       /imp-34714a/.test(IMP35848_CANCELLATION_ONSET_TOL_LADDER.subGap) &&
       /REMAINS OPEN/.test(IMP35848_CANCELLATION_ONSET_TOL_LADDER.subGap) &&
       /NO QED/.test(IMP35848_CANCELLATION_ONSET_TOL_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35848_CANCELLATION_ONSET_TOL_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35848_CANCELLATION_ONSET_TOL_LADDER.verdict),
   },
 ];
 

@@ -13,7 +13,7 @@
  *   DRIVES the deep-tail |reldiff| growth -- L6/L7 fall below |E_CF|_crit while L2..L5 stay above it)
  *
  * Ticket: imp-124821 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER } from './imp-124770-pair-ratio-identity-landmark-ladder.js';
@@ -41,7 +41,7 @@ export const IMP124821_PAIRRATIO_DEEPTAIL_RELDIFF_ROUNDOFF_HONEST_STATUS = Objec
 });
 
 export const IMP124821_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note restates, standalone, the imp-124770 M2 finding: ' +
+  'RH open; no refereed bound is changed; NO QED. This note restates, standalone, the imp-124770 M2 finding: ' +
   'the measured 5-point pair-ratio |reldiff| grows monotonically down the landmark ladder (' +
   Math.abs(L2.reldiff).toExponential(2) + ' at L2 to ' + Math.abs(L7.reldiff).toExponential(2) + ' at L7) because ' +
   '|E_CF| falls below the imp-124769 round-off crossover |E_CF|_crit ~ 1.4e-6 (sigma_crit ~ 0.013, between L5 and ' +
@@ -65,7 +65,7 @@ if (
     IMP124821_PAIRRATIO_DEEPTAIL_RELDIFF_ROUNDOFF_HONEST_STATUS.isRigorous === false &&
     IMP124821_PAIRRATIO_DEEPTAIL_RELDIFF_ROUNDOFF_HONEST_STATUS.qed === false &&
     /NO QED/.test(IMP124821_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP124821_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124821_HONEST_BANNER) &&
     /RH open/.test(IMP124821_HONEST_BANNER)
   )
 ) {

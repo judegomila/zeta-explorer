@@ -56,7 +56,7 @@
  * F(3.764e7,fit) < M(4.109e7,measured), with M/F = 1.0917 (the imp-96684 residual factor
  * 1.092) and (F-T)/(M-T) = 0.7722 (~76%). The trace->measured ratio M/T = 1.5842 factors
  * exactly as (F/T)*(M/F), reproducing the imp-96686 ~1.58x ceiling ratio. Accuracy audit
- * only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (inherited): the Frobenius and measured ceilings both rest on a log-fit
  * extrapolated ~four decades to N~3.76e7 / ~4.11e7 (imp-96684 / imp-96443 sub-gaps); only
@@ -145,11 +145,11 @@ export const IMP96693_VERDICT = Object.freeze({
     'trace->measured gap. The total ceiling ratio M/T = 1.5842 factors exactly as (F/T)*(M/F) ' +
     '= 1.4511 * 1.0917 (relative residual < 1e-12), reproducing the imp-96686 ~1.58x ' +
     'conditioning-ceiling ratio. Accuracy audit only; no bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96693_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: every ratio is pure ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: every ratio is pure ' +
   're-analysis of the three imp-96684 bisection-solved conditioning ceilings. Only the trace ' +
   'ceiling T=2.594e7 is a rigorous lower bound; the Frobenius ceiling F=3.764e7 and the ' +
   'measured ceiling M=4.109e7 both rest on the imp-96684 / imp-96443 log-fit extrapolated ' +
@@ -226,7 +226,7 @@ const IMP96693_ASSERTIONS = [
       IMP96693_VERDICT.strictlyOrdered === true &&
       IMP96693_VERDICT.decompositionCloses === true &&
       /NO QED/.test(IMP96693_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96693_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96693_HONEST_BANNER) &&
       /RH open/.test(IMP96693_HONEST_BANNER),
     why: 'audit only: no bound moved, the ordering and decomposition-closure flags are set, and the honesty markers are present.',
   },

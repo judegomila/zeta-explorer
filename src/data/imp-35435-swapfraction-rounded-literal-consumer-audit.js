@@ -53,7 +53,7 @@
  *
  * AUDIT / CONSUMER-MAP ONLY. No re-derivation of the underlying E_flow quantity; edits no bound;
  * E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35402-eflow-fartail-ladder-literal-reconstruction-check (flagged the ~1.3% error, no consumer map)
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (authoritative full-precision-derived swapFraction column)
@@ -150,7 +150,7 @@ export default Object.freeze({
     'cluster flagged for a rounding caveat or full-precision read), and ABSORBED-BY-INTEGER-' +
     'ROUNDING (the imp-35295 page). Edits no bound; E_flow > 0 strictness (imp-33848) untouched; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35402 (flagged the ~1.3% error, no consumer map); imp-35279/imp-35280 (the four-rung ' +
     'ladder columns); imp-35400 (the baked-literal consumer flagged here); imp-35370/imp-35378/' +
@@ -200,9 +200,9 @@ export const IMP35435_SWAPFRACTION_CONSUMER_AUDIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: audit only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: audit only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35435-honesty-gate-no-derivation-change',
-    description: 'audit only: isRigorous false, no QED, PT stays SOTA; source module unchanged',
+    description: 'audit only: isRigorous false, no QED, no refereed bound is changed; source module unchanged',
     holds: () => {
       const self = IMP35435_SWAPFRACTION_CONSUMER_AUDIT_ASSERTIONS; // referenced to keep the gate live
       return (

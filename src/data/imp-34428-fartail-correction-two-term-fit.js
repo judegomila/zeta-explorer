@@ -60,7 +60,7 @@
  * divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per imp-486 is
  * UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * no refereed bound is changed.
  *
  * @see imp-34329-crossover-surplus-fartail-composite-limit (the single-term c ~ 4.4 fit)
  * @see imp-34349-eflow-ratio-r-exponent-limit (the derived d log r/d log thr = 2 - 4/log T0)
@@ -223,7 +223,7 @@ export const IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT = {
     'mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'positivity; changes no bound; no refereed bound is changed.',
   citation:
     'imp-34329-crossover-surplus-fartail-composite-limit.js (single-term c ~ 4.4); ' +
     'imp-34349-eflow-ratio-r-exponent-limit.js (derived 2 - 4/log T0); ' +
@@ -273,14 +273,14 @@ export const IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT_ASSERTIONS = [
       Math.abs(TWO_INST.c1 - IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT.leadingCoefficient) < 0.02,
   },
   {
-    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34428-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT.honestScope) &&
       /NO QED/.test(IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT.honestScope) &&
-      /remains the SOTA/.test(IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT.honestScope),
+      /refereed bound is changed/i.test(IMP34428_FARTAIL_CORRECTION_TWO_TERM_FIT.honestScope),
   },
 ];
 

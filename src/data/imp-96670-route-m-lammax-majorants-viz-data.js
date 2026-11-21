@@ -15,7 +15,7 @@
  * re-solve.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no RH claim; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (source ladder + ceilings)
  * @see imp-96581-route-m-lammax-rigorous-vs-measured-viz-data.js (sibling viz-data leaf convention)
@@ -109,7 +109,7 @@ export const IMP96670_GAP_SUMMARY = Object.freeze({
 });
 
 export const IMP96670_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every curve value and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every curve value and ' +
   'ceiling is reused verbatim from imp-96648 (rigorous matrix inequalities measured on the ' +
   'same exact Vasyunin Gram); this module only reshapes the same eight-rung ladder into a ' +
   'chart-ready series list. No bound is claimed moved and no operator positivity is ' +
@@ -167,7 +167,7 @@ const IMP96670_ASSERTIONS = [
     id: 'imp96670-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96670_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96670_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96670_HONEST_BANNER) &&
       /NO QED/.test(IMP96670_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

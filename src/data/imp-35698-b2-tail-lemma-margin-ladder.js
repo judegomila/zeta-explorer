@@ -57,8 +57,7 @@
  * Measurement only; ports nothing; proves no tail lemma; establishes no positivity;
  * derives no remainder; changes no bound; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643),
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * imp-35653 stays breakthrough-tier OPEN; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * imp-35653 stays breakthrough-tier OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35697-winding-barrier-mesh-cost-ladder (the complementary FINITE B1 winding cost tabulation)
  * @see imp-35674-w3-tail-lemma-polymath15-scope (scopes the B2 / W3 tail lemma, X0, N(x), and the heat-sign caveat)
@@ -69,7 +68,7 @@
 
 import { IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE } from './imp-35674-w3-tail-lemma-polymath15-scope.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height
 const X0 = 6e10; // illustrative Polymath15 barrier height (imp-35674)
 const E0 = 0.2; // SCHEMATIC normalized error deficit at the barrier (barrier margin m = 0.8)
@@ -173,7 +172,7 @@ export const IMP35698_B2_TAIL_LEMMA_MARGIN_LADDER = {
     'Bruijn flow at NEGATIVE time, the HARDER side, where the margin is strictly TIGHTER, so these widths are ' +
     'OPTIMISTIC. Changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35653 stays breakthrough-tier ' +
-    'OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'OPEN; NO QED. No refereed bound is changed.',
   citation:
     'imp-35697 (complementary FINITE B1 winding cost tabulation); imp-35674 (B2 / W3 tail-lemma scope, X0, N(x), ' +
     'heat-sign caveat); imp-35653 (B1 / B2 decomposition); imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi)); imp-2631 ' +
@@ -237,7 +236,7 @@ export const IMP35698_B2_TAIL_LEMMA_MARGIN_LADDER_ASSERTIONS = [
     holds: () => NRATIO_VS_SQRT_REL > 0 && NRATIO_VS_SQRT_REL < 1e-4,
   },
   {
-    // (6) honesty gate: measurement only, does NOT discharge B2, no bound moves, PT SOTA, NO QED.
+    // (6) honesty gate: measurement only, does NOT discharge B2, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35698-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, does not discharge B2 (uniform quantifier + heat-sign caveat stay), changes no bound, imp-35653 OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -252,7 +251,7 @@ export const IMP35698_B2_TAIL_LEMMA_MARGIN_LADDER_ASSERTIONS = [
         /NEGATIVE time/.test(r.verdict) &&
         /imp-35653 stays breakthrough-tier OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

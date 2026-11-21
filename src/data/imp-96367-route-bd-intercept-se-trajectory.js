@@ -58,7 +58,7 @@
  * positive (the on-line margin SIGN survives; no crossing anywhere in the census). The
  * genuine uniform-in-T off-line LP obstruction (Weil-positivity strength) stays
  * inaccessible to this on-line construction. Changes NO Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * GRADE: documentation/measurement only. Import-light (columns baked from imp-96224,
  * recompute-and-check, no heavy bundle).
@@ -194,7 +194,7 @@ export const IMP_96367_INTERCEPT_SE_TRAJECTORY = {
     + 'the binding envelope stays strictly positive (0.3791 at gamma_4000) so the margin SIGN survives; '
     + 'the fitted floor SE-normalized confidence collapses numerator-driven toward statistical zero; the '
     + 'genuine uniform-in-T off-line obstruction stays inaccessible; changes no Lambda bound; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED',
+    + 'no refereed bound is changed; RH open; NO QED',
   closesTickets: ['imp-96367'],
 };
 

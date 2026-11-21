@@ -14,7 +14,7 @@
  *   ticket without having read imp-36062 in full.
  *
  *   Ticket: imp-36124 (content, medium). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-36062-kbn-kahan-separation-onset.js (source: locates the N~34000 onset this note restates)
  *   @see imp-36023-kbn-combined-worst-ladder.js (coarse four-rung ladder imp-36062 refines)
@@ -61,7 +61,7 @@ export const IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS = Object.freeze({
     isReductionBelowRH: false,
     changesAnyBound: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -127,7 +127,7 @@ export const IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS_ASSERTIONS = [
       IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36124_KBN_KAHAN_SOFT_ONSET_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36124-verdict-soft-n-characterized-no-qed',

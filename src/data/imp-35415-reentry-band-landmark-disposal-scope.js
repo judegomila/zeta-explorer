@@ -96,7 +96,7 @@
  * itself yet formalized (imp-35357). ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35356-r1-candidate-routes-assessment (route ii is the sole self-contained route; disposal direction)
  * @see imp-35357 (formalizes route ii -- the pure-artifact proof this scoping is downstream of)
@@ -250,8 +250,8 @@ export const IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE = {
     'imp-35174a / imp-35243a stay OPEN; the disposal itself remains to be formalized (imp-35357). ASSESSMENT ' +
     'ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35356 (route ii sole self-contained route, disposal direction); imp-35357 (formalizes route ii); ' +
     'imp-35243 (R1-R4 checklist; D1 floor-sensitivity ~11.99 decades); imp-35332 (drift-integral ' +
@@ -310,16 +310,16 @@ export const IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE_ASSERTIONS = [
       Math.abs(BAND_WIDTH_DECADES - 10.08) < 0.05,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, sub-gaps OPEN, no QED, PT SOTA.
+    // Honesty gate: assessment only, discharges nothing, sub-gaps OPEN, no QED, no refereed bound is changed.
     id: 'imp35415-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, discharges nothing, imp-35243a OPEN, imp-35357 pending, no QED, PT SOTA',
+    description: 'Assessment only: isRigorous false, discharges nothing, imp-35243a OPEN, imp-35357 pending, no QED, no refereed bound is changed',
     holds: () =>
       IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.isRigorous === false &&
       /Discharges nothing/.test(IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.finding) &&
       /imp-35243a stays OPEN/.test(IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.finding) &&
       /imp-35357/.test(IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.residual_sub_gap) &&
       /NO QED/.test(IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35415_REENTRY_BAND_LANDMARK_DISPOSAL_SCOPE.verdict),
   },
 ];
 

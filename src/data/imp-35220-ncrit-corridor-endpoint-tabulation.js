@@ -152,7 +152,7 @@ export const IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION = {
     'holds across the imp-35127 / imp-2520 / imp-2563 horizon conventions and is not an artifact of that ' +
     'one parameter choice. Measurement only; discharges nothing; establishes no operator positivity; ' +
     'changes no bound; I3 stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35196-ystar-schedule-reconciliation-assessment (the collapse, single triple); ' +
     'imp-35168-mesoscopic-i3-lipschitz-window-assessment (L_prop vs L_field); ' +
@@ -221,14 +221,14 @@ export const IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION_ASSERTIONS = [
     holds: () => Math.abs(nCrit(1, 1, Y_CEIL_MESO) - 15.8467) < 1e-2,
   },
   {
-    // Honesty gate: measurement only, corridor empty at anchors, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, corridor empty at anchors, no QED, no refereed bound is changed.
     id: 'imp35220-honesty-gate-no-qed',
-    description: 'Measurement only: corridorEmptyAtAllAnchors true, isRigorous false, NO QED, PT stays SOTA',
+    description: 'Measurement only: corridorEmptyAtAllAnchors true, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION.corridorEmptyAtAllAnchors === true &&
       IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION.isRigorous === false &&
       /NO QED/.test(IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION.verdict),
+      /refereed bound is changed/i.test(IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION.verdict),
   },
 ];
 

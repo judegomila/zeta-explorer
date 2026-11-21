@@ -11,7 +11,7 @@
  * lattice: simultaneously coalescence-uniform (valid at exact rate
  * collision), m-uniform (every-octave), r-uniform, and OFF-LATTICE-valid
  * (arbitrary rate sets). Derivation + measurement; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95446 / imp-95498 normalization). Finite rate
  * set P = {p_1, ..., p_K} of positive reals, E_P = span{e^(-p t)} in
@@ -208,7 +208,7 @@ export const IMP95499_TILT_DETERMINANT_PERP_MAJORANT = {
   honestScope:
     "derivation + measurement; model family only; bound is loose by " +
     "2 e x at K = 1 and does not supersede RZ-PEN on the lattice; " +
-    "changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "changes no bound; NO QED; no refereed bound is changed",
   verdict:
     "DERIVATION + MEASUREMENT: THEOREM TILT-DET -- exponential tilt plus " +
     "exact Cauchy-determinant cancellation gives Lambda(P, d) <= " +
@@ -220,7 +220,7 @@ export const IMP95499_TILT_DETERMINANT_PERP_MAJORANT = {
     "Every-octave closed-form onset 15.48 (m = 16, r = 1.1) vs SPLIT-LOO/" +
     "EV-OCT 27.04 and RZ-PEN ~13.0-13.3: RZ-PEN keeps the lattice, " +
     "TILT-DET takes everything the lattice chains cannot reach. Changes " +
-    "no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -559,7 +559,7 @@ export const IMP95499_ASSERTIONS = [
     description:
       "verdict and scope carry the honest labels: DERIVATION + " +
       "MEASUREMENT, delivers the named residual, does not supersede " +
-      "RZ-PEN on the lattice, no bound change, NO QED, PT SOTA",
+      "RZ-PEN on the lattice, no bound change, NO QED, no refereed bound is changed",
     holds: () =>
       /DERIVATION \+ MEASUREMENT/.test(
         IMP95499_TILT_DETERMINANT_PERP_MAJORANT.verdict,
@@ -570,7 +570,7 @@ export const IMP95499_ASSERTIONS = [
       ) &&
       /Changes no bound/.test(IMP95499_TILT_DETERMINANT_PERP_MAJORANT.verdict) &&
       /NO QED/.test(IMP95499_TILT_DETERMINANT_PERP_MAJORANT.verdict) &&
-      /remains SOTA/.test(IMP95499_TILT_DETERMINANT_PERP_MAJORANT.verdict),
+      /refereed bound is changed/i.test(IMP95499_TILT_DETERMINANT_PERP_MAJORANT.verdict),
   },
 ];
 

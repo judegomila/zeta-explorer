@@ -32,8 +32,7 @@
  *
  * SCOPE. Read-only cross-reference audit only. No source file was modified as a result
  * of this check (none needed correction). Changes no bound; establishes no operator
- * positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous
- * SOTA.
+ * positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35327-imp352xx-frontier-crossref-integrity-audit (prior batch in the same series)
@@ -134,7 +133,7 @@ export const IMP36051_IMP3598X97X_CROSSREF_INTEGRITY_AUDIT = {
     'cited landmark values (T_PT = 3e12, N ~ 488602, the ~6.41e-14 certified W1 rung, the ~3.0e-17 achieved ' +
     'naive error) against their source modules. Result: zero dangling references, zero misnamed exports, ' +
     'zero value drift. No source file required correction. Changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35186 (prior audit method); imp-35327/imp-35776 (prior batches in the same series); imp-36050 ' +
     '(sibling registration/reachability audit on an overlapping cohort); imp-35988/imp-35989/imp-35990/' +
@@ -172,11 +171,11 @@ export const IMP36051_IMP3598X97X_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36051-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36051_IMP3598X97X_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36051_IMP3598X97X_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36051_IMP3598X97X_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36051_IMP3598X97X_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

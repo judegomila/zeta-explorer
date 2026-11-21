@@ -17,7 +17,7 @@
  * @see imp-33537-deep-tail-plateau-spike-recurrence.js (source module: the dense W0 window this bakes)
  *
  * Ticket: imp-33548 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33548_WINDOW_LO = 285;

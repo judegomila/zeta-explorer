@@ -60,7 +60,7 @@
  * CROSS-VALIDATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (separated E_coll residual -> 0 as 1/(2 log T0))
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (sigma-share gap -> 0 as 1/(2 log T0); F2/F7)
@@ -213,8 +213,8 @@ export const IMP34190_SHARED_APPROACH_RATE_ECOLL_VS_SIGMA = {
     'at 1e20 from these re-computed columns confirms the identical inherited model is in use. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34130 (separated E_coll residual -> 0 as 1/(2 log T0)); imp-33816 (sigma-share gap -> 0 as ' +
     '1/(2 log T0), F2/F7); imp-33859 (log-space direct path ln N = u + log(u-1)); imp-3444 ' +
@@ -279,13 +279,13 @@ export const IMP34190_SHARED_APPROACH_RATE_ECOLL_VS_SIGMA_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: cross-validation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation/measurement only, no QED, no refereed bound is changed.
     id: 'imp34190-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34190_SHARED_APPROACH_RATE_ECOLL_VS_SIGMA.isRigorous === false &&
       /NO QED/.test(IMP34190_SHARED_APPROACH_RATE_ECOLL_VS_SIGMA.verdict) &&
-      /remains SOTA/.test(IMP34190_SHARED_APPROACH_RATE_ECOLL_VS_SIGMA.verdict),
+      /refereed bound is changed/i.test(IMP34190_SHARED_APPROACH_RATE_ECOLL_VS_SIGMA.verdict),
   },
 ];
 

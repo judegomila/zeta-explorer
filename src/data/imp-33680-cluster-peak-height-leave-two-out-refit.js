@@ -65,7 +65,7 @@
  *   clusters are removed, so it is a two-point artifact -- not the exact coefficients. The NPHI = 10
  *   Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the full-sixteen fit this refits robustly)
  *   @see imp-33679-cluster-peak-envelope-height-1200-1600.js (the [1200,1600] height-plateau extension)
@@ -175,7 +175,7 @@ const verdict =
       'ALSO-COLLAPSE-TO-R^2~0.044/0.041.-THE-imp-33660-WEAK-POSITIVE-HEIGHT-TREND-IS-A-TWO-POINT-ARTIFACT-OF-' +
       'THE-imp-33638-TAIL-RE-INTENSIFICATION,-NOT-A-DISTRIBUTED-GROWTH-LAW.-CONSISTENT-WITH-THE-imp-33660/' +
       'imp-33638/imp-33621/imp-33599-latticeJitterCaveat.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-' +
-      'LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33680_CLUSTER_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT = Object.freeze({
@@ -201,7 +201,7 @@ export const IMP33680_CLUSTER_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT = Object.freeze({
     'also collapse to R^2 ~0.044/0.041. VERDICT: SLOPE-COLLAPSES-TREND-IS-A-TWO-POINT-ARTIFACT -- the imp-33660 ' +
     'weak-positive height trend is carried ENTIRELY by the two tallest tail clusters, NOT distributed across the ' +
     'sixteen peaks. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery ' +
-    'lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 SOTA.',
+    'lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     source: 'the EXACT sixteen imp-33660 measured.peakNs / measured.peakHeights (frozen import; no re-derivation)',
@@ -311,7 +311,7 @@ export const IMP33680_CLUSTER_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT = Object.freeze({
       'out slope ~+0.0077, R^2 ~0.047, and the ~2.4% residual reduction. The robust reading is the QUALITATIVE ' +
       'conclusion -- the trend collapses when the two tallest tail clusters are removed, so it is a two-point ' +
       'artifact -- not the exact coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -365,7 +365,7 @@ export const IMP33680_CLUSTER_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT_ASSERTIONS = [
   {
     id: 'imp33680-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33680_CLUSTER_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT.honestCaveat;
       return (
@@ -374,7 +374,7 @@ export const IMP33680_CLUSTER_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -58,7 +58,7 @@ export const IMP97843_SUMMARY = Object.freeze({
     'Presentation only: every row and ratio is reused verbatim from imp-97823 (a measurement, not a '
     + 'derivation); no new computation. Measurement / sensitivity only on the inherited '
     + 'imp-3220/imp-3406 extrapolation surrogate, not a rigorous asymptotic. Changes no bound; '
-    + 'establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

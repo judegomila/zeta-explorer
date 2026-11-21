@@ -58,8 +58,7 @@
  * (NOT a rigorous asymptotic). C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED (bare E_coll prefactor); E_trunc base pin 3.06e-5 unchanged
  * (only rescaled as a perturbation); no bound moves; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97743-fold-amplitude-etrunc-floor-sensitivity (the 0.5x..5x sweep and the ~0.221 exponent extended here)
  * @see imp-97725-fold-amplitude-analytic-pin (the K = sqrt(S/(2 phi_xx)) pin reproduced at factor 1.0)
@@ -246,7 +245,7 @@ export const IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW = {
     'full window. Measurement / sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, NOT a ' +
     'rigorous asymptotic; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; ' +
     'E_trunc base pin 3.06e-5 unchanged (only rescaled); changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97743 (the 0.5x..5x sweep and the ~0.221 two-point exponent extended here); imp-97725 (the K pin reproduced ' +
     'at factor 1.0); imp-33708 (SAME floor swap on the far-tail landmark N ~E_trunc^(-2.0)); imp-486 (C_mb ' +
@@ -295,16 +294,16 @@ export const IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW_ASSERTIONS = [
       K_MAX / K_MIN < 3.1,
   },
   {
-    // Honesty gate: measurement only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, split verdict, no QED, no refereed bound is changed.
     id: 'imp97764-honesty-gate-no-qed',
-    description: 'Measurement only: genuine-core/mild-drift verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: genuine-core/mild-drift verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW.isRigorous === false &&
       /GENUINE POWER LAW OVER THE CORE, MILD DRIFT AT THE EXTREME/.test(
         IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW.verdict,
       ) &&
       /NO QED/.test(IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW.verdict) &&
-      /remains SOTA/.test(IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW.verdict),
+      /refereed bound is changed/i.test(IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW.verdict),
   },
 ];
 

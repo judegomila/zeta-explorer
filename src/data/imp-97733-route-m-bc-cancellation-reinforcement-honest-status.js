@@ -40,7 +40,7 @@
  * imp-97709 IMP97709_VERDICT / IMP97709_SUBGAP finding as a standalone indexable module (glossary/audit
  * sweeps that grep for honest-status modules by filename, per imp-36209's finding that inline-only
  * corrections are not reliably discoverable). Read-only record; changes no bound; establishes no
- * operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-97709-route-m-bc-cancellation-sign-structure.js (the sign-structure measurement this note records)
  * @see imp-97663-route-m-kappa-smooth-measured-band-reflection-constraint.js (the no-cancellation cap 3.87e-3)
@@ -88,7 +88,7 @@ export const IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS = {
     `${IMP97709_MAX_LOOSENING_FACTOR} (to <~ 7.74e-3). The measured kappa_smooth sign-swing is a ` +
     'windowing artifact and does not decide the relative sign, so the imp-97617 reflection index is ' +
     'still needed. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97709-route-m-bc-cancellation-sign-structure.js (IMP97709_VERDICT / IMP97709_SUBGAP, the source ' +
     'finding this note records); imp-97663-route-m-kappa-smooth-measured-band-reflection-constraint.js ' +
@@ -121,12 +121,12 @@ export const IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp97733-no-fix-honesty-gate',
-    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, PT stays SOTA',
+    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS.fixApplied === false &&
       IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP97733_BC_CANCELLATION_REINFORCEMENT_HONEST_STATUS.verdict),
   },
 ];
 

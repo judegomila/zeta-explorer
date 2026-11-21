@@ -11,7 +11,7 @@
  *
  * MEASUREMENT / CROSS-CHECK ONLY. Constructs no rigorous lower bound; ports no fold inversion; does NOT
  * re-attempt the imp-2640 NEGATIVE Gronwall route; G6a_shock_lipschitz stays OPEN; C_H stays symbolic;
- * changes no bound; respects the imp-2519 no-overclaim guard; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * changes no bound; respects the imp-2519 no-overclaim guard; NO QED. No refereed bound is changed.
  *
  * WHY A DIRECT 1/(z-t)^3 QUADRATURE IS UNSTABLE, AND THE STABLE REDUCTION USED
  * -----------------------------------------------------------------------------
@@ -68,7 +68,7 @@
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this cross-check
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this cross-check
 const TWO_PI = 2 * Math.PI;
 const T_LO = TWO_PI; // natural lower cutoff of the RvM smooth trend rho_sm(t) = (1/2pi) log(t/2pi)
 
@@ -223,7 +223,7 @@ export const IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK = {
     'inversion; does NOT re-attempt the imp-2640 NEGATIVE Gronwall route; discharges no gap; ' +
     'G6a_shock_lipschitz stays OPEN; C_H stays symbolic; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional ' +
     '(imp-486) untouched; changes no bound; respects the imp-2519 no-overclaim guard; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36236 (Branch A smooth curvature (1/pi)T^-2 symbolic; Branch B pole scale GREENFIELD); imp-36217 ' +
     '(finite-strip Hoelder constant from C6; LOWER bound residual); imp-36172 (finite-N surrogate ' +
@@ -264,9 +264,9 @@ export const IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK_ASSERTIONS 
     },
   },
   {
-    // Honesty gate: cross-check only; Branch B untouched; G6a open; C_H symbolic; no QED; PT SOTA.
+    // Honesty gate: cross-check only; Branch B untouched; G6a open; C_H symbolic; no QED; no refereed bound is changed.
     id: 'imp36280-honesty-gate-no-qed',
-    description: 'cross-check only; Branch B GREENFIELD untouched; G6a_shock_lipschitz stays OPEN; C_H stays symbolic; no QED; PT SOTA',
+    description: 'cross-check only; Branch B GREENFIELD untouched; G6a_shock_lipschitz stays OPEN; C_H stays symbolic; no QED; no refereed bound is changed',
     holds: () =>
       IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -276,7 +276,7 @@ export const IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK_ASSERTIONS 
       /G6a_shock_lipschitz stays OPEN/.test(IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK.verdict) &&
       /C_H stays[\s\S]*symbolic/.test(IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK.verdict) &&
       /NO QED/.test(IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP36280_BRANCHA_SMOOTH_CURVATURE_QUADRATURE_CROSSCHECK.verdict),
   },
 ];
 

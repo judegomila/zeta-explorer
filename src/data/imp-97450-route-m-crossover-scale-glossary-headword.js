@@ -44,7 +44,7 @@
  *   b/log^2 b heuristic this result supersedes)
  *
  * Ticket: imp-97450 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The crossover-scale headword, baked verbatim (no re-import).
@@ -75,7 +75,7 @@ const ROUTE_M_CROSSOVER_SCALE_HEADWORD = Object.freeze({
     'x*(2%) dead-flat (0.3320 -> 0.3311) across b = 1000..16000 and the relative deviation at fixed ' +
     'x = a/b b-convergent. B* = 2 Sum g(b)/b^2 stays unpinned; the b^(1/2) vs log^2 b separation ' +
     'stays degenerate (imp-97329/imp-97398/imp-97397). Naming / glossary headword only; supplies no ' +
-    'new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD = Object.freeze({
@@ -92,7 +92,7 @@ export const IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD = Object.freeze(
     'result A(b) = x*(eps) b, LINEAR in b, with x*(2%) = 0.3311 and x*(1%) ~ 0.199 both ' +
     'b-independent to 3-4 digits -- superseding the naive sub-linear b/log^2 b heuristic, which ' +
     'described a different (second-moment-summand) crossover. No bound moved; B* stays unpinned; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97419 (the crossover-scale derivation this glosses); imp-97329 (the bulk profile that ' +
     'left A(b) unknown); imp-97330 (the fixed-a intercept closed form); imp-97311 (the naive ' +
@@ -119,11 +119,11 @@ export const IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97450-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97419.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97419.',
     holds: () =>
       IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD.verdict) &&
       IMP97450_ROUTE_M_CROSSOVER_SCALE_GLOSSARY_HEADWORD.glosses === 'imp-97419',
   },
 ];

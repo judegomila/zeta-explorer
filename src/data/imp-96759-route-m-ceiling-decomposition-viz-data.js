@@ -10,7 +10,7 @@
  *
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96731 IMP96731_CEILING_LEG
  * record; only the segmented-decomposition chart reshape is new. Changes no bound, establishes
- * no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no operator positivity, no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96731-route-m-trace-ceiling-tightening-assessment.js (source decomposition, Finding 4)
  * @see imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js (T/F/M re-audit)

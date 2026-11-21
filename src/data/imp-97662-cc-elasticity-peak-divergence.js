@@ -68,7 +68,7 @@
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED and only perturbed as a probe, not
  * re-pinned; E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97622-sigma-l2-cc-elasticity-closed-form (the closed form, downslope L2)
  * @see imp-97642-l2-cc-elasticity-independent-verify (5-point stencil verification)
@@ -243,7 +243,7 @@ export const IMP97662_CC_ELASTICITY_PEAK_DIVERGENCE = {
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED (perturbed only as a probe, not ' +
     're-pinned); E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97622 (downslope L2 closed form); imp-97642 (5-point stencil verification); imp-97661 ' +
     '(peak-location elasticities, E_CC == 0); imp-97520 (L1 peak sigma_max ~ 0.949429); imp-97598 ' +
@@ -288,11 +288,11 @@ export const IMP97662_CC_ELASTICITY_PEAK_DIVERGENCE_ASSERTIONS = [
   },
   {
     id: 'imp97662-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, ansatz untouched',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed, ansatz untouched',
     holds: () =>
       IMP97662_CC_ELASTICITY_PEAK_DIVERGENCE.isRigorous === false &&
       /NO QED/.test(IMP97662_CC_ELASTICITY_PEAK_DIVERGENCE.verdict) &&
-      /remains SOTA/.test(IMP97662_CC_ELASTICITY_PEAK_DIVERGENCE.verdict),
+      /refereed bound is changed/i.test(IMP97662_CC_ELASTICITY_PEAK_DIVERGENCE.verdict),
   },
 ];
 

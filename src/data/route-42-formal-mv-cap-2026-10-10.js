@@ -32,7 +32,7 @@
  * Scope after the referee: MV-CAP is a theorem (internal) for zero-side statistics — outputs of mean-value methods — and for O-form
  * premises; it is NOT established for explicit function-side L² / large-sieve mean values, which MV-CAP names, and the constructed
  * counter-model is itself caught by them at the proxy height. Hence status 'partial'. No Λ bound moves.
- * PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_42_ASSERTIONS recompute p_req, the p_viol decomposition, B-robustness,
+ * No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_42_ASSERTIONS recompute p_req, the p_viol decomposition, B-robustness,
  * the lane-top relation, the relative-precision requirement from N(T), ζ(4)·300, Heath-Brown's constant and the κ-shift bookkeeping live.
  */
 
@@ -88,7 +88,7 @@ export const ROUTE_42 = Object.freeze({
     + 'admissible counter-model violating H_desc (p_viol ≤ 3.0119 < 4.3743, CERTIFIED-FLOAT, robust to B tripled), so a certifying premise needs one-window '
     + 'resolution (slack < 19.3 zeros, relative precision ≤ 1.5e-12). It is NOT established for explicit function-side L² / large-sieve mean values: the '
     + 'counter-model is excluded at the proxy height by an explicit σ = 2 Montgomery–Vaughan mean value and by the |ζ(1+it)| bound (measured), and the '
-    + 'original Proposition E was false as stated. H_desc-mirror for t > 0 is conditional on Lemma 5. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'original Proposition E was false as stated. H_desc-mirror for t > 0 is conditional on Lemma 5. No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_42;
@@ -149,7 +149,7 @@ export const ROUTE_42_ASSERTIONS = Object.freeze([
   {
     id: 'r42-honest-scope',
     holds: () => R.status === 'partial' && /NOT established/.test(R.verdict) && /conditional on Lemma 5/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /^MAJOR/.test(R.refereeKilled[0]) && /^MAJOR/.test(R.refereeKilled[1]),
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /^MAJOR/.test(R.refereeKilled[0]) && /^MAJOR/.test(R.refereeKilled[1]),
     why: 'Theorem for zero-side and O-form premises only; function-side open (and the model is caught there); t > 0 conditional; no Λ change; no QED.',
   },
 ]);

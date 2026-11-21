@@ -50,7 +50,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33743-sigma-fartail-crossover-closed-form (thr = 0.1 far-tail landmark; the E_flow explanation)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (halving-landmark closed form, thr = 1/2)
@@ -221,7 +221,7 @@ export const IMP97838_THRESHOLD_LANDMARK_RESIDUAL_TREND = {
     'single-landmark coincidence. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT ' +
     'a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33743 (thr = 0.1 far-tail closed form, the E_flow explanation); imp-33723 (halving closed ' +
     'form, thr = 1/2); imp-33582 (sigma < 0.1 crossing, bisected); imp-33601 (exact identity ' +
@@ -264,13 +264,13 @@ export const IMP97838_THRESHOLD_LANDMARK_RESIDUAL_TREND_ASSERTIONS = [
     holds: () => PEAK.bestSig > 0.9 && PEAK.bestSig < 1 && ROWS[0].sigma_at_empirical > 0.899 && ROWS[0].sigma_at_empirical < 0.901,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp97838-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97838_THRESHOLD_LANDMARK_RESIDUAL_TREND.isRigorous === false &&
       /NO QED/.test(IMP97838_THRESHOLD_LANDMARK_RESIDUAL_TREND.verdict) &&
-      /remains SOTA/.test(IMP97838_THRESHOLD_LANDMARK_RESIDUAL_TREND.verdict),
+      /refereed bound is changed/i.test(IMP97838_THRESHOLD_LANDMARK_RESIDUAL_TREND.verdict),
   },
 ];
 

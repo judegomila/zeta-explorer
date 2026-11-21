@@ -17,7 +17,7 @@
  * @see imp-97725-fold-amplitude-analytic-pin (the K pin reproduced at factor 1.0)
  *
  * Ticket: imp-97826 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import {

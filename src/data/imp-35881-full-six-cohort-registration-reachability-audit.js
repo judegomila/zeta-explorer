@@ -26,8 +26,7 @@
  *
  * SCOPE. Audit only. No mathematical content changed in any audited module; no fix was
  * required (all six were already correctly wired). Changes no bound; establishes no
- * operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- * rigorous SOTA.
+ * operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35590-registration-reachability-audit (method precedent)
  * @see imp-35838-frontier-batch-registration-reachability-audit.js (method precedent, prior cohort)
@@ -122,7 +121,7 @@ export const IMP35881_FULL_SIX_COHORT_REGISTRATION_REACHABILITY_AUDIT = {
     'cohort. Result: zero orphans, zero missing exports, zero viz-status mismatches -- all ' +
     'six were already correctly wired, closing the gap the five-module imp-35858 audit left ' +
     '(imp-35808 uncovered). Changes no bound; establishes no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35808, imp-35809, imp-35810, imp-35811, imp-35812, imp-35813 (audited modules); ' +
     'imp-35590/imp-35838/imp-35858 (registration/reachability method); imp-35880 (companion ' +
@@ -175,11 +174,11 @@ export const IMP35881_FULL_SIX_COHORT_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS
   },
   {
     id: 'imp35881-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35881_FULL_SIX_COHORT_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35881_FULL_SIX_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35881_FULL_SIX_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35881_FULL_SIX_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

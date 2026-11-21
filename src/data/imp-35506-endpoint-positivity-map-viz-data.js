@@ -20,7 +20,7 @@
  *
  *   Ticket: imp-35506 (ux, medium), extended by imp-35601. Presentation only of already-established
  *   measurements; adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 import { IMP_35452_N2000_ENDPOINT_POSITIVITY_KNIFE_EDGE_REFERENCE } from './imp-35452-n2000-endpoint-positivity-knife-edge-reference.js';

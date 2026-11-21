@@ -49,7 +49,7 @@ export const REGISTRATION_HEAVY_IMPORT_AUDIT = {
   allLogIdsDistinct: UNIQUE_LOG_IDS.size === COHORT.length,
   heavyImportGapsFound: COHORT.filter((m) => m.heavyZerosImportFound).map((m) => m.ticket),
   heavyBundleFile: 'src/data/zeros-to-1e6.js',
-  honest: 'AUDIT-ONLY -- confirms all 8 cohort modules are correctly registered in improvements.js with distinct log ids and correct file references, and that none imports the heavy zeros bundle directly or transitively. No registration or import fix was made because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+  honest: 'AUDIT-ONLY -- confirms all 8 cohort modules are correctly registered in improvements.js with distinct log ids and correct file references, and that none imports the heavy zeros bundle directly or transitively. No registration or import fix was made because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const REGISTRATION_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
@@ -78,10 +78,10 @@ export const REGISTRATION_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34464-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no fix applied, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no fix applied, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(REGISTRATION_HEAVY_IMPORT_AUDIT.honest)
       && /No registration or import fix was made because none was missing/.test(REGISTRATION_HEAVY_IMPORT_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(REGISTRATION_HEAVY_IMPORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(REGISTRATION_HEAVY_IMPORT_AUDIT.honest),
   },
 ];
 

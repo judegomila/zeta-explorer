@@ -47,8 +47,8 @@
  *   (imp-97620 / imp-97638), with a per-T discretization enclosure as the only other finite piece. So the eigenvalue
  *   certification is the non-binding side of the sub-gap; the tail law binds. Feasibility / scale assessment only:
  *   no verified eigensolve executed; no certified limit; no rigorous bound promoted; scalar bound stays a negative
- *   floor; no operator positivity; no bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   floor; no operator positivity; no bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *   SUB-GAP IMP97637_BAND_COLLAPSE_BINDS_ON_PROVEN_TAIL_LAW_NOT_EIGENVALUE_ENCLOSURE.
  *
  * @see imp-97626-window-extrapolation-model-spread.js (the [0.508, 0.543] band this assesses)
@@ -58,7 +58,7 @@
  *
  * Import-light: bakes the imp-97626 band + the T=64 rung (N, R, envelope) and recomputes the residual/Weyl scale
  *   estimate in-JS (O(1)); no eigenvalue recompute, no matrix build. Feasibility assessment only; NO QED.
- * Ticket: imp-97637 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97637 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);

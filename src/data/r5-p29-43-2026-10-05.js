@@ -51,7 +51,7 @@ export const R5_P29_43 = Object.freeze({
   verdict: 'WOL-C is certified (single implementation, one internal referee pass with an independent re-grid) for P29 226/229/242/245/246, '
     + 'P31 248/249/251/252/254, P43 228 and P47 231/232: every P29, P31 and P43 floor on the hybrid path is now certified. The claimed '
     + 'certified-only consumer value was refuted in its grading (r4 wol-pd block-suffix rounding gap up to 1.03e-7) and rests on r3core4.c '
-    + 'floors that are not certified; superseded by r5-synthesis. Lambda < 0.145 is NOT certified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'floors that are not certified; superseded by r5-synthesis. Lambda < 0.145 is NOT certified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const W = R5_P29_43;
@@ -75,7 +75,7 @@ export const R5_P29_43_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-p2943-honest',
-    holds: () => /NO QED/.test(W.status) && /PT Lambda <= 0\.2 stands/.test(W.verdict) && /refuted/.test(W.verdict) && /NOT PROVED/.test(W.values.hybrid.note),
+    holds: () => /NO QED/.test(W.status) && /refereed bound is changed/i.test(W.verdict) && /refuted/.test(W.verdict) && /NOT PROVED/.test(W.values.hybrid.note),
     why: 'Grading correction recorded; sub-0.145 conditional; no QED.',
   },
 ]);

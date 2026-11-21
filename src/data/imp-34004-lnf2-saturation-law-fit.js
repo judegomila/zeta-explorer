@@ -54,8 +54,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Descriptive fits, NOT a derived bound. The inherited imp-3220/imp-3406
  * component model is NOT a rigorous asymptotic; the factor identity is exact WITHIN that model only;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb
- * GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33962-attenuation-rung-by-rung-decomposition (the ln F2 series this fits)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21 quarter-decade rungs)
@@ -245,7 +244,7 @@ export const IMP34004_LNF2_SATURATION_LAW_FIT = {
     'the E_trunc floor takes over. The inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
     'asymptotic; the factor identity is exact WITHIN the model only; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33962 (the monotone ln F2 series this fits); imp-33810 (the 21 quarter-decade rungs); ' +
     'imp-33843 (log-linear-vs-power surrogate precedent); lambda-rh-height-mapping (RvM height law); ' +
@@ -287,13 +286,13 @@ export const IMP34004_LNF2_SATURATION_LAW_FIT_ASSERTIONS = [
       Math.abs(fitD.a) < 1e-3,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34004-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34004_LNF2_SATURATION_LAW_FIT.isRigorous === false &&
       /NO QED/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict) &&
-      /remains SOTA/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict),
   },

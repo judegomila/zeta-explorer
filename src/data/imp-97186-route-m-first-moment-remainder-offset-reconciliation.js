@@ -7,7 +7,7 @@
  *     eps(b) = (1/2) 2^omega(b) (log b + 3) / phi(b),
  * i.e. determine the correct explicit log-offset in the combined-remainder / crossover chain. This is a
  * bookkeeping audit of a (log b + 2) vs (log b + 3) discrepancy between the theorem constant and the
- * corollary it is supposed to imply. No new bound on Lambda moves; PT Lambda <= 0.2 remains SOTA;
+ * corollary it is supposed to imply. No new bound on Lambda moves; no refereed bound is changed;
  * RH open; NO QED.
  *
  * Notation as imp-97133/imp-97096/imp-97159: C = (log 2pi - gamma)/2, kappa_arith = (3/2) C - 3/8 =
@@ -78,7 +78,7 @@
  * triangle step; a proven version needs the imp-97133 uniform-remainder residual. With the rigorous
  * constant the imp-97159 crossover restates to b0_exact = 2311 / b0_envelope = 2670 (binding class k=5,
  * P_5 = 2310 now exceeds kappa). Positivity for all large b, and eps -> 0, are unaffected. Accuracy
- * reconciliation only; T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * reconciliation only; T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (Theorems 1/2 + the eps corollary audited here)
  * @see imp-97159-route-m-arith-first-moment-positivity-crossover.js (the b0 crossover this restates)
@@ -169,11 +169,11 @@ export const IMP97186_VERDICT = Object.freeze({
     '(mu-cancellation, imp-97122), not from the triangle step. Restated with eps_rig, the imp-97159 crossover ' +
     'becomes b0_exact = 2311 / b0_envelope = 2670 (binding class k=5 since eps_rig(P_5=2310)=0.6497 >= kappa), ' +
     'vs the reported (511, 574). eps_rig -> 0 still, so positivity for all large b is unaffected. Accuracy ' +
-    'reconciliation only; T ~ 2.594e7 anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'reconciliation only; T ~ 2.594e7 anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97186_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy reconciliation: the imp-97133 per-remainder ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy reconciliation: the imp-97133 per-remainder ' +
   'constant (log b + 2) is correct, but the corollary eps(b) = (1/2) 2^omega(b)(log b + 3)/phi(b) used by ' +
   'imp-97159 is ~2x TIGHTER than the triangle inequality delivers; the rigorous form is eps_rig(b) = ' +
   '2^omega(b)(log b + 2)/phi(b), restating the crossover to b0_exact = 2311 / b0_envelope = 2670 (P_5=2310 ' +
@@ -262,7 +262,7 @@ const IMP97186_ASSERTIONS = [
       IMP97186_VERDICT.b0ExactRestated === 2311 &&
       IMP97186_VERDICT.b0EnvelopeRestated === 2670 &&
       /NO QED/.test(IMP97186_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97186_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97186_HONEST_BANNER) &&
       /RH open/.test(IMP97186_HONEST_BANNER),
     why: 'accuracy reconciliation of a log-offset: (log b + 2) per-remainder is correct, the corollary eps is ~2x under-counted (true numerically, not triangle-derivable), crossover restated to (2311, 2670) -- no bound moved, no rigorous ceiling, no QED.',
   },

@@ -24,7 +24,7 @@
  *
  * SCOPE. Read-only cross-reference audit only. No source file was modified as a result of this
  * check (none needed correction). Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35368 (prior repetition, imp-35324/imp-35278/imp-35330/imp-35284 cohort)
@@ -102,7 +102,7 @@ export const IMP35424_FRONTIER_COHORT_CROSSREF_INTEGRITY_AUDIT = {
     'improvement-queue.js, and confirmed each file still carries its GUE-conditional caveat and ' +
     'NO-QED disclaimer. Result: zero dangling references, zero misnamed exports, no missing files, ' +
     'no missing honesty caveats. No source file required correction. Changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35186 (prior audit method), imp-35368 (adjacent cohort audit, does not cover these six ' +
     'files), imp-35400/imp-35370/imp-35371/imp-35355/imp-35356/imp-35357 (the audited cohort).',
@@ -126,11 +126,11 @@ export const IMP35424_FRONTIER_COHORT_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35424-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35424_FRONTIER_COHORT_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35424_FRONTIER_COHORT_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35424_FRONTIER_COHORT_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35424_FRONTIER_COHORT_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

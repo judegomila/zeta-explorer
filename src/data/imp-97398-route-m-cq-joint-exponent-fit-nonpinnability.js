@@ -67,8 +67,8 @@
  *   F as a VALUE) still requires the analytic Bettin-Conrey small-a asymptotic with the crossover
  *   Euler-Maclaurin correction (the imp-97329 sub-gap), NOT a longer or higher-precision ladder.
  *   Measurement only; pins no constant; no bound moves; the rigorous anchor stays the trace ceiling
- *   T = 2.594e7; compute N ~ 9916 (imp-96352) binds first by >2600x; no operator positivity; PT
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   T = 2.594e7; compute N ~ 9916 (imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (inherited, not closed): imp-97334-cq-constant-nonexistent-limit -- cQ = lim(Q - s0 b)
  *   does not exist and is coupled to s0 with sensitivity b; a pinnable value needs the analytic
@@ -174,8 +174,8 @@ export const IMP97398_VERDICT = Object.freeze({
     'Pinning cQ (hence the far-field ceiling F as a value) needs the analytic Bettin-Conrey small-a ' +
     'asymptotic + crossover Euler-Maclaurin correction (imp-97329 sub-gap), NOT a longer or ' +
     'higher-precision ladder. Measurement only; pins no constant; no bound moves; anchor stays ' +
-    'T=2.594e7; compute N~9916 binds first by >2600x; no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'T=2.594e7; compute N~9916 binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97398_SUBGAP = Object.freeze({
@@ -191,7 +191,7 @@ export const IMP97398_SUBGAP = Object.freeze({
 });
 
 export const IMP97398_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: testing the imp-97334 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: testing the imp-97334 ' +
   'non-pinnability verdict on the interior sub-leading constant cQ via a joint (cQ, exponent) ' +
   'nonlinear fit and a higher-precision ladder UPHOLDS it. The joint fit m(b)=s0+cQ b^(p-1) is ' +
   'rank-deficient (sigma(p) ~ 79%, cond ~ 1.9e4); cQ does not stabilize under reparametrization ' +
@@ -264,7 +264,7 @@ const IMP97398_ASSERTIONS = [
       IMP97398_VERDICT.jointFitDegenerate === true &&
       IMP97398_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97398_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97398_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97398_HONEST_BANNER) &&
       /RH open/.test(IMP97398_HONEST_BANNER) &&
       /cq-constant-nonexistent-limit/.test(IMP97398_SUBGAP.id),
   },

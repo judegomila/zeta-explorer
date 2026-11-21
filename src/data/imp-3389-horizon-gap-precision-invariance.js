@@ -9,7 +9,7 @@
  *   ratio even though the absolute horizons are precision-DEPENDENT.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE QUESTION (the direct test of the imp-3309 arithmetic-bookkeeping claim)
  *   --------------------------------------------------------------------------
@@ -73,7 +73,7 @@
  *   arithmetic bookkeeping (a machine constant), not mathematics. A nonzero
  *   overflow fraction is necessary-but-NOT-sufficient at operator order; the
  *   off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone
- *   obstruction. No RH verdict. No false QED. Platt-Trudgian Lambda &lt;= 0.2 SOTA.
+ *   obstruction. No RH verdict. No false QED. No refereed bound is changed.
  *
  *   @see imp-3309-two-tail-underflow-horizons.js (the two closed-form horizons + (1/4)ln2 band)
  *   @see imp-3216-overflow-support-length-closed-form.js (finding E2 + the decisive check)
@@ -262,7 +262,7 @@ export const IMP3389_HORIZON_GAP_PRECISION_INVARIANCE = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -309,7 +309,7 @@ export const IMP3389_HORIZON_GAP_PRECISION_INVARIANCE_ASSERTIONS = [
   {
     id: 'imp3389-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC that CONFIRMS the imp-3309 arithmetic-bookkeeping claim, underflow-horizon ' +
-         'geometry only, necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA.',
+         'geometry only, necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3389_HORIZON_GAP_PRECISION_INVARIANCE.honestCaveat;
       return (
@@ -317,7 +317,7 @@ export const IMP3389_HORIZON_GAP_PRECISION_INVARIANCE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

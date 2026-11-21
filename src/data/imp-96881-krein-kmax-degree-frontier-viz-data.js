@@ -16,8 +16,8 @@
  * PRESENTATION ONLY. Every kmax=5 point is a near-feasible cutting-plane
  * iterate, not an interval-verified certificate; the kmax=5 wall is a HiGHS
  * numerical (double-precision) limit, not a proven infeasibility;
- * interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96845-krein-kmax5-frontier-measurement.js (source sweep table + verdict)
  * @see imp-96857-krein-2a-monotonicity-viz-data.js (sibling viz-data leaf convention)
@@ -67,7 +67,7 @@ export const IMP96881_HONEST_BANNER =
   'interval-verified certificate, and the kmax=5 wall (1.06-1.08) is a HiGHS double-precision ' +
   'numerical limit, not proven infeasibility. The kmax=4 wall at 2a=0.96 is a fixed-degree ' +
   'artifact -- raising the degree moves the frontier right of 1.0 but not past ln3. ' +
-  'Interval-rigorous certificate reach stays 2a<=0.96; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'Interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -102,7 +102,7 @@ const IMP96881_ASSERTIONS = [
     id: 'imp96881-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96881_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96881_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96881_HONEST_BANNER) &&
       /NO QED/.test(IMP96881_HONEST_BANNER),
     why: 'every Route I viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

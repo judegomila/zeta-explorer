@@ -14,7 +14,7 @@
  *   @see imp-97423-route-m-sign-law-omega5-binet-two-sided-estimate.js (derives certA/certB and the bracket)
  *
  *   Ticket: imp-97470 (ux, sonnet-4-6, sonnet). Presentation of an already-established accuracy
- *   cross-check; adds no new Lambda bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   cross-check; adds no new Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- per-p1 decay curves: q1 * certA(p1;q1,...) across the minimal-config ladder, converging to (1-1/p1)/12. --
@@ -70,7 +70,7 @@ export const IMP97470_SUMMARY = Object.freeze({
 });
 
 export const IMP97470_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation-only chart of the imp-97443 X3 decay law: ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation-only chart of the imp-97443 X3 decay law: ' +
   'the Route M omega=5 sign-law certificate certA(p1;q1) scales as q1*certA -> (1-1/p1)/12, verified by an ' +
   'independent extended-precision (mpmath dps=60) recompute across q1 = 10^2 .. 10^6 for p1 = 2, 3, 5. Every ' +
   'value is reused verbatim from imp-97443; no new proof, no bound on Lambda moved.';

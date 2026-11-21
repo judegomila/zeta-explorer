@@ -35,7 +35,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96563 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment (source: the assessment this glosses)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment (the conditioning ceiling ~2.59e7)
@@ -43,7 +43,7 @@
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling (the A N^-p fit, A=0.8187, p=1.9179)
  *
  * Ticket: imp-96602 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The certification-limit headword, baked verbatim (no re-import).
@@ -78,7 +78,7 @@ const LAMMIN_CHOLESKY_CERT_LIMIT_HEADWORD = Object.freeze({
     'available.',
   verificationStatus:
     'Re-analysis (verified linear algebra applied to existing measurements), not a ' +
-    'new rigorous asymptotic lower bound. Changes no bound; PT Lambda <= 0.2 SOTA; ' +
+    'new rigorous asymptotic lower bound. Changes no bound; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -101,7 +101,7 @@ export const IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD = Object.free
     'ceiling (~9916, operative verdict safe) but ~240x below the imp-96548 ' +
     'conditioning ceiling (~2.59e7, ceiling figure not certifiable in double ' +
     'precision). Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96563 (the assessment and finding this glosses); imp-96548 (rigorous ' +
     'lam_max / conditioning ceiling ~2.59e7); imp-96352 (compute ceiling ~9916); ' +
@@ -130,11 +130,11 @@ export const IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp96602-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD.verdict) &&
       IMP96602_LAMMIN_CHOLESKY_CERT_LIMIT_GLOSSARY_HEADWORD.glosses === 'imp-96563',
   },
 ];

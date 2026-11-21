@@ -57,7 +57,7 @@
  * ~1.8e-15 gap). The baked literals are correct to ~15 sig figs; the true
  * value changes no bound and no firing threshold. MEASUREMENT ONLY;
  * introduces no bound and no theorem; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SCOPE. MEASUREMENT ONLY. Import-light (no imports). BigInt exact
  * arithmetic; no floating log, no floating summation.
@@ -97,7 +97,7 @@ export const IMP95468_PHIUNIF_BIGINT_CROSSCHECK = {
     "shifts the firing onset by ~eps/2 ~ 2e-15 and leaves XSTAR_UNIF = " +
     "27.035582 unchanged. The crude imp-95250 bound remains effectively " +
     "sharp. MEASUREMENT ONLY; introduces no bound and no theorem; changes " +
-    "no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -232,14 +232,14 @@ export const IMP95468_CROSSCHECK_ASSERTIONS = [
     description:
       "the verdict carries the honest scope: measurement only, double " +
       "precision was the limiting factor, literals still correct to ~15 " +
-      "sig figs, no threshold change, no bound, no theorem, no QED, SOTA",
+      "sig figs, no threshold change, no bound, no theorem, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT CONFIRMS/.test(REF.verdict) &&
       /limited by double precision/.test(REF.verdict) &&
       /effectively\s+sharp/.test(REF.verdict) &&
       /introduces no bound and no theorem/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

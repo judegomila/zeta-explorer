@@ -58,8 +58,7 @@
  * MEASUREMENT ONLY. Certifies a property of the inherited imp-3220/imp-3406 surrogate crossover map,
  * NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no
- * bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34687-crossover-interval-arithmetic-scope (double-precision surrogate this upgrades; sub-gap imp-34687a)
  * @see imp-34650-crossover-banach-contraction-certificate (L-contraction certificate; sub-gap imp-34650a)
@@ -223,7 +222,7 @@ export const IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE = {
     'directed-rounding log. This measures a property of the inherited imp-3220/imp-3406 surrogate crossover ' +
     'map, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per ' +
     'imp-486 are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34687 (double-precision surrogate enclosure width; sub-gap imp-34687a); imp-34650 (Banach ' +
     'contraction certificate; sub-gap imp-34650a); imp-33723 (crossover fixed point N_cross); imp-2642 ' +
@@ -273,14 +272,14 @@ export const IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE_ASSERTIONS = [
       Math.abs(L_MID - 1.484829e-1) < 1e-4,
   },
   {
-    // Honesty gate: measurement/EFT of an enclosure, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: measurement/EFT of an enclosure, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34707-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, named sub-gap imp-34707a, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, named sub-gap imp-34707a, no QED, no refereed bound is changed',
     holds: () =>
       IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE.isRigorous === false &&
       /imp-34707a/.test(IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE.subGap) &&
       /NO QED/.test(IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE.verdict) &&
-      /remains SOTA/.test(IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE.verdict),
+      /refereed bound is changed/i.test(IMP34707_CROSSOVER_RESIDUAL_TRACKED_ENCLOSURE.verdict),
   },
 ];
 

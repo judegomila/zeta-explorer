@@ -77,8 +77,7 @@
  * MEASUREMENT / CLOSED-FORM DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the
  * inherited imp-3406/imp-97723/imp-97759 component model and the imp-33708 floor swap, NOT a
  * rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97759-fartail-crossing-etrunc-floor-sensitivity-crossover (F2: decay measured, form never derived)
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (the full diagnostic closed form; L' = 1/(1-t) pin)
@@ -228,8 +227,8 @@ export const IMP97785_FARTAIL_FLOOR_SENSITIVITY_CLOSED_FORM = {
     'exponent tenfold -- deriving the imp-97759 F2 "each extra nine buys many orders" statement. ' +
     'Uses the inherited imp-3406/imp-97723/imp-97759 model and the imp-33708 floor swap, NOT a ' +
     'rigorous asymptotic; C_mb stays GUE-conditional (imp-486); changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97759 (F2: floor sensitivity decay measured, form never derived); imp-97723 (full diagnostic ' +
     'closed form, Lprime = 1/(1 - t) pin); imp-33708 (0.5x..5x E_trunc floor swap); imp-486 (C_mb ' +
@@ -291,13 +290,13 @@ export const IMP97785_FARTAIL_FLOOR_SENSITIVITY_CLOSED_FORM_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp97785-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97785_FARTAIL_FLOOR_SENSITIVITY_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP97785_FARTAIL_FLOOR_SENSITIVITY_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP97785_FARTAIL_FLOOR_SENSITIVITY_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP97785_FARTAIL_FLOOR_SENSITIVITY_CLOSED_FORM.verdict),
   },
 ];
 

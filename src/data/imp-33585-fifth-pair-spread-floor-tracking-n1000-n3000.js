@@ -55,7 +55,7 @@
  *   per-rung realized constant c (that jitters in [0.088,0.884] with the true Gram entries and QL
  *   convergence quality, per imp-33253/imp-33289). It adds NO new Lambda bound, re-runs NO N x N
  *   offline solve, re-certifies NO pairing. imp-3066 K_a >= 0 UNTOUCHED. RH-EQUIVALENT. NO RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-33272-fifth-pair-extended-precision-crossval.js (the single-rung N=2000 dd Jacobi solve rerun here)
  *   @see imp-33298-fifth-pair-precision-collapse-viz-data.js (the baked N=2000 fp64-vs-dd bars)
@@ -63,7 +63,7 @@
  *   @see imp-3668-skew-toeplitz-fifth-pair-dense-crossval.js (the N=2000 baked top-10 Gram spectrum reused here)
  *
  *   Ticket: imp-33585 (accuracy, medium). Assesses the fifth-pair fp64/dd collapse robustness across
- *   N. imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   N. imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 const EPS = 2.220446049250313e-16; // IEEE double-precision unit roundoff u = 2^-52
@@ -398,7 +398,7 @@ export const IMP33585_FIFTH_PAIR_SPREAD_FLOOR_TRACKING = Object.freeze({
     'spectrum is a uniform-contraction SURROGATE (not a fresh dense solve); Q is the imp-33272 deterministic ' +
     'integer-Householder SURROGATE, so this confirms the MECHANISM/ORDER/N-STABILITY, NOT the exact per-rung ' +
     'realized c in [0.088,0.884] (empirical QL quality). Adds NO Lambda bound; re-runs NO N x N solve; imp-3066 ' +
-    'K_a>=0 UNTOUCHED; RH-EQUIVALENT; NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'K_a>=0 UNTOUCHED; RH-EQUIVALENT; NO QED. No refereed bound is changed.',
 
   method: Object.freeze({
     baseSpectrum: N2000_TOP10,
@@ -475,7 +475,7 @@ export const IMP33585_FIFTH_PAIR_SPREAD_FLOOR_TRACKING = Object.freeze({
       'dense solve, does NOT re-certify the pairing (imp-3668), does NOT establish the sigma_4 amplitude LAW, and ' +
       'does NOT attempt the imp-3066 K_a>=0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -540,7 +540,7 @@ export const IMP33585_FIFTH_PAIR_SPREAD_FLOOR_TRACKING_ASSERTIONS = [
     id: 'imp33585-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT rerun only -- extrapolated sigma_4, uniform-contraction spectrum, surrogate ' +
       'rotation; confirms N-stability/order/mechanism NOT the per-rung constant; adds no Lambda bound, re-certifies ' +
-      'nothing, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'nothing, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP33585_FIFTH_PAIR_SPREAD_FLOOR_TRACKING.honestCaveat;
       return (
@@ -552,7 +552,7 @@ export const IMP33585_FIFTH_PAIR_SPREAD_FLOOR_TRACKING_ASSERTIONS = [
         typeof c.sigma4Extrapolated === 'string' &&
         typeof c.spectrumIsContractionSurrogate === 'string' &&
         typeof c.surrogateRotationNotActualEigenvectors === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

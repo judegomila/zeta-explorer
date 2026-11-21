@@ -6,7 +6,7 @@
  * past the first prime shift u = ln 2, or record the precise obstruction. Result: the
  * identity is EXACT but CIRCULAR, and the p = 2 place cannot supply the missing positivity
  * because it is a sign-indefinite rank-limited shift that helps only the NON-binding sector.
- * RH OPEN; PT Lambda <= 0.2 stands; NO QED.
+ * RH OPEN; no refereed bound is changed; NO QED.
  *
  * THE CANDIDATE IDENTITY. The Connes-Consani archimedean Sonine identity writes the
  * archimedean Weil term plus the poles as a manifestly positive trace,
@@ -59,7 +59,7 @@
  *
  * VERDICT: no extension of the proven positivity past u = ln 2; the semilocal Sonine
  * identity is exact but circular; p = 2 is a sign-indefinite rank-limited shift that helps
- * only the non-binding odd sector. RH open; PT Lambda <= 0.2 stands; NO QED.
+ * only the non-binding odd sector. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: reuses weilForm / quadForm / parityBlock from the route-H module (which does
  * NOT import the 16.7MB zeros bundle). Assertions recompute the cheap Galerkin forms at
@@ -94,13 +94,13 @@ export const RH_ROUTE_H_SEMILOCAL_SONINE = Object.freeze({
   id: 'rh-route-h-semilocal-sonine-identity-attempt-2026-09-23',
   route: 'H (next step) — the semilocal S = {oo, 2} Sonine trace identity on g-support < ln 3',
   parent: 'src/data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js (Test 2 verdict named this step)',
-  status: 'ATTEMPTED — the semilocal Sonine identity is EXACT but CIRCULAR (its positivity on g-support < ln 3 is Weil positivity there); the p = 2 place is a sign-indefinite rank-limited shift that helps only the NON-binding odd sector and HURTS the binding even sector; NO extension of the proven positivity past u = ln 2. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'ATTEMPTED — the semilocal Sonine identity is EXACT but CIRCULAR (its positivity on g-support < ln 3 is Weil positivity there); the p = 2 place is a sign-indefinite rank-limited shift that helps only the NON-binding odd sector and HURTS the binding even sector; NO extension of the proven positivity past u = ln 2. RH open; no refereed bound is changed; NO QED',
   identity: 'Tr(Q_S vartheta(g) Q_S) = W_oo(g) + W_2(g) + poles, Q_S = Q_oo (x) Q_2, by the semilocal Guillemin-Sternberg trace formula (Connes 1999)',
   p2Structure: 'for (ln 2)/2 < a <= (ln 3)/2 the 2-adic Weil distribution collapses to the single k = 1 term W_2(g) = sqrt(2)(ln 2) g(ln 2), g(ln 2) = <h, S_{ln2} h>; verified: only prime 2 enters below (ln 3)/2 and the assembled Prime matrix equals (ln 2 / sqrt 2) fsMat(ln 2) to machine zero (the 2-adic factor is exactly one compressed shift, nilpotent of order 2, sign-indefinite)',
   supplyPositivity: 'NO: the p = 2 term is +1.25e-2 on the even minimizer at a = 0.5 (subtracts / works against positivity) but -6.14e-2 on the odd minimizer at a = 0.4 (adds / rescues the odd sector); the BINDING sector is the even one (full-form lambda_min 9.4e-7 vs 1.96e-4 odd at a = 0.5), exactly where p = 2 has the wrong sign',
   obstruction: 'the identity is exact but CIRCULAR: Tr(Q_S vartheta(g) Q_S) = Sum_gamma |hhat(gamma)|^2 on g-support < ln 3, so its positivity IS Weil positivity there; the even-sector residual after the archimedean-vs-(p=2) cancellation (lambda_min / P_2 = 7.6e-5 at a = 0.5) is that zero-side sum. The second direction gives an exact shift, not an independent inequality',
   subGap: 'the only remaining route to g-support < ln 3 is purely ARCHIMEDEAN: extend Q_oo vartheta Q_oo >= 0 from its sharp even range 2 a_* = 0.820 to 2a = ln 3 = 1.099, i.e. prove W_oo(g) + poles >= sqrt(2)(ln 2) g(ln 2) for all even h in L^2(-a, a), a <= (ln 3)/2 -- strictly stronger than Connes-Consani, NOT supplied by the 2-adic direction; not reached',
-  verdict: 'no extension of the proven positivity past u = ln 2 by the semilocal (second-direction) structure; the Sonine identity is exact but circular; p = 2 is a sign-indefinite rank-limited shift that helps only the non-binding odd sector. RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'no extension of the proven positivity past u = ln 2 by the semilocal (second-direction) structure; the Sonine identity is exact but circular; p = 2 is a sign-indefinite rank-limited shift that helps only the non-binding odd sector. RH open; no refereed bound is changed; NO QED',
   honestLimits: 'double-precision Legendre Galerkin at N = 24 (converged to < 1% of the route-H N = 32 baseline for a <= 0.6); the a_* and lambda_min quoted are finite-dimensional Rayleigh-Ritz values (upper bounds on the true infima); the identity structure Q_S = Q_oo (x) Q_2 and the collapse to the single shift are exact algebra, but the archimedean prolate positivity range a_* is a computed (not proven-sharp) value; nothing here moves a Lambda bound or verified height',
 });
 

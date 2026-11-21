@@ -35,7 +35,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95674 K1/K2 decision and the cf*-vs-band figures for
  *   quick reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95674-cf-provenance-band-wedge-reachability (source: the honest C_F band + K1/K2 decision this glosses)
  * @see imp-95660-cf-multiplier-wedge-closure (source: the measured cf* = 0.839 wedge-closure multiplier)
@@ -43,7 +43,7 @@
  * @see c-f-bulk-refinement-2026-05 (imp-1134: C_F is a LOWER bound; honest downward factor 1.00x)
  *
  * Ticket: imp-95695 (content, medium). Documentation only; establishes nothing; wedge stays
- * FORECLOSED per imp-95674; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * FORECLOSED per imp-95674; NO QED; no refereed bound is changed.
  */
 
 // The C_F wedge-foreclosure glossary headword, baked verbatim (no re-import).
@@ -87,7 +87,7 @@ export const IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD = Object.freeze({
     'the most generous honest imp-398 provenance floor (~0.995), an overshoot of ~32x the largest ' +
     'honest downward lane, and the honest evidence (imp-1134) points the OTHER way (C_F is a LOWER ' +
     'bound, supported revision is UPWARD). The wedge is physically FORECLOSED. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95674 (honest C_F band + K1/K2 decision); imp-95660 (measured cf* = 0.839); imp-95617 ' +
     '(joint 2-D sweep surfacing the wedge); imp-1134 (C_F is a LOWER bound).',
@@ -113,11 +113,11 @@ export const IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95695-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, wedge stays FORECLOSED, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, wedge stays FORECLOSED, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
       /FORECLOSED/.test(IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
       IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.glosses === 'imp-95674' &&
       IMP95695_CF_WEDGE_FORECLOSURE_GLOSSARY_HEADWORD.scopes === 'imp-95617',

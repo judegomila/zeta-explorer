@@ -69,7 +69,7 @@
  * {H0 (provenance, imp-33745)}. H0 is thus the single open row disjoint from the strip-height modulus.
  * The open catalogue stays four rows (H0, H3, H4, H5); nothing is discharged. Scoping only;
  * G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0
- * UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33786-h3-joint-curvature-input-scoping (the strip-height modulus C_curv(N) discharging H3 + H4)
  * @see imp-33745-h0-provenance-independence-scoping (H0 off-axis: no k-index, no N-exponent)
@@ -183,7 +183,7 @@ export const IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING = {
     'modulus, distinct even from H5 which IS downstream of it. The open catalogue stays four rows ' +
     '(H0, H3, H4, H5); nothing is discharged. Scoping only; G6a_shock_lipschitz stays OPEN; no ' +
     'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33786-h3-joint-curvature-input-scoping (the strip-height modulus C_curv(N) discharging BOTH H3 ' +
     'and H4); imp-33745-h0-provenance-independence-scoping (H0 off-axis: no k-index, no N-exponent, ' +
@@ -244,14 +244,14 @@ export const IMP33812_H0_STRIP_HEIGHT_MODULUS_ASSERTIONS = [
       OPEN_ROWS_AFTER.includes('H0'),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33812-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33812_H0_STRIP_HEIGHT_MODULUS_SCOPING.verdict),
   },
 ];

@@ -39,7 +39,7 @@
  * bounded constant; it certifies no W1 bound, instantiates no directed-rounding interval, evaluates no true
  * H_0, verifies no inequality, changes no bound, establishes no positivity; the imp-36135 diverging-headroom
  * (no physical crossing) conclusion is UNCHANGED (it never depended on C beyond an order of magnitude);
- * C_mb GUE-conditional (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * ASSEMBLED / CONFIRMED:
  *   component            value            source
@@ -58,7 +58,7 @@
  */
 
 // -- Operative constants (import-light; identical to imp-36135 / imp-36256) ---------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 const gamma = (n) => (n * U_ROUNDOFF) / (1 - n * U_ROUNDOFF); // Higham gamma_n = n u / (1 - n u)
 const ZETA_HALF = -1.4603545088095868; // zeta(1/2): the constant tail in Sum_{k<=N} 1/sqrt(k) ~ 2 sqrt(N) + zeta(1/2)
@@ -202,7 +202,7 @@ export const IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM = {
     'H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the ' +
     'imp-36135 diverging-headroom (no physical crossing) conclusion is UNCHANGED (it never depended on C beyond an ' +
     'order of magnitude); the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL ' +
-    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36135 (the empirical sqrt(N) fit + C ~ 9.2e-17 this derives); imp-36256 (off-grid confirmation the ' +
     'sqrt(N) law is not grid-anchored); imp-36083 (the sqrt(N)-widening headroom ladder); imp-35890 (CERTIFIED ' +
@@ -250,14 +250,14 @@ export const IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM_ASSERTIONS = [
   },
   {
     id: 'imp36279-honesty-gate',
-    description: 'Derivation only; conclusion unchanged; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Derivation only; conclusion unchanged; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM.conclusion.staysGreenfield) &&
       /UNCHANGED/.test(IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM.reading.conclusionUnchanged) &&
       /NO QED/.test(IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP36279_CERTRUNG_PREFACTOR_CLOSED_FORM.verdict),
   },
 ];
 

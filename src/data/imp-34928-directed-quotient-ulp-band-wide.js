@@ -33,7 +33,7 @@
  * does NOT discharge the conditional, changes no bound. imp-34714a REMAINS OPEN; imp-34687a REMAINS OPEN;
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34910-residual-corrected-quotient-ulp-measurement (single-point N_cross measurement this extends band-wide)
  * @see imp-34885-krawczyk-directed-rounding-instantiation-checklist (flags / as the sole non-IEEE-754-exposed op)
@@ -273,7 +273,7 @@ export const IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE = {
     'the conditional. SUB-GAPs imp-34714a and imp-34687a REMAIN OPEN. Measurement only on the inherited ' +
     'imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional ' +
     'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34910 (residual-corrected quotient ULP measurement at N_cross; this extends it band-wide); imp-34885 ' +
     '(directed-rounding checklist; / the sole non-IEEE-754-exposed basic op); imp-34883 (worst-case headroom ' +
@@ -322,16 +322,16 @@ export const IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE_ASSERTIONS = [
       HEADROOM_BAND_MIN > 100,
   },
   {
-    // Honesty gate: measurement only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34928-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.isRigorous === false &&
       /imp-34714a/.test(IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.subGap) &&
       /imp-34687a/.test(IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.subGap) &&
       /REMAINS? OPEN/.test(IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.subGap) &&
       /NO QED/.test(IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.verdict) &&
-      /remains SOTA/.test(IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.verdict),
+      /refereed bound is changed/i.test(IMP34928_DIRECTED_QUOTIENT_ULP_BAND_WIDE.verdict),
   },
 ];
 

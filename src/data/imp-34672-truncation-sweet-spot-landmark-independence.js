@@ -52,7 +52,7 @@
  *   N-independence of a sweet spot ON that regime, it does not rehabilitate it). The -2 asymptote and
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per
  *   imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; no
- *   operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34648-plateau-drift-large-dp-truncation-sweet-spot.js (the dp ~ 7e-2 sweet spot, tested for N-independence here)
  *   @see imp-34630-plateau-drift-large-dp-scaling-order.js (the 2nd-order large-dp arm order)
@@ -259,8 +259,8 @@ export const IMP34672_TRUNCATION_SWEET_SPOT_LANDMARK_INDEPENDENCE = Object.freez
     'N-independence of a sweet spot ON that regime, it does not rehabilitate it. The -2 asymptote and ' +
     'C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share ' +
     'per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; ' +
-    'changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34648 (dp ~ 7e-2 sweet spot, tested for N-independence here); imp-34630 (2nd-order large-dp ' +
     'arm order); imp-34611 (q3-share stencils reproduced verbatim); imp-34573 (deep-tail q3-share ' +
@@ -301,9 +301,9 @@ const IMP34672_ASSERTIONS = [
     holds: () =>
       IMP34672_TRUNCATION_SWEET_SPOT_LANDMARK_INDEPENDENCE.isRigorous === false &&
       /NO QED/.test(IMP34672_TRUNCATION_SWEET_SPOT_LANDMARK_INDEPENDENCE.verdict) &&
-      /remains SOTA/.test(IMP34672_TRUNCATION_SWEET_SPOT_LANDMARK_INDEPENDENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34672_TRUNCATION_SWEET_SPOT_LANDMARK_INDEPENDENCE.verdict) &&
       /UNTOUCHED/.test(IMP34672_TRUNCATION_SWEET_SPOT_LANDMARK_INDEPENDENCE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

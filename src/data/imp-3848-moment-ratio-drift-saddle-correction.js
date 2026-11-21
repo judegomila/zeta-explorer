@@ -78,7 +78,7 @@
  *   a truncated ASYMPTOTIC expansion (it overshoots at this order), not a certified error bound.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-
  *   positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. Grid-CONVERGENCE stability only.
+ *   No refereed bound is changed. Grid-CONVERGENCE stability only.
  *
  *   @see imp-3735-moment-ratio-correction-tail.js (measured eps_n, L_n drift through 1, n<=80)
  *   @see imp-3646-remainder-tail-moment-ratio-asymptotics.js (Q_n/tau*^2 -> 1, n<=20)
@@ -304,7 +304,7 @@ export const IMP3848_MOMENT_RATIO_DRIFT_SADDLE_CORRECTION = Object.freeze({
     'OVERSHOOTS (predicts crossing near n~15 vs measured n~48): direction-confirming, not a quantitative pin. This is ' +
     'the saddle-level source of the imp-3735 super-polynomial steepening feeding the imp-3713/imp-3731 finite-n ' +
     'crossing n* ~ 225.5. MEASUREMENT/CHARACTERIZATION, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no RH verdict, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no RH verdict, no QED; no refereed bound is changed.',
 
   derivation: Object.freeze({
     driftDef: 'L_n = eps_n * n(1+4 tau*) = eps_n * tau*^2/sigma^2 (reduced Laplace-variance factor, imp-3735)',
@@ -395,7 +395,7 @@ export const IMP3848_MOMENT_RATIO_DRIFT_SADDLE_CORRECTION = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity (off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -444,7 +444,7 @@ export const IMP3848_MOMENT_RATIO_DRIFT_SADDLE_CORRECTION_ASSERTIONS = [
   {
     id: 'imp3848-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/characterization only, truncated asymptotic series not a certified bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3848_MOMENT_RATIO_DRIFT_SADDLE_CORRECTION.honestCaveat;
       return (
@@ -453,7 +453,7 @@ export const IMP3848_MOMENT_RATIO_DRIFT_SADDLE_CORRECTION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

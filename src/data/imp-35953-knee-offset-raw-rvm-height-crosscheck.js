@@ -65,7 +65,7 @@
  * instantiates no interval; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643),
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35891-flattest-point-vs-sigmoid-knee-crosslocation (the ~1-decade offset this stress-tests)
  * @see imp-35853-req4-required-height-continuous-sigma-knee (flattest-point locator, sigma ~ 0.407)
@@ -80,7 +80,7 @@ import { IMP35853_REQ4_REQUIRED_HEIGHT_CONTINUOUS_SIGMA_KNEE } from './imp-35853
 import { IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION } from './imp-33701-sigma-postpeak-ramp-curvature-inflection.js';
 import { IMP35891_FLATTEST_POINT_VS_SIGMOID_KNEE_CROSSLOCATION } from './imp-35891-flattest-point-vs-sigmoid-knee-crosslocation.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const TWO_PI = 2 * Math.PI;
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631)
 const TC_A1_TRAP = 2.37e-4;
@@ -260,7 +260,7 @@ export const IMP35953_KNEE_OFFSET_RAW_RVM_HEIGHT_CROSSCHECK = {
     'with only the height inverse swapped; instantiates no interval; derives no remainder; discharges nothing; ' +
     'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35891 (the ~1-decade knee offset this stress-tests); imp-35853 (flattest-point locator, sigma ~ 0.407); ' +
     'imp-33701 (exponent-ramp inflection, [1e10,1e11]); imp-33582 (sigma-decay model; peak sigma_max ~ 0.9494); ' +
@@ -312,7 +312,7 @@ export const IMP35953_KNEE_OFFSET_RAW_RVM_HEIGHT_CROSSCHECK_ASSERTIONS = [
       IMP35953_KNEE_OFFSET_RAW_RVM_HEIGHT_CROSSCHECK.offsetIsStable === true,
   },
   {
-    // (6) honesty gate: cross-validation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (6) honesty gate: cross-validation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35953-crossvalidation-only-no-qed',
     description: 'cross-validation only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -324,7 +324,7 @@ export const IMP35953_KNEE_OFFSET_RAW_RVM_HEIGHT_CROSSCHECK_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

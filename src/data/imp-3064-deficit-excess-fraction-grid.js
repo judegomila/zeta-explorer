@@ -57,8 +57,8 @@
  *   degree-0 measurement of the cover constructed in imp-3007; it neither proves
  *   nor weakens RH. The off-diagonal endpoint-Hankel operator step that imp-3007
  *   isolated remains the lone obstruction and is untouched here. The bare-V pilot
- *   (imp-1240) is NOT re-run. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous
- *   SOTA. No false QED.
+ *   (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3007-mupass-overflow-cover.js (imp-3007: the U=6 cover + closed forms)
  *   @see imp-2686-mupass-construction.js (imp-2686: the cosh-completion)
@@ -235,7 +235,7 @@ export const IMP3064_DEFICIT_EXCESS_FRACTION_GRID = Object.freeze({
       'This measures the imp-3007 scalar cover; the off-diagonal endpoint-Hankel ' +
       'operator positivity (R = Gpass^{-1/2} Gshear Gpass^{-1/2} a contraction) ' +
       'remains the lone obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -305,8 +305,8 @@ export const IMP3064_DEFICIT_EXCESS_FRACTION_GRID_ASSERTIONS = [
   {
     id: 'imp3064-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: the grid is RH-EQUIVALENT, structural/diagnostic, leaves the ' +
-         'operator step untouched, is not a proof, not a reduction below RH, and PT 0.2 stays ' +
-         'SOTA. If any of these flip the module is over-claiming.',
+         'operator step untouched, is not a proof, not a reduction below RH, and no refereed bound is changed' +
+         '. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3064_DEFICIT_EXCESS_FRACTION_GRID.honestCaveat;
       return (
@@ -315,7 +315,7 @@ export const IMP3064_DEFICIT_EXCESS_FRACTION_GRID_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -69,7 +69,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck (the -0.47729 slope and
  *      the floating-point reconciliation AT N_cross that this generalizes band-wide)
@@ -246,7 +246,7 @@ export const IMP34970_ECOLL_LOG_SLOPE_BAND_AND_RECONCILIATION = {
     'floating-point-small (max ~1.5e-4, tightening to ~9.3e-8) at every rung. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34954 (the -0.47729 slope and floating-point reconciliation AT N_cross); imp-34923 (surplus closed ' +
     'form r/(2(2+r))); imp-33601 (leading (1+r)^2 N-gap prediction); imp-34693 (the 1e6 .. 1e13 band); ' +
@@ -298,13 +298,13 @@ export const IMP34970_ECOLL_LOG_SLOPE_BAND_AND_RECONCILIATION_ASSERTIONS = [
     holds: () => BAND.every((b) => b.resid_leading > 0.03 && b.resid_leading < 0.08),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34970-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34970_ECOLL_LOG_SLOPE_BAND_AND_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP34970_ECOLL_LOG_SLOPE_BAND_AND_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34970_ECOLL_LOG_SLOPE_BAND_AND_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP34970_ECOLL_LOG_SLOPE_BAND_AND_RECONCILIATION.verdict),
   },
 ];
 

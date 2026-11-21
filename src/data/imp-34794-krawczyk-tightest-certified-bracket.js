@@ -73,7 +73,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous asymptotic and
  * NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34774-krawczyk-fixed-point-map-enclosure (the fixed-delta enclosure this sweeps; sub-gap imp-34714a)
  * @see imp-34752-krawczyk-outward-ulp-slack-N (the inverse-map outward-ULP slack sweep; same break condition)
@@ -280,7 +280,7 @@ export const IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET = {
     'directed-rounding layer, not that layer, and F(m) = 0 is a double-precision artifact. Measurement only ' +
     'on the inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and ' +
     'C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34774 (Krawczyk fixed-delta enclosure of N_cross; sub-gap imp-34714a); imp-34752 (outward-ULP ' +
     'Krawczyk slack of the inverse map across N; same break condition); imp-34755 (two-route N_cross fixed ' +
@@ -336,15 +336,15 @@ export const IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET_ASSERTIONS = [
       TIGHTENING_ORDERS < 12,
   },
   {
-    // Honesty gate: sweep / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: sweep / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34794-honesty-gate-no-qed',
-    description: 'Surrogate sweep: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Surrogate sweep: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET.isRigorous === false &&
       /imp-34714a/.test(IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET.subGap) &&
       /REMAINS OPEN/.test(IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET.subGap) &&
       /NO QED/.test(IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET.verdict) &&
-      /remains SOTA/.test(IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET.verdict),
+      /refereed bound is changed/i.test(IMP34794_KRAWCZYK_TIGHTEST_CERTIFIED_BRACKET.verdict),
   },
 ];
 

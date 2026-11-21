@@ -48,7 +48,7 @@
  *
  *   Cross-check only. No coefficient pinned beyond w_lin (already forced by imp-97460); no bound
  *   moves; the rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352)
- *   binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97645-wlin-largeb-linear-coeff-crossval (the non-monotone b-ladder reconciled here)
  * @see imp-97618-wlin-leading-laurent-crossval (b=400000 baseline)
@@ -122,11 +122,11 @@ export const IMP97664_VERDICT = Object.freeze({
     'REFINES imp-97645: the 6.4e-3 plateau is wobble-limited and the b=1e6 elevation is the same ' +
     'wobble sampling a larger fluctuation at that b. The imp-97597 RESULT 3 mixed-kernel sub-gap ' +
     'STANDS; no coefficient newly pinned; no bound moves; the rigorous anchor stays T = 2.594e7; ' +
-    'compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'compute binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97664_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical cross-check only: at fixed b=1e6 the ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical cross-check only: at fixed b=1e6 the ' +
   'w_lin linear-coefficient fit error is ~half-width-independent (1.44e-2 -> 1.15e-2 over half=40..200, ' +
   'monotone), and at the matched half=200 it stays 1.15e-2 vs b=2e6 6.46e-3 (~1.8x) -- so the ' +
   'imp-97645 non-monotone b-ladder spike at b=1e6 is NOT a phase-average window-width artifact but a ' +
@@ -213,7 +213,7 @@ const IMP97664_ASSERTIONS = [
       IMP97664_VERDICT.anyBoundMoved === false &&
       IMP97664_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97664_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97664_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97664_HONEST_BANNER) &&
       /RH open/.test(IMP97664_HONEST_BANNER),
   },
 ];

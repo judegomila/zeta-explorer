@@ -17,7 +17,7 @@
  *   precise reason each falls short.
  *
  *   Assessment / derivation only. Produces NO coercivity constant and no operator positivity (none is
- *   derived); changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA;
+ *   derived); changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed;
  *   RH open; NO QED.
  *
  * THE CONVERSION ANY SUCH TOOL WOULD HAVE TO SURVIVE. Split the Rayleigh numerator at the negative set

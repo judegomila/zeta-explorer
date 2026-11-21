@@ -15,7 +15,7 @@
  *   to the padded eigenvector. The sigma_2 t-integral is carried to T=800 (the committed cutoff).
  *
  *   Measurement only. mu stays an UPPER bound and is drifting (imp-97121); no lower-bound certificate;
- *   no bound moves; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   no bound moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * FINDING 1 -- mu CONFIRMS THE COMMITTED FLOOR. The smallest Ritz value in the orthonormal Gegenbauer basis
  *   at N=100, T=800 is mu = 0.53384576, matching the committed Legendre N=100 T=800 floor mu ~ 0.533852

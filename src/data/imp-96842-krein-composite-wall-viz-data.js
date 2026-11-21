@@ -52,7 +52,7 @@ export const IMP96842_LANDMARKS = Object.freeze({
 });
 
 export const IMP96842_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every eps(2a) and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every eps(2a) and ' +
   'log2(l1) value plotted here is copied verbatim from the imp-96732 rung-by-rung projection ' +
   '(itself an assessment, not a solve); the only new arithmetic is the overlay reshaping. ' +
   'Interval-rigorous reach stays exactly 2a <= 0.96; the composite wall reading (eps margin ' +

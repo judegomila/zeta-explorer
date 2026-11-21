@@ -41,7 +41,7 @@
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel
  *   step, imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is inherited upstream. Cross-platform
  *   libm variation in exp/log can shift the ~1 ULP measurements; the robust reading is the BAND and the
- *   pass-fraction, not any single panel count. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   pass-fraction, not any single panel count. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33249-a-weight-graded-gl-minimal-full-window-1ulp-budget.js (the min-node hit + latticeJitterCaveat)
  *   @see imp-33277-a-weight-graded-gl-1ulp-budget-tau78.js (the tau in {7,8} extension of the same caveat)
@@ -250,7 +250,7 @@ const verdict =
       'SO-THE-PERTURBATION-STABLE-BUDGET-IS-"ANY-RESOLVED-RULE-(tau*>=6.2,-panels>~150)-GIVES-' +
       'worst-in-window-<=-BAND-CEILING-~5-ULP,-TYPICALLY-~1.8",-NOT-THE-FRAGILE-<1-ULP-SINGLE-HIT.-' +
       'ACCURACY-MEASUREMENT/RULE-DESIGN-ONLY;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-' +
-      'UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33296_MIN_NODE_LATTICE_JITTER_BAND = Object.freeze({
@@ -274,7 +274,7 @@ export const IMP33296_MIN_NODE_LATTICE_JITTER_BAND = Object.freeze({
     'not quadrature error). So the perturbation-stable budget is "any resolved rule (tau*>=6.2, panels >~150) ' +
     'gives worst-in-window <= band ceiling ~5 ULP, typically ~1.8", NOT the fragile <1 ULP single hit. ACCURACY ' +
     'MEASUREMENT/RULE-DESIGN ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066) ' +
-    'untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -355,7 +355,7 @@ export const IMP33296_MIN_NODE_LATTICE_JITTER_BAND = Object.freeze({
       'cross-platform libm variation in exp/log can shift the ~1 ULP measurements and the exact pass-fraction. ' +
       'The robust, portable reading is the BAND (floor ~0.7, ceiling ~5 ULP, mean ~1.9) and the fact that the ' +
       'strict <1 ULP bar is a minority lattice event -- NOT any single panel count.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -407,7 +407,7 @@ export const IMP33296_MIN_NODE_LATTICE_JITTER_BAND_ASSERTIONS = [
   {
     id: 'imp33296-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33296_MIN_NODE_LATTICE_JITTER_BAND.honestCaveat;
       return (
@@ -415,7 +415,7 @@ export const IMP33296_MIN_NODE_LATTICE_JITTER_BAND_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

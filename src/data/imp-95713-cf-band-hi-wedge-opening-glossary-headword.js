@@ -36,8 +36,8 @@
  *   A glossary-style lookup restating the imp-95691 measurement and its headline figures for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
  *   Sensitivity/measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
- *   asymptotic; the C_mb GUE-conditional per imp-486 is untouched; no QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA. NOTE (honest status): the CF_BAND_HI_PINNED ~1.29615 value has since been superseded
+ *   asymptotic; the C_mb GUE-conditional per imp-486 is untouched; no QED. No refereed bound is changed
+ *   . NOTE (honest status): the CF_BAND_HI_PINNED ~1.29615 value has since been superseded
  *   by a chain of sharper measurements (imp-95705 -> imp-95721 -> imp-95747, converging to 9.583x); see
  *   imp-95691's honestStatus field for the current representative.
  *
@@ -47,8 +47,7 @@
  * @see imp-1134 c-f-bulk-refinement (C_F is a LOWER bound; integrated reach ~1.2-1.4x)
  * @see imp-95747-cf-reff-gue-repulsion-regularization (supersedes the pin with converged 9.583x)
  *
- * Ticket: imp-95713 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95713 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The CF_BAND_HI wedge-opening headword, baked verbatim (no re-import).
@@ -92,7 +91,7 @@ export const IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD = Object.freeze
     'imp-95617 box-min gap from -0.004682 to -0.013188 (~2.82x deeper), and every honest upward ' +
     'multiplier in the pinned band (~2.2x to ~3.4x deepening) opens the wedge further, never closing ' +
     'it. Establishes nothing; instantiates no interval; moves no bound; sensitivity/measurement only, ' +
-    'NOT an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NOT an RH bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95691 (CF_BAND_HI pinning and box-min re-evaluation); imp-95674 (assembled the provenance ' +
     'band; left CF_BAND_HI unpinned); imp-95617 (nominal box-min gap -0.00468 at cf=1); imp-1134 ' +
@@ -120,11 +119,11 @@ export const IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95713-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD.verdict) &&
       IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD.glosses === 'imp-95691' &&
       IMP95713_CF_BAND_HI_WEDGE_OPENING_GLOSSARY_HEADWORD.scopes === 'imp-95617',
   },

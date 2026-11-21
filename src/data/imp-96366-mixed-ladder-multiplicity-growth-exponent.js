@@ -7,8 +7,8 @@
  * representations" for the dilation block at scale u, over (i) p = 2-only rungs, (ii) three-prime mixed
  * rungs, and (iii) the full three-prime ladder, and reports whether the mixed rungs depart from the
  * O(u) law. It diagonalizes nothing, establishes NO operator positivity, moves NO Lambda bound /
- * verified height, and does NOT touch the finitely-many top confined states. RH open; PT Lambda <= 0.2
- * stands; NO QED.
+ * verified height, and does NOT touch the finitely-many top confined states. RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * TWO CONCRETE MULTIPLICITIES (both are honest "counts of lattice representations" of the scale-u
@@ -60,7 +60,7 @@
  *  (index and totient), and the "eigenspace dimension" of the true operator A_S235 is NOT computed here
  *  (its fractal Zygmund eigenfunctions block exact diagonalization). Nothing establishes operator
  *  positivity, moves a Lambda bound / verified height, or touches the finitely-many top confined states
- *  (the real residual). RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  (the real residual). RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: pure integer arithmetic, no imports, no zeros bundle. Reproduction inline.
  */
@@ -141,7 +141,7 @@ export const IMP_96366_MULTIPLICITY_GROWTH_235 = Object.freeze({
     allThree: (1 / 2) * (2 / 3) * (4 / 5),   // u = 2^a 3^b 5^c : (1/2)(2/3)(4/5) = 4/15 = 0.266667
     eulerFactorAddingBoth35: (2 / 3) * (4 / 5),   // 8/15 = 0.533333 : downward multiplier from adding primes 3 and 5
   }),
-  verdict: 'MEASUREMENT only: the block multiplicity m_u = O(u) is CONFIRMED linear on three-prime {oo,2,3,5} rungs. Under the dilation-block index m_u = |Z/uZ| = u the fitted growth exponent is EXACTLY 1.000000 (R^2 = 1) on p=2-only, mixed (c != 0), and full rungs alike -- NO departure, because the index is multiplicative. Under the primitive-residue count phi_u = u prod(1-1/p) the exponent is still 1 within each prime-content class; the only three-prime departure is in the LEADING CONSTANT, which shifts DOWN from 1/2 (one prime) to 4/15 = 0.266667 (all three) via the Euler factor (1-1/3)(1-1/5) = 8/15. The O(u) growth class -- all the imp-96143 cubic tail needs (it is robust to the constant) -- is unchanged, and a downward constant only decreases the majorant. Establishes NO operator positivity, moves NO Lambda bound, does NOT touch the top confined states. RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'MEASUREMENT only: the block multiplicity m_u = O(u) is CONFIRMED linear on three-prime {oo,2,3,5} rungs. Under the dilation-block index m_u = |Z/uZ| = u the fitted growth exponent is EXACTLY 1.000000 (R^2 = 1) on p=2-only, mixed (c != 0), and full rungs alike -- NO departure, because the index is multiplicative. Under the primitive-residue count phi_u = u prod(1-1/p) the exponent is still 1 within each prime-content class; the only three-prime departure is in the LEADING CONSTANT, which shifts DOWN from 1/2 (one prime) to 4/15 = 0.266667 (all three) via the Euler factor (1-1/3)(1-1/5) = 8/15. The O(u) growth class -- all the imp-96143 cubic tail needs (it is robust to the constant) -- is unchanged, and a downward constant only decreases the majorant. Establishes NO operator positivity, moves NO Lambda bound, does NOT touch the top confined states. RH open; no refereed bound is changed; NO QED',
 });
 
 // ---- assertions

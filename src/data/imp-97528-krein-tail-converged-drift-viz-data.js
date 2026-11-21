@@ -13,8 +13,8 @@
  *
  * PRESENTATION ONLY. All points and constants are reused verbatim from
  * imp-97497. Establishes no operator positivity; changes no bound;
- * interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains
- * SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97497-krein-welloptimum-tail-converged.js (the measured drift ladder, split-point table, and verdict)
  *

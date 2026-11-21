@@ -75,7 +75,7 @@
  * divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per imp-486 is
  * UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * no refereed bound is changed.
  *
  * @see imp-34248-crossover-surplus-small-thr-asymptotic (F2: r-exponent measured below 2; this isolates and derives its limit)
  * @see imp-34174-crossover-surplus-threshold-family-decay (the closed form surplus(thr) and r(thr))
@@ -219,7 +219,7 @@ export const IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT = {
     'mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no ' +
-    'operator positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'operator positivity; changes no bound; no refereed bound is changed.',
   citation:
     'imp-34248-crossover-surplus-small-thr-asymptotic.js (F2 r-exponent below 2, identical sub-terms); ' +
     'imp-34174-crossover-surplus-threshold-family-decay.js (r(thr) closed form); ' +
@@ -279,14 +279,14 @@ export const IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT_ASSERTIONS = [
       Math.abs(OLS_IMP34248_WINDOW - 1.917) < 0.02 && OLS_DEEPEST_WINDOW < 2 && OLS_DEEPEST_WINDOW > 1.8,
   },
   {
-    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34349-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT.honestScope) &&
       /NO QED/.test(IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT.honestScope) &&
-      /remains the SOTA/.test(IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT.honestScope),
+      /refereed bound is changed/i.test(IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT.honestScope),
   },
 ];
 

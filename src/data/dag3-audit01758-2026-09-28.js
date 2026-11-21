@@ -40,7 +40,7 @@
  * HEURISTIC: none load-bearing (the "binary ↔ source" link is now pinned by binding-row replays on all shards).
  *
  * Verdict: composition closes; no parameter mismatch or math gap found; grade stays computer-assisted candidate,
- * unreviewed, unpublished. PT Lambda <= 0.2 stands. NO QED.
+ * unreviewed, unpublished. No refereed bound is changed. NO QED.
  * Scripts: tmp/dag3-audit01758-epscap.py (+.log), tmp/dag3-audit01758-tail-runs.sh (+.log),
  * tmp/dag3-audit01758-gensweep_tri, tmp/dag3-audit01758-legD-row.log, tmp/dag3-audit01758-ref1-A1row.log,
  * tmp/dag3-audit01758-ref1-A2row.log, tmp/dag3-audit01758-ref0-epscap.py, tmp/dag3-audit01758-ref1-epscheck.py.
@@ -80,7 +80,7 @@ export const DAG3_AUDIT01758 = Object.freeze({
   verdict:
     'The composition closes: every interface’s parameters match, ε_cap ≤ 2.668232e-7, tail D = 0.8801 < 1 reproduced in Arb, '
     + 'and the tightened gate is positive with margin ≈ 6000 × ε_cap. The grade stays computer-assisted candidate, unrefereed. '
-    + 'PT Lambda <= 0.2 stands. NO QED.',
+    + 'No refereed bound is changed. NO QED.',
   parameters: {
     t0: '1583/10000', y0sq: '87677/2500000', y0sqHalf: '87677/5000000', target: '879177/5000000', laneY2: '350708/10^7 = 87677/2500000 = y0²',
     X: X_HEIGHT.toString(), T_PT: T_PT.toString(), heightSurplus: '350479773/2',
@@ -327,7 +327,7 @@ export const DAG3_AUDIT01758_ASSERTIONS = Object.freeze([
   },
   {
     id: 'audit01758-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
+    holds: () => /refereed bound is changed/i.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
       && /unreviewed/.test(M.status) && /Not yet internal-rigorous/.test(M.status) && M.tiers.heuristic.length === 0,
     why: 'Grade stays computer-assisted candidate; no publication or acceptance implied.',
   },

@@ -59,7 +59,7 @@
  *   out entirely different kernel CLASSES (non-exponential multiplier, non-monomial basis).
  *   Monotone-increasing ||R|| is NOT itself an RH verdict -- it neither shows the cover fails nor
  *   that it holds. imp-3066 K_a &gt;= 0 and G7 remain OPEN and UNTOUCHED; this changes no bound;
- *   ||R|| carries NO RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   ||R|| carries NO RH verdict; NO QED. No refereed bound is changed.
  *
  *   @see imp-35075-g7-orthogonal-lever-tangent-completeness.js (imp-35075: the continuous tangent count this completes on the discrete axis)
  *   @see imp-33791-deg-ceiling-saturation.js (imp-33791: the truncation-size ceiling DEG+1)
@@ -277,7 +277,7 @@ export const IMP35148_G7_TRUNCATION_DEG_LEVER_PROBE = Object.freeze({
     imp35075Untouched: true,
     didNotAttemptPositivity: true,
     changesNoBound: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     noQED: true,
   }),
 });
@@ -325,8 +325,8 @@ export const IMP35148_G7_TRUNCATION_DEG_LEVER_PROBE_ASSERTIONS = [
     why: 'Mandatory honesty: this is a REPRESENTATIVE measurement on the inherited surrogate, the ' +
          '"no softening" claim is scoped to the exponential-shear metric-pair family, a monotone ' +
          'increase carries no RH verdict, imp-3066 / imp-33765 / imp-35075 / G7 are untouched, ' +
-         'positivity was not attempted, it changes no bound and is not a proof, and PT 0.2 stays ' +
-         'SOTA.',
+         'positivity was not attempted, it changes no bound and is not a proof, and no refereed bound is changed' +
+         '.',
     holds: () => {
       const c = IMP35148_G7_TRUNCATION_DEG_LEVER_PROBE.honestCaveat;
       return (
@@ -340,7 +340,7 @@ export const IMP35148_G7_TRUNCATION_DEG_LEVER_PROBE_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.changesNoBound === true &&
         c.noQED === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

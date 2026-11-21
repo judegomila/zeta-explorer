@@ -76,7 +76,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS
  * surrogate, the parabolic inflection, and the re-acceleration fit are descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the coarse 0.5-grid sweep whose F1 minimum this refines)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 saturation-onset window imp-34109 corrected)
@@ -351,7 +351,7 @@ export const IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE = {
     'and the re-acceleration fit are descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34109 (the coarse 0.5-grid sweep whose F1 minimum this refines; machinery reused verbatim); ' +
     'imp-34040 (the kEnd = 14..17 saturation-onset window imp-34109 corrected); imp-34047 (the argmax-creep ' +
@@ -420,15 +420,15 @@ export const IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE_ASSERTI
   },
   {
     // Honesty gate: measurement/localisation only, keepsClimbing (imp-34109 F4 confirmed at sub-window
-    // resolution), isRigorous false, no QED, PT SOTA, C_mb / imp-3066 untouched.
+    // resolution), isRigorous false, no QED, no refereed bound is changed, C_mb / imp-3066 untouched.
     id: 'imp34196-honesty-gate-no-qed',
-    description: 'Measurement only: keepsClimbing, isRigorous false, no QED, PT SOTA, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: keepsClimbing, isRigorous false, no QED, no refereed bound is changed, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.keepsClimbing === true &&
       IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.verdict) &&
       /NO QED/.test(IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.verdict) &&
-      /remains SOTA/.test(IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.verdict) &&
+      /refereed bound is changed/i.test(IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.verdict) &&
       /C_mb GUE-conditional per imp-486 is\s+UNTOUCHED/i.test(IMP34196_FIXED_BAND_PEAK_INCREMENT_MINIMUM_SUBWINDOW_REFINE.verdict),
   },

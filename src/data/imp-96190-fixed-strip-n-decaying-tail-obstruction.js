@@ -62,8 +62,8 @@
 // SCOPE: ASSESSMENT / DERIVATION ONLY. No zero is verified, no new T_PT is
 // claimed, the rigorous bound stays E_trunc = 3.06e-5, and C_mb stays
 // GUE-conditional per imp-486. Discharges no gap; changes no bound. No
-// positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian
-// Lambda <= 0.2 remains SOTA; RH remains OPEN.
+// positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed
+// ; RH remains OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes
 // inside single-quoted strings; no star-slash in any comment.
@@ -203,7 +203,7 @@ export const IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION = {
     'imp-96166 alternatives collapse to one (verified height must grow), ' +
     'cross-checking imp-35164. Discharges no gap; changes no bound; C_mb stays ' +
     'GUE-conditional per imp-486. No positivity, no bridge closure, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH OPEN.',
+    'NO QED. No refereed bound is changed; RH OPEN.',
   citation:
     'imp-96166 (frozen E_trunc floor / two named alternatives); imp-96185 ' +
     '(verified-height inversion); imp-2631 (fixed-strip route optimum); imp-2622 ' +
@@ -278,13 +278,13 @@ export const IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION_ASSERTIONS = [
   {
     // Honesty gate: assessment only, names the obstruction, keeps PT SOTA, no QED.
     id: 'imp96190-honesty-gate-no-qed',
-    description: 'Assessment only: OBSTRUCTED verdict, E_trunc named, no QED, PT stays SOTA',
+    description: 'Assessment only: OBSTRUCTED verdict, E_trunc named, no QED, no refereed bound is changed',
     holds: () =>
       IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.isRigorous === false &&
       /OBSTRUCTED/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.verdict) &&
       /E_trunc/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.whatNDecayWouldRequire) &&
       /NO QED/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.verdict) &&
-      /remains SOTA/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.verdict),
+      /refereed bound is changed/i.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.verdict),
   },
 ];
 

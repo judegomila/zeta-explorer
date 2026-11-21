@@ -92,7 +92,7 @@ export const IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA = {
     'derivation and changes no bound. Measurement only; the multiple does NOT flatten onto the ' +
     '~6.96x PT-anchor value in sigma-space (it would keep descending below 6.96x for smaller sigma ' +
     '/ larger height); no operator positivity established; imp-35337a stays OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35936_VIZ_ASSERTIONS = [
@@ -145,13 +145,13 @@ export const IMP35936_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35936-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, no bound change, imp-35337a OPEN, NO QED, SOTA',
+    description: 'honest status references measurement-only, no bound change, imp-35337a OPEN, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA.honest) &&
       /does NOT flatten/.test(IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA.honest) &&
       /imp-35337a stays OPEN/.test(IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35936_REQ4_HEIGHT_MULTIPLE_VIZ_DATA.honest),
   },
 ];
 

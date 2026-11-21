@@ -8,7 +8,7 @@
  * EVERY eigenfunction of M takes both signs in every neighborhood of t = 0
  * (zeros accumulate at 0+), so no positive-cone (Perron / Krein-Rutman)
  * route can pin mu_inf. Model family only; changes no Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95506..95510 normalization, carried). Twin lattice
  * Q = { 2^k, 1.1 * 2^k : k >= 0 } (rho = 2, r = 1.1); S = L2(0, inf)
@@ -400,7 +400,7 @@ export const IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION = {
     "off-lattice rates, signed WEIGHT and modulus-phase currencies, imp-95212 envelope port (carried chain residuals)",
   ],
   rigorScope:
-    "LEMMA REG conditional only on the carried RZ-TWIN Riesz property (qualitative); LEMMA LCP / THEOREM SPEC-INT / THEOREM OSC-INF / COROLLARY MT-NODES unconditional given the carried imp-95509 operator facts (M bounded PSD trace-class on S). Model family only. Changes no Lambda bound; does NOT close (mu-exact) or (mu-eig-decay); NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "LEMMA REG conditional only on the carried RZ-TWIN Riesz property (qualitative); LEMMA LCP / THEOREM SPEC-INT / THEOREM OSC-INF / COROLLARY MT-NODES unconditional given the carried imp-95509 operator facts (M bounded PSD trace-class on S). Model family only. Changes no Lambda bound; does NOT close (mu-exact) or (mu-eig-decay); NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -537,12 +537,12 @@ export const IMP95511_ASSERTIONS = [
   {
     id: "imp95511-honesty-gate",
     description:
-      "honesty gate: the carried (mu-exact) bracket literals are UNCHANGED (5.09361535799, 84/11], the rigor scope carries NO QED and the Platt-Trudgian SOTA line, the residual ledger leads with the (mu-exact-interp) re-scope and carries the untouched d_m residual second, and no assertion here claims a new bound on mu_inf",
+      "honesty gate: the carried (mu-exact) bracket literals are UNCHANGED (5.09361535799, 84/11], the rigor scope carries NO QED and the no-refereed-bound-change line, the residual ledger leads with the (mu-exact-interp) re-scope and carries the untouched d_m residual second, and no assertion here claims a new bound on mu_inf",
     holds: () =>
       relEq(MU_UP_LIT, 84 / 11, 1e-15) &&
       MU_LO_LIT === 5.09361535799 &&
       /NO QED/.test(IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION.rigorScope) &&
-      /remains SOTA/.test(IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION.rigorScope) &&
       IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION.openResiduals.length === 4 &&
       /mu-exact-interp/.test(IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION.openResiduals[0]) &&
       /mu-eig-decay/.test(IMP95511_SPECTRAL_INTERPOLATION_OSCILLATION.openResiduals[1]),

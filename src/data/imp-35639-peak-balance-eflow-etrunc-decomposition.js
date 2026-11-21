@@ -56,8 +56,7 @@
  * Discharges nothing; changes no bound; imp-35337a surrogate-vs-true fidelity stays
  * OPEN; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent
- * 1/2 per imp-3463; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * 1/2 per imp-3463; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35594-peak-crossover-mechanism-derivation (the balance (*) derived here)
  * @see imp-35638-crossover-N-etrunc-sensitivity (E_trunc as crossover sole lever)
@@ -198,8 +197,8 @@ export const IMP35639_PEAK_BALANCE_EFLOW_ETRUNC_DECOMPOSITION = {
     'the inherited imp-3220/imp-3406 surrogate; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED and ' +
     'OPEN; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; discharges ' +
-    'nothing; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35594 (balance (*) derived here); imp-35638 (E_trunc crossover sole lever); imp-35574 ' +
     '(~0.55 amplification measured); imp-35337 (interior-peak locator); imp-35017 (sigma double ' +
@@ -238,13 +237,13 @@ export const IMP35639_PEAK_BALANCE_EFLOW_ETRUNC_DECOMPOSITION_ASSERTIONS = [
     holds: () => Math.abs(FLOW_OVER_TRUNC - 1.531) < 0.01,
   },
   {
-    // Honesty gate: decomposition only, no QED, PT stays SOTA.
+    // Honesty gate: decomposition only, no QED, no refereed bound is changed.
     id: 'imp35639-honesty-gate-no-qed',
-    description: 'Decomposition only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Decomposition only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35639_PEAK_BALANCE_EFLOW_ETRUNC_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP35639_PEAK_BALANCE_EFLOW_ETRUNC_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP35639_PEAK_BALANCE_EFLOW_ETRUNC_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP35639_PEAK_BALANCE_EFLOW_ETRUNC_DECOMPOSITION.verdict),
   },
 ];
 

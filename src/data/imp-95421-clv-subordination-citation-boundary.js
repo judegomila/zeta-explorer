@@ -4,7 +4,7 @@
  * self-contained in-repo, and where it must stay a named external
  * citation, now that imp-95420 THEOREM P-POS proved the theta density
  * p(t) > 0 with total mass 1. Assessment only; changes no bound of the
- * Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda program; NO QED; no refereed bound is changed.
  *
  * BACKGROUND. imp-95419 LEMMA MIX writes, from the classical
  * partial-fraction expansion of sech and the elementary identity
@@ -104,8 +104,7 @@
  * claimed to be within reach; it stays a named residual. (c) Nothing
  * here changes any Lambda bound, onset, or floor value. (d) The
  * imp-95212 envelope port, signed WEIGHT, modulus/phase legs, and
- * imp-95374 stay OPEN and are untouched. NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-95374 stay OPEN and are untouched. NO QED. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -178,7 +177,7 @@ export const IMP95421_CLV_SUBORDINATION_CITATION_BOUNDARY = {
     "proof. THEOREM SEP-OPT is thus conditional on exactly this one " +
     "sub-step, not on the whole CLV theorem. Assessment only; changes no " +
     "bound; the imp-95212 envelope port and signed WEIGHT / modulus-phase " +
-    "legs stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "legs stay OPEN; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -327,7 +326,7 @@ export const IMP95421_CLV_BOUNDARY_ASSERTIONS = [
       /Assessment only/.test(REF.verdict) &&
       /stay OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       /L-gau/.test(REF.verdictSplit.residualCited) &&
       /in-repo/.test(REF.verdictSplit.hypothesisInRepo),
   },

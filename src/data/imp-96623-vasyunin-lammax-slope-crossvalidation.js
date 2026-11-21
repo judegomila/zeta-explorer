@@ -11,7 +11,7 @@
  * non-trivial estimates independently predicts 0.3526 -- is visible at a glance.
  *
  * Documentation only. Changes no bound, establishes no operator positivity, makes
- * no RH claim. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (the target: measured fit)
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (off-diagonal slope identity)
@@ -100,11 +100,11 @@ export const IMP96623_VERDICT = Object.freeze({
     'landing near it. imp-96594 separately shows the fitted slope will not be confirmed ' +
     'asymptotically at any reachable N (10% reach N >= 10^37.26, far past the imp-96352 compute ' +
     'ceiling 9916). No independent method currently predicts 0.3526; it remains a measured fit. ' +
-    'Documentation only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Documentation only; no bound moved; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96623_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Documentation only: every value here is ' +
+  'RH open; no refereed bound is changed; NO QED. Documentation only: every value here is ' +
   're-exported verbatim from imp-96443 / imp-96562 / imp-96592 / imp-96586 / imp-96594, no new ' +
   'computation is performed, and no bound is moved. The table shows that no independent estimate ' +
   'currently predicts the measured Vasyunin lam_max log-slope 0.3526.';
@@ -142,7 +142,7 @@ const IMP96623_ASSERTIONS = [
       IMP96623_VERDICT.anyIndependentEstimateMatches === false &&
       IMP96623_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96623_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96623_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96623_HONEST_BANNER) &&
       /RH open/.test(IMP96623_HONEST_BANNER),
     why: 'documentation only: no independent estimate matches the target, no bound moved, honesty markers intact.',
   },

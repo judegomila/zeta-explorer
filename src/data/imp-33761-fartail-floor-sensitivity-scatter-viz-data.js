@@ -15,7 +15,7 @@
  *
  *   Ticket: imp-33761 (ux, low). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 import { IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY } from './imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity.js';

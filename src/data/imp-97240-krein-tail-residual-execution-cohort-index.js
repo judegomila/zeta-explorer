@@ -69,7 +69,7 @@
  *
  *   STATUS: a grouping/index note over three already-completed tickets, not a new derivation. No bound
  *   changes: the sigma_2 EASY factor is proved rigorous, the HARD factor's cancellation is exhibited
- *   exactly at the coefficient level but not yet certified as an interval majorant; PT Lambda<=0.2 SOTA;
+ *   exactly at the coefficient level but not yet certified as an interval majorant; no refereed bound is changed;
  *   RH open; NO QED.
  *
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (Route B assessment; EASY/HARD split)
@@ -80,7 +80,7 @@
  * @see project_route_i_dual_certificate (Route I certificate program, memory)
  *
  * Ticket: imp-97240 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97100_VERDICT } from './imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js';
@@ -147,7 +147,7 @@ export const IMP97240_KREIN_TAIL_RESIDUAL_EXECUTION_COHORT_INDEX = Object.freeze
     'level but NOT yet certified as an interval-rational trial vector through the overlap matrix -- so ' +
     'SUB-GAP IMP97100_PHASE_CANCELLATION_TRIAL remains the single open piece, not a fresh unknown. ' +
     'Establishes nothing new; moves no bound; no operator positivity; interval-rigorous reach stays ' +
-    '2a<=0.96; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '2a<=0.96; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97100 (Route B assessment, EASY/HARD split); imp-97205 (EASY-factor sigma_2 execution, ' +
     'rigorous); imp-97177 (HARD-factor exact-integer coefficient-level execution gloss, sourcing imp-97134).',
@@ -212,10 +212,10 @@ export const IMP97240_KREIN_TAIL_RESIDUAL_EXECUTION_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97240-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97240_KREIN_TAIL_RESIDUAL_EXECUTION_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97240_KREIN_TAIL_RESIDUAL_EXECUTION_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97240_KREIN_TAIL_RESIDUAL_EXECUTION_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97240_KREIN_TAIL_RESIDUAL_EXECUTION_COHORT_INDEX.verdict),
   },
 ];

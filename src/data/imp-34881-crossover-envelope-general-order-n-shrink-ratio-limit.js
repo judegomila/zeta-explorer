@@ -60,7 +60,7 @@
  * of the INHERITED imp-3220/imp-3406 surrogate crossover map; it introduces NO new bound and changes
  * none. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34839-crossover-gpp-shrink-ratio-limit (n=2: 100x/decade + C_2 = 100 log 10)
  * @see imp-34864-crossover-gppp-shrink-ratio-limit (n=3: 1000x/decade + C_3 = 1000 log 10; pattern flagged)
@@ -315,7 +315,7 @@ export const IMP34881_CROSSOVER_ENVELOPE_GENERAL_ORDER_N_SHRINK_RATIO_LIMIT = {
     'machine precision. Accuracy assessment only on the INHERITED imp-3220/imp-3406 surrogate map; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34839 (n=2 100x/decade + C_2 = 100 log 10); imp-34864 (n=3 1000x/decade + C_3 = 1000 log 10; ' +
     'general pattern flagged); imp-34768 (g_triple_prime = Q_3 closed form); imp-34731 (g_double_prime = Q_2 ' +
@@ -360,13 +360,13 @@ export const IMP34881_CROSSOVER_ENVELOPE_GENERAL_ORDER_N_SHRINK_RATIO_LIMIT_ASSE
     holds: () => FACTORED_MATCHES_DIRECT,
   },
   {
-    // Honesty gate: accuracy assessment only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy assessment only, no QED, no refereed bound is changed.
     id: 'imp34881-honesty-gate-no-qed',
-    description: 'Accuracy assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34881_CROSSOVER_ENVELOPE_GENERAL_ORDER_N_SHRINK_RATIO_LIMIT.isRigorous === false &&
       /NO QED/.test(IMP34881_CROSSOVER_ENVELOPE_GENERAL_ORDER_N_SHRINK_RATIO_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP34881_CROSSOVER_ENVELOPE_GENERAL_ORDER_N_SHRINK_RATIO_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP34881_CROSSOVER_ENVELOPE_GENERAL_ORDER_N_SHRINK_RATIO_LIMIT.verdict),
   },
 ];
 

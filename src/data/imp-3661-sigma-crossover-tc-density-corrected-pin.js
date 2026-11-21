@@ -55,8 +55,7 @@
  *        the log); the density-corrected pin is the physically-measured value from the imp-3642 flow.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (direct-flow density correction this propagates)
  * @see imp-3620-sigma-crossover-tc-closedform-pin (bare-log closed-form pin this density-corrects)
@@ -258,8 +257,8 @@ export const IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN = {
     'collision time by ~13.96% (entirely the 2 pi inside the log). The absolute scale is still pinned to ' +
     'the A1-trap 2.37e-4 exactly as imp-398/imp-3620/imp-3642 do; only the density-corrected SHRINK ' +
     'SHAPE is propagated. Measurement/derivation only; no positivity, no bridge closure, no RH claim, NO ' +
-    'QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3642 (direct RK4 attractive-Dyson flow, density-corrected shrink 0.3870 vs 0.4410, t_c(N_x) = ' +
     '9.1714e-5, flow factor 1.0000917); imp-3620 (bare-log closed-form pin, t_c(N_x) = 1.0452e-4, flow ' +
@@ -315,13 +314,13 @@ export const IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN_ASSERTIONS = [
       GRID.every((r) => r.overstate_pct > 13 && r.overstate_pct < 15),
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3661-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/derivation only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN.isRigorous === false &&
       /NO QED/.test(IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN.verdict) &&
+      /refereed bound is changed/i.test(IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3661_SIGMA_CROSSOVER_TC_DENSITY_CORRECTED_PIN.verdict),
   },
 ];

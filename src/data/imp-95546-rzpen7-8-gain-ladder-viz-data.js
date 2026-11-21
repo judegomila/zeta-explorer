@@ -16,8 +16,8 @@
  * import time. Follows the imp-95349 gain-ladder viz-data pattern.
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-95333-pair-extended-pencil-floor.js (THEOREM RZ-PEN7,
  *   gainRhoE6R2, loosenessRhoE6R2, loosenessRhoE6R2Pen6Ref)

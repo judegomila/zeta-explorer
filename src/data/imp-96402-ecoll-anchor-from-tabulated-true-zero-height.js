@@ -47,7 +47,7 @@
  *   no constant, does not close G6_polymath15_bridge. The conditional bound
  *   C_H <= 0.127 stays UNPROVEN; C_H isRigorousUpperBound remains false
  *   (imp-2642 / imp-2701); the imp-2640 Gronwall discharge of C_Lip stays
- *   NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains open. NO QED.
+ *   NEGATIVE. No refereed bound is changed. RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96311-ecoll-rate-ch-independence-tabulation.js: rate factor
@@ -206,7 +206,7 @@ export const IMP96402_ECOLL_ANCHOR_FROM_TABULATED_TRUE_ZERO_HEIGHT = {
     ' in the rate. Accuracy audit only: no gap closed, no bound changed, ' +
     'G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays UNPROVEN, ' +
     'C_H isRigorousUpperBound = false (imp-2642/imp-2701), imp-2640 Gronwall ' +
-    'discharge of C_Lip NEGATIVE. Platt-Trudgian Lambda <= 0.2 SOTA. RH open. NO QED.',
+    'discharge of C_Lip NEGATIVE. No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96311-ecoll-rate-ch-independence-tabulation.js (rate factor, C_KH); ' +
     'imp-96363-ecoll-independent-second-anchor.js (RESIDUAL answered; Lambert-W ' +

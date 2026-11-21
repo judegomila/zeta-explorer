@@ -46,7 +46,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate extrapolation, NOT a rigorous
  * asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (the coarse three-point ladder refined here)
  * @see imp-35371-eflow-fartail-remnant-deep-extension (same remnant, extended past 1e16; pure-Math channel)
@@ -215,8 +215,8 @@ export const IMP35377_EFLOW_FARTAIL_REMNANT_INTERIOR_PEAK = {
     'reading is a real interior max rather than a four-decimal artifact. Measurement only on the inherited ' +
     'imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
-    'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35280 (coarse three-point interior ladder, refined here); imp-35371 (same remnant, deep ' +
     'extension, pure-Math channel); imp-35279 (same remnant column, swap-gap side); imp-35217 (leading ' +
@@ -264,13 +264,13 @@ export const IMP35377_EFLOW_FARTAIL_REMNANT_INTERIOR_PEAK_ASSERTIONS = [
     holds: () => PLATEAU_1EM4.hi - PLATEAU_1EM4.lo > 1.5,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35377-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35377_EFLOW_FARTAIL_REMNANT_INTERIOR_PEAK.isRigorous === false &&
       /NO QED/.test(IMP35377_EFLOW_FARTAIL_REMNANT_INTERIOR_PEAK.verdict) &&
-      /remains SOTA/.test(IMP35377_EFLOW_FARTAIL_REMNANT_INTERIOR_PEAK.verdict),
+      /refereed bound is changed/i.test(IMP35377_EFLOW_FARTAIL_REMNANT_INTERIOR_PEAK.verdict),
   },
 ];
 

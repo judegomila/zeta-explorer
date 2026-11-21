@@ -62,7 +62,7 @@
  *   onsets (13.297836 / 13.071303 / 12.817538) and the rho = 2
  *   certificate anchor are bitwise unchanged, since the new branch only
  *   activates above the exact-root crossover rho > ~6.5. It changes no
- *   bound of the program; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound of the program; no refereed bound is changed.
  *
  * @see imp-95332-chart-tail-pencil-floor.js (source: LEMMA TAIL-CHART,
  *   THEOREM RZ-PEN6, COROLLARY PEN-UNIF6)
@@ -76,7 +76,7 @@
  *   and imp-95332 itself, leave open)
  *
  * Ticket: imp-95344 (content, low). Documentation only; establishes no
- * new bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * new bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95332).
@@ -157,8 +157,8 @@ export const IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE = Object.freeze({
     'the c3n tail leg (max truth/cap 0.9978), while noting the two ' +
     'other named residual legs (pair-identity truncation, b-uniform t3 ' +
     'weight) remain open and no certificate onset moves. Establishes ' +
-    'nothing new; fires no certificate; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95332-chart-tail-pencil-floor.js (LEMMA TAIL-CHART, THEOREM ' +
     'RZ-PEN6, COROLLARY PEN-UNIF6); imp-95329-* (theta-uniform c3n and ' +
@@ -337,12 +337,11 @@ export const IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95344-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present, glosses and scopes fields consistent.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present, glosses and scopes fields consistent.',
     holds: () =>
       IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE.verdict
       ) &&
       IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE.glosses === 'imp-95332' &&

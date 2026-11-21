@@ -64,8 +64,8 @@
  * the checkpoint grid feeds only the intercept. No new computation feeds any bound: the cap-independent
  * 1/(720 d^3) tail budget (< 5.69e-11) dwarfs any cap-to-infinity shift of the +7.520579e-5 omega=10
  * gap regardless of the exact exponent, so the primorial p_10# stays the strict minimiser and the MCM
- * onset stays exactly omega=11. MCM refuted; b/4 ceiling untouched; kappa_arith unchanged; PT Lambda
- * <= 0.2 SOTA; RH open; NO QED.
+ * onset stays exactly omega=11. MCM refuted; b/4 ceiling untouched; kappa_arith unchanged; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97783-mcm-cap-fullprec-exponent-set.js  (clean 0.2216..0.2285 band; "1/4-modulo-slow-log" prose)
  * @see imp-97736-mcm-cap-jitter-dps36.js           (+/-30 percent cap-metric jitter)
@@ -178,7 +178,7 @@ export const IMP97799_HONEST_BANNER =
   'intercept only, no effect on the exponent. No bound moves: the cap-independent 1/(720 d^3) tail budget ' +
   '(< 5.69e-11) dwarfs any cap-to-infinity shift of the +7.520579e-5 omega=10 gap regardless of the exponent, ' +
   'so the primorial p_10# stays the strict minimiser and the MCM onset stays omega=11. MCM refuted; b/4 ' +
-  'ceiling untouched. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'ceiling untouched. No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -230,7 +230,7 @@ const IMP97799_ASSERTIONS = [
       IMP97799_CAP_EXPONENT_DERIVATION.anyBoundMoved === false &&
       IMP97799_CAP_EXPONENT_DERIVATION.qed === false &&
       /NO QED/.test(IMP97799_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97799_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97799_HONEST_BANNER) &&
       /RH open/.test(IMP97799_HONEST_BANNER) &&
       /omega=11/.test(IMP97799_HONEST_BANNER),
     why: 'cross-validation only -- the derivation reclassifies the ~0.224 band as a statistical-roundoff 1/4.5 floor rather than 1/4-minus-slow-log; no bound moved; MCM stays refuted from omega=11; no QED.',

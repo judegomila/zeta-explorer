@@ -68,8 +68,7 @@
  * CROSS-CHECK / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (algebraic attribution: offset = E_flow)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (F3: sigma=1/2 ~ imp-3444 to ~0.4%)
@@ -211,7 +210,7 @@ export const IMP33683_SIGMA_HALF_CROSSOVER_FORCED_VS_GAP = {
     'floating-point zero ONLY when E_flow is set to 0. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33601 (algebraic attribution: offset = E_flow, sigma=1/2 <=> E_coll = E_trunc + E_flow); ' +
     'imp-33582 (F3: sigma=1/2 ~ imp-3444 crossover to ~0.4%); imp-3444 (E_coll = E_trunc crossover ' +
@@ -259,13 +258,13 @@ export const IMP33683_SIGMA_HALF_CROSSOVER_FORCED_VS_GAP_ASSERTIONS = [
     holds: () => REL_GAP_NOFLOW < 1e-9 && CONVERGED_REL_GAP > 1e-3,
   },
   {
-    // Honesty gate: cross-check/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: cross-check/measurement only, no QED, no refereed bound is changed.
     id: 'imp33683-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33683_SIGMA_HALF_CROSSOVER_FORCED_VS_GAP.isRigorous === false &&
       /NO QED/.test(IMP33683_SIGMA_HALF_CROSSOVER_FORCED_VS_GAP.verdict) &&
-      /remains SOTA/.test(IMP33683_SIGMA_HALF_CROSSOVER_FORCED_VS_GAP.verdict),
+      /refereed bound is changed/i.test(IMP33683_SIGMA_HALF_CROSSOVER_FORCED_VS_GAP.verdict),
   },
 ];
 

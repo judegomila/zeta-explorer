@@ -48,7 +48,7 @@
  * derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8,
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (pairs the two short-range facts; never checks they agree on the exponent)
  * @see imp-35680-constant-mismatch-magnitude (measured the amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573)
@@ -61,7 +61,7 @@
 import { IMP35652_REQ3_OPTION_A_RESTRICTED_SUPPORT_SURROGATE_SCOPE } from './imp-35652-req3-option-a-restricted-support-surrogate-scope.js';
 import { IMP35680_CONSTANT_MISMATCH_MAGNITUDE } from './imp-35680-constant-mismatch-magnitude.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any check here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any check here)
 
 // Short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752
@@ -169,7 +169,7 @@ export const IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK = {
     'bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; ' +
     'route-(ii) (imp-35488 two-height spot check) remains the only viable partial; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35652 (pairs the two short-range facts; never checks the exponent agreement done here); imp-35680 ' +
     '(measured the amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573); imp-35695 (reciprocal floor factor M^{1/3}); ' +
@@ -247,7 +247,7 @@ export const IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK_ASSERTIONS = [
     },
   },
   {
-    // (6) honesty gate: consistency check only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: consistency check only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35696-check-only-no-qed',
     description: 'consistency check only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -260,7 +260,7 @@ export const IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

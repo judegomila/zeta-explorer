@@ -47,8 +47,7 @@
  * term (imp-2845); its amplitude here does NOT touch the divergent C_Lip collision-Gronwall.
  * imp-34473 findings UNTOUCHED and reproduced; C_mb GUE-conditional per imp-486 UNTOUCHED
  * (E_coll untouched); C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched;
- * establishes no operator positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the SOTA unconditional bound.
+ * establishes no operator positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34473-surplus-amplitude-Ar-closed-form-assembly (the ~2.38 gap this identifies)
  * @see imp-34414-crossover-surplus-direct-cubic-expansion (the A_r formula and 2 log(2pi) leading rate)
@@ -152,8 +151,8 @@ export const IMP34507_SURPLUS_NEXTORDER_CONSTANT_IDENTIFICATION = {
     'extrapolation component model (NOT a rigorous asymptotic). E_flow is the benign mesoscopic-Gronwall term ' +
     '(imp-2845) and does NOT touch the divergent C_Lip collision-Gronwall. imp-34473 findings UNTOUCHED and ' +
     'reproduced; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; ' +
-    'imp-3066 K_a>=0 untouched; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains the SOTA ' +
-    'unconditional bound.',
+    'imp-3066 K_a>=0 untouched; changes no bound; NO QED. No refereed bound is changed' +
+    '.',
   assertions: [
     {
       description:

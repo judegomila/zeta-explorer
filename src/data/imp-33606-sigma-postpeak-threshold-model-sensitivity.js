@@ -56,7 +56,7 @@
  * SENSITIVITY / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Neither the
  * baseline nor the alternative tail model is a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the baseline b = 0 landmarks bracketed here)
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm)
@@ -220,7 +220,7 @@ export const IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY = {
     'survives the swap (halving-N within [0.898, 1.099] x the ~3.280e9 crossover). Neither tail ' +
     'model is a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33582 (baseline post-peak landmarks bracketed here); imp-3406 (interior MAX N ~ 9.22e5); ' +
     'imp-3463 (far-tail leading form, exponent -> 1/2, the swap invariant); imp-3444 ' +
@@ -274,12 +274,12 @@ export const IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY_ASSERTIONS = [
   {
     // Honesty gate: sensitivity/measurement only, swap preserves the imp-3463 leading form, no QED.
     id: 'imp33606-honesty-gate-no-qed',
-    description: 'Sensitivity only: not rigorous, imp-3463 leading form preserved, no QED, PT stays SOTA',
+    description: 'Sensitivity only: not rigorous, imp-3463 leading form preserved, no QED, no refereed bound is changed',
     holds: () =>
       IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY.isRigorous === false &&
       /imp-3463/.test(IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY.swapFamily.invariant) &&
       /NO QED/.test(IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33606_SIGMA_POSTPEAK_THRESHOLD_MODEL_SENSITIVITY.verdict),
   },
 ];
 

@@ -86,7 +86,7 @@
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5, and the
  * imp-398 C_F prefactor are UNTOUCHED and are perturbed here only as sensitivity probes, not re-pinned;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-97623-additivity-residual-multi-landmark-crosscheck (two-axis C_C/E_trunc additivity, r ~ eps^2)
  * @see imp-97603-sigma-landmark-joint-cross-elasticity (the halving-crossover additivity residual ~2e-8)
@@ -231,7 +231,7 @@ export const IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed ' +
     'only as probes, not re-pinned); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97623 (two-axis C_C/E_trunc additivity residual ~ eps^2); imp-97603 (halving-crossover residual ' +
     '~2e-8); imp-97565 (C_C-axis elasticity); imp-97584 (E_trunc-axis elasticity); imp-97520 (four-landmark ' +
@@ -281,13 +281,13 @@ export const IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97644-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR.isRigorous === false &&
       /NO QED/.test(IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR.verdict) &&
-      /remains SOTA/.test(IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR.verdict),
+      /refereed bound is changed/i.test(IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR.verdict),
   },
 ];
 

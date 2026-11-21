@@ -52,8 +52,7 @@
  * MEASUREMENT / REPORTING AUDIT ONLY. Display-precision diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the underlying
  * values are unchanged -- only their reported precision is audited; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda
- * <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33884-eflow-resid-widening-fullprec-recompute (R3 head-rung localisation generalised here)
  * @see imp-33885-eflow-closedform-per-rung-crossvalidation (per-rung closed-form cross-validation)
@@ -225,7 +224,7 @@ export const IMP33926_IMP33810_REPORTING_PRECISION_AUDIT = {
     'underlying values are unchanged -- only their reported precision is audited. The component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33884 (R3 head-rung localisation generalised here); imp-33885 (per-rung closed-form ' +
     'cross-validation); imp-33810 (the ladder whose reported landmarks are audited); imp-2631 ' +
@@ -271,13 +270,13 @@ export const IMP33926_IMP33810_REPORTING_PRECISION_AUDIT_ASSERTIONS = [
       AUDIT_RUNGS.slice(1).every((r) => r.roe_rel_err < 1.4e-2),
   },
   {
-    // Honesty gate: measurement/reporting audit only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement/reporting audit only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33926-honesty-gate-no-qed',
-    description: 'Reporting audit only: isRigorous false, no QED, PT SOTA',
+    description: 'Reporting audit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33926_IMP33810_REPORTING_PRECISION_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP33926_IMP33810_REPORTING_PRECISION_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP33926_IMP33810_REPORTING_PRECISION_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP33926_IMP33810_REPORTING_PRECISION_AUDIT.verdict),
   },
 ];
 

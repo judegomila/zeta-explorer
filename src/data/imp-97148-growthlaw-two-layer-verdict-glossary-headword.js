@@ -38,7 +38,7 @@
  *   STATUS: a glossary restatement of an already-committed two-layer verdict, not a new computation.
  *   The only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352)
  *   binds first by >2600x regardless of where the far-field ceiling debate lands. No bound moved;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97118-route-m-interior-growth-law-farfield-band-discriminator.js (source: the two-layer
  *   verdict this glosses)
@@ -46,7 +46,7 @@
  *   growth law and its O(1)/s0* sub-gap that Layer (ii) inherits)
  *
  * Ticket: imp-97148 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The two-layer verdict headword, baked verbatim (no re-import).
@@ -76,8 +76,8 @@ const GROWTHLAW_TWO_LAYER_VERDICT_HEADWORD = Object.freeze({
   verificationStatus:
     'Glossary restatement of the already-committed imp-97118 two-layer verdict; no new numerical ' +
     'computation. Only rigorous anchor is the trace ceiling T = 2.594e7; compute (N ~ 9916, ' +
-    'imp-96352) binds first by >2600x; establishes no positivity theorem; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'imp-96352) binds first by >2600x; establishes no positivity theorem; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD = Object.freeze({
@@ -98,7 +98,7 @@ export const IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD = Object.fre
     '-0.30% vs line, below the band floor) inherits the imp-96750 O(1)/s0* sub-gap and is NOT ' +
     'certified. Readers should not treat the numeric placement as certified just because the ' +
     'qualitative form rejection is. Only rigorous anchor stays T = 2.594e7; changes no bound; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-97118 (the two-layer verdict this glosses); imp-96750 (the Int(N) <= s* log N growth law ' +
     'and its O(1)/s0* sub-gap that Layer (ii) inherits).',
@@ -124,11 +124,11 @@ export const IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp97148-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD.verdict) &&
       IMP97148_GROWTHLAW_TWO_LAYER_VERDICT_GLOSSARY_HEADWORD.glosses === 'imp-97118',
   },
 ];

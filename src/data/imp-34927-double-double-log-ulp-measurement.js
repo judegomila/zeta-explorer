@@ -50,7 +50,7 @@
  * imp-34885/imp-34867), does NOT discharge the conditional, changes no bound. imp-34714a REMAINS OPEN;
  * imp-34687a REMAINS OPEN. NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34908-krawczyk-certificate-precision-scope (sections (B)/(C) assert the <0.5 ulp double-double log and its ~10-order headroom un-measured; this MEASURES it)
  * @see imp-34910-residual-corrected-quotient-ulp-measurement (SIBLING: measures the residual-corrected DIVISION quotient ULP error; this is the log-site analogue)
@@ -289,7 +289,7 @@ export const IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT = {
     'SUB-GAPs imp-34714a and imp-34687a REMAIN OPEN. Measurement only on the inherited imp-3220/imp-3406 ' +
     'surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34908 (certificate precision scope; (C) asserts the <0.5 ulp double-double log yields a ' +
     'correctly-rounded double and (B) the ~10-order (H2) headroom, both un-measured -- this MEASURES them); ' +
@@ -350,16 +350,16 @@ export const IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT_ASSERTIONS = [
       Math.abs(ddToNumber(ddLog(2)) - LOG2_DD[0]) < 1e-15,
   },
   {
-    // Honesty gate: measurement only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34927-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.isRigorous === false &&
       /imp-34714a/.test(IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.subGap) &&
       /imp-34687a/.test(IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.subGap) &&
       /REMAINS? OPEN/.test(IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.subGap) &&
       /NO QED/.test(IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.verdict) &&
-      /remains SOTA/.test(IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.verdict),
+      /refereed bound is changed/i.test(IMP34927_DOUBLE_DOUBLE_LOG_ULP_MEASUREMENT.verdict),
   },
 ];
 

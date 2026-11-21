@@ -68,7 +68,7 @@ export const IMP33760_CAVEAT_BANNER =
   `same value the imp-33601/imp-3444 bisection found. The ~${IMP33760_LANDMARK_MARKERS.relOffsetPct}% ` +
   'gap to the imp-33582 halving landmark is the Gronwall flow term E_flow (imp-33723 D2), not a ' +
   'discretization artifact. Derivation/viz only: isRigorous false, no QED; imp-3066 K_a >= 0 ' +
-  'untouched; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.';
+  'untouched; no refereed bound is changed.';
 
 export const IMP33760_CROSSOVER_FIXED_POINT_CONVERGENCE_VIZ_DATA_ASSERTIONS = [
   {

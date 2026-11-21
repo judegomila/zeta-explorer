@@ -38,7 +38,7 @@
  *     bound.
  *
  * Changes no bound. 0.17759432 stays a package value, not a bound. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * Named residual (sub-gap): imp-95132-subgap-o6-template-lean-check — the
  * row-12 y-quarantine (criterion consumes y0 only via the RHS value) is a

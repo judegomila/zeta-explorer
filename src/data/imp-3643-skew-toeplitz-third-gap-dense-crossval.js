@@ -65,8 +65,7 @@
  *   sigma_3 values against an independent solver, and (b) that the N = 2000 Lanczos pair78
  *   loss is a Krylov artifact. It is a cross-validation / measurement only: it does NOT
  *   construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity.
- *   RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous
- *   SOTA.
+ *   RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3619-skew-toeplitz-third-gap-exponent.js (the third gap sigma_3 and its Lanczos pair78 cross-validated here)
  *   @see imp-3623-skew-toeplitz-second-gap-dense-crossval.js (the second-gap deep dense cross-val this extends to the fourth pair)
@@ -77,7 +76,7 @@
  *   imp-3619 deep-rung sigma_3 and the lambda_7=lambda_8 pairing against an independent
  *   dense full-spectrum solver, ruling out that the N=2000 sigma_3 / pair78 loss is a
  *   Krylov reorthogonalization artifact. imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -240,7 +239,7 @@ export const IMP3643_SKEW_TOEPLITZ_THIRD_GAP_DENSE_CROSSVAL = Object.freeze({
     'lambda_7 is a genuine fourth-pair level at the deep rungs including N=2000. Deep-rung dense top-8 measured offline ' +
     '(scripts/imp-3643-dense-third-gap-offline.mjs) and BAKED; ratios/pairing self-check at import. Cross-validation ' +
     'only; does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; ' +
-    'RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'sigma_3(N) = lambda_7/lambda_1 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|) (Gram-eigenvalue convention = sigma_7^2/sigma_1^2, same as imp-3619)',
@@ -322,7 +321,7 @@ export const IMP3643_SKEW_TOEPLITZ_THIRD_GAP_DENSE_CROSSVAL = Object.freeze({
       'The pairing and gap-ratio agreement are finite-N numerical measurements at the deep rungs, not a proven ' +
       'symbolic degeneracy; the (v-u) antisymmetry is the heuristic mechanism, corroborated numerically here.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -373,7 +372,7 @@ export const IMP3643_SKEW_TOEPLITZ_THIRD_GAP_DENSE_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3643-honest-assessment-no-qed',
     why: 'Mandatory honesty: DENSE CROSS-VALIDATION only -- confirms the imp-3619 deep sigma_3 and pairing against an ' +
-      'independent solver, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'independent solver, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3643_SKEW_TOEPLITZ_THIRD_GAP_DENSE_CROSSVAL.honestCaveat;
       return (
@@ -383,7 +382,7 @@ export const IMP3643_SKEW_TOEPLITZ_THIRD_GAP_DENSE_CROSSVAL_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.crossValidatesNotConstructs === 'string' &&
         typeof c.denseRouteIsHouseholderNotLanczos === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

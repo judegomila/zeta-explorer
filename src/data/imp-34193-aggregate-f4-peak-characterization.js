@@ -70,7 +70,7 @@
  * imp-3220/imp-3406 component model, which is NOT a rigorous asymptotic; the resid(k) surrogate, the
  * integral identity and the peak condition are exact WITHIN that model only; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per
- * imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34128-aggregate-f4-crossing-peak-subrung (the golden-section peak s**=1.13346 this explains)
  * @see imp-34003-f4-unity-crossing-locator (the per-step F4(k) and the resid peak k_peak=8.82109)
@@ -326,7 +326,7 @@ export const IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION = {
     'NOT a rigorous asymptotic; the resid(k) surrogate, the integral identity and the peak condition ' +
     'are exact WITHIN the model only; changes no bound; establishes no operator positivity; imp-3066 ' +
     'K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34128 (the golden-section aggregate-F4 peak this explains); imp-34003 (the per-step F4(k) ' +
     'and the resid peak k_peak=8.82109); imp-33962 (the 0.9225 aggregate share headline); imp-33810 ' +
@@ -389,13 +389,13 @@ export const IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION_ASSERTIONS = [
       Math.abs(FINITE_DK_LN_BIAS - 0.001403) < 1e-4,
   },
   {
-    // Honesty gate: numerical/characterization only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/characterization only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34193-honesty-gate-no-qed',
-    description: 'Characterization only: isRigorous false, no QED, PT SOTA, K_a untouched, C_mb imp-486 untouched',
+    description: 'Characterization only: isRigorous false, no QED, no refereed bound is changed, K_a untouched, C_mb imp-486 untouched',
     holds: () =>
       IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION.isRigorous === false &&
       /NO QED/.test(IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION.verdict) &&
-      /remains SOTA/.test(IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34193_AGGREGATE_F4_PEAK_CHARACTERIZATION.verdict),
   },

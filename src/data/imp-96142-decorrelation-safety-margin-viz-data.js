@@ -16,8 +16,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Every number below is copied verbatim from the imp-96109
  * baked `rows` and `significantDip` (no re-derivation of the AR-1 model or the chi-square
- * crossover). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * crossover). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96109-tue5-dip-decorrelation-safety-margin.js (rows, significantDip, verdict)
  *
@@ -46,7 +46,7 @@ export const IMP96142_SIGNIFICANT = {
 };
 
 export const IMP96142_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every rho_boundary, rho_crit, and safety-ratio value is copied verbatim from the imp-96109 baked rows and significantDip block (no re-derivation of the AR-1 de-correlation model or the imp-96071 chi-square crossover); no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every rho_boundary, rho_crit, and safety-ratio value is copied verbatim from the imp-96109 baked rows and significantDip block (no re-derivation of the AR-1 de-correlation model or the imp-96071 chi-square crossover); no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -89,7 +89,7 @@ const IMP96142_ASSERTIONS = [
     id: 'imp96142-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96142_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96142_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96142_HONEST_BANNER) &&
       /NO QED/.test(IMP96142_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

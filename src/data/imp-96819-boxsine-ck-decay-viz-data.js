@@ -13,7 +13,7 @@
  *
  *   Ticket: imp-96819 (ux, low). Presentation of an already-established measurement; adds no new
  *   Lambda bound. Conditional on the GUE sine kernel / Montgomery pair correlation (UNPROVEN). RH
- *   open. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   open. NO QED. No refereed bound is changed.
  */
 
 // -- baked from imp-96628 IMP96628_BOXSINE_LAGCORR_IBP_ENVELOPE.certifiedConst --

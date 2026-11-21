@@ -55,7 +55,7 @@
  * extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34044-sawtooth-phase-realignment-schedule (the doubling-map ladder cross-validated here)
  * @see imp-33773-ecoll-sigma-offset-eflow-attribution (the M2 resid_exp/eflow endpoints reproduced here)
@@ -286,8 +286,8 @@ export const IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION = {
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate ' +
     'resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34044 (the doubling-map ladder cross-validated here); imp-33773 (the M2 resid_exp/eflow ' +
     'endpoints reproduced here); imp-33878 (source of k* ~ 8.821092, reused verbatim); imp-33810 ' +
@@ -323,14 +323,14 @@ export const IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION_ASSERTIONS = [
       MAX_REL_DISCREPANCY < CROSSCHECK_TOL,
   },
   {
-    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-34044 cross-check, no QED, PT SOTA.
+    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-34044 cross-check, no QED, no refereed bound is changed.
     id: 'imp34107-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, PERFORMS the imp-34044 recomputation, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Cross-check only: isRigorous false, PERFORMS the imp-34044 recomputation, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.isRigorous === false &&
       /PERFORMS the independent recomputation imp-34044/.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /NO QED/.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict),

@@ -42,14 +42,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95824 edge-law derivation for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap,
- *   moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95824-deep-corner-bias-exponent-szego-theory (source: the edge law this glosses)
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (the measured p ~ 2 drift the law explains)
  * @see imp-95825 (the lambda_min(T_n) >= ess-inf f finite-section positivity endpoint this rate refines)
  *
  * Ticket: imp-95848 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The KMS/Widom/Parter finite-section edge law headword, baked verbatim (no re-import).
@@ -102,7 +102,7 @@ export const IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD = Object.freeze({
     'minimum, universal in the coefficient decay rate, with a degenerate quartic ' +
     'minimum instead giving the discriminating slower power p = 4/3. Confirmed on the ' +
     'closed-form toy symbol f = 1 - cos(theta). Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95824 (the finite-section edge law derivation and toy-symbol confirmation ' +
     'this glosses); imp-95803 (the measured p ~ 2 deep-corner biasPct drift the law ' +
@@ -130,11 +130,11 @@ export const IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95848-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP95848_KMS_WIDOM_EDGE_LAW_GLOSSARY_HEADWORD.glosses === 'imp-95824',
   },
 ];

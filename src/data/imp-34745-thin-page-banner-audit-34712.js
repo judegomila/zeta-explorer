@@ -56,7 +56,7 @@ export const THIN_PAGE_AUDIT_34712 = Object.freeze({
     'inapplicable (nothing to check). The gap is already scoped for a fix under the ' +
     'separate imp-34747 viz-page ticket; no page was added here so this change stays ' +
     'atomic. imp-34712 itself is unchanged: measurement only, no bound change, NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 });
 
 const THIN_PAGE_AUDIT_34712_ASSERTIONS = [
@@ -85,8 +85,8 @@ const THIN_PAGE_AUDIT_34712_ASSERTIONS = [
     id: 'imp34745-audit-only-honest',
     holds: () => /AUDIT-ONLY/.test(THIN_PAGE_AUDIT_34712.honest)
       && /NO QED/.test(THIN_PAGE_AUDIT_34712.honest)
-      && /remains SOTA/.test(THIN_PAGE_AUDIT_34712.honest),
-    why: 'honesty gate: audit-only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+      && /refereed bound is changed/i.test(THIN_PAGE_AUDIT_34712.honest),
+    why: 'honesty gate: audit-only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

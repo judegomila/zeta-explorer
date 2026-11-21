@@ -13,7 +13,7 @@
  *   does it VANISH as the monomial basis is enriched?
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a reduction.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   THE GENUINE DEGREE-2 (ABSOLUTE) OCCUPATION DEFICIT (headline a = 0.5, U = 6)
  *   --------------------------------------------------------------------------
@@ -271,7 +271,7 @@ export const IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP = Object.freeze({
       'A strictly-positive deg-2 occupation deficit is necessary-but-NOT-sufficient at operator order; the ' +
       'off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -324,7 +324,7 @@ export const IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP_ASSERTIONS = [
     id: 'imp3154-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: REPRESENTATIVE diagnostic sweep, the absolute magnitude carries a ' +
          'normalization convention, necessary-but-not-sufficient at operator order, positivity not ' +
-         'attempted, bare pilot not re-run, and PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'attempted, bare pilot not re-run, and no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.honestCaveat;
       return (
@@ -334,7 +334,7 @@ export const IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP_ASSERTIONS = [
         c.isRepresentativeNormalizationNotTheOfflineMagnitude === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

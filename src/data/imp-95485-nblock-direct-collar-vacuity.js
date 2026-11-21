@@ -3,8 +3,7 @@
  * exact-joint-pencil residual wedge as sigma -> 1, and whether a genuine
  * N-block (>=3) direct seam reduction closes the collar-limited nearby-cluster
  * residual. It does NOT: the N>=3 generalization of the DIRECT-2 construction is
- * VACUOUS. Measure/assess only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * VACUOUS. Measure/assess only; changes no bound; NO QED; no refereed bound is changed.
  *
  * MOTIVATION (imp-95426 VERDICT). imp-95426 derived DIRECT-2, the 2x2 reduction
  * of the imp-95249 seam pencil, DIRECT = (L1 + L2 + 2 sigma sqrt(L1 L2))/
@@ -108,7 +107,7 @@
  * intrinsic to the termwise angle relaxation of the denominator at ANY block
  * count and closes only with the full joint pencil, which keeps R exactly and is
  * NOT block-decomposable -- confirming and sharpening imp-95426 carried-forward
- * residual. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * residual. Changes no bound; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) The vacuity is shown for the DIRECT-2-style relaxation that
  * prices the denominator by the termwise worst-case pairwise angle (M = I -
@@ -198,7 +197,7 @@ export const IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY = {
     "MEASUREMENT + ASSESSMENT; vacuity is for the DIRECT-2-style termwise worst-case " +
     "angle relaxation; m/model family only (imp-95256 / imp-95378); numerics are " +
     "cross-checks; below e ~ 0.1 the 4-rate exact pencil is float-limited; changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "bound; NO QED; no refereed bound is changed",
   verdict:
     "MEASUREMENT + ASSESSMENT: the imp-95426 DIRECT-2 wedge vs the exact joint " +
     "pencil is exactly the collar 1/(1-sigma^2) (prefactor ~0.012), unbounded as " +
@@ -207,7 +206,7 @@ export const IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY = {
     "generically INDEFINITE for N >= 3 (lambda_min -> 2 - N), so the N-block direct " +
     "relaxation is VACUOUS; N = 2 is the unique finite direct reduction and keeps the " +
     "collar. The wedge closes only with the full joint pencil, NOT block-decomposable. " +
-    "Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -456,7 +455,7 @@ export const IMP95485_ASSERTIONS = [
     description:
       "verdict and scope carry the honest labels: MEASUREMENT + ASSESSMENT, " +
       "wedge is the collar, N-block (>=3) direct is VACUOUS, no bound change, " +
-      "no QED, PT SOTA",
+      "no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT \+ ASSESSMENT/.test(
         IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY.verdict,
@@ -466,7 +465,7 @@ export const IMP95485_ASSERTIONS = [
       /full joint pencil/.test(IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY.verdict) &&
       /Changes no bound/.test(IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY.verdict) &&
       /NO QED/.test(IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY.verdict) &&
-      /remains SOTA/.test(IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY.verdict),
+      /refereed bound is changed/i.test(IMP95485_NBLOCK_DIRECT_COLLAR_VACUITY.verdict),
   },
 ];
 

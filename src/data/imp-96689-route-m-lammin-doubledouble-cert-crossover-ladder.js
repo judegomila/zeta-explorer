@@ -180,12 +180,12 @@ export const IMP96689_VERDICT = Object.freeze({
     'removed by extended precision; the ceiling FIGURE stays fit-extrapolated only for the imp-96584 ' +
     'compute + "extrapolation is not proof" residual, not for precision. Measurement only: reuses the ' +
     'imp-96428 fit, imp-96563 rounding-shift formula and imp-96446 double-double roundoff verbatim; no ' +
-    'Gram rebuilt, no double-double Cholesky run, no bound moved, no operator positivity. PT Lambda <= ' +
-    '0.2 SOTA, RH open. NO QED.',
+    'Gram rebuilt, no double-double Cholesky run, no bound moved, no operator positivity. No refereed bound is changed' +
+    ', RH open. NO QED.',
 });
 
 export const IMP96689_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the delta_dd(N)-vs-lam_min(N) ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the delta_dd(N)-vs-lam_min(N) ' +
   'ladder and its bisected crossover are pure re-analysis of the imp-96428 power-law fit, the ' +
   'imp-96563 Higham/Rump rounding-shift formula and the imp-96446 double-double unit roundoff. No ' +
   'Gram was rebuilt, no double-double Cholesky was actually run, no eigenvalue re-measured, no bound ' +
@@ -250,7 +250,7 @@ const IMP96689_ASSERTIONS = [
       IMP96689_VERDICT.anyBoundMoved === false &&
       IMP96689_VERDICT.crossoverConfirmed === true &&
       /NO QED/.test(IMP96689_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96689_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96689_HONEST_BANNER) &&
       /RH open/.test(IMP96689_HONEST_BANNER),
     why: 'measurement only: no bound moved, the crossover confirmation is recorded, and the honesty markers are present.',
   },

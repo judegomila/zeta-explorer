@@ -50,7 +50,7 @@
  * worst fine-grid violation to ~ -0.04 but does not certify a positive margin; a double-double or
  * rational-feasibility resolve (or continued cutting rounds) is needed to either clear the residual
  * to a certified positive margin or expose an irreducible floor. Assessment only; changes no bound;
- * interval-rigorous reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96732-krein-extended-precision-reach-assessment.js (sub-gap IMP96732_EXTPREC_098_RUNG_UNVERIFIED, solveRun:false)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source literals: normGrowthLaw, epsMarginDecay)

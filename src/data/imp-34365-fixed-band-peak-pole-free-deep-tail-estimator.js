@@ -78,7 +78,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate, the log(eflowAttr) half, and
  * the local log-derivative are descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * HONEST SUB-GAP SUB-GAP-imp-34365-extending-window-confound: the pole-free deep-tail estimator shares the
  * imp-33843 extending-window OLS confound -- as kEnd grows the fixed-band (k <= 10) residual is fit against an
@@ -369,7 +369,7 @@ export const IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR = {
     'untouched. The OLS surrogate, the log(eflowAttr) half, and the local log-derivative are descriptive, not ' +
     'derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34287 (SUB-GAP-imp-34287-asymptotic-class-undecidable this narrows); imp-34196 (the re-acceleration ' +
     're-attributed to the pole half); imp-34169 (the resid_exp pole k* ~ 21.28095 removed by the ' +
@@ -427,9 +427,9 @@ export const IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR_ASSERTIONS =
   },
   {
     // Honesty gate: super-log rejected, class narrowed not fully decided, measurement only, isRigorous false,
-    // imp-34196/imp-34287 not overturned, new sub-gap flagged, no QED, PT SOTA, C_mb / imp-3066 untouched.
+    // imp-34196/imp-34287 not overturned, new sub-gap flagged, no QED, no refereed bound is changed, C_mb / imp-3066 untouched.
     id: 'imp34365-honesty-gate-no-qed',
-    description: 'super-log rejected; class narrowed (not fully decided); isRigorous false; imp-34287 not overturned; SUB-GAP-imp-34365 flagged; no QED; PT SOTA; C_mb / imp-3066 untouched',
+    description: 'super-log rejected; class narrowed (not fully decided); isRigorous false; imp-34287 not overturned; SUB-GAP-imp-34365 flagged; no QED; no refereed bound is changed; C_mb / imp-3066 untouched',
     holds: () =>
       IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.superLogRejected === true &&
       IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.gMonotoneDecreasing === true &&
@@ -439,7 +439,7 @@ export const IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR_ASSERTIONS =
       /are CORRECT and are not overturned/.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict) &&
       /REJECTS super-log/.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict) &&
       /NO QED/.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict) &&
-      /remains SOTA/.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34365_FIXED_BAND_PEAK_POLE_FREE_DEEP_TAIL_ESTIMATOR.verdict),
   },

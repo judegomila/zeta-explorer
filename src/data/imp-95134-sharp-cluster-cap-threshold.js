@@ -109,8 +109,7 @@
  * packets. (b) 2/5 is the certified majorant constant, not the sharp class
  * threshold (sandwich [0.127, 0.4]). (c) Parity-pure only (mixed-parity
  * adjacent blocks have interval gap 0). (d) Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) The exact gap-capped tilted pair
  * integral was checked against Simpson quadrature of the piecewise-tilted
@@ -403,7 +402,7 @@ export const IMP95134_SHARP_CLUSTER_CAP_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM CC is unconditional given the sibling-chain witness conventions: Lemma GC is a pointwise algebraic identity (phi + psi = mu D on all three pieces) plus Cauchy-Schwarz with BOUNDED weights (no integrability side condition), Lemma HM is an exact closed-form sign identity with equality at tau = 0, Lemma GT is an exact excess identity per Gram pair followed by two elementary bounds (half-mass and 1 - exp(-z) <= z), the interval-gap ladder is the imp-95132 dyadic arithmetic re-verified exhaustively, and S(2/5) < 1 is certified by a rational alternating-series chain in the single constant U8 >= exp(-4/5) with the k >= 4 tail dominated via (1 + z) exp(-z) <= exp(-z/2) for z >= 51.2 (no library exp or sqrt in the certificate). No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure only; the constant is the majorant threshold, not sharp; the sharpening sub-gap is CLOSED but the new aggregation-sharpness leg and the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stay OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM CC is unconditional given the sibling-chain witness conventions: Lemma GC is a pointwise algebraic identity (phi + psi = mu D on all three pieces) plus Cauchy-Schwarz with BOUNDED weights (no integrability side condition), Lemma HM is an exact closed-form sign identity with equality at tau = 0, Lemma GT is an exact excess identity per Gram pair followed by two elementary bounds (half-mass and 1 - exp(-z) <= z), the interval-gap ladder is the imp-95132 dyadic arithmetic re-verified exhaustively, and S(2/5) < 1 is certified by a rational alternating-series chain in the single constant U8 >= exp(-4/5) with the k >= 4 tail dominated via (1 + z) exp(-z) <= exp(-z/2) for z >= 51.2 (no library exp or sqrt in the certificate). No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure only; the constant is the majorant threshold, not sharp; the sharpening sub-gap is CLOSED but the new aggregation-sharpness leg and the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stay OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -622,11 +621,11 @@ export const IMP95134_SHARP_CLUSTER_CAP_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95134-cc-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure only, 2/5 is the majorant threshold not the sharp one (certified sandwich [0.127, 0.4], float bracket measured only), the sharpening sub-gap is CLOSED but the NEW aggregation-sharpness leg and the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stay OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure only, 2/5 is the majorant threshold not the sharp one (certified sandwich [0.127, 0.4], float bracket measured only), the sharpening sub-gap is CLOSED but the NEW aggregation-sharpness leg and the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stay OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.rigorScope) &&
       /stay OPEN/.test(IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.rigorScope) &&
       /remains OPEN/.test(IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.openResiduals[0]) &&
       /not the sharp class threshold/.test(IMP95134_SHARP_CLUSTER_CAP_THRESHOLD.openResiduals[1]) &&

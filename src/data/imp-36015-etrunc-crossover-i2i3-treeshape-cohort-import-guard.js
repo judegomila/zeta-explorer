@@ -28,7 +28,7 @@ export const IMP36015_NEWEST_COHORT_IMPORT_GUARD = {
     IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.id,
     IMP35956_TREE_SHAPE_LADDER_VIZ_DATA.ticket,
   ],
-  verdict: 'all three cohort modules import cleanly (no zeros-to-1e6 in their transitive bundle) and their self-executing assertions pass; now covered by a permanent regression guard. Verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all three cohort modules import cleanly (no zeros-to-1e6 in their transitive bundle) and their self-executing assertions pass; now covered by a permanent regression guard. Verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35950', 'imp-35951', 'imp-35956'];

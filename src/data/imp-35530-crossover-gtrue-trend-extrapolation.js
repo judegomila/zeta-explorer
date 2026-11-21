@@ -54,7 +54,7 @@
  * INHERITS no bound (sigma is a diagnostic share, not a Lambda lever); C_mb
  * GUE-conditional per imp-486 UNTOUCHED; C_C ansatz (imp-2642/imp-2643), E_trunc
  * floor (imp-2631), imp-398 C_F prefactor UNTOUCHED; changes no bound; no operator
- * positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (declared the crossover out of in-repo range; imp-35488a/b)
  * @see imp-35529-peak-ks-supdistance (bin-free KS sup-distance statistic reused here as the secondary witness)
@@ -67,7 +67,7 @@
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // 0.38374752 (imp-2642/imp-2643 ansatz)
 const E_TRUNC_PT = 3.06e-5; // imp-2631 floor -> the E_coll = E_trunc crossover balance point
 const T_PT = 3e12; // Platt-Trudgian verified height
-const L_PT = 0.2; // SOTA (unchanged by any sigma-fidelity trend/extrapolation)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any sigma-fidelity trend/extrapolation)
 
 const N_PEAK = 9.2186e5;
 const N_CROSS = 3.280294352e9;
@@ -176,7 +176,7 @@ export const IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION = {
     'does NOT certify the surrogate map globally; INHERITS no bound (sigma is a diagnostic share, not a Lambda ' +
     'lever); C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ansatz (imp-2642/imp-2643), E_trunc floor ' +
     '(imp-2631), imp-398 C_F prefactor UNTOUCHED; changes no bound; no operator positivity; no RH verdict; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35488 (declared the crossover out of in-repo range; sub-gaps imp-35488a/b); imp-35529 (bin-free KS ' +
     'sup-distance, secondary witness); imp-35475 (route-(ii) two-height check); imp-35337 (imp-35337a; the two ' +
@@ -238,7 +238,7 @@ export const IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: partial only, two sub-gaps named, no bound moves, PT SOTA, NO QED.
+    // Honesty gate: partial only, two sub-gaps named, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35530-honest-partial-no-bound-moves-no-qed',
     description: 'HONEST PARTIAL: extrapolation not measurement (imp-35530a), units mismatch (imp-35530b), sigma is not a Lambda lever so no bound moves, PT 0.2 unchanged, NO QED',
     holds: () =>
@@ -249,7 +249,7 @@ export const IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION_ASSERTIONS = [
       /imp-486/.test(IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION.verdict) &&
       /changes no bound/.test(IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION.verdict) &&
       /NO QED/.test(IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION.verdict),
+      /refereed bound is changed/i.test(IMP35530_CROSSOVER_GTRUE_TREND_EXTRAPOLATION.verdict),
   },
 ];
 

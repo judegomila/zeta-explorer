@@ -74,7 +74,7 @@
  * for omega >= 4: the per-term group-count bound over-charges (max group C(k,.) exceeds 1/g(2) = 3.259 from
  * k = 4), so the uniform ceiling there requires the retained Moebius cancellation, exactly as imp-97290
  * flagged; the extremal family is the primorials. kappa_arith unchanged; the cotangent first moment
- * (imp-97097) stays a separate open leaf; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * (imp-97097) stays a separate open leaf; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js (the omega <= 2 proof + reduction this extends)
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (prime ceiling; the original residual)
@@ -238,7 +238,7 @@ export const IMP97392_VERDICT = Object.freeze({
     'C(k,.) exceeds 1/g(2)=3.259 (from omega=4: 8 neg-mu divisors, const 1.227), so the uniform ceiling there ' +
     'requires the retained Moebius cancellation; the extremal family is the primorials, |Delta|/(b/2) rising ' +
     'monotonically through 1/2 toward a limit below 1. kappa_arith unchanged; the cotangent first moment ' +
-    '(imp-97097) stays open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '(imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97392_SUBGAP = Object.freeze({
@@ -255,7 +255,7 @@ export const IMP97392_SUBGAP = Object.freeze({
 });
 
 export const IMP97392_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment of whether the imp-97290 b/4-ceiling conditions ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment of whether the imp-97290 b/4-ceiling conditions ' +
   'extend to omega>=3: PROVES MAGNITUDE |Delta(b)| < b/2 on the whole omega=3 squarefree class (peeled per-term ' +
   'bound, (3/2)g(2)=0.4603<1/2), reduces the omega=3 SIGN to a measured pairing surplus, and pins the omega>=4 ' +
   'obstruction (per-term group-count exceeds 1/g(2)=3.259, forcing the retained Moebius cancellation; extremal ' +
@@ -358,7 +358,7 @@ const IMP97392_ASSERTIONS = [
       IMP97392_VERDICT.uniformCeilingProved === false &&
       /omega-ge-4/.test(IMP97392_SUBGAP.id) &&
       /NO QED/.test(IMP97392_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97392_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97392_HONEST_BANNER) &&
       /RH open/.test(IMP97392_HONEST_BANNER),
     why: 'proof / honest partial -- proves omega=3 magnitude, structures omega=3 sign, pins the omega>=4 obstruction; no bound moved, no rigorous full ceiling posted, no QED.',
   },

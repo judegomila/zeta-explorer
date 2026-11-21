@@ -6,7 +6,7 @@
  * structural port without matrices); this module does the port with the
  * actual Weil form, computes the truncated matrices, their inertia, the
  * one-sided-bound gap, and the off-line detection power of each class, and
- * re-issues the verdict on that evidence. RH OPEN; PT Lambda <= 0.2 stands;
+ * re-issues the verdict on that evidence. RH OPEN; no refereed bound is changed;
  * NO QED.
  *
  * OBJECT (Weil/Guinand explicit formula, Iwaniec-Kowalski normalization).
@@ -400,7 +400,7 @@ export const IMP95520_WEIL_PICK_IDENTITY_FINITE_TRUNCATION = Object.freeze({
   classIII: 'Mellin/Hardy class x e^{-nu x}: zero side ~ |Gamma(3/2+i gamma_1)|^2 = 6.5e-17 while pole/arch/prime are O(1) and the prime tail beyond X is ~1/X: truncated positivity comes from the tail, not from Weil.',
   answerA: 'NO: NO-PF is a statement about eigenfunctions of a PSD operator; the truncated Weil form is PSD (its prime-only piece is trivially indefinite: hollow diagonal, trace 0) and its extremal is one-signed -- the opposite sign structure.',
   answerB: 'The one-sided (sup over amplitude) estimate exists and is TRUE but has the wrong sign by 3-16 orders of magnitude: lam_max(prime;G) exceeds lam_min(pole+arch;G) on every configuration; Weil positivity is the sign of a difference of O(1)-O(10^3) forms cancelling to e^{-2.5T} (compact support) or e^{-pi gamma_1} (Hardy class).',
-  verdict: '(iii) native span collapses to Lagarias\' criterion in Pick form (known object; finite node sets settled by verified height, all node sets = RH); (ii) compact support gives a real finite-T structure but the finite -> infinite step is exactly RH with zero slack (Szegoe ceiling); (i) NO new finite-truncation positivity estimate: the seam-pencil certificates are worst-case bounds uniform over coalescence/amplitude and Weil positivity needs the configuration-exact evaluation, which is the explicit formula itself. Flow-blindness pattern in the Weil currency, quantified. Not PCC-gated; walled by exactness. Do not re-aim the seam-pencil certificates at Weil positivity. RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: '(iii) native span collapses to Lagarias\' criterion in Pick form (known object; finite node sets settled by verified height, all node sets = RH); (ii) compact support gives a real finite-T structure but the finite -> infinite step is exactly RH with zero slack (Szegoe ceiling); (i) NO new finite-truncation positivity estimate: the seam-pencil certificates are worst-case bounds uniform over coalescence/amplitude and Weil positivity needs the configuration-exact evaluation, which is the explicit formula itself. Flow-blindness pattern in the Weil currency, quantified. Not PCC-gated; walled by exactness. Do not re-aim the seam-pencil certificates at Weil positivity. RH OPEN; no refereed bound is changed; NO QED.',
   rigorScope: 'LEMMA ARCH-NATIVE and THEOREM PICK-WEIL are elementary (contour + log-derivative), cross-checked against the zero side to 7e-7 (869 zeros + density tail). COROLLARY LAGARIAS-PICK consumes Pick\'s theorem and Lagarias 1999. All inertia / gap / detection figures are double-precision measurements on the stated finite configurations (float trap: tight Cauchy lattices fabricate lam_min ~ -4e-6; only well-conditioned sets are read). Nothing here changes any Lambda bound or verified height.',
 });
 
@@ -508,7 +508,7 @@ export const IMP95520_WEIL_PICK_ASSERTIONS = [
       const D = IMP95520_WEIL_PICK_LITERALS.detectionHat, N = IMP95520_WEIL_PICK_LITERALS.detectionNative_nodes1248;
       if (!(D.T1_beta06 < 0 && D.T05_beta075 < 0 && D.T05_beta06 > 0 && N.onLine > 0 && N.beta099 > 0)) return false;
       const V = IMP95520_WEIL_PICK_IDENTITY_FINITE_TRUNCATION.verdict;
-      return /\(iii\)/.test(V) && /\(ii\)/.test(V) && /\(i\)/.test(V) && /NO QED/.test(V) && /PT Lambda <= 0.2 stands/.test(V) && /RH OPEN/.test(V);
+      return /\(iii\)/.test(V) && /\(ii\)/.test(V) && /\(i\)/.test(V) && /NO QED/.test(V) && /refereed bound is changed/i.test(V) && /RH OPEN/.test(V);
     },
   },
 ];

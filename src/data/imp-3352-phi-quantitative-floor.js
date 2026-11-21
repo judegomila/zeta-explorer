@@ -76,7 +76,7 @@
  *   positive-constant floor (f decays super-exponentially, inf -&gt; 0); and NO to
  *   the floor feeding the imp-3197 magnitude half (a lower bound on Phi is the
  *   wrong direction for an operator-norm UPPER bound, and Gshear is hollow so the
- *   diagonal-dominance route is vacuous). Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   diagonal-dominance route is vacuous). No refereed bound is changed.
  *
  *   @see imp-3257-bridge-sign-phi-nonneg-structural.js (the &gt;= 0 termwise nonnegativity this sharpens)
  *   @see imp-3347-phi-leftmost-zero-vs-nphi.js (how far LEFT of u_1* the full Phi stays positive)
@@ -238,7 +238,7 @@ export const IMP3352_PHI_QUANTITATIVE_FLOOR = Object.freeze({
     '(Gshear(u,u) = Phi(u)^2 sinh(0) = 0 identically), plus f decays to 0 exactly on the tail ' +
     'where imp-3197 finds the ||Gshear|| mass concentrated. So the quantitative floor is real ' +
     'but not a usable input; the |Gshear|-spectrum magnitude half stays exactly as open as ' +
-    'imp-3257 left it. Assessment only; RH-equivalent context; NO QED; PT Lambda <= 0.2 SOTA.',
+    'imp-3257 left it. Assessment only; RH-equivalent context; NO QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..NPHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -325,7 +325,7 @@ export const IMP3352_PHI_QUANTITATIVE_FLOOR = Object.freeze({
     necessaryNotSufficient:
       'Correct signs and an explicit positive floor are necessary-but-NOT-sufficient; the off-diagonal ' +
       'endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -383,7 +383,7 @@ export const IMP3352_PHI_QUANTITATIVE_FLOOR_ASSERTIONS = [
   {
     id: 'imp3352-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, the floor ' +
-         'is the wrong direction / diagonal-dominance vacuous, the magnitude half is not advanced, PT 0.2 stays SOTA.',
+         'is the wrong direction / diagonal-dominance vacuous, the magnitude half is not advanced, no refereed bound is changed.',
     holds: () => {
       const c = IMP3352_PHI_QUANTITATIVE_FLOOR.honestCaveat;
       return (
@@ -392,7 +392,7 @@ export const IMP3352_PHI_QUANTITATIVE_FLOOR_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.feedsMagnitudeHalf === false &&
         c.floorIsPositiveConstant === false &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

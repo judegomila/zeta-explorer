@@ -72,7 +72,7 @@
  *   conditioning OF that measurement, it does not rehabilitate the model). The -2 asymptote and
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share
  *   per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (the {2,3,4} SLOPE ladder; this adds the intercepts)
  *   @see imp-34592-q4-share-roundoff-floor-vs-dp.js (q4 O(h^4) share inflates ~1/dp^4; deep-tail dp floor)
@@ -275,7 +275,7 @@ export const IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH = Object.freeze({
     'measurement, it does not rehabilitate the model. The -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
     '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34606 (the {2,3,4} SLOPE ladder -- this module adds the intercept AMPLITUDES); ' +
     'imp-34592 (q4 O(h^4) share inflates ~1/dp^4; deep-tail dp floor); ' +
@@ -319,9 +319,9 @@ const IMP34633_ASSERTIONS = [
     holds: () =>
       IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH.isRigorous === false &&
       /NO QED/.test(IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH.verdict) &&
-      /remains SOTA/.test(IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH.verdict) &&
+      /refereed bound is changed/i.test(IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH.verdict) &&
       /UNTOUCHED/.test(IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

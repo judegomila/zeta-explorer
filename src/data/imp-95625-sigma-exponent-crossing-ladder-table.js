@@ -26,7 +26,7 @@
  * (so log10 N needed for tolerance t is approximately 0.44 / t).
  *
  * Measurement/fit only; conditional-share diagnostic, NOT an RH bound;
- * changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-95602-sigma-exponent-ramp-past-1e12 (source of every literal below)
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (half-decade ramp [1e6,1e12])
@@ -75,7 +75,7 @@ export const IMP_95625_SIGMA_EXPONENT_CROSSING_LADDER_TABLE = {
   note:
     'documentation only, baked from imp-95602 (which continues the imp-95582 ' +
     'half-decade ramp past its 1e12 endpoint); no live computation, no Lambda ' +
-    'bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    'bound moves; no refereed bound is changed',
   closesTickets: ['imp-95625'],
 };
 

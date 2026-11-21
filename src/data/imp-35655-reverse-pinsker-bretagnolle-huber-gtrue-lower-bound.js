@@ -63,7 +63,7 @@
  * ASSESSMENT ONLY: derives nothing, changes no bound; C_C ansatz (imp-2642/imp-2643)
  * and C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc floor (imp-2631) UNTOUCHED;
  * imp-35337a, imp-35530a, imp-35530b, imp-35488a, imp-35556a stay OPEN; no operator
- * positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35556-gtrue-ecoll-dimensional-comparability (point 3: forward Pinsker UPPER-only, the gap this addresses)
  * @see imp-35530-crossover-gtrue-trend-extrapolation (projected ~10.5x gap, KL literals, sub-gaps imp-35530a/b)
@@ -100,7 +100,7 @@ const Q_MIN_FULL_SUPPORT = 0; // essinf p_GUE over (0,inf) = 0 => reverse-Pinske
 const reversePinskerLB = (kl, qMin, dpSup) => kl * qMin / dpSup;
 const REVERSE_LB_FULL_SUPPORT = reversePinskerLB(KL_CROSS_FREE, Q_MIN_FULL_SUPPORT, WIGNER_SUP); // 0 (vacuous)
 
-const L_PT = 0.2; // SOTA (unchanged by any reverse-direction assessment)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any reverse-direction assessment)
 
 export const IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND = {
   id: 'imp-35655',
@@ -161,13 +161,13 @@ export const IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND = {
     'point 3 (new sub-gap imp-35655a). ASSESSMENT ONLY; derives nothing; changes no bound; C_C ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc floor (imp-2631) UNTOUCHED; ' +
     'imp-35337a, imp-35530a, imp-35530b, imp-35488a, imp-35556a stay OPEN; no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35556 (forward Pinsker UPPER-only, point 3); imp-35530 (projected ~10.5x gap, KL literals, sub-gaps ' +
     'imp-35530a/b); imp-35337 (imp-35337a surrogate->observable dictionary, OPEN); imp-2631 (E_trunc floor); ' +
     'imp-2642/imp-2643 (C_C ansatz); imp-486 (GUE-conditional caveat); Bretagnolle-Huber inequality ' +
     'TV <= sqrt(1-exp(-KL)); reverse-Pinsker (Sason-Verdu 2016, bounded density ratio); GUE Wigner surmise ' +
-    'p(s) = (32/pi^2) s^2 exp(-4 s^2/pi); Platt-Trudgian 2021 (Lambda <= 0.2 SOTA).',
+    'p(s) = (32/pi^2) s^2 exp(-4 s^2/pi); Platt-Trudgian 2021 (no refereed bound is changed).',
   L_pt_unchanged: L_PT,
 };
 
@@ -203,7 +203,7 @@ export const IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND_ASSERTIONS = [
       wignerGUE(WIGNER_ARGMAX) > wignerGUE(2.0),
   },
   {
-    // Honesty gate: assessment only, no reverse bound reaches E_coll, new sub-gap imp-35655a, no bound moves, PT SOTA, NO QED.
+    // Honesty gate: assessment only, no reverse bound reaches E_coll, new sub-gap imp-35655a, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35655-honest-assessment-no-bound-moves-no-qed',
     description: 'ASSESSMENT ONLY: no reverse direction lower-bounds E_coll (BH is upper, reverse-Pinsker floor vanishes), new sub-gap imp-35655a, imp-35337a stays OPEN, no bound moves, PT 0.2 unchanged, NO QED',
     holds: () =>
@@ -215,7 +215,7 @@ export const IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND_ASSERTIONS = [
       /DIAGNOSTIC-ONLY/.test(IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND.verdict) &&
       /changes no bound/.test(IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND.verdict) &&
       /NO QED/.test(IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND.verdict) &&
-      /remains SOTA/.test(IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP35655_REVERSE_PINSKER_BH_GTRUE_LOWER_BOUND.verdict),
   },
 ];
 

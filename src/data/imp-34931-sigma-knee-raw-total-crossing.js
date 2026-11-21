@@ -34,7 +34,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34902-sigma-knee-resummation-eps-sweep (the coarse 11-point sweep whose F3 5%/25% crossings this pins)
  * @see imp-34888-sigma-knee-pade-borel-resummation (the eps = 1 four-method cross-tabulation)
@@ -319,7 +319,7 @@ export const IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING = {
     'benign convergent-but-slow boundary effect rather than a route to a tighter knee. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34902 (F3) open question: the raw-total 5%/25% crossings are pinned at eps ~ 79.24 / ~91.13 ' +
     'and the 25% crossing coincides with the imp-34882 Domb-Sykes radius R ~ 91. What stays OPEN (deferred, ' +
@@ -382,15 +382,15 @@ export const IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING_ASSERTIONS = [
       FINE_GRID.every((r, i) => i === 0 || r.rawTotalRelDev > FINE_GRID[i - 1].rawTotalRelDev),
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34931-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING.isRigorous === false &&
       IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING.farTailExponent === 0.5 &&
       typeof IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING.subGap === 'string' &&
       /NO QED/.test(IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING.verdict),
   },
 ];
 

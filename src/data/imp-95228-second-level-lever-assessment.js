@@ -46,7 +46,7 @@
  * design budget; the panel-pass lever is spent and the residual gap is
  * cell/reconstruction-dominated. Assessment only; carries no new computation
  * beyond arithmetic over the imp-95214 measured ledger; promotes nothing;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 import {
@@ -97,7 +97,7 @@ export const SECOND_LEVEL_ASSESSMENT = Object.freeze({
     'reach the 1.1e13 two-level design budget: full-window ball-ops 1.55e14 sit 14x above it. ' +
     'The panel O(N) lever is SPENT; the residual gap is cell/reconstruction-dominated (out of ' +
     'reach of further panel batching), which is the successor imp-95229 scope. Assessment only; ' +
-    'changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.',
+    'changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; arithmetic over imp-95214) ──────
@@ -153,14 +153,14 @@ export const IMP95228_ASSERTIONS = [
   {
     id: 'imp95228-honesty-gate-no-qed',
     description:
-      'fail-closed honesty: the scout premise is faithfully carried (NOT built at scout time, ~92x gap), the assessment supersedes onto the imp-95214 build which promotes no bound, and the verdict states NO QED and PT-SOTA',
+      'fail-closed honesty: the scout premise is faithfully carried (NOT built at scout time, ~92x gap), the assessment supersedes onto the imp-95214 build which promotes no bound, and the verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       SCOUT_PREMISE.builtAtScoutTime === false &&
       Math.abs(SCOUT_PREMISE.gapRatioVsDesign - 91.7) < 0.1 &&
       IMP95214_TIER2_CHIRP.promotesBound === false &&
       /RESOLVED/.test(SECOND_LEVEL_ASSESSMENT.verdict) &&
       /NO QED/.test(SECOND_LEVEL_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(SECOND_LEVEL_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(SECOND_LEVEL_ASSESSMENT.verdict),
   },
 ];
 

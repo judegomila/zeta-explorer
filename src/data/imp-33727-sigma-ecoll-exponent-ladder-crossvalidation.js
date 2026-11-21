@@ -67,8 +67,7 @@
  * MEASUREMENT / ALIGNMENT ONLY. Cross-consistency diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (full-sigma OLS exponent ladder)
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (separated-E_coll exponent ladder to 1e15)
@@ -218,7 +217,7 @@ export const IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION = {
     'the methods, they share one model. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (full-sigma OLS exponent ladder); imp-33620 (separated-E_coll exponent ladder to ' +
     '1e15); imp-33602 (separated ladder source); imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9); ' +
@@ -275,14 +274,14 @@ export const IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/alignment only, far-tail exponent = 1/2, no QED, PT SOTA.
+    // Honesty gate: measurement/alignment only, far-tail exponent = 1/2, no QED, no refereed bound is changed.
     id: 'imp33727-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION.isRigorous === false &&
       IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP33727_SIGMA_ECOLL_EXPONENT_LADDER_CROSSVALIDATION.verdict),
   },
 ];
 

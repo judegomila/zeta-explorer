@@ -45,7 +45,7 @@
  * m_prime (3/4) and m_double_prime (5/4) are cross-validated on ONE common eps = y_N^sharp ladder and
  * the single-derivative ratio m''/m' ~ (3/2) eps^{-1} ~ (3/2)(N/2pi)^{1/2} is confirmed in both exponent
  * and amplitude. No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; imp-3066
- * UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-33646-h4-privalov-sokhotski-constant-scoping (H4 m_prime, exponent 3/2 eps, 3/4 N)
  * @see imp-33645-h3-curvature-divergence-scoping (H3 m_double_prime, exponent 5/2 eps, 5/4 N)
@@ -192,7 +192,7 @@ export const IMP33790_FOLD_JET_RATIO_CROSSVALIDATION = {
     'both exponent (measured 0.5000) and amplitude (measured 1.49998 = 3/2, the clean (2k+1)/2 gap at k=1). ' +
     'The cross-check welds the two separately-measured rungs onto one ladder; it does NOT discharge H4 or H3 ' +
     '(both grow as y_N^sharp -> 0). No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; ' +
-    'imp-3066 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'imp-3066 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33790_FOLD_JET_RATIO_ASSERTIONS = [
@@ -234,16 +234,16 @@ export const IMP33790_FOLD_JET_RATIO_ASSERTIONS = [
       Math.abs(IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.curvatureFloorOnLadder - (3 * Math.PI) / (2 * Math.SQRT2)) < 1e-3,
   },
   {
-    // Honesty gate: consistency cross-check, NOT a discharge; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: consistency cross-check, NOT a discharge; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33790-honesty-gate-no-qed',
-    description: 'Measurement only: cross-check does not discharge H4/H3, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: cross-check does not discharge H4/H3, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.isRigorous === false &&
       IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.dischargesH4OrH3 === false &&
       IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.rungsAreConsistent === true &&
       /NO QED/.test(IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.verdict) &&
       /STAYS OPEN/.test(IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.verdict) &&
       /imp-3066 UNTOUCHED/.test(IMP33790_FOLD_JET_RATIO_CROSSVALIDATION.verdict),
   },
 ];

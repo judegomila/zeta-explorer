@@ -84,7 +84,7 @@
  *   n &gt;= 510; the rungs here (n in {350,375,400}) sit firmly inside the band. The NPHI = 10 Phi-series
  *   truncation is inherited. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH
- *   verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33560-deep-tail-graded-vs-cc-cross-solver-node-budget.js (the climbing-budget attribution this tests)
  *   @see imp-33539-graded-plateau-deeper-tail-min-budget.js (the flat ~200-node graded plateau + grade-4 map)
@@ -338,7 +338,7 @@ const verdict =
       'MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR-(ROBUST-READING-IS-FLAT-~100-vs-CLIMBING-~250-500,-NOT-THE-EXACT-' +
       'COUNTS);-imp-33537/imp-33557-BOUND-THE-<64-BAND-AT-n>=510;-NO-LITERAL-PATCHED;-imp-3685/imp-3849/' +
       'imp-33213/imp-33316/imp-33539/imp-33560-INTACT;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-' +
-      'UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33580_GRADED_MAPPED_CC_ABSCISSA_ARTIFACT = Object.freeze({
@@ -369,7 +369,7 @@ export const IMP33580_GRADED_MAPPED_CC_ABSCISSA_ARTIFACT = Object.freeze({
     'is CONFIRMED. VERDICT: CLIMBING-BUDGET-IS-A-UNIFORM-ABSCISSA-ARTIFACT. ACCURACY/RULE-DESIGN ' +
     'CROSS-SOLVER MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; ' +
     'imp-33537/imp-33557 bound the < 64 band at n >= 510; no literal patched; imp-3066 untouched; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -467,7 +467,7 @@ export const IMP33580_GRADED_MAPPED_CC_ABSCISSA_ARTIFACT = Object.freeze({
       'The min-node budgets are single lattice hits on a jittery arithmetic floor; the robust reading is the ' +
       'order of the budgets (graded-mapped ~100 vs unmapped ~250-500) and the flat-vs-climbing separation, not ' +
       'the exact counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -525,7 +525,7 @@ export const IMP33580_GRADED_MAPPED_CC_ABSCISSA_ARTIFACT_ASSERTIONS = [
   {
     id: 'imp33580-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-solver measurement only, not a certified bound, no literal ' +
-         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, PT 0.2 SOTA.',
+         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33580_GRADED_MAPPED_CC_ABSCISSA_ARTIFACT.honestCaveat;
       return (
@@ -537,7 +537,7 @@ export const IMP33580_GRADED_MAPPED_CC_ABSCISSA_ARTIFACT_ASSERTIONS = [
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

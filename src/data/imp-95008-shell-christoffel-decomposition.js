@@ -129,7 +129,7 @@
  * computed from its definition, sharpness of (1-eps)^(-1), the spectral
  * enclosure, monotonicity, and budget consistency with the sibling module.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import { IMP95008_EVALUATION_CHRISTOFFEL_DUALITY } from "./imp-95008-evaluation-christoffel-duality.js";
@@ -529,7 +529,7 @@ export const IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION = {
     "Lemma H, Corollary H1, Lemma I, Theorem J and Corollary J1 are unconditional exact linear algebra (Theorem J sharp). The budget consequence is a conditional template chained on the sibling Theorem G hypotheses. Numerics are cross-checks of the exact statements, not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS SUB-LEMMA PACKAGE decomposing the pointwise duality constant across shells: the sibling residual assumption (carrier equimodularity) is REMOVED - the Christoffel diagonal is an explicit Gram-inverse quadratic form in the raw carrier functions, exactly additive across the Lean-orthogonal five shells, sandwiched within (1-eps)^(-1) (sharp) of the single-shell sum under cut-block coupling eps < 1, and uniformly bounded over the whole seam continuum by per-shell finite data. The multi-shell pointwise step reduces to single-shell computations. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS SUB-LEMMA PACKAGE decomposing the pointwise duality constant across shells: the sibling residual assumption (carrier equimodularity) is REMOVED - the Christoffel diagonal is an explicit Gram-inverse quadratic form in the raw carrier functions, exactly additive across the Lean-orthogonal five shells, sandwiched within (1-eps)^(-1) (sharp) of the single-shell sum under cut-block coupling eps < 1, and uniformly bounded over the whole seam continuum by per-shell finite data. The multi-shell pointwise step reduces to single-shell computations. Changes no bound; NO QED. No refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -591,12 +591,12 @@ export const IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION_ASSERTIONS = [
   {
     id: "imp95008d-honesty-gate-no-qed",
     description:
-      "promotes no bound, keeps the identification + carrier-numbers + (C, mu, D, K) residuals named, NO QED, PT stays SOTA",
+      "promotes no bound, keeps the identification + carrier-numbers + (C, mu, D, K) residuals named, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION.promotesBound === false &&
       IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION.namedResiduals.length === 4 &&
       /NO QED/.test(IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP95008_SHELL_CHRISTOFFEL_DECOMPOSITION.verdict),
   },
 ];
 

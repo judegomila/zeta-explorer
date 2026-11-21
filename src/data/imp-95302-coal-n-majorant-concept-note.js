@@ -82,7 +82,7 @@
  *   relative to this exact value)
  *
  * Ticket: imp-95302 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95251).
@@ -137,8 +137,8 @@ export const IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE = Object.freeze({
     'and that it is a majorant only -- the imp-95227 N >= 3 dominance ' +
     'conjecture it originally sidestepped was later decided affirmative ' +
     'by imp-95287, against which coalN remains measurably loose. ' +
-    'Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95251-nfold-coalescence-law.js (THEOREM COAL-N); ' +
     'imp-95264-coalescence-law-concept-note.js (pair-only predecessor); ' +
@@ -212,12 +212,11 @@ export const IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95302-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE.verdict) &&
       IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE.glosses === 'imp-95251' &&
       IMP95302_COAL_N_MAJORANT_CONCEPT_NOTE.scopes ===
         'THEOREM COAL-N: sqrt(Lambda) <= e^(-x)[L_(N-1)(-2Rx) + ' +

@@ -50,7 +50,7 @@
  *   establishes NO operator positivity and NO new bound; it changes no bound. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is inherited
- *   upstream. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   upstream. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33559-envelope-under-reference-libm.js (the shift this bounds the reference self-error of)
  *   @see imp-33534-min-node-reference-precision-libm.js (the ~106-bit dd reference libm swept here)
@@ -123,7 +123,7 @@ const verdict =
       'imp-33559-~0.567-ULP-DOWNWARD-ENVELOPE-SHIFT-IS-GENUINE-fp64-libm-ROUND-OFF-AND-NOT-A-REFERENCE-' +
       'TRUNCATION-ARTIFACT.-ACCURACY-MEASUREMENT-ONLY;-dd-IS-A-REFERENCE-SURROGATE-NOT-A-PLATFORM-libm;-' +
       'CHANGES-NO-BOUND;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-' +
-      'PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33581_DD_SELF_ERROR_SWEEP = Object.freeze({
@@ -145,7 +145,7 @@ export const IMP33581_DD_SELF_ERROR_SWEEP = Object.freeze({
     'rounding floor for this band, so the imp-33559 downward shift is genuine fp64-libm round-off, NOT a ' +
     'reference-truncation artifact. ACCURACY MEASUREMENT ONLY, RH-EQUIVALENT, reference-precision surrogate ' +
     'not a platform survey; changes no bound; imp-3066 untouched; necessary-but-not-sufficient; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     band: 'the imp-33312 min-node grade6 lattice-jitter band tau=8 ceiling: single-tau gold (grade5/grade6 ' +
@@ -224,7 +224,7 @@ export const IMP33581_DD_SELF_ERROR_SWEEP = Object.freeze({
       '53-bit), NOT a survey of real platform libms. This bounds the SURROGATE truncation self-error only: a ' +
       'specific platform libm with a ~1 ULP exp/log error could still differ. The robust conclusion is that ' +
       'the dd reference is converged at its defaults, so the imp-33559 shift is not a reference artifact.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -276,7 +276,7 @@ export const IMP33581_DD_SELF_ERROR_SWEEP_ASSERTIONS = [
     id: 'imp33581-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement only, changes no bound, reference-precision surrogate not a ' +
          'platform survey, mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) ' +
-         'untouched, PT 0.2 SOTA.',
+         'untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33581_DD_SELF_ERROR_SWEEP.honestCaveat;
       return (
@@ -284,7 +284,7 @@ export const IMP33581_DD_SELF_ERROR_SWEEP_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.changesNoBound === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

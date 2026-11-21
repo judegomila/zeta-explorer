@@ -28,7 +28,7 @@
  *
  *   Ticket: imp-36168 (ux, low). Viz-data only, presentation/no-bound-change;
  *   certifies no cap; I2 stays GREENFIELD; imp-35337a OPEN; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  */
 
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
@@ -92,7 +92,7 @@ export const IMP36168_ROUTE_TIGHTNESS_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-35988/imp-36054 tightness ordering ' +
     'exactly; adds no new derivation and changes no bound. Certifies no cap; instantiates no ' +
     'enclosure; I2 remains GREENFIELD downstream of W1; imp-35337a OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP36168_VIZ_ASSERTIONS = [
@@ -135,13 +135,13 @@ export const IMP36168_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp36168-honesty-gate-no-qed',
-    description: 'honest status references viz-data-only, greenfield, imp-35337a OPEN, NO QED, SOTA',
+    description: 'honest status references viz-data-only, greenfield, imp-35337a OPEN, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP36168_ROUTE_TIGHTNESS_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP36168_ROUTE_TIGHTNESS_VIZ_DATA.honest) &&
       /imp-35337a OPEN/.test(IMP36168_ROUTE_TIGHTNESS_VIZ_DATA.honest) &&
       /NO QED/.test(IMP36168_ROUTE_TIGHTNESS_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP36168_ROUTE_TIGHTNESS_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP36168_ROUTE_TIGHTNESS_VIZ_DATA.honest),
   },
 ];
 

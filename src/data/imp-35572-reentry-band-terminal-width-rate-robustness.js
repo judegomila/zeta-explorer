@@ -60,7 +60,7 @@
  * NOT ESTABLISHED as a feature of the true dynamic (R1/R4 binding). MEASUREMENT ONLY; the C_C = (1/8) sqrt(3 pi)
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35537-r1t-reentry-band-closure-scope (Part C: the off-by-one is terminal; a second rate cannot span it)
  * @see imp-35331-reentry-band-two-rate-phase-drift (two-rate frac-window relocation; census at 4 sampled points)
@@ -226,7 +226,7 @@ export const IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS = {
     'stays NOT ESTABLISHED as a feature of the true dynamic (R1/R4 binding); the C_C = (1/8) sqrt(3 pi) ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
     'far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35537 (Part C: the off-by-one is terminal, a second rate cannot span it); imp-35331 (two-rate frac-' +
     'window relocation; census at 4 sampled points); imp-34862 (the two-rate law and exact-peel control); ' +
@@ -273,14 +273,14 @@ export const IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS_ASSERTIONS = [
       TAIL_PROBE_EXP - CENSUS_EXIT_SINGLE > 20,
   },
   {
-    // Honesty gate: measurement only, confirms imp-35537 Part C, discharges nothing, sub-gap OPEN, no QED, PT SOTA.
+    // Honesty gate: measurement only, confirms imp-35537 Part C, discharges nothing, sub-gap OPEN, no QED, no refereed bound is changed.
     id: 'imp35572-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS.isRigorous === false &&
       /imp-35243a stay OPEN/.test(IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS.verdict) &&
       /NO QED/.test(IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP35572_REENTRY_BAND_TERMINAL_WIDTH_RATE_ROBUSTNESS.verdict),
   },
 ];
 

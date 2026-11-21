@@ -80,7 +80,7 @@
  *   identity truncation and the tail/t3 legs -- this note leaves open)
  *
  * Ticket: imp-95345 (content, low). Documentation only; establishes no
- * new bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * new bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95331).
@@ -149,8 +149,8 @@ export const IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE = Object.freeze({
     '(coupled, at most 1.025x) while the side-weight split carries the ' +
     'full measured 1.5-1.7x gain, with every-octave onsets unchanged ' +
     'and three other named residual legs left open. Establishes ' +
-    'nothing new; fires no certificate; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95331-split-weight-exact-root-pencil-floor.js (LEMMA ROOT-' +
     'MONO, LEMMA W-SPLIT, THEOREM RZ-PEN5, COROLLARY PEN-UNIF5, ' +
@@ -343,13 +343,12 @@ export const IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95345-onsets-unchanged-honesty-gate',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present, glosses/scopes consistent, and the note must ' +
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present, glosses/scopes consistent, and the note must ' +
       'not silently imply an onset moved.',
     holds: () =>
       IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE.verdict) &&
       /unchanged/.test(IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE.verdict) &&
       IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE.glosses === 'imp-95331',
   },

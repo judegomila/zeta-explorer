@@ -38,7 +38,7 @@
  * No fix applied this run: wiring imp-95582 into a page is a distinct (already-queued,
  * low-priority) viz-page task, not this audit ticket's scope. Read-only confirmation;
  * changes no bound; establishes no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp.js (audited: ORPHANED)
  * @see imp-95583-discrepancy-tail-evt.js (audited: WIRED via imp-95607)
@@ -90,7 +90,7 @@ export const IMP95612_CONSUMER_CHECK_95582_95583 = {
     'imp-95582 is confirmed orphaned: wiring it into a viz page is separate, already-queued, ' +
     'lower-priority work, out of scope for this consumer-check ticket. Both modules are ' +
     'confirmed zeros-bundle-free by dependency-chain walk. Changes no bound; establishes no ' +
-    'operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-36169/imp-35982/imp-35905 (registration/reachability + import-light guard audit ' +
     'method); imp-95607 (page that wired up imp-95583); imp-95606 (unrouted viz-data sibling ' +

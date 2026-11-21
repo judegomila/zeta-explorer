@@ -53,7 +53,7 @@
  * MEASUREMENT/DERIVATION ONLY. This guards the fourth-order (convexity) behaviour of the INHERITED
  * imp-3220/imp-3406 surrogate crossover map; it changes NO bound. The C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34768-crossover-gppp-global-envelope (g_triple_prime closed form; global monotone decrease)
  * @see imp-34757-crossover-gpp-dense-cross-check (dense g_double_prime FD check; per-band supremum)
@@ -192,7 +192,7 @@ export const IMP34793_CROSSOVER_GPPPP_CONVEXITY = {
     'explicitly left open. Measurement/derivation only on the INHERITED imp-3220/imp-3406 surrogate ' +
     'map; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34768 (g_triple_prime closed form; global monotone decrease); imp-34757 (dense ' +
     'g_double_prime FD check; per-band supremum); imp-34731 (g_double_prime closed form; 5-probe ' +
@@ -236,13 +236,13 @@ export const IMP34793_CROSSOVER_GPPPP_CONVEXITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp34793-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34793_CROSSOVER_GPPPP_CONVEXITY.isRigorous === false &&
       /NO QED/.test(IMP34793_CROSSOVER_GPPPP_CONVEXITY.verdict) &&
-      /remains SOTA/.test(IMP34793_CROSSOVER_GPPPP_CONVEXITY.verdict),
+      /refereed bound is changed/i.test(IMP34793_CROSSOVER_GPPPP_CONVEXITY.verdict),
   },
 ];
 

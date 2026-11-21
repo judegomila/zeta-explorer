@@ -69,7 +69,7 @@
  * depth d_h as the turning-point depth, exactly as imp-95962. It does NOT prove the
  * actual Section 4.5 packet turning point sits at depth >= d_h -- that is the
  * unextracted-packet-constants obstruction recorded in imp-95961 (leg (i) STILL OPEN).
- * Changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes NO bound; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) MEASUREMENT of the analytic threshold a_1/mu_h under the imp-95917
  * width-law port geometry only. (b) d_h, mu_h, a_1/mu_h are EXACT closed forms (no
@@ -181,7 +181,7 @@ export const IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION = {
   obstruction:
     "This is the THRESHOLD side only: what collar depth the geometry must clear, computed exactly. It uses the alias SEAM depth d_h = k - h/p as the turning-point depth. Whether the actual Section 4.5 packet turning point sits at depth >= d_h is the unextracted-packet-constants leg (i), recorded in imp-95961 and STILL OPEN. If the true turning point is shallower than d_h the margins shrink.",
   verdict:
-    "MEASUREMENT (honest): extending the imp-95962 worst-alias table 13 windows further (k = 8..20, consecutive primes from 3) CONFIRMS both trends without break -- the controlling alias stays h = p-1, the binding collar depth d_min decreases monotonically 2.176470 -> 1.489146, and the seam margin grows monotonically 3.914 -> 17.527. No window needs a collar deeper than ~2.66 (worst is still 2.660850 at (3,4)). The threshold side is measured; the geometry side (does the true turning point reach d_h) is imp-95961 leg (i), STILL OPEN. Changes no numeric bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): extending the imp-95962 worst-alias table 13 windows further (k = 8..20, consecutive primes from 3) CONFIRMS both trends without break -- the controlling alias stays h = p-1, the binding collar depth d_min decreases monotonically 2.176470 -> 1.489146, and the seam margin grows monotonically 3.914 -> 17.527. No window needs a collar deeper than ~2.66 (worst is still 2.660850 at (3,4)). The threshold side is measured; the geometry side (does the true turning point reach d_h) is imp-95961 leg (i), STILL OPEN. Changes no numeric bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "d_h = k - h/p, mu_h = d_h^{1/3}/PORT_C and a_1/mu_h are EXACT closed forms (no quadrature). The comparison uses the alias seam depth as the turning-point depth; the true Section 4.5 turning-point depth is imp-95961 leg (i) and STILL OPEN. a_1 is the first Airy zero to 16 digits. The window rule is the literal continuation of the four imp-95917 witness windows and is insensitive to the exact prime chosen. Measurement only; changes no bound; NO QED.",
 };
@@ -274,13 +274,13 @@ export const IMP95985_ASSERTIONS = [
   {
     id: "imp95985-verdict-honesty",
     description:
-      "the verdict carries the honest scope: MEASUREMENT only, controlling alias h=p-1, trends confirmed without break, imp-95961 leg (i) STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: MEASUREMENT only, controlling alias h=p-1, trends confirmed without break, imp-95961 leg (i) STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION.verdict) &&
       /STILL OPEN/.test(IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION.verdict) &&
       /STILL OPEN/.test(IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION.obstruction) &&
       /NO QED/.test(IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP95985_WORST_ALIAS_COLLAR_DEPTH_EXTENSION.verdict),
   },
 ];
 

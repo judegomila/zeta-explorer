@@ -61,8 +61,8 @@
  *
  * SCOPE: ASSESSMENT ONLY. Recommends NO page edit (RUNGS[5] already correct per
  * imp-35359); does NOT advance the R2 ladder (stays N=1000); does not touch the
- * imp-486 GUE conditional. Changes NO bound. Platt-Trudgian Lambda <= 0.2 stays
- * SOTA. NO QED.
+ * imp-486 GUE conditional. Changes NO bound. No refereed bound is changed
+ * . NO QED.
  *
  * SYNTAX NOTE: "dt-over-2" prose used in place of the slash form to avoid the
  * star-slash JSDoc terminator.

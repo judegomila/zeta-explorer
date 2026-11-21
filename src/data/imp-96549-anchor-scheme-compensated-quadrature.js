@@ -63,7 +63,7 @@
  * PERSISTS to the anchor; the effective lever is higher order PLUS compensated summation. Boole+Kahan
  * keeps a U-shape (regrows to 6.705e-11 @ppp = 32, the residual subtraction floor ~1400x below the
  * line). Cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96526-truncation-branch-quadrature-scheme-test (settled the SCHEME question at L=3e5 and
  *   left the anchor sub-gap open -- this module resolves it)
@@ -204,12 +204,12 @@ export const IMP96549_ANCHOR_SCHEME_COMPENSATED_QUADRATURE = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and every floor is a double-precision quadrature/round-off artifact of this direct integral, not a property of the zeros. Cross-validation numerics: it changes no bound, establishes no operator positivity, and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'At the PT anchor L=5.9e6 the imp-96526-anchor-scheme sub-gap resolves: raising the quadrature order ALONE no longer beats the imp-96430 L-linear cancellation line (composite Simpson 2.841e-5 = 573x the line, Boole 6.290e-6 = 127x, Gauss-Legendre k=5 1.863e-4 = 3758x -- all ABOVE it, the ~20x-larger round-off floor now binding the naive schemes, vs the ~17x-BELOW margin Boole had at L=3e5), BUT the binding floor is the accumulation round-off of naively summing ~1e8 stencil terms, NOT the catastrophic Var = L - 2*Int subtraction: a Kahan-compensated rule of the SAME order removes it, dropping Boole+Kahan to 3.447e-11 @ppp=24 -- ~1438x BELOW the cancellation line (and below the L=3e5 plain-Boole floor). So the imp-96526 SCHEME-ARTIFACT verdict PERSISTS to the anchor; the effective lever is higher order PLUS compensated summation. Boole+Kahan keeps a U-shape (regrows to 6.705e-11 @ppp=32, the residual subtraction floor ~1400x below the line). Cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'At the PT anchor L=5.9e6 the imp-96526-anchor-scheme sub-gap resolves: raising the quadrature order ALONE no longer beats the imp-96430 L-linear cancellation line (composite Simpson 2.841e-5 = 573x the line, Boole 6.290e-6 = 127x, Gauss-Legendre k=5 1.863e-4 = 3758x -- all ABOVE it, the ~20x-larger round-off floor now binding the naive schemes, vs the ~17x-BELOW margin Boole had at L=3e5), BUT the binding floor is the accumulation round-off of naively summing ~1e8 stencil terms, NOT the catastrophic Var = L - 2*Int subtraction: a Kahan-compensated rule of the SAME order removes it, dropping Boole+Kahan to 3.447e-11 @ppp=24 -- ~1438x BELOW the cancellation line (and below the L=3e5 plain-Boole floor). So the imp-96526 SCHEME-ARTIFACT verdict PERSISTS to the anchor; the effective lever is higher order PLUS compensated summation. Boole+Kahan keeps a U-shape (regrows to 6.705e-11 @ppp=32, the residual subtraction floor ~1400x below the line). Cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96526 convention).
 export const IMP96549_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation numerics only: rho is the theoretical '
+  'RH open; no refereed bound is changed; NO QED. Cross-validation numerics only: rho is the theoretical '
   + 'GUE two-interval correlation, not computed from real zeros. The anchor scheme test (plain higher-order '
   + '127-3758x ABOVE the L-linear line, Kahan-compensated Boole ~1438x BELOW it) resolves sub-gap '
   + 'imp-96526-anchor-scheme; changes no bound, establishes no operator positivity.';
@@ -253,11 +253,11 @@ export const IMP96549_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96549_ANCHOR_SCHEME_COMPENSATED_QUADRATURE.verdict))
     throw new Error('imp-96549: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96549_ANCHOR_SCHEME_COMPENSATED_QUADRATURE.verdict))
-    throw new Error('imp-96549: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96549_ANCHOR_SCHEME_COMPENSATED_QUADRATURE.verdict))
+    throw new Error('imp-96549: verdict dropped the no-refereed-bound-change banner');
   if (IMP96549_ANCHOR_SCHEME_COMPENSATED_QUADRATURE.subGapResolved.id !== 'imp-96526-anchor-scheme')
     throw new Error('imp-96549: sub-gap resolution dropped the imp-96526-anchor-scheme id');
-  if (!(/RH open/.test(IMP96549_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96549_HONEST_BANNER) && /NO QED/.test(IMP96549_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96549_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96549_HONEST_BANNER) && /NO QED/.test(IMP96549_HONEST_BANNER)))
     throw new Error('imp-96549: IMP96549_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

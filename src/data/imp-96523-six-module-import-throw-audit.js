@@ -58,8 +58,7 @@
  * though none has yet adopted the imp-96294 plain-exported-check-object
  * convention -- a future consumer should still prefer that pattern-switch
  * for defense in depth, but no correctness fix is required here.
- * Measurement/audit only; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Measurement/audit only; changes no bound; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96442-viz-data-throw-anti-pattern-scan (audit-module structure and fragility-test precedent)
  * @see imp-96294 (pattern-switch precedent: self-executing throw -> plain exported check object)
@@ -144,7 +143,7 @@ export const IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT = {
     + 'reproduction, a plain integer/boolean/threshold check with a real margin, or a same-run '
     + 'algebraic identity -- not a live transcendental evaluation compared near a flat extremum. '
     + 'No fix applied: safe to wire into a viz page on both audited dimensions. Changes no bound; '
-    + 'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'NO QED; no refereed bound is changed.',
   citation:
     'imp-96442 (audit-module structure and fragility-test precedent); imp-96294 (pattern-switch '
     + 'precedent); imp-2546 / imp-2539 (storage-precision tolerance incidents); imp-96493, '
@@ -175,7 +174,7 @@ export const IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT_ASSERTIONS = [
       && IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT.fragileModules.length === 0
       && IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT.isRigorous === false
       && /NO QED/.test(IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT.verdict)
-      && /remains SOTA/.test(IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP96523_SIX_MODULE_IMPORT_THROW_AUDIT.verdict),
   },
 ];
 

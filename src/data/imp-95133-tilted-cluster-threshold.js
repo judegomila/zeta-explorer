@@ -106,7 +106,7 @@
  * packets. (b) 9/20 is a certified sufficient constant, not sharp. (c)
  * Parity-pure only (mixed-parity adjacent blocks have interval gap 0).
  * (d) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) The K_skew closed form was checked
  * against Simpson quadrature (rel <= 1e-4 at the module resolution, and
@@ -408,7 +408,7 @@ export const IMP95133_TILTED_CLUSTER_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM TC is unconditional given the sibling-chain witness conventions: Lemma TT is an algebraic identity plus Cauchy-Schwarz (both tilted functions in L2 because eta < mu_star), Lemma TK is an exact closed-form identity plus a sign-stable three-exponential monotonicity proof (full case analysis in the header, boundary cases by continuity), Lemma TN is termwise Lemma TK over the nonnegative skewed Gram, the interval-gap ladder is the imp-95132 dyadic arithmetic re-verified exhaustively, and T_CT(9/20) < 1 is certified by a rational alternating-series chain in the single constant eU >= exp(-0.34) with exact rational prefactors 2025/1736 and 2025/869 (no library sqrt; library exp appears only in cross-checks). No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure only; the constant is sufficient, not sharp; the sharpening sub-gap is narrowed but stays OPEN; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM TC is unconditional given the sibling-chain witness conventions: Lemma TT is an algebraic identity plus Cauchy-Schwarz (both tilted functions in L2 because eta < mu_star), Lemma TK is an exact closed-form identity plus a sign-stable three-exponential monotonicity proof (full case analysis in the header, boundary cases by continuity), Lemma TN is termwise Lemma TK over the nonnegative skewed Gram, the interval-gap ladder is the imp-95132 dyadic arithmetic re-verified exhaustively, and T_CT(9/20) < 1 is certified by a rational alternating-series chain in the single constant eU >= exp(-0.34) with exact rational prefactors 2025/1736 and 2025/869 (no library sqrt; library exp appears only in cross-checks). No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure only; the constant is sufficient, not sharp; the sharpening sub-gap is narrowed but stays OPEN; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -606,11 +606,11 @@ export const IMP95133_TILTED_CLUSTER_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95133-tc-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure only, threshold 9/20 sufficient not sharp (certified sandwich [0.127, 0.45], float bracket measured only), the sharpening sub-gap NARROWED not closed, the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN, the pricing leg stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure only, threshold 9/20 sufficient not sharp (certified sandwich [0.127, 0.45], float bracket measured only), the sharpening sub-gap NARROWED not closed, the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN, the pricing leg stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95133_TILTED_CLUSTER_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95133_TILTED_CLUSTER_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95133_TILTED_CLUSTER_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95133_TILTED_CLUSTER_THRESHOLD.rigorScope) &&
       /stays OPEN/.test(IMP95133_TILTED_CLUSTER_THRESHOLD.rigorScope) &&
       /remains OPEN/.test(IMP95133_TILTED_CLUSTER_THRESHOLD.openResiduals[0]) &&
       /not closed/.test(IMP95133_TILTED_CLUSTER_THRESHOLD.openResiduals[1]) &&

@@ -62,7 +62,7 @@
  *   quantitative PW_a concentration inequality that generates the realizability share -- so the two
  *   residual shares are dual faces of one obstruction, not independently reclaimable (Finding 3).
  *   Assessment/derivation only; no coercivity constant; no operator positivity; no bound moves;
- *   interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ *   interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open;
  *   NO QED.
  *   SUB-GAP IMP97559_FAR_FIELD_RECLAIM_NEEDS_SPECTRAL_COUPLING_NOT_SCALAR -- the +1344.378 far-field
  *   share is dual to the +1721.639 realizability share; both require the single missing PW_a
@@ -75,7 +75,7 @@
  * @see imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js (cohort index; the two residual shares 56.2% / 43.8%)
  *
  * Ticket: imp-97559 (proof, medium, opus-4-8). Assessment/derivation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97458_INNER_ISLAND, IMP97458_FAR_TAIL, IMP97458_MINIMISER_BUDGET, IMP97458_BINDING_2A }

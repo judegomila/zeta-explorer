@@ -16,7 +16,7 @@
  *   having read imp-35997 in full.
  *
  *   Ticket: imp-36069 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35997-eflow-max-share-height.js (source: golden-section-located flow-share maximum this note restates)
  *   @see imp-35889-e-share-decomposition-at-knees (the three-way split whose flow share was maximized)
@@ -65,7 +65,7 @@ export const IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS = Object.freeze({
     isReductionBelowRH: false,
     changesAnyBound: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -123,7 +123,7 @@ export const IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS_ASSERTIONS = [
       IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36069_EFLOW_NEVER_DOMINATES_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36069-verdict-effectively-two-way-no-qed',

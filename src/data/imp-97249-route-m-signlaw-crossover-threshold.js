@@ -8,7 +8,7 @@
  * by packing distinct small primes. This ticket pins the crossover THRESHOLD: for fixed omega, hold
  * the (omega-1) smallest primes fixed and sweep the last prime p, then find the largest p that still
  * flips. No bound moves; supplies NO uniform remainder bound (imp-97096 sub-gap stays open);
- * T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97156 / imp-97140 / imp-97096: R_b = {a : 1 <= a <= b-1, (a,b)=1},
  * C = (log 2pi - gamma)/2, A(a,b) = C(a+b) + (1/2)(a-b) log(b/a),
@@ -61,7 +61,7 @@
  * bound for the imp-97096 sub-gap must control this crossover -- not a single 2^omega factor, but a
  * parity switch keyed on both omega and the largest prime factor. Measurement only: no uniform
  * remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 anchor
- * unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * Numerics: r(b) via an independent O(b) coprime sum with Kahan-compensated summation; residuals here
  * are ~1e-8..1e-11, resolved to 5-7 significant figures (plain vs Kahan agree to ~1e-14 at b ~ 2.8e7).
@@ -150,11 +150,11 @@ export const IMP97249_VERDICT = Object.freeze({
     'explicit uniform remainder bound for the imp-97096 sub-gap must control this crossover -- a parity ' +
     'switch keyed on both omega and the largest prime factor, not a single 2^omega factor. Measurement only: ' +
     'no uniform remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 ' +
-    'anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97249_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97156 two-parity crossover ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97156 two-parity crossover ' +
   'is a sharp joint (omega, small-prime-packing) threshold -- subleading Moebius parity never overtakes ' +
   'leading Liouville parity for omega <= 4, onset omega=5 only at maximal smoothness (largest prime <= 17), ' +
   'robust for omega >= 6 out to b ~ 2.77e7. Supplies NO uniform remainder bound -- the imp-97096 sub-gap ' +
@@ -240,7 +240,7 @@ const IMP97249_ASSERTIONS = [
       IMP97249_VERDICT.suppliesUniformRemainderBound === false &&
       IMP97249_VERDICT.qed === false &&
       /NO QED/.test(IMP97249_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97249_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97249_HONEST_BANNER) &&
       /RH open/.test(IMP97249_HONEST_BANNER),
     why: 'measurement only: the crossover threshold is quantified but no uniform remainder bound is supplied and no bound moved -- honesty markers present, no QED.',
   },

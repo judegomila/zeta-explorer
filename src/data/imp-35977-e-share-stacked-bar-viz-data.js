@@ -13,7 +13,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-35889 literals;
  * changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35889-e-share-decomposition-at-knees.js (source: both knees' three-way shares baked here)
  * @see imp-35853-req4-required-height-continuous-sigma-knee.js (the two knee locators)

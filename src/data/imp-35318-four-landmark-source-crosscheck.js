@@ -21,7 +21,7 @@
  * VERIFICATION / ACCURACY CROSS-CHECK ONLY. No new bound; no recomputation of the underlying
  * component model (inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic); C_mb
  * GUE-conditional per imp-486 UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35210-four-e-component-landmarks-viz-data (the baked L1-L4 array under test)
  * @see imp-35153-eflow-etrunc-crossover-closed-form (L1: N ~ 1.597752e6)
@@ -83,7 +83,7 @@ export const IMP35318_FOUR_LANDMARK_SOURCE_CROSSCHECK = {
     'decade-gap annotations recompute to the imp-35154 reported 2.0044 (L2 below N_cross) and ' +
     '0.7283 (L4 above N_cross) with the strict ordering L1 < L2 < L3 < L4 holding. Verification ' +
     'cross-check only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per ' +
-    'imp-486; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486; changes no bound; NO QED; no refereed bound is changed.',
 };
 
 export const IMP35318_FOUR_LANDMARK_SOURCE_CROSSCHECK_ASSERTIONS = [

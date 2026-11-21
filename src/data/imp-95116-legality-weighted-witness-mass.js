@@ -65,7 +65,7 @@
  * proxied. No single paper ceiling term is CLAIMED.
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- shared conventions (identical to imp-95008 / imp-95100) ------------------
@@ -249,7 +249,7 @@ export const IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS = {
     "MEASUREMENT only, NO theorem. The ceiling coefficient sup_b OmegaE_b is an exact evaluation on the imp-95076 composite-Simpson path; the legality-weighted mass M = sum_b (sum_i a_i sqrt(r_i)/h_i)^2 is an exact evaluation of the imp-95008 floorMultiRate mass form on the JOINT_BIG base amplitudes. The base amplitudes are an optimizer output (optimality is NOT claimed) and no paper amplitude A_d is instantiated, so no numeric paper ceiling term is CLAIMED. The numerics ARE the measurement. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT assembling the far-ceiling roll-up term with the TRUE legality-weighted imp-95008 witness mass, versus the imp-95100 uniform-currency proxy. FINDING A: the imp-95076 Simpson machinery re-derives sup_b OmegaE_b = 3.9223358991795465e-5 (b=2, amplitude-free). FINDING B: on the imp-95008 pentaWitness (P_BIG=999983) the legality-weighted mass M_legal = sum_b (sum_i a_i sqrt(r_i)/h_i)^2 = 7.159056371719082 comes in BELOW the uniform-currency proxy sum_i r_i = 7.694649928783372 - the outer-packet height inflation (h down to 0.003845) is outweighed by the true amplitude decay (a down to 3.27e-5). FINDING C: the assembled ceiling term ceilTerm_legal = 2 (sup_b OmegaE_b) M_legal = 5.616044762208765e-4, a ratio 0.9303940319544888 to the uniform-currency proxy 6.036200329457272e-4 - the two mass conventions placed on one concrete number (~6.96 percent below). SUB-GAP named plainly: the base amplitudes are the imp-95008 JOINT_BIG optimizer output (optimality NOT claimed), not the paper A_d, and only the five-packet base is used - no single paper ceiling term is claimed. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT assembling the far-ceiling roll-up term with the TRUE legality-weighted imp-95008 witness mass, versus the imp-95100 uniform-currency proxy. FINDING A: the imp-95076 Simpson machinery re-derives sup_b OmegaE_b = 3.9223358991795465e-5 (b=2, amplitude-free). FINDING B: on the imp-95008 pentaWitness (P_BIG=999983) the legality-weighted mass M_legal = sum_b (sum_i a_i sqrt(r_i)/h_i)^2 = 7.159056371719082 comes in BELOW the uniform-currency proxy sum_i r_i = 7.694649928783372 - the outer-packet height inflation (h down to 0.003845) is outweighed by the true amplitude decay (a down to 3.27e-5). FINDING C: the assembled ceiling term ceilTerm_legal = 2 (sup_b OmegaE_b) M_legal = 5.616044762208765e-4, a ratio 0.9303940319544888 to the uniform-currency proxy 6.036200329457272e-4 - the two mass conventions placed on one concrete number (~6.96 percent below). SUB-GAP named plainly: the base amplitudes are the imp-95008 JOINT_BIG optimizer output (optimality NOT claimed), not the paper A_d, and only the five-packet base is used - no single paper ceiling term is claimed. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -295,13 +295,13 @@ export const IMP95116_ASSERTIONS = [
   {
     id: "imp95116-honesty-gate",
     description:
-      "the verdict names the sub-gap (optimizer-output amplitudes not the paper A_d; five-packet base only), records the two mass conventions on one number, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (optimizer-output amplitudes not the paper A_d; five-packet base only), records the two mass conventions on one number, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.promotesBound === false &&
       IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.isRigorous === false &&
       IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.openResiduals.length === 2 &&
       /NO QED/.test(IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.verdict) &&
-      /remains SOTA/.test(IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.verdict) &&
+      /refereed bound is changed/i.test(IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.verdict) &&
       /MEASUREMENT/.test(IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.verdict) &&
       /SUB-GAP/.test(IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.verdict) &&
       /optimality is NOT claimed/i.test(IMP95116_LEGALITY_WEIGHTED_WITNESS_MASS.rigorScope),

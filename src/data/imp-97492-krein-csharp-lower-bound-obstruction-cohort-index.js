@@ -70,8 +70,7 @@
  *   - interval-rigorous certified reach stays EXACTLY 2a<=0.96, unchanged by this whole cohort.
  *
  *   STATUS: a grouping/index note over eight already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (reproducing-kernel; floor -3200.029)
  * @see imp-97414-krein-full-projector-second-moment-execution.js (full-projector A2 build; closes m=1 Lehmann)
@@ -84,7 +83,7 @@
  * @see imp-97429-krein-csharp-lower-bound-attempt-cohort-index.js (sibling meta index: same target grouped BY NAMED TOOL, not chronological floor-sharpening)
  *
  * Ticket: imp-97492 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -188,7 +187,7 @@ export const IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX = Object
     'from the sibling imp-97429 index, which groups five DIFFERENT tickets by named tool rather than this ' +
     'chronological floor-sharpening thread. No rigorous positive lower bound on c_sharp exists anywhere in ' +
     'this cohort; interval-rigorous certified reach stays EXACTLY 2a<=0.96, unchanged. Establishes nothing ' +
-    'new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'new; moves no bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97399 (reproducing-kernel; floor -3200.029); imp-97414 (full-projector build; closes m=1 ' +
     'Lehmann); imp-97415 (certified-rho routes all fail); imp-97416 (joint bathtub; floor -3065.435); ' +
@@ -245,11 +244,11 @@ export const IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX_ASSERTIO
   },
   {
     id: 'imp97492-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97492_KREIN_CSHARP_LOWER_BOUND_OBSTRUCTION_COHORT_INDEX.verdict),
   },
 ];

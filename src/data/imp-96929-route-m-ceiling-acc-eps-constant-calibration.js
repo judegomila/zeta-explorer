@@ -73,7 +73,7 @@
  * every ceiling stays ~1.5 to 2 decades below its bare value, the F/M swap stays entered (needs
  * c < 0.0088 to avoid), and the >= 1500x headroom stays broken (needs c < 5.7e-4 to avoid). All three
  * imp-96914 conclusions are thus CALIBRATION-ROBUST. Sensitivity / measurement only; no bound moved;
- * no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * REFINED RESIDUAL SUB-GAP (IMP96929_C_PIN_NEEDS_NEAR_BREAKDOWN_REFERENCE): the exact c within the
  * O(1) band is still not empirically pinned, and -- newly established here -- it CANNOT be pinned from
@@ -210,11 +210,11 @@ export const IMP96929_VERDICT = Object.freeze({
     'imp-96914 conclusions are calibration-robust. The exact c is still unpinned and -- newly shown -- ' +
     'CANNOT be pinned from the imp-96768 solves (~17.9 decades below their own doubledouble breakdown); ' +
     'a purpose-built near-breakdown reference is required. Sensitivity only; no bound moved; no operator ' +
-    'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96929_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity / calibration only: the ceilings, p, A and ' +
+  'RH open; no refereed bound is changed; NO QED. Sensitivity / calibration only: the ceilings, p, A and ' +
   'the c = 1 model are reproduced from imp-96914 / imp-96428 and every band is pure re-analysis; no Gram was ' +
   'rebuilt. c is calibrated to a Higham O(1) backward-error constant (central 1, band [0.1, 10]); the exact c ' +
   'is NOT empirically pinned and cannot be pinned from the far-from-breakdown imp-96768 solves ' +
@@ -270,7 +270,7 @@ const IMP96929_ASSERTIONS = [
     holds: () =>
       IMP96929_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96929_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96929_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96929_HONEST_BANNER) &&
       /RH open/.test(IMP96929_HONEST_BANNER) &&
       /IMP96929_C_PIN_NEEDS_NEAR_BREAKDOWN_REFERENCE/.test(IMP96929_HONEST_BANNER),
     why: 'calibration only: no bound moved, the honesty markers are present, and the refined residual sub-gap is named.',

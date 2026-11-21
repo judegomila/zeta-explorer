@@ -507,13 +507,13 @@ export const IMP_3932_CONJECTURE_22_1_FROZEN_LADDER_OBSTRUCTION = Object.freeze(
       'regressions and would catch a falsified cap on the test instances.',
     'No claim is made about Conjecture 22.1 under readings that leave the ' +
       'paper eq (20)-(21) proxy class (see namedObstructions); no claim of ' +
-      'any de Bruijn-Newman Lambda improvement is made (Polymath15 ' +
-      'Lambda <= 0.2 remains SOTA). NO false QED: the conjecture in full ' +
+      'any de Bruijn-Newman Lambda improvement is made (no refereed bound is changed' +
+      '). NO false QED: the conjecture in full ' +
       'generality is resolved only partially, and the boundary is stated.',
   ]),
   relationToLambda:
-    'Independent of the de Bruijn-Newman constant; Lambda <= 0.2 ' +
-    '(Polymath15) remains the SOTA upper bound and is untouched.',
+    'Independent of the de Bruijn-Newman constant; no refereed bound is changed' +
+    ' and is untouched.',
   auditCrossRefs: Object.freeze(['imp-1210', 'imp-1163', 'imp-1258']),
 });
 
@@ -649,7 +649,7 @@ export const IMP_3932_CONJECTURE_22_1_FROZEN_LADDER_OBSTRUCTION_ASSERTIONS = [
         /PARTIAL/.test(r.rigorStatus) &&
         /RIGOROUS/.test(r.rigorStatus) &&
         /equal runtime/.test(r.conjectureVerbatim) &&
-        /Lambda <= 0.2/.test(r.relationToLambda) &&
+        /Lambda <= 0.2|refereed bound is changed/.test(r.relationToLambda) &&
         /TASK FORM/.test(r.theorem.statement) &&
         /2x-margin/.test(r.theorem.statement) &&
         /REFUTED as first drafted/.test(r.refereeReview.outcome) &&

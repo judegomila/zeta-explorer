@@ -10,7 +10,7 @@
  * of SPLIT-LOO by a single constant and drops the m-and-r-uniform
  * every-octave certificate onset from 27.0356 to 15.9816 (r = 1.3).
  * Twenty-ninth leg of the seam chain. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95226 normalization). Rates nu_i > 0, E_V =
  * span{e^(-nu t)} in L2(0, inf), Gram G_ij = 1/(nu_i + nu_j),
@@ -258,8 +258,8 @@ export const IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL = {
     "imp-95227 COAL-DOM + imp-95231 RATE-MONO as cited inputs to " +
     "SPLIT-RZ only. The imp-95252 m-uniform block Riesz question is " +
     "ANSWERED POSITIVELY on the lattice skeleton; the r-uniform block " +
-    "pencil version stays OPEN. Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "pencil version stays OPEN. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -732,7 +732,7 @@ export const IMP95252_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: RIGOROUS theorems, " +
       "imp-95252 ANSWERED POSITIVELY on the skeleton, r-uniform pencil " +
-      "OPEN, no bound change, no QED, PT SOTA",
+      "OPEN, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL.verdict) &&
       /ANSWERED POSITIVELY/.test(
@@ -743,7 +743,7 @@ export const IMP95252_ASSERTIONS = [
         IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL.verdict,
       ) &&
       /NO QED/.test(IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL.verdict) &&
-      /remains SOTA/.test(IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL.verdict) &&
+      /refereed bound is changed/i.test(IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL.verdict) &&
       /not coalescence-uniform/.test(
         IMP95252_MUNIFORM_BLOCK_RIESZ_SEAM_PENCIL.honestScope,
       ),

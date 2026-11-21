@@ -76,7 +76,7 @@
  *
  *   STATUS: a grouping/index note over six already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97495-krein-route2-kbig300-380-direct-floor.js (Route-2 Kbig={300,340,380}; tightens to -309.931066)
  * @see imp-97513-krein-route2-kbig420-500-deep-floor.js (supersedes: Kbig={420,460,500}; tightens further to -310.375499)
@@ -89,7 +89,7 @@
  * @see imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js (sibling meta index: broader eight-ticket obstruction cohort)
  *
  * Ticket: imp-97527 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein sub-cohort
@@ -193,7 +193,7 @@ export const IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX = Object.freeze
     'term is confirmed to approach K0=1/24 at a genuine 1/ln x rate with residual exactly M0/ln x ' +
     '(imp-97499). No bound moves in either sub-cohort: interval-rigorous certified reach stays EXACTLY ' +
     '2a<=0.96, MCM stays verified-not-proved, and no coercivity constant or positive lambda_2 lower bound ' +
-    'results. RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'results. RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97495 (Route-2 Kbig={300,340,380}; tightens to -309.931066); imp-97496 (explicit witness b*, ' +
     'T(b*)<-1/4); imp-97497 (well-capture scalar optimum tail-converges to 7.53+-0.01); imp-97498 (fixed ' +
@@ -260,13 +260,13 @@ export const IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97527-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.anyBoundMoved === false &&
       IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.certifiedReach === 0.96 &&
       IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.certifiedReach < IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.ln3 &&
       /NO QED/.test(IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX.verdict),
   },
 ];

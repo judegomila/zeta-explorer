@@ -63,8 +63,7 @@
  *
  * Grade: DERIVATION / model-refinement over the frozen imp-95214/95238/95257/95277
  * ledgers using the imp-95214 MEASURED cost mix; NOT a wall-clock measurement (no
- * native run). Changes no bound; launches nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * native run). Changes no bound; launches nothing; NO QED; no refereed bound is changed.
  */
 
 import { TIER2_PRICE } from './imp-95214-tier2-chirp-level.js';
@@ -148,7 +147,7 @@ export const PRECISION_REPLAY_MULTIPLY_MIX = Object.freeze({
     'central estimate (residual at least linear) of ~42.4 / 70.7 / 106.3 / 148.9 CPU-days. The factor ' +
     'is common to both routes so the 17.9x tier-2 dominance and DO-NOT-run-level-1 recommendation are ' +
     'unchanged. Model refinement over the frozen imp-95214/95277 ledgers, not a native replay; ' +
-    'launches nothing; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'launches nothing; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // -- self-executing assertions (import-light; recomputable arithmetic only) --
@@ -227,14 +226,14 @@ export const IMP95379_ASSERTIONS = [
   {
     id: 'imp95379-dominance-preserved-and-honesty-gate',
     description:
-      'fail-closed honesty: the narrowed factor still rescales both routes equally so dominance is preserved at every rung (imp-95277 dominancePreservedEveryRung true), this is a model refinement not a wall-clock run, it moves no bound, and the verdict states NO QED and PT-SOTA',
+      'fail-closed honesty: the narrowed factor still rescales both routes equally so dominance is preserved at every rung (imp-95277 dominancePreservedEveryRung true), this is a model refinement not a wall-clock run, it moves no bound, and the verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       PRECISION_REPLAY_MULTIPLY_MIX.dominancePreservedEveryRung === true &&
       PRECISION_REPLAY_MULTIPLY_MIX.isWallClockMeasurement === false &&
       PRECISION_REPLAY_MULTIPLY_MIX.movesBound === false &&
       /NARROWED/.test(PRECISION_REPLAY_MULTIPLY_MIX.verdict) &&
       /NO QED/.test(PRECISION_REPLAY_MULTIPLY_MIX.verdict) &&
-      /remains SOTA/.test(PRECISION_REPLAY_MULTIPLY_MIX.verdict),
+      /refereed bound is changed/i.test(PRECISION_REPLAY_MULTIPLY_MIX.verdict),
   },
 ];
 

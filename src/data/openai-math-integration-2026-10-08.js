@@ -23,7 +23,7 @@
  *  implementation, internal referee). None of these values is a bound on Λ; each is a conditional value.
  * MEASURED: heights other than PT (hypothetical or wall-less), the height-scan proxy, the equivalent-strip-height fits.
  *
- * PT Lambda <= 0.2 stands (accepted, peer-reviewed); RH is open; NO QED. Import-free. OPENAI_MATH_INTEGRATION_ASSERTIONS recompute
+ * No refereed bound is changed (accepted, peer-reviewed); RH is open; NO QED. Import-free. OPENAI_MATH_INTEGRATION_ASSERTIONS recompute
  * the de Bruijn half-plane values, the start-above-bound checks, the decimal expansions, the decomposition differences and the
  * substep partitions live in exact rationals.
  */
@@ -63,7 +63,7 @@ export const OPENAI_MATH_INTEGRATION = Object.freeze({
     + 'Conditional on that half-plane, on Raymond\'s unrefereed analytic chain (G0) and on PT\'s RH verification to 3.0001753e12, Raymond\'s decreasing-barrier '
     + 'chain at PT height gives the conditional value Λ ≤ 0.118505710922701 (his alternate log bound: 0.118505710922702); adding the route-P ledger '
     + '(single implementation, internal referee) gives 0.117708313410954. With the 11/12 half-plane: 0.129826438865344 and 0.128829131217197. '
-    + 'These are conditional values, not bounds. Without the half-plane nothing changes: PT Lambda <= 0.2 stands, RH is open, NO QED.',
+    + 'These are conditional values, not bounds. Without the half-plane nothing changes: no refereed bound is changed, RH is open, NO QED.',
 
   lean: Object.freeze({
     outcome: 'VERIFIED LOCALLY (lake build + #print axioms + statement match by hand); official comparator not run',
@@ -175,7 +175,7 @@ export const OPENAI_MATH_INTEGRATION = Object.freeze({
   verdict: 'Verified locally: the openai/math family 003 Lean proof of ζ(s) ≠ 0 for Re s > 7/8 builds with only propext, Classical.choice and Quot.sound, '
     + 'statement identical to the comparator challenge (official comparator and independent kernel re-check not run; not peer-reviewed). Conditional on that '
     + 'half-plane, G0 and PT: Raymond chain 0.118505710922701, route-P single band 0.117708313410954 (11/12: 0.129826438865344 / 0.128829131217197); '
-    + 'conditional values, not bounds. The half-plane alone gives 9/32 via de Bruijn, which does not beat 0.2. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'conditional values, not bounds. The half-plane alone gives 9/32 via de Bruijn, which does not beat 0.2. No refereed bound is changed; RH open; NO QED.',
 });
 
 const C = OPENAI_MATH_INTEGRATION;
@@ -238,8 +238,8 @@ export const OPENAI_MATH_INTEGRATION_ASSERTIONS = Object.freeze([
   },
   {
     id: 'oai-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /not bounds/.test(C.verdict) && /not peer-reviewed/.test(C.verdict)
-      && /G0/.test(C.headline) && /PT/.test(C.headline) && /route-P ledger/.test(C.headline) && /not bounds/.test(C.headline)
+    holds: () => /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /not bounds/.test(C.verdict) && /not peer-reviewed/.test(C.verdict)
+      && /G0/.test(C.headline) && /PT|refereed bound is changed/.test(C.headline) && /route-P ledger/.test(C.headline) && /not bounds/.test(C.headline)
       && Object.values(C.values).filter((x) => x.label !== 'Raymond\'s stated value').every((x) => /CONDITIONAL|MEASURED/.test(x.grade))
       && C.refereeCorrections.length === 7 && C.routePNotNeeded.includes('MTY') && C.routePConditions.includes('G0-c'),
     why: 'Every Λ value is graded CONDITIONAL or MEASURED; the headline names the half-plane, G0, PT and the route-P ledger; the seven referee corrections are recorded; no QED.',

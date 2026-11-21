@@ -46,7 +46,7 @@
  *  polylog growth in T; the windows H_desc needs (around close pairs) are the ones where the certificate is weakest; the
  *  neutral density suggests the constant-p hypothesis H_desc-mirror is itself atypical.
  *
- * Verdict: no bound moves. RH open; PT Lambda <= 0.2 stands; the project's Λ ≤ 0.1758354 is an unreviewed computer-assisted
+ * Verdict: no bound moves. RH open; no refereed bound is changed; the project's Λ ≤ 0.1758354 is an unreviewed computer-assisted
  * candidate; NO QED.
  * Scripts: tmp/ns3-locallev-{zeta,test-zeta,window,analyze,hmin,ldev,palm,closepair-density,reflection}.py (+ .json/.npz);
  * referee: tmp/ns3-locallev-ref0-{em,analyze,fixed99,mp1e6}.py, tmp/ns3-locallev-ref1-hmin.py.
@@ -85,7 +85,7 @@ export const NS3_LOCALLEV = Object.freeze({
     + 'on the same data. (2) Count vs density: every sound certificate has N_0(W) ≤ N(W); the neutral Palm count 2.530 is below p_req = 4.37 even if every '
     + 'zero is real, and the measured density near close pairs is neutral (1.005×), so the required ~1.73× surplus (model-based, heuristic) is not '
     + 'supplied by any window length and appears atypical in itself. Certificates fail most often around close pairs (28/93 at n = 8, T = 1e6, vs ~11%). '
-    + 'The functional equation couples each height only to itself (structural argument). RH open; PT Lambda <= 0.2 stands; the project’s '
+    + 'The functional equation couples each height only to itself (structural argument). RH open; no refereed bound is changed; the project’s '
     + 'Λ ≤ 0.1758354 is an unreviewed computer-assisted candidate. NO QED.',
   Ts: [1e4, 1e5, 1e6],
   sample: { zeros: [707, 2310, 5719], spans: [600, 1500, 3000], windows: [2.8e3, 9.2e3, 2.2e4], endpointStep: 0.25, droppedEndpointsFrac: 0.015 },
@@ -237,7 +237,7 @@ export const NS3_LOCALLEV_ASSERTIONS = Object.freeze([
   },
   {
     id: 'locallev-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status) && M.tiers.certified.length === 0
+    holds: () => /refereed bound is changed/i.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status) && M.tiers.certified.length === 0
       && /model-based/.test(M.verdict) && /not interval-certified/.test(M.status) && M.tiers.heuristic.some((x) => /1\.73/.test(x))
       && !M.tiers.proved.some((x) => /cost|functional equation gives/.test(x)) && /unreviewed/.test(M.verdict),
     why: 'Referee corrections: step-1 cost and the FE argument are not in the proved tier; the 1.73× requirement is model-based; nothing certified.',

@@ -5,7 +5,7 @@
  *   Wigner-surmise proxy, to test whether the ~2.75x SE inflation over the imp-96654 autocorrelated
  *   OLS SE is proxy-robust or an artifact of dropping multi-gap correlations.
  *   Theoretical GUE (beta = 2), NOT real zeros. Measurement only; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   THE SUB-GAP BEING CLOSED (imp96774-wigner-surmise-iid-proxy)
  *   -----------------------------------------------
@@ -67,7 +67,7 @@
  *   A numerical re-measurement of the exponent SE on a CORRELATED exact-GUE (sine-kernel) sample. It
  *   uses NO real zeros, instantiates no interval, closes no analytic sub-gap, and moves no bound. The
  *   imp-96616 consequence is unchanged: beating the 1/log^2 surrogate still needs the unproved GUE
- *   cube-root small-gaps law. RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   cube-root small-gaps law. RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96774-gmin-exponent-refit-genuine-se.js (the iid-proxy SD 0.0568 / 2.75x inflation this re-tests)
  * @see imp-96654-gmin-crossover-sensitivity-oscillation.js (the OLS SE = 0.0206 / "3 SE" reading)
@@ -75,7 +75,7 @@
  * @see imp-96616-gmin-ratio-extreme-gap-decay.js (the real-zeros fit A N^b, b = -0.3953)
  *
  * Ticket: imp-96810 (numerical, low, opus-4-8). Measurement only; theoretical GUE not real zeros;
- * changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 export const IMP96810_SINE_KERNEL_CORRELATED_SE = Object.freeze({
@@ -171,7 +171,7 @@ export const IMP96810_SINE_KERNEL_CORRELATED_SE = Object.freeze({
     'inflation of imp-96774 is proxy-robust, not an iid artifact. Re-scored against the correlated spread ' +
     'the real-zeros b = -0.395338 sits only ~0.72 SD from the pole. Changes no bound; the imp-96616 ' +
     'consequence (beating 1/log^2 needs the unproved GUE cube-root law) is unchanged; RH open; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-96774 (iid-proxy SD 0.0568 / 2.75x inflation re-tested here); imp-96654 (OLS SE 0.0206); ' +
     'imp-96680 (near-pole fragility headword); imp-96616 (real-zeros fit A N^b).',
@@ -200,7 +200,7 @@ export const IMP96810_SINE_KERNEL_CORRELATED_SE_ASSERTIONS = [
   },
   {
     id: 'imp96810-honesty-gate-no-qed',
-    why: 'Measurement only: no bound moved, honest sub-gap named, closes the imp-96774 sub-gap, NO QED, PT SOTA line present.',
+    why: 'Measurement only: no bound moved, honest sub-gap named, closes the imp-96774 sub-gap, NO QED, no-refereed-bound-change line present.',
     holds: () => {
       const m = IMP96810_SINE_KERNEL_CORRELATED_SE;
       return (
@@ -208,7 +208,7 @@ export const IMP96810_SINE_KERNEL_CORRELATED_SE_ASSERTIONS = [
         m.subGapClosed === 'imp96774-wigner-surmise-iid-proxy' &&
         m.subGap.key === 'imp96810-reduced-nmax-concatenated-blocks' &&
         /NO QED/.test(m.verdict) &&
-        /remains SOTA/.test(m.verdict)
+        /refereed bound is changed/i.test(m.verdict)
       );
     },
   },

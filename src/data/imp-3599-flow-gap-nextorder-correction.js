@@ -82,8 +82,7 @@
  *        is the honest O(eps^3)/curvature sub-gap imp-3599-nextorder-residual-tail.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3580-sigma-crossover-floor-invariance (the leading gap ~ 2 E_flow/E_trunc law and residual)
  * @see imp-3556-sigma-threshold-crossings-rootsolve (baseline half-decay <=> crossover certification)
@@ -255,8 +254,8 @@ export const IMP3599_FLOW_GAP_NEXTORDER_CORRECTION = {
     'survives from the neglected O(eps^3) term, the slope-expansion curvature, and the finite-difference ' +
     'evaluation of lambda, mu -- the exact identity is complete, the closed perturbative expansion is ' +
     'truncated at O(eps^2). Derivation/measurement only; no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3580 (leading gap ~ 2 E_flow/E_trunc law and its measured residual); imp-3556 (baseline ' +
     'half-decay <=> crossover certification); imp-3444 (E_coll=E_trunc crossover N ~ 3.280e9); ' +
@@ -309,14 +308,14 @@ export const IMP3599_FLOW_GAP_NEXTORDER_CORRECTION_ASSERTIONS = [
       Math.abs(BASELINE.resid_leading_pp - 0.01826) < 5e-4,
   },
   {
-    // Honesty gate: measurement/derivation only, named sub-gap, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/derivation only, named sub-gap, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3599-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: named sub-gap, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/derivation only: named sub-gap, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3599_FLOW_GAP_NEXTORDER_CORRECTION.isRigorous === false &&
       IMP3599_FLOW_GAP_NEXTORDER_CORRECTION.subGap === 'imp-3599-nextorder-residual-tail' &&
       /NO QED/.test(IMP3599_FLOW_GAP_NEXTORDER_CORRECTION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3599_FLOW_GAP_NEXTORDER_CORRECTION.verdict) &&
+      /refereed bound is changed/i.test(IMP3599_FLOW_GAP_NEXTORDER_CORRECTION.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3599_FLOW_GAP_NEXTORDER_CORRECTION.verdict),
   },
 ];

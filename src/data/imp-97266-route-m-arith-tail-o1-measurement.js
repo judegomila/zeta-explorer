@@ -48,8 +48,8 @@
  * grow only on the primorials, precisely where it over-counts the flat true tail. This measurement does
  * NOT prove the O(1) bound (the mu-cancellation making R converge is not certified here); it only sizes
  * the residual: a cancellation-exploiting estimate targeting the measured constant L ~ 0.127 would upgrade
- * the uniform E0 bound from (1/2) log b + O(log log b) to (1/2) log b + O(1). No bound on Lambda moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * the uniform E0 bound from (1/2) log b + O(log log b) to (1/2) log b + O(1). No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js (the uniform E0 bound; IMP97202_SUBGAP)
  * @see imp-97218-route-m-first-moment-two-open-halves-banner.js (the two open halves this sizes one of)
@@ -190,11 +190,11 @@ export const IMP97266_VERDICT = Object.freeze({
     'infinitely loose and the true tail is O(1). This does NOT prove the O(1) bound (the Moebius cancellation ' +
     'is uncertified here); it sizes the residual -- a cancellation-exploiting estimate targeting L ~ 0.127 ' +
     'would upgrade the uniform E0 bound from (1/2) log b + O(log log b) to (1/2) log b + O(1). No bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97266_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97202 Stirling tail R(b) is ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97202 Stirling tail R(b) is ' +
   'empirically O(1) -- it vanishes like 1/(12 b) on primes and prime powers and converges to a finite limit ' +
   'L ~ 0.127 (< 0.13) on the binding primorial class, while (1/6) sigma(b)/b (the proved O(log log b) source) ' +
   'diverges there, so the proved envelope is asymptotically infinitely loose. This sizes the tail half of the ' +
@@ -268,7 +268,7 @@ const IMP97266_ASSERTIONS = [
       IMP97266_VERDICT.bindingClass === 'primorials' &&
       /IMP97202_SUBGAP/.test(IMP97266_VERDICT.sizesResidual) &&
       /NO QED/.test(IMP97266_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97266_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97266_HONEST_BANNER) &&
       /RH open/.test(IMP97266_HONEST_BANNER),
     why: 'measurement sizing the tail half of the imp-97202 IMP97202_SUBGAP: the tail is empirically O(1) but the O(1) bound is NOT proved here (mu-cancellation uncertified) -- no bound moved, no rigorous ceiling, no QED.',
   },

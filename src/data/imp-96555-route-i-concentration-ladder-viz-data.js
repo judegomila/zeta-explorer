@@ -10,7 +10,7 @@
  *
  * No re-derivation: every lambda_0(c), dip-concentration, and nu_max value is copied verbatim
  * from UNCERTAINTY_CERTIFICATE_LITERALS.slepian. Presentation only; changes no bound;
- * establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see rh-route-i-uncertainty-concentration-certificate-2026-09-24.js (the source module this reshapes)
  *
@@ -52,7 +52,7 @@ export const IMP96555_PENCIL_RATIO = Object.freeze({
 });
 
 export const IMP96555_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every lambda_0(c), '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every lambda_0(c), '
   + 'dip-concentration, and pencil-ratio value plotted here is copied verbatim from the Route I '
   + 'uncertainty/concentration certificate (rh-route-i-uncertainty-concentration-certificate-2026-09-24). '
   + 'The pure concentration bound FAILS on its own (nu_max = 0.997689 means only a 0.23% cancellation '

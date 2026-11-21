@@ -46,7 +46,7 @@
  * tail-certificate narrative section; imp-3548 (xi* quadrature scheme invariance)
  * belongs beside the existing xi*/C_inf sections on ClosureRoutesPage. This module
  * fabricates NO pages; it only records the audit and flags the orphans. No new
- * bound, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498, imp-3517, imp-3539 (the prior audits in this series)
  */
@@ -77,7 +77,7 @@ export const IMP_3568_3525_3532_3548_COHORT_MODULE_SURFACING_AUDIT = {
     'tail-certificate narrative section; imp-3548 beside the xi*/C_inf sections on ClosureRoutesPage. ' +
     'Do not fabricate pages in this audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -98,9 +98,9 @@ const IMP_3568_ASSERTIONS = [
   },
   {
     id: 'imp3568-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3568_3525_3532_3548_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3568_3525_3532_3548_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3568_3525_3532_3548_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

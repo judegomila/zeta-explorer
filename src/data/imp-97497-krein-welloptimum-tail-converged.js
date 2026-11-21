@@ -50,7 +50,7 @@
  *   corrects the informal "~7.3" upward by ~0.2, and gives ratio 12.9x to c_sharp ~ 0.582 (not ~12.5x).
  *   The smooth confinement scalar optimum stays an order of magnitude above the spectral optimum.
  *   Measurement only; no operator positivity; no coercivity constant; no bound moves; interval-rigorous
- *   reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js (FINDING 2: the drift 6.56->7.22, informal ~7.3)
  * @see imp-97458-krein-csharp-discarded-positive-far-field.js (the spectral far-field cost; t^4 ln t tail)
@@ -58,7 +58,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; reach 2a <= 0.96)
  *
  * Ticket: imp-97497 (numerical, medium, opus-4-8). Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

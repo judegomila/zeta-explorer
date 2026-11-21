@@ -36,7 +36,7 @@
  *   class. Mass-feasibility B > D_0 is NECESSARY-BUT-NOT-SUFFICIENT and the
  *   degree-0 budget proxy is circular (its budget IS ||V||). The operator-level
  *   K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3255-bridge-ratio-closed-form.js (the closed form this module certifies numerically)
  *   @see imp-3251-bridge-margin-resolution-stability.js (same integrals, tau-grid resolution)
@@ -231,7 +231,7 @@ export const IMP3349_BRIDGE_RATIO_NUMERICAL_CERTIFICATION = Object.freeze({
       'degree-0 budget proxy is circular (its budget IS ||V||). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -290,7 +290,7 @@ export const IMP3349_BRIDGE_RATIO_NUMERICAL_CERTIFICATION_ASSERTIONS = [
   {
     id: 'imp3349-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: numerical certification of closed-form structure only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3349_BRIDGE_RATIO_NUMERICAL_CERTIFICATION.honestCaveat;
       return (
@@ -298,7 +298,7 @@ export const IMP3349_BRIDGE_RATIO_NUMERICAL_CERTIFICATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

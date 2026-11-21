@@ -56,7 +56,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS
  * surrogate is descriptive, not derived; the imp-33843 log-linear-vs-power-law FORM verdict is UNTOUCHED;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33985-loo-model-selection-sensitivity (the leave-ONE-out test this extends to leave-TWO-out)
  * @see imp-33941-endpoint-peak-growth-model-selection (the full-sample AIC/BIC/AICc decision stress-tested)
@@ -217,7 +217,7 @@ export const IMP34042_LTO_MODEL_SELECTION_SENSITIVITY = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-' +
     'power-law FORM verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33985 (the leave-ONE-out test extended here); imp-33941 (the full-sample AIC/BIC/AICc decision); ' +
     'imp-33917 (the 9 endpoint peaks reused verbatim as the LTO data); imp-33843 (the log-linear OLS ' +
@@ -272,17 +272,17 @@ export const IMP34042_LTO_MODEL_SELECTION_SENSITIVITY_ASSERTIONS = [
       LOW_PAIR_FOLD.positiveBand === true,
   },
   {
-    // Honesty gate: LTO sensitivity, isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 clause SPECIFICALLY
+    // Honesty gate: LTO sensitivity, isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 clause SPECIFICALLY
     // untouched -- imp-34122 flagged that a generic /UNTOUCHED/ regex also matches the unrelated imp-33843
     // FORM verdict and C_mb clauses, so it does not actually bind to the imp-3066 statement (imp-34024-26
     // convention).
     id: 'imp34042-honesty-gate-imp3066-specific-no-qed',
-    description: 'Measurement only: isRigorous false, imp-3066 K_a >= 0 untouched (clause-specific), no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, imp-3066 K_a >= 0 untouched (clause-specific), no QED, no refereed bound is changed',
     holds: () =>
       IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.isRigorous === false &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict),
   },
 ];
 

@@ -6,7 +6,7 @@
  * the imp-97210 obligation ledger records -- against the two leaves it is built from but never checked
  * against jointly: the imp-97226 signed varying-modulus half S(b)/(phi(b) b) -> ~-0.0795 and the
  * imp-97119 PROVED boundary asymptotic V(1,b) = o(phi(b) b). Cross-validation only; kappa_cot stays
- * MEASURED; no bound moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * MEASURED; no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE IDENTITY BEING CHECKED (imp-97097 isolation; imp-97210 ledger row).
@@ -57,7 +57,7 @@
  * the finite-b truncation of the signed leg at b=24001 (the ratio is still creeping toward its
  * asymptote), NOT a certified error bar. The positivity of the whole kappa still rests on the single
  * open scalar c_1 (equivalently M2w < 0.32546) named by imp-97210. No bound on Lambda moves.
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97210-route-m-kappa-obligation-ledger.js (the ledger recording kappa_cot ~ +0.12 MEASURED)
  * @see imp-97226-route-m-cotangent-cancellation-ratio-ladder.js (signed half S/(phi b b) -> -0.0795)
@@ -66,7 +66,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97270 (accuracy, opus-4-8, api-pool). Cross-validation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // -- inputs pulled verbatim from the three leaves (no recomputation) --
@@ -129,11 +129,11 @@ export const IMP97270_VERDICT = Object.freeze({
     'a non-elementary Bettin-Conrey mean value, not certified); the ~6e-4 residual is the finite-b ' +
     'truncation of the signed leg at b=24001, not a certified error bar; the positivity of the whole ' +
     'kappa still rests on the single open scalar c_1 (M2w < 0.32546). No bound on Lambda moves. ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97270_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation only: the operative cotangent ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-validation only: the operative cotangent ' +
   'coefficient kappa_cot ~ +0.12 (imp-97210 ledger, MEASURED) reconstructs as -(pi/2) lim Phi/(phi b b) ' +
   '= (pi/2)*0.079513 = +0.124899 from the imp-97226 signed half (-0.079513) plus the imp-97119 PROVED ' +
   'vanishing boundary leg; it agrees with the total-minus-arith +0.125504 to 6.05e-4 and closes the ' +
@@ -176,7 +176,7 @@ const IMP97270_ASSERTIONS = [
       IMP97270_VERDICT.anyBoundMoved === false &&
       IMP97270_VERDICT.qed === false &&
       /NO QED/.test(IMP97270_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97270_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97270_HONEST_BANNER) &&
       /RH open/.test(IMP97270_HONEST_BANNER),
     why: 'cross-validation only: kappa_cot stays MEASURED, no bound moved, honesty markers present.',
   },

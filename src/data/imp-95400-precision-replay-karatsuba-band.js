@@ -53,8 +53,7 @@
  *
  * Grade: DERIVATION / ladder extension over the frozen imp-95214 / imp-95380
  * ledgers; NOT a wall-clock measurement (no native run, no replay launched).
- * Changes no bound; imp-95277 / imp-95380 untouched; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Changes no bound; imp-95277 / imp-95380 untouched; NO QED; no refereed bound is changed.
  */
 
 import { KARATSUBA_CROSSOVER_LADDER } from './imp-95380-karatsuba-crossover.js';
@@ -127,7 +126,7 @@ export const PRECISION_REPLAY_KARATSUBA_BAND = Object.freeze({
     '>=1920-bit G5 replay should be read off the Karatsuba column. Dominance stays precision-invariant ' +
     '(both routes rescale by the same factor). Ladder extension derived from the frozen imp-95214/95380 ' +
     'ledgers, not a native replay; launches nothing; changes no bound; imp-95277/imp-95380 untouched; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 // -- self-executing assertions (import-light; recomputable arithmetic only) ---
@@ -233,7 +232,7 @@ export const IMP95400_ASSERTIONS = [
   {
     id: 'imp95400-dominance-preserved-and-honesty-gate',
     description:
-      'fail-closed honesty: the band rescales both routes by the same factor so dominance is preserved, this reuses the imp-95380 model (not a new one), it is a limb-model derivation not a wall-clock run, moves no bound, and the verdict states NO QED and PT-SOTA',
+      'fail-closed honesty: the band rescales both routes by the same factor so dominance is preserved, this reuses the imp-95380 model (not a new one), it is a limb-model derivation not a wall-clock run, moves no bound, and the verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       PRECISION_REPLAY_KARATSUBA_BAND.dominancePreservedEveryRung === true &&
       PRECISION_REPLAY_KARATSUBA_BAND.reusesImp95380Model === true &&
@@ -242,7 +241,7 @@ export const IMP95400_ASSERTIONS = [
       PRECISION_REPLAY_KARATSUBA_BAND.movesBound === false &&
       /FULL-BAND/.test(PRECISION_REPLAY_KARATSUBA_BAND.verdict) &&
       /NO QED/.test(PRECISION_REPLAY_KARATSUBA_BAND.verdict) &&
-      /remains SOTA/.test(PRECISION_REPLAY_KARATSUBA_BAND.verdict),
+      /refereed bound is changed/i.test(PRECISION_REPLAY_KARATSUBA_BAND.verdict),
   },
 ];
 

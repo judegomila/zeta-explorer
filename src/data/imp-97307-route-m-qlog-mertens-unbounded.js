@@ -7,7 +7,7 @@
  * 0.56146). The assessment OVERTURNS the O(1) hypothesis: Qlog is NOT uniformly bounded over squarefree b. The
  * imp-97288 "sup 0.475 -> e^{-gamma} from below" was a PRIMORIAL / HIGHLY-COMPOSITE SAMPLING ARTIFACT -- every
  * b it sampled contained ALL the small primes. Over squarefree b whose prime support AVOIDS an initial segment
- * of primes, |Qlog(b)| grows without bound. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open;
+ * of primes, |Qlog(b)| grows without bound. No bound on Lambda moves; no refereed bound is changed; RH open;
  * NO QED.
  *
  *   Notation as imp-97288: for squarefree b, |Qlog(b)| = F(P) where P = {primes dividing b} and
@@ -71,7 +71,7 @@
  * artifact); the conditional |E1| <= 1.9261 b is not established. RESIDUAL / the correct precise obstruction:
  * the joint cancellation (b/12) Qlog + C_sum = O(b) inside CK (not a bound on Qlog alone). The unconditional
  * |E1| = O(b log b), 2^omega-free, is unaffected; the sharp 1/4 stays the imp-97265 close-factor sub-gap;
- * kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97288-route-m-e1-explicit-uniform-constant.js (claimed Qlog uniformly O(1), sup 0.475 -> e^{-gamma}; CORRECTED here)
  * @see imp-97289-route-m-arith-tail-o1-proof.js (the sibling E0 Stirling-tail cancellation obstruction)
@@ -164,8 +164,8 @@ export const IMP97307_VERDICT = Object.freeze({
     'the unconditional |E1| = O(b log b), 2^omega-free, STANDS (the crude |Qlog| <= log b is unaffected and ' +
     'the log is genuine). The correct precise obstruction to a uniform O(b) E1 constant is the JOINT ' +
     'cancellation (b/12) Qlog(b) + C_sum(b) = O(b) inside CK -- not a bound on Qlog alone. The sharp 1/4 ' +
-    'stays the imp-97265 close-factor sub-gap; kappa_arith unchanged; no bound on Lambda moves; PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'stays the imp-97265 close-factor sub-gap; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97307_SUBGAP = Object.freeze({
@@ -184,7 +184,7 @@ export const IMP97307_SUBGAP = Object.freeze({
 });
 
 export const IMP97307_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial CORRECTING imp-97288: Qlog(b) is NOT ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial CORRECTING imp-97288: Qlog(b) is NOT ' +
   'uniformly bounded. The add-a-prime identity F(P u {p}) - F(P) = (prod_P/p)(log p - S(P)) plus Mertens ' +
   'give F({primes in (y,x]}) -> e^{-gamma}/prod_{p<=y}(1-1/p) ~ log y, so sup|Qlog| = +infinity; the ' +
   'imp-97288 sup 0.475 -> e^{-gamma} was a primorial-sampling artifact (concrete counter b = prod(primes ' +
@@ -268,7 +268,7 @@ const IMP97307_ASSERTIONS = [
       /qlog-unbounded/.test(IMP97307_SUBGAP.id) &&
       /imp-97288/.test(IMP97307_SUBGAP.corrects) &&
       /NO QED/.test(IMP97307_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97307_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97307_HONEST_BANNER) &&
       /RH open/.test(IMP97307_HONEST_BANNER),
     why: 'honest partial -- derives the add-a-prime identity and the Mertens divergence sup|Qlog| = +infinity, corrects the imp-97288 O(1) sampling artifact, and re-states the E1 obstruction as a joint cancellation; no bound moved, no rigorous ceiling posted, no QED.',
   },

@@ -46,14 +46,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96513 verdict for quick
  *   reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96513-count-model-gap-1e6-to-1e22-extrapolation (source: the finding this glosses)
  * @see imp-96426-ecoll-anchor-intermediate-heights (the true-height anchors up to N = 1e6, and +7/8 dominant omission)
  * @see imp-96402-ecoll-anchor-from-tabulated-true-zero-height (the N = 1e22 double-floor endpoint)
  *
  * Ticket: imp-96665 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The featureless-power-law headword, baked verbatim (no re-import).
@@ -96,7 +96,7 @@ const ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_HEADWORD = Object.freeze({
     'reconstruction, not a measurement against true zero heights past N = 1e6 ' +
     '(none exist in-repo). Changes no bound; the conditional C_H <= 0.127 stays ' +
     'UNPROVEN; C_H isRigorousUpperBound remains false (imp-2642/imp-2701); ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWORD = Object.freeze({
@@ -119,7 +119,7 @@ export const IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWO
     'double-precision direct-subtraction measurement collapsing to zero near ' +
     'N ~ 1e15 -- is a storage-resolution artifact, not a count-model feature. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96513 (the extrapolation and finding this glosses); imp-96426 (true-height ' +
     'anchors up to N = 1e6 and the +7/8 dominant-omission finding); imp-96402 ' +
@@ -148,11 +148,11 @@ export const IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWO
   },
   {
     id: 'imp96665-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWORD.verdict) &&
       IMP96665_ECOLL_COUNT_MODEL_GAP_FEATURELESS_POWERLAW_GLOSSARY_HEADWORD.glosses === 'imp-96513',
   },
 ];

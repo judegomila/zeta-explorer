@@ -130,7 +130,7 @@
  * (b) 69/250 is the certified constant, not the sharp class threshold
  * (sandwich [0.23, 0.276]; float landmarks 0.2321 and 0.2754 measured
  * only). (c) Parity-pure only. (d) Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) The reduction chain was stress-tested
  * with 3000 seeded free-floor multi-packet parity-pure witnesses
@@ -475,7 +475,7 @@ export const IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM SA is unconditional given the sibling-chain witness conventions: Lemma QF is the exact quadratic-form identity on the Lemma L2 cluster geometry (no inequality beyond lamMax), the cap domination chain carries the imp-95134 sharp cluster cap and the imp-95135 Perron step, Lemma OG is exact integer arithmetic, Lemma HT is a row-sum bound with explicit rational-power domination, and the head certificate is Sylvester's criterion on a 4x4 matrix whose entries dominate the exact caps through the single alternating-series constant U552 >= exp(-0.552) (explicit 1e-12 float slack, sibling convention). The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 69/250 is not the sharp threshold (sandwich [0.23, 0.276]); the aggregation leg stays OPEN under the cap-simultaneity residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM SA is unconditional given the sibling-chain witness conventions: Lemma QF is the exact quadratic-form identity on the Lemma L2 cluster geometry (no inequality beyond lamMax), the cap domination chain carries the imp-95134 sharp cluster cap and the imp-95135 Perron step, Lemma OG is exact integer arithmetic, Lemma HT is a row-sum bound with explicit rational-power domination, and the head certificate is Sylvester's criterion on a 4x4 matrix whose entries dominate the exact caps through the single alternating-series constant U552 >= exp(-0.552) (explicit 1e-12 float slack, sibling convention). The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 69/250 is not the sharp threshold (sandwich [0.23, 0.276]); the aggregation leg stays OPEN under the cap-simultaneity residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -623,11 +623,11 @@ export const IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95136-sa-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure, model family, 69/250 certified not sharp, aggregation leg stays OPEN under the cap-simultaneity residual, parent sub-gap stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure, model family, 69/250 certified not sharp, aggregation leg stays OPEN under the cap-simultaneity residual, parent sub-gap stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.rigorScope) &&
       /stays OPEN/.test(IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.rigorScope) &&
       /remains OPEN/.test(IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.openResiduals[0]) &&
       /stays OPEN, narrowed/.test(IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD.openResiduals[1]) &&

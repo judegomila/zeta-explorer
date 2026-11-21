@@ -69,8 +69,7 @@
  * Gronwall-vacuous at the nearest-pair front (imp-2520 negative-finding 1) -- so G6a stays OPEN.
  *
  * ASSESSMENT / DERIVATION ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (V0 linear in log(gamma/2pi), floor 0.991)
  * @see imp-3661-sigma-crossover-tc-density-corrected-pin (propagates the SCALE into the E(N) constants)
@@ -164,8 +163,8 @@ export const IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT = {
     'Gronwall-vacuous scale. What V0 DOES supply is the collision-TIME scale, which per imp-2564 feeds ' +
     'the E(N) bridge CONSTANTS (imp-3661 propagated it), not the shock-front modulus. G6a_shock_lipschitz ' +
     'therefore stays OPEN. Assessment/derivation only; no positivity, no bridge closure, no RH claim, NO ' +
-    'QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3642 (direct RK4 attractive-Dyson flow; V0 linear in log(gamma/2pi), invariant 0.48458, worst ' +
     'Gronwall floor 0.991 at y_star=4d); imp-3661 (propagates the collision-time SCALE into the E(N) ' +
@@ -216,13 +215,13 @@ export const IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT_ASSERTIONS 
       IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT.g6aStillOpen === true,
   },
   {
-    // Honesty gate: assessment/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: assessment/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3671-honesty-gate-no-qed',
-    description: 'Assessment/derivation only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Assessment/derivation only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3671_MESOSCOPIC_V0_VS_G6A_SHOCK_LIPSCHITZ_ASSESSMENT.verdict),
   },
 ];

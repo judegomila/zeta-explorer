@@ -45,7 +45,7 @@
  * exponents. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the
  * analytic E_flow slope -1 is a property of that surrogate, not of the true residual; changes no
  * bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34571-deflow-exponent-vs-analytic-slope (the observed-only pInf and the two residuals fit here)
  * @see imp-34584-deflow-refit-second-order-term (the residual is not resolvable to next order)
@@ -179,7 +179,7 @@ export const IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING = {
     'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the analytic E_flow slope -1 is a ' +
     'property of that surrogate, not of the true residual; changes no bound; establishes no operator ' +
     'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34571 (the observed-only pInf and the two residuals fit here); imp-34584 (residual not ' +
     'resolvable to next order); imp-34448 (the pInf ~ 1.000 fit and directly-observed local exponents).',
@@ -227,13 +227,13 @@ export const IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING_ASSERTIONS = [
       DEV_ANALYTIC[0].y > DEV_ANALYTIC[DEV_ANALYTIC.length - 1].y,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34590-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING.isRigorous === false &&
       /NO QED/.test(IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING.verdict) &&
-      /remains SOTA/.test(IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34590_DEFLOW_RESIDUAL_ONEOVERLOGN_SCALING.verdict),
   },
 ];

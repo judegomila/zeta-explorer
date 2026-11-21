@@ -47,7 +47,7 @@
  * tail / cell-edge machinery, and (b) the separate interpretive step from a verified
  * T_a[sigma_2] >= 0 certificate to any Weil / operator-positivity statement -- the operator floor is
  * a Rayleigh UPPER bound, and the semilocal Sonine port is independently obstructed at 2a=ln2 (the
- * excess carries half the rho=2 log cusp). RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * excess carries half the rho=2 log cusp). RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96956-krein-kmax5-100-interval-verify.js (the open sub-gap; lean VIOLTOL=0.4 iterate collapse, 226 interior fails)
  * @see imp-96970-krein-kmax5-100-converged-solve-verify.js (Branch A: LP walled at -0.069; the round-12 best iterate + 59-fail constant-guard collapse)

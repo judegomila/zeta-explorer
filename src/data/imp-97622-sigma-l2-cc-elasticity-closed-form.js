@@ -52,8 +52,7 @@
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED and only perturbed here as a sensitivity probe, not
  * re-pinned; E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97598-sigma-landmark-cc-sensitivity (measured L2 C_C-elasticity +2.555, no closed form)
  * @see imp-97565-crossover-cc-sensitivity-landmark-shift (L3 halving closed form 2/(1 - g_prime))
@@ -184,7 +183,7 @@ export const IMP97622_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED (perturbed only as a probe, not re-pinned); E_trunc ' +
     'pinned 3.06e-5 unchanged; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97598 (measured L2 C_C-elasticity +2.555, no closed form); imp-97565 (L3 halving 2/(1 - g_prime)); ' +
     'imp-97585 (E_flow/E_trunc share collapses down the tail); imp-33601 (identity sigma=s <=> E_coll = ' +
@@ -226,11 +225,11 @@ export const IMP97622_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_ASSERTIONS = [
   },
   {
     id: 'imp97622-honesty-gate-no-qed',
-    description: 'derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA, ansatz untouched',
+    description: 'derivation only: isRigorous false, no QED, no refereed bound is changed, ansatz untouched',
     holds: () =>
       IMP97622_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP97622_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP97622_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP97622_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM.verdict),
   },
 ];
 

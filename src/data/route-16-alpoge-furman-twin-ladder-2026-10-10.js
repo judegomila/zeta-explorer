@@ -36,7 +36,7 @@
  *  O(N log L / L) per the proof's own E2 bound; Theorem 5.7's O(1/L) then reads O(log L / L) (text-level, from the extracted PDF).
  *  Citation discrepancy unresolved: AF cite 0.6603 [Wu15] for distinct zeros, Lamzouri credits Ki–Lee 2012 with > 70%.
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_16_ASSERTIONS recompute the window constants, C2,
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_16_ASSERTIONS recompute the window constants, C2,
  * the Christoffel value and extreme measure, the λ-law, d/N, the N(I)/N(I′) certificate gap, the 1/L convergence and the CUE moments live.
  */
 
@@ -103,7 +103,7 @@ export const ROUTE_16 = Object.freeze({
     + 'is 0.5775 in the paper\'s N(I′) form (0.585 with N(I)), tending to 2/3 like 1/L — main-term measurements, not finite-height theorems. In twin-ladder '
     + 'terms the result sits in the class NS-RIGID leaves open (second moment over a height-localised compression of growing dimension, plus signature '
     + 'counting). The route cannot reach RH (ceiling ≈ 0.682 at bandwidth one; 100% only under hypotheses beyond Fourier support 1). No Λ bound moves. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_16;
@@ -179,7 +179,7 @@ export const ROUTE_16_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r16-honest-scope',
-    holds: () => R.status === 'done' && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /preprint/.test(R.verdict)
+    holds: () => R.status === 'done' && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /preprint/.test(R.verdict)
       && /PRZZ 5\/12/.test(R.nsRigidWording) && /not finite-height theorems/.test(R.verdict) && R.constants.ceilingBandwidthOne < 0.7,
     why: 'Reproduction of a preprint; finite-height values are main-term measurements; peer-reviewed record still PRZZ 5/12; ceiling ≈ 0.682; no Λ change; no QED.',
   },

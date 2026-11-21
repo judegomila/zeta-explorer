@@ -11,7 +11,7 @@
  *
  *   ASSESSMENT / DERIVATION only. No certified positive lower bound on lambda_3 is produced; no operator
  *   positivity is established; the m=2 gate stays unreachable at 2a = ln3; no bound on Lambda moves; interval-
- *   rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * SETUP -- WHAT THE m=2 GATE REQUIRES. A = P_a M_sigma2 P_a is self-adjoint, unbounded ABOVE (sigma_2 ~ t^4 log t,
  *   imp-97414), with a CONFINED negative well on [0, 3.306] u [6.945, 10.532] (right edge 10.532, imp-97501) and a
@@ -183,8 +183,8 @@ export const IMP97536_HONEST_BANNER =
   'well-carrying modes -- but it reduces to a CERTIFIED upper bound on B third-largest eigenvalue, a rigorous ' +
   'band-limited concentration estimate for the confined well (fractal/Zygmund eigenfunctions, no certified ' +
   'shoulder). That is the concentration wall one step over. The productive residual is B sub-top spectrum, not ' +
-  'Route-2. No operator positivity; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; PT ' +
-  'Lambda<=0.2 remains SOTA; RH open; NO QED.';
+  'Route-2. No operator positivity; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97536_ASSERTIONS = [
@@ -244,9 +244,9 @@ const IMP97536_ASSERTIONS = [
       Math.abs(IMP97536_BINDING_2A - LN3) < 1e-12 &&
       IMP97536_VERDICT.qed === false &&
       /NO QED/.test(IMP97536_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97536_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97536_HONEST_BANNER) &&
       /RH open/.test(IMP97536_HONEST_BANNER),
-    why: 'assessment/derivation only: no certified lower bound on lambda_3, no operator positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; PT SOTA line present; RH open; NO QED.',
+    why: 'assessment/derivation only: no certified lower bound on lambda_3, no operator positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; no-refereed-bound-change line present; RH open; NO QED.',
   },
 ];
 

@@ -4,8 +4,7 @@
  * b-exact (true worst-in-cell) per-term trace weight, at rho = e^6 and
  * r in {2, e^3, e^5.9}, to quantify how much of the imp-95332 surviving
  * large-rho residual (3.0 - 5.1x) the head trace over-charge carries.
- * MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed.
  *
  * WHY. imp-95337 gave the order-symmetric (Shapley) split of the RZ-PEN6
  * floor looseness between the pair-truncation leg and the b-uniform
@@ -170,7 +169,7 @@ export const IMP95355_T3_HEAD_WEIGHT_GAP = {
     "head term. This quantifies the imp-95332 b-uniform t3 head-weight gap " +
     "at term level and matches the imp-95337 floor-level finding that the " +
     "t3 leg carries the bulk of the residual. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -406,13 +405,13 @@ export const IMP95355_ASSERTIONS = [
   {
     id: "imp95355-honesty-gate",
     description:
-      "the record is measurement-only: no bound changed, NO QED, PT stays " +
-      "SOTA, and the head over-charge is named as the surplus RZ-PEN8 " +
+      "the record is measurement-only: no bound changed, NO QED, no refereed bound is changed" +
+      ", and the head over-charge is named as the surplus RZ-PEN8 " +
       "removes (matching the imp-95337 t3 leg)",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /measurement only/.test(REC.honestScope) &&
       /RZ-PEN8 b-exact trace T8 removes/.test(REC.finding),

@@ -16,7 +16,7 @@
  *   @see imp-33858-widening-fit-residual-localization.js (the head/far-tail endpoint localization)
  *
  *   Ticket: imp-34244 (ux, low). Presentation only; C_mb GUE-conditional per imp-486 UNTOUCHED;
- *   imp-3066 K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.
  */
 
 // All 21 imp-33858 residual rungs, ranked ascending by |flip shift| (cheapest first). Baked from

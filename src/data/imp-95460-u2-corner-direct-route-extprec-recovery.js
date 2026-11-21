@@ -11,8 +11,7 @@
  * fence. This module approaches the remaining half of the imp-95460 ask -- an
  * EXTENDED-PRECISION solve of THE DIRECT ROUTE ITSELF, and a RECORD of the
  * residual conditioning limit that actually caused the float64 breakdown.
- * MEASUREMENT only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * MEASUREMENT only; changes no bound; NO QED; no refereed bound is changed.
  *
  * THE 3 CORNERS (twin lattice V_k = {2^k, r 2^k}, k = 0..m-1; block k solved
  * against the joint rest span of the other blocks):
@@ -58,7 +57,7 @@
  * artifact, not to recover it. (c) Same model-family twin-lattice grid as
  * imp-95425/imp-95479; obligation (3) paper-per-window mapping unchanged.
  * (d) Import-light (no zeros bundle, no sibling imports; numerics self-contained).
- * Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -439,7 +438,7 @@ export const IMP95460_U2_CORNER_DIRECT_ROUTE_EXTPREC_RECOVERY = {
     + "in imp-95479; the explicit-inverse variant is exercised at float64 only "
     + "(to reproduce the artifact), the recovery uses the stable solve route. "
     + "Model-family twin-lattice grid; obligation (3) unchanged. Changes no "
-    + "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    + "bound; NO QED; no refereed bound is changed.",
   fns: { cos2DirectExplicitInv, cos2DirectSolve, phiFence, twinLattice, condSPD },
 };
 
@@ -513,13 +512,13 @@ export const IMP95460_ASSERTIONS = [
     id: "imp-95460-honest-measurement-only",
     description:
       "verdict CONFIRMED, MEASUREMENT ONLY, direction already PROVEN in "
-      + "imp-95249, PT Lambda <= 0.2 stays SOTA",
+      + "imp-95249, no refereed bound is changed",
     holds: () =>
       /CONFIRMED/.test(IMP95460_U2_CORNER_DIRECT_ROUTE_EXTPREC_RECOVERY.verdict)
       && /MEASUREMENT ONLY/.test(
         IMP95460_U2_CORNER_DIRECT_ROUTE_EXTPREC_RECOVERY.honest,
       )
-      && /Lambda <= 0.2\s+remains SOTA/.test(
+      && /refereed bound is changed/i.test(
         IMP95460_U2_CORNER_DIRECT_ROUTE_EXTPREC_RECOVERY.honest,
       ),
   },

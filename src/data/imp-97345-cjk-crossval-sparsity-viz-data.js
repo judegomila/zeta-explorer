@@ -25,7 +25,7 @@
  *      independent float-quadrature sweep, with an exact-match flag per row.
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no operator positivity, no RH
- * claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * claim; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97313-krein-cjk-gauss-legendre-crossval.js (source: independent anchor/census cross-validation)
  * @see imp-97293-krein-committed-cjk-gegenbauer-overlap.js (source: exact BigInt-rational census)
@@ -110,7 +110,7 @@ export const IMP97345_SUMMARY = Object.freeze({
 });
 
 export const IMP97345_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every value here is copied ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every value here is copied ' +
   'verbatim from the imp-97313 independent Gauss-Legendre cross-validation and the imp-97293 exact ' +
   'BigInt-rational census (no re-derivation of any overlap integral or quadrature). Changes no bound.';
 
@@ -153,7 +153,7 @@ const IMP97345_ASSERTIONS = [
     id: 'imp97345-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97345_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97345_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97345_HONEST_BANNER) &&
       /NO QED/.test(IMP97345_HONEST_BANNER),
     why: 'every Krein-route viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -47,8 +47,7 @@
  * imp-35174a / imp-35243a stay OPEN; the reentry band stays NOT ESTABLISHED as a feature of the true dynamic
  * (R1/R4 binding). MEASUREMENT ONLY; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35572-reentry-band-terminal-width-rate-robustness (in-band zero change; census exit left as a >=10^60 lower bound)
  * @see imp-35331-reentry-band-two-rate-phase-drift (two-rate frac-window relocation; census at 4 sampled points)
@@ -206,8 +205,8 @@ export const IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION = {
     'imp-35111a / imp-35174a / imp-35243a stay OPEN; the reentry band stays NOT ESTABLISHED as a feature of the ' +
     'true dynamic (R1/R4 binding); the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35572 (in-band zero change; census exit left as a >=10^60 lower bound); imp-35331 (two-rate frac-window ' +
     'relocation; census at 4 sampled points); imp-34862 (the two-rate law and exact-peel control); imp-35111 ' +
@@ -260,14 +259,14 @@ export const IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION_ASSERTIONS = [
       TWO_RATE_EXIT_EDGES.every((r) => r.exit_log10N > 60 && r.decades_above_nominal > 20),
   },
   {
-    // Honesty gate: measurement only, sharpens imp-35572, discharges nothing, sub-gap OPEN, no QED, PT SOTA.
+    // Honesty gate: measurement only, sharpens imp-35572, discharges nothing, sub-gap OPEN, no QED, no refereed bound is changed.
     id: 'imp35608-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION.isRigorous === false &&
       /imp-35243a stay OPEN/.test(IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION.verdict) &&
       /NO QED/.test(IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION.verdict) &&
-      /remains SOTA/.test(IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION.verdict),
+      /refereed bound is changed/i.test(IMP35608_TWO_RATE_CENSUS_EXIT_EDGE_LOCATION.verdict),
   },
 ];
 

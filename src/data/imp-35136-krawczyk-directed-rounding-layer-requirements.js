@@ -43,7 +43,7 @@
  * Nothing here instantiates a directed-rounding layer, and the exact-digit width stays uncertified. The
  * inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = 1/8 ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the exact lemma; named sub-gap imp-34714a)
  * @see imp-34687-crossover-interval-arithmetic-scope (the enclosure-width surrogate; named sub-gap imp-34687a)
@@ -143,7 +143,7 @@ export const IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS = {
     'uncertified. Measurement / scoping on the inherited imp-3220/imp-3406 surrogate crossover map; the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34714 (exact Krawczyk existence-uniqueness lemma; named sub-gap imp-34714a); imp-34687 (crossover ' +
     'interval-arithmetic enclosure-width surrogate; named sub-gap imp-34687a); imp-34726/34752/34776 ' +
@@ -186,16 +186,16 @@ export const IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS_ASSERTIONS =
       /NOT propagated real slack/.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.finding),
   },
   {
-    // Honesty gate: scoping only, not rigorous, BOTH sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: scoping only, not rigorous, BOTH sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp35136-honesty-gate-no-qed',
-    description: 'scoping: isRigorous false, imp-34687a and imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'scoping: isRigorous false, imp-34687a and imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.isRigorous === false &&
       /imp-34687a/.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.subGap) &&
       /imp-34714a/.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.subGap) &&
       /REMAIN OPEN/.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.subGap) &&
       /NO QED/.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.verdict) &&
-      /remains SOTA/.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.verdict),
+      /refereed bound is changed/i.test(IMP35136_KRAWCZYK_DIRECTED_ROUNDING_LAYER_REQUIREMENTS.verdict),
   },
 ];
 

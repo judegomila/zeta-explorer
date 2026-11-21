@@ -15,7 +15,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (b, signed) value below is copied verbatim from the
  * imp-97286 baked IMP97286_LADDER (no re-derivation of the V(h,k) cotangent sums); the C/b curve
  * uses the imp-97286 baked IMP97286_CREEP asymptoteL/creepConstantC. Changes no bound, establishes
- * no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no operator positivity, no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97286-route-m-signed-half-creep-ladder.js (IMP97286_LADDER, IMP97286_CREEP, IMP97286_VERDICT)
  *
@@ -46,7 +46,7 @@ export const IMP97321_ASYMPTOTE = Object.freeze({
 });
 
 export const IMP97321_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, signed) row is ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, signed) row is ' +
   'copied verbatim from the imp-97286 baked IMP97286_LADDER (no re-derivation of the V(h,k) ' +
   'cotangent sums); the C/b curve reuses the imp-97286 baked asymptoteL/creepConstantC. No bound ' +
   'is claimed and no operator positivity is established.';
@@ -96,7 +96,7 @@ const IMP97321_ASSERTIONS = [
     id: 'imp97321-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97321_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97321_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97321_HONEST_BANNER) &&
       /NO QED/.test(IMP97321_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

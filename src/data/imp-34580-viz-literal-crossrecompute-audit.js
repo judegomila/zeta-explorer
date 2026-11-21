@@ -27,7 +27,7 @@
  *   VERIFICATION / MEASUREMENT ONLY. Adds no new derivation and changes no bound. The underlying
  *   component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  *   C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  *   @see imp-34494-residue-error-bar-viz-data.js (audited: ladder/error-band re-exports + two baked outlier literals)
  *   @see imp-34495-deflow-decay-viz-data.js (audited: pure re-exports, no baked literals)
@@ -123,8 +123,8 @@ export const IMP34580_VIZ_LITERAL_CROSSRECOMPUTE_AUDIT = {
     'either carry no copy-drift risk by construction (live re-export) or reproduce a fresh, ' +
     'independent re-derivation; adds no new derivation and changes no bound. Component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34580_ASSERTIONS = [

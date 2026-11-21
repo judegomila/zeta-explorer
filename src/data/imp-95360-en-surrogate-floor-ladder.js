@@ -43,7 +43,7 @@
  *   remains OPEN); changes no bound; establishes no operator positivity;
  *   C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and
  *   C_mb GUE-conditional (imp-486) are UNTOUCHED; obligation G-EN-ladder-verify
- *   stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   stays OPEN; NO QED; no refereed bound is changed.
  *
  *   @see imp-35164 (E(N) floors at E_trunc = 3.06e-5 on the current surrogate, does not tend to 0)
  *   @see imp-35968-e-trunc-coll-crossover-location.js (E_coll = E_trunc crossover N_cross ~ 3.28e9, source parts(N))
@@ -102,7 +102,7 @@ export const IMP95360_FLOOR_ASSESSMENT = {
     'lower the floor is the imp-35149 vanishing-strip Knob A (T_v(N) -> infinity beyond ' +
     'X ~ 3e12, obligation R3 OPEN). E_trunc = 3.06e-5 (imp-2631), C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED; obligation ' +
-    'G-EN-ladder-verify stays OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'G-EN-ladder-verify stays OPEN; NO QED. No refereed bound is changed.',
 };
 
 export const IMP95360_ASSERTIONS = [
@@ -160,7 +160,7 @@ export const IMP95360_ASSERTIONS = [
       /imp-486/.test(IMP95360_FLOOR_ASSESSMENT.honest) &&
       /stays OPEN/.test(IMP95360_FLOOR_ASSESSMENT.honest) &&
       /NO QED/.test(IMP95360_FLOOR_ASSESSMENT.honest) &&
-      /remains SOTA/.test(IMP95360_FLOOR_ASSESSMENT.honest),
+      /refereed bound is changed/i.test(IMP95360_FLOOR_ASSESSMENT.honest),
   },
 ];
 

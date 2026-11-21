@@ -64,7 +64,7 @@
  * by more compute on this Route M observable.
  *
  * MEASUREMENT/PROJECTION ONLY. Establishes no operator positivity, changes no
- * bound, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * bound, makes no RH claim; no refereed bound is changed. RH open.
  * NO QED.
  *
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (plateau 0.985, ~1.9x)
@@ -137,7 +137,7 @@ export const IMP96569_VERDICT = Object.freeze({
 });
 
 export const IMP96569_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/projection only: every value is a reproducible numeric from tmp/imp-96569-scratch.mjs over the baked imp-96487 fluctuation scales and the imp-96352 cost model. The SE-of-mean reach is an OPTIMISTIC lower bound (it ignores the imp-96487 low-frequency drift/remainder degeneracy, which only enlarges the required reach); no new solve, no bound is claimed, no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement/projection only: every value is a reproducible numeric from tmp/imp-96569-scratch.mjs over the baked imp-96487 fluctuation scales and the imp-96352 cost model. The SE-of-mean reach is an OPTIMISTIC lower bound (it ignores the imp-96487 low-frequency drift/remainder degeneracy, which only enlarges the required reach); no new solve, no bound is claimed, no operator positivity is established.';
 
 // Honest residual sub-gap.
 export const IMP96569_SUBGAP = Object.freeze({
@@ -206,7 +206,7 @@ const IMP96569_ASSERTIONS = [
     id: 'imp96569-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96569_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96569_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96569_HONEST_BANNER) &&
       /NO QED/.test(IMP96569_HONEST_BANNER) &&
       /OPTIMISTIC lower bound/.test(IMP96569_HONEST_BANNER) &&
       typeof IMP96569_SUBGAP.statement === 'string' &&

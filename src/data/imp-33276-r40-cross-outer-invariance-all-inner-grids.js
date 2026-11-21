@@ -58,8 +58,8 @@
  *   carried by the INNER A(tau) resolution. No literal is patched; imp-3685 and imp-3849
  *   assertions are LEFT INTACT. It changes NO bound and establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
- *   sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA. Reported values are grid-CONVERGENCE stable, not
+ *   sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed
+ *   . Reported values are grid-CONVERGENCE stable, not
  *   certified error bounds; the shared finite NPHI = 10 kernel truncation and Simpson order
  *   remain the residual floor.
  *
@@ -232,7 +232,7 @@ export const IMP33276_R40_CROSS_OUTER_INVARIANCE = Object.freeze({
     'refinement (1.02438462 coarse -> 1.02439669 finest), the imp-3888/imp-33256 inner O(h^4) drift, ' +
     'cleanly separating the two axes: inner resolution moves R_40, the outer moment grid does not. ' +
     'MEASUREMENT ONLY; no literal patched; imp-3685/imp-3849 left intact; imp-3066 untouched; ' +
-    'necessary-but-not-sufficient; no QED; PT Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; no QED; no refereed bound is changed.',
 
   method: Object.freeze({
     ratio: 'R_40 = |D_40| / |D_40^saddle|, D_n = C_(n+2) - C_n, C_n = M_(n+2)/((n+1)(n+2)M_n), C_n^saddle = tau*(n)^2/((n+1)(n+2))',
@@ -283,7 +283,7 @@ export const IMP33276_R40_CROSS_OUTER_INVARIANCE = Object.freeze({
       'Reported values are grid-CONVERGENCE stable; the shared finite NPHI = 10 kernel truncation and ' +
       'Simpson order remain the residual floor, so these are located values of this truncated-kernel ' +
       'model, not certified error bounds.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -326,7 +326,7 @@ export const IMP33276_R40_CROSS_OUTER_INVARIANCE_ASSERTIONS = [
   {
     id: 'imp33276-honest-measurement-only',
     why: 'Mandatory honesty: measurement only, no literal patched, source modules intact, no bound changed, ' +
-      'mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, PT 0.2 stays SOTA.',
+      'mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33276_R40_CROSS_OUTER_INVARIANCE.honestCaveat;
       return (
@@ -337,7 +337,7 @@ export const IMP33276_R40_CROSS_OUTER_INVARIANCE_ASSERTIONS = [
         c.changesAnyBound === false &&
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -71,7 +71,7 @@
  * is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED (the share stays GUE-conditional); the C_C 1/8 ansatz is
  * UNTOUCHED (imp-2642/imp-2643); changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (two-term CF, F2 misses the peak)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (denominator crossover N_cross fixed point)
@@ -248,7 +248,7 @@ export const IMP96162_SIGMA_USHAPE_PEAK_EFLOW_RECOVERY = {
     'model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96151 (two-term closed form, F2 misses the peak); imp-33723 (denominator crossover N_cross ' +
     'fixed point); imp-3220 (interior peak sigma_max ~ 0.9494 at N ~ 9.22e5); imp-33582 (post-peak ' +
@@ -289,13 +289,13 @@ export const IMP96162_SIGMA_USHAPE_PEAK_EFLOW_RECOVERY_ASSERTIONS = [
     holds: () => CF_MONOTONE_DOWN && REC_RISES_AT_1E5 && REC_FALLS_AT_1E7,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96162-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, PT Lambda<=0.2 stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96162_SIGMA_USHAPE_PEAK_EFLOW_RECOVERY.isRigorous === false &&
       /NO QED/.test(IMP96162_SIGMA_USHAPE_PEAK_EFLOW_RECOVERY.verdict) &&
-      /remains SOTA/.test(IMP96162_SIGMA_USHAPE_PEAK_EFLOW_RECOVERY.verdict),
+      /refereed bound is changed/i.test(IMP96162_SIGMA_USHAPE_PEAK_EFLOW_RECOVERY.verdict),
   },
 ];
 

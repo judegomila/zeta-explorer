@@ -50,7 +50,7 @@
  * between lam_max and the trace, and the trace-overstatement factor growing 1.7545 -> 1.7943.
  * This is elementary Schatten-norm monotonicity on the same exact Vasyunin Gram, presented,
  * not proved anew. The extrapolated conditioning ceiling stays fit-limited (imp-96731 Finding
- * 2); no bound moved; no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH
+ * 2); no bound moved; no operator positivity; no refereed bound is changed; RH
  * open; NO QED.
  *
  * RESIDUAL SUB-GAP (inherited, not new): the per-N bounds are rigorous only at COMPUTED N; the
@@ -144,12 +144,12 @@ export const IMP96752_VERDICT = Object.freeze({
     'trace overstates the best bound by 1.7545 -> 1.7943), so the trace is nowhere the tightest ' +
     'rigorous per-N bound. Elementary Schatten-norm monotonicity on the same exact Vasyunin Gram; ' +
     'presentation of an existing inequality only. The extrapolated conditioning ceiling stays ' +
-    'fit-limited (imp-96731 Finding 2); no bound moved; no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'fit-limited (imp-96731 Finding 2); no bound moved; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96752_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the ladder rows are the ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the ladder rows are the ' +
   'committed exact Vasyunin Gram quantities (trace and ||G||_F exact, WS a rigorous two-moment ' +
   'inequality, lam_max power-iteration) from imp-96684 (N=7000..9000) and imp-96694 ' +
   '(N=10000..12000); nothing is re-measured. The tighter-than-trace fact is elementary ' +
@@ -206,7 +206,7 @@ const IMP96752_ASSERTIONS = [
       IMP96752_VERDICT.extrapolatedCeilingStillFitLimited === true &&
       IMP96752_VERDICT.everyBestBetweenLamMaxAndTrace === true &&
       /NO QED/.test(IMP96752_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96752_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96752_HONEST_BANNER) &&
       /RH open/.test(IMP96752_HONEST_BANNER),
     why: 'presentation only: no bound moved, the tighter-than-trace ladder is posted, the extrapolated ceiling stays fit-limited, and the honesty markers are present.',
   },

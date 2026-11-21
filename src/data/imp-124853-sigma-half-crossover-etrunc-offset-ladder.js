@@ -62,7 +62,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED
  * (imp-2642/imp-2643); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow, offset at factor=1)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form N_cross fixed point at factor=1)
@@ -211,7 +211,7 @@ export const IMP124853_SIGMA_HALF_CROSSOVER_ETRUNC_OFFSET_LADDER = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33582 (prose "matches to ~0.4%" pin); imp-33601 (exact identity sigma=1/2 <=> ' +
     'E_coll=E_trunc+E_flow, offset at factor=1); imp-33723 (closed-form N_cross at factor=1); ' +
@@ -265,13 +265,13 @@ export const IMP124853_SIGMA_HALF_CROSSOVER_ETRUNC_OFFSET_LADDER_ASSERTIONS = [
     holds: () => ALL_ORDERED,
   },
   {
-    // Honesty gate: cross-validation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation/measurement only, no QED, no refereed bound is changed.
     id: 'imp124853-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124853_SIGMA_HALF_CROSSOVER_ETRUNC_OFFSET_LADDER.isRigorous === false &&
       /NO QED/.test(IMP124853_SIGMA_HALF_CROSSOVER_ETRUNC_OFFSET_LADDER.verdict) &&
-      /remains SOTA/.test(IMP124853_SIGMA_HALF_CROSSOVER_ETRUNC_OFFSET_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP124853_SIGMA_HALF_CROSSOVER_ETRUNC_OFFSET_LADDER.verdict),
   },
 ];
 

@@ -58,7 +58,7 @@
  * is NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED
  * (the E_coll term is untouched here); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 is untouched; establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound. E_flow is the
+ * no refereed bound is changed. E_flow is the
  * benign mesoscopic-Gronwall term (imp-2845); its vanishing here does NOT touch
  * the divergent C_Lip collision-Gronwall.
  *
@@ -241,8 +241,8 @@ export const IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS = {
     'Measurement/inversion only within the inherited imp-33743/imp-33848 extrapolation component model; ' +
     'NO QED. The component model is NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 ' +
-    'K_a >= 0 untouched; establishes no operator positivity; changes no bound; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the SOTA unconditional bound. E_flow is the benign mesoscopic-Gronwall term ' +
+    'K_a >= 0 untouched; establishes no operator positivity; changes no bound; no refereed bound is changed' +
+    '. E_flow is the benign mesoscopic-Gronwall term ' +
     '(imp-2845); its vanishing here does NOT touch the divergent C_Lip collision-Gronwall.',
   citation:
     'imp-34174-crossover-surplus-threshold-family-decay.js (single thr* at eps=1e-4, identical sub-terms); ' +
@@ -298,14 +298,14 @@ export const IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: inversion only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: inversion only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34254-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is\s+UNTOUCHED/.test(IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS.honestScope) &&
       /NO QED/.test(IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS.honestScope) &&
-      /remains the SOTA/.test(IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS.honestScope),
+      /refereed bound is changed/i.test(IMP34254_SURPLUS_TOLERANCE_THRESHOLD_LOCUS.honestScope),
   },
 ];
 

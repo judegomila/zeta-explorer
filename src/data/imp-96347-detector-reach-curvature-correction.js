@@ -42,8 +42,8 @@
  *
  * Baked literals from imp-96273 (fit points, power laws) and imp-96059 (canonical rows); pure-JS
  * refit in tmp/imp-96347-scratch.mjs and tmp/imp-96347-quad.mjs. Measurement/extrapolation only;
- * changes NO bound; the verified-zero route stays cheaper; RH open; Platt-Trudgian Lambda <= 0.2
- * stays SOTA; NO QED.
+ * changes NO bound; the verified-zero route stays cheaper; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * @see imp-96273-detector-zero40-extrapolation.js (IMP96273_HEIGHT_EXTRAP, IMP96273_MEASURED_LOWER_BOUND)
  * @see imp-96059-detector-reach-ladder-viz-data.js (IMP96059_NDET_RANGE_BY_ZERO)
@@ -105,6 +105,6 @@ export const IMP96347_VERDICT =
   + 'does NOT fully reconcile: the corrected 278.4 still sits below 400, so the reach is super-power '
   + 'even relative to the fitted convexity. Sub-gap SG-96347-curv: real detector rows past k = 20 '
   + 'are needed to pin the curvature at gamma ~ 123. Extrapolation only; changes NO bound; '
-  + 'verified-zero route stays cheaper; RH open; Lambda <= 0.2 SOTA; NO QED.';
+  + 'verified-zero route stays cheaper; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96347_SCRIPTS = Object.freeze(['tmp/imp-96347-scratch.mjs', 'tmp/imp-96347-quad.mjs']);

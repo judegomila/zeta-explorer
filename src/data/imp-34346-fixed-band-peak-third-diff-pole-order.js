@@ -61,7 +61,7 @@
  * pole is a resid_exp surrogate artifact, not a physical singularity; the component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (source of the F3 third-difference sequence)
  * @see imp-34253-fixed-band-peak-pole-divergence-vs-saturation-fit (log-divergence vs saturation of the peak)
@@ -184,7 +184,7 @@ export const IMP34346_FIXED_BAND_PEAK_THIRD_DIFF_POLE_ORDER = {
     'artifact, not a physical singularity; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the log-log fit is descriptive, not derived; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'SUB-GAP-imp-34346-continuous-order-blocked: the CONTINUOUS-limit pole order of the third-difference ' +
     'divergence is not accessible -- the fixed step h = 0.25 is not small versus x near k* (the discrete ' +
@@ -195,7 +195,7 @@ export const IMP34346_FIXED_BAND_PEAK_THIRD_DIFF_POLE_ORDER = {
     'MEASUREMENT / POWER-LAW FIT ONLY -- a log-log fit of the inherited imp-34268 discrete third-difference ' +
     'sequence against the surrogate pole gap; adds no derivation and changes no bound. Surrogate/component ' +
     'model NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   isRigorous: false,
 };
 
@@ -248,9 +248,9 @@ export const IMP34346_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, isRigorous false, distinct from imp-34310/imp-34253, sub-gap
-    // flagged, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched.
+    // flagged, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched.
     id: 'imp-34346-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, distinct from imp-34310/imp-34253, sub-gap flagged, no QED, PT SOTA, imp-3066/imp-486 untouched',
+    description: 'measurement only: isRigorous false, distinct from imp-34310/imp-34253, sub-gap flagged, no QED, no refereed bound is changed, imp-3066/imp-486 untouched',
     holds: () => {
       const o = IMP34346_FIXED_BAND_PEAK_THIRD_DIFF_POLE_ORDER;
       return (
@@ -259,7 +259,7 @@ export const IMP34346_ASSERTIONS = [
         /SUB-GAP-imp-34346-continuous-order-blocked/.test(o.subGap) &&
         /DISTINCT from imp-34310[\s\S]*imp-34253/.test(o.verdict) &&
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /imp-3066 K_a >= 0 untouched/i.test(o.verdict) &&
         /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(o.verdict)
       );

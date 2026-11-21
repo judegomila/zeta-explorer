@@ -42,7 +42,7 @@
  *   imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation and the cross-platform libm caveat are
  *   inherited from imp-33312: the envelope constant is a single-lattice arithmetic-floor figure and
  *   the robust reading is the collapse trend and the "tight-at-low-tau, slack-at-high-tau" margin
- *   shape, not the exact ULP digits. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   shape, not the exact ULP digits. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33312-tau-uniform-jitter-band.js (the height-collapsing band this names the envelope of)
  *   @see imp-33296-min-node-lattice-jitter-band.js (the original single-height-family jitter band)
@@ -125,7 +125,7 @@ const verdict =
       'HEIGHT-UNIFORM-CEILING-IS-A-NAMED-CONSTANT-THAT-IS-TIGHT-ONLY-AT-THE-TWO-LOW-HEIGHTS-THAT-SET-IT-' +
       'AND-A-VAST-OVER-ESTIMATE-AT-tau>=9-(THE-imp-33312-COLLAPSE,-NOW-QUANTIFIED-AS-A-CONSERVATIVENESS-' +
       'MARGIN-PER-RUNG).-ACCURACY-MEASUREMENT/RULE-DESIGN-ONLY;-mass-feasibility-NECESSARY-BUT-NOT-' +
-      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33538_TAU_UNIFORM_ENVELOPE_CONSTANT = Object.freeze({
@@ -146,7 +146,7 @@ export const IMP33538_TAU_UNIFORM_ENVELOPE_CONSTANT = Object.freeze({
     '~10.11 ULP, ~94% slack, envelope ~16x its ceiling; tau=10 margin ~10.78 ULP, ~100% slack). So the ' +
     'height-uniform ceiling is a NAMED quantity with an explicit conservativeness margin per rung, not ' +
     'a qualitative claim. ACCURACY MEASUREMENT/RULE-DESIGN ONLY, RH-EQUIVALENT, necessary-but-not-' +
-    'sufficient; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'sufficient; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     source: 'reads the imp-33312 measured per-height band ceilings (maxUlp per tau) from ' +
@@ -215,7 +215,7 @@ export const IMP33538_TAU_UNIFORM_ENVELOPE_CONSTANT = Object.freeze({
       'libm arithmetic-floor caveat are all inherited from imp-33312. The envelope constant is a single ' +
       'lattice-hit figure; the robust reading is the collapse trend and the tight-at-low-tau, ' +
       'slack-at-high-tau margin shape, not the exact ULP digits or the precise binding height.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -261,7 +261,7 @@ export const IMP33538_TAU_UNIFORM_ENVELOPE_CONSTANT_ASSERTIONS = [
   {
     id: 'imp33538-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33538_TAU_UNIFORM_ENVELOPE_CONSTANT.honestCaveat;
       return (
@@ -269,7 +269,7 @@ export const IMP33538_TAU_UNIFORM_ENVELOPE_CONSTANT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

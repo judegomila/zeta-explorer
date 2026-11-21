@@ -88,7 +88,7 @@ export const IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE = {
     'value, so the tabulation here is not conflating the two routes.',
   honestNote:
     'Read-only provenance/accuracy audit; changes no bound and claims no QED. The imp-3066 K_a >= 0 ' +
-    'operator-positivity invariant is untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator-positivity invariant is untouched. No refereed bound is changed.',
 };
 
 // Build-time tripwires locking the tabulation against silent drift.
@@ -129,10 +129,10 @@ const IMP_33772_ASSERTIONS = [
   {
     id: 'imp33772-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.honestNote) &&
       /no QED/i.test(IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.honestNote) &&
       /imp-3066/.test(IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.honestNote),
-    why: 'VERDICT LOCK: read-only audit, no bound changed; Platt-Trudgian Lambda <= 0.2 stays SOTA, imp-3066 untouched.',
+    why: 'VERDICT LOCK: read-only audit, no bound changed; no refereed bound is changed, imp-3066 untouched.',
   },
 ];
 

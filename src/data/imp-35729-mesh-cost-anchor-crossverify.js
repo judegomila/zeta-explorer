@@ -12,7 +12,7 @@
  *
  * VERIFICATION ONLY. Recomputes numbers; changes no bound; ports nothing;
  * discharges nothing (the non-finite tail lemma B2 / W3 is untouched, imp-35674);
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * PART 1 -- LOCAL ZERO DENSITY FROM THE RIEMANN-VON MANGOLDT DERIVATIVE
  * -----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ const T_PT = 3e12; // Platt-Trudgian 2021 verified height
 const TWO_PI = 2 * Math.PI;
 const OVERSAMPLE = 3; // boundary samples per local zero spacing (no missed half-turn)
 const H_BAND = 1; // fixed order-unity half-height of the transition band; Delta-independent
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this verification
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this verification
 const TOL = 1e-4; // storage-precision tolerance: baked anchors are stored via toFixed(4) (4 decimals)
 
 // PART 1: density as a central finite difference of the RvM smooth counting function.
@@ -117,8 +117,8 @@ export const IMP35729_MESH_COST_ANCHOR_CROSSVERIFY = {
     'baked ~12.8399, and the boundaryEvalsPerZero -> 6 asymptote follows exactly (= 2*OVERSAMPLE) from ' +
     'boundary-segment geometry, matched by the large-Delta numerical limit. No anchor drifts beyond ' +
     'tolerance. Verification only; touches nothing in the NON-finite tail lemma B2 / W3 (imp-35674); ' +
-    'ports nothing; discharges nothing; changes no bound; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'ports nothing; discharges nothing; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35675 (the baked mesh-cost measurement); imp-35710 (re-exports the anchors); imp-35653 ' +
     '(Part C derives MESH_PER_UNIT ~ 12.84); imp-35674 (the non-finite tail lemma B2 / W3); ' +
@@ -156,15 +156,15 @@ export const IMP35729_MESH_COST_ANCHOR_CROSSVERIFY_ASSERTIONS = [
       perZeroAsymptoteNumeric > 6, // approaches 6 from above (fixed overhead still positive)
   },
   {
-    // Honesty gate: verification only; no bound change; B2/W3 untouched; no QED; PT SOTA.
+    // Honesty gate: verification only; no bound change; B2/W3 untouched; no QED; no refereed bound is changed.
     id: 'imp35729-honesty-gate-verification-only',
-    description: 'Verification only; changes no bound; B2/W3 untouched; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Verification only; changes no bound; B2/W3 untouched; no QED; no refereed bound is changed',
     holds: () =>
       IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       BAKED.isRigorous === false &&
       /NO QED/.test(IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.verdict) &&
-      /remains SOTA/.test(IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.verdict),
+      /refereed bound is changed/i.test(IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.verdict),
   },
 ];
 

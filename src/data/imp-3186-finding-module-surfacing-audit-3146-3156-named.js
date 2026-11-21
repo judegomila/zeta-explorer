@@ -118,7 +118,7 @@ export const IMP_3186_FINDING_MODULE_SURFACING_AUDIT = {
     'Mint surfacing tickets for each of the three orphaned modules so each is ' +
     'rendered on at least one page with its honest scope caveat; do not fabricate pages here.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -192,9 +192,9 @@ const IMP_3186_ASSERTIONS = [
   {
     id: 'imp3186-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3186_FINDING_MODULE_SURFACING_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3186_FINDING_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3186_FINDING_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

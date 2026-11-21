@@ -68,7 +68,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33856-ecoll-discrete-residual-log-shortfall-fit (~4% midpoint-vs-endpoint caveat, derived here)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (pointwise gap_sigma ~ 1/(2 log T0))
@@ -185,7 +185,7 @@ export const IMP33879_GEOMETRIC_CENTER_CORRECTION_ENDPOINT_MIDPOINT_OFFSET = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33856 (~4% midpoint-vs-endpoint caveat, derived here); imp-33816 (pointwise gap_sigma ~ ' +
     '1/(2 log T0)); imp-33854 (both pointwise shortfalls = g(N)); imp-486 (C_mb GUE-conditional); ' +
@@ -219,13 +219,13 @@ export const IMP33879_GEOMETRIC_CENTER_CORRECTION_ENDPOINT_MIDPOINT_OFFSET_ASSER
       LOGT0_MATCH && TABLE.every((r) => r.midpointRatioGapLaw > 0.95 && r.midpointRatioGapLaw < 0.97),
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33879-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33879_GEOMETRIC_CENTER_CORRECTION_ENDPOINT_MIDPOINT_OFFSET.isRigorous === false &&
       /NO QED/.test(IMP33879_GEOMETRIC_CENTER_CORRECTION_ENDPOINT_MIDPOINT_OFFSET.verdict) &&
-      /remains SOTA/.test(IMP33879_GEOMETRIC_CENTER_CORRECTION_ENDPOINT_MIDPOINT_OFFSET.verdict),
+      /refereed bound is changed/i.test(IMP33879_GEOMETRIC_CENTER_CORRECTION_ENDPOINT_MIDPOINT_OFFSET.verdict),
   },
 ];
 

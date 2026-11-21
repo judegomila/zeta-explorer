@@ -273,7 +273,7 @@ export const IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN = Object.freeze({
     'spread), so the two higher-order / higher-N routes CLUSTER at ~0.17511 and isolate the Aitken 0.17506 as ' +
     'the low outlier. All three routes stay within the imp-3346 quoted 1e-4 precision of 0.1751 (third +1.07e-5). ' +
     'SUB-GAP: whether the true C_inf is 0.17506 or 0.17511 is not resolved to 1e-5 here. Certification only; ' +
-    'RH-equivalent; NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'RH-equivalent; NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -360,7 +360,7 @@ export const IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN = Object.freeze({
       'The 1/U scaling of the capture ratio is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator ' +
       'magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -415,7 +415,7 @@ export const IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN_ASSERTIONS = [
   {
     id: 'imp3445-honest-assessment-no-qed',
     why: 'Mandatory honesty: CERTIFICATION only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-      'not attempted, C_inf is a determined number not a symbolic identity, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not attempted, C_inf is a determined number not a symbolic identity, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN.honestCaveat;
       return (
@@ -424,7 +424,7 @@ export const IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.subGapCInfNotPinnedTo1e5 === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -15,7 +15,7 @@
  * ASSESSMENT / SCOPING ONLY. Ports nothing; discharges nothing; establishes no
  * positivity; retires no numeric constant in the committed ledger; changes no
  * bound; no RH verdict, NO QED. The imp-34791 reclassification stays UNCHANGED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * PART A -- WHAT W4 CLAIMS PRECISELY
  * -----------------------------------------------------------------------------
@@ -125,7 +125,7 @@ const REALNESS_AT_THREE_QUARTER = realnessTime(0.75); // 0.125 at beta = 3/4
 const TWO_GAMMA_KERNEL_PRICE = 6.7e-13; // imp-397 kernel: contribution of rho_j <= 2/gamma_j at T_PT
 // Mispricing ratio: a single admissible deep zero carries ~3.75e11x its kernel price (imp-34791).
 const MISPRICING_RATIO = REALNESS_AT_THREE_QUARTER / TWO_GAMMA_KERNEL_PRICE; // ~1.87e11
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 
 export const IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE = {
   id: 'imp-35676',
@@ -210,7 +210,7 @@ export const IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE = {
     '"finite/mechanical" label refers to the OPERATION (delete artifact, substitute 0); the LICENSE is ' +
     'gated on W3 -- both true, not in tension. Post-port zero is PARITY with PT, not a beat. The ' +
     'imp-34791 reclassification stays UNCHANGED; ports nothing; discharges nothing; changes no bound; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35653 (defines W1..W4, lists W4 finite/mechanical); imp-35674 (the non-finite W3 W4 is gated ' +
     'on); imp-34791 (E_trunc = unported barrier lemma + effective constant; 2/gamma refuted; two-E_trunc ' +
@@ -258,16 +258,16 @@ export const IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE_ASSERTIONS = [
       /NOT in tension/.test(IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE.q2Gating.finiteOperationVsGatedLicense),
   },
   {
-    // Honesty gate: scoping only, artifact literals unchanged, parity-not-beat, no QED, PT stays SOTA.
+    // Honesty gate: scoping only, artifact literals unchanged, parity-not-beat, no QED, no refereed bound is changed.
     id: 'imp35676-honesty-gate-no-qed',
-    description: 'Scoping only; E_trunc literals unchanged; parity-not-beat; no QED; PT SOTA',
+    description: 'Scoping only; E_trunc literals unchanged; parity-not-beat; no QED; no refereed bound is changed',
     holds: () =>
       IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       E_TRUNC_CLEAN === 3.06e-5 && E_TRUNC_CORRECTED === 5.106e-5 &&
       /PARITY with PT .* not a beat/.test(IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE.directionParityNotBeat) &&
       /NO QED/.test(IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35676_W4_ETRUNC_ZERO_READING_CONSISTENCY_SCOPE.verdict),
   },
 ];
 

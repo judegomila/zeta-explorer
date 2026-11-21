@@ -10,7 +10,7 @@
  *
  * PRESENTATION ONLY. Every cell is IMP97484_LAM_TABLE reused verbatim.
  * Establishes no operator positivity; changes no bound; interval-rigorous
- * reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains SOTA; RH open;
+ * reach stays 2a<=0.96; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97484-krein-csharp-nscaled-tgrid-extended.js (the source table, findings, and verdict)

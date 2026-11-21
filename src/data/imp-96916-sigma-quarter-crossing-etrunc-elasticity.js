@@ -73,7 +73,7 @@
  * neighbours the intermediate landmark is floor-sensitive (~510x swing over the 20x
  * sweep), exact only at the pinned floor 3.06e-5. Measurement/sensitivity only; C_mb
  * stays GUE-conditional (imp-486); no bound changes, no positivity, no bridge closure,
- * no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96813-sigma-decay-landmark-etrunc-sensitivity (flank landmarks 0.5/0.1; this module adds the intermediate 0.25 crossing)
  * @see imp-96794-etrunc-reduction-peak-share-leverage (interior peak share sigma_max ~ 0.9494 leverage)
@@ -232,7 +232,7 @@ export const IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY = {
     'neighbours the intermediate landmark is floor-sensitive (~510x swing over the 20x floor ' +
     'sweep), exact only at the pinned floor 3.06e-5. Measurement/sensitivity only; C_mb stays ' +
     'GUE-conditional (imp-486); no bound changes, no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96813 (flank decay landmarks 0.5/0.1 and their ~ -2.09 elasticities); imp-96794 (peak ' +
@@ -308,14 +308,14 @@ export const IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/assessment only, smooth-interpolation verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, smooth-interpolation verdict, no QED, no refereed bound is changed.
     id: 'imp96916-honesty-gate-no-qed',
-    description: 'Assessment only: smooth-interpolation verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: smooth-interpolation verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY.isRigorous === false &&
       /interpolates SMOOTHLY/.test(IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY.verdict) &&
       /NO QED/.test(IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP96916_SIGMA_QUARTER_CROSSING_ETRUNC_ELASTICITY.verdict),
   },
 ];
 

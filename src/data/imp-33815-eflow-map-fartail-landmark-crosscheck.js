@@ -54,7 +54,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642) is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33788-eflow-displacement-sqrtlog-running-correction (the exact map, halving-to-crossover)
  * @see imp-33743-sigma-fartail-crossover-closed-form (thr=0.1 landmark, ~7.4e-5 residual, D2 = E_flow)
@@ -227,7 +227,7 @@ export const IMP33815_EFLOW_MAP_FARTAIL_LANDMARK_CROSSCHECK = {
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33788 (the exact map, halving-to-crossover, ~5% gap closed with no residual); imp-33743 ' +
     '(thr=0.1 far-tail landmark, ~7.4e-5 residual, D2 = the E_flow term); imp-33723 (halving-landmark ' +
@@ -280,13 +280,13 @@ export const IMP33815_EFLOW_MAP_FARTAIL_LANDMARK_CROSSCHECK_ASSERTIONS = [
     holds: () => X_RATIO_HALF_OVER_FARTAIL > 40 && X_RATIO_HALF_OVER_FARTAIL < 70,
   },
   {
-    // Honesty gate: measurement/interpretation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/interpretation only, no QED, no refereed bound is changed.
     id: 'imp33815-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33815_EFLOW_MAP_FARTAIL_LANDMARK_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP33815_EFLOW_MAP_FARTAIL_LANDMARK_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP33815_EFLOW_MAP_FARTAIL_LANDMARK_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP33815_EFLOW_MAP_FARTAIL_LANDMARK_CROSSCHECK.verdict),
   },
 ];
 

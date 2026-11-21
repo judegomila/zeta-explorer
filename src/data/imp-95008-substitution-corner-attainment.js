@@ -143,7 +143,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (independent copy, identical to the sibling chain) ─────
@@ -356,7 +356,7 @@ export const IMP95008_SUBSTITUTION_CORNER_ATTAINMENT = {
     "Theorem CA(i) is two one-variable monotonicity derivatives plus an exponent identity verified algebraically (both sides equal (v/c) 2^(b(1-beta)+1-j beta) (2^(j-1)-1)); CA(ii) is the same endpoint evaluation for rho; CA(iii) consumes the nineteenth Lemmas CC and RM for the upper direction (legal: V(b,j) >= V(0,2) > Ystar(s)) and dominated-convergence continuity of I for the lower; Lemma EQ is a change of variables. Corollary R2 is an exhaustive finite enumeration over the p = 97 grid, exact by inspection up to the inherited ~1e-8 iExact float rounding (negligible against the 0.8258 and 0.4738 ratios; every evaluation has T >= 1.26, outside the recorded small-T conditioning trap). The theorem closes only the PER-PAIR substitution slack (b1); the aggregation slacks (b2), (b3) and the parity factor 2 are untouched and named. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step (classification/no-go, no bracket move): NEW Theorem CA proves the Lemma X separation floor V(b,j) is the EXACT infimum of the pair separation over each cell and that it is approached at the SAME parameter corner where the Lemma RHO width-ratio cap binds, so sup over admissible pairs of the exact pair correlation equals envE(b,j) - the substituted corner is attained in closure and the nineteenth residual (b1) per-pair substitution tightness is CLOSED with zero slack in the continuous family (no ceiling improvement exists at the per-pair step; the 1.4044 non-parity headline residual is witness/aggregation-side). NEW Corollary R2 quantifies the fixed-97 grid slack the continuous statement hides: exhaustive enumeration puts the p = 97 dominant-cell sup at 0.8258474234948617 x envE(0,2) (grid corner 49/97, 24/97), strictly between the imp-95019 branches, so a partial grid-corner ceiling drop exists on the fixed-97 lane only - quantified, NOT applied. All tracked brackets untouched (headline [0.096745062937484763, 0.2717408057586117], fixed-97 floor 0.0012054673720820889). Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (classification/no-go, no bracket move): NEW Theorem CA proves the Lemma X separation floor V(b,j) is the EXACT infimum of the pair separation over each cell and that it is approached at the SAME parameter corner where the Lemma RHO width-ratio cap binds, so sup over admissible pairs of the exact pair correlation equals envE(b,j) - the substituted corner is attained in closure and the nineteenth residual (b1) per-pair substitution tightness is CLOSED with zero slack in the continuous family (no ceiling improvement exists at the per-pair step; the 1.4044 non-parity headline residual is witness/aggregation-side). NEW Corollary R2 quantifies the fixed-97 grid slack the continuous statement hides: exhaustive enumeration puts the p = 97 dominant-cell sup at 0.8258474234948617 x envE(0,2) (grid corner 49/97, 24/97), strictly between the imp-95019 branches, so a partial grid-corner ceiling drop exists on the fixed-97 lane only - quantified, NOT applied. All tracked brackets untouched (headline [0.096745062937484763, 0.2717408057586117], fixed-97 floor 0.0012054673720820889). Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -525,12 +525,12 @@ export const IMP95008_SCA_ASSERTIONS = [
   {
     id: "imp95008-sca-honesty-gate",
     description:
-      "the verdict states the step as classification/no-go with NO bracket move (carried headline and fixed-97 literals untouched), closes only the per-pair slack (b1), names the surviving aggregation slacks and the unapplied fixed-97 lever, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict states the step as classification/no-go with NO bracket move (carried headline and fixed-97 literals untouched), closes only the per-pair slack (b1), names the surviving aggregation slacks and the unapplied fixed-97 lever, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.promotesBound === false &&
       IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.verdict) &&
-      /remains SOTA/.test(IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.verdict) &&
       /no bracket move/.test(IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.verdict) &&
       /witness\/aggregation-side/.test(IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.verdict) &&
       /NOT applied/.test(IMP95008_SUBSTITUTION_CORNER_ATTAINMENT.verdict) &&

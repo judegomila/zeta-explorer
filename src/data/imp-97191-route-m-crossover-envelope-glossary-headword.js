@@ -28,8 +28,8 @@
  *   Establishes nothing new; moves no bound. This is positivity of the EXPLICIT arithmetic
  *   first-moment lower bound on its stated range, NOT kappa > 0 in the mean-square lower companion
  *   sense (that distinction is [[project_route_m_lower_companion_first_moment]]); the cotangent
- *   first moment (imp-97097) stays the separate open leaf. NO QED. Platt-Trudgian Lambda <= 0.2
- *   SOTA; RH open.
+ *   first moment (imp-97097) stays the separate open leaf. NO QED. No refereed bound is changed
+ *   ; RH open.
  *
  * @see imp-97159-route-m-arith-first-moment-positivity-crossover.js (source: the two thresholds
  *   b0_envelope=574 and b0_exact=511, the primorial-envelope Lemma, and the finite Theorem this
@@ -38,7 +38,7 @@
  *   derived from)
  *
  * Ticket: imp-97191 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97159_CROSSOVER, IMP97159_VERDICT } from './imp-97159-route-m-arith-first-moment-positivity-crossover.js';
@@ -73,7 +73,7 @@ const ROUTE_M_CROSSOVER_ENVELOPE_HEADWORD = Object.freeze({
     '= 574 (rigorous, finite, fully derivational) and b0Exact = 511 (sharp, uses an additional ' +
     'finite window check), lastExceedanceB = 510. Establishes no bound and moves nothing on its ' +
     'own -- this is positivity of the explicit first-moment lower bound on its stated range, not ' +
-    'kappa > 0 in the mean-square companion sense. NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'kappa > 0 in the mean-square companion sense. NO QED; no refereed bound is changed; RH open.',
 });
 
 export const IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,8 +91,8 @@ export const IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD = Object.free
     'kappa_arith - eps(b) > 0 for all b >= 574 (finite-proof envelope, a single scalar inequality ' +
     'plus two primorial values) and, sharply, for all b >= 511 (exact, additionally using a finite ' +
     'window check of [511,573]); the bound is vacuous only on the finite highly-composite set ' +
-    'topped by b = 510. Establishes nothing new; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'topped by b = 510. Establishes nothing new; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97159 (the b0Envelope=574 and b0Exact=511 thresholds, the primorial-envelope Lemma, and ' +
     'the finite Theorem this headword glosses); imp-97133 (the explicit eps(b) remainder this ' +
@@ -130,13 +130,13 @@ export const IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp97191-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the source ' +
       'verdict this headword glosses must still show this as first-moment positivity, not the ' +
       'mean-square companion.',
     holds: () =>
       IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
       IMP97191_ROUTE_M_CROSSOVER_ENVELOPE_GLOSSARY_HEADWORD.glosses === 'imp-97159' &&
       IMP97159_VERDICT.positivityIsFirstMomentNotMeanSquare === true,
   },

@@ -74,7 +74,7 @@
  * delta = ln 1.3 -- upgrading imp-95823, where the exponent stayed a dual + control
  * result. (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT,
  * and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95823-rho1-szego-direct-dd-eigensolve (the DD-Jacobi module + its exponent sub-gap this cures)
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (the PD-preserving shift-invert solver reused here)
@@ -254,7 +254,7 @@ export const IMP95841_LN13_SHIFT_INVERT_DIRECT_EXPONENT = {
     "exponent-2 lock is established on the converged window nPts = 320..1920. Measures an " +
     "established endpoint; no new cited input. Model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of " +
-    "the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun " +
+    "the Lambda program; NO QED; no refereed bound is changed; Sun " +
     "arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95841"],
 };
@@ -366,7 +366,7 @@ export const IMP95841_ASSERTIONS = [
       REF.exponentDirectAtLn13 === true &&
       REF.imp95823ExponentWasDualPlusControl === true &&
       /EXPONENT 2 NOW DIRECTLY OBSERVED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95841-closes-self",

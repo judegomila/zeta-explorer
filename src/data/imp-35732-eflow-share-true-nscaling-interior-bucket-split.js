@@ -41,7 +41,7 @@
  * NOT a rigorous asymptotic; the residual GUE share stays = sigma exactly; C_mb stays
  * GUE-conditional per imp-486; the imp-34791 E_trunc barrier-lemma reclassification is
  * UNCHANGED; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35677-postport-residual-share-sigma-ladder (the fixed-E_flow CAVEAT this closes)
  * @see imp-35410-far-tail-sigma-1e-4-threshold-three-way-shares (parts()/bisection source; sigma<1e-4 E_flow ~7.35e-11)
@@ -59,7 +59,7 @@ const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631/imp-322
 const TC_A1_TRAP = 2.37e-4;
 const GRONWALL = Math.exp(1.0 * TC_A1_TRAP); // matches imp-35410/imp-35334 exactly
 const E_FLOW_SHARE_FIXED = 5.655e-9; // the imp-35677 held-fixed baked sigma<1e-3 literal
-const L_PT = 0.2; // Platt-Trudgian SOTA -- matched, not beaten
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- matched, not beaten
 
 // EXACT imp-35410 sub-terms (no re-derivation, no fresh model).
 function parts(N) {
@@ -202,7 +202,7 @@ export const IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'share per imp-486 is UNTOUCHED; the imp-34791 E_trunc barrier-lemma reclassification is ' +
     'UNCHANGED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35677 (fixed-E_flow CAVEAT); imp-35410 (parts()/bisection source, sigma<1e-4 E_flow ' +
     '~7.35e-11); imp-35334 (sigma<1e-3 landmark); imp-35699 (sigma<1e-5 landmark N ~ 6.889e19); ' +
@@ -265,16 +265,16 @@ const IMP35732_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, residual = sigma exactly, GUE-conditional per imp-486,
-    // parity-not-beat, no QED, PT stays SOTA.
+    // parity-not-beat, no QED, no refereed bound is changed.
     id: 'imp35732-honesty-gate-no-qed',
-    description: 'Measurement only: residual = sigma exactly, strengthens imp-35677, no QED, PT SOTA',
+    description: 'Measurement only: residual = sigma exactly, strengthens imp-35677, no QED, no refereed bound is changed',
     holds: () =>
       IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.isRigorous === false &&
       /STRENGTHENS/.test(IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.verdict) &&
       /= sigma EXACTLY/.test(IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.verdict) &&
       /UNTOUCHED/.test(IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.verdict) &&
       /NO QED/.test(IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.verdict),
+      /refereed bound is changed/i.test(IMP35732_EFLOW_SHARE_TRUE_NSCALING_INTERIOR_BUCKET_SPLIT.verdict),
   },
 ];
 

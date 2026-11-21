@@ -75,8 +75,8 @@
  *   Neither reading yields a shear-over-passive supremum ABOVE 1, and no
  *   symmetric-positive matrix compression violates the scalar tanh(a*U) bound. The
  *   K_a &gt;= 0 operator-positivity step (the imp-3066 endpoint-Hankel obstruction)
- *   is UNTOUCHED. RH-equivalent negative-result scope. Platt-Trudgian Lambda
- *   &lt;= 0.2 remains the rigorous SOTA. No reduction, no positivity, no QED.
+ *   is UNTOUCHED. RH-equivalent negative-result scope. No refereed bound is changed
+ *   . No reduction, no positivity, no QED.
  *
  *   @see imp-3288-analytic-ceiling-lemma.js (the scalar-core L2 ceiling this extends)
  *   @see imp-3214-mupass-symmetric-normalization-port.js (the rank-2 matrix core / polar normalization)
@@ -197,7 +197,7 @@ export const IMP3326_MATRIX_CORE_CEILING_EXTENSION_ASSESSMENT = Object.freeze({
     'EXCEEDS tanh(a*U) -- but only via the partial-isometry tautology (Gshear has ZERO numerical range on real ' +
     'trial functions; its normalization is a singular-value fact, not a Rayleigh bound), carrying no extra ' +
     'domination content. Neither reading exceeds the trivial norm 1. The K_a &gt;= 0 operator step (imp-3066 ' +
-    'endpoint-Hankel) is untouched. RH-equivalent, no QED; Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.',
+    'endpoint-Hankel) is untouched. RH-equivalent, no QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     scalarForms: 'H_scal = multiplication by sinh(a tau) (sym pos), P_scal = multiplication by cosh(a tau) (sym pos)',
@@ -262,7 +262,7 @@ export const IMP3326_MATRIX_CORE_CEILING_EXTENSION_ASSESSMENT = Object.freeze({
       'symmetric-form reading: extends (sup &lt;= tanh(a*U), strictly below on the rank-2 span), with a rigorous ' +
       'upper-bound argument. imp-3214 antisymmetric-Wronskian reading: normalized norm is exactly 1 &gt; tanh(a*U) ' +
       'but only via the partial-isometry tautology. Does NOT touch K_a &gt;= 0; no reduction; no RH verdict.',
-    sota: 'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -300,7 +300,7 @@ export const IMP3326_MATRIX_CORE_CEILING_EXTENSION_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp3326-honest-assessment-no-qed',
     why: 'Mandatory honesty: an ASSESSMENT (not a proof of RH), dual-reading verdict, RH-equivalent, does NOT ' +
-         'touch K_a &gt;= 0, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'touch K_a &gt;= 0, carries NO RH verdict, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3326_MATRIX_CORE_CEILING_EXTENSION_ASSESSMENT.honestCaveat;
       return (
@@ -312,7 +312,7 @@ export const IMP3326_MATRIX_CORE_CEILING_EXTENSION_ASSESSMENT_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.touchesOperatorPositivityResidual === false &&
         c.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

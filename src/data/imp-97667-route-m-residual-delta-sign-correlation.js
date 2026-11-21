@@ -65,7 +65,7 @@
  * gap/law recompute imp-97640's own sub-gap already flagged. This neither strengthens nor falsifies the
  * PNT/Mertens attribution; it locates why the attribution is unfalsifiable at present resolution.
  * MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (residual ladder; climbing exponent q ~ 7-9)
  * @see imp-97639-route-m-mcm-binf-deep-mertens-crosscheck.js (deep delta ladder to p ~ 5e7; delta wiggles)
@@ -169,11 +169,11 @@ export const IMP97667_VERDICT = Object.freeze({
     'exactly ONE height, so a rung-by-rung correlation over the delta wiggle CANNOT be measured; settling it ' +
     'needs the SAME extended-precision (dps >= 30) deep gap/law recompute imp-97640 already flagged ' +
     '(IMP97667_SIGN_CORRELATION_NEEDS_OVERLAPPING_DEEP_RESIDUAL_LADDER). MCM stays refuted from omega=11; ' +
-    'b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97667_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Residual-vs-delta sign-correlation test of the imp-97640 ' +
+  'RH open; no refereed bound is changed; NO QED. Residual-vs-delta sign-correlation test of the imp-97640 ' +
   'PNT/Mertens attribution: INCONCLUSIVE. Both are single-signed (residual < 0, delta > 0) -- the imp-97639 ' +
   'wiggle is in MAGNITUDE, not sign, so there is no oscillating sign to track, only a fixed anti-correlation ' +
   'that is STRUCTURAL (residual ~ -e^{-gamma}*delta/(12 log p) via the shared bracket undershoot). At the ' +
@@ -249,7 +249,7 @@ const IMP97667_ASSERTIONS = [
       IMP97667_VERDICT.anyBoundMoved === false &&
       IMP97667_VERDICT.qed === false &&
       /NO QED/.test(IMP97667_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97667_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97667_HONEST_BANNER) &&
       /RH open/.test(IMP97667_HONEST_BANNER),
     why: 'measurement only -- sign anti-correlation structural not PNT-diagnostic, residual not proportional to delta, ladders overlap once, attribution inconclusive; MCM refuted from omega=11; no bound moved, no QED.',
   },

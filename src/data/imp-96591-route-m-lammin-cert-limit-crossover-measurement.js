@@ -157,11 +157,11 @@ export const IMP96591_VERDICT = Object.freeze({
     'conditioning ceiling ~2.59e7 (382x below the measured-fit ceiling ~4.11e7) -- the ' +
     'imp-96563 FINDING-3(b) gap reproduced from the ladder alone. Measurement only: reuses the ' +
     'imp-96428 fit and imp-96563 rounding-shift formula verbatim; no Gram rebuilt, no bound ' +
-    'moved, no operator positivity, PT Lambda <= 0.2 SOTA, RH open. NO QED.',
+    'moved, no operator positivity, no refereed bound is changed, RH open. NO QED.',
 });
 
 export const IMP96591_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the delta(N)-vs-lam_min(N) ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the delta(N)-vs-lam_min(N) ' +
   'ladder and its bisected crossover are pure re-analysis of the imp-96428 power-law fit and the ' +
   'imp-96563 Higham/Rump rounding-shift formula. No Gram was rebuilt, no eigenvalue re-measured, ' +
   'no bound is claimed moved and no operator positivity is established.';
@@ -219,7 +219,7 @@ const IMP96591_ASSERTIONS = [
       IMP96591_VERDICT.anyBoundMoved === false &&
       IMP96591_VERDICT.crossoverConfirmed === true &&
       /NO QED/.test(IMP96591_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96591_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96591_HONEST_BANNER) &&
       /RH open/.test(IMP96591_HONEST_BANNER),
     why: 'measurement only: no bound moved, the crossover confirmation is recorded, and the honesty markers are present.',
   },

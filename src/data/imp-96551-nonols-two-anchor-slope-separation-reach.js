@@ -77,8 +77,8 @@
  * The irreducible chi scatter caps EVERY estimator on the two anchors; the imp-96528 SE(p) >= 0.21
  * floor (which already used all accessible heights) is not an OLS artifact and cannot be beaten by a
  * smarter estimator on the pair. This confirms imp-96528 and does NOT close the imp-96510
- * systematic-vs-noise sub-gap. Assessment only; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * systematic-vs-noise sub-gap. Assessment only; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96528-independent-unclipped-height-count-exponent-fit-reach (the OLS SE(p) >= 0.21 floor)
  * @see imp-96493-excursion-2sigma-interior-scan (the two interior anchors T = 1.5e5, 3.879e5)
@@ -162,12 +162,12 @@ export const IMP96551_NONOLS_TWO_ANCHOR_SLOPE_SEPARATION_REACH = {
   beatsOLSFloor: BEATS_OLS_FLOOR, // false
   canResolveSubGap: CAN_RESOLVE_SUBGAP, // false
   verdict:
-    'NO. A non-OLS estimator combining ONLY the two imp-96493 anchors cannot separate the p = 0 and p = -1/4 dip-depth exponents better than the imp-96528 OLS SE(p) >= 0.21 -- it does ~7.9x WORSE. Inverse-variance weighting collapses to OLS because the log-relErr scatter sigma = sqrt(pi^2/8) is s-independent and equal across the anchors (no heteroscedasticity to exploit); the known-sigma / Bayesian estimator supplies a finite two-point error bar SD(p) = (pi/2)/Delta_x ~ 1.653 where OLS gives none, but on the short ~0.41-decade anchor baseline that bar separates Delta_p = 1/4 by only ~0.151 sigma. Bayesian model comparison of the two readings reproduces the identical 0.151 sigma: the chi-scatter prior constrains the noise, not the slope, so it cannot shrink the posterior below the Cramer-Rao / BLUE floor 2 sigma^2/(Delta_x)^2 that OLS, IVW and the Bayesian mean all share. The irreducible chi scatter caps EVERY estimator on the two anchors; the imp-96528 SE(p) >= 0.21 floor (which already used all accessible heights) is not an OLS artifact and cannot be beaten by a smarter estimator on the pair. This confirms imp-96528 and does NOT close the imp-96510 systematic-vs-noise sub-gap. Assessment only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'NO. A non-OLS estimator combining ONLY the two imp-96493 anchors cannot separate the p = 0 and p = -1/4 dip-depth exponents better than the imp-96528 OLS SE(p) >= 0.21 -- it does ~7.9x WORSE. Inverse-variance weighting collapses to OLS because the log-relErr scatter sigma = sqrt(pi^2/8) is s-independent and equal across the anchors (no heteroscedasticity to exploit); the known-sigma / Bayesian estimator supplies a finite two-point error bar SD(p) = (pi/2)/Delta_x ~ 1.653 where OLS gives none, but on the short ~0.41-decade anchor baseline that bar separates Delta_p = 1/4 by only ~0.151 sigma. Bayesian model comparison of the two readings reproduces the identical 0.151 sigma: the chi-scatter prior constrains the noise, not the slope, so it cannot shrink the posterior below the Cramer-Rao / BLUE floor 2 sigma^2/(Delta_x)^2 that OLS, IVW and the Bayesian mean all share. The irreducible chi scatter caps EVERY estimator on the two anchors; the imp-96528 SE(p) >= 0.21 floor (which already used all accessible heights) is not an OLS artifact and cannot be beaten by a smarter estimator on the pair. This confirms imp-96528 and does NOT close the imp-96510 systematic-vs-noise sub-gap. Assessment only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96510 / imp-96528 convention).
 export const IMP96551_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: a non-OLS estimator (inverse-variance '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: a non-OLS estimator (inverse-variance '
   + 'weighting, or a Bayesian known-sigma fit) on ONLY the two imp-96493 anchors cannot beat the imp-96528 OLS '
   + 'SE(p) >= 0.21 -- IVW = OLS (equal s-independent scatter, no heteroscedasticity), and the known-sigma bar '
   + 'SD(p) = (pi/2)/Delta_x ~ 1.653 is ~7.9x LOOSER (~0.151 sigma on Delta_p = 1/4). The irreducible chi scatter '
@@ -198,9 +198,9 @@ export const IMP96551_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96551_NONOLS_TWO_ANCHOR_SLOPE_SEPARATION_REACH.verdict))
     throw new Error('imp-96551: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96551_NONOLS_TWO_ANCHOR_SLOPE_SEPARATION_REACH.verdict))
-    throw new Error('imp-96551: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96551_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96551_HONEST_BANNER) && /NO QED/.test(IMP96551_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96551_NONOLS_TWO_ANCHOR_SLOPE_SEPARATION_REACH.verdict))
+    throw new Error('imp-96551: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96551_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96551_HONEST_BANNER) && /NO QED/.test(IMP96551_HONEST_BANNER)))
     throw new Error('imp-96551: IMP96551_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

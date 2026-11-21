@@ -26,7 +26,7 @@
  * Both schemes and the exact reference are re-implemented here byte-identically to imp-36062.
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; the C_mb GUE-conditional
- * constant (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * constant (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED ratios and OLS fits on the twelve-rung above-onset ladder (clustered worst order):
  *   N        kappa    Kahan        KBN          ratio = KBN/Kahan
@@ -59,7 +59,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36062) -----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -307,7 +307,7 @@ export const IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT = {
     'certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true ' +
     'H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; ' +
     'the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36062 (recorded ratio 0.96->0.08 but never fit its form); imp-36095 (intermittency band, ' +
     'verdict alternates rung-to-rung); imp-36113 (step-250 persistence is a grid-aliasing artifact); ' +
@@ -358,7 +358,7 @@ export const IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT_ASSERTIONS = [
   },
   {
     id: 'imp36114-honesty-gate',
-    description: 'Measurement only; no fittable form; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; no fittable form; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -368,7 +368,7 @@ export const IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT.verdict) &&
-      /remains SOTA/.test(IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT.verdict),
+      /refereed bound is changed/i.test(IMP36114_KBN_KAHAN_RATIO_DECAY_LAW_FIT.verdict),
   },
 ];
 

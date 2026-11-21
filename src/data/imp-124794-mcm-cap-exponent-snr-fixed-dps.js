@@ -51,7 +51,7 @@
  * imp-97736 RESULT 3 and imp-97801. No new computation feeds any bound: the cap-independent 1/(720 d^3) tail
  * budget (&lt; 5.69e-11) dwarfs any cap-to-infinity shift of the +7.520579e-5 omega=10 gap, so the primorial
  * p_10# stays the strict minimiser and the MCM onset stays exactly omega=11. MCM refuted; b/4 ceiling
- * untouched; kappa_arith unchanged; PT Lambda &lt;= 0.2 SOTA; RH open; NO QED.
+ * untouched; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97783-mcm-cap-fullprec-exponent-set.js  (source full-precision cap ladder; dps 16/24 reused byte-for-byte)
  * @see imp-97801-mcm-cap-snr-monotonicity.js        (four-point SNR-monotonicity audit; SNR=30 vs SNR=10 jitter)
@@ -132,7 +132,7 @@ export const IMP124794_HONEST_BANNER =
   'dps. So the 0.240-vs-0.215 gap is jitter, NOT slow-log curvature, consistent with imp-97736 RESULT 3 and ' +
   'imp-97801. No bound moves: the cap-independent 1/(720 d^3) tail budget (< 5.69e-11) dwarfs any ' +
   'cap-to-infinity shift of the +7.520579e-5 omega=10 gap, so the primorial p_10# stays the strict minimiser ' +
-  'and the MCM onset stays omega=11. MCM refuted; b/4 ceiling untouched. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'and the MCM onset stays omega=11. MCM refuted; b/4 ceiling untouched. No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -173,7 +173,7 @@ const IMP124794_ASSERTIONS = [
       IMP124794_MCM_CAP_EXPONENT_SNR_FIXED_DPS.anyBoundMoved === false &&
       IMP124794_MCM_CAP_EXPONENT_SNR_FIXED_DPS.qed === false &&
       /NO QED/.test(IMP124794_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP124794_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124794_HONEST_BANNER) &&
       /RH open/.test(IMP124794_HONEST_BANNER) &&
       /omega=11/.test(IMP124794_HONEST_BANNER),
     why: 'measurement/verification only -- the fixed-dps cap exponent scatters (non-monotone) within the cap-metric jitter band; no bound moved; MCM stays refuted from omega=11; no QED.',

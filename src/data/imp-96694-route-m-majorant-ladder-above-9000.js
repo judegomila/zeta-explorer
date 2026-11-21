@@ -221,7 +221,7 @@ export const IMP96694_VERDICT = Object.freeze({
     '+0.30 percent (3.764e7 -> 3.775e7), staying in the ~3.75-3.78e7 band above the trace ' +
     'lower ceiling 2.594e7 and below the measured composed 4.109e7. Every new-rung Frobenius ' +
     'bound is valid: ~11-12 percent above lam_max, ~1.79x below the trace. No bound moved; no ' +
-    'operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96694_SUBGAP = Object.freeze({
@@ -238,7 +238,7 @@ export const IMP96694_SUBGAP = Object.freeze({
 });
 
 export const IMP96694_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: lam_max (power iteration) ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: lam_max (power iteration) ' +
   'and the Frobenius ||G||_F and Wolkowicz-Styan bounds at N=10000,11000,12000 are exact matrix ' +
   'quantities on the same exact Vasyunin Gram (rebuilt to NMAX=12000) as ' +
   'imp-96105 / imp-96443 / imp-96648 / imp-96684 (tmp/imp-96694-frobenius-extend-highn.py, ' +
@@ -309,7 +309,7 @@ const IMP96694_ASSERTIONS = [
       IMP96694_VERDICT.keepsFlattening === true &&
       IMP96694_VERDICT.saturates === false &&
       /NO QED/.test(IMP96694_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96694_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96694_HONEST_BANNER) &&
       /RH open/.test(IMP96694_HONEST_BANNER) &&
       /window-still-bounded/.test(IMP96694_SUBGAP.id),
     why: 'measurement only: no bound moved, the flattening-continues / ceiling-robust result is recorded, and the honesty markers plus the bounded-window sub-gap are present.',

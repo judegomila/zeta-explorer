@@ -7,8 +7,7 @@
  * occupy, and WHAT the 2.42e-7 actually was.
  *
  * GRADE: verification / accuracy pass on ONE baked literal. Import-light (no
- * imports). Changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * imports). Changes NO Lambda bound; NO QED; no refereed bound is changed.
  *
  * BACKGROUND. imp-95807 independently recomputed F_inf at all 13 union twin-pair
  * cells and found the single worst relative error, 2.42e-7, at the imp-95707
@@ -67,8 +66,7 @@
  * as-baked 2.42e-7 margin); it supplies the DD re-bake and the refined attribution
  * on the record. Introduces no new cited input and no new bound. Model seam family
  * only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay
- * OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95807-finf-dual-independent-recompute (the union-grid recompute and the 2.42e-7 worst cell)
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the delta = ln1.5 rho-sweep float64 source, stale Finf literal)
@@ -168,7 +166,7 @@ export const IMP95817_FINF_LN15_RHO1_DD_REBAKE = {
     "literal; the imp-95707 / imp-95807 tables (which record the as-baked margin) " +
     "are left intact. No new cited input. Model seam family only; imp-95212 " +
     "envelope port, signed WEIGHT, modulus/phase legs stay OPEN. Changes no bound " +
-    "of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95817"],
 };
 
@@ -238,7 +236,7 @@ export const IMP95817_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /RE-BAKING THE WORST CELL/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95817-closes-self",

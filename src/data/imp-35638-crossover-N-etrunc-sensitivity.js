@@ -59,8 +59,7 @@
  * E_trunc = 3.06e-5 (imp-2631/imp-447) and C_C = (1/8)sqrt(3 pi) (imp-2642/imp-2643)
  * are UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
- * changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35594-peak-crossover-mechanism-derivation (Derivation 1 closed form used here)
  * @see imp-35636-crossover-damping-residual-gap-decomposition (the L = log T0 elasticity)
@@ -251,7 +250,7 @@ export const IMP35638_CROSSOVER_N_ETRUNC_SENSITIVITY = {
     'E_trunc = 3.06e-5 (imp-2631/imp-447) and C_C = (1/8)sqrt(3 pi) (imp-2642/imp-2643) UNTOUCHED; ' +
     'surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'E_coll far-tail exponent 1/2 per imp-3463; changes no bound; no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35594 (Derivation-1 closed form N_cross = (C_C/E_trunc)^2 log T0); imp-33723 (Banach fixed ' +
     'point ~3.28e9 reproduced); imp-35636 (the L = log T0 elasticity); imp-35609 (peak E_trunc shift ' +
@@ -300,13 +299,13 @@ export const IMP35638_CROSSOVER_N_ETRUNC_SENSITIVITY_ASSERTIONS = [
       BASE.dlogN_dlogE < PEAK_DLOGN_DLOGE, // crossover slope more negative (steeper)
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp35638-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35638_CROSSOVER_N_ETRUNC_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35638_CROSSOVER_N_ETRUNC_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35638_CROSSOVER_N_ETRUNC_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35638_CROSSOVER_N_ETRUNC_SENSITIVITY.verdict),
   },
 ];
 

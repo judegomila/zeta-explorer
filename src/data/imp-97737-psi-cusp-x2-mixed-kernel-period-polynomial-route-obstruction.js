@@ -66,7 +66,7 @@
  *   ratio, or kappa_smooth: pinning any of them without the explicit BC Gamma-kernel would be
  *   fabrication. kappa_smooth stays measured (|kappa_smooth| <~ 1e-2, sign-swinging). The rigorous
  *   anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x;
- *   no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97597-route-m-psi-s-integral-rep-double-expansion.js (RESULT 3: kappaK sub-gap)
  * @see imp-97656-wlin-laurent-crossval-subgap-standing-honest-status.js (sub-gap stands, independent)
@@ -125,8 +125,8 @@ export const IMP97737_VERDICT = Object.freeze({
     'normalisation at the s=1 double pole -- the relative weight between P2 (zeta(2) = pi^2/6 ' +
     'Eisenstein period) and L2 (gamma_1 double-pole Laurent) -- which no weight-2 critical L-value ' +
     'fixes. Obstruction reached, not closed; no value pinned; kappa_smooth stays measured; the ' +
-    'rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97737_SUBGAP = Object.freeze({
@@ -142,7 +142,7 @@ export const IMP97737_SUBGAP = Object.freeze({
 });
 
 export const IMP97737_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the Bettin-Conrey mean-value / ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the Bettin-Conrey mean-value / ' +
   'period-polynomial route does NOT pin the imp-97597 RESULT 3 mixed kernel coefficient kappaK. At ' +
   'weight 2 the period polynomial has degree k-2 = 0 (structurally blind to z^2, so the elementary ' +
   'cocycle fixes only {A,B,C0} = w_lin) and the z^2 datum lives in the quasimodular anomaly of E_2 ' +
@@ -208,7 +208,7 @@ const IMP97737_ASSERTIONS = [
       IMP97737_VERDICT.isRigorous === false &&
       IMP97737_VERDICT.qed === false &&
       /NO QED/.test(IMP97737_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97737_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97737_HONEST_BANNER) &&
       /RH open/.test(IMP97737_HONEST_BANNER) &&
       /gamma-kernel-normalisation/.test(IMP97737_SUBGAP.id),
   },

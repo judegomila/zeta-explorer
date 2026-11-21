@@ -76,7 +76,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34923-gronwall-halving-surplus-identity-derivation (surplus closed form
  *      r/(2(2+r)); noted the ~8x / ~95% coincidence but did not quantify the residual)
@@ -243,8 +243,8 @@ export const IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK = {
     'to ~4e-6. The surplus formula r/(2(2+r)) itself is exact (r/4 rel error ~ r/2 ~ 9.5e-4). The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34923 (surplus closed form r/(2(2+r)); ~8x / ~95% coincidence, un-quantified residual); imp-34904 ' +
     '(L1-L3 ~0.407% gap); imp-33601 (leading (1+r)^2 N-gap prediction); imp-3444 (E_coll=E_trunc crossover ' +
@@ -306,13 +306,13 @@ export const IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK_ASSERTIONS 
       RESID_REFINED_FULL < 1e-4,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp34954-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK.verdict),
   },
 ];
 

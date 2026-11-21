@@ -68,7 +68,7 @@
  *
  *   Measurement only; pins NO coefficient for g(b), B* or the analytic curvature; no bound moves; the
  *   only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds
- *   first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97459-bimodal-crossover-continuum-threshold -- the two crests are pinned to
  *   x = 1/6 (tip 1.113%) and x = 1/5 (tip 1.393%) and the ladder step 2000 -> 4000 is measured, but
@@ -197,7 +197,7 @@ export const IMP97459_VERDICT = Object.freeze({
     'A(b) = x*(1%) b = {199, 398, 666, 1332, 2664} is EXACTLY proportional to b within each branch -- ' +
     'the bimodal fraction is a one-time jump between two linear branches, so the crossover scale stays ' +
     'linear at 1%. Measurement only; no coefficient pinned; the rigorous anchor stays T = 2.594e7; ' +
-    'compute N ~ 9916 binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; ' +
+    'compute N ~ 9916 binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -215,7 +215,7 @@ export const IMP97459_SUBGAP = Object.freeze({
 });
 
 export const IMP97459_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97441 bimodal x*(1%) ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97441 bimodal x*(1%) ' +
   'row is explained by two fixed arithmetic crests of (I - I_lin)/I -- the lower at x = 1/6 ' +
   '(continuum tip 1.113%, sampled 0.9100 -> 1.0920% across b = 1000..16000) and the upper at x = 1/5 ' +
   '(1.3934%, always >1%). The step 0.199 -> 0.1665 is a grid-resolution flip of which crest first ' +
@@ -310,7 +310,7 @@ const IMP97459_ASSERTIONS = [
       IMP97459_VERDICT.scaleLinearAt1pct === true &&
       IMP97459_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97459_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97459_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97459_HONEST_BANNER) &&
       /RH open/.test(IMP97459_HONEST_BANNER) &&
       /bimodal-crossover-continuum-threshold/.test(IMP97459_SUBGAP.id),
   },

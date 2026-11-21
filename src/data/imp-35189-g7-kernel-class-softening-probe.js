@@ -64,8 +64,7 @@
  *   exhaustive over all admissible kernel classes; "no softening direction" is scoped to the classes
  *   probed here. A sign pattern carries NO RH verdict: it neither shows the imp-3066 cover fails nor
  *   that it holds. imp-3066 K_a &gt;= 0 and G7 remain OPEN and UNTOUCHED; this establishes no operator
- *   positivity; changes no bound; ||R|| carries NO RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA.
+ *   positivity; changes no bound; ||R|| carries NO RH verdict; NO QED. No refereed bound is changed.
  *
  *   @see imp-35148-g7-truncation-deg-lever-probe.js (imp-35148: the discrete DEG axis whose caveat this fills)
  *   @see imp-35075-g7-orthogonal-lever-tangent-completeness.js (imp-35075: the two continuous transverse levers)
@@ -420,7 +419,7 @@ export const IMP35189_G7_KERNEL_CLASS_SOFTENING_PROBE = Object.freeze({
     imp35148Untouched: true,
     didNotAttemptPositivity: true,
     changesNoBound: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     noQED: true,
   }),
 });
@@ -467,7 +466,7 @@ export const IMP35189_G7_KERNEL_CLASS_SOFTENING_PROBE_ASSERTIONS = [
     why: 'Mandatory honesty: representative (not exhaustive) class set on the inherited surrogate, ' +
          'raw ||R|| basis-dependent (invariant rho is the comparable object), sign pattern carries ' +
          'no RH verdict, imp-3066 / imp-33765 / imp-35075 / imp-35148 / G7 untouched, positivity ' +
-         'not attempted, changes no bound, not a proof, PT 0.2 stays SOTA.',
+         'not attempted, changes no bound, not a proof, no refereed bound is changed.',
     holds: () => {
       const c = IMP35189_G7_KERNEL_CLASS_SOFTENING_PROBE.honestCaveat;
       return (
@@ -480,7 +479,7 @@ export const IMP35189_G7_KERNEL_CLASS_SOFTENING_PROBE_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.changesNoBound === true &&
         c.noQED === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

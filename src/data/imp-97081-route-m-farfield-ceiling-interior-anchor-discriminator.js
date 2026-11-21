@@ -78,7 +78,7 @@
  *   A model-selection measurement that adds an INDEPENDENT far-field anchor (F, from the interior
  *   second-moment asymptotic) to the near-field holdout, narrowing the ceiling band ~4.2x and
  *   rejecting the quadratic top end. It instantiates no interval, closes no sub-gap, moves no
- *   bound, establishes no operator positivity. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound, establishes no operator positivity. NO QED. No refereed bound is changed.
  *
  * @see imp-96982-frobenius-holdout-quadratic-favoured-glossary-headword (the band this narrows)
  * @see imp-96912-route-m-frobenius-holdout-model-discriminator (the near-field holdout)
@@ -88,7 +88,7 @@
  * @see imp-97078-route-m-vasyunin-reciprocity-nsq-logn-feasibility (candidate 2, blocked sub-gap)
  *
  * Ticket: imp-97081 (accuracy, opus-4-8, api-pool). Measurement + narrowed band + named
- * obstruction; no bound moved; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * obstruction; no bound moved; NO QED; no refereed bound is changed.
  */
 
 // -- The three near-field ceiling fits (baked verbatim from imp-96982 / imp-96890). ----------
@@ -157,12 +157,12 @@ export const IMP97081_VERDICT = Object.freeze({
     'constant (and its O(1) term to fix F as a value, not a slope); an exact rung past N=16000 ' +
     '(candidate 2) would test the anchor directly but is blocked on the imp-97078 R-evaluator ' +
     'sub-gap. Measurement only; the rigorous anchor stays T = 2.594e7; compute (N ~ 9916) binds ' +
-    'first by >2600x; changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; ' +
+    'first by >2600x; changes no bound; no operator positivity; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
 export const IMP97081_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the interior second-moment ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the interior second-moment ' +
   'asymptotic anchor F = 3.775e7 (imp-96750, reduced-and-measured, sub-gap open) narrows the ' +
   'imp-96982 far-field ceiling band ~4.2x to [3.775e7, 3.838e7] and rejects the quadratic top ' +
   'end (4.103e7) as an unphysical curvature over-run. F is not certified (rests on the imp-96750 ' +
@@ -213,7 +213,7 @@ const IMP97081_ASSERTIONS = [
       IMP97081_VERDICT.candidate2Blocked === true &&
       IMP97081_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97081_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97081_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97081_HONEST_BANNER) &&
       /imp-96750/.test(IMP97081_VERDICT.conclusion),
   },
 ];

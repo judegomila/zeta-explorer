@@ -67,7 +67,7 @@
  * imp-33843 log-linear verdict is untouched). Both sequences and the surrogate fits are descriptive, not
  * derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34129-widening-slope-drift-convergence-fit (the slope drift that DID converge; method reused)
  * @see imp-34214-trough-peak-ratio-limit-fit (the ratio fit that REFUTED convergence; contrasted here)
@@ -269,7 +269,7 @@ export const IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM = {
     'the surrogate fits are descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34129 (the widening-slope drift that DID converge; exp-vs-power method reused); imp-34214 (the ' +
     'ratio fit that REFUTED convergence, contrasted here); imp-34085 (the |trough|/|peak| ratio sequence ' +
@@ -335,13 +335,13 @@ export const IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM_ASSERTIONS = [
         .ceilingRecoversGenuineConvergence === false,
   },
   {
-    // Honesty gate: assessment only, isRigorous false, no QED, PT SOTA, imp-3066 and C_mb untouched.
+    // Honesty gate: assessment only, isRigorous false, no QED, no refereed bound is changed, imp-3066 and C_mb untouched.
     id: 'imp34292-honesty-gate-no-qed',
-    description: 'assessment only: isRigorous false, no QED, PT SOTA, imp-3066 + C_mb untouched',
+    description: 'assessment only: isRigorous false, no QED, no refereed bound is changed, imp-3066 + C_mb untouched',
     holds: () =>
       IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM.isRigorous === false &&
       /NO QED/.test(IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM.verdict) &&
-      /remains SOTA/.test(IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM.verdict) &&
+      /refereed bound is changed/i.test(IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(
         IMP34292_SLOPE_VS_RATIO_CONVERGENCE_MECHANISM.verdict,

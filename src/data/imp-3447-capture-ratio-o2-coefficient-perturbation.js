@@ -45,7 +45,7 @@
  *   the sinh nonlinearity is a small POSITIVE O(a^2) drift, exactly the imp-3409 picture,
  *   now with an analytic coefficient rather than a fit.
  *   Derivation + numerical test only; RH-equivalent; carries NO RH verdict and NO QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3409-capture-ratio-sinh-residual-order.js (measured the O(a^2) rate + c ~ 1.58e-5 at U = 6, fit only)
  *   @see imp-3442-sinh-residual-coefficient-U-scaling.js (mapped c(U) near-1/U across the U-grid)
@@ -246,7 +246,7 @@ export const IMP3447_CAPTURE_RATIO_O2_COEFFICIENT_PERTURBATION = Object.freeze({
     'reproducing the imp-3409 measured c ~ 1.5793e-5 (recomputed as e(a)/a^2 at a = 0.0625) to ~0.02% relative error. ' +
     'Both shifts dT, dG are positive and r_lin dG < dT, so the net c stays positive -- the sinh nonlinearity is a ' +
     'small POSITIVE O(a^2) drift, now with an analytic coefficient. Derivation + numerical test only; RH-equivalent; ' +
-    'carries NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'carries NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -319,7 +319,7 @@ export const IMP3447_CAPTURE_RATIO_O2_COEFFICIENT_PERTURBATION = Object.freeze({
       'The closed form is verified NUMERICALLY (c_derived vs recomputed e(a)/a^2 at N = 240, ITERS = 500), not by ' +
       'a symbolic proof that the two agree to all orders; it is a derived-and-tested leading coefficient.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -359,8 +359,8 @@ export const IMP3447_CAPTURE_RATIO_O2_COEFFICIENT_PERTURBATION_ASSERTIONS = [
   {
     id: 'imp3447-honest-derivation-no-qed',
     why: 'Mandatory honesty: DERIVATION + numerical test only -- not a proof to all orders, not a reduction below ' +
-      'RH, RH-equivalent, positivity not attempted, first-order (leading) coefficient not an exact identity, PT ' +
-      '0.2 stays SOTA. Any flip is over-claiming.',
+      'RH, RH-equivalent, positivity not attempted, first-order (leading) coefficient not an exact identity, no refereed bound is changed' +
+      '. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3447_CAPTURE_RATIO_O2_COEFFICIENT_PERTURBATION.honestCaveat;
       return (
@@ -369,7 +369,7 @@ export const IMP3447_CAPTURE_RATIO_O2_COEFFICIENT_PERTURBATION_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.derivationIsFirstOrderNotExact === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

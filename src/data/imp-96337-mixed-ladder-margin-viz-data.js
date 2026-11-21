@@ -16,8 +16,7 @@
  * PRESENTATION ONLY. This renders a TABULATION of the already-reduced
  * imp-96143 fact (I); it diagonalizes nothing, establishes no operator
  * positivity, moves no Lambda bound, and does NOT touch the finitely-many
- * top confined states (the actual residual). RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * top confined states (the actual residual). RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js (ladder, ceiling, thresholds)
  *
@@ -69,7 +68,7 @@ export const IMP96337_ANCHORS = Object.freeze({
 });
 
 export const IMP96337_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every rung magnitude, margin, and '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every rung magnitude, margin, and '
   + 'threshold-count value is copied verbatim from the imp-96270 baked tabulation; only the margin '
   + '(s_2 - s_u) and the threshold-series reordering are computed here (no re-derivation, no new '
   + 'diagonalization). This charts a TABULATION of the already-reduced imp-96143 fact (I): it establishes '
@@ -122,8 +121,8 @@ const IMP96337_ASSERTIONS = [
   },
   {
     id: 'imp96337-honest-banner-carries-status',
-    holds: () => /RH open/.test(IMP96337_HONEST_BANNER) && /NO QED/.test(IMP96337_HONEST_BANNER) && /SOTA/.test(IMP96337_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96337_HONEST_BANNER) && /NO QED/.test(IMP96337_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96337_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
   {
     id: 'imp96376-density-growth-series-matches-source-and-three-prime-denser',

@@ -21,8 +21,7 @@
  *   adds no new Lambda bound. Discharges nothing: this module's own surrogate-vs-true fidelity
  *   gap remains an UNNAMED tracked sub-gap per the imp-35413 scope note; imp-35337a stays OPEN
  *   and does not cover this quantity. E_flow > 0 strictness (imp-33848) UNTOUCHED; C_mb
- *   GUE-conditional per imp-486 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA.
+ *   GUE-conditional per imp-486 UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 // -- the imp-35413 five-rung ladder, baked verbatim (log10N, remnant, above/below 1e-3) --

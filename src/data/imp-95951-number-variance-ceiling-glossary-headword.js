@@ -42,8 +42,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95750 measurement-ceiling finding
  *   for quick reference. It establishes nothing, instantiates no interval,
- *   closes no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   closes no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95750-number-variance-deadzone-measurement-reach (source: the ceiling and reach fraction this glosses)
  * @see imp-95795-number-variance-deadzone-glossary-headword (sibling headword: the wider dead-zone + r_cap-coverage story)
@@ -52,7 +51,7 @@
  * @see imp-95722-number-variance-ratio-window-bottom-bound (the derived r_cap envelope the dead zone relies on instead)
  *
  * Ticket: imp-95951 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The number-variance ceiling headword, baked verbatim (no re-import).
@@ -101,7 +100,7 @@ export const IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD = Object.freeze(
     'verified ordinate, src/data/zeros-to-1e6.js) hard-caps direct sd(C - E) ' +
     'measurement, reaching only ~2.36% of the 3.358-decade gap to the imp-95729 ' +
     'crossover T0 ~ 1.14e9. Establishes nothing; instantiates no interval; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95750 (measurement-ceiling finding and reach-fraction this glosses); ' +
     'imp-95710 (measured top T = 5e5 the ceiling extends); imp-95729 (crossover ' +
@@ -131,11 +130,11 @@ export const IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95951-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD.verdict) &&
       IMP95951_NUMBER_VARIANCE_CEILING_GLOSSARY_HEADWORD.glosses === 'imp-95750',
   },
 ];

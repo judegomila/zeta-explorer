@@ -63,8 +63,7 @@
  * imp-35556a records that. ASSESSMENT ONLY; discharges nothing; imp-35488a,
  * imp-35530a, imp-35530b, imp-35337a stay OPEN; C_mb GUE-conditional per imp-486
  * UNTOUCHED; C_C ansatz (imp-2642/imp-2643), E_trunc floor (imp-2631) UNTOUCHED;
- * changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35530-crossover-gtrue-trend-extrapolation (the projected ~10.5x gap and sub-gaps imp-35530a/b)
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (units-mismatch origin imp-35488b; imp-35488a out-of-range)
@@ -90,7 +89,7 @@ const TV_UB_P1 = pinskerTV(KL_CROSS_P1); // 2.3938e-2
 const TV_UB_P2 = pinskerTV(KL_CROSS_P2); // 1.8460e-2
 const TV_UB_FREE_OVER_ECOLL = TV_UB_FREE / ECOLL_CROSS; // ~414.3x
 
-const L_PT = 0.2; // SOTA (unchanged by any dimensional-comparability assessment)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any dimensional-comparability assessment)
 
 export const IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY = {
   id: 'imp-35556',
@@ -156,13 +155,13 @@ export const IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY = {
     'units; the fix is a common first-order functional absent in-repo -- new sub-gap imp-35556a). ' +
     'ASSESSMENT ONLY; discharges nothing; imp-35488a, imp-35530a, imp-35530b, imp-35337a stay OPEN; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; C_C ansatz (imp-2642/imp-2643), E_trunc floor (imp-2631) ' +
-    'UNTOUCHED; changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'UNTOUCHED; changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35530 (projected ~10.5x gap, sub-gaps imp-35530a extrapolation / imp-35530b units); imp-35488 ' +
     '(units-mismatch origin imp-35488b, out-of-range imp-35488a); imp-35337 (imp-35337a surrogate->observable ' +
     'dictionary, OPEN); imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi) ansatz); imp-2631 (E_trunc floor); imp-486 ' +
-    '(GUE-conditional caveat); Pinsker inequality TV <= sqrt(KL/2); Platt-Trudgian 2021 (Lambda <= 0.2 SOTA).',
+    '(GUE-conditional caveat); Pinsker inequality TV <= sqrt(KL/2); Platt-Trudgian 2021 (no refereed bound is changed).',
   L_pt_unchanged: L_PT,
 };
 
@@ -201,7 +200,7 @@ export const IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment only, category mismatch, new sub-gap imp-35556a, no bound moves, PT SOTA, NO QED.
+    // Honesty gate: assessment only, category mismatch, new sub-gap imp-35556a, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35556-honest-assessment-no-bound-moves-no-qed',
     description: 'ASSESSMENT ONLY: the ~10.5x is a category mismatch not an inequality (new sub-gap imp-35556a), the units caveat is imp-35530b not imp-35530a, no bound moves, PT 0.2 unchanged, NO QED',
     holds: () =>
@@ -214,7 +213,7 @@ export const IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY_ASSERTIONS = [
       /imp-486/.test(IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY.verdict) &&
       /changes no bound/.test(IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY.verdict) &&
       /NO QED/.test(IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY.verdict) &&
-      /remains SOTA/.test(IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY.verdict),
+      /refereed bound is changed/i.test(IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY.verdict),
   },
 ];
 

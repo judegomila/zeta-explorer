@@ -12,7 +12,7 @@
  *   U-curve without importing any computation module, per [[no_heavy_imports_in_pages]].
  *
  *   Presentation only of an already-established surrogate measurement; adds no new Lambda
- *   bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. NO QED. No refereed bound is changed.
  *
  * @see imp-35989-i4-accumulated-error-vs-panel-count-scale.js (the surrogate this bakes)
  * @see imp-35804-i4-integer-closure-error-budget-scope (I4 <pi GLOBAL accumulated-error budget)
@@ -56,8 +56,8 @@ export default Object.freeze({
   uMinimum: IMP36048_U_MINIMUM,
   honest:
     'VIZ DATA ONLY: presentation of an already-established double-precision surrogate; sums no ' +
-    'real per-panel increments; certifies no count; changes no bound. NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'real per-panel increments; certifies no count; changes no bound. NO QED. No refereed bound is changed' +
+    '.',
 });
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --

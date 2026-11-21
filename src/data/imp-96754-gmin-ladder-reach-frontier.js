@@ -1,7 +1,7 @@
 /**
  * imp-96754 -- Reach frontier and data-acquisition requirement for extending the imp-96629 /
  * imp-96734 disjoint dyadic block-minima gap ladder past N ~ 2e6. Measurement/scoping only;
- * conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * conditional on GUE; NO QED. No refereed bound is changed.
  *
  * TICKET (imp-96734 REACH). imp-96734 found the imp-96616 running-min normalized-gap exponent
  * -0.3953 (vs GUE cube-root -1/3) is PERSISTENT, not a finite-N / plateau artifact, across the
@@ -50,7 +50,7 @@
  * vague REACH note into an exact acquisition spec (>= 2,193,252 more consecutive ordinates for k=21)
  * and records that the existing top rung k=20 is a 90.835%-filled dyadic block. No new zeros read; no
  * gap recomputed; no bound moved; no operator positivity. Measurement/scoping only; conditional on
- * GUE; NO QED. PT Lambda <= 0.2 remains SOTA; RH open.
+ * GUE; NO QED. No refereed bound is changed; RH open.
  */
 
 const N_MAX = 2001052; // verified line count of scripts/.zeros-cache/zeros6 (first consecutive zeros)
@@ -120,7 +120,7 @@ export const GMIN_LADDER_REACH_FRONTIER = {
     '(index >= 4,194,304) to add rung k=21 at N_center ~ 2.97e6. Existing top rung k=20 is a ' +
     '90.835%-filled dyadic block (last COMPLETE block is k=19, N_center 741,455). imp-96734 reach ' +
     'verdict (deviation from -1/3 persistent, no finite-N escape hatch over N <= ~2e6) stands. ' +
-    'Measurement/scoping only; conditional on GUE; NO QED. PT Lambda <= 0.2 remains SOTA; RH open.',
+    'Measurement/scoping only; conditional on GUE; NO QED. No refereed bound is changed; RH open.',
 };
 
 export default GMIN_LADDER_REACH_FRONTIER;

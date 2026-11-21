@@ -48,7 +48,7 @@
  * +/- 1 ULP log radius, not a certified two-sided log; the imp-34867 crlibm-log leak is untouched) and
  * imp-34714a stays OPEN. Both a-priori width figures remain MODELS (imp-36066). C_C = 1/8 (imp-2642/2643) and
  * C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36136-krawczyk-residual-directed-rounding-layer-scope (SCOPED the layer this prototype measures against)
  * @see imp-36066-residual-node-no-machine-certificate-honest-status (both widths are MODELS; ~2x surrogate-over-layer)
@@ -190,7 +190,7 @@ export const IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE = {
     'single N, MEASURE the actual outward-rounded interval width, and compare it to the a-priori LAYER model ' +
     'to test whether the observed ratio matches the imp-36066 ~2x model or departs from it. Single-N ' +
     'measurement prototype only; certifies no enclosure over the range; imp-34687a stays UNIMPLEMENTED; ' +
-    'imp-34714a stays OPEN; NO QED; PT Lambda <= 0.2 SOTA.',
+    'imp-34714a stays OPEN; NO QED; no refereed bound is changed.',
   finding:
     'MEASURED at N = 1e17 with a genuine error-free-transform (TwoSum/TwoProduct) provably-outward ' +
     'evaluation, the real residual-node width reproduces EITHER a-priori figure depending SOLELY on whether ' +
@@ -251,7 +251,7 @@ export const IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE = {
     '(imp-36066), measuring is NECESSARY not SUFFICIENT. Reuses the imp-36017/imp-35969/imp-34774/imp-36175 ' +
     'machinery (identical K_AMPL, height map, nextUp/nextDown, ulpOf, surrogate/layer). C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36136 (SCOPED the directed-rounding LAYER measured against); imp-36066 (both widths are MODELS; ' +
     '~2x surrogate-over-layer); imp-36175 (op-DAG ULP count deriving exact-2); imp-36199 (closed-form ' +
@@ -294,15 +294,15 @@ export const IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE_ASSERTIONS 
     holds: () => BLIND_ENCLOSES === true && AWARE_ENCLOSES === true,
   },
   {
-    // Honesty gate: prototype / measurement, not rigorous, sub-gaps open, both a-priori widths MODELS, no QED, PT SOTA.
+    // Honesty gate: prototype / measurement, not rigorous, sub-gaps open, both a-priori widths MODELS, no QED, no refereed bound is changed.
     id: 'imp36218-honesty-gate-no-qed',
-    description: 'prototype: isRigorous false, imp-34714a/imp-34687a open, MODELS not certificate, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'prototype: isRigorous false, imp-34714a/imp-34687a open, MODELS not certificate, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE.subGap) &&
       /NECESSARY not SUFFICIENT/.test(IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE.verdict) &&
       /NO QED/.test(IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE.verdict) &&
-      /remains SOTA/.test(IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE.verdict),
+      /refereed bound is changed/i.test(IMP36218_KRAWCZYK_RESIDUAL_EFT_MEASURED_WIDTH_PROTOTYPE.verdict),
   },
 ];
 

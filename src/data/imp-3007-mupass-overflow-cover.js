@@ -68,8 +68,8 @@
  *   ---------------------------------------------
  *   STRUCTURAL / DIAGNOSTIC, RH-EQUIVALENT, NOT A REDUCTION. The cover is a
  *   faithful degree-0 restatement; it neither proves nor weakens RH. The bare-V
- *   pilot (imp-1240) is NOT re-run. Platt-Trudgian Lambda <= 0.2 REMAINS the
- *   rigorous SOTA. No false QED.
+ *   pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-mu-pass-overflow-quantification.js (imp-2841: the raw deg-0 deficit profile)
  *   @see imp-2686-mupass-construction.js (imp-2686: the cosh-completion + pointwise margin)
@@ -242,7 +242,7 @@ export const IMP3007_MUPASS_OVERFLOW_COVER = Object.freeze({
       'sufficient for K_a >= 0; the off-diagonal R must still contract. The cosh-' +
       'completion is the even part of the no-ghost kernel, so this carries full RH ' +
       'strength and is a faithful restatement, not a shortcut.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 
@@ -337,7 +337,7 @@ export const IMP3007_MUPASS_OVERFLOW_COVER_ASSERTIONS = [
   {
     id: 'imp3007-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: the cover is RH-EQUIVALENT, structural/diagnostic, necessary-but-' +
-         'not-sufficient, not a proof, not a reduction below RH, and PT 0.2 stays SOTA. If any ' +
+         'not-sufficient, not a proof, not a reduction below RH, and no refereed bound is changed. If any ' +
          'of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3007_MUPASS_OVERFLOW_COVER.honestCaveat;
@@ -347,7 +347,7 @@ export const IMP3007_MUPASS_OVERFLOW_COVER_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         IMP3007_MUPASS_OVERFLOW_COVER.remainingGap.operatorStepOpen === true
       );
     },

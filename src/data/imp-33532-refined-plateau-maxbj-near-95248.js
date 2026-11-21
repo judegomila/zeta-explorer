@@ -57,7 +57,7 @@
  *  - MEASUREMENT on plateau 5 of [1e4,1e6]. All figures baked from the offline
  *    script (esbuild + node over the zeros bundle); derived flags recomputed LIVE.
  *  - No new Lambda bound. imp-3910 C <= 54.56 stands; imp-3066 K_a >= 0
- *    UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *    UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-33309-max-bj-growth-fit.js (coarse one-per-plateau growth fit; found the 6.4537 global max, dg2 OPEN both ways)
  * @see imp-33290-far-term-tighter-majorant-assessment.js (defines B_j=P_j/D_j; proved the swap valid + relocated the obstruction to sup B_j)
@@ -146,7 +146,7 @@ export const IMP_33532_REFINED_PLATEAU_MAXBJ_NEAR_95248 = Object.freeze({
   scope:
     'Measurement on plateau 5 of [1e4,1e6]; figures baked from the imp-33532 offline script (esbuild+node over ' +
     'the zeros bundle), derived flags recomputed LIVE. No new Lambda bound; imp-3910 C<=54.56 stands; imp-3066 ' +
-    'UNTOUCHED; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.',
+    'UNTOUCHED; no refereed bound is changed; NO QED.',
 });
 
 export const IMP_33532_REFINED_PLATEAU_MAXBJ_NEAR_95248_ASSERTIONS = [

@@ -71,8 +71,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97404-sigma-fartail-exponent-ladder-past-1e12 (extends the exponent ladder to 1e15, residual "closing")
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ramp to ~0.4310 on [1e6,1e12])
@@ -260,7 +259,7 @@ export const IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW = {
     'conditional gap shrinks only ~1/log T0 past ~1e13. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97404 (exponent ladder to 1e15, residual "closing"); imp-33582 (per-decade ramp to ' +
     '~0.4310 on [1e6,1e12]); imp-33644 (log T0 saturation holds ~83% of the E_coll-exponent ' +
@@ -318,14 +317,14 @@ export const IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW_ASSERTIONS = [
       Math.abs(Q_IN_L.window_1e19_1e20 + 1) < 0.1,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp97702-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW.isRigorous === false &&
       IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW.farTailExponent === 0.5 &&
       /NO QED/.test(IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW.verdict) &&
-      /remains SOTA/.test(IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW.verdict),
+      /refereed bound is changed/i.test(IMP97702_SIGMA_FARTAIL_EXPONENT_RESIDUAL_HALF_LOGLAW.verdict),
   },
 ];
 

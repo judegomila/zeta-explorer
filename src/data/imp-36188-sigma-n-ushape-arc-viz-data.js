@@ -27,7 +27,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-3220/imp-3406/imp-33582 literals
  * verbatim; changes no bound; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-3220-en-bridge-fidelity-frontier.js (source: rise-arm decade ladder N=2..1e5, U-shape framing)
  * @see imp-3406-sigma-highN-extrapolation.js (source: interior peak N~9.22e5, sigma_max~0.9494, N-shape note)

@@ -125,7 +125,7 @@
  * (c) Parity-pure only: mixed-parity adjacent blocks have interval gap 0
  * and the ladder gives nothing (consistent with the carried chain, which
  * handles X_par by its own channel). (d) Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) Lemma HH was stress-tested on a 216000-cell
  * log grid (both rates 1e-3..1e3, separation 1e-4..1e4): zero violations,
@@ -427,7 +427,7 @@ export const IMP95132_CLUSTER_ABSORPTION_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM MA is unconditional given the sibling-chain witness conventions: Lemma L2 is an exact three-piece integral identity (quadrature cross-checked), Lemma HH and Lemma CT are exact elementary algebra (proofs in full above), Lemma CA is Cauchy-Schwarz plus the tail bounds, the interval-gap ladder is the imp-95131 Lemma GS dyadic arithmetic on interval gaps, and T(11/20) < 1 is certified by a rational alternating-series chain with a square test that avoids both library exp and library sqrt. No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure only; the constant is sufficient, not sharp; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM MA is unconditional given the sibling-chain witness conventions: Lemma L2 is an exact three-piece integral identity (quadrature cross-checked), Lemma HH and Lemma CT are exact elementary algebra (proofs in full above), Lemma CA is Cauchy-Schwarz plus the tail bounds, the interval-gap ladder is the imp-95131 Lemma GS dyadic arithmetic on interval gaps, and T(11/20) < 1 is certified by a rational alternating-series chain with a square test that avoids both library exp and library sqrt. No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure only; the constant is sufficient, not sharp; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -621,11 +621,11 @@ export const IMP95132_CLUSTER_ABSORPTION_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95132-ma-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure only, threshold 11/20 sufficient not sharp (sandwich [0.127, 0.54]), the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN, the pricing leg stays OPEN (upgraded), one NEW sharpening leg is named; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure only, threshold 11/20 sufficient not sharp (sandwich [0.127, 0.54]), the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN, the pricing leg stays OPEN (upgraded), one NEW sharpening leg is named; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95132_CLUSTER_ABSORPTION_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95132_CLUSTER_ABSORPTION_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95132_CLUSTER_ABSORPTION_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95132_CLUSTER_ABSORPTION_THRESHOLD.rigorScope) &&
       /stays OPEN/.test(IMP95132_CLUSTER_ABSORPTION_THRESHOLD.rigorScope) &&
       /remains OPEN/.test(IMP95132_CLUSTER_ABSORPTION_THRESHOLD.openResiduals[0]) &&
       /not closed/.test(IMP95132_CLUSTER_ABSORPTION_THRESHOLD.openResiduals[1]) &&

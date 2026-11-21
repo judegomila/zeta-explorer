@@ -45,7 +45,7 @@
  *   A per-rung sign verification of an existing measurement. It refines the imp-96695
  *   claim from "safe at L = 960" to "safe at L >= 120, fails at L in {30, 60}", using the
  *   same baked data. It recomputes nothing from the zeros, moves no bound, instantiates no
- *   interval, closes no sub-gap. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   interval, closes no sub-gap. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation (the rhoEmp/rhoGue table and the L=960 safe-direction claim this checks)
  * @see imp-96430-basis-c-corroboration-reach-crossover (the calibration window {30,60,120,240,480,960})
@@ -84,8 +84,8 @@ export const IMP96714_SAFE_DIRECTION_PER_RUNG = Object.freeze({
     'signal collapses below GUE. So the safe-direction interpretation is correct at the ' +
     'reach-relevant large-L end but must be restated as "safe at L >= 120" rather than ' +
     'across the whole window. Reuses the imp-96695 baked table; recomputes nothing from the ' +
-    'zeros; moves no bound; instantiates no interval; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; RH open.',
+    'zeros; moves no bound; instantiates no interval; NO QED. No refereed bound is changed' +
+    '; RH open.',
   citation:
     'imp-96695 (rhoEmp/rhoGue table and the L=960 safe-direction claim); imp-96430 ' +
     '(calibration window); imp-96721 (signal-column presentation reshape).',

@@ -67,8 +67,7 @@
  * CLOSED-FORM DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Reuses
  * the inherited imp-97723/imp-97744 bare-slope inversion and RvM relation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124793-fartail-diagnostic-per-nine-spacing-ladder (F3: spacing ratio -> 10, +~1 mantissa term unfit)
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (diagnostic = 1 - 1/log(T0/2pi), asymptote 1)
@@ -188,7 +187,7 @@ export const IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY = {
     'approaching 10 from below. Conditional-share diagnostic, NOT an RH bound; reuses the inherited ' +
     'imp-97723/imp-97744 bare-slope inversion and RvM relation, NOT a rigorous asymptotic; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-124793 F3 (per-nine spacing ratio -> 10, +~1 mantissa term declared sub-leading, never ' +
     'fit); imp-97723 (diagnostic = 1 - 1/log(T0/2pi)); imp-97744 (0.999/0.9999 heights pinned).',
@@ -255,15 +254,15 @@ export const IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY_ASSERTIONS = [
       }),
   },
   {
-    // Honesty gate: closed-form derivation only, no QED, PT stays SOTA.
+    // Honesty gate: closed-form derivation only, no QED, no refereed bound is changed.
     id: 'imp124827-honesty-gate-no-qed',
-    description: 'Closed-form derivation/measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Closed-form derivation/measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY.isRigorous === false &&
       IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY.spacingRatioLimit === 10 &&
       IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY.mantissaDeviationDecayLimit === 10 &&
       /NO QED/.test(IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY.verdict) &&
-      /remains SOTA/.test(IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY.verdict),
+      /refereed bound is changed/i.test(IMP124827_FARTAIL_PER_NINE_MANTISSA_CORRECTION_DECAY.verdict),
   },
 ];
 

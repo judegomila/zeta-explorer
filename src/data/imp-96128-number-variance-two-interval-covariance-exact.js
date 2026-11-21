@@ -73,7 +73,7 @@
  * It CONFIRMS the anti-correlation sign claim and CORRECTS the magnitude, and it strengthens the
  * imp-96089 significant-dip verdict: the true correlation raises n_eff from 291 to ~795 and sits a
  * full 1.04 in rho units on the safe side of the sign-forbidden rho_crit = 0.5744 flip threshold.
- * Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ * Measurement only; changes no bound; NO QED; no refereed bound is changed; the
  * zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96109-tue5-dip-decorrelation-safety-margin (the O(1/L) proxy this replaces)
@@ -173,7 +173,7 @@ export const IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT = {
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L, not the empirical adjacent-box covariance of the actual Riemann zeros (which would need the zeros bundle). The AR-1 effective-count formula is the same imp-96109 model; the sine process has slowly decaying higher-lag correlations so the tiling is only approximately AR-1, but the measured higher lags are small and negative and push the same way. This replaces the O(1/L) proxy with the exact value and finds it strengthens (does not weaken) the significant-dip verdict; it changes no bound and does not raise the ~1.9-sigma confidence, which is set by the excursion depth, not the correlation model.',
   verdict:
-    'The exact GUE two-interval number-variance covariance for the sd(C - E) statistic gives an adjacent-box count correlation rho_exact = -0.46398 at T = 1.5e5 (strongly ANTI-correlated, near the GUE-rigidity value -1/2, ~230x the imp-96109 O(1/L) = 0.00202 proxy but of the opposite sign). It CONFIRMS the anti-correlation sign claim and CORRECTS the magnitude, and it strengthens the imp-96089 significant-dip verdict: the true correlation raises n_eff from 291 to ~795 and sits a full 1.04 in rho units on the safe side of the sign-forbidden rho_crit = 0.5744 flip threshold. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The exact GUE two-interval number-variance covariance for the sd(C - E) statistic gives an adjacent-box count correlation rho_exact = -0.46398 at T = 1.5e5 (strongly ANTI-correlated, near the GUE-rigidity value -1/2, ~230x the imp-96109 O(1/L) = 0.00202 proxy but of the opposite sign). It CONFIRMS the anti-correlation sign claim and CORRECTS the magnitude, and it strengthens the imp-96089 significant-dip verdict: the true correlation raises n_eff from 291 to ~795 and sits a full 1.04 in rho units on the safe side of the sign-forbidden rho_crit = 0.5744 flip threshold. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -204,8 +204,8 @@ export const IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT = {
   // honesty gates
   if (!/NO QED/.test(IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT.verdict))
     throw new Error('imp-96128: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT.verdict))
-    throw new Error('imp-96128: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT.verdict))
+    throw new Error('imp-96128: verdict dropped the no-refereed-bound-change banner');
   // status note recording the imp-96312 PT-anchor deepening must say DEEPENS, not weaken
   if (!/DEEPENS/.test(IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT.statusNote))
     throw new Error('imp-96128: status note dropped the DEEPENS-at-PT-anchor claim');

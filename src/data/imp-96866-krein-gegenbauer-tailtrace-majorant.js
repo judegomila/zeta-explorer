@@ -71,7 +71,7 @@
  * (e.g. the uniform Bessel-amplitude bound applied to the FULL sum, or a Bernstein/Nikolskii tail estimate).
  * Derivation only; Rayleigh floor stays an UPPER bound; establishes NO operator positivity;
  * IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96848-krein-tresidual-rigorous-tailtrace-bound.js (parent; (A)/(B)/(i), sub-gap IMP96848_TAILTRACE_MAJORANT)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (condB=1 Gegenbauer basis; plane-wave Bessel representation; c_{jk})

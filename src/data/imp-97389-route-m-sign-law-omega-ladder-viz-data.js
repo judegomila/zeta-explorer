@@ -20,7 +20,7 @@
  *   @see imp-97352-route-m-sign-law-omega4-proof.js (D_{p1}-monotonicity injection proof for omega = 4; the omega=5 Hall-deficiency wall)
  *
  *   Ticket: imp-97389 (ux, low). Presentation of already-established results; adds no new Lambda
- *   bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- baked per-omega ladder: n = omega-1 primes past the smallest; level-2 positives = C(n,2);

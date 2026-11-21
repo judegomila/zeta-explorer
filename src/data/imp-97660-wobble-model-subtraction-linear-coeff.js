@@ -52,7 +52,7 @@
  *   Measurement only. The linear term is already forced by imp-97460; no coefficient is newly pinned;
  *   the RESULT 3 mixed-kernel sub-gap STANDS (now sharpened); no bound moves; the rigorous anchor stays
  *   the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator
- *   positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97645-wlin-largeb-linear-coeff-crossval (named the two remedies tested here)
  * @see imp-97618-wlin-leading-laurent-crossval (b=400000 baseline)
@@ -146,12 +146,12 @@ export const IMP97660_VERDICT = Object.freeze({
     'mean value), not a smooth-polynomial subtraction or node-grid tweak. The linear coefficient stays ' +
     'forced by imp-97460 but is NOT numerically pinnable below ~6e-3 by these routes. No coefficient ' +
     'newly pinned; RESULT 3 sub-gap STANDS (sharpened); no bound moves; the rigorous anchor stays ' +
-    'T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97660_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical measurement only: neither remedy imp-97645 ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical measurement only: neither remedy imp-97645 ' +
   'named isolates the w_lin linear coefficient below ~6e-3. A smooth-x^2 wobble-model subtraction makes ' +
   'it WORSE (6.3e-3 -> 1.4e-2/1.9e-2, unstable x^2 coef) because the wobble is sign-swinging and ' +
   'not a smooth quadratic; a finer/smaller-x grid gives a NON-MONOTONE linear err (4e-5 .. 9e-3 by ' +
@@ -230,7 +230,7 @@ const IMP97660_ASSERTIONS = [
       IMP97660_VERDICT.anyBoundMoved === false &&
       IMP97660_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97660_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97660_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97660_HONEST_BANNER) &&
       /RH open/.test(IMP97660_HONEST_BANNER),
   },
 ];

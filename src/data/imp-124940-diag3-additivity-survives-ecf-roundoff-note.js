@@ -19,7 +19,7 @@
  * @see imp-124929 (companion ticket: re-measures DIAG3 with the round-off-resistant reconstructed E_CF directly)
  *
  * Ticket: imp-124940 (content, sonnet-4-6, sonnet). Reference note only; no bound on Lambda moves; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.
  */
 
 import { IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER } from './imp-124769-ecf-stencil-noise-floor-crossover.js';
@@ -87,7 +87,7 @@ export const IMP124940_DIAG3_ADDITIVITY_SURVIVES_ECF_ROUNDOFF_NOTE = Object.free
 
 export const IMP124940_HONEST_BANNER =
   'Reference note only. No bound on Lambda moves. imp-3066 K_a >= 0 untouched. No RH verdict, NO QED. ' +
-  'Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'No refereed bound is changed.';
 
 export default IMP124940_DIAG3_ADDITIVITY_SURVIVES_ECF_ROUNDOFF_NOTE;
 
@@ -104,7 +104,7 @@ if (
     IMP124940_DIAG3_ADDITIVITY_SURVIVES_ECF_ROUNDOFF_NOTE.isRigorous === false &&
     IMP124940_DIAG3_ADDITIVITY_SURVIVES_ECF_ROUNDOFF_NOTE.qed === false &&
     /NO QED/.test(IMP124940_HONEST_BANNER) &&
-    /PT Lambda <= 0.2|Platt-Trudgian Lambda <= 0.2/.test(IMP124940_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(IMP124940_HONEST_BANNER) &&
     /K_a >= 0 untouched/.test(IMP124940_HONEST_BANNER)
   )
 ) {

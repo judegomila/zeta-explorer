@@ -78,7 +78,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No
  *   bound changes: b/4 ceiling untouched; MCM refuted-not-rescued; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at b = p_11#; ceiling survives)
  * @see imp-97583-route-m-mcm-onset-omega11-primorial.js (onset located exactly at omega = 11)
@@ -87,7 +87,7 @@
  * @see imp-97619-route-m-mcm-binf-mertens-closed-form.js (B_inf = lnA + gamma/12, closed form)
  *
  * Ticket: imp-97657 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const ONSET_SUBCOHORT = Object.freeze([
@@ -198,7 +198,7 @@ export const IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX = Object.freeze({
     'constant B_inf = lnA + gamma/12 = 0.2968557824422 (a shifted Euler-Mascheroni constant) and refines the ' +
     'gap-law constant to 0.16667249, while leaving the next-order gap term as a named, non-elementary ' +
     'sub-gap (the PNT/Mertens error). No bound moves in any leaf: b/4 ceiling untouched, MCM stays refuted-' +
-    'not-rescued, RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'not-rescued, RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97432 (MCM refuted at b = p_11#, ceiling survives); imp-97583 (onset located exactly at omega = 11); ' +
     'imp-97606 (omega=10 extremality confirmed over 20,437 sets); imp-97601 (exact decrement law, rate ' +
@@ -285,14 +285,14 @@ export const IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97657-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.anyBoundMoved === false &&
       IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.mcmProved === false &&
       IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.mcmRefuted === true &&
       IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.ceilingRefuted === false &&
       /NO QED/.test(IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97657_ROUTE_M_MCM_MARGIN_LIMIT_COHORT_INDEX.verdict),
   },
 ];
 

@@ -47,7 +47,7 @@
  * cannot decide confinement. This parallels route B (imp-95999): the decisive input is the
  * analytically-continued / regularized piece, not the raw prime sum, consistent with the
  * flow-blindness no-go (project_flow_blindness_and_T3_strip). NO bound; NO QED; RH open;
- * PT Lambda<=0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // --- low nontrivial zeta zeros (imaginary parts, on sigma=1/2), test heights ---
@@ -140,7 +140,7 @@ export const ROUTE_D_PEIERLS_FREE_ENERGY = Object.freeze({
     + '(from the xi growth) whose positive curvature would make the second delta-derivative of F positive; '
     + 'the raw prime sum alone cannot decide confinement.',
   verdict: 'NOT-CONFINING-AS-MODELED / OPEN',
-  note: 'Measurement + derivation only; no bound; RH open; PT Lambda<=0.2 SOTA; NO QED.',
+  note: 'Measurement + derivation only; no bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const ROUTE_D_PEIERLS_ASSERTIONS = Object.freeze([

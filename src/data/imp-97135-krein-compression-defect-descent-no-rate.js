@@ -11,7 +11,7 @@
  *   Measurement only. The Rayleigh-Ritz floor is an UPPER bound on the true infinite-dim lambda_min, so
  *   the floor decrements measured here bound only how much the UPPER estimate is still improving, NOT
  *   the true compression defect from below. Produces no lower-bound certificate; no bound moves;
- *   interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ *   interval-rigorous reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * WHY THE FLOOR DECREMENTS ARE THE OBSERVABLE SIGNATURE OF THE COMPRESSION DEFECT. The compression
  *   defect ||T_a[sigma_2] - P_N T_a[sigma_2] P_N|| is not directly computable (T is infinite-dim), but

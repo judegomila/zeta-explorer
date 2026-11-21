@@ -13,7 +13,7 @@
  * budget of the four-site transcendental log evaluations; (C) where extended precision is mandatory; and
  * (D) a double-vs-extended feasibility verdict. SCOPING / FEASIBILITY ASSESSMENT ONLY: does NOT instantiate
  * the layer, does NOT discharge the conditional, imp-34714a REMAINS OPEN, imp-34687a REMAINS OPEN, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * (A) WHICH INTERVAL PRIMITIVES MUST BE CORRECTLY-ROUNDED
  * -------------------------------------------------------
@@ -75,7 +75,7 @@
  * SCOPING / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous
  * asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34885-krawczyk-directed-rounding-instantiation-checklist (the 4-log-site / per-op checklist this scopes into a certificate requirement)
  * @see imp-34799-krawczyk-directed-rounding-width-bound (the gamma(n_op) eps first-order surrogate this certificate would replace; n_op^max ~ 8.60e11)
@@ -265,8 +265,8 @@ export const IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE = {
     'NOT discharge the conditional. SUB-GAPs imp-34714a and imp-34687a REMAIN OPEN. Scoping/assessment ' +
     'only on the inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34885 (directed-rounding instantiation checklist; 4 log sites, / the sole non-IEEE-754-exposed ' +
     'basic op -- this scopes it into a certificate precision requirement); imp-34799 (gamma(n_op) eps ' +
@@ -327,16 +327,16 @@ export const IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE_ASSERTIONS = [
       IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.requirements.D_feasibility_verdict.double_feasible_for_certificate_arithmetic === true,
   },
   {
-    // Honesty gate: scoping only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: scoping only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34908-honesty-gate-no-qed',
-    description: 'Certificate precision scope: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Certificate precision scope: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.isRigorous === false &&
       /imp-34714a/.test(IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.subGap) &&
       /imp-34687a/.test(IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.subGap) &&
       /REMAINS? OPEN/.test(IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.subGap) &&
       /NO QED/.test(IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP34908_KRAWCZYK_CERTIFICATE_PRECISION_SCOPE.verdict),
   },
 ];
 

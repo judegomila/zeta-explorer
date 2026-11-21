@@ -55,7 +55,7 @@
  * the truncated IBP boundary series with a rigorously-enclosed oscillatory remainder), NOT a modulus bound
  * on the (M+1)-th derivative. Derivation / measurement only; the Rayleigh floor stays an UPPER bound on true
  * lambda_min; no operator positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach
- * stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * driver tmp/imp-96990-rayleigh-tail-majorant.py (/tmp/rhvenv, scipy 1.18, mpmath 1.4). Literals below are
  * verbatim from /tmp/imp-96990-out.json.

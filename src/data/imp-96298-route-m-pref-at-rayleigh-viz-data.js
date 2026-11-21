@@ -14,8 +14,7 @@
  *
  * PRESENTATION ONLY. Simulation-derived values (synthetic q4+q5 two-tone
  * plus matched noise); no new zeros, no Gram build, no bound changes, no
- * operator positivity established; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96264-route-m-amplitude-ratio-sensitivity.js (ratio table, verdict, sub-gap this reshapes)
  *
@@ -47,7 +46,7 @@ export const IMP96298_ANCHORS = Object.freeze({
 });
 
 export const IMP96298_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every prefAtRayleigh and rho '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every prefAtRayleigh and rho '
   + 'value is copied verbatim from the imp-96264 baked ratio table; only the log(rho) axis reshaping '
   + 'is computed here (no re-derivation, no new Monte-Carlo run). Synthetic q4+q5 two-tone simulation '
   + 'only; no new zeros, no Gram build, no bound changes, no operator positivity established.';

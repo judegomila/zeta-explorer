@@ -46,7 +46,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (F3 transition-precedes-knee ordering tested here)
  * @see imp-34694-sigma-exponent-knee-closed-form-location (ramp-acceleration knee p double-prime = 0)
@@ -219,8 +219,8 @@ export const IMP95598_TRANSITION_KNEE_ORDERING_ROBUSTNESS = {
     'E_trunc never inverts within [1x, 8x]. The ~3% nominal gap therefore carries a ~2x safety margin. ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95582 (F3 transition-precedes-knee ordering stress-tested here); imp-34694 (ramp-acceleration ' +
     'knee p double-prime = 0, log10 ~ 9.529); imp-3444/imp-33723 (E_coll = E_trunc crossover ~3.280e9); ' +
@@ -262,13 +262,13 @@ export const IMP95598_TRANSITION_KNEE_ORDERING_ROBUSTNESS_ASSERTIONS = [
       E_TRUNC_8X_STILL_PRECEDES === true,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95598-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95598_TRANSITION_KNEE_ORDERING_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP95598_TRANSITION_KNEE_ORDERING_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP95598_TRANSITION_KNEE_ORDERING_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP95598_TRANSITION_KNEE_ORDERING_ROBUSTNESS.verdict),
   },
 ];
 

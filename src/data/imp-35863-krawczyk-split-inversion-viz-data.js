@@ -60,8 +60,8 @@ export const IMP35863_SPLIT_INVERSION_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-35809 measurement; adds no new derivation ' +
     'and changes no bound. Measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a ' +
     'machine certificate REMAINS OPEN and F(m)=0 stays a double-precision artifact; C_C 1/8 ' +
-    '(imp-2642/2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian ' +
-    'Lambda<=0.2 remains SOTA.',
+    '(imp-2642/2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP35863_VIZ_ASSERTIONS = [
@@ -98,12 +98,12 @@ export const IMP35863_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35863-honesty-gate-no-qed',
-    description: 'honest status references no-bound-change, imp-34714a open, NO QED, SOTA',
+    description: 'honest status references no-bound-change, imp-34714a open, NO QED, no refereed bound is changed',
     holds: () =>
       /imp-34714a/.test(IMP35863_SPLIT_INVERSION_VIZ_DATA.honest) &&
       /REMAINS OPEN/.test(IMP35863_SPLIT_INVERSION_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35863_SPLIT_INVERSION_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35863_SPLIT_INVERSION_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35863_SPLIT_INVERSION_VIZ_DATA.honest),
   },
 ];
 

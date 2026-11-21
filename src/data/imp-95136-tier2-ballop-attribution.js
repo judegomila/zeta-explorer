@@ -59,7 +59,7 @@
  * (panel-removed floor 9.50x), and the design under-priced cells alone by
  * ~4.9x while omitting reconstruction. Measurement only; apportioned by
  * CPU-second shares (named sub-gap); changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import {
@@ -125,7 +125,7 @@ export const TIER2_BALLOP_ATTRIBUTION = Object.freeze({
     '(panel-removed floor 9.50x), and the design under-priced cells alone by ~4.9x while ' +
     'omitting reconstruction. Ball-op split apportioned by CPU-second shares (named sub-gap: ' +
     'direct per-component counters would tighten it). Measurement only; changes no bound; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -217,14 +217,14 @@ export const IMP95136_ASSERTIONS = [
     description:
       'fail-closed honesty: the attribution is apportioned by CPU-second shares (named OPEN ' +
       'sub-gap), it carries the imp-95214 build which promotes no bound, and the verdict states ' +
-      'measurement-only, NO QED and PT-SOTA',
+      'measurement-only, NO QED and no-refereed-bound-change',
     holds: () =>
       TIER2_BALLOP_ATTRIBUTION.subGapOpen === true &&
       /uniform seconds-per-ball-op/.test(TIER2_BALLOP_ATTRIBUTION.subGap) &&
       IMP95214_TIER2_CHIRP.promotesBound === false &&
       /Measurement only/.test(TIER2_BALLOP_ATTRIBUTION.verdict) &&
       /NO QED/.test(TIER2_BALLOP_ATTRIBUTION.verdict) &&
-      /remains SOTA/.test(TIER2_BALLOP_ATTRIBUTION.verdict) &&
+      /refereed bound is changed/i.test(TIER2_BALLOP_ATTRIBUTION.verdict) &&
       // the second level is a sub-range build, unchanged here
       (TIER2_LEDGER.panelsPerSuper === 31) &&
       WINDOW_WIDTH_U === 2 * 690988 + 1,

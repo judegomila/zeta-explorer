@@ -52,7 +52,7 @@
  * (iii) contrary to "floats with roundoff", the step L is DETERMINISTIC and now PINNED to (3.93e6, 3.94e6]
  * (geo-mid ~3.935e6, revising the "near 3.75e6" midpoint guess), and the branch crossing is a smooth
  * monotone crossing, not floating jitter. Measurement only; theoretical GUE quantity, not real zeros;
- * changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * @see imp-96716-basis-c-mechanism-transition-scale (FINDING 3: the ppp 5 -> 4 step located only to "near 3.75e6", sweet-spot never tested)
@@ -214,12 +214,12 @@ export const IMP96736_BASIS_C_INTRA_CROSSOVER_PPP_STEP = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and every floor is a double-precision quadrature/cancellation artifact of this direct integral. The ppp 5 -> 4 step scale is a property of the naive numerical scheme (a deterministic branch crossing whose existence is a roundoff sweet-spot), not of the analytic rho. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The basis-C intra-crossover best-floor optimum ppp 5 -> 4 step is PINNED to L in (3.93e6, 3.94e6] (geometric-mid ~3.935e6), ~0.02 decades ABOVE the imp-96716 "near 3.75e6" midpoint guess. The crossing is DETERMINISTIC and reproducible -- the ppp=5 floor branch is strictly monotone increasing and the ppp=4 branch strictly monotone decreasing, with f4/f5 crossing 1 exactly once (a ~1e-3 wobble does not move it) -- so it is not floating jitter; BUT it is a genuine cancellation-roundoff sweet-spot in MECHANISM: the per-ppp error is non-monotone in ppp (f6 > f5, f6 blows up ~5x from 3.75e6) because finer panels accumulate more Var = L - 2*Int roundoff, forcing an interior optimum, the same double-precision mechanism imp-96728 proved. So imp-96716 FINDING 3 is refined: "not a law of rho" is correct, "sweet-spot" is correct in mechanism, but the step L is deterministic and now pinned, not floating. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The basis-C intra-crossover best-floor optimum ppp 5 -> 4 step is PINNED to L in (3.93e6, 3.94e6] (geometric-mid ~3.935e6), ~0.02 decades ABOVE the imp-96716 "near 3.75e6" midpoint guess. The crossing is DETERMINISTIC and reproducible -- the ppp=5 floor branch is strictly monotone increasing and the ppp=4 branch strictly monotone decreasing, with f4/f5 crossing 1 exactly once (a ~1e-3 wobble does not move it) -- so it is not floating jitter; BUT it is a genuine cancellation-roundoff sweet-spot in MECHANISM: the per-ppp error is non-monotone in ppp (f6 > f5, f6 blows up ~5x from 3.75e6) because finer panels accumulate more Var = L - 2*Int roundoff, forcing an interior optimum, the same double-precision mechanism imp-96728 proved. So imp-96716 FINDING 3 is refined: "not a law of rho" is correct, "sweet-spot" is correct in mechanism, but the step L is deterministic and now pinned, not floating. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96716 convention).
 export const IMP96736_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros; each floor '
   + 'is a double-precision quadrature/cancellation artifact of the direct integral. The basis-C '
   + 'intra-crossover ppp 5 -> 4 step is pinned to L in (3.93e6, 3.94e6] (geo-mid ~3.935e6), a '
@@ -271,9 +271,9 @@ export const IMP96736_HONEST_BANNER =
 
   // honesty gates
   if (!/NO QED/.test(IMP96736_BASIS_C_INTRA_CROSSOVER_PPP_STEP.verdict)) throw new Error('imp-96736: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96736_BASIS_C_INTRA_CROSSOVER_PPP_STEP.verdict)) throw new Error('imp-96736: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96736_BASIS_C_INTRA_CROSSOVER_PPP_STEP.verdict)) throw new Error('imp-96736: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96716/.test(IMP96736_BASIS_C_INTRA_CROSSOVER_PPP_STEP.source)) throw new Error('imp-96736: source dropped the imp-96716 reference');
-  if (!(/RH open/.test(IMP96736_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96736_HONEST_BANNER) && /NO QED/.test(IMP96736_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96736_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96736_HONEST_BANNER) && /NO QED/.test(IMP96736_HONEST_BANNER)))
     throw new Error('imp-96736: IMP96736_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

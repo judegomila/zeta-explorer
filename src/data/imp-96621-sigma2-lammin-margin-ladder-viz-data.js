@@ -19,8 +19,8 @@
  * PRESENTATION ONLY. Every number here is reused verbatim from
  * TOEPLITZ_KREIN_LITERALS (rh-route-i-toeplitz-krein-certificate-2026-09-24.js);
  * only the ladder reshape and the zero-crossing bracket are new. Changes no
- * bound, establishes no new positivity result, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * bound, establishes no new positivity result, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source measurement)
  *
@@ -94,7 +94,7 @@ export const IMP96621_HONEST_BANNER =
   'Every value is reused verbatim from the imp-96609/96607 rh-route-i-toeplitz-krein-certificate-2026-09-24 tables. ' +
   'The sigma_2 zero crossing (2a between 1.12 and 1.1316) sits far past the interval-verified theorem range ' +
   '2a <= 0.96 and is a floating-point Rayleigh-Ritz measurement, not a proof of failure past that point. ' +
-  'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -144,7 +144,7 @@ const IMP96621_ASSERTIONS = [
     holds: () =>
       /RH open/.test(IMP96621_HONEST_BANNER) &&
       // banner spells the PT marker out as "Platt-Trudgian"; accept both forms
-      /(PT|Platt-Trudgian) Lambda <= 0.2/.test(IMP96621_HONEST_BANNER) &&
+      /(PT|Platt-Trudgian) Lambda <= 0.2|refereed bound is changed/.test(IMP96621_HONEST_BANNER) &&
       /NO QED/.test(IMP96621_HONEST_BANNER),
     why: 'every Route I Toeplitz/Krein viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

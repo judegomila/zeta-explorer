@@ -10,7 +10,7 @@
  *   T_PT = 3e12) -- it is a point value on the curve, not a floor the curve flattens onto.
  *
  *   Ticket: imp-35900 (content, low). Note only; re-reads nothing new; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35853-req4-required-height-continuous-sigma-knee.js (source module this note restates)
  *   @see imp-35813-req4-required-height-sigma-landmark-extend.js (discrete sigma-landmark rungs)
@@ -48,7 +48,7 @@ export const IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS = Object.fr
     isAsymptote: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -91,11 +91,11 @@ export const IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS_ASSERTIONS 
       IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS.honestCaveat.isAsymptote === false &&
       IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp35900-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP35900_MULTIPLE_NOT_PT_ANCHOR_ASYMPTOTE_HONEST_STATUS.verdict),
   },
 ];

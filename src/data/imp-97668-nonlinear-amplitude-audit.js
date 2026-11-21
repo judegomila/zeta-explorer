@@ -78,7 +78,7 @@
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398
  * C_F prefactor are UNTOUCHED and are perturbed here only as sensitivity probes, not re-pinned; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97644-three-axis-additivity-flow-prefactor (STRUCTURE (1): DIAG3 == 0 scaling symmetry audited here)
  * @see imp-97665-flow-etrunc-elasticity-identity-derivation (E_CF/E_ET = E_flow/E_trunc exact derivation)
@@ -244,7 +244,7 @@ export const IMP97668_NONLINEAR_AMPLITUDE_AUDIT = {
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), ' +
     'the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed only as probes, not ' +
     're-pinned); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97644 (three-axis scaling symmetry, STRUCTURE (1) audited here); imp-97665 (E_CF/E_ET = ' +
     'E_flow/E_trunc exact derivation); imp-97623 (two-axis additivity residual ~ eps^2); imp-97520 ' +
@@ -307,13 +307,13 @@ export const IMP97668_NONLINEAR_AMPLITUDE_AUDIT_ASSERTIONS = [
     holds: () => MAX_ABS_DIAG3 < 1e-9,
   },
   {
-    // Honesty gate: audit only, no QED, PT stays SOTA.
+    // Honesty gate: audit only, no QED, no refereed bound is changed.
     id: 'imp97668-honesty-gate-no-qed',
-    description: 'Audit only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Audit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97668_NONLINEAR_AMPLITUDE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP97668_NONLINEAR_AMPLITUDE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP97668_NONLINEAR_AMPLITUDE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP97668_NONLINEAR_AMPLITUDE_AUDIT.verdict),
   },
 ];
 

@@ -44,7 +44,7 @@
  * nothing; changes no bound; establishes no operator positivity. C_C =
  * (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631)
  * and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35680-constant-mismatch-magnitude (Simpson literals cross-validated here)
  * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (constantMismatch claim)
@@ -55,7 +55,7 @@
 
 import { IMP35680_CONSTANT_MISMATCH_MAGNITUDE } from './imp-35680-constant-mismatch-magnitude.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any cross-check here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any cross-check here)
 const ALPHA_LIMIT = 1; // Montgomery/Rudnick-Sarnak proven support |alpha| < 1
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752 (target, untouched)
 
@@ -199,7 +199,7 @@ export const IMP35737_GAUSS_LEGENDRE_CROSS_CHECK = {
     'confirmed (tail-corrected 1.0000000, residual matches 1/(pi^2 T)). Confirms/tightens the imp-35680 literals; ' +
     'derives no remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = ' +
     '(1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional ' +
-    '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED. No refereed bound is changed.',
   citation:
     'imp-35680 (Simpson literals cross-validated here); imp-35652 (constantMismatch claim); imp-2642/imp-2643 ' +
     '(C_C = (1/8) sqrt(3 pi), C_H = 1/8); imp-2631 (E_trunc floor); imp-486 (GUE-conditional caveat). Literature: ' +
@@ -250,7 +250,7 @@ export const IMP35737_GAUSS_LEGENDRE_CROSS_CHECK_ASSERTIONS = [
   },
   {
     // (5) honesty gate: cross-check only, conditional, no bound moves, C_C untouched,
-    //     imp-35337a OPEN, PT 0.2 SOTA, NO QED.
+    //     imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35737-cross-check-only-no-qed',
     description: 'cross-check only: not rigorous/unconditional, confirms imp-35680, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -264,7 +264,7 @@ export const IMP35737_GAUSS_LEGENDRE_CROSS_CHECK_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

@@ -52,7 +52,7 @@
  *   substitution) -- it does NOT re-derive that collapse from scratch, and it does NOT bound the
  *   O(e^{-4 tau}) tail (sg-3844-watson-tail stays open). This establishes NO operator positivity;
  *   mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT and the operator-level K_a &gt;= 0 step
- *   (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3844-a-weight-correction-limit-closed-form.js (the closed form being reproduced)
  *   @see imp-3730-a-weight-correction-limit.js (numerical extrapolation c_inf ~ 0.354291)
@@ -182,7 +182,7 @@ export const IMP3867_A_WEIGHT_CLOSED_FORM_INDEPENDENT_REPRODUCTION = Object.free
     '< 5e-6. REPRODUCTION / cross-check only: route (2) still relies on the imp-3844 analytic ' +
     'collapse and does NOT bound the O(e^{-4 tau}) tail (sg-3844-watson-tail open); establishes NO ' +
     'operator positivity, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched; no QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   measured: Object.freeze({
     nphi: NPHI,
@@ -238,7 +238,7 @@ export const IMP3867_A_WEIGHT_CLOSED_FORM_INDEPENDENT_REPRODUCTION = Object.free
       'sg-3844-watson-tail: this reproduction confirms the two leading constants (c_inf, B) via ' +
       'structurally distinct evaluations but does NOT certify the all-orders O(e^{-4 tau}) Watson ' +
       'tail bound, which stays open. A reproduction of diagnostic constants, not a theorem about zeros.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -285,7 +285,7 @@ export const IMP3867_A_WEIGHT_CLOSED_FORM_INDEPENDENT_REPRODUCTION_ASSERTIONS = 
   {
     id: 'imp3867-honest-reproduction-not-a-verdict',
     why: 'Mandatory honesty: reproduction/cross-check only, route (2) shares the imp-3844 collapse and ' +
-         'does not bound the Watson tail, operator positivity (imp-3066) untouched, PT 0.2 SOTA.',
+         'does not bound the Watson tail, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3867_A_WEIGHT_CLOSED_FORM_INDEPENDENT_REPRODUCTION.honestCaveat;
       return (
@@ -295,7 +295,7 @@ export const IMP3867_A_WEIGHT_CLOSED_FORM_INDEPENDENT_REPRODUCTION_ASSERTIONS = 
         c.didNotBoundWatsonTail === true &&
         c.didNotAttemptPositivity === true &&
         /sg-3844-watson-tail/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

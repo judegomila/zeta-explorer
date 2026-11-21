@@ -51,7 +51,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95877 decomposition result for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap,
- *   moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95877-transport-identity-tractability-assessment (source: the tier decomposition this glosses)
  * @see imp-95861-... (the TRANSPORT identity route this decomposition assesses)
@@ -59,7 +59,7 @@
  * @see imp-95720-... (exact-cell K_v reproducing the TIER 1 curvature -(4m-1)/2)
  *
  * Ticket: imp-95906 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The three-tier transport-identity headword, baked verbatim (no re-import).
@@ -124,8 +124,8 @@ export const IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD = Object.fr
     '(sub-leading per-cell coefficients s_J(m,cell), c_J(m,cell)) is numeric ' +
     'only and is the sole binding obstruction, confirmed by a non-constant ' +
     'dQ/dm signature that refutes the curvature-only shortcut. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95877 (the tier decomposition and dQ/dm test this glosses); imp-95861 ' +
     '(the TRANSPORT identity route being decomposed); imp-95745 (proved TIER 2 ' +
@@ -152,11 +152,11 @@ export const IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp95906-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD.verdict) &&
       IMP95906_TRANSPORT_TIER_DECOMPOSITION_GLOSSARY_HEADWORD.glosses === 'imp-95877',
   },
 ];

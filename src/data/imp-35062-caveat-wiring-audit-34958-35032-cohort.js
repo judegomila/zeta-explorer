@@ -105,7 +105,7 @@ export const IMP35062_CAVEAT_WIRING_AUDIT_34958_35032_COHORT = {
     + 'completeness script (its glob only matches "*-viz-data.js" filenames, which would miss a '
     + 'differently-named module with an unwired assertion array), noted for a future ticket but '
     + 'not fixed here. Changes no bound; establishes no operator positivity; no RH verdict, NO '
-    + 'QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'QED. No refereed bound is changed.',
 };
 
 export const IMP35062_CAVEAT_WIRING_AUDIT_ASSERTIONS = [
@@ -142,10 +142,10 @@ export const IMP35062_CAVEAT_WIRING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-35062-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP35062_CAVEAT_WIRING_AUDIT_34958_35032_COHORT.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP35062_CAVEAT_WIRING_AUDIT_34958_35032_COHORT.honest),
+      /refereed bound is changed/i.test(IMP35062_CAVEAT_WIRING_AUDIT_34958_35032_COHORT.honest),
   },
 ];
 

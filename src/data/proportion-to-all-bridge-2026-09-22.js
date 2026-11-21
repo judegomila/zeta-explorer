@@ -245,7 +245,7 @@ export const PROPORTION_TO_ALL_BRIDGE = Object.freeze({
   },
   odds: 'Extension of moment technology past theta = 1: very low (averaging gain exhausted at theta = 1; target is quasi-RH by theorem). Value of the reformulation: moderate (zero-free half-plane as a Mobius bilinear form; decidable conditionally). No probability attached to RH.',
   subQuestion: 'Converse of Bettin-Gonek: does RH (+ PCC or a large-sieve-type conjecture) imply I_{T^theta}(0,T) << T^{1+eps} for some theta > 1? YES => theta = inf <=> RH (new RH-equivalent with bilinear structure); NO => Levinson capped at kappa < 1 in principle. Cheap offline probe: I(L_theta) at T ~ 1e3, theta in (1, 3].',
-  status: 'RH OPEN; PT Lambda <= 0.2 SOTA; NO QED; changes no bound',
+  status: 'RH OPEN; no refereed bound is changed; NO QED; changes no bound',
   references: [
     'N. Levinson, More than one third of zeros of Riemann\'s zeta-function are on sigma = 1/2, Adv. Math. 13 (1974) 383-436.',
     'J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, J. reine angew. Math. 399 (1989) 1-26.',
@@ -331,7 +331,7 @@ export const PROPORTION_TO_ALL_BRIDGE_ASSERTIONS = Object.freeze([
   },
   {
     id: 'ptab-honest-scope',
-    why: 'record states RH open / no QED / PT Lambda <= 0.2 SOTA, distinguishes asymptotic 100% from RH, and names the loophole as open rather than closed',
+    why: 'record states RH open / no QED / no refereed bound is changed, distinguishes asymptotic 100% from RH, and names the loophole as open rather than closed',
     holds: () =>
       /RH OPEN/.test(PROPORTION_TO_ALL_BRIDGE.status) &&
       /NO QED/.test(PROPORTION_TO_ALL_BRIDGE.status) &&

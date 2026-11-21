@@ -67,8 +67,7 @@
  * imp-34237 pole and imp-34268 stencil; adds no derivation and changes no bound. The pole is a resid_exp
  * surrogate artifact, not a physical singularity; the component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34346-fixed-band-peak-third-diff-pole-order (source of the F3 caveat and the ~0.94/0.67 order)
  * @see imp-34253-fixed-band-peak-pole-divergence-vs-saturation-fit (the logarithmic peak form used here)
@@ -211,7 +210,7 @@ export const IMP34429_THIRD_DIFF_ORDER_GRID_REFINEMENT = {
     'artifact, not a physical singularity; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the refinement is model-based, not a component recompute; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 ' +
-    'is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'SUB-GAP-imp-34429-component-finer-grid-blocked: the effective order -> 3 is measured on the imp-34253 ' +
     'log-peak FORM, not on a genuine finer-grid recompute of the component third differences (still blocked ' +
@@ -222,7 +221,7 @@ export const IMP34429_THIRD_DIFF_ORDER_GRID_REFINEMENT = {
     'GRID-REFINEMENT / MODEL-BASED ONLY -- a discrete-operator refinement of the imp-34253 log-peak form ' +
     'against the imp-34237 surrogate pole; adds no derivation and changes no bound. Surrogate/component ' +
     'model NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   isRigorous: false,
 };
 
@@ -287,9 +286,9 @@ export const IMP34429_ASSERTIONS = [
   },
   {
     // Honesty gate: model-based refinement only, isRigorous false, distinct from imp-34310/imp-34253,
-    // component finer-grid still blocked, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched.
+    // component finer-grid still blocked, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched.
     id: 'imp-34429-honesty-gate-no-qed',
-    description: 'model-based only: isRigorous false, distinct from imp-34310/imp-34253, sub-gap flagged, no QED, PT SOTA, imp-3066/imp-486 untouched',
+    description: 'model-based only: isRigorous false, distinct from imp-34310/imp-34253, sub-gap flagged, no QED, no refereed bound is changed, imp-3066/imp-486 untouched',
     holds: () => {
       const o = IMP34429_THIRD_DIFF_ORDER_GRID_REFINEMENT;
       return (
@@ -298,7 +297,7 @@ export const IMP34429_ASSERTIONS = [
         /SUB-GAP-imp-34429-component-finer-grid-blocked/.test(o.subGap) &&
         /DISTINCT from imp-34310[\s\S]*imp-34253/.test(o.verdict) &&
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /imp-3066 K_a >= 0 untouched/i.test(o.verdict) &&
         /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(o.verdict)
       );

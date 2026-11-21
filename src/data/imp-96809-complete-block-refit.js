@@ -28,7 +28,7 @@
  * +0.0165 level -- real but within the +/- 0.02 single-power-fit resolution imp-96629 already reports
  * from block-extreme scatter. The plateau-free exponent stays bracketed in [-0.399, -0.382] over
  * N <= 2e6, slightly steeper than GUE -1/3; nothing here converges toward -1/3. This RELOCATES,
- * does not remove, the pair-correlation wall. No bound moved; RH open; PT Lambda <= 0.2 stays SOTA.
+ * does not remove, the pair-correlation wall. No bound moved; RH open; no refereed bound is changed.
  */
 
 export const COMPLETE_BLOCK_REFIT = {

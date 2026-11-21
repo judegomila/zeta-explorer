@@ -64,8 +64,7 @@
  * float trap by extended-precision (double-double) and closed-form
  * (Poisson dual) routes that share no code path with the imp-95450
  * plain-double LU sweep. Introduces no new bound and no new theorem.
- * Changes no bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Changes no bound of the Lambda program; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -111,7 +110,7 @@ export const IMP95480_SEP_OPT_DELTA_LN13_EXTENDED_PRECISION = {
     "that floor from above (ratio 1.021 at m = 200) where the plain-double " +
     "route only saturated near 1.07; lambda_min never dips below A_opt. " +
     "Cross-validation only; introduces no bound and no theorem; changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -475,13 +474,13 @@ export const IMP95480_DELTA_LN13_ASSERTIONS = [
     description:
       "the verdict carries the honest scope: cross-validation only, " +
       "extended-precision independent of the imp-95450 plain-double sweep, " +
-      "no bound, no theorem, no QED, SOTA unchanged",
+      "no bound, no theorem, no QED, no refereed bound is changed",
     holds: () =>
       /CROSS-VALIDATION CONFIRMS|CROSS-VALIDATION ONLY/.test(REF.verdict) &&
       /independent/.test(REF.verdict) &&
       /introduces no bound and no theorem/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

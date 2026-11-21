@@ -8,7 +8,7 @@
  * anchor alpha, so the most relaxed anchor is the LOWEST admissible one (alpha -> lam_2+). Even there the
  * binding bottom-twin threshold reaches only its supremum eps ~ 1.7828e-3 — merely ~1.49x the midpoint
  * 1.192e-3, STILL order 1e-3, still an order of magnitude below the adjacent leak. No admissible anchor
- * moves the requirement off O(1e-3). RH open; PT Lambda <= 0.2 stands; NO QED. Measurement only; changes no
+ * moves the requirement off O(1e-3). RH open; no refereed bound is changed; NO QED. Measurement only; changes no
  * bound; diagonalizes nothing.
  *
  * ---------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
  *  factor). So the imp-96188 obstruction does not depend on the midpoint choice, and the variational route
  *  stays obstructed for every valid anchor. The strict gap stays with the analytic no-modulus-1 route
  *  (SG-96164-boundary / SG-96181-edge-octave). Nothing here diagonalizes A, moves a Lambda bound, or a
- *  verified height. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  verified height. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: baked real-spectrum literals + pure linear-algebra arithmetic in the eigenbasis; no
  *  imports, no zeros bundle. Reproduction inline in the assertions (anchor-sweep threshold recalibration).
@@ -108,7 +108,7 @@ export const IMP_96205_ASSESSMENT = Object.freeze({
   parents: [
     'src/data/imp-96188-route-i-kato-temple-real-spectrum-recalibration.js (midpoint-anchor certify-thresholds: adjacent 8.416e-3, bottom-twin 1.192e-3)',
   ],
-  status: 'MEASUREMENT — sweeping the Kato-Temple anchor alpha across the admissible gap (0.6202012, 0.9999731) shows the certify-threshold eps(alpha) is MONOTONICALLY DECREASING in alpha for BOTH leaks (the R - alpha denominator shrinks as alpha rises toward lam_top), so the most relaxed anchor is the LOWEST admissible one, alpha -> lam_2+. The binding bottom-twin leak (into lam_S(1) = -0.9927022) rises to a finite SUPREMUM eps ~ 1.7828e-3 at the low-anchor edge — only ~1.49x the midpoint 1.192419e-3, still order 1e-3, still an order of magnitude below the adjacent leak. The adjacent leak (into lam_2 = 0.6202012) DIVERGES as alpha -> lam_2+ and is never the binding constraint anywhere in the gap. Net: the imp-96188 obstruction is ANCHOR-ROBUST — no admissible anchor lifts the requirement off O(1e-3), so the midpoint choice was not special. The strict gap stays with the analytic no-modulus-1 route (SG-96164-boundary / SG-96181-edge-octave). Measurement only; no bound moved; RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'MEASUREMENT — sweeping the Kato-Temple anchor alpha across the admissible gap (0.6202012, 0.9999731) shows the certify-threshold eps(alpha) is MONOTONICALLY DECREASING in alpha for BOTH leaks (the R - alpha denominator shrinks as alpha rises toward lam_top), so the most relaxed anchor is the LOWEST admissible one, alpha -> lam_2+. The binding bottom-twin leak (into lam_S(1) = -0.9927022) rises to a finite SUPREMUM eps ~ 1.7828e-3 at the low-anchor edge — only ~1.49x the midpoint 1.192419e-3, still order 1e-3, still an order of magnitude below the adjacent leak. The adjacent leak (into lam_2 = 0.6202012) DIVERGES as alpha -> lam_2+ and is never the binding constraint anywhere in the gap. Net: the imp-96188 obstruction is ANCHOR-ROBUST — no admissible anchor lifts the requirement off O(1e-3), so the midpoint choice was not special. The strict gap stays with the analytic no-modulus-1 route (SG-96164-boundary / SG-96181-edge-octave). Measurement only; no bound moved; RH open; no refereed bound is changed; NO QED',
   monotonicityFinding: 'for a fixed leak eigenvalue the two-level Kato-Temple bound U(eps) grows as alpha rises toward lam_top, so eps(alpha) is monotonically decreasing in alpha; there is no interior optimum and the relaxation is monotone toward the low-anchor edge alpha -> lam_2+',
   bottomTwinFinding: 'the binding bottom-twin certify-threshold rises from 0 at the degenerate top edge (alpha = lam_top) to a finite supremum eps ~ 1.7828e-3 as alpha -> lam_2+; the ~1.49x gain over the midpoint 1.192e-3 keeps it at O(1e-3), so no admissible anchor materially relaxes the requirement',
   adjacentFinding: 'the adjacent-state certify-threshold diverges as alpha -> lam_2+ (a leak into lam_2 cannot drag R below the anchor once alpha sits at lam_2), so the adjacent leak is never binding; the bottom-twin leak is tighter at every admissible anchor',

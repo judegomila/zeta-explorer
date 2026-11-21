@@ -80,7 +80,7 @@
  * touch the divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per
  * imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643)
  * is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * no refereed bound is changed.
  *
  * @see imp-34329-crossover-surplus-fartail-composite-limit (the r-exponent = 2 - c/log T0 fit with c ~ 4.4)
  * @see imp-34248-crossover-surplus-small-thr-asymptotic (the r ~ (log T0)^2 thr^2 factorisation this differentiates)
@@ -255,7 +255,7 @@ export const IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION = {
     'mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'positivity; changes no bound; no refereed bound is changed.',
   citation:
     'imp-34329-crossover-surplus-fartail-composite-limit.js (the r-exponent = 2 - c/log T0 fit, c ~ 4.4); ' +
     'imp-34248-crossover-surplus-small-thr-asymptotic.js (the r ~ (log T0)^2 thr^2 factorisation); ' +
@@ -326,14 +326,14 @@ export const IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION_ASSERTION
     },
   },
   {
-    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34407-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION.honestScope) &&
       /NO QED/.test(IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION.honestScope) &&
-      /remains the SOTA/.test(IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION.honestScope),
+      /refereed bound is changed/i.test(IMP34407_FARTAIL_COMPOSITE_CORRECTION_CONSTANT_DERIVATION.honestScope),
   },
 ];
 

@@ -17,7 +17,7 @@
  * the I-weighted mean, competing against high-max(a,b) pairs entering near 1) and
  * DECIDES the limit.
  *
- * No bound is proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound is proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * DATA (imp-96829 rungs, R = ||G||_F^2 / T on the exact Vasyunin Gram / coprime core):
@@ -89,8 +89,8 @@
  * ceiling. R in [1, zeta(2)] for every N is rigorous (imp-96688 Result 2); the limit
  * VALUE decided here is a numerical/heuristic conclusion, not a proof.
  *
- * Measurement/extrapolation only; no bound moved; no growth law proved; PT Lambda <=
- * 0.2 SOTA; RH open; NO QED.
+ * Measurement/extrapolation only; no bound moved; no growth law proved; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96829-route-m-frobenius-inner-g-factor-band.js (the measured R(N) rungs + limit-undecided sub-gap)
  * @see imp-96688-route-m-frobenius-g-factorization-assessment.js (the g-factorization identity + [1,zeta(2)] envelope + diagonal-mass argument)
@@ -196,8 +196,8 @@ export const IMP96907_VERDICT = Object.freeze({
     'term -> zeta(2) dominates the I-weighted mean). But convergence is 1/log N with ' +
     'c ~ 0.99, so the gap zeta(2) - R falls below 1e-2 only past N ~ e^99 and stays ~0.117 ' +
     'even at the imp-96684 reach N=9000: the limit CANNOT be confirmed by tabulating more ' +
-    'rungs, only by the ansatz + theory. No bound moved; no operator positivity; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'rungs, only by the ansatz + theory. No bound moved; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96907_SUBGAP = Object.freeze({
@@ -219,7 +219,7 @@ export const IMP96907_HONEST_BANNER =
   '1/log N ansatz is the overwhelmingly best fit (RSS 4.12e-7) with intercept 1.6456 (= zeta(2) ' +
   'to 0.04%), and the forced-ceiling constant is rung-stable to <0.6%. Convergence is glacial ' +
   '(gap<1e-2 only past N~e^99) so the limit is a fit+theory conclusion, NOT measured or proved. ' +
-  'R in [1, zeta(2)] for all N is rigorous (imp-96688). No bound moved; PT Lambda <= 0.2 SOTA; ' +
+  'R in [1, zeta(2)] for all N is rigorous (imp-96688). No bound moved; no refereed bound is changed; ' +
   'RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -262,7 +262,7 @@ const IMP96907_ASSERTIONS = [
     holds: () =>
       IMP96907_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96907_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96907_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96907_HONEST_BANNER) &&
       /RH open/.test(IMP96907_HONEST_BANNER) &&
       /fit-not-proved/.test(IMP96907_SUBGAP.id),
     why: 'extrapolation only: no bound moved, the limit is a fit+theory conclusion not a proof, and the honesty markers plus the fit-not-proved sub-gap are present.',

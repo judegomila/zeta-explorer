@@ -30,7 +30,7 @@
  * re-ran the F < M partition against them and found the data-favoured quad STILL inverts F < M.
  * So the live sub-gap tracked by IMP96912_SUBGAP is no longer "rungs beyond N = 16000" but "exact
  * rungs FAR beyond N = 24000" (the ~3.2-decade extrapolation gap); readers should follow that
- * pointer, not the stale N = 16000 framing. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * pointer, not the stale N = 16000 framing. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96996-route-m-fm-quad-turnover-adjudication.js (STEP 1 structural monotonicity, stated but not machine-checked)
  * @see imp-96912-route-m-frobenius-holdout-model-discriminator.js (the frozen 18-rung exact ||G||_F ladder checked here)
@@ -108,11 +108,11 @@ export const IMP97017_VERDICT = Object.freeze({
     'concave-quadratic global form (its extrapolant turns over at N ~ 2.31e9). Verification only: ' +
     'no operator positivity is asserted, no bound is moved, no ceiling is made rigorous; the F < M ' +
     'ordering still rests on the non-rigorous lam_min N^-p / ||G||_F log-fit extrapolations and the ' +
-    'imp-96912 sub-gap (fresh EXACT rungs beyond N = 16000) stands. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'imp-96912 sub-gap (fresh EXACT rungs beyond N = 16000) stands. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97017_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Verification / assertion only: this module walks ' +
+  'RH open; no refereed bound is changed; NO QED. Verification / assertion only: this module walks ' +
   'the frozen imp-96912 18-rung exact ||G||_F ladder and confirms it is monotone non-decreasing ' +
   '(the imp-96996 STEP 1 structural fact). No Gram was rebuilt, no operator positivity is asserted, ' +
   'no bound is claimed moved, and no ceiling is made rigorous; the imp-96912 sub-gap (fresh EXACT ' +
@@ -155,7 +155,7 @@ const IMP97017_ASSERTIONS = [
       IMP97017_VERDICT.monotoneNonDecreasingConfirmed === true &&
       IMP97017_VERDICT.freshExactRungsBeyond16000StillNeeded === true &&
       /NO QED/.test(IMP97017_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97017_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97017_HONEST_BANNER) &&
       /RH open/.test(IMP97017_HONEST_BANNER),
     why: 'verification only: no bound moved, no operator positivity asserted, the monotone-non-decreasing fact is confirmed, the imp-96912 sub-gap stands, and the honesty markers are present.',
   },

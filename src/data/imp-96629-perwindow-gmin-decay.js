@@ -39,7 +39,7 @@
  * than GUE -1/3, and the imp-96616 -0.395 is not an artifact of the plateau bias -- the per-window
  * estimator lands at -0.382 (matched) / -0.398 (full), bracketing it. This RELOCATES, does not remove,
  * the pair-correlation wall: beating the surrogate 1/log^2 envelope still requires the cube-root
- * small-gaps law g_min(N)/y_N -> 0, unproved unconditionally. NO QED. PT Lambda <= 0.2 stays SOTA.
+ * small-gaps law g_min(N)/y_N -> 0, unproved unconditionally. NO QED. No refereed bound is changed.
  */
 
 export const PERWINDOW_GMIN_DECAY = {

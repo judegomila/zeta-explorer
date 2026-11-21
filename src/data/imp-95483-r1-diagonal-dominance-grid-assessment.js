@@ -15,7 +15,7 @@
  * exponential overlap kernel + a summable decay majorant, then MEASURES the
  * Gershgorin race directly on the actual imp-95220 width-law ported grid.
  * ASSESSMENT only; off-diagonal PSD content stays OPEN; changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  *
  * OBJECTS (as in imp-95255/95443). Two-sided-exponential packets
  *   f_n(s) = e^(-mu_n |s - u_n|),  mu_n > 0 (rate),  u_n > 0 (center).
@@ -95,7 +95,7 @@
  * (d) Parameters c=0.1, v=1 are illustrative; the m s ~ (v/c) d^(-5/3) -> 0 law
  * (hence r_{d,d+1} -> 1) is parameter-independent, so the tail failure is
  * generic. Import-light (no zeros bundle, no sibling imports); self-executing
- * assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA; measured
+ * assertions. Changes no bound; NO QED; no refereed bound is changed; measured
  * class sup unchanged.
  */
 
@@ -228,8 +228,8 @@ export const IMP95483_R1_DIAGONAL_DOMINANCE_GRID = {
     + 'off-diagonals could be smaller by paper-model cancellation (OPEN, imp-95212), so this refutes '
     + 'R1-STANDALONE and pins where the near-degenerate obstruction lives; it does NOT refute LEG B. Diagonal '
     + 'margin in normalized form = 1 per the imp-95255 y_min bracket scale; the m s ~ (v/c) d^(-5/3) -> 0 tail '
-    + 'law is parameter-independent so the failure is generic. Changes no bound; NO QED; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA.',
+    + 'law is parameter-independent so the failure is generic. Changes no bound; NO QED; no refereed bound is changed'
+    + '.',
   fns: { overlap, correlation, decayMajorant, rowSum, rateOf, centerOf, equi3Eigs },
 };
 
@@ -269,11 +269,11 @@ export const IMP95483_R1_DIAGONAL_DOMINANCE_GRID_ASSERTIONS = [
   },
   {
     id: 'imp-95483-assessment-only-honest',
-    description: 'explicitly ASSESSMENT ONLY, model-side not DELTA, off-diagonal OPEN, no QED, PT Lambda <= 0.2 SOTA',
+    description: 'explicitly ASSESSMENT ONLY, model-side not DELTA, off-diagonal OPEN, no QED, no refereed bound is changed',
     holds: () =>
       /ASSESSMENT ONLY/.test(IMP95483_R1_DIAGONAL_DOMINANCE_GRID.honest)
       && /NO QED/.test(IMP95483_R1_DIAGONAL_DOMINANCE_GRID.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95483_R1_DIAGONAL_DOMINANCE_GRID.honest),
+      && /refereed bound is changed/i.test(IMP95483_R1_DIAGONAL_DOMINANCE_GRID.honest),
   },
 ];
 

@@ -48,7 +48,7 @@
  * scaled to hold the t-truncation gap fixed, and fit ITS decrement law, to place a numerical positive
  * lower envelope on the true floor. This does NOT settle IMP96749_UNIFORM_N_GAP_UNSETTLED either way.
  * Measurement/extrapolation only; the Rayleigh floor is an UPPER bound; establishes NO operator
- * positivity; interval-rigorous reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA;
+ * positivity; interval-rigorous reach stays 2a <= 0.96; RH open; no refereed bound is changed;
  * NO QED.
  *
  * @see imp-96772-krein-lammin-double-double-recompute.js (fixed-T=800 ladder; FINDING 3, source data)

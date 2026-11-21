@@ -70,7 +70,7 @@
  * the true obstruction is frequency co-location and conductor un-resolvability.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED. Does
+ * no RH claim; no refereed bound is changed. RH open. NO QED. Does
  * NOT claim a unique identification of the conductor content.
  *
  * @see imp-96189-route-m-swing-attribution.js (band attribution + IMP96189_SUBGAP)
@@ -161,7 +161,7 @@ export const IMP96231_SUBGAP = Object.freeze({
 });
 
 export const IMP96231_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/imp-96231-scratch.mjs fitting the imp-96147 residual rows; no bound is claimed, no operator positivity is established, and NO unique identification of the conductor content is claimed.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/imp-96231-scratch.mjs fitting the imp-96147 residual rows; no bound is claimed, no operator positivity is established, and NO unique identification of the conductor content is claimed.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -215,7 +215,7 @@ const IMP96231_ASSERTIONS = [
     id: 'imp96231-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96231_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96231_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96231_HONEST_BANNER) &&
       /NO QED/.test(IMP96231_HONEST_BANNER) &&
       typeof IMP96231_SUBGAP.statement === 'string' &&
       /conductor-unresolvable/.test(IMP96231_SUBGAP.id),

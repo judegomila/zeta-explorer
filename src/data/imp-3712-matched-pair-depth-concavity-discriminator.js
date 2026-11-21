@@ -64,7 +64,7 @@
  *   concavity discriminator on the EXISTING anchors, no new Lanczos runs, no new
  *   compute. Does NOT construct the missing magnitude and does NOT attempt the
  *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 import { IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP } from './imp-3663-matched-pair-krylov-depth-sweep.js';
@@ -148,7 +148,7 @@ export const IMP3712_MATCHED_PAIR_DEPTH_CONCAVITY_DISCRIMINATOR = Object.freeze(
     'is at least as concave as log and possibly steeper (consistent with sg-3686-steeper-than-log-fixed-pair), though ' +
     'the 0.44-sigma steepening is not significant at +/-20. Arithmetic on the EXISTING anchors only; no new compute; ' +
     'does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; ' +
-    'NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     quantityMeasured: 'observed step ratio R_obs = dm_hi/dm_lo of the imp-3663 fixed-pair lock depths, versus the ratios the log and sqrt laws predict at N in {1600,2000,2400}',
@@ -225,7 +225,7 @@ export const IMP3712_MATCHED_PAIR_DEPTH_CONCAVITY_DISCRIMINATOR = Object.freeze(
       'This discriminates a Krylov depth law; it does NOT construct the missing magnitude and does NOT attempt the ' +
       'imp-3066 K_a >= 0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -293,7 +293,7 @@ export const IMP3712_MATCHED_PAIR_DEPTH_CONCAVITY_DISCRIMINATOR_ASSERTIONS = [
   {
     id: 'imp3712-honest-assessment-no-qed',
     why: 'Mandatory honesty: ARITHMETIC only on existing anchors, metric does not discriminate, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3712_MATCHED_PAIR_DEPTH_CONCAVITY_DISCRIMINATOR.honestCaveat;
       return (
@@ -302,7 +302,7 @@ export const IMP3712_MATCHED_PAIR_DEPTH_CONCAVITY_DISCRIMINATOR_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.metricDoesNotDiscriminate === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

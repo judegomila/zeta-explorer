@@ -31,7 +31,7 @@
  *   K -> a_0 -> crossing-height chain for a reader landing cold. Establishes nothing new,
  *   instantiates no interval, closes no sub-gap, moves no bound. Functional non-marketing
  *   copy; I_F is cited as conjectural (RH-bracketed only), not pinned. imp-2519 no-overclaim
- *   guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95984-fujii-varS-constant-literature-locate (source: literature-locate, K = I_F identity)
  * @see imp-95964-fujii-varS-constant-locate-obstruction (b = M + P2 + K; named the K sub-gap)
@@ -39,7 +39,7 @@
  * @see imp-95974-a0-fujii-varS-intercept-glossary-headword (sibling headword, a_0 = b - gamma - 1)
  *
  * Ticket: imp-96017 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The K -> a_0 -> crossing-height reading path, baked verbatim (no re-import of imp-95984).
@@ -89,7 +89,7 @@ export const IMP96104_FUJII_VARS_LITERATURE_READING_PATH = Object.freeze({
     'under RH (~133x the O(0.01) tolerance the crossing-height collapse needs). Because the ' +
     'crossing height is double-exponential in a_0, this leaves the imp-95940 crossing range ' +
     '[~5.8e17, ~1.36e28] uncollapsed. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95984 (literature-locate; b = I_F + M + P2; K = I_F identity); imp-95964 (b = M + P2 + K; ' +
     'named the K sub-gap); imp-95940 (a_0 = b - gamma - 1; double-exp crossing); Chan ' +
@@ -121,12 +121,12 @@ export const IMP96104_FUJII_VARS_LITERATURE_READING_PATH_ASSERTIONS = [
   },
   {
     id: 'imp96104-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, source ' +
       'ticket id recorded.',
     holds: () =>
       IMP96104_FUJII_VARS_LITERATURE_READING_PATH.anyBoundMoved === false &&
       /NO QED/.test(IMP96104_FUJII_VARS_LITERATURE_READING_PATH.verdict) &&
-      /remains SOTA/.test(IMP96104_FUJII_VARS_LITERATURE_READING_PATH.verdict) &&
+      /refereed bound is changed/i.test(IMP96104_FUJII_VARS_LITERATURE_READING_PATH.verdict) &&
       /imp-95984/.test(IMP96104_FUJII_VARS_LITERATURE_READING_PATH.glosses),
   },
 ];

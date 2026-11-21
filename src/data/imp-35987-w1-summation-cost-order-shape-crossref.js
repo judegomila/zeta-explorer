@@ -20,7 +20,7 @@
  *   certificate at T_PT stays GREENFIELD (imp-35681 Part A).
  *
  *   Ticket: imp-35987 (content, low). Note only; changes no bound; C_mb GUE-conditional
- *   (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-35812-w1-summation-scheme-measured-cost (raw scheme COST at fixed order/shape)
  *   @see imp-35852-w1-summation-adversarial-ordering (worst-case term ORDER stress)
@@ -72,7 +72,7 @@ export const IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF = Object.freeze({
     changesAnyBound: false,
     dischargesAnyObligation: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -81,7 +81,7 @@ export const IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF = Object.freeze({
     'measured baseline cost -> order stress -> shape stress, with the shared finding that floating-point ' +
     'precision stays NON-BINDING throughout, so the obstruction stays the MECHANICAL engineering of the ' +
     'certified length-N interval sum (imp-35725), not precision. The W1 A + B - C certificate at T_PT stays ' +
-    'GREENFIELD (imp-35681 Part A). Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GREENFIELD (imp-35681 Part A). Changes no bound; NO QED. No refereed bound is changed.',
 });
 
 export const IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF_ASSERTIONS = [
@@ -113,14 +113,14 @@ export const IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF_ASSERTIONS = [
       IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.honestCaveat.dischargesAnyObligation === false &&
       IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.honestCaveat.portsAnyRoute === false &&
       IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.honestCaveat.sota),
   },
   {
     id: 'imp35987-verdict-no-qed',
-    why: 'The verdict must record NO QED and the Platt-Trudgian SOTA floor, matching every source module.',
+    why: 'The verdict must record NO QED and the no-refereed-bound-change floor, matching every source module.',
     holds: () =>
       /NO QED/.test(IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP35987_W1_SUMMATION_COST_ORDER_SHAPE_CROSSREF.verdict),
   },
 ];
 

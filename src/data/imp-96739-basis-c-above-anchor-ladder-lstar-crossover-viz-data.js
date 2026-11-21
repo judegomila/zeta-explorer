@@ -11,8 +11,8 @@
  *
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96690
  * / imp-96712 exports; only the log10 reshaping is new. Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96690-basis-c-above-anchor-rung-ladder.js (the five-rung floor ladder + OLS crossover)
  * @see imp-96712-basis-c-accelerating-exponent-model.js (the three-model L* bracket)
@@ -101,7 +101,7 @@ const IMP96739_ASSERTIONS = [
     id: 'imp96739-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96739_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96739_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96739_HONEST_BANNER) &&
       /NO QED/.test(IMP96739_HONEST_BANNER),
     why: 'every Route I/basis-C viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

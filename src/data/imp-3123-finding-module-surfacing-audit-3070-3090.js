@@ -111,7 +111,7 @@ export const IMP_3123_SURFACING_AUDIT = {
     'Mint surfacing tickets to display their excess-fraction findings on ClosureRoutesPage or ' +
     'a dedicated phi(s) page, with the honest degree-0-scalar / no-RH-verdict scope caveat.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -165,9 +165,9 @@ const IMP_3123_ASSERTIONS = [
   {
     id: 'imp3123-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3123_SURFACING_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3123_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3123_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: read-only audit; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: read-only audit; no refereed bound is changed.',
   },
 ];
 

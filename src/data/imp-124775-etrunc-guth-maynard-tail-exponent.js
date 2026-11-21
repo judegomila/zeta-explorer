@@ -15,8 +15,8 @@
  *   PREFACTOR -- NOT pinnable to an unconditional number; precise obstruction
  *                identified (Guth-Maynard 2024 is asymptotic / ineffective).
  *
- * NO Lambda value changes. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous
- * SOTA. NO false QED. This is an analytic/constant-audit leaf on the E_trunc
+ * NO Lambda value changes. No refereed bound is changed
+ * . NO false QED. This is an analytic/constant-audit leaf on the E_trunc
  * term only; E_flow C_G is untouched; no headline bound moves.
  *
  * ---------------------------------------------------------------------------
@@ -152,7 +152,7 @@ export const ETRUNC_GUTH_MAYNARD_TAIL_EXPONENT = {
     + 'stays Chourasiya-Simonic 2025 (Ingham family, E_trunc = 3.34, 16.7x short); the imp-34791 refutation '
     + 'of the imp-1324 Ramare line stands. NET: the exponent obligation is discharged, the prefactor '
     + 'obligation is re-diagnosed as "blocked on an EFFECTIVE Guth-Maynard", not on missing algebra. '
-    + 'NO Lambda value changes. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.',
+    + 'NO Lambda value changes. No refereed bound is changed. NO false QED.',
 
   exponentHalf: {
     status: 'PINNED (exact rational, improved over Ingham)',
@@ -211,7 +211,7 @@ export const ETRUNC_GUTH_MAYNARD_TAIL_EXPONENT = {
     + 'the Ingham 2/5) and the imp-34791 3 -> 5 prefactor correction is carried to it (2/kappa_GM = 52/11). '
     + 'The prefactor half is NOT unconditional: Guth-Maynard 2024 is asymptotic (ineffective o(1) in the '
     + 'exponent + unnamed constant), so the sharpest EXPLICIT input stays Chourasiya-Simonic (16.7x short). '
-    + 'No headline bound moves. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.',
+    + 'No headline bound moves. No refereed bound is changed. NO false QED.',
 };
 
 // ── Build-time assertions (self-executing, THROW on failure) ──────────────────
@@ -279,7 +279,7 @@ export const ETRUNC_GUTH_MAYNARD_TAIL_ASSERTIONS = [
         && m.changesLambdaValue === false
         && m.rigorousBeat === false
         && m.deterministic === true
-        && /Lambda <= 0.2 REMAINS the rigorous SOTA/.test(m.honest)
+        && /refereed bound is changed/i.test(m.honest)
         && /NO false QED/.test(m.honest)
         && m.exponentHalf.kappaGuthMaynardExactRational === '11/26';
     },

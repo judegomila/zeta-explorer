@@ -69,7 +69,7 @@
  * DERIVATION + MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35242-ecoll-exponent-residual-0005-tolerance-locate (measured the residual ~ 1/(2 log T0) law derived here)
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the residual ~ 1/(2 log T0) closing law, NO floor)
@@ -219,7 +219,7 @@ export const IMP35257_ECOLL_EXPONENT_RESIDUAL_CLOSED_FORM_DERIVATION = {
     'agreement imp-35242 read numerically. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35242 (measured the residual ~ 1/(2 log T0) law derived here); imp-34130 (residual ~ ' +
     '1/(2 log T0) closing law, no floor); imp-34187 (milestone ladder of the same law); imp-33620 ' +
@@ -264,13 +264,13 @@ export const IMP35257_ECOLL_EXPONENT_RESIDUAL_CLOSED_FORM_DERIVATION_ASSERTIONS 
     },
   },
   {
-    // Honesty gate: derivation + measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation + measurement only, no QED, no refereed bound is changed.
     id: 'imp35257-honesty-gate-no-qed',
-    description: 'Derivation + measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation + measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35257_ECOLL_EXPONENT_RESIDUAL_CLOSED_FORM_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP35257_ECOLL_EXPONENT_RESIDUAL_CLOSED_FORM_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP35257_ECOLL_EXPONENT_RESIDUAL_CLOSED_FORM_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP35257_ECOLL_EXPONENT_RESIDUAL_CLOSED_FORM_DERIVATION.verdict),
   },
 ];
 

@@ -29,7 +29,7 @@
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (ROUTE_L.detector, ROUTE_L.a20.reachExtended)
  *
  * Ticket: imp-96149 (numerical, medium). Measurement/fit only; changes NO bound; RH open;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  */
 
 // Detector power-law fit N_det = A * gamma_0^b (canonical delta = 0.1; nearly delta-independent).

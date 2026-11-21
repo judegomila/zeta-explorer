@@ -70,7 +70,7 @@
  * the achievable shrink. This is a HARDER limit than the imp-96551 / imp-96653 excursion-anchor
  * Cramer-Rao arm floor (there the residual was genuine iid scatter and only the arm was short; here even
  * an infinite arm buys new record points only logarithmically). Confirms and extends imp-96654; changes
- * no bound; conditional on GUE; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the fold-law
+ * no bound; conditional on GUE; RH open; NO QED; no refereed bound is changed; the fold-law
  * envelope-exponent gain still requires the unproved GUE cube-root small-gaps law (imp-96616).
  *
  * @see imp-96654-gmin-crossover-sensitivity-oscillation (SE(b)=0.020615, 3.006 SE from the -1/3 pole; sawtooth plateaus)
@@ -215,12 +215,12 @@ export const IMP96681_GMIN_LADDER_ARM_EXTENSION_REACH = {
   inRepoReaches4Sigma: IN_REPO_REACHES_4SIGMA, // false
   effectivelyFloored: EFFECTIVELY_FLOORED, // true
   verdict:
-    'NO / EFFECTIVELY FLOORED. Extending the g_min running-min ladder above N=10^6 does not meaningfully shrink SE(b) or push b clear of -1/3 with any in-repo or realistically-computable consecutive-zero data. Even under the optimistic clean-iid arm model (SE(b) ~ A^{-3/2} at the ladder doubling cadence) a 4-sigma separation needs an arm of ~5.2 decades (top N ~7.9e6) and 5-sigma ~6.0 decades (top N ~5.4e7) -- 8x to 700x beyond the 2,001,052-zero cache, which supplies only +0.30 decade above the current N=1e6 ladder top. More fundamentally the ratio is a running MINIMUM: a step function whose effective independent sample size (record count) grows only like ln N (10 records over 2M zeros; doubling to 20 needs N ~4e12) and whose OLS residual is dominated by deterministic plateau-vs-slope misspecification that grows with plateau length, so the naive SE(b)=0.0206 understates the true uncertainty and the clean-iid arm model is only an upper bound on the achievable shrink. This is a HARDER limit than the imp-96551/imp-96653 excursion-anchor Cramer-Rao arm floor (there the residual was genuine iid scatter and only the arm was short; here even an infinite arm buys new record points only logarithmically). Confirms and extends imp-96654; changes no bound; conditional on GUE; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the fold-law envelope-exponent gain still requires the unproved GUE cube-root small-gaps law (imp-96616).',
+    'NO / EFFECTIVELY FLOORED. Extending the g_min running-min ladder above N=10^6 does not meaningfully shrink SE(b) or push b clear of -1/3 with any in-repo or realistically-computable consecutive-zero data. Even under the optimistic clean-iid arm model (SE(b) ~ A^{-3/2} at the ladder doubling cadence) a 4-sigma separation needs an arm of ~5.2 decades (top N ~7.9e6) and 5-sigma ~6.0 decades (top N ~5.4e7) -- 8x to 700x beyond the 2,001,052-zero cache, which supplies only +0.30 decade above the current N=1e6 ladder top. More fundamentally the ratio is a running MINIMUM: a step function whose effective independent sample size (record count) grows only like ln N (10 records over 2M zeros; doubling to 20 needs N ~4e12) and whose OLS residual is dominated by deterministic plateau-vs-slope misspecification that grows with plateau length, so the naive SE(b)=0.0206 understates the true uncertainty and the clean-iid arm model is only an upper bound on the achievable shrink. This is a HARDER limit than the imp-96551/imp-96653 excursion-anchor Cramer-Rao arm floor (there the residual was genuine iid scatter and only the arm was short; here even an infinite arm buys new record points only logarithmically). Confirms and extends imp-96654; changes no bound; conditional on GUE; RH open; NO QED; no refereed bound is changed; the fold-law envelope-exponent gain still requires the unproved GUE cube-root small-gaps law (imp-96616).',
 };
 
 // Machine-readable honest-status banner (imp-96653 / imp-96654 convention).
 export const IMP96681_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility assessment only, conditional on GUE: '
+  'RH open; no refereed bound is changed; NO QED. Feasibility assessment only, conditional on GUE: '
   + 'extending the imp-96616 g_min running-min ladder above N=10^6 cannot separate b=-0.3953 from the '
   + '-1/3 GUE pole. Even the optimistic clean-iid arm model needs ~5.2 decades (top N ~7.9e6) for 4-sigma '
   + 'and ~6.0 decades (top N ~5.4e7) for 5-sigma -- 8x-700x beyond the 2M-zero cache (only +0.30 decade). '
@@ -259,9 +259,9 @@ export const IMP96681_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96681_GMIN_LADDER_ARM_EXTENSION_REACH.verdict))
     throw new Error('imp-96681: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96681_GMIN_LADDER_ARM_EXTENSION_REACH.verdict))
-    throw new Error('imp-96681: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96681_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96681_HONEST_BANNER) && /NO QED/.test(IMP96681_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96681_GMIN_LADDER_ARM_EXTENSION_REACH.verdict))
+    throw new Error('imp-96681: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96681_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96681_HONEST_BANNER) && /NO QED/.test(IMP96681_HONEST_BANNER)))
     throw new Error('imp-96681: IMP96681_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

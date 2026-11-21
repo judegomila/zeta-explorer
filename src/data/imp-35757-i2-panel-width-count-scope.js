@@ -12,8 +12,7 @@
  * per rectangle edge at T_PT = 3e12.
  *
  * ORDER-OF-MAGNITUDE SCOPING ONLY. Certifies no count; instantiates no interval
- * enclosure; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * enclosure; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE MEASURED WINDING RATE (the input the held modules supply)
  * -----------------------------------------------------------------------------
@@ -70,7 +69,7 @@
  * LOWER bounds on the panels a certificate would use. It instantiates no interval
  * enclosure (I1), lower-bounds no modulus (I3), closes no integer (I4), composes no
  * corner (I5); it does not fix Delta or h; it certifies no count and changes no
- * bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound. NO QED. No refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I2 named GREENFIELD, unquantified)
  * @see imp-2696-winding-lyapunov-experiment (W_pp winding rate, arg H_tau sampled, isRigorous:false)
@@ -82,7 +81,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35727 / imp-35726) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const TWO_PI = 2 * Math.PI;
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
@@ -169,7 +168,7 @@ export const IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE = {
     'the window height and only logarithmically in T_PT. The counts use the MEAN rate and are LOWER bounds: a ' +
     'certified I2 cap needs an interval UPPER bound on the LOCAL rate (mean plus an S prime fluctuation margin), ' +
     'which shrinks Delta_panel further. Instantiates no interval enclosure; certifies no count; fixes no Delta ' +
-    'or h; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'or h; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35727 (I2 named GREENFIELD, unquantified); imp-2696 (W_pp winding rate, arg H_tau sampled, ' +
     'isRigorous:false); imp-33968 (winding-rate-vs-alpha least-squares slope -(1+alpha), isRigorous:false); ' +
@@ -220,15 +219,15 @@ export const IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE_ASSERTIONS = [
       /\|Delta arg f\| < pi/.test(IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE.panelWidth.cap),
   },
   {
-    // Honesty gate: OOM scoping only, no certification, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: OOM scoping only, no certification, no QED, no refereed bound is changed.
     id: 'imp35757-honesty-gate-no-qed',
-    description: 'Scoping only; certifies no count; instantiates no enclosure; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Scoping only; certifies no count; instantiates no enclosure; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no count/.test(IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE.verdict) &&
       /NO QED/.test(IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35757_I2_PANEL_WIDTH_COUNT_SCOPE.verdict),
   },
 ];
 

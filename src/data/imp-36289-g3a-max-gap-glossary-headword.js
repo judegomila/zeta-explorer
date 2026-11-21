@@ -42,7 +42,7 @@
  *   imp-451 obstruction diagnosis for quick reference. It establishes nothing,
  *   instantiates no interval, derives no remainder, changes no bound, closes no
  *   sub-gap. G3a_max_gap and the Route-C per-N translation REMAIN OPEN; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-36259-routeC-g3a-maxgap-residual-scope.js (source: the gap-object scoping this glosses)
  * @see g3a-extremal-closure.js (imp-451 diagnostic: near+tail c_total -> 0 under GUE)
@@ -50,8 +50,7 @@
  * @see lambda-roadmap.js (Route-C route object; G3a_max_gap OPEN; closesIf)
  *
  * Ticket: imp-36289 (content, low). Documentation only; establishes no enclosure;
- * G3a_max_gap and Route-C per-N translation stay OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * G3a_max_gap and Route-C per-N translation stay OPEN; NO QED; no refereed bound is changed.
  */
 
 // The G3a_max_gap headword definition, baked verbatim (no re-import of imp-36259).
@@ -106,8 +105,8 @@ export const IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD = Object.freeze({
     'finding that a GUE-type sqrt(log N) closure EXCEEDS R_critical for all N >= 5 ' +
     'and eliminates the squeeze rather than pinning a per-N exponent. Establishes ' +
     'nothing; instantiates no interval; closes no sub-gap; G3a_max_gap and the ' +
-    'Route-C per-N translation stay OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'Route-C per-N translation stay OPEN; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36259 (gap-object scoping and GUE illustration); imp-451/g3a-extremal-' +
     'closure (near+tail c_total -> 0 diagnostic); imp-337/imp-342/imp-343 (Route-C ' +
@@ -134,11 +133,11 @@ export const IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp36289-honesty-gate-no-qed',
-    why: 'Documentation only: no enclosure claimed established, G3a_max_gap stays OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no enclosure claimed established, G3a_max_gap stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.anyEnclosureEstablished === false &&
       /NO QED/.test(IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.verdict) &&
       /stay OPEN/.test(IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.verdict) &&
       IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.glosses === 'imp-36259' &&
       IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD.scopes === 'G3a_max_gap',

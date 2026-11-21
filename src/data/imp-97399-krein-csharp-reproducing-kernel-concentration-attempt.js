@@ -13,7 +13,7 @@
  *
  *   Attempt / derivation only. Produces NO positive coercivity constant and no operator positivity (the new
  *   floor is finite but still NEGATIVE); changes no bound; interval-rigorous reach stays 2a <= 0.96;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * THE INEQUALITY, ON THE RAYLEIGH SIDE. With psi in PW_a (band-limited to |freq| <= a, ||psi||_2 = 1),
  *   c_sharp = inf_psi int sigma_2(t) |psi(t)|^2 dt. Splitting sigma_2 = sigma_2^+ - sigma_2^- (positive and
@@ -84,7 +84,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; pole-free Weil positivity; reach 2a<=0.96)
  *
  * Ticket: imp-97399 (proof, high, opus-4-8). Attempt/derivation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

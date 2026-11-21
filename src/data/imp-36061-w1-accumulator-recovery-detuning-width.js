@@ -27,8 +27,7 @@
  * MEASUREMENT ONLY. Instantiates no directed-rounding interval; evaluates no true H_0;
  * verifies no inequality; changes no bound; establishes no positivity; the certified
  * length-N interval sum stays MECHANICAL / GREENFIELD (imp-35725 / imp-35681 Part A);
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * FINDING (at fixed N ~ 488602; r_base ~ 1.18e-3) -- the recovery window is an ORDER wider
  * than the imp-35991 r < 1e-2 basin edge, and the two axes are ASYMMETRIC
@@ -69,7 +68,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35761 / imp-35812 / imp-35991) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -278,7 +277,7 @@ export const IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH = {
     'stays the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Instantiates ' +
     'no directed-rounding interval; evaluates no true H_0; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35949 (located the q=1 resonant corner); imp-35991 (r < 1e-2 basin edge this widens); ' +
     'imp-36004 (run-time-monitor caveat); imp-35890 (O(1) running-accumulator a-priori bound); ' +
@@ -374,15 +373,15 @@ export const IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH_ASSERTIONS = [
     holds: () => GAMMA_AT_TPT > 1e-12 && GAMMA_AT_TPT < 1e-9,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36061-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH.verdict) &&
-      /remains SOTA/.test(IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH.verdict),
+      /refereed bound is changed/i.test(IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH.verdict),
   },
 ];
 

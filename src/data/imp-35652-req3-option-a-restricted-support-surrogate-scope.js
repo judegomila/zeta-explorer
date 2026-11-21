@@ -20,7 +20,7 @@
  * no bound; establishes no operator positivity; no RH verdict, NO QED. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), C_H = 1/8, the
  * E_trunc = 3.06e-5 floor (imp-2631) and C_mb GUE-conditional (imp-486) are
- * UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. No refereed bound is changed.
  *
  * WHAT A SUPPORT-LIMITED PROXY WOULD LOOK LIKE
  * -----------------------------------------------------------------------------
@@ -66,7 +66,7 @@
  * route-(i) obstruction (imp-35538/imp-35493) stands. Assessment/scoping only;
  * discharges nothing; changes no bound; no positivity; NO QED. Route-(ii) (the
  * imp-35488 two-height data-anchored spot check) remains the only viable partial
- * for the OPEN imp-35337a. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * for the OPEN imp-35337a. No refereed bound is changed.
  *
  * @see imp-35538-route-i-remainder-derivation-requirements (REQ 3 option (a), never scoped; this module scopes it)
  * @see imp-35493-route-i-remainder-literature-scope (route-(i) absent from the literature)
@@ -77,7 +77,7 @@
  */
 
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (imp-2642/imp-2643 ansatz)
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any option-(a) scoping)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any option-(a) scoping)
 
 // The |alpha| < 1 band-limited resolution floor, in mean-spacing units (mean spacing = 1).
 const ALPHA_SUPPORT_LIMIT = 1; // Montgomery/Rudnick-Sarnak proven support |alpha| < 1
@@ -158,7 +158,7 @@ export const IMP35652_REQ3_OPTION_A_RESTRICTED_SUPPORT_SURROGATE_SCOPE = {
     'bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no ' +
     'RH verdict, NO QED. Route-(ii) (imp-35488 two-height spot check) remains the only viable partial. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35538 (REQ 3 option (a), never scoped -- this module scopes it; REQ 2 full-support explicit-rate law); ' +
     'imp-35493 (route-(i) absent from the literature); imp-35488 (route-(ii) two-height partial for imp-35337a); ' +
@@ -216,7 +216,7 @@ export const IMP35652_REQ3_OPTION_A_RESTRICTED_SUPPORT_SURROGATE_SCOPE_ASSERTION
     },
   },
   {
-    // (4) honesty gate: conditional (inherits imp-486, not unconditional), no bound moves, PT SOTA,
+    // (4) honesty gate: conditional (inherits imp-486, not unconditional), no bound moves, no refereed bound is changed,
     //     sub-gap named; NO QED.
     id: 'imp35652-conditional-no-bound-moves-no-qed',
     description: 'the assessment is not rigorous and not unconditional, changes no bound, keeps C_mb GUE-conditional (imp-486), leaves imp-35337a OPEN, PT 0.2 unchanged, NO QED',
@@ -229,7 +229,7 @@ export const IMP35652_REQ3_OPTION_A_RESTRICTED_SUPPORT_SURROGATE_SCOPE_ASSERTION
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

@@ -50,7 +50,7 @@
  *   measured, and the O(1) additive term (needed to fix F as a value, not just a slope) is a
  *   SECOND, separate residual not captured here -- so the true LAYER-(ii) spread is at least this
  *   wide. The only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916,
- *   imp-96352) binds first by >2600x regardless. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   imp-96352) binds first by >2600x regardless. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97118-route-m-interior-growth-law-farfield-band-discriminator (LAYER (ii); the sub-gap this sizes)
  * @see imp-97081-route-m-farfield-ceiling-interior-anchor-discriminator (the point anchor F, slope derivation)
@@ -59,7 +59,7 @@
  * @see imp-96667-route-m-frobenius-second-moment-asymptotic (the interior slope band 5.66..5.80)
  *
  * Ticket: imp-97142 (numerical, opus-4-8, api-pool). Measurement + propagated interval + survival
- * verdict; no bound moved; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * verdict; no bound moved; NO QED; no refereed bound is changed.
  */
 
 import {
@@ -142,11 +142,11 @@ export const IMP97142_VERDICT = Object.freeze({
     'imp-96750 O(1) additive term is a further, separate residual not captured here, so the true ' +
     'LAYER-(ii) spread is at least this wide. Measurement only; instantiates no interval ' +
     'certificate; the rigorous anchor stays T = 2.594e7; compute (N ~ 9916) binds first by ' +
-    '>2600x; changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '>2600x; changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97142_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: propagating the imp-96667 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: propagating the imp-96667 ' +
   'interior-slope band s* in 5.66..5.80 through F(s*) = F_center * (s*/5.76) gives the far-field ' +
   'ceiling value an fPctVsLine INTERVAL of [-2.035%, +0.389%] (F in [3.7095e7, 3.8012e7]). The ' +
   'whole interval sits below the +1.369% floor of the original imp-96982 band, so the imp-97118 ' +
@@ -199,7 +199,7 @@ const IMP97142_ASSERTIONS = [
       IMP97142_VERDICT.entireIntervalBelowOriginalFloor === true &&
       IMP97142_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97142_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97142_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97142_HONEST_BANNER) &&
       /imp-96667/.test(IMP97142_VERDICT.conclusion),
   },
 ];

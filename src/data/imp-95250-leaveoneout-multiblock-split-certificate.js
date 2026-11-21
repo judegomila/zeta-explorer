@@ -7,7 +7,7 @@
  * that imp-95249 left as its named residual after refuting the
  * pairwise-angle Gershgorin route and the recursive SPLIT-2 peel.
  * Twenty-fifth leg of the seam chain. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95226 normalization). Distinct rates nu_i > 0, depth
  * d > 0, E_V = span{e^(-nu t)} in L2(0, inf), Cauchy Gram
@@ -210,7 +210,7 @@ export const IMP95250_LEAVEONEOUT_MULTIBLOCK_SPLIT_CERTIFICATE = {
     "imp-95249 ANG-DET as cited inputs and all constants closed form. " +
     "The every-octave-multiplicity residual of imp-95249 is FENCED " +
     "(twin-pair case, m-uniform), NOT closed as a block Riesz statement. " +
-    "Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -620,7 +620,7 @@ export const IMP95250_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: RIGOROUS theorems, " +
       "residual FENCED not closed as a block Riesz statement, no bound " +
-      "change, no QED, PT SOTA, block Riesz + N-fold coalescence + " +
+      "change, no QED, no refereed bound is changed, block Riesz + N-fold coalescence + " +
       "off-lattice named OPEN",
     holds: () =>
       /RIGOROUS/.test(IMP95250_LEAVEONEOUT_MULTIBLOCK_SPLIT_CERTIFICATE.verdict) &&
@@ -632,7 +632,7 @@ export const IMP95250_ASSERTIONS = [
         IMP95250_LEAVEONEOUT_MULTIBLOCK_SPLIT_CERTIFICATE.verdict,
       ) &&
       /NO QED/.test(IMP95250_LEAVEONEOUT_MULTIBLOCK_SPLIT_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95250_LEAVEONEOUT_MULTIBLOCK_SPLIT_CERTIFICATE.verdict,
       ) &&
       /stays OPEN/.test(

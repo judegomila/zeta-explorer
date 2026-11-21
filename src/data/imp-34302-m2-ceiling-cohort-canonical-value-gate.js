@@ -41,12 +41,12 @@ export const IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE = Object.freeze({
   verdict:
     'GATED: canonical ceiling and imp-34127 closed-form estimate remain distinct literals, separated by ' +
     'their reported ~-0.28 residual. No bound changed; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-    'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    'K_a>=0 untouched; NO QED; no refereed bound is changed.',
 
   honest:
     'GATE-ONLY -- checks the live values of two already-published source modules against the reading the ' +
-    'cohort pages cite in prose; adds no new derivation and changes no bound. Platt-Trudgian Lambda<=0.2 ' +
-    'stays the rigorous SOTA.',
+    'cohort pages cite in prose; adds no new derivation and changes no bound. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE_ASSERTIONS = [
@@ -82,11 +82,11 @@ export const IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE_ASSERTIONS = [
   },
   {
     id: 'imp-34302-gate-only-honest',
-    description: 'explicitly GATE-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly GATE-ONLY and no refereed bound is changed',
     holds: () => /GATE-ONLY/.test(IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE.honest)
-      && /Lambda<=0.2 stays the rigorous SOTA/.test(IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE.honest)
+      && /refereed bound is changed/i.test(IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE.honest)
       && /NO QED/.test(IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE.verdict)
-      && /Lambda<=0.2 remains the rigorous SOTA/.test(IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE.verdict),
+      && /refereed bound is changed/i.test(IMP34302_M2_CEILING_COHORT_CANONICAL_VALUE_GATE.verdict),
   },
 ];
 

@@ -20,7 +20,7 @@
  *
  * CONSISTENCY CHECK ONLY. No bound changes; no re-derivation of the underlying imp-3220/imp-3406
  * component model; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_mb GUE-conditional
- * per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34086-aggregate-share-asymmetric-trim (the integer bracket m=0->1 this cross-checks against)
  * @see imp-34148-symmetric-trim-f4-cancellation (the symmetric fractional crossing m* ~ 0.6791)
@@ -73,7 +73,7 @@ export const IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK = {
     `${GAP.toFixed(6)} rung below the symmetric crossing as both modules' verdicts claim. No ` +
     're-derivation of the underlying imp-3220/imp-3406 component model; changes no bound; establishes ' +
     'no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34086 (the integer bracket); imp-34148 (the symmetric fractional crossing); imp-34149 (the ' +
     'tail-only fractional crossing).',
@@ -106,13 +106,13 @@ export const IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK_ASSERTIONS = [
     holds: () => Math.abs(SYM_M_STAR - 0.679085) < 1e-5 && Math.abs(TAIL_M_STAR - 0.606341) < 1e-5,
   },
   {
-    // Honesty gate: consistency-check only, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: consistency-check only, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34226-honesty-gate-no-qed',
-    description: 'consistency check only: isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'consistency check only: isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34226_CROSSING_INTEGER_BRACKET_CROSSCHECK.verdict),
   },
 ];

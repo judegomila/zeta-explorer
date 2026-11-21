@@ -38,7 +38,7 @@
  * derives no remainder; discharges nothing; changes no bound; establishes no operator
  * positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and
  * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NOT rigorous; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-36022-etrunc-ecoll-crossover-reconciliation (names the tilt; never derives it)
  * @see imp-35968-e-trunc-coll-crossover-location (raw ratio E_coll/E_trunc = 1; stored log10 9.5159)
@@ -53,7 +53,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP35968_E_TRUNC_COLL_CROSSOVER_LOCATION } from './imp-35968-e-trunc-coll-crossover-location.js';
 import { IMP35950_ETRUNC_ECOLL_CROSSOVER_HEIGHT } from './imp-35950-etrunc-ecoll-crossover-height.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any derivation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any derivation here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (byte-identical to imp-35950 / imp-35968 / imp-36022).
 const TWO_PI = 2 * Math.PI;
@@ -191,7 +191,7 @@ export const IMP36064_EFLOW_INCLUSION_TILT_CLOSED_FORM = {
     'sub-terms and the pinned imp-35968 / imp-35950 stored objects unchanged; derives no remainder; ' +
     'discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
-    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36022 (names the E_flow-inclusion tilt 1/(2+f); never derives it); imp-35968 (raw ratio ' +
     'E_coll/E_trunc = 1; stored log10 9.5159); imp-35950 (sigma = 0.5 bisection; stored log10 9.5142); ' +
@@ -242,7 +242,7 @@ export const IMP36064_EFLOW_INCLUSION_TILT_CLOSED_FORM_ASSERTIONS = [
       storedGapDecades < 5e-3,
   },
   {
-    // (7) honesty gate: derivation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (7) honesty gate: derivation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36064-derivation-only-no-qed',
     description: 'derivation only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -254,7 +254,7 @@ export const IMP36064_EFLOW_INCLUSION_TILT_CLOSED_FORM_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

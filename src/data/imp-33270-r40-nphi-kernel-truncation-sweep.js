@@ -59,8 +59,8 @@
  *   all NPHI &gt;= 3) and that the whole ~1e-5 residual is Simpson-order. No literal is patched;
  *   imp-3685 and imp-3849 assertions are LEFT INTACT. It changes NO bound and establishes NO
  *   operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
- *   K_a &gt;= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA. Reported values are grid-CONVERGENCE stable for
+ *   K_a &gt;= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed
+ *   . Reported values are grid-CONVERGENCE stable for
  *   this truncated-kernel model, not certified error bounds; with the NPHI axis now shown flat,
  *   the inner Simpson order is the SOLE remaining residual floor for R_40.
  *
@@ -236,7 +236,7 @@ export const IMP33270_R40_NPHI_KERNEL_TRUNCATION_SWEEP = Object.freeze({
     '(below the double-precision ULP). CONCLUSION: the entire ~1.21e-5 imp-3888/imp-33256 R_40 residual is ' +
     'Simpson-order (inner-quadrature), NOT kernel-truncation; NPHI=10 carries seven-plus terms of headroom. ' +
     'MEASUREMENT ONLY; no literal patched; imp-3685/imp-3849 left intact; imp-3066 untouched; ' +
-    'necessary-but-not-sufficient; no QED; PT Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; no QED; no refereed bound is changed.',
 
   method: Object.freeze({
     ratio: 'R_40 = |D_40| / |D_40^saddle|, D_n = C_(n+2) - C_n, C_n = M_(n+2)/((n+1)(n+2)M_n), C_n^saddle = tau*(n)^2/((n+1)(n+2))',
@@ -294,7 +294,7 @@ export const IMP33270_R40_NPHI_KERNEL_TRUNCATION_SWEEP = Object.freeze({
     kernelFloorNowSeparated:
       'With the NPHI axis shown flat (R_40 bit-identical for all NPHI >= 3), the inner A(tau) Simpson order ' +
       'is the SOLE remaining residual floor for R_40; the finite kernel truncation is NOT a floor at NPHI=10.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -338,7 +338,7 @@ export const IMP33270_R40_NPHI_KERNEL_TRUNCATION_SWEEP_ASSERTIONS = [
   {
     id: 'imp33270-honest-measurement-only',
     why: 'Mandatory honesty: measurement only, no literal patched, source modules intact, no bound changed, ' +
-      'mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, PT 0.2 stays SOTA.',
+      'mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33270_R40_NPHI_KERNEL_TRUNCATION_SWEEP.honestCaveat;
       return (
@@ -349,7 +349,7 @@ export const IMP33270_R40_NPHI_KERNEL_TRUNCATION_SWEEP_ASSERTIONS = [
         c.changesAnyBound === false &&
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

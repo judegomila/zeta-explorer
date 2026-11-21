@@ -57,7 +57,7 @@
 // a fixed certified kappa_star. No zero is verified, no new T_PT is claimed, the
 // rigorous bound stays E_trunc = 3.06e-5, and C_mb stays GUE-conditional per
 // imp-486. Changes no bound. No positivity, no bridge closure, no RH claim, NO
-// QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH remains OPEN.
+// QED. No refereed bound is changed; RH remains OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes inside
 // single-quoted strings; no star-slash in any comment.
@@ -184,8 +184,8 @@ export const IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR = {
     'H(N) -> infinity under either name: the two named ways are one quantitative ' +
     'law. No zero is verified, no new T_PT is claimed, the rigorous bound stays ' +
     'E_trunc = 3.06e-5, and C_mb stays GUE-conditional per imp-486. Changes no ' +
-    'bound; no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; RH OPEN.',
+    'bound; no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '; RH OPEN.',
   citation:
     'imp-96190 (two-ways-are-one-way collapse); imp-96185 (same kappa_star=0.4 ' +
     'inversion at 1e-5/1e-6/1e-8); imp-96166 (frozen E_trunc floor / two named ' +
@@ -261,15 +261,15 @@ export const IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, names the collapse and the E_trunc floor,
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp96207-honesty-gate-no-qed',
-    description: 'Measurement only: quantifies the collapse, names E_trunc, no QED, PT stays SOTA',
+    description: 'Measurement only: quantifies the collapse, names E_trunc, no QED, no refereed bound is changed',
     holds: () =>
       IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR.isRigorous === false &&
       /E_trunc/.test(IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR.functionalForm) &&
       /collapse/.test(IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR.collapse) &&
       /NO QED/.test(IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR.verdict) &&
-      /remains SOTA/.test(IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR.verdict),
+      /refereed bound is changed/i.test(IMP96207_VERIFIED_HEIGHT_FLOOR_LAW_KAPPA_STAR.verdict),
   },
 ];
 

@@ -68,7 +68,7 @@
  * i.e. a uniform-in-omega bound on the Binet-weighted alternating Moebius sum. This is left OPEN here:
  * the positive kernel g and the endpoint control S_b(0+), S_b(infinity) = O(1) are established, but the
  * cancellation of S_b(t) on the interior 0 < t < infinity is not bounded uniformly in omega. No bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97266-route-m-arith-tail-o1-measurement.js (the measurement this partially certifies)
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js (the O(log log b) envelope reproduced here)
@@ -216,11 +216,11 @@ export const IMP97289_VERDICT = Object.freeze({
     'so the entire O(log log b) -> O(1) gap is the alternating Moebius cancellation in S_b(t). The binding ' +
     'maximal-omega primorial class (where sigma/b diverges but |R| ~ 0.127) remains uncertified: the ' +
     'uniform-in-omega interior cancellation of S_b(t) is IMP97289_TAIL_O1_SUBGAP. No bound on Lambda ' +
-    'moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97289_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97266 Stirling tail R(b) is ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97266 Stirling tail R(b) is ' +
   'PROVED O(1) -- in fact |R(b)| < 1/12 uniformly and R -> 0 -- on every prime and prime power, via the ' +
   'Binet positive-kernel representation R = Integral g(t) S_b(t) dt (g > 0). The triangle bound reproduces ' +
   'exactly the imp-97202 O(log log b) envelope, so the residual is purely the Moebius cancellation in ' +
@@ -292,7 +292,7 @@ const IMP97289_ASSERTIONS = [
       IMP97289_VERDICT.residualSubgap === 'IMP97289_TAIL_O1_SUBGAP' &&
       /IMP97202_SUBGAP/.test(IMP97289_TAIL_O1_SUBGAP.certifiesHalfOf) &&
       /NO QED/.test(IMP97289_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97289_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97289_HONEST_BANNER) &&
       /RH open/.test(IMP97289_HONEST_BANNER),
     why: 'honest partial: proved uniform O(1) on primes + prime powers and reduced the binding primorial class to IMP97289_TAIL_O1_SUBGAP -- no full O(1) bound, no bound moved, no rigorous ceiling, no QED.',
   },

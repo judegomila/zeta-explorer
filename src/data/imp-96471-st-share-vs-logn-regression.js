@@ -43,8 +43,8 @@
  *   the honest claim is "no trend detectable at this resolution", not "provably
  *   flat". The conditional bound C_H <= 0.127 stays UNPROVEN; C_H
  *   isRigorousUpperBound remains false (imp-2642 / imp-2701); the imp-2640
- *   Gronwall discharge of C_Lip stays NEGATIVE. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA. RH remains open. NO QED.
+ *   Gronwall discharge of C_Lip stays NEGATIVE. No refereed bound is changed
+ *   . RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96445-count-gap-plus78-vs-st-split.js: the four per-anchor stFraction
@@ -177,7 +177,7 @@ export const IMP96471_ST_SHARE_VS_LOGN_REGRESSION = {
     'this rejects a large trend but cannot certify strict flatness. Accuracy ' +
     'audit only: no gap closed, no bound changed, conditional C_H <= 0.127 stays ' +
     'UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701), imp-2640 ' +
-    'Gronwall discharge of C_Lip NEGATIVE. Platt-Trudgian Lambda <= 0.2 SOTA. ' +
+    'Gronwall discharge of C_Lip NEGATIVE. No refereed bound is changed. ' +
     'RH open. NO QED.',
   provenance:
     'imp-96445-count-gap-plus78-vs-st-split.js (four per-anchor stFraction and ' +

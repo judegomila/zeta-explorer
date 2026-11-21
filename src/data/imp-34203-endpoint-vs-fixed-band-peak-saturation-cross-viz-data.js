@@ -21,7 +21,7 @@
  *
  *   Ticket: imp-34203 (ux, medium). Presentation only of two already-established measurements;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // imp-34108: the 9 imp-33917 boundary-locked endpoint peaks (kEnd = 11.00 .. 13.00, step 0.25),

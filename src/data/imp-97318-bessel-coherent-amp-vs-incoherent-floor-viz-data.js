@@ -9,7 +9,7 @@
  * uniform tail constant 2.080e5 -> 5.409e4 (3.84x).
  *
  * Pure re-export/reshape of the imp-97294 verbatim literals; no re-derivation of the harmonic collapse
- * or the Hankel a_j(k) coefficients. Presentation only: no new Lambda bound; PT Lambda<=0.2 SOTA;
+ * or the Hankel a_j(k) coefficients. Presentation only: no new Lambda bound; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97294-krein-bessel-z4-coherent-jfreq-majorant.js (IMP97294_PER_ORDER, IMP97294_COHERENT_MAJORANT)
@@ -40,7 +40,7 @@ export const IMP97318_HEADLINE = Object.freeze({
 });
 
 export const IMP97318_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the coherent amplitudes and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the coherent amplitudes and ' +
   'incoherent floors are copied verbatim from imp-97294 (no re-derivation of the per-frequency harmonic ' +
   'collapse or the Hankel a_j(k) coefficients). imp-97294 tightens the imp-97263 z^-4 remainder majorant, ' +
   'it does not close the full g(t)=O(t^-4) certificate: Obstruction B (imp-97164 degree-to-v0 overlap ' +
@@ -85,7 +85,7 @@ const IMP97318_ASSERTIONS = [
     id: 'imp97318-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97318_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97318_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97318_HONEST_BANNER) &&
       /NO QED/.test(IMP97318_HONEST_BANNER),
     why: 'every Krein-route viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

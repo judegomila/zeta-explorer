@@ -44,7 +44,7 @@
  *   intercept constituent (B) = 2 cQ (zeta(2)-5/4) stays UNPINNED, reinforcing the imp-97207 verdict
  *   that pinning the far-field ceiling F as a VALUE is strictly harder than pinning its slope. The
  *   only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds
- *   first by >2600x; changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   first by >2600x; changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97241-cq-nonconstant-subleading-tail -- the sub-leading content of Q(b) is
  *   NOT a clean constant at b <= 2000 (pointwise cQ drifts, log model unstable); pinning constituent
@@ -134,7 +134,7 @@ export const IMP97241_VERDICT = Object.freeze({
     'constant at b<=2000, so the dominant intercept constituent (B) = 2 cQ (zeta(2)-5/4) stays ' +
     'UNPINNED, reinforcing imp-97207 that pinning F as a value is strictly harder than its slope. ' +
     'Measurement only; the rigorous anchor stays T=2.594e7; compute N~9916 binds first by >2600x; ' +
-    'changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97241_SUBGAP = Object.freeze({
@@ -149,7 +149,7 @@ export const IMP97241_SUBGAP = Object.freeze({
 });
 
 export const IMP97241_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: recomputing Q(b) to b=2000 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: recomputing Q(b) to b=2000 ' +
   '(kernel validated against the imp-96750 window means and T(250)=11.757622) and re-measuring the ' +
   'sub-leading cotangent constant cQ on a finer/wider ladder NARROWS the leading slope (s0 ~ 1.766) ' +
   'but does NOT pin cQ: window ladders give cQ in [-15.5,-14.1] yet the pointwise regression drifts ' +
@@ -212,7 +212,7 @@ const IMP97241_ASSERTIONS = [
       IMP97241_VERDICT.pointwiseDrifts === true &&
       IMP97241_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97241_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97241_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97241_HONEST_BANNER) &&
       /RH open/.test(IMP97241_HONEST_BANNER) &&
       /nonconstant-subleading-tail/.test(IMP97241_SUBGAP.id),
   },

@@ -34,7 +34,7 @@
  * imp-3406 component model is inherited and NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35153-eflow-etrunc-crossover-closed-form (the closed-form height fixed point cross-checked here)
  * @see imp-35105 (E_flow=E_trunc crossover measured N~1.597752e6 by downslope bisection)
@@ -129,7 +129,7 @@ export const IMP35199_EFLOW_ETRUNC_LANDMARK_CROSSCHECK = {
     '(to < 1e-3). Verification only: the imp-33601/imp-3220/imp-3406 component model is inherited ' +
     'and NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35153 (closed-form E_flow=E_trunc height fixed point); imp-35105 (landmark N~1.597752e6); ' +
     'imp-398 (E_flow C_F prefactor); imp-2631 (E_trunc fixed-strip route); imp-486 (C_mb ' +
@@ -162,13 +162,13 @@ export const IMP35199_EFLOW_ETRUNC_LANDMARK_CROSSCHECK_ASSERTIONS = [
     holds: () => ITERS_CC > 5 && ITERS_CC < 30,
   },
   {
-    // Honesty gate: verification only, no QED, PT stays SOTA.
+    // Honesty gate: verification only, no QED, no refereed bound is changed.
     id: 'imp35199-honesty-gate-no-qed',
-    description: 'Verification only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Verification only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35199_EFLOW_ETRUNC_LANDMARK_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP35199_EFLOW_ETRUNC_LANDMARK_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP35199_EFLOW_ETRUNC_LANDMARK_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP35199_EFLOW_ETRUNC_LANDMARK_CROSSCHECK.verdict),
   },
 ];
 

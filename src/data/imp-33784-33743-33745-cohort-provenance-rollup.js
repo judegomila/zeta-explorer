@@ -3,8 +3,7 @@
  * @fileoverview imp-33784 -- META provenance roll-up cataloguing the imp-33743/imp-33744/imp-33745
  * newest cohort (two sigma-decay closed-form landmarks + one G6a H0 provenance scoping), by EVIDENCE
  * CLASS, mirroring the imp-33719 imp-33679..imp-33682 rollup pattern and confirming each module
- * carries the mandatory honest banner: no QED, imp-3066 K_a >= 0 untouched, and Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * carries the mandatory honest banner: no QED, imp-3066 K_a >= 0 untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/verdict block was read
  * and classified into the evidence class it earns on its own terms:
@@ -19,7 +18,7 @@
  *     H0 rung can be discharged independently of H3/H4 given the imp-33668 selection-fold, concluding
  *     H0 is a genuinely distinct, independently-dischargeable standing obligation on its own axis.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA); glossary/viz-page coverage was cross-checked against
+ * untouched, no refereed bound is changed); glossary/viz-page coverage was cross-checked against
  * src/data/glossary.js and src/pages. Import lines were grepped and followed transitively (per the
  * imp-33695/imp-33720 heavy-import safety pattern -- the 16.7MB src/data/zeros-to-1e6.js bundle hangs
  * vite ssrLoadModule / npm-run-assert when transitively pulled into an assertion module).
@@ -74,7 +73,7 @@ export const IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP = {
     'Read each of the three imp-33743/33744/33745 module @fileoverview/verdict blocks; classify by ' +
     'evidence class (far-tail closed-form crossover generalization / sigmoid-inflection closed-form ' +
     'derivation / G6a H0-provenance independence scoping); grep for the mandatory honest-banner ' +
-    'phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA); cross-check ' +
+    'phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed); cross-check ' +
     'glossary.js and src/pages for dedicated coverage and follow import lines transitively for ' +
     'heavy-import safety.',
   modules: [
@@ -130,7 +129,7 @@ export const IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all three cohort members; G6a_shock_lipschitz ' +
-    'stays OPEN per imp-33745. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'stays OPEN per imp-33745. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -161,7 +160,7 @@ const IMP_33784_ASSERTIONS = [
         (x) => x.noQED === true && /imp-3066/.test(x.untouchedInvariant) && x.plattTrudgianSOTA === true
       ) && IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 3,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched (in either its ' +
-      'plain or off-diagonal-endpoint-Hankel phrasing), and Platt-Trudgian Lambda <= 0.2 SOTA -- ' +
+      'plain or off-diagonal-endpoint-Hankel phrasing), and no refereed bound is changed -- ' +
       'grep-verified against the source files.',
   },
   {
@@ -210,11 +209,11 @@ const IMP_33784_ASSERTIONS = [
   {
     id: 'imp33784-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33784_33743_33745_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

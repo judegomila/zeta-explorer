@@ -27,7 +27,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies
  * no inequality; changes no bound; establishes no positivity; the C_mb GUE-conditional constant
- * (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * READING: kappa rises near-monotonically (~396 -> ~633) across the wider band while the
  * sep/identical verdict still does NOT track kappa, reconfirming imp-36062 / imp-36095 that the
@@ -49,7 +49,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36095) -----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 
@@ -296,7 +296,7 @@ export const IMP36131_KBN_KAHAN_PERSISTENCE_ONSET = {
     '(MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval; ' +
     'verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at ' +
     'T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36095 (tabulated [34000, 40000]; extrapolated "persistent from N ~ 39250"); imp-36062 (located ' +
     'onset at N ~ 34000; soft/intermittent); imp-36124 (honest-status: onset tracks N, soft/intermittent); ' +
@@ -353,7 +353,7 @@ export const IMP36131_KBN_KAHAN_PERSISTENCE_ONSET_ASSERTIONS = [
   },
   {
     id: 'imp36131-honesty-gate',
-    description: 'Measurement only; verdict does not track kappa; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; verdict does not track kappa; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36131_KBN_KAHAN_PERSISTENCE_ONSET.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -364,7 +364,7 @@ export const IMP36131_KBN_KAHAN_PERSISTENCE_ONSET_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36131_KBN_KAHAN_PERSISTENCE_ONSET.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36131_KBN_KAHAN_PERSISTENCE_ONSET.verdict) &&
-      /remains SOTA/.test(IMP36131_KBN_KAHAN_PERSISTENCE_ONSET.verdict),
+      /refereed bound is changed/i.test(IMP36131_KBN_KAHAN_PERSISTENCE_ONSET.verdict),
   },
 ];
 

@@ -14,7 +14,7 @@
  *   @see imp-96982-frobenius-holdout-quadratic-favoured-glossary-headword.js (the original credible band)
  *
  *   Ticket: imp-97171 (ux, low). Presentation of an already-established measurement; adds no new
- *   Lambda bound. PT Lambda <= 0.2 SOTA. RH open. NO QED.
+ *   Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- recomputed directly from imp-97142's linear propagation F(s*) = F_center * (s*/5.76) --
@@ -50,7 +50,7 @@ export const IMP97171_VERDICT = Object.freeze({
     'The imp-97142 propagated interval [-2.035%, +0.389%] sits entirely below the imp-96982 ' +
     'original credible band [+1.369%, +8.356%], with the closest approach (top of the propagated ' +
     'interval vs the floor of the original band) still ~0.98 percentage points apart. Presentation ' +
-    'only; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'only; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export default Object.freeze({

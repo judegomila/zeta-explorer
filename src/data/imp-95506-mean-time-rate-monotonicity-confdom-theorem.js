@@ -9,8 +9,7 @@
  * bound gives det(x_max(L_K) G - M) > 0 at every slice configuration and
  * every K >= 3, the single scalar family that THEOREM DET-EQ proved
  * equivalent to CONF-DOM. Model family only (exponential spans, mean-time
- * compression); changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * compression); changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95502/95503/95504/95505 normalization). E_P =
  * span{ e^(-p_k t) } in L2(0, inf), mean-time Rayleigh quotient
@@ -437,7 +436,7 @@ export const IMP95506_MT_MONO_CONFDOM_THEOREM = {
     "MODEL FAMILY ONLY: no paper-packet constant is touched, no Lambda " +
     "claim is made or promoted, and the finite-N Lambda beat did NOT " +
     "become rigorous. Changes no bound; NO QED on any RH statement; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -641,12 +640,12 @@ export const IMP95506_ASSERTIONS = [
     id: "imp95506-honesty-gate",
     description:
       "the verdict states model-family scope, closes (ii-next6) without " +
-      "promoting any bound, NO QED on RH statements, PT stays SOTA",
+      "promoting any bound, NO QED on RH statements, no refereed bound is changed",
     holds: () =>
       IMP95506_MT_MONO_CONFDOM_THEOREM.promotesBound === false &&
       /MODEL FAMILY ONLY/.test(IMP95506_MT_MONO_CONFDOM_THEOREM.verdict) &&
       /NO QED/.test(IMP95506_MT_MONO_CONFDOM_THEOREM.verdict) &&
-      /remains SOTA/.test(IMP95506_MT_MONO_CONFDOM_THEOREM.verdict) &&
+      /refereed bound is changed/i.test(IMP95506_MT_MONO_CONFDOM_THEOREM.verdict) &&
       /ii-next6/.test(IMP95506_MT_MONO_CONFDOM_THEOREM.title) &&
       /did NOT become rigorous/.test(IMP95506_MT_MONO_CONFDOM_THEOREM.verdict),
   },

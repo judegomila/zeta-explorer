@@ -53,8 +53,7 @@
  * estimator gap, NOT an RH bound. Reuses the imp-3406/imp-33810 sub-terms verbatim (the exact imp-34285
  * machinery); the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the crossing is
  * descriptive within that model only; changes no bound; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34285-closedform-gap-term-decomposition (named SUB-GAP-imp-34285-per-estimator-percentage-split resolved here)
  * @see imp-34211-closedform-vs-bisection-kend-gap (the ~0.278 gap)
@@ -287,8 +286,8 @@ export const IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT = {
     'a structural near-equality of the two estimators window-width laws, not a crossing coincidence. The ' +
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the crossing is descriptive ' +
     'within that model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34285 (SUB-GAP-imp-34285-per-estimator-percentage-split, resolved here); imp-34211 (the ~0.278 ' +
     'gap); imp-34189 (window-width expansion parameter eD ~ 1.13 is O(1)); imp-34127 (leading-D^2 balance ' +
@@ -346,13 +345,13 @@ export const IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT_ASSERTIONS = [
     holds: () => Math.abs(SHARE_PECOLL_PCT - SLOPE_SHARE_PECOLL_PCT) < 1,
   },
   {
-    // Honesty gate: decomposition only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: decomposition only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34366-honesty-gate-no-qed',
-    description: 'Decomposition only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Decomposition only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT.isRigorous === false &&
       /NO QED/.test(IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34366_PER_ESTIMATOR_PERCENTAGE_SPLIT.verdict),
   },
 ];

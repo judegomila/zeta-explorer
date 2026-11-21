@@ -58,8 +58,7 @@
  *     IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous certified reach stays 2a<=0.96.
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (derives the min-max Rayleigh residual bound)
  * @see imp-96973-krein-tailtrace-vacuity-factorisation.js (reconciles the 3-factor vacuity attribution)
@@ -67,7 +66,7 @@
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (assesses quadrature-to-majorant routes)
  *
  * Ticket: imp-97132 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098
@@ -142,7 +141,7 @@ export const IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX = Object.freeze({
     'unchanged by this whole cohort. Future work on this thread should not re-cite the Rayleigh ' +
     'quadrature ratio (1.17-2.24x) as a certified majorant, and should not re-attempt Route A (mode-wise ' +
     'triangle enclosure), which this cohort already shows diverges. Establishes nothing new; moves no ' +
-    'bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-96888 (Rayleigh residual derivation); imp-96973 (three-factor vacuity reconciliation); ' +
     'imp-97002 (viz-data leaf); imp-97100 (majorant-conversion route assessment).',
@@ -180,11 +179,11 @@ export const IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97132-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97132_RAYLEIGH_TAIL_MAJORANT_COHORT_INDEX.verdict),
   },
 ];

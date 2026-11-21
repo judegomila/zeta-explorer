@@ -61,8 +61,7 @@
  *   the robust reading is the QUALITATIVE separation -- grade-4 clears at n=526/634 but fails at n=596 where
  *   grade-6 is needed -- not the exact per-budget ULP. The NPHI = 10 Phi-series truncation is inherited
  *   upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
- *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33600-band-crossing-grade-vs-node-driver.js (the single-rung n=596 grade sweep this extends)
  *   @see imp-33599-wide-range-band-crossing-envelope-law.js (the three cluster peaks n~526,591,634)
@@ -273,7 +272,7 @@ const verdict =
       'CLUSTER-PEAKS:-THE-grade-4-UNDER-CONCENTRATION-FAILURE-imp-33600-DIAGNOSED-IS-SPECIFIC-TO-THE-MIDDLE-CLUSTER-' +
       'PEAK-n=596-(THE-imp-33621-TALLEST-floorUlp-SPIKE),-NOT-A-CLUSTER-PEAK-UNIFORM-PROPERTY.-THE-GRADE-AXIS-IS-THE-' +
       'DRIVER-BUT-ITS-DRIVING-THRESHOLD-IS-DEPTH-DEPENDENT.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-' +
-      'FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33622_GRADE_RECOVERY_RUNG_UNIFORMITY = Object.freeze({
@@ -300,7 +299,7 @@ export const IMP33622_GRADE_RECOVERY_RUNG_UNIFORMITY = Object.freeze({
     'the middle cluster peak n=596 (the imp-33621 tallest floorUlp spike), not a cluster-peak-uniform property. The ' +
     'grade axis is the driver but its driving THRESHOLD is depth-dependent. VERDICT: RECOVERY-GRADE-NOT-RUNG-UNIFORM. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -390,7 +389,7 @@ export const IMP33622_GRADE_RECOVERY_RUNG_UNIFORMITY = Object.freeze({
       'few-ULP measurements, so the robust reading is the QUALITATIVE separation -- grade-4 clears at n=526/634 but ' +
       'fails at n=596 where grade-6 is needed -- not the exact per-budget ULP or the exact recovery grade at any single ' +
       'rung. The recovery THRESHOLD is not rung-uniform; the grade remains the driver.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -440,7 +439,7 @@ export const IMP33622_GRADE_RECOVERY_RUNG_UNIFORMITY_ASSERTIONS = [
   {
     id: 'imp33622-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33622_GRADE_RECOVERY_RUNG_UNIFORMITY.honestCaveat;
       return (
@@ -449,7 +448,7 @@ export const IMP33622_GRADE_RECOVERY_RUNG_UNIFORMITY_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

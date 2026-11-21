@@ -50,7 +50,7 @@
  * is a rigorous-STYLE modeling bound (increments decay at least geometrically), NOT a proof; the Rayleigh
  * floor stays an UPPER bound on the true lambda_min; establishes NO operator positivity; the uniform-in-N
  * gap IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96806-krein-tconv-plateau-2a-ln3.js (source T-sweep IMP96806_TSWEEP_LN3; unquantified ~1e-3)
  * @see imp-96807-krein-floor-decrement-decay-extrapolation.js ((N,T) coupling; IMP96807_TCONV_LADDER_LOWER_ENVELOPE)

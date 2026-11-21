@@ -20,7 +20,7 @@
  *        remainder formula)
  *
  *   Ticket: imp-97197 (ux, low). Presentation of an already-derived crossover;
- *   adds no new Lambda bound. PT Lambda <= 0.2 SOTA. RH open. NO QED.
+ *   adds no new Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 export const IMP97197_KAPPA_ARITH = 0.5704960511308594;
@@ -50,7 +50,7 @@ export const IMP97197_VERDICT = Object.freeze({
 });
 
 export const IMP97197_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: reshapes the ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: reshapes the ' +
   'already-derived (imp-97159) primorial-envelope eps(P_k) ladder against the fixed ' +
   'kappa_arith = 0.5705 line into a single chart-ready series. No re-derivation, no ' +
   'bound moved, says nothing about kappa > 0 or the zeros.';

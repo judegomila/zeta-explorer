@@ -18,7 +18,7 @@
  * 0.2796881955526244 (eq 19) are the 0.14-row allowance; for other rows the
  * allowance itself would have to be re-derived (not done here) -- comparisons
  * below hold the 0.14-row literal fixed. Import-light (literals only).
- * Changes no bound; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const R_STRICT = 0.27968819555261474; // eq (20) contract target
@@ -84,7 +84,7 @@ export const GATE2_SUB0145_ROW_SWEEP = Object.freeze({
     yAxisPrice: 'the y-heavy row is NOT free: by the repo Route VII scaling law lnN1*(t,y) = (2c0 - y)/t + L0 (imp-95218) it needs N1* = 1.14e10, 40x the 0.14 row (2.85e8, itself already priced "economically dead") and 1.4e4x above the current family top 5.48e7. The cocycle margin is bought on the tail/height axis, exactly the PT-floor "only lever is verified height" wall re-binding along Route VII.',
   },
   verdict:
-    'WALL QUANTIFIED WITH THE REAL MACHINERY, no conditional-contract lead. On the t-axis (the only axis Route VII can move at fixed verified height) the freeze-calculus pilot budget breaks between Lambda 0.1399 and 0.13 and the recombined |E97| itself breaks at 0.10; the excess sits in the p in {2,3,5,7} welds, i.e. the Theorem U small-prime wall is manifest in the evaluator, not only in the S-bar_p majorant. The one regime where the enclosure dips under 0.2797 at Lambda < 0.14 (y-heavy rows) is priced out by the Route VII N1* law (40x more rows than the 0.14 contract). The frozen 0.14 row remains a CONTRACT (sampled sup < R_strict on the anchor window, full cover not run); nothing here promotes any Lambda bound. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    'WALL QUANTIFIED WITH THE REAL MACHINERY, no conditional-contract lead. On the t-axis (the only axis Route VII can move at fixed verified height) the freeze-calculus pilot budget breaks between Lambda 0.1399 and 0.13 and the recombined |E97| itself breaks at 0.10; the excess sits in the p in {2,3,5,7} welds, i.e. the Theorem U small-prime wall is manifest in the evaluator, not only in the S-bar_p majorant. The one regime where the enclosure dips under 0.2797 at Lambda < 0.14 (y-heavy rows) is priced out by the Route VII N1* law (40x more rows than the 0.14 contract). The frozen 0.14 row remains a CONTRACT (sampled sup < R_strict on the anchor window, full cover not run); nothing here promotes any Lambda bound. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const GATE2_SUB0145_ROW_SWEEP_ASSERTIONS = Object.freeze([
@@ -131,10 +131,10 @@ export const GATE2_SUB0145_ROW_SWEEP_ASSERTIONS = Object.freeze([
     },
   },
   {
-    name: 'honest framing: measurement, not a bound; PT Lambda <= 0.2 stands; NO QED',
+    name: 'honest framing: measurement, not a bound; no refereed bound is changed; NO QED',
     holds: () => /MEASUREMENT/.test(GATE2_SUB0145_ROW_SWEEP.status)
       && /not a certificate, not a bound/.test(GATE2_SUB0145_ROW_SWEEP.status)
-      && /PT Lambda <= 0\.2 stands/.test(GATE2_SUB0145_ROW_SWEEP.verdict)
+      && /refereed bound is changed/i.test(GATE2_SUB0145_ROW_SWEEP.verdict)
       && /NO QED/.test(GATE2_SUB0145_ROW_SWEEP.verdict),
   },
 ]);

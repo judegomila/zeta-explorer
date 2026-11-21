@@ -40,8 +40,8 @@ export const IMP124778_SUMMARY = Object.freeze({
     + 're-shaped into two grid-robustness series (A vs PPD, A vs bracket width) for a chart; no new '
     + 'computation. Measurement / sensitivity only on the inherited imp-3220/imp-3406 extrapolation '
     + 'surrogate, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; '
-    + 'C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= '
-    + '0.2 remains SOTA; RH open; NO QED.',
+    + 'C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

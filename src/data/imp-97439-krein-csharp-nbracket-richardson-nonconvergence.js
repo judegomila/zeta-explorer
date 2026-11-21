@@ -9,8 +9,8 @@
  *   performs exactly that step on the T-reliable bracket sequence and DIAGNOSES the convergence.
  *
  *   MEASUREMENT ONLY. lam_1(N) are Rayleigh-Ritz UPPER brackets; establishes NO operator positivity; NO
- *   lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED.
+ *   lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * THE BRACKET SEQUENCE. The inner T->inf limit per N (imp-97206 Stage 1; cross-validated at dps=70 with an
  *   independent quadrature by imp-97401 for N<=100) is the genuine N-direction bracket sequence. Each entry

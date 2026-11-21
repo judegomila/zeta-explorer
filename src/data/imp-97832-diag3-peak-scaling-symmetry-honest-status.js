@@ -20,7 +20,7 @@
  * @see imp-97644-three-axis-additivity-flow-prefactor.js (DIAG3 == 0 Euler additivity, transversal case)
  *
  * Ticket: imp-97832 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION } from './imp-97721-diag3-peak-upslope-crossvalidation.js';

@@ -54,20 +54,19 @@
  * extends no evaluator, runs at no T_PT height, and ignores the SEPARATE growing
  * count/precision costs imp-35868 estimated (integrand nodes O(x), Phi-series O(sqrt x),
  * argument-reduction +O(log10 x)), all of which only worsen the picture. Measurement
- * only; certifies no value at any height; changes no bound; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * only; certifies no value at any height; changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-35811-exact-debruijn-arbitrary-precision-digit-table (the measured D*(x) law this inverts per tier)
  * @see imp-35868-excluded-cost-channels-estimate (the count/precision channels excluded here)
  * @see imp-35781-exact-debruijn-empirical-x-ceiling-scope (measured the raw double ceiling x ~ 104)
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 import { IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE } from './imp-35811-exact-debruijn-arbitrary-precision-digit-table.js';
 
 // -- Anchor + operative constants (import-light; matching imp-35811 verbatim) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified zero-ordinate (gamma) height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const X_TPT = 2 * T_PT; // x = 2 gamma convention; T_PT ordinate maps to x = 6e12
 const PI = Math.PI;
 const DIGITS_PER_X = PI / (8 * Math.LN10); // ~0.170547 decimal digits per unit x (imp-35759)
@@ -304,12 +303,12 @@ export const IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE = {
     'x = 1000, and extrapolates the T_PT target x = 6e12 to ~1.02e12 decimal digits (~425 GB per value) -- exceeding ' +
     'octuple by ~1.3e10x, so NO standard tier reaches T_PT. This upgrades imp-35811 (which gave only a single quad ' +
     'spot value) to a full per-tier reachable-height and per-value byte-cost table. It extends no evaluator, evaluates ' +
-    'no true H_0 at high precision, certifies no value at any height, and changes no bound. NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no true H_0 at high precision, certifies no value at any height, and changes no bound. NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35811 (measured D*(x) ~ 0.17055 x, ~520-digit BigInt engine reused verbatim); imp-35781 (measured the raw ' +
     'double ceiling x ~ 104); imp-35868 (excluded count/precision cost channels); Platt-Trudgian 2021 (T_PT = 3e12; ' +
-    'Lambda <= 0.2 SOTA).',
+    'no refereed bound is changed).',
 };
 
 export const IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE_ASSERTIONS = [
@@ -380,15 +379,15 @@ export const IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE_ASSERTIONS = [
       TIER_TABLE.every((t) => t.reachSlope < X_TPT),
   },
   {
-    // Honesty gate: measurement only; no evaluator extension; no high-precision H_0; NO QED; PT SOTA at Lambda <= 0.2.
+    // Honesty gate: measurement only; no evaluator extension; no high-precision H_0; NO QED; no refereed bound is changed.
     id: 'imp35870-honesty-gate-no-qed',
-    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE.verdict) &&
       /NO QED/.test(IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE.verdict) &&
-      /remains SOTA/.test(IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE.verdict),
+      /refereed bound is changed/i.test(IMP35870_PRECISION_TIER_REACHABLE_HEIGHT_TABLE.verdict),
   },
 ];
 

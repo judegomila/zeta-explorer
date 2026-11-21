@@ -56,7 +56,7 @@
  *
  * DERIVATION ONLY. Import-light on the inherited imp-3406 component model; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; no positivity, no bridge closure, no
- * bound moved, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound moved, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-95662-crossover-locator-crosscheck (F3 measured 0.398% gap / sigma 0.499526)
  * @see imp-3444-sigma-nshape-landmark-ladder (Newton-height crossover / half-point)
@@ -202,7 +202,7 @@ export const IMP95676_HALF_POINT_CROSSOVER_DISPLACEMENT = {
     'residual E_flow/E_trunc at the crossover, doubled by the square-root N-shape -- not an ' +
     'artifact of any root-finder. Import-light on the imp-3406 component model; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; no positivity, no bridge closure, no bound moved, ' +
-    'no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-95662 (F3 measured 0.398% gap / sigma 0.499526); imp-3444 (Newton-height landmarks); ' +
     'imp-95638 (closed-form far-tail inversion); imp-3406 (N-shape component model); imp-398 ' +
@@ -247,13 +247,13 @@ export const IMP95676_HALF_POINT_CROSSOVER_DISPLACEMENT_ASSERTIONS = [
     holds: () => LOG10_GAP_ERR < 1e-10,
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed.
     id: 'imp95676-honesty-gate-no-qed',
-    description: 'Closed-form derivation only: no QED, PT stays SOTA',
+    description: 'Closed-form derivation only: no QED, no refereed bound is changed',
     holds: () =>
       IMP95676_HALF_POINT_CROSSOVER_DISPLACEMENT.isRigorous === false &&
       /NO QED/.test(IMP95676_HALF_POINT_CROSSOVER_DISPLACEMENT.verdict) &&
-      /remains SOTA/.test(IMP95676_HALF_POINT_CROSSOVER_DISPLACEMENT.verdict),
+      /refereed bound is changed/i.test(IMP95676_HALF_POINT_CROSSOVER_DISPLACEMENT.verdict),
   },
 ];
 

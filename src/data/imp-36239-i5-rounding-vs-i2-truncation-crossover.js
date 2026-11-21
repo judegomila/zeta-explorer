@@ -15,7 +15,7 @@
  *   front" claim imp-36192 asserted but never measured.
  *   Measurement ONLY: bounds no truncation error; instantiates no step certificate;
  *   supplies no rounding-error certificate; G-step-error stays OPEN; changes no bound;
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED; no refereed bound is changed.
  *
  *   THE TWO COMPETING PER-STEP CHANNELS (imp-36192 I2 vs I5)
  *   -------------------------------------------------------
@@ -271,7 +271,7 @@ const IMP36239_I5_ROUNDING_VS_I2_TRUNCATION_CROSSOVER_ASSERTIONS = [
         h.gStepErrorStaysOpen === true &&
         h.changesAnyBound === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

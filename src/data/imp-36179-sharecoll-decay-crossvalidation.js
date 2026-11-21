@@ -35,7 +35,7 @@
  *   imp-33582 surrogate the baked bars use; derives no remainder; discharges
  *   nothing; changes no bound. C_C = (1/8) sqrt(3 pi) stays GUE-CONDITIONAL (an
  *   ANSATZ on the dominant E_coll term, imp-2642 / imp-2643 / imp-486); imp-35337a
- *   stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   stays OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36111-e-share-tail-storyline-crossref (the merged five-landmark baked sequence cross-validated here)
  * @see imp-35889-e-share-decomposition-at-knees (the E_trunc / E_flow / E_coll model reused here)
@@ -49,7 +49,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF } from './imp-36111-e-share-tail-storyline-crossref.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-33582 sub-terms -- byte-identical to imp-35889 parts(N),
 // re-stated here so the recomputation is genuinely independent of any baked share.
@@ -121,7 +121,7 @@ export const IMP36179_SHARECOLL_DECAY_CROSSVALIDATION = Object.freeze({
     dischargesAnyObligation: false,
     portsAnyRoute: false,
     cCollisionGueConditional: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
   verdict:
     'CROSS-VALIDATION (MEASUREMENT ONLY). Recomputing shareColl = E_coll / (E_coll + E_trunc + E_flow) ' +
@@ -133,7 +133,7 @@ export const IMP36179_SHARECOLL_DECAY_CROSSVALIDATION = Object.freeze({
     'sequence carries no tabulation drift beyond display rounding, and its monotone-decay claim survives an ' +
     'independent recomputation. Recomputes on the same imp-3406 / imp-33582 surrogate; derives no remainder; ' +
     'discharges nothing; changes no bound; C_C stays GUE-conditional (imp-486); imp-35337a stays OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36111 (merged five-landmark baked shareColl sequence); imp-35889 (E_trunc / E_flow / E_coll model); ' +
     'imp-36046 (three tail bars); imp-2631 (E_trunc floor); imp-398 (C_F prefactor); imp-2642 / imp-2643 ' +
@@ -178,7 +178,7 @@ export const IMP36179_SHARECOLL_DECAY_CROSSVALIDATION_ASSERTIONS = [
   },
   {
     id: 'imp36179-measurement-only-no-qed',
-    why: 'Cross-validation only: not rigorous/unconditional, changes no bound, keeps C_C GUE-conditional, PT SOTA, NO QED.',
+    why: 'Cross-validation only: not rigorous/unconditional, changes no bound, keeps C_C GUE-conditional, no refereed bound is changed, NO QED.',
     holds: () => {
       const r = IMP36179_SHARECOLL_DECAY_CROSSVALIDATION;
       return (
@@ -190,7 +190,7 @@ export const IMP36179_SHARECOLL_DECAY_CROSSVALIDATION_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

@@ -7,7 +7,7 @@
  * that the imp-95212 Fresnel-Airy envelope port must PROVE for a
  * count/depth-currency signed certificate value R to be admissible on the
  * paper packet actual seam functional. ASSESSMENT only; changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  *
  * THE INEQUALITY (imp-95376 LEG B). imp-95376 split-verdict isolated the one
  * surviving ingredient of the seam port: not a quantity beside the port but a
@@ -103,8 +103,8 @@
  * Loewner ordering under a signed Rayleigh quotient -- it is not a
  * paper-window computation. (d) O1/O2 off-diagonal remain OPEN, named as the
  * substance of imp-95212-subgap-fresnel-airy-envelope-port. Import-light (no
- * zeros bundle, no sibling imports). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; measured class sup unchanged.
+ * zeros bundle, no sibling imports). Changes no bound; NO QED; no refereed bound is changed
+ * ; measured class sup unchanged.
  */
 
 // -- imp-95226 signed 2x2 pencil, self-contained (matches imp-95376) ----------
@@ -224,8 +224,8 @@ export const IMP95424_LEGB_ENVELOPE_DOMINATION = {
     + 'window; the sufficient decomposition (O1)+(O2) is one route, not shown necessary; the numeric '
     + 'witness is one 2x2 configuration illustrating that entrywise-magnitude domination does not imply '
     + 'Loewner ordering under a signed Rayleigh quotient; O1/O2 off-diagonal remain OPEN as the substance '
-    + 'of imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA.',
+    + 'of imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; no refereed bound is changed'
+    + '.',
   fns: { lambdaMax },
 };
 
@@ -271,11 +271,11 @@ export const IMP95424_LEGB_ENVELOPE_DOMINATION_ASSERTIONS = [
   },
   {
     id: 'imp-95424-assessment-only-honest',
-    description: 'explicitly ASSESSMENT ONLY, no QED, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly ASSESSMENT ONLY, no QED, no refereed bound is changed',
     holds: () =>
       /ASSESSMENT ONLY/.test(IMP95424_LEGB_ENVELOPE_DOMINATION.honest)
       && /NO QED/.test(IMP95424_LEGB_ENVELOPE_DOMINATION.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95424_LEGB_ENVELOPE_DOMINATION.honest),
+      && /refereed bound is changed/i.test(IMP95424_LEGB_ENVELOPE_DOMINATION.honest),
   },
 ];
 

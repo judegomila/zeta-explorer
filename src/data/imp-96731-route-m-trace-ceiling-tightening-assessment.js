@@ -85,7 +85,7 @@
  * Vasyunin cotangent sum V(a,b) for coprime a,b>=2. No such bound is in the record, so NO improved
  * rigorous lower ceiling is posted; T = 2.594e7 remains the rigorous anchor. Were the bound
  * proven, T would rise to ~3.78-3.98e7, closing ~78-82% of the trace->measured gap. Assessment
- * only; changes no bound; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * only; changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (named): imp-96731-interior-second-moment-upper-bound -- a rigorous one-sided
  * upper asymptotic Int(N) <= s* log N for the imp-96667 interior second moment, reducing to a
@@ -185,11 +185,11 @@ export const IMP96731_VERDICT = Object.freeze({
     'two-variable Vasyunin cotangent sum V(a,b) (coprime a,b>=2). No such bound is in the record, ' +
     'so NO improved rigorous lower ceiling is posted; T = 2.594e7 remains the rigorous anchor. ' +
     'Were it proven, T would rise to ~3.78-3.98e7, closing ~78-82% of the trace->measured gap. ' +
-    'Assessment only; no bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Assessment only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96731_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the tighter per-N bound is ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the tighter per-N bound is ' +
   'elementary Schatten-norm monotonicity on the same exact Vasyunin Gram (imp-96694 rows through ' +
   'N=12000); the second-moment reduction (diagonal exact, border convergent, interior open) is ' +
   'imp-96667 / imp-96708; the ceiling arithmetic is pure re-analysis of imp-96713. No bound is ' +
@@ -243,7 +243,7 @@ const IMP96731_ASSERTIONS = [
       IMP96731_VERDICT.traceIsTightestRigorousBound === false &&
       IMP96731_VERDICT.gapIsExtrapolationRigorNotMechanism === true &&
       /NO QED/.test(IMP96731_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96731_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96731_HONEST_BANNER) &&
       /RH open/.test(IMP96731_HONEST_BANNER) &&
       /interior-second-moment-upper-bound/.test(IMP96731_OBSTRUCTION.id),
     why: 'assessment only: no bound moved, no improved rigorous ceiling posted, the extrapolation-rigor reframing recorded, and the honesty markers plus the named one-sided sub-gap present.',

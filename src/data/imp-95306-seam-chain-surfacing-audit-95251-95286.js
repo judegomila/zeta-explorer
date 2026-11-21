@@ -31,8 +31,7 @@
  * exact gap (imp-95143, imp-95303, imp-95304, imp-95305, imp-95317,
  * imp-95318, imp-95319 propose viz pages for members of this cohort), so no
  * new surfacing was added here -- AUDIT-ONLY, per the imp-95306 scope.
- * Changes no bound; no operator positivity; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Changes no bound; no operator positivity; NO QED; no refereed bound is changed.
  */
 
 const SEAM_CHAIN_COHORT = [
@@ -103,7 +102,7 @@ export const SEAM_CHAIN_SURFACING_AUDIT_95251_95286 = {
     + 'None yet has a dedicated viz page, glossary headword, or visualizations-index entry -- a '
     + 'completeness-coverage gap already targeted by open queue tickets (imp-95143/95303/95304/95305/95317/'
     + '95318/95319), not a caveat or heavy-import gap. No new surfacing added. Changes no bound; no operator '
-    + 'positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'positivity; NO QED; no refereed bound is changed.',
 };
 
 const ASSERTIONS = [
@@ -135,10 +134,10 @@ const ASSERTIONS = [
   },
   {
     id: 'imp-95306-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(SEAM_CHAIN_SURFACING_AUDIT_95251_95286.honest)
       && /No new surfacing added/.test(SEAM_CHAIN_SURFACING_AUDIT_95251_95286.honest)
-      && /Lambda<=0.2 remains SOTA/.test(SEAM_CHAIN_SURFACING_AUDIT_95251_95286.honest),
+      && /refereed bound is changed/i.test(SEAM_CHAIN_SURFACING_AUDIT_95251_95286.honest),
   },
 ];
 

@@ -52,7 +52,7 @@
  *   0.90%) confirming Taylor convergence. imp-34397 tightened value, simple-pole classification, and
  *   all upstream verdicts UNCHANGED. Surrogate diagnostic, finite-difference re-read on 5 baked
  *   rungs; NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
- *   untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34397-eflow-over-resid-residue-curvature-corrected.js (3-rung baseline, F4 heuristic this quantifies)
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (linear secant residue, numerator source)
@@ -169,7 +169,7 @@ export const IMP34449_RESIDUE_CURVATURE_ERROR_BAR_EXTENDED_RUNGS = {
     'bar is built only from NESTED fits that keep every near-pole rung and raise order; naive rung ' +
     'SWAPS that drop a near rung swing R to -1.63e-8/-2.10e-8 and are excluded as resolution-losing. ' +
     'Surrogate NOT rigorous; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
-    'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34449_ASSERTIONS = [

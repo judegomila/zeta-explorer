@@ -57,7 +57,7 @@
  * write H2. So H2 stays UNWRITTEN as a certificate, the K4 route stays WHOLLY NEW (consistent with
  * imp-3714 / imp-3727 / imp-3846 / imp-3872 / imp-3891), and G6a_shock_lipschitz stays OPEN. Measurement /
  * scoping only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3872-g6a-h2-discrete-flux-convexity-probe (the [2, 8] window and ~500x shrinkage this extends)
  * @see imp-3891-g6a-h2-continuum-inviscid-burgers-meanfield-scoping (H2a written, H2b mean-field OPEN)
@@ -177,7 +177,7 @@ export const IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING = {
     'y_star / d = 2 -> 8 but flagged the finite block edge M = 161 bounding the clean inviscid window to ' +
     'y_star / d in [2, 8]. MEASURE how that window widens with larger block size M > 161 and whether the ' +
     '~500x shrinkage law holds at heights beyond the imp-3642 ladder (log gamma > 20.86), to size the ' +
-    'true hydrodynamic separation of scales. Measurement only; imp-3066 UNTOUCHED; Lambda <= 0.2 SOTA; NO QED.',
+    'true hydrodynamic separation of scales. Measurement only; imp-3066 UNTOUCHED; no refereed bound is changed; NO QED.',
   candidate: 'K4',
   rootProbed: 'H2', // convex-flux / hydrodynamic-limit root; here the SCALE-SEPARATION sizing of its m_zz correction
   viscosityFraction: 'visc(y_star) = |m_zz| / |2 m m_z|, m(z) = sum_k 1/(z - x_k), z = x + i y_star, s = 0 seed slice',
@@ -243,7 +243,7 @@ export const IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING = {
     'certificate, the K4 route stays WHOLLY NEW (consistent with imp-3714 / imp-3727 / imp-3846 / imp-3872 / ' +
     'imp-3891) and G6a_shock_lipschitz stays OPEN. Scoping / measurement only; no positivity, no bridge ' +
     'closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3872 (the [2, 8] clean inviscid window and ~500x m_zz shrinkage this measurement extends); imp-3891 ' +
     '(H2a continuum inviscid-Burgers limit written, H2b mean-field convergence OPEN); imp-3642 (attractive-CM ' +
@@ -295,17 +295,17 @@ export const IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING_ASSERTIONS 
       Math.abs(HEIGHT_ROWS[0].logGamma - LOG_ANCHOR) < 1e-6,
   },
   {
-    // Honesty gate: measurement not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, PT
-    // stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed
+    // , imp-3066 untouched.
     id: 'imp3896-honesty-gate-no-qed',
-    description: 'MEASUREMENT not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'MEASUREMENT not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.isRigorous === false &&
       IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.h2StillUnwritten === true &&
       IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.k4ConfirmedWhollyNew === true &&
       IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.g6aStillOpen === true &&
       /NO QED/.test(IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING.verdict),
   },
 ];

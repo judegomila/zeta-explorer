@@ -40,8 +40,8 @@
  *   actual independent value would have to carry the measured J-variation dI(m), available
  *   only via the reconstruction or a fresh 238-cell + B24 certificate at each m. Establishes
  *   nothing new, fits no curve, moves no bound. Catalan G irrationality OPEN; Sun
- *   arXiv:2609.04176 single-author, unrefereed; NO Lambda movement; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; NO QED.
+ *   arXiv:2609.04176 single-author, unrefereed; NO Lambda movement; no refereed bound is changed
+ *   ; NO QED.
  *
  * @see imp-95878-c-odd-null-vs-reconstruction-wide-modulus.js (source: derives + tests the null, measures dI(m))
  * @see imp-95861-per-m-kappa-certification-requirement-assessment.js (names PIECE A as the binding shortfall this headword glosses)
@@ -49,7 +49,7 @@
  * @see imp-95745 (kappa(m) = 5/2 - Q_0(m) identity used to form kappa_recon(m))
  *
  * Ticket: imp-95907 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The c_odd null-refuted headword, baked verbatim (no re-import).
@@ -94,7 +94,7 @@ export const IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD = Object.freeze({
     'm=22,30,41), and dI is not a clean linear-in-rho law (~11% scatter). PIECE A (imp-95861) stays ' +
     'the binding shortfall; no reconstruction-independent c_odd(1/m) exists at m>20 without the ' +
     'reconstruction or a fresh per-m certificate. Establishes nothing; fits no new curve; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95878 (derives the pure-rho^2 null, measures dI(m) at m=22,30,41, refutes it as PIECE A); ' +
     'imp-95861 (names PIECE A as the binding per-m kappa certification shortfall); imp-95653/imp-95690/' +
@@ -122,11 +122,11 @@ export const IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95907-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD.verdict) &&
       IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD.glosses === 'imp-95878' &&
       IMP95907_C_ODD_NULL_REFUTED_GLOSSARY_HEADWORD.scopes === 'imp-95861',
   },

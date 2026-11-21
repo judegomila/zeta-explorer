@@ -38,7 +38,7 @@
  * HEURISTIC: route 9 could matter again only if the route-3 kernel tables were certified at route-9 heights (W4, ×0.97, ×0.94) with Lemma H2
  *  re-checked; gain likely small (route-9 rates within 0.7–1.1% in cells 181–218, 287–312). Route 9's r2-transport idea untested here.
  *
- * PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. LAMBDA_LEVERS_JOINT_ASSERTIONS recompute the route-9 marginals, the usage sums, the
+ * No refereed bound is changed; RH open; NO QED. Import-free. LAMBDA_LEVERS_JOINT_ASSERTIONS recompute the route-9 marginals, the usage sums, the
  * supersession chain collect4 → collect5 → collect6, the projection shifts and the strict PASS guard live, in exact rationals.
  */
 
@@ -116,7 +116,7 @@ export const LAMBDA_LEVERS_JOINT = Object.freeze({
     'tmp/routes-b4-rec-joint-out/Q0_c6.json', 'tmp/routes-b4-rec-joint-out/collect6/', 'tmp/routes-b4-rec-joint-out/PM_c6.json', 'tmp/routes-b4-rec-joint-out/PA_c6.json']),
   verdict: 'Certified relative to the shared ledger (hence conditional), single implementation, internal referee: Λ ≤ 0.145276368594868 at PT height with the newest campaign '
     + 'certificates (collect6; referee value on collect5 0.145316161350388; collect4 run value 0.145322418219213 valid for its certfile). Route 9 adds exactly 0 in the joint '
-    + 'run (never chosen; route-3 kernels dominate). Measured projection when the campaign finishes: 0.144962368494868 to 0.144963731516124 (below 0.145, hypothetical). Λ < 0.145 is not certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'run (never chosen; route-3 kernels dominate). Measured projection when the campaign finishes: 0.144962368494868 to 0.144963731516124 (below 0.145, hypothetical). Λ < 0.145 is not certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const C = LAMBDA_LEVERS_JOINT;
@@ -165,7 +165,7 @@ export const LAMBDA_LEVERS_JOINT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'llj-honest-scope',
-    holds: () => C.status === 'done' && /not certified/.test(C.verdict) && /conditional/.test(C.verdict) && /PT Lambda <= 0\.2 stands/.test(C.verdict)
+    holds: () => C.status === 'done' && /not certified/.test(C.verdict) && /conditional/.test(C.verdict) && /refereed bound is changed/i.test(C.verdict)
       && /NO QED/.test(C.verdict) && /not separately refereed/.test(C.values.jointCollect6.grade),
     why: 'Λ < 0.145 not certified; values conditional on the ledger; the collect6 recording re-run is flagged as not separately refereed; no QED.',
   },

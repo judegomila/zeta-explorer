@@ -63,7 +63,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is untouched; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (threshold landmarks + whole-decade ladder)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade inflection knee N* ~ 3.38e9)
@@ -216,7 +216,7 @@ export const IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER = {
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is untouched; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
     '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33582 (threshold landmarks + whole-decade ladder); imp-33721 (sub-decade inflection knee ' +
     'N* ~ 3.38e9); imp-33701 (whole-decade knee localization); imp-3463 (far-tail exponent -> 1/2 ' +
@@ -264,14 +264,14 @@ export const IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER_ASSERTIONS = [
     holds: () => Math.abs(P_STAR_OVER_HALF - 1) < 0.01,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35017-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER.isRigorous === false &&
       IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35017_SIGMA_LANDMARK_POINTWISE_EXPONENT_LADDER.verdict),
   },
 ];
 

@@ -66,8 +66,7 @@
  * lambda_max sandwich is not merely in-class terminal (imp-95096) but also the
  * gap-optimal endpoint of the joint line for this witness. Closes the named
  * sub-gap imp-95096-subgap-near-currency-ratio. MEASUREMENT only. Changes no
- * bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- shared conventions (identical to imp-95089-witness-erealization-split.js) --
@@ -248,7 +247,7 @@ export const IMP95111_NEAR_CURRENCY_RATIO_PRICING = {
   pricing:
     "The joint per-class bound B(alpha)=alpha (sum_b d_b) + lambda_max(2-alpha) M has slope dB/dalpha = (sum_b d_b) - lambda_max M = 0.31035285294396353 > 0, so B is STRICTLY INCREASING on [1,2] and minimized at alpha=1 (the current imp-95008 certificate). Break-even needs (sum_b d_b)/M <= lambda_max; the measured ratio 0.042890346809671354 exceeds lambda_max=3.9197935113802585e-5 by 1094.199137917563x (= S/(lambda_max M), the imp-95089 norm-penalty p), so the near cost dominates the far saving by three orders of magnitude.",
   verdict:
-    "PRICED: the near-currency ratio (sum_b d_b)/M = 0.042890346809671354 exceeds lambda_max by the factor 1094.199137917563. The imp-95096 joint near/far trade beta(alpha)=lambda_max(2-alpha) at cNear=2 alpha is REAL but UNPROFITABLE for this witness: the joint bound B(alpha)=alpha (sum_b d_b) + lambda_max(2-alpha) M is monotone INCREASING in alpha (slope sum_b d_b - lambda_max M = 0.31035 > 0), minimized at alpha=1, so the sub-lambda_max far reduction (2-alpha) is swamped by the near inflation at ratio 1094:1 and does NOT reduce the headline residual 1.4032010197013394 on the gap. The alpha=1 lambda_max sandwich is thus not only in-class terminal (imp-95096) but the gap-optimal endpoint of the joint line here. Closes the named sub-gap imp-95096-subgap-near-currency-ratio. MEASUREMENT only. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    "PRICED: the near-currency ratio (sum_b d_b)/M = 0.042890346809671354 exceeds lambda_max by the factor 1094.199137917563. The imp-95096 joint near/far trade beta(alpha)=lambda_max(2-alpha) at cNear=2 alpha is REAL but UNPROFITABLE for this witness: the joint bound B(alpha)=alpha (sum_b d_b) + lambda_max(2-alpha) M is monotone INCREASING in alpha (slope sum_b d_b - lambda_max M = 0.31035 > 0), minimized at alpha=1, so the sub-lambda_max far reduction (2-alpha) is swamped by the near inflation at ratio 1094:1 and does NOT reduce the headline residual 1.4032010197013394 on the gap. The alpha=1 lambda_max sandwich is thus not only in-class terminal (imp-95096) but the gap-optimal endpoint of the joint line here. Closes the named sub-gap imp-95096-subgap-near-currency-ratio. MEASUREMENT only. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
   subGap:
     "imp-95096-subgap-near-currency-ratio - CLOSED here: the near-currency ratio (sum_b d_b)/M = 0.04289 is measured on the exhibited witness and the out-of-class alpha>1 trade is priced UNPROFITABLE (joint bound increasing in alpha, near cost dominates by 1094x). The residual coupling to imp-95018 (whether ANY parity factor 2 is jointly recoverable, which would move the alpha pin off 1) remains OPEN and is not touched here.",
   openResiduals: [
@@ -317,12 +316,12 @@ export const IMP95111_ASSERTIONS = [
   {
     id: "imp95111-honesty-gate",
     description:
-      "verdict/rigorScope state MEASUREMENT only, price the ratio, declare the joint trade unprofitable, close the near-currency-ratio sub-gap, promote no bound, NO QED, PT stays SOTA",
+      "verdict/rigorScope state MEASUREMENT only, price the ratio, declare the joint trade unprofitable, close the near-currency-ratio sub-gap, promote no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95111_NEAR_CURRENCY_RATIO_PRICING.promotesBound === false &&
       IMP95111_NEAR_CURRENCY_RATIO_PRICING.openResiduals.length === 3 &&
       /NO QED/.test(IMP95111_NEAR_CURRENCY_RATIO_PRICING.verdict) &&
-      /remains SOTA/.test(IMP95111_NEAR_CURRENCY_RATIO_PRICING.verdict) &&
+      /refereed bound is changed/i.test(IMP95111_NEAR_CURRENCY_RATIO_PRICING.verdict) &&
       /UNPROFITABLE/.test(IMP95111_NEAR_CURRENCY_RATIO_PRICING.verdict) &&
       /imp-95096-subgap-near-currency-ratio/.test(IMP95111_NEAR_CURRENCY_RATIO_PRICING.subGap) &&
       /MEASUREMENT/.test(IMP95111_NEAR_CURRENCY_RATIO_PRICING.rigorScope),

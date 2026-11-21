@@ -68,8 +68,7 @@
  * no new mathematical claim. The component model is NOT rigorous; the raw-moment
  * perturbation floor is a double-precision arithmetic artifact, not an analytic
  * scale. The C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched);
- * imp-3066 K_a >= 0 untouched; establishes no operator positivity; Platt-Trudgian
- * Lambda <= 0.2 remains the SOTA unconditional bound.
+ * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no refereed bound is changed.
  *
  * @see imp-34250 (top-two resid_exp margin ladder e=15..20, decidable vs tie-fragile)
  * @see imp-34172 (Y2: the e=19 +3.64e-15 tie margin flipped by the raw-moment OLS)
@@ -178,8 +177,8 @@ export const IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT = {
     'component model is NOT rigorous; the ~1.2e-14 raw-moment perturbation floor is a double-precision ' +
     'arithmetic artifact, not an analytic scale, so the observed margin saturation is a numerical-noise ' +
     'limit not a mathematical one. The C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); ' +
-    'imp-3066 K_a >= 0 untouched; establishes no operator positivity; changes no bound; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'imp-3066 K_a >= 0 untouched; establishes no operator positivity; changes no bound; no refereed bound is changed' +
+    '.',
   citation:
     'imp-34250 (top-two resid_exp margin ladder e=15..20, decidable vs tie-fragile classification); ' +
     'imp-34172 Y2 (the e=19 +3.64e-15 tie margin flipped by the raw-moment OLS); ' +
@@ -239,16 +238,16 @@ export const IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT_ASSERTIONS = [
       MARGIN_LADDER.filter((r) => r.e >= 19).every((r) => r.class === 'tie-fragile'),
   },
   {
-    // Honesty gate: measurement/fit only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34334-honesty-gate-isrigorous-and-cmb-clause',
     description:
       'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED clause; NO QED; PT SOTA',
+      'UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT.honestScope) &&
       /NO QED/.test(IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT.honestScope) &&
-      /remains the SOTA/.test(IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT.honestScope),
+      /refereed bound is changed/i.test(IMP34334_TOP_TWO_MARGIN_COLLAPSE_FIT.honestScope),
   },
 ];
 

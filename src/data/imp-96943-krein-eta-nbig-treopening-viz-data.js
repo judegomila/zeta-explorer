@@ -9,7 +9,7 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96911
  * IMP96911_ETA_NBIG_T800 / IMP96911_T_SENSITIVITY / IMP96911_VERDICT records; only the chart
  * reshape is new. Changes no bound, establishes no operator positivity, no RH claim; the
- * interval-rigorous certificate reach stays 2a<=0.96. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * interval-rigorous certificate reach stays 2a<=0.96. No refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96911-krein-eta-nconvergence-scout.js (source measurement)

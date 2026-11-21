@@ -15,7 +15,7 @@
  *
  * ASSESSMENT / MEASUREMENT ONLY. Certifies no cap; instantiates no interval
  * enclosure; counts no zeros; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE TWO RECONCILED DENSITIES (recap, both now per unit HEIGHT)
  * -----------------------------------------------------------------------------
@@ -66,7 +66,7 @@
  * closure lambda = 2/w (imp-36008: any other theta->height map rescales it). This
  * module instantiates no interval enclosure, certifies no cap, counts no true
  * zeros, fixes no Delta or h, changes no bound; I2 stays GREENFIELD. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36008-i2-theta-arclength-jacobian-decomposition (J_geo=1; density 3/2 per unit model arclength; lambda=2/w)
  * @see imp-35993-i2-panel-proxy-reconciliation-per-unit-height (per-unit-height reconciliation; residual 4/3 under the mean-gap map)
@@ -78,7 +78,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35993 / imp-36008) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this combination
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this combination
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
 // Route A (imp-35757): smooth along-line Riemann-Siegel mean winding rate.
@@ -197,7 +197,7 @@ export const IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE = {
     'on dR, and route A is the SMOOTH mean rate (a certified cap needs an interval UPPER bound on the LOCAL rate, ' +
     'per imp-35777 L_panel < pi delta / B with delta the I3 floor). Instantiates no interval enclosure; certifies no ' +
     'cap; counts no true zeros; fixes no Delta or h; changes no bound; I2 stays GREENFIELD; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36008 (J_geo=1, density 3/2 per unit model arclength, lambda=2/w); imp-35993 (per-unit-height ' +
     'reconciliation, residual 4/3); imp-35757 (route A ~13.45 rad/unit height, ~4.28 panels, ~28 around the unit ' +
@@ -254,9 +254,9 @@ export const IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE_ASSERTIONS = [
     holds: () => bindsRouteAAt(3e11) && bindsRouteAAt(3e12) && bindsRouteAAt(3e13),
   },
   {
-    // Honesty gate: envelope is only a WAY to combine proxies; both inputs are proxies; no cert; PT SOTA.
+    // Honesty gate: envelope is only a WAY to combine proxies; both inputs are proxies; no cert; no refereed bound is changed.
     id: 'imp36059-honesty-gate-no-qed',
-    description: 'Measurement only; combines two PROXIES via the envelope; certifies no cap; I2 GREENFIELD; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; combines two PROXIES via the envelope; certifies no cap; I2 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -266,7 +266,7 @@ export const IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE_ASSERTIONS = [
       /certifies no .*cap/.test(IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE.verdict) &&
       /I2 stays GREENFIELD/.test(IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE.verdict) &&
       /NO QED/.test(IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE.verdict) &&
-      /remains SOTA/.test(IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE.verdict),
+      /refereed bound is changed/i.test(IMP36059_I2_COMBINED_PANEL_COUNT_ENVELOPE.verdict),
   },
 ];
 

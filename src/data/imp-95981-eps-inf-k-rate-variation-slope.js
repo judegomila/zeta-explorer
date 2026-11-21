@@ -10,7 +10,7 @@
  * only the STEEPER one, discarding the shallower rate-variation term that sets the
  * true slope. RECORDS the precise reason the equal-rate Gram estimate cannot match
  * the measured slope and gives the slope-matching two-term asymptotic. Derivation
- * only; changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * only; changes NO bound; NO QED; no refereed bound is changed.
  *
  * SETUP (verbatim from imp-95898 / imp-95944 / imp-95960). A seam window (p,k)
  * carries p-1 alias packets h=1..p-1 at depth d_h = k - h/p in (k-1,k). Packet h is
@@ -209,7 +209,7 @@ export const IMP95981_EPS_INF_RATE_VARIATION_SLOPE = {
   obstruction:
     "UNCHANGED from imp-95944/imp-95898/imp-95960: the residue mean is NOT the physical per-window theta -- it drops the von Mangoldt x Fresnel-Airy weight A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The imp-95212 Fresnel-Airy envelope port is untouched and STILL OPEN. This module derives the slope structure of the exact residue-mean object only.",
   verdict:
-    "DERIVATION (honest): the imp-95960 -3.19 vs -3.70 slope gap is explained. eps_inf(k) splits additively (exact RKHS identity, verified 1e-6) into a CENTRE-separation term ~ PORT_V^2/(12 PORT_C^2) k^{-10/3} (slope -10/3, what imp-95944 bounds) plus a RATE-variation term ~ (1/216) k^{-2} (slope -2, EXACT distance (a-b)^2/(ab(a+b)), DISCARDED by the equal-rate assumption). The measured -3.19 is the two-scale crossover of the two, matched by the two-term law eps_inf ~ PORT_V^2/(12 PORT_C^2) k^{-10/3} + (1/216) k^{-2} (crossover k* ~ 13.75). The equal-rate Gram estimate cannot reach -3.19 because it is centre-only (asymptote -10/3) while the true asymptote is -2; -3.19 is no single terms slope. Changes no numeric bound; the two-term law is an asymptotic ESTIMATE not a proved majorant; the imp-95212 port is untouched and STILL OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "DERIVATION (honest): the imp-95960 -3.19 vs -3.70 slope gap is explained. eps_inf(k) splits additively (exact RKHS identity, verified 1e-6) into a CENTRE-separation term ~ PORT_V^2/(12 PORT_C^2) k^{-10/3} (slope -10/3, what imp-95944 bounds) plus a RATE-variation term ~ (1/216) k^{-2} (slope -2, EXACT distance (a-b)^2/(ab(a+b)), DISCARDED by the equal-rate assumption). The measured -3.19 is the two-scale crossover of the two, matched by the two-term law eps_inf ~ PORT_V^2/(12 PORT_C^2) k^{-10/3} + (1/216) k^{-2} (crossover k* ~ 13.75). The equal-rate Gram estimate cannot reach -3.19 because it is centre-only (asymptote -10/3) while the true asymptote is -2; -3.19 is no single terms slope. Changes no numeric bound; the two-term law is an asymptotic ESTIMATE not a proved majorant; the imp-95212 port is untouched and STILL OPEN; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form and eps = gd/gall - 1 are EXACT (imp-95898). The RKHS identity (verified 1e-6) and the pure-rate distance (a-b)^2/(ab(a+b)) (verified 1e-8) are exact algebra. eps_inf(k) is the p->infinity double integral at trapezoid mesh M=200 (converged; ~0.2% above the imp-95960 p=1009 plateau). The two leading laws k^{-10/3} and (1/216)k^{-2} are asymptotic coefficients matched numerically, NOT proved majorants; the two-term law CHANGES NO BOUND. Derivation only; NO QED.",
 };
@@ -320,14 +320,14 @@ export const IMP95981_ASSERTIONS = [
   {
     id: "imp95981-verdict-honesty",
     description:
-      "the verdict carries the honest scope: DERIVATION only, additive centre+rate split, the discarded rate term sets the -2 asymptote, two-term law is an ESTIMATE not a majorant, no bound, the imp-95212 port STILL OPEN, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: DERIVATION only, additive centre+rate split, the discarded rate term sets the -2 asymptote, two-term law is an ESTIMATE not a majorant, no bound, the imp-95212 port STILL OPEN, NO QED, no refereed bound is changed",
     holds: () =>
       /DERIVATION/.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.verdict) &&
       /RATE-variation/.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.verdict) &&
       /asymptotic ESTIMATE not a proved majorant/.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.verdict) &&
       /STILL OPEN/.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.obstruction) &&
       /NO QED/.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.verdict) &&
-      /remains SOTA/.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.verdict),
+      /refereed bound is changed/i.test(IMP95981_EPS_INF_RATE_VARIATION_SLOPE.verdict),
   },
 ];
 

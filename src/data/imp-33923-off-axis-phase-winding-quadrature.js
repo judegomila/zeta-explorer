@@ -36,8 +36,7 @@
  * DERIVATION / MEASUREMENT ONLY, on the model cusp rho(x) = |x|^{-1/2}. It does NOT re-derive the mapping
  * from m_prime back to C_ren off-axis, and an off-axis finite-window onset is NOT the uniform ANALYTIC
  * tracking of C_ren that H4 needs (imp-33766). H4 is NOT discharged. G6a_shock_lipschitz STAYS OPEN. No
- * positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33883-off-axis-onset-angle-robustness (closed form A(theta), qualitative quadrature cross-check)
  * @see imp-33853-cren-gap-coefficient-closed-form (on-axis C_PS and 4/3 at z_0* = i eps)
@@ -192,8 +191,8 @@ export const IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE = {
     'the quadrature amplitude, not the closed form. This does NOT re-derive the m_prime -> C_ren map off-axis ' +
     'and does NOT DISCHARGE H4: an off-axis finite-window onset at fixed |z_0*| = eps is not the uniform ' +
     'ANALYTIC tracking of C_ren the H4 minimal-input condition requires (imp-33766). No positivity; imp-3066 ' +
-    'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE_ASSERTIONS = [
@@ -223,15 +222,15 @@ export const IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE_ASSERTIONS = [
       Math.abs(IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.windingSlopeMeasured - -1.5) < 1e-5,
   },
   {
-    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33923-honesty-gate-no-qed',
-    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.isRigorous === false &&
       IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.dischargesH4 === false &&
       /NO QED/.test(IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.verdict) &&
       /STAYS OPEN/.test(IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.verdict) &&
+      /refereed bound is changed/i.test(IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33923_OFF_AXIS_PHASE_WINDING_QUADRATURE.verdict,
       ),

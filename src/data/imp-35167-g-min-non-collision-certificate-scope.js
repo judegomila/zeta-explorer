@@ -100,7 +100,7 @@
  * uncertified N-uniform beta M2. Derives NONE of the bound; the imp-2563 sandwich is UNTOUCHED and
  * remains a valid CONDITIONAL bracket; couples to G-gronwall (imp-2520) and G-interval-enclosure
  * (imp-362); changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486
- * UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35127-g-step-error-certified-bound-scope (I2 named this the hardest ingredient; parent)
  * @see imp-2563-min-gap-sandwich-theorem (the exact gap ODE + Gronwall lower branch; M1 skeleton)
@@ -267,7 +267,7 @@ export const IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE = {
     'SCOPING ONLY: derives NONE of the bound; the imp-2563 sandwich is UNTOUCHED and remains a valid ' +
     'CONDITIONAL bracket; couples to G-gronwall (imp-2520) and G-interval-enclosure (imp-362); changes ' +
     'no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35127 (I2 named hardest ingredient); imp-2563 (min-gap sandwich, M1 skeleton, CONDITIONAL ' +
     'bracket); imp-2520 (SG1 local virial, M4, Gronwall-vacuous at front); imp-362 (pole reduction, ' +
@@ -313,14 +313,14 @@ export const IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE_ASSERTIONS = [
       /OPEN/.test(MACHINERY.find((r) => r.id === 'M5').status),
   },
   {
-    // Honesty gate: scoping only, no QED, imp-2563 untouched, PT stays SOTA.
+    // Honesty gate: scoping only, no QED, imp-2563 untouched, no refereed bound is changed.
     id: 'imp35167-honesty-gate-no-qed',
-    description: 'Scoping only: isRigorous false, NO QED, imp-2563 sandwich untouched, PT stays SOTA',
+    description: 'Scoping only: isRigorous false, NO QED, imp-2563 sandwich untouched, no refereed bound is changed',
     holds: () =>
       IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE.isRigorous === false &&
       /NO QED/.test(IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE.verdict) &&
       /imp-2563 sandwich is UNTOUCHED/.test(IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35167_G_MIN_NON_COLLISION_CERTIFICATE_SCOPE.verdict),
   },
 ];
 

@@ -83,7 +83,7 @@
  * theorem. So MAP-4 is now pinned to a single, sharp, testable geometric
  * assertion (caustic depth = seam offset) rather than a diffuse "unextracted
  * constants" gap, but it is NOT closed. The sub-gap stays OPEN; no bound
- * moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * moves; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) ASSESSMENT / EXTRACTION-ATTEMPT only. (b) The
  * scale-vs-location decomposition (S)/(L) and the failure of extraction at
@@ -164,7 +164,7 @@ export const IMP95961_TURNING_POINT_DEPTH_EXTRACTION_OBSTRUCTION = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-SIGN / imp-95336 MAP-4 leg (i) -- STILL OPEN and now SHARPENED. The Section 4.5 turning-point-depth constants are not extractable from the committed buildG (scale) data; MAP-4 is pinned to the single sharp geometric assertion caustic-depth = seam-offset d = k-h/p, which buildG neither justifies nor refutes. Under that assertion the sign condition holds with a p-growing margin, but the assertion itself is the unextracted leg -- so no window-level nonnegativity is derived.",
   verdict:
-    "ASSESSMENT / EXTRACTION-ATTEMPT (honest PARTIAL -- a PRECISE OBSTRUCTION, no derivation of the geometry, no bound, NO QED). The Section 4.5 turning-point-depth packet constants CANNOT be extracted from the committed imp-95917 buildG / imp-95336 envelopeFacts data: that data fixes the transition SCALE mu (via the magnitude-fit port constant 1.7) but carries NO turning-point LOCATION, and MAP-4 needs the location. The only closure from committed data is the IDENTIFICATION own-side depth = seam offset d = k-h/p, under which the sign condition reduces to the exact inequality d >= (portC*a_1)^(3/4) = 2.8150 and holds with a p-growing margin at every imp-95917 witness window -- but that identification IS leg (i), an assumption about caustic location, not a theorem. MAP-4 is thereby pinned to a single sharp testable assertion rather than a diffuse constants gap, but is NOT closed. The sub-gap stays OPEN; no bound moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT / EXTRACTION-ATTEMPT (honest PARTIAL -- a PRECISE OBSTRUCTION, no derivation of the geometry, no bound, NO QED). The Section 4.5 turning-point-depth packet constants CANNOT be extracted from the committed imp-95917 buildG / imp-95336 envelopeFacts data: that data fixes the transition SCALE mu (via the magnitude-fit port constant 1.7) but carries NO turning-point LOCATION, and MAP-4 needs the location. The only closure from committed data is the IDENTIFICATION own-side depth = seam offset d = k-h/p, under which the sign condition reduces to the exact inequality d >= (portC*a_1)^(3/4) = 2.8150 and holds with a p-growing margin at every imp-95917 witness window -- but that identification IS leg (i), an assumption about caustic location, not a theorem. MAP-4 is thereby pinned to a single sharp testable assertion rather than a diffuse constants gap, but is NOT closed. The sub-gap stays OPEN; no bound moves; NO QED; no refereed bound is changed.",
   rigorScope:
     "The scale-vs-location decomposition (S)/(L) and the failure of extraction at (L) are structural facts about buildG (a magnitude model). The self-consistent inequality d >= (portC*a_1)^(3/4) and the per-window margins are EXACT arithmetic, but they hold only UNDER the identification depth = seam offset, which is the unextracted leg (i) itself. Nothing here derives the actual Section 4.5 caustic depth or closes the sub-gap. Changes no bound; NO QED.",
 };
@@ -233,7 +233,7 @@ export const IMP95961_ASSERTIONS = [
   {
     id: "imp95961-verdict-honesty",
     description:
-      "the verdict carries the honest scope: PRECISE OBSTRUCTION, extraction fails at location, the closure is an IDENTIFICATION not a theorem, sub-gap STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: PRECISE OBSTRUCTION, extraction fails at location, the closure is an IDENTIFICATION not a theorem, sub-gap STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /honest PARTIAL/.test(
         IMP95961_TURNING_POINT_DEPTH_EXTRACTION_OBSTRUCTION.verdict,
@@ -248,7 +248,7 @@ export const IMP95961_ASSERTIONS = [
         IMP95961_TURNING_POINT_DEPTH_EXTRACTION_OBSTRUCTION.subGap,
       ) &&
       /NO QED/.test(IMP95961_TURNING_POINT_DEPTH_EXTRACTION_OBSTRUCTION.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95961_TURNING_POINT_DEPTH_EXTRACTION_OBSTRUCTION.verdict,
       ),
   },

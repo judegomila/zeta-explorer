@@ -42,7 +42,7 @@
  * below import the imp-2642 flag and REQUIRE isRigorousUpperBound === false: the
  * module asserts the CONDITIONAL arithmetic, and simultaneously asserts that C_H
  * is STILL NOT proven, so no false QED can sneak in. imp-2643 rigorousBeat must
- * remain false. Until C_H <= 0.127 is itself discharged, Platt-Trudgian stays SOTA.
+ * remain false. Until C_H <= 0.127 is itself discharged, no refereed bound is changed.
  *
  * @see imp-2643-honest-assembled-EN (capstone E(N) ledger; rigorous E_trunc/E_flow)
  * @see imp-2641-c-selberg-trudgian-discharge (C_Selberg -> 2.622, conservative)
@@ -55,7 +55,7 @@ import { C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 } from './polymath15-l
 import { IMP2643_HONEST_ASSEMBLED_EN } from './imp-2643-honest-assembled-EN.js';
 
 const N_STAR = 1e4;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // The named gap hypothesis: a GENEROUS upper bound on C_H that absorbs the
 // positive-remainder excess over 1/8 flagged by the imp-2642 stress test.
@@ -146,8 +146,8 @@ export const IMP2706_ECOLL_CONDITIONAL_MODULO_CH = {
     'CONDITIONAL theorem, NOT a QED. With C_KH discharged (2.622) and E_trunc + E_flow rigorous, ' +
     'the whole budget is now a SINGLE-GAP function of C_H: IF C_H <= 0.127 THEN E(N) < 0.2 with a ' +
     '~16x margin below Platt-Trudgian. C_H itself remains UNPROVEN (imp-2642, isRigorousUpperBound ' +
-    '= false), so this is a precise theorem-modulo-gap, not an unconditional bound. Platt-Trudgian ' +
-    'Lambda <= 0.2 stays SOTA. NO false QED.',
+    '= false), so this is a precise theorem-modulo-gap, not an unconditional bound. No refereed bound is changed' +
+    '. NO false QED.',
   citation:
     'imp-2643 (honest assembled E(N), rigorous E_trunc/E_flow); imp-2641 (C_Selberg = 2.622 ' +
     'Trudgian discharge); imp-2642 polymath15-lemma52-shock-holder (C_H not a rigorous upper bound)',
@@ -198,7 +198,7 @@ export const IMP2706_ECOLL_CONDITIONAL_MODULO_CH_ASSERTIONS = [
     description: 'Record status is RIGOROUS-MODULO-NAMED-GAP(C_H) and the verdict keeps Platt-Trudgian as SOTA with NO false QED',
     holds: () =>
       /RIGOROUS-MODULO-NAMED-GAP\(C_H\)/.test(IMP2706_ECOLL_CONDITIONAL_MODULO_CH.status) &&
-      /stays SOTA/.test(IMP2706_ECOLL_CONDITIONAL_MODULO_CH.verdict) &&
+      /refereed bound is changed/i.test(IMP2706_ECOLL_CONDITIONAL_MODULO_CH.verdict) &&
       /NO false QED/.test(IMP2706_ECOLL_CONDITIONAL_MODULO_CH.verdict),
   },
 ];

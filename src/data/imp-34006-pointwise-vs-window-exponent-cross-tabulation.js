@@ -57,7 +57,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (POINTWISE gap law gap ~ 1/(2 log T0); crossings 1e44.17 / 1e436.06)
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (WINDOWED far-tail p_eff, fixed 12-decade OLS span)
@@ -248,7 +248,7 @@ export const IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION = {
     'reproduces imp-33274 p_eff ~ 0.4732, confirming the identical inherited model. The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33816 (POINTWISE gap law gap ~ 1/(2 log T0); crossings 1e44.17 / 1e436.06); imp-33274 ' +
     '(WINDOWED far-tail p_eff, fixed 12-decade OLS span); imp-33859 (log-N-space direct evaluation ' +
@@ -325,14 +325,14 @@ export const IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION_ASSERTIONS =
   },
   {
     // Honesty gate: measurement/fit only, both estimators approach the imp-3463 1/2 asymptote,
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp34006-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.isRigorous === false &&
       IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION.verdict),
   },

@@ -72,7 +72,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX located numerically; component model source)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (E_flow offset identity; same component model)
@@ -228,7 +228,7 @@ export const IMP35071_SIGMA_INTERIOR_PEAK_CLOSED_FORM = {
     'identified. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz ' +
     '(imp-2642) UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior MAX located numerically, component model source); imp-33601 (E_flow ' +
     'offset identity, same model); imp-33723 (closed-form Banach crossover mirrored here); ' +
@@ -272,13 +272,13 @@ export const IMP35071_SIGMA_INTERIOR_PEAK_CLOSED_FORM_ASSERTIONS = [
     holds: () => R_FLOW_TRUNC_PEAK > 1.0 && NOFLOW_MONOTONE_DECREASING,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp35071-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35071_SIGMA_INTERIOR_PEAK_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP35071_SIGMA_INTERIOR_PEAK_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35071_SIGMA_INTERIOR_PEAK_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP35071_SIGMA_INTERIOR_PEAK_CLOSED_FORM.verdict),
   },
 ];
 

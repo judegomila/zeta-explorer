@@ -81,7 +81,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── parameterized ceiling machinery (identical shape to the sibling chain, but
@@ -223,7 +223,7 @@ export const IMP95026_PAPER_PACKET_CEILING_TRANSFER = {
     "Finding 0 (A_d cancels) is an exact structural observation on the roll-up inequality. Findings 1-4 are MEASUREMENTS: the quadrature reproduces the nineteenth closed form to 2.8e-6 at the model point and the four-lever scan and the break boundary s* are computed directly. No paper constant is instantiated (the paper text is not carried here), so no transferred ceiling is CLAIMED - only the transfer behavior (robust below 4, ~3x degrade at low theta, exact-proof break below s = 2.9484) is asserted. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT/DERIVATION transfer assessment of the imp-95008 far-bracket ledger (4 -> 0.2717408057586117) to the paper packets. FINDING 0: the amplitude A_d CANCELS from the far coefficient (it enters M, not cFar), so only (sigma, theta, beta, isolation Q) drive the ledger. FINDING 1: quadrature reproduces the model ceiling to 2.8e-6 and maps the levers (s = sigma + theta and Q dominant, beta weak). FINDING 2: the ledger TRANSFERS - the far coefficient stays strictly below the pre-seventeenth 4 across the whole scanned neighborhood (worst 0.8924623374689161 at theta = 2). FINDING 3: it DEGRADES ~3x in the low-theta regime (theta ~ 2 -> cFar ~ 0.89). FINDING 4: the EXACT-substitution proof BREAKS below s = sigma + theta = 2.948383274238082 (Lemma RM corner guard 2^(1/3) > Ystar(s) fails), falling back to the eighteenth window envelope. SUB-GAP: the actual Section 4.5 packet constants are not pinned in this repo, so this is a transfer MAP not a single paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT/DERIVATION transfer assessment of the imp-95008 far-bracket ledger (4 -> 0.2717408057586117) to the paper packets. FINDING 0: the amplitude A_d CANCELS from the far coefficient (it enters M, not cFar), so only (sigma, theta, beta, isolation Q) drive the ledger. FINDING 1: quadrature reproduces the model ceiling to 2.8e-6 and maps the levers (s = sigma + theta and Q dominant, beta weak). FINDING 2: the ledger TRANSFERS - the far coefficient stays strictly below the pre-seventeenth 4 across the whole scanned neighborhood (worst 0.8924623374689161 at theta = 2). FINDING 3: it DEGRADES ~3x in the low-theta regime (theta ~ 2 -> cFar ~ 0.89). FINDING 4: the EXACT-substitution proof BREAKS below s = sigma + theta = 2.948383274238082 (Lemma RM corner guard 2^(1/3) > Ystar(s) fails), falling back to the eighteenth window envelope. SUB-GAP: the actual Section 4.5 packet constants are not pinned in this repo, so this is a transfer MAP not a single paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -315,12 +315,12 @@ export const IMP95026_TRANSFER_ASSERTIONS = [
   {
     id: "imp95026-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper constants not pinned; transfer MAP not a single number), records A_d cancellation, transfers/degrades/breaks, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper constants not pinned; transfer MAP not a single number), records A_d cancellation, transfers/degrades/breaks, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95026_PAPER_PACKET_CEILING_TRANSFER.promotesBound === false &&
       IMP95026_PAPER_PACKET_CEILING_TRANSFER.openResiduals.length === 2 &&
       /NO QED/.test(IMP95026_PAPER_PACKET_CEILING_TRANSFER.verdict) &&
-      /remains SOTA/.test(IMP95026_PAPER_PACKET_CEILING_TRANSFER.verdict) &&
+      /refereed bound is changed/i.test(IMP95026_PAPER_PACKET_CEILING_TRANSFER.verdict) &&
       /CANCELS/.test(IMP95026_PAPER_PACKET_CEILING_TRANSFER.verdict) &&
       /TRANSFERS/.test(IMP95026_PAPER_PACKET_CEILING_TRANSFER.verdict) &&
       /DEGRADES/.test(IMP95026_PAPER_PACKET_CEILING_TRANSFER.verdict) &&

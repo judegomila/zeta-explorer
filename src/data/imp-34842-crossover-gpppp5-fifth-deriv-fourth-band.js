@@ -65,7 +65,7 @@
  * imp-3220/imp-3406 surrogate crossover map on the imp-34822 band; it introduces NO new bound and
  * changes none. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34822-crossover-gpppp-convexity-fourth-band (g_quadruple_prime < 0 on [1e12,1e13]; convexity)
  * @see imp-34793-crossover-gpppp-convexity (g_quadruple_prime closed form; convexity on [1e9,1e12])
@@ -247,7 +247,7 @@ export const IMP34842_CROSSOVER_GPPPP5_FIFTH_DERIV_FOURTH_BAND = {
     'the shared boundary N=1e12 reproduces the frozen literal to ~1e-9 relative. Measurement/' +
     'derivation only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34822 (g_quadruple_prime < 0 on [1e12,1e13]; convexity); imp-34793 (g_quadruple_prime ' +
     'closed form; convexity on [1e9,1e12]); imp-34768 (g_triple_prime closed form; global monotone ' +
@@ -305,13 +305,13 @@ export const IMP34842_CROSSOVER_GPPPP5_FIFTH_DERIV_FOURTH_BAND_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp34842-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34842_CROSSOVER_GPPPP5_FIFTH_DERIV_FOURTH_BAND.isRigorous === false &&
       /NO QED/.test(IMP34842_CROSSOVER_GPPPP5_FIFTH_DERIV_FOURTH_BAND.verdict) &&
-      /remains SOTA/.test(IMP34842_CROSSOVER_GPPPP5_FIFTH_DERIV_FOURTH_BAND.verdict),
+      /refereed bound is changed/i.test(IMP34842_CROSSOVER_GPPPP5_FIFTH_DERIV_FOURTH_BAND.verdict),
   },
 ];
 

@@ -37,7 +37,7 @@
  * @see imp-97736-mcm-cap-jitter-dps36.js (+/-~30 percent cap-metric jitter this propagates)
  *
  * Ticket: imp-124784 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The MCM cap SNR-monotonicity headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -68,7 +68,7 @@ const MCM_CAP_SNR_MONOTONICITY_HEADWORD = Object.freeze({
     'cap check, the re-derived 4-point OLS exponents reproduce imp-97783 olsFull4 to 1e-9, and the ' +
     'SNR=30-minus-SNR=10 exponent gap is 0.216 jitter-sigma (< 1/4 of one sigma). Naming / glossary ' +
     'headword only; supplies no new bound; the MCM onset stays omega=11, MCM stays refuted; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -87,7 +87,7 @@ export const IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD = Object.freeze
     'the MCM trustworthy-cap ladder is weakly monotone decreasing in SNR at every dps rung (one tie ' +
     'at dps=16), and the SNR=30-above-SNR=10 exponent ordering is 0.216 jitter-sigma -- inside the ' +
     'imp-97736 +/-~30 percent cap-metric jitter band, jitter not anomaly. No bound moved; MCM stays ' +
-    'refuted; the onset stays omega=11; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'refuted; the onset stays omega=11; NO QED. No refereed bound is changed.',
   citation:
     'imp-97801 (the cross-validation this glosses); imp-97783 (the source full cap ladder + ' +
     'olsFull4 exponent set); imp-97736 (the +/-~30 percent cap-metric jitter this propagates).',
@@ -113,11 +113,11 @@ export const IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124784-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97801.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97801.',
     holds: () =>
       IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD.verdict) &&
       IMP97801_MCM_CAP_SNR_MONOTONICITY_GLOSSARY_HEADWORD.glosses === 'imp-97801',
   },
 ];

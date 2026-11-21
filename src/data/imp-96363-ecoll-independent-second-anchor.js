@@ -50,7 +50,7 @@
  *   no constant, does not close G6_polymath15_bridge. The conditional bound
  *   C_H <= 0.127 stays UNPROVEN; C_H isRigorousUpperBound remains false
  *   (imp-2642 / imp-2701); the imp-2640 Gronwall discharge of C_Lip stays
- *   NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains open. NO QED.
+ *   NEGATIVE. No refereed bound is changed. RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96290-step4-bridge-subconstant-inventory.js: baked E_coll anchors
@@ -266,7 +266,7 @@ export const IMP96363_ECOLL_INDEPENDENT_SECOND_ANCHOR = {
     'agreement, not the ratio. Accuracy audit only: no gap closed, no bound ' +
     'changed, G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays ' +
     'UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701), imp-2640 ' +
-    'Gronwall discharge of C_Lip NEGATIVE. Platt-Trudgian Lambda <= 0.2 SOTA. ' +
+    'Gronwall discharge of C_Lip NEGATIVE. No refereed bound is changed. ' +
     'RH open. NO QED.',
   provenance:
     'imp-96290-step4-bridge-subconstant-inventory.js (baked E_coll anchors, ' +

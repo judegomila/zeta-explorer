@@ -27,7 +27,7 @@
  * the thermodynamic (T -> oo) order parameter is the step 1_{t<Lambda} (every fixed t < 0 becomes fully two-phase at
  * large height), so the finite-height pseudo-critical points t_c(T) -> 0^- (the repo's a = 0 / the Lehmer-pair ladder)
  * carry NO information on whether phi(0) = 0 at all heights: the fluid model is an exact dictionary and a reframing,
- * not a lever on Lambda. Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * not a lever on Lambda. Changes no bound; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------------------------------------------
  * 1. COLE-HOPF DERIVATION (exact). Official normalisation (Newman / Polymath15 / Rodgers-Tao):
@@ -307,7 +307,7 @@ export const RH_SUPERCRITICAL_FLUID_BRIDGE = Object.freeze({
       'the coexistence exponent (beta+1)/2 = 3/2 for zeta zeros needs GUE nearest-neighbour statistics at small s (Montgomery pair correlation, unproved); measured exponents on beta-Hermite samples and on the first 400 zeros are finite-sample fits',
       'the amplitude and the many-body kappa are measured, not derived',
     ],
-    noLever: 'the two-phase side (t < 0) is fully known (Rodgers-Tao) and its finite-height pseudo-critical points converge to 0^- whether or not RH holds; RH is the statement about t = 0 at ALL heights, which no finite-height order-parameter measurement reaches. The Cole-Hopf linearisation returns the same heat equation; no new bound. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    noLever: 'the two-phase side (t < 0) is fully known (Rodgers-Tao) and its finite-height pseudo-critical points converge to 0^- whether or not RH holds; RH is the statement about t = 0 at ALL heights, which no finite-height order-parameter measurement reaches. The Cole-Hopf linearisation returns the same heat equation; no new bound. No refereed bound is changed; RH open; NO QED.',
   }),
   sources: [
     'src/data/dyson-burgers-shock.js (inviscid Dyson-Burgers, finite-N surrogate 2 pi / log^2)',

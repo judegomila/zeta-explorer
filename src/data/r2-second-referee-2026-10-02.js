@@ -96,7 +96,7 @@ export const R2_SECOND_REFEREE = Object.freeze({
     'No refereed argument is in ERROR. Lemma R, C_g, the multi-height consumer, two-height coupling and the far-field identities are SOUND as conditional '
     + 'inputs; Lemma B is GAP as written (logic sound; band barriers BB1/BB2 not proved). Best conditional value at PT floor height is 0.144505784802732 '
     + '(adds the unproved outer lemma); on the Track A route Λ < 0.145 needs verified RH to 4.80e12. Nothing is proved unconditionally below 0.2. '
-    + 'PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No refereed bound is changed. RH open. NO QED.',
 });
 
 const R = R2_SECOND_REFEREE;
@@ -154,7 +154,7 @@ export const R2_SECOND_REFEREE_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r2-ref2-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /Nothing is proved unconditionally below 0\.2/.test(R.verdict)
+    holds: () => /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /Nothing is proved unconditionally below 0\.2/.test(R.verdict)
       && /Not an external review/.test(R.status) && R.grades.every((g) => g.grade !== 'ERROR'),
     why: 'Internal referee; no bound below 0.2 proved; RH open.',
   },

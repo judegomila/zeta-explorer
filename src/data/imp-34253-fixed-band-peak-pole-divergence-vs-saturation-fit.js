@@ -64,7 +64,7 @@
  * windows both of whose forms re-accelerate, a saturating power law (P_inf ~ 1.18, q ~ 0.35) fits the
  * same points and cannot be excluded. The discriminating windows kEnd in (21.0, 21.28) are blocked by
  * the same pole. Measurement/fit only; surrogate/component model NOT rigorous; no bound changes; imp-486
- * C_mb GUE-conditional UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * C_mb GUE-conditional UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.
  *
  * @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (source peak rows + pole k*)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (upstream measurement)
@@ -169,7 +169,7 @@ export const IMP34253_POLE_DIVERGENCE_VS_SATURATION_FIT = {
   honest:
     'MEASUREMENT/FIT ONLY -- two closed-form fits to the three imp-34237 sub-pole peaks; adds no new ' +
     'derivation and changes no bound. Surrogate/component model NOT rigorous; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34253_ASSERTIONS = [

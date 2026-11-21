@@ -74,7 +74,7 @@
  * gap), so the imp-96913 ~0.8% all-rung overlap is an ARTIFACT of the independence assumption;
  * but the dense-CI overlap (~14%) is a GENUINE erosion that survives decorrelation. The point
  * ordering T < F < M and the compute-binds-first verdict (~3372x) are untouched. Sensitivity
- * only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (imp-96930-decorrelated-band-inherits-fit-extrapolation). The decorrelated
  * band still rests on the same non-rigorous lam_min N^-p and lam_max a + b log N extrapolations
@@ -200,7 +200,7 @@ export const IMP96930_VERDICT = Object.freeze({
     'thin (~0.5%) separation -- the imp-96913 ~0.8% all-rung overlap was an ARTIFACT of the ' +
     'independence assumption. The dense-CI overlap (~14%) is a GENUINE erosion that survives ' +
     'decorrelation. The point ordering T < F < M and compute-binds-first (~3372x) are untouched. ' +
-    'Sensitivity only; no bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Sensitivity only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96930_SUBGAP = Object.freeze({
@@ -215,7 +215,7 @@ export const IMP96930_SUBGAP = Object.freeze({
 });
 
 export const IMP96930_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity only: the p-band, the 95% CI and ' +
+  'RH open; no refereed bound is changed; NO QED. Sensitivity only: the p-band, the 95% CI and ' +
   'the cond#-fit slope errors are imported verbatim from the import-light siblings imp-96833 / ' +
   'imp-96656 and recombined with the shared-p (q = p + b) decorrelation ' +
   '(tmp/imp-96930-scratch.mjs); no Gram was rebuilt and no bound is claimed moved. The ' +
@@ -273,7 +273,7 @@ const IMP96930_ASSERTIONS = [
       IMP96930_VERDICT.anyBoundMoved === false &&
       IMP96930_VERDICT.pointOrderingSurvives === true &&
       /NO QED/.test(IMP96930_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96930_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96930_HONEST_BANNER) &&
       /RH open/.test(IMP96930_HONEST_BANNER) &&
       /inherits-fit-extrapolation/.test(IMP96930_SUBGAP.id),
     why: 'sensitivity only: no bound moved, the point ordering survives, the honesty markers are present, and the residual fit-extrapolation sub-gap is recorded.',

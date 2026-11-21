@@ -57,7 +57,7 @@
  * (~7.6-7.8e7) and slightly loosens it under the integrated-exponent model (~8.2e7); all agree L* is
  * ~1.11-1.14 decades past the PT anchor. The "could be tighter still" caveat is bounded, not a decade.
  * Measurement / projection only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96690-basis-c-above-anchor-rung-ladder (the five-rung OLS p ~ 2.42 / L* ~ 8.1e7 this models)
  * @see imp-96711-basis-c-corroboration-reach-cross-tab (the three L* figures as one anchored crossover)
@@ -274,12 +274,12 @@ export const IMP96712_BASIS_C_ACCELERATING_EXPONENT_MODEL = {
     + 'constant-OLS 8.1e7. The acceleration tightens L* only modestly under the quadratic models (~7.6-7.8e7) '
     + 'and slightly loosens it under the integrated-exponent model (~8.2e7); all agree L* is ~1.11-1.14 decades '
     + 'past the PT anchor. The "could be tighter still" caveat is bounded, not a decade. Measurement / '
-    + 'projection only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    + 'projection only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed'
+    + '; the zero-side route stays PCC/GRH-gated.',
 };
 
 export const IMP96712_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement / projection only: rho is the theoretical GUE '
+  'RH open; no refereed bound is changed; NO QED. Measurement / projection only: rho is the theoretical GUE '
   + 'two-interval correlation, not computed from real zeros. Modeling the imp-96690 accelerating local exponent '
   + '(quadratic-in-log-log raw/anchored + integrated linear-local-exponent, fit to the same five committed '
   + 'floors) brackets the projected corroboration reach at L* ~ [7.6e7, 8.2e7] -- within ~+/-6% of the '
@@ -324,11 +324,11 @@ export const IMP96712_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96712_BASIS_C_ACCELERATING_EXPONENT_MODEL.verdict))
     throw new Error('imp-96712: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96712_BASIS_C_ACCELERATING_EXPONENT_MODEL.verdict))
-    throw new Error('imp-96712: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96712_BASIS_C_ACCELERATING_EXPONENT_MODEL.verdict))
+    throw new Error('imp-96712: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96690/.test(IMP96712_BASIS_C_ACCELERATING_EXPONENT_MODEL.source))
     throw new Error('imp-96712: source dropped the imp-96690 reference');
-  if (!(/RH open/.test(IMP96712_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96712_HONEST_BANNER) && /NO QED/.test(IMP96712_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96712_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96712_HONEST_BANNER) && /NO QED/.test(IMP96712_HONEST_BANNER)))
     throw new Error('imp-96712: IMP96712_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

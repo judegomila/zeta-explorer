@@ -91,7 +91,7 @@ export const IMP33914_HUMP_PEAK_THREE_RESOLUTION_VIZ_DATA = {
   honest:
     'VIZ-DATA ONLY -- tabulates existing imp-33809/imp-33896/imp-33878 readings ' +
     'on one shared axis; adds no new derivation or measurement and changes no ' +
-    'bound. PT Lambda <= 0.2 remains SOTA.',
+    'bound. No refereed bound is changed.',
 };
 
 export const IMP33914_ASSERTIONS = [

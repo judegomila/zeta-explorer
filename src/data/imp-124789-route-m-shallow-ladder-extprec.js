@@ -54,7 +54,7 @@
  * up-then-down turnover, matching the imp-97659 deep-ladder oscillation. The 7-fig ladder was accurate to
  * its leading residual figures and the low third-rung ratio 1.254 is a real feature, not lost precision.
  * MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (shallow 7-fig ladder; sub-gap PRECISION_LIMITED_PAST_2E6)
  * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 DEEP ladder p >= 1999993; exponent OSCILLATES)
@@ -136,11 +136,11 @@ export const IMP124789_VERDICT = Object.freeze({
     'confirming the imp-97659 deep-ladder oscillation from the shallow rungs alone. The 7-fig residuals ' +
     'reproduce to rel diff ~1e-4 and the low third-rung ratio 1.254 is a real feature, not lost precision. ' +
     'MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda ' +
-    'moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP124789_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-precision (dps=40, full-precision constants) ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-precision (dps=40, full-precision constants) ' +
   'recompute of the original imp-97640 shallow four-rung Route M gap-law ladder: the three local decay ' +
   'exponents are 6.83930, 8.71259, 7.49854, essentially unchanged from the 7-fig 6.839, 8.713, 7.495. The ' +
   'climbing q~7-9 reading does NOT survive -- the precision-clean third rung stays at 7.499 (an up-then-down ' +
@@ -217,7 +217,7 @@ const IMP124789_ASSERTIONS = [
       IMP124789_VERDICT.anyBoundMoved === false &&
       IMP124789_VERDICT.qed === false &&
       /NO QED/.test(IMP124789_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP124789_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124789_HONEST_BANNER) &&
       /RH open/.test(IMP124789_HONEST_BANNER),
     why: 'measurement only -- shallow exponents unchanged by extended precision, up-then-down turnover confirms the imp-97659 oscillation; MCM refuted from omega=11; no bound moved, no QED.',
   },

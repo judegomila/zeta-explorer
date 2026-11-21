@@ -115,10 +115,10 @@ export const IMP33977_G_VS_LAW_OFFSET_VIZ_DATA = Object.freeze({
     imp33887Untouched: true,
     carriesNoRHVerdict: true,
     cmbGueConditional: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
     honestyLock:
-      'Viz-data packaging only, NO QED; C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'Viz-data packaging only, NO QED; C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed' +
+      '.',
   }),
 });
 
@@ -147,7 +147,7 @@ export const IMP33977_G_VS_LAW_OFFSET_VIZ_DATA_ASSERTIONS = [
   {
     id: 'imp33977-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: viz-data packaging only, no RH verdict, imp-33918/imp-33887 untouched, ' +
-         'PT 0.2 stays SOTA.',
+         'no refereed bound is changed.',
     holds: () => {
       const c = IMP33977_G_VS_LAW_OFFSET_VIZ_DATA.honestCaveat;
       return (
@@ -157,7 +157,7 @@ export const IMP33977_G_VS_LAW_OFFSET_VIZ_DATA_ASSERTIONS = [
         c.imp33918Untouched === true &&
         c.imp33887Untouched === true &&
         c.carriesNoRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         /NO QED/.test(c.honestyLock)
       );
     },

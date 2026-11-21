@@ -3,7 +3,7 @@
  * @fileoverview imp-33911 -- META provenance roll-up cataloguing the imp-33877/imp-33878/imp-33879
  * recent widening-fit/hump-argmax/geometric-center cohort, mirroring the imp-33741/imp-33804
  * rollup pattern and confirming each module carries the mandatory honest banner: no QED, imp-3066
- * K_a >= 0 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.
+ * K_a >= 0 untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/verdict block was read
  * and classified into the evidence class it earns on its own terms:
@@ -21,7 +21,7 @@
  *     endpoint-vs-midpoint discretization caveat as a closed-form half-log-decade Taylor step
  *     (1/2 ln 10)/log T0(N), reproducing the exact offset to <0.11% relative error across 1e12..1e15.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA); glossary/viz-page coverage was cross-checked against
+ * untouched, no refereed bound is changed); glossary/viz-page coverage was cross-checked against
  * src/data/glossary.js and src/pages. Import lines were grepped and followed one level (per the
  * imp-33784/imp-33804/imp-33824 heavy-import safety pattern -- the 16.7MB src/data/zeros-to-1e6.js
  * bundle hangs vite ssrLoadModule / npm-run-assert when transitively pulled into an assertion module).
@@ -29,7 +29,7 @@
  * RESULT (audited 2026-07-05). All three modules carry the full honest banner in substance, each as
  * a literal "NO QED" string in their exported verdict field, together with an explicit
  * isRigorous: false field, an explicit "imp-3066 K_a >= 0 untouched" clause, and an explicit
- * "Platt-Trudgian Lambda <= 0.2 remains SOTA" clause.
+ * "No refereed bound is changed" clause.
  *   - imp-33877-widening-fit-tail-endpoint-artifact-test.js                   : widening-fit tail-endpoint TRUNCATION artifact test
  *   - imp-33878-hump-argmax-grid-refinement.js                                : hump-argmax grid-refinement continuum limit
  *   - imp-33879-geometric-center-correction-endpoint-midpoint-offset.js       : geometric-center closed-form correction derivation
@@ -60,7 +60,7 @@ export const IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP = {
     'Read each of the three imp-33877/33878/33879 module @fileoverview/verdict blocks; classify by ' +
     'evidence class (widening-fit tail-endpoint TRUNCATION artifact test / hump-argmax grid-refinement ' +
     'continuum limit / geometric-center closed-form correction derivation); grep for the mandatory ' +
-    'honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA); ' +
+    'honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed); ' +
     'cross-check glossary.js and src/pages for dedicated coverage and follow import lines one level ' +
     'for heavy-import safety.',
   modules: [
@@ -115,7 +115,7 @@ export const IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all three cohort members; the C_mb ' +
-    'GUE-conditional per imp-486 is untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'GUE-conditional per imp-486 is untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -146,7 +146,7 @@ const IMP_33911_ASSERTIONS = [
         (x) => x.noQED === true && /imp-3066/.test(x.untouchedInvariant) && x.plattTrudgianSOTA === true
       ) && IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 3,
     why: 'Every module in the cohort must state no-QED as a literal string, imp-3066 K_a >= 0 ' +
-      'untouched, and Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'untouched, and no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33911-all-three-use-literal-qed-form',
@@ -186,11 +186,11 @@ const IMP_33911_ASSERTIONS = [
   {
     id: 'imp33911-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33911_33877_33879_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

@@ -38,7 +38,7 @@
  *
  *   Ticket: imp-36210 (content, low). Note only; imports the roadmap block and
  *   all three deep-dive modules verbatim; changes no bound; NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  */
 
 import { LAMBDA_CHAIN_STEPS } from './lambda-roadmap.js';
@@ -131,7 +131,7 @@ export const IMP36210_STEP4_OBLIGATIONS_STORYLINE_CROSSREF = Object.freeze({
       'Read-only cross-reference narrative assembling the imp-35098 rigorousUpgradeGap block ' +
       '(lambda-roadmap.js Step 4) with the three deep-dive modules imp-3671, imp-34791, imp-35100. ' +
       'Imports every field verbatim; derives nothing new; all three obligations stay OPEN.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -206,7 +206,7 @@ export const IMP36210_STEP4_OBLIGATIONS_STORYLINE_CROSSREF_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

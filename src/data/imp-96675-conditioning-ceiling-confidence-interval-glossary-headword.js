@@ -40,7 +40,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96656 verdict for quick reference. It
  *   establishes nothing, instantiates no interval beyond what imp-96656 already computed,
- *   closes no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   closes no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96656-route-m-conditioning-ceiling-confidence-interval.js (source: the CI this glosses)
  * @see imp-96570-route-m-conditioning-ceiling-crossvalidation.js (the bare point range replaced)
@@ -48,7 +48,7 @@
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (compute ceiling ~9916)
  *
  * Ticket: imp-96675 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The confidence-interval headword, baked verbatim (no re-import).
@@ -86,7 +86,7 @@ const CONDITIONING_CEILING_CONFIDENCE_INTERVAL_HEADWORD = Object.freeze({
     'band inherits the same non-rigorous lam_min N^-p / lam_max a+b log N ' +
     'extrapolations the point ceiling rested on, and the small-sample Student-t band ' +
     'assumes homoscedastic log-normal residuals at df=2/df=3. Changes no bound; ' +
-    'establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD = Object.freeze({
@@ -108,7 +108,7 @@ export const IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD
     'lower edge survives on both subsets (>=2000x margin over compute), and the sole ' +
     'tight spot is the dense-fit lower edge sitting ~6.5% above the rigorous lower ' +
     'ceiling. Establishes nothing; instantiates no interval beyond imp-96656; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96656 (the confidence interval this glosses); imp-96570 (the bare point range ' +
     'replaced); imp-96548 (rigorous trace lower ceiling 2.59e7); imp-96352 (compute ' +
@@ -136,11 +136,11 @@ export const IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD
   },
   {
     id: 'imp96675-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
       IMP96675_CONDITIONING_CEILING_CONFIDENCE_INTERVAL_GLOSSARY_HEADWORD.glosses === 'imp-96656',
   },
 ];

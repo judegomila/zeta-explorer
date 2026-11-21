@@ -34,7 +34,7 @@
  * FIX APPLIED. Added direct scripts/run-assertions.mjs DATA_MODULES entries for
  * imp-95614/95616/95617/95621/95625/95631 so their assertions now run under `npm run
  * assert`. Otherwise read-only. Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-36109-imp3603x46x61x62x-registration-reachability-audit.js (registration/reachability + import-light guard method)
  * @see imp-35905-frontier-measurement-cohort-import-guard.js (import-light guard method)
@@ -95,8 +95,8 @@ export const IMP95650_FRONTIER_CLUSTER_REACHABILITY_AUDIT = {
     'Result: nine of nine orphaned pre-audit; six of nine (the ones with a self-executing ' +
     'throw loop) fixed in this commit by adding direct DATA_MODULES entries; the remaining ' +
     'three left open (no throw loop to exercise even once registered). Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36109/imp-35982/imp-35905 (registration/reachability + import-light guard audit ' +
     'method); verify-zeros-importers.mjs (import-light guard method, imp-2880).',

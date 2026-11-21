@@ -50,7 +50,7 @@
  * machinery (identical K, delta, N_cross, band, headroom form). The imp-34714a machine certificate REMAINS OPEN;
  * F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35241-krawczyk-headroom-band-profile (reported the ~55.18 band-top surplus but did not decompose it)
  * @see imp-34996-krawczyk-headroom-safety-factor-asymptote (S_inf = 1/(2 delta) large-N floor; 2G/(1+G) -> 1)
@@ -200,7 +200,7 @@ export const IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION = {
     'the inherited imp-3220/imp-3406 surrogate; reproduces the imp-35241/imp-35176/imp-34996 machinery (identical ' +
     'K, delta, N_cross, band); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35241 (band-top S ~ 2555.18, surplus ~55.18 above the 2500 floor; did not decompose it); imp-34996 ' +
     '(S_inf = 1/(2 delta) floor; 2G/(1+G) -> 1 large-N); imp-34929 (closed-form dS/dN < 0); imp-35176 ' +
@@ -239,15 +239,15 @@ export const IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_ASSERTIONS = [
       LEADING_REL_ERR_TOP < 0.03,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35266-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION.isRigorous === false &&
       /imp-34714a/.test(IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION.subGap) &&
       /REMAINS OPEN/.test(IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION.subGap) &&
       /NO QED/.test(IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP35266_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION.verdict),
   },
 ];
 

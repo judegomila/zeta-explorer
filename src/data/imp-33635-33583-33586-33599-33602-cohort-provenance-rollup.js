@@ -4,8 +4,7 @@
  * imp-33585/imp-33586 + imp-33599/imp-33600/imp-33601/imp-33602 deep-tail/sigma-decay cohort
  * (eight modules spanning two disjoint id ranges) BY EVIDENCE CLASS, mirroring the imp-33719/
  * imp-33693 rollup pattern and confirming each module carries the mandatory honest banner:
- * no-QED, the imp-3066 K_a >= 0 operator-positivity invariant untouched, and Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * no-QED, the imp-3066 K_a >= 0 operator-positivity invariant untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's source file was read directly
  * and grepped for the mandatory banner phrases ("NO QED", "imp-3066" + "K_a", "Platt-Trudgian"),
@@ -209,7 +208,7 @@ export const IMP_33635_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all eight cohort members. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -236,7 +235,7 @@ const IMP_33635_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_33635_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 8,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33635-three-caveat-lineages-sum-to-eight',
@@ -284,11 +283,11 @@ const IMP_33635_ASSERTIONS = [
   {
     id: 'imp33635-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33635_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33635_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33635_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33635_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

@@ -48,7 +48,7 @@
  * (imp-96957-sigma2-weighted-tail-superlinear-unmodelled: the super-linear weighted-tail growth is
  * not captured by the bare Bessel onset). All rungs sit at 2a=ln3, PAST the 2a<=0.96 interval-verified
  * reach and UNVERIFIED for positivity; the Rayleigh floor is a numerical UPPER bound; no operator
- * positivity is established; Platt-Trudgian Lambda<=0.2 SOTA; changes no bound; RH open; NO QED.
+ * positivity is established; no refereed bound is changed; changes no bound; RH open; NO QED.
  *
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (the {88..124} ladder + N~153 projection)
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (the original three-N onset/tail table)

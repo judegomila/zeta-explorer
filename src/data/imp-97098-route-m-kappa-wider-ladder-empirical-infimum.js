@@ -8,7 +8,7 @@
  * first-MOMENT bound F(b) >= kappa phi(b) b (kappa > 0) via the exact Cauchy-Schwarz inequality, and
  * measured kappa ~ 0.696 stable at a handful of b (0.699 at b=211, 0.696 at b=1201, 0.697 at the
  * primorial b=2310). This leaf extends that direct evaluation. Measurement only; NO bound is moved;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-96750/imp-97071. I(a,b) = C(a+b) + (1/2)(a-b) log(b/a) - (pi/2)(V(a,b)+V(b,a)),
  * C = (log 2pi - gamma)/2; V(a,q) = Sum_{m=1}^{q-1} frac(m a/q) cot(pi m/q). F(b) = Sum_{a=2,(a,b)=1}
@@ -64,7 +64,7 @@
  * while kappa_cot rises to ~0.125, and the only sign anomaly is the tiny b=30 primorial (small-b
  * outlier). This supports a candidate absolute lower constant kappa_* ~ 0.69 but proves none -- the
  * cotangent floor stays the open Bettin-Conrey piece (imp-97097). No bound moved; the rigorous trace
- * ceiling T ~ 2.594e7 anchor is unaffected; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * ceiling T ~ 2.594e7 anchor is unaffected; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97071-route-m-lower-companion-first-moment-reduction.js (parent CS reduction + kappa)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (kappa_arith EXACT limit 0.570496)
@@ -160,11 +160,11 @@ export const IMP97098_VERDICT = Object.freeze({
     'deeply-composite outlier, kappa_cot=-0.012, recovering by b=210). This supports a candidate absolute ' +
     'lower constant kappa_* ~ 0.69 (safer 0.68) but PROVES none: the arithmetic floor is rigorous but the ' +
     'cotangent floor ~+0.12 stays the OPEN Bettin-Conrey mean-value piece (imp-97097). No bound moved; ' +
-    'rigorous trace ceiling T ~ 2.594e7 anchor unaffected; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'rigorous trace ceiling T ~ 2.594e7 anchor unaffected; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97098_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97071 first-moment constant ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97071 first-moment constant ' +
   'kappa ~ 0.696 is cross-validated stable on a wider b-ladder (28 b, b up to 30030) with empirical ' +
   'infimum 0.695620, its monotone downward drift explained as kappa_arith relaxing to the imp-97096 ' +
   'proven limit 0.570496 while kappa_cot stabilises near 0.125. A candidate absolute lower constant ' +
@@ -232,7 +232,7 @@ const IMP97098_ASSERTIONS = [
       IMP97098_VERDICT.qed === false &&
       IMP97098_CANDIDATE_LOWER_CONSTANT.proved === false &&
       /NO QED/.test(IMP97098_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97098_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97098_HONEST_BANNER) &&
       /RH open/.test(IMP97098_HONEST_BANNER),
     why: 'measurement only: the candidate lower constant is supported but not proved, no bound moved, no rigorous ceiling posted, honesty markers present.',
   },

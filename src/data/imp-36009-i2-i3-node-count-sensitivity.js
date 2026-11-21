@@ -14,7 +14,7 @@
  *
  * ASSESSMENT / MEASUREMENT ONLY. Certifies no cap; certifies no delta > 0;
  * instantiates no interval enclosure; counts no zeros; changes no bound; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * THE RE-RUN (independent, not read from a closed form)
  * -----------------------------------------------------------------------------
@@ -64,8 +64,7 @@
  * certified I3 floor an interval LOWER bound on |H_t| -- both gated on the greenfield
  * imp-35681 Part A / imp-35725 evaluator (I1 / W1). This module instantiates no
  * interval enclosure, certifies no cap, certifies no delta > 0, counts no zeros,
- * changes no bound; I2 and I3 stay GREENFIELD. NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; I2 and I3 stay GREENFIELD. NO QED. No refereed bound is changed.
  *
  * @see imp-33923-off-axis-phase-winding-quadrature (the quadrature re-run here; held sampled slope -3/2, modulus C_PS, isRigorous:false)
  * @see imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy (sized the ~12 margin and C_PS floor at the FIXED 10-node sweep)
@@ -76,7 +75,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35951 / imp-36008) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 const C_PS = Math.PI / Math.SQRT2; // pi/sqrt(2) ~ 2.2214: the imp-35951 I3 modulus-floor proxy
 const WINDING_ANALYTIC = -1.5; // d/dtheta [3 pi/4 - 3 theta/2] = -3/2
@@ -262,7 +261,7 @@ export const IMP36009_I2_I3_NODE_COUNT_SENSITIVITY = {
     'rate of the true f and a certified I3 floor an interval LOWER bound on |H_t|, both gated on the greenfield ' +
     'imp-35681 Part A / imp-35725 evaluator (I1 / W1). Instantiates no interval enclosure; certifies no cap; ' +
     'certifies no delta > 0; counts no zeros; changes no bound; I2 and I3 stay GREENFIELD; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33923 (off-axis phase-winding quadrature re-run here; sampled slope -3/2, modulus C_PS, unit-circle ' +
     'w = e^{i theta}, isRigorous:false); imp-35951 (sized the ~12 I2 margin and C_PS floor at the FIXED 10-node ' +
@@ -318,9 +317,9 @@ export const IMP36009_I2_I3_NODE_COUNT_SENSITIVITY_ASSERTIONS = [
       Math.abs(C_PS - 2.221441469) < 1e-6,
   },
   {
-    // Honesty gate: measurement only; PROXY on the model cusp; no certification; I2/I3 GREENFIELD; NO QED; PT SOTA.
+    // Honesty gate: measurement only; PROXY on the model cusp; no certification; I2/I3 GREENFIELD; NO QED; no refereed bound is changed.
     id: 'imp36009-honesty-gate-no-qed',
-    description: 'Measurement only; PROXY on the off-axis model cusp; certifies no cap; certifies no delta>0; I2/I3 GREENFIELD; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; PROXY on the off-axis model cusp; certifies no cap; certifies no delta>0; I2/I3 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36009_I2_I3_NODE_COUNT_SENSITIVITY.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -329,7 +328,7 @@ export const IMP36009_I2_I3_NODE_COUNT_SENSITIVITY_ASSERTIONS = [
       /certifies no cap/.test(IMP36009_I2_I3_NODE_COUNT_SENSITIVITY.verdict) &&
       /I2 and I3 stay GREENFIELD/.test(IMP36009_I2_I3_NODE_COUNT_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP36009_I2_I3_NODE_COUNT_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP36009_I2_I3_NODE_COUNT_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP36009_I2_I3_NODE_COUNT_SENSITIVITY.verdict),
   },
 ];
 

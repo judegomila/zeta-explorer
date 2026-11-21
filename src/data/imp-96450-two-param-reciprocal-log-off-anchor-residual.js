@@ -40,8 +40,8 @@
  * captured by measuring the off-anchor column directly.
  *
  * GRADE: measurement only. Import-light (arrays baked verbatim from imp-96345 /imp-96224,
- * recompute-and-check, no heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open. The genuine uniform-in-T obstruction (a uniform
+ * recompute-and-check, no heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed
+ * ; RH open. The genuine uniform-in-T obstruction (a uniform
  * OFF-line LP, Weil-positivity strength) stays inaccessible to this on-line construction.
  *
  * @see imp-96345-route-bd-offline-margin-envelope (one-parameter line + below-line residual)
@@ -184,7 +184,7 @@ export const IMP_96450_TWO_PARAM_RECIPROCAL_LOG_OFF_ANCHOR_RESIDUAL = {
     'measurement only; import-light arrays baked verbatim from imp-96345 /imp-96224, '
     + 'recompute-and-check; changes no Lambda bound; the genuine uniform-in-T obstruction '
     + '(a uniform off-line LP, Weil-positivity strength) stays inaccessible to this on-line '
-    + 'construction; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED',
+    + 'construction; no refereed bound is changed; RH open; NO QED',
   closesTickets: ['imp-96450'],
 };
 

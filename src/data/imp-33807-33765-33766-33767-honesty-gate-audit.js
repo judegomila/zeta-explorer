@@ -31,7 +31,7 @@
  *     `imp3066Untouched`, `didNotAttemptPositivity`, ...) plus a `/Platt-Trudgian/` regex on its
  *     `sota` string, enforced by the executable assertion `imp33765-honest-diagnostic-not-a-verdict`
  *     (~line 401). This IS an executable tripwire and it DOES cover the same honesty ground
- *     (no proof, no RH verdict, imp-3066 untouched, PT stays SOTA) -- so there is no silent,
+ *     (no proof, no RH verdict, imp-3066 untouched, no refereed bound is changed) -- so there is no silent,
  *     unenforced prose-only caveat -- but it is a structurally different mechanism from the
  *     isRigorous:false + literal-NO-QED-regex pattern used by its two siblings and by the
  *     imp-33733 cohort, so it does not "match" in the strict sense the ticket asked to confirm.
@@ -43,7 +43,7 @@
  * `isRigorous` field name if cross-module tooling ever needs to scan for it uniformly.
  *
  * This is a read-only audit: it changes no bound, establishes no operator positivity, imp-3066
- * K_a >= 0 stays untouched, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 stays untouched, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33733 (the honesty-gate audit pattern this audit mirrors), imp-33765, imp-33766,
  * imp-33767
@@ -89,7 +89,7 @@ export const IMP_33807_HONESTY_GATE_AUDIT = {
     'not an enforcement gap.',
   honestNote:
     'Read-only audit; no new bound claimed by this module itself. imp-3066 K_a >= 0 positivity ' +
-    'untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -135,11 +135,11 @@ const IMP_33807_ASSERTIONS = [
   {
     id: 'imp33807-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33807_HONESTY_GATE_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33807_HONESTY_GATE_AUDIT.honestNote) &&
       /No QED/i.test(IMP_33807_HONESTY_GATE_AUDIT.honestNote) &&
       /imp-3066/.test(IMP_33807_HONESTY_GATE_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

@@ -59,7 +59,7 @@
  * no directed-rounding mode; the outward-rounding here is a first-order surrogate) and does NOT discharge the
  * conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34840-krawczyk-directed-rounding-op-dag-feasibility (the op-DAG + structural requirement this MEASURES)
  * @see imp-34799-krawczyk-directed-rounding-width-bound (a-priori gamma(n_op) width bound and (H2) margin)
@@ -294,8 +294,8 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
     '/ MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; does NOT instantiate the ' +
     'imp-34687a directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34840 (op-DAG feasibility + the structural requirement this MEASURES); imp-34799 (a-priori ' +
     'gamma(n_op) width bound and (H2) margin); imp-34687 (f monotone+convex => inner interval-Newton is a ' +
@@ -339,15 +339,15 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION_ASSERTIONS = [
       CONTRACTION_HEADROOM_ORDERS < 14,
   },
   {
-    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34865-honesty-gate-no-qed',
-    description: 'width-inflation measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'width-inflation measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION.isRigorous === false &&
       /imp-34714a/.test(IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION.subGap) &&
       /REMAINS OPEN/.test(IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION.subGap) &&
       /NO QED/.test(IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION.verdict) &&
-      /remains SOTA/.test(IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION.verdict),
+      /refereed bound is changed/i.test(IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION.verdict),
   },
 ];
 

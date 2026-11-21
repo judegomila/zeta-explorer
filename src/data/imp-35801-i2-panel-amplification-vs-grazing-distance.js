@@ -60,7 +60,7 @@
  * MEASUREMENT / OOM TABULATION on the imp-35777 model only. It bounds no |H_t prime| (B),
  * lower-bounds no |H_t| (delta), instantiates no interval enclosure, fixes no Delta or h,
  * certifies no cap, and changes no bound. The linear-vanishing model is the generic
- * simple-zero OOM, not a certified enclosure. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * simple-zero OOM, not a certified enclosure. NO QED. No refereed bound is changed.
  *
  * @see imp-35777-i2-logderivative-panel-cap-scope (named G = delta_robust/delta_local UNBOUNDED; abstract decade examples)
  * @see imp-35757-i2-panel-width-count-scope (robust ~4.28 panels/unit-height via mean winding rate)
@@ -72,7 +72,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const TWO_PI = 2 * Math.PI;
 const HALF_TURN = Math.PI; // the I2 cap threshold |Delta arg f| < pi per panel
 
@@ -153,7 +153,7 @@ export const IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE = {
     'imp-35777 robust regime G=1, L_panel~0.2336, density~4.28. To keep the amplification below G_max the certificate ' +
     'must position dR a standoff d >= 1/(w G_max) off every would-be zero -- quantifying imp-35777 "finite exactly ' +
     'when I3 holds, infinite exactly where I3 fails". Bounds no B; lower-bounds no delta; instantiates no enclosure; ' +
-    'fixes no Delta or h; certifies no cap; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.',
+    'fixes no Delta or h; certifies no cap; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35777 (I2/I3 coupling L_panel < pi delta/B; G named unbounded, decade examples); imp-35757 (~4.28 ' +
     'panels/unit-height); imp-35758 (I3 floor, grazing caveat); imp-35800 (robust standoff 1/w, mean gap ~0.2336); ' +
@@ -214,15 +214,15 @@ export const IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE_ASSERTIONS = [
       }),
   },
   {
-    // Honesty gate: measurement only, no certification, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: measurement only, no certification, no QED, no refereed bound is changed.
     id: 'imp35801-honesty-gate-no-qed',
-    description: 'Measurement only; certifies no cap; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; certifies no cap; bounds no B; lower-bounds no delta; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no cap/.test(IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE.verdict) &&
       /NO QED/.test(IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE.verdict) &&
-      /SOTA/.test(IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE.verdict),
+      /refereed bound is changed/i.test(IMP35801_I2_PANEL_AMPLIFICATION_VS_GRAZING_DISTANCE.verdict),
   },
 ];
 

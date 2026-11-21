@@ -77,7 +77,7 @@
  *   that currency map is baked, the ratio C_cross / (lambda_max M) is not an
  *   attainment fraction and the residual cannot be read as attainment x norm.
  * This is a MEASUREMENT only. Changes no bound; does NOT promote Lambda <= 0.14;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // -- shared conventions (identical to imp-95008-witness-floor-pin.js) ---------
@@ -278,7 +278,7 @@ export const IMP95089_WITNESS_EREALIZATION_SPLIT = {
     "This is a MEASUREMENT: the terminal headline witness is reconstructed exactly (same geometry as imp-95008-witness-floor-pin.js) and its floor F reproduces the baked 0.096745062937484763 to rel 1e-9, so the split E = C_cross - S is a faithful decomposition of the same excess. The residual identity residual = lambda_max M / E reproduces the baked 1.4032010197013394 to rel 1e-12. No new inequality is proved; the honest finding is that the posited O(1) x O(1) decomposition does not hold and the residual is instead a scale-factor-times-cancellation product, with the currency mismatch named as the surviving sub-gap. The numerics settle the internals; they are not a claim.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT closing the internals half of imp-95008-subgap-witness-Erealization-split: the exhibited headline 13-packet witness excess splits as E = C_cross - S with C_cross = 0.31083906605923023 (realized cross-block correlation) and S = 0.31063674710576755 (within-block norm sum_b ||w_b||^2 = self 0.3104863645132343 + same-block 0.0001503825925332669), E = 0.0002023189534626768, M = 7.242579512920189; floor F reproduces 0.096745062937484763 (rel 1e-9) and residual = lambda_max M / E reproduces 1.4032010197013394 (rel 1e-12). HONEST FINDING: the posited (attainment <= 1) x (norm-penalty order 1) shape is refuted - S / (lambda_max M) = 1094 and C_cross / (lambda_max M) = 1095 (a normalization mismatch: ceiling caps the L2 weld norm, witness constituents are raw kernel), so the residual factors instead as (lambda_max M / C_cross = 9.13e-4) x (C_cross / E = 1536.38), governed by the near-total cancellation S / C_cross = 0.999349 (E is 0.065 percent of C_cross). Surviving sub-gap renamed imp-95089-subgap-currency-reconciliation. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT closing the internals half of imp-95008-subgap-witness-Erealization-split: the exhibited headline 13-packet witness excess splits as E = C_cross - S with C_cross = 0.31083906605923023 (realized cross-block correlation) and S = 0.31063674710576755 (within-block norm sum_b ||w_b||^2 = self 0.3104863645132343 + same-block 0.0001503825925332669), E = 0.0002023189534626768, M = 7.242579512920189; floor F reproduces 0.096745062937484763 (rel 1e-9) and residual = lambda_max M / E reproduces 1.4032010197013394 (rel 1e-12). HONEST FINDING: the posited (attainment <= 1) x (norm-penalty order 1) shape is refuted - S / (lambda_max M) = 1094 and C_cross / (lambda_max M) = 1095 (a normalization mismatch: ceiling caps the L2 weld norm, witness constituents are raw kernel), so the residual factors instead as (lambda_max M / C_cross = 9.13e-4) x (C_cross / E = 1536.38), governed by the near-total cancellation S / C_cross = 0.999349 (E is 0.065 percent of C_cross). Surviving sub-gap renamed imp-95089-subgap-currency-reconciliation. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) -------------------------
@@ -360,12 +360,12 @@ export const IMP95089_ASSERTIONS = [
   {
     id: "imp95089-honesty-gate",
     description:
-      "verdict/rigorScope state MEASUREMENT only, refute the O(1) shape, name the currency-reconciliation sub-gap, promote no bound, NO QED, PT stays SOTA",
+      "verdict/rigorScope state MEASUREMENT only, refute the O(1) shape, name the currency-reconciliation sub-gap, promote no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95089_WITNESS_EREALIZATION_SPLIT.promotesBound === false &&
       IMP95089_WITNESS_EREALIZATION_SPLIT.openResiduals.length === 4 &&
       /NO QED/.test(IMP95089_WITNESS_EREALIZATION_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP95089_WITNESS_EREALIZATION_SPLIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95089_WITNESS_EREALIZATION_SPLIT.verdict) &&
       /refuted/i.test(IMP95089_WITNESS_EREALIZATION_SPLIT.verdict) &&
       /currency-reconciliation/.test(IMP95089_WITNESS_EREALIZATION_SPLIT.subGap) &&
       /MEASUREMENT/.test(IMP95089_WITNESS_EREALIZATION_SPLIT.rigorScope),

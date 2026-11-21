@@ -4,7 +4,7 @@
  * imp-95212-subgap-fresnel-airy-envelope-port).
  *
  * GRADE: assessment / model-family only. No new certificate is fired, no
- * Lambda bound changes, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda bound changes, NO QED. No refereed bound is changed.
  *
  * WHY THIS TICKET. The imp-95142 ledger records the MODULUS/PHASE leg as
  * status OPEN with grade "unscoped -- no candidate certificate attempted
@@ -166,7 +166,7 @@ export const IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. The MODULUS/PHASE leg is assessed, not closed: the surviving residual is the exact sharp phase frontier imp-95289 (sup R at fixed (theta, y_min)); the modulus half contributes no separate residual. Obligation (1) per-window Q extraction, (3) gammaSL map (imp-95276), and (4) paper constants UNCHANGED.",
   verdict:
-    "ASSESSMENT (model-family only, not a certificate): the imp-95142 MODULUS/PHASE leg splits into a SCOPED phase half (imp-95254 PHASE-AM, currency theta = T(f)/T(g), sharp frontier imp-95289 open) and a MODULUS half that is NOT an independent currency -- modulus enters the certificate only through g in theta (a), a growing modulus dynamic range on SGN-SAT supplies no sub-1/2 discount (b), and the CEIL-X fixed-theta exceedance R = 0.6962 > 1/2 fences any modulus-only refinement (c). The leg has no un-scoped residual beyond the already-open imp-95289; the ledger 'unscoped' grade is superseded. Changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (model-family only, not a certificate): the imp-95142 MODULUS/PHASE leg splits into a SCOPED phase half (imp-95254 PHASE-AM, currency theta = T(f)/T(g), sharp frontier imp-95289 open) and a MODULUS half that is NOT an independent currency -- modulus enters the certificate only through g in theta (a), a growing modulus dynamic range on SGN-SAT supplies no sub-1/2 discount (b), and the CEIL-X fixed-theta exceedance R = 0.6962 > 1/2 fences any modulus-only refinement (c). The leg has no un-scoped residual beyond the already-open imp-95289; the ledger 'unscoped' grade is superseded. Changes NO Lambda bound; NO QED; no refereed bound is changed.",
 };
 
 export default IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT;
@@ -236,7 +236,7 @@ export const IMP95291_ASSERTIONS = [
   {
     id: "imp95291-verdict-honesty",
     description:
-      "the verdict is an assessment: sub-gap STILL OPEN, imp-95289 residual carried, ledger grade superseded, no Lambda change, NO QED, PT SOTA",
+      "the verdict is an assessment: sub-gap STILL OPEN, imp-95289 residual carried, ledger grade superseded, no Lambda change, NO QED, no refereed bound is changed",
     holds: () =>
       /STILL OPEN/.test(IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT.subGap) &&
       /imp-95289/.test(IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT.subGap) &&
@@ -250,7 +250,7 @@ export const IMP95291_ASSERTIONS = [
         IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT.verdict,
       ) &&
       /NO QED/.test(IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95291_MODULUS_PHASE_CURRENCY_LEG_ASSESSMENT.verdict),
   },
 ];
 

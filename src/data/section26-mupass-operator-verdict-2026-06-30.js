@@ -58,7 +58,7 @@
  * BOTTOM LINE: the §26 mu^pass / normalized-R route is now FULLY CHARACTERIZED --
  * mass-feasible, not independently constructible (tautological), residual =
  * RH-equivalent operator positivity. Both surviving Volterra sub-targets are
- * closed as cheaper-than-RH routes. PLATT-TRUDGIAN Lambda <= 0.2 REMAINS SOTA.
+ * closed as cheaper-than-RH routes. No refereed bound is changed.
  * No false QED. Honest next move (per synthesis): redirect throughput to PCC-free
  * routes NOT yet shown RH-equivalent; do NOT re-attack mu^pass (both options closed).
  *
@@ -87,7 +87,7 @@ export const SECTION26_MUPASS_OPERATOR_VERDICT = {
   noScalarCore: 'no scalar/diagonal mu^pass dominates Gshear (hollow+indefinite Wronskian); raw diagonal ||R||~40 growing with resolution; only Gpass=|Gshear| gives ||R||=1.0000 (tautological partial isometry)',
   residualIsKaPositive: 'the endpoint-bridge sign-positivity derived from Phi alone IS K_a>=0 / no-ghost -- RH-equivalent, untouched; mass-feasibility is necessary-but-not-binding',
   surrogateCorrection: 'genuine deg-2 deficit is 9.28e-9 (19.4% of tau), NOT the imp-2841/imp-2686 surrogate "exactly zero"; genuine deg-0 spectral overflow is ~64%',
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no reduction, no beat',
+  sota: 'No refereed bound is changed; no reduction, no beat',
   nextMove: 'do NOT re-attack mu^pass (both options closed); redirect to PCC-free routes not yet shown RH-equivalent',
   hsIndependentMatchHonestStatus: 'RECLASSIFIED by imp-3256: hsReference=1.90e-4 (U=6) and imp-1267 1.8985e-4 (U=5) are the SAME lower-triangular Volterra HS norm (bit-identical at matched step size); the ~0.08% gap is 3-vs-5 significant-figure rounding of ONE number, NOT an independent measurement -- do not double-count as independent corroboration',
 };
@@ -98,7 +98,7 @@ export const SECTION26_MUPASS_OPERATOR_VERDICT = {
  * Upgrades the one-cell numeric observation "deficit 3-4 orders below the
  * off-diagonal bridge budget" into a stated lemma with hypotheses and an
  * EXPLICIT non-sufficiency caveat. NO reduction, NO QED; imp-3066 remains the
- * lone obstruction and Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * lone obstruction and no refereed bound is changed.
  *
  * Setup (genuine de Bruijn-Newman Phi cell, NPHI=10, a=0.5, U=6, tau in [0,U]):
  *   - mu_diag: the diagonal passive-core occupation measure, density m_diag(tau);
@@ -134,7 +134,7 @@ export const SECTION26_MUPASS_OPERATOR_VERDICT = {
  *   UNTOUCHED. The degree-0 budget proxy is additionally CIRCULAR: its budget IS
  *   ||V||, the RH-equivalent quantity itself. So mass-feasibility eliminates the
  *   impossibility option but does NOT close the route. imp-3066 remains the lone
- *   obstruction; PT Lambda <= 0.2 stays SOTA. No reduction, no QED.
+ *   obstruction; no refereed bound is changed. No reduction, no QED.
  */
 export const SECTION26_MASS_FEASIBILITY_NECESSARY_LEMMA = {
   id: 'imp-3254-mass-feasibility-necessary-lemma',
@@ -154,7 +154,7 @@ export const SECTION26_MASS_FEASIBILITY_NECESSARY_LEMMA = {
   isNecessary: true,
   isSufficient: false,
   nonSufficiencyCaveat:
-    'NECESSARY-BUT-NOT-SUFFICIENT. D <= B_off is a scalar/L1 consequence of the operator inequality; the converse fails -- enough total mass does NOT force the correct SIGN at the correct lags. The surviving requirement is the operator-level sign-positivity K_a >= 0, untouched by mass-feasibility. The degree-0 budget proxy is circular (its budget IS ||V||). imp-3066 remains the lone obstruction; PT Lambda <= 0.2 stays SOTA. No reduction, no QED.',
+    'NECESSARY-BUT-NOT-SUFFICIENT. D <= B_off is a scalar/L1 consequence of the operator inequality; the converse fails -- enough total mass does NOT force the correct SIGN at the correct lags. The surviving requirement is the operator-level sign-positivity K_a >= 0, untouched by mass-feasibility. The degree-0 budget proxy is circular (its budget IS ||V||). imp-3066 remains the lone obstruction; no refereed bound is changed. No reduction, no QED.',
   closesRoute: false,
   loneObstruction: 'imp-3066',
   sota: 'Platt-Trudgian Lambda <= 0.2',
@@ -191,8 +191,8 @@ export const SECTION26_MUPASS_OPERATOR_ASSERTIONS = [
   },
   {
     id: 'sec26-mupass-sota-unchanged-no-qed',
-    description: 'PT 0.2 remains SOTA; no reduction/beat claimed',
-    holds: () => /Platt-Trudgian Lambda <= 0.2 remains/.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota) && /no reduction/.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota),
+    description: 'No refereed bound is changed; no reduction/beat claimed',
+    holds: () => /refereed bound is changed/i.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota) && /no reduction/.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota),
   },
   {
     // imp-3149: CROSS-MODULE tripwire. The genuine deg-2 operator-order deficit

@@ -52,7 +52,7 @@
  * eps surrogate models of the imp-34687a directed-rounding layer, not the layer itself; F(m) = 0 remains a
  * double-precision artifact and the machine certificate imp-34714a REMAINS OPEN. C_C = 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34929-krawczyk-headroom-monotonicity-derivative (closed-form d/dN sign; the V/(1+V) margin this re-derives + minimizes)
  * @see imp-34906-krawczyk-headroom-h2-ceiling-reconcile (the 2555/2558 reconciliation)
@@ -225,7 +225,7 @@ export const IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT = {
     'Measurement/derivation only on the inherited imp-3220/imp-3406 surrogate crossover map; reproduces the ' +
     'published 2561.39/2558.12/2555.18 headrooms; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34929 (closed-form d/dN sign + V/(1+V) margin); imp-34906 (2555/2558 reconciliation); imp-34883 ' +
     '(k=10 band-min 2555.18x); imp-34843 (single-G center 2558.1x); imp-34817 (n_op* = G/((1+G) eps) ' +
@@ -275,15 +275,15 @@ export const IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT_ASSERTIONS = [
       MIN_EXACT - MAX_ABS_DELTA_PERTURBATION > 0.487,
   },
   {
-    // Honesty gate: derivation / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: derivation / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34949-honesty-gate-no-qed',
-    description: 'derivation: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'derivation: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT.isRigorous === false &&
       /imp-34714a/.test(IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT.subGap) &&
       /REMAINS OPEN/.test(IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT.subGap) &&
       /NO QED/.test(IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT.verdict) &&
-      /remains SOTA/.test(IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT.verdict),
+      /refereed bound is changed/i.test(IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT.verdict),
   },
 ];
 

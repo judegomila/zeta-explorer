@@ -118,7 +118,7 @@ export const IMP36247_KRAWCZYK_R1_R6_DEPENDENCY_CHECKLIST = {
     'the imp-36154 requirement text verbatim and adds only the dependency edges; it discharges no ' +
     'requirement, instantiates no interval, and changes no bound. imp-34687a stays UNIMPLEMENTED; ' +
     'imp-34714a stays OPEN; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36154 (Krawczyk existence/uniqueness R1-R6, this module’s only source of requirement ' +
     'text); imp-36246 (S-frontier scoping-module family overview, parent cross-walk); imp-34687a ' +
@@ -163,11 +163,11 @@ export const IMP36247_KRAWCZYK_R1_R6_DEPENDENCY_CHECKLIST_ASSERTIONS = [
   },
   {
     id: 'imp36247-honesty-gate-no-qed',
-    description: 'checklist only: not rigorous, discharges nothing, no QED, PT stays SOTA',
+    description: 'checklist only: not rigorous, discharges nothing, no QED, no refereed bound is changed',
     holds: () =>
       IMP36247_KRAWCZYK_R1_R6_DEPENDENCY_CHECKLIST.isRigorous === false &&
       /NO QED/.test(IMP36247_KRAWCZYK_R1_R6_DEPENDENCY_CHECKLIST.verdict) &&
-      /remains SOTA/.test(IMP36247_KRAWCZYK_R1_R6_DEPENDENCY_CHECKLIST.verdict),
+      /refereed bound is changed/i.test(IMP36247_KRAWCZYK_R1_R6_DEPENDENCY_CHECKLIST.verdict),
   },
 ];
 

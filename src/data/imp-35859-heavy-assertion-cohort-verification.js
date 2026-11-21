@@ -31,7 +31,7 @@ export const IMP35859_HEAVY_ASSERTION_COHORT_VERIFICATION = {
     IMP35812_W1_SUMMATION_SCHEME_MEASURED_COST.id,
     IMP35813_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_EXTEND.id,
   ],
-  verdict: 'all five cohort modules import cleanly and their self-executing assertions pass; verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all five cohort modules import cleanly and their self-executing assertions pass; verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35809', 'imp-35810', 'imp-35811', 'imp-35812', 'imp-35813'];

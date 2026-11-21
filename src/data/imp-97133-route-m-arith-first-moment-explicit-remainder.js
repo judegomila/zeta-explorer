@@ -9,7 +9,7 @@
  * and quantified numerically by imp-97122 (rate O(log b / b), dominated by the L0 remainder R0). It
  * upgrades the imp-97096 EXACT leading coefficient kappa_arith = (3/2) C - 3/8 into an ABSOLUTE lower
  * bound F_arith(b) >= (kappa_arith - eps(b)) phi(b) b with an EXPLICIT eps(b). No new bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97096/imp-97122: C = (log 2pi - gamma)/2, kappa_arith = (3/2) C - 3/8 =
  * 0.5704960511308594..., omega(b) = number of distinct primes dividing b.
@@ -105,7 +105,7 @@
  * The bound is 2^{omega(b)}-modulus-dependent (triangle inequality, no mu-cancellation) but eps(b) is
  * O(b^{-1+o(1)}), so it is a genuine o(1). This settles the ARITHMETIC leaf of the Route M first moment;
  * the COTANGENT first moment (Bettin-Conrey mean value) remains the separate open leaf (imp-97097). No
- * bound on Lambda moves; T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound on Lambda moves; T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith + the sub-gap this closes)
  * @see imp-97122-route-m-arith-first-moment-convergence-rate.js (measured O(log b / b) rate, L0 dominates)
@@ -197,7 +197,7 @@ export const IMP97133_VERDICT = Object.freeze({
     'eps(b) = (1/2) 2^omega(b)(log b + 3)/phi(b) = O(b^{-1+o(1)}) -> 0. The bound is 2^omega(b)-modulus-dependent ' +
     '(triangle inequality, no mu-cancellation) and NOT tight for smooth b, so a fully uniform O(1/b) is left ' +
     'as a residual. The cotangent first moment (imp-97097) stays open. No bound moved; T ~ 2.594e7 anchor; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97133_SUBGAP = Object.freeze({
@@ -213,7 +213,7 @@ export const IMP97133_SUBGAP = Object.freeze({
 });
 
 export const IMP97133_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation closing a named sub-gap: L0(b) and L1(b) now ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation closing a named sub-gap: L0(b) and L1(b) now ' +
   'have EXPLICIT rigorous Moebius/Stirling remainders with the named constant 2^omega(b)(log b + 2), giving ' +
   'F_arith(b) >= (kappa_arith - eps(b)) phi(b) b with eps(b) = (1/2) 2^omega(b)(log b + 3)/phi(b) -> 0. The ' +
   'bound is 2^omega(b)-modulus-dependent (no mu-cancellation) so a uniform O(1/b) stays a residual; the ' +
@@ -309,7 +309,7 @@ const IMP97133_ASSERTIONS = [
       /2\^omega/.test(IMP97133_VERDICT.uniformOrModulusDependent) &&
       /uniform/.test(IMP97133_SUBGAP.statement) &&
       /NO QED/.test(IMP97133_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97133_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97133_HONEST_BANNER) &&
       /RH open/.test(IMP97133_HONEST_BANNER),
     why: 'derivation closing the imp-97096 sub-gap with a named explicit constant, but honest that the bound is 2^omega-dependent (uniform O(1/b) left as a residual) and the cotangent leaf stays open -- no bound moved, no rigorous ceiling, no QED.',
   },

@@ -55,8 +55,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33857-hump-peak-widening-crossvalidation (X3 booked the +0.52-decade offset refined here)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the ladder storing resid_exp(k), reused verbatim)
@@ -249,7 +248,7 @@ export const IMP33878_HUMP_ARGMAX_GRID_REFINEMENT = {
     'asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33857 (X3 booked the +0.52-decade offset refined here); imp-33810 (the ladder storing ' +
     'resid_exp(k), reused verbatim); imp-33844 (closed-form hump peak at sigma=1/2, crossover ' +
@@ -287,14 +286,14 @@ export const IMP33878_HUMP_ARGMAX_GRID_REFINEMENT_ASSERTIONS = [
       GAP_KCROSS_MINUS_INTEGER > 0,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refutes vanishing-offset, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refutes vanishing-offset, no QED, no refereed bound is changed.
     id: 'imp33878-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refutes vanishing-offset, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refutes vanishing-offset, no QED, no refereed bound is changed',
     holds: () =>
       IMP33878_HUMP_ARGMAX_GRID_REFINEMENT.isRigorous === false &&
       /REFUTES/.test(IMP33878_HUMP_ARGMAX_GRID_REFINEMENT.verdict) &&
       /NO QED/.test(IMP33878_HUMP_ARGMAX_GRID_REFINEMENT.verdict) &&
-      /remains SOTA/.test(IMP33878_HUMP_ARGMAX_GRID_REFINEMENT.verdict),
+      /refereed bound is changed/i.test(IMP33878_HUMP_ARGMAX_GRID_REFINEMENT.verdict),
   },
 ];
 

@@ -41,7 +41,7 @@
  * open family 690988 <= N <= 54799999, and independent of the tail lane, but not
  * yet certified. This module characterizes it and names the sub-gap; it proves
  * nothing new. Changes no bound; closes no gap; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { ROW_01399_DECISION, GATE2_ROW } from './imp-95012-gate2-frozen-spec.js';
@@ -126,7 +126,7 @@ export const IMP95046_SLAB_44_TARGET = Object.freeze({
     'short final join to the tail lane, on the shared 233/400 initial condition. It is ' +
     'independent of the Gate-2 open family and of the tail lane, but none of the four ' +
     'certification requirements is discharged by the frozen spec, so it is a target, not ' +
-    'a result. Changes no bound; closes no gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'a result. Changes no bound; closes no gap; NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ───────────
@@ -171,7 +171,7 @@ export const IMP95046_SLAB_44_TARGET_ASSERTIONS = [
   },
   {
     id: 'imp95046-independent-conditional-no-qed',
-    description: 'the slab lane is an independent conditional target: no bound, not rigorous, sub-gap named, PT stays SOTA',
+    description: 'the slab lane is an independent conditional target: no bound, not rigorous, sub-gap named, no refereed bound is changed',
     holds: () =>
       IMP95046_SLAB_44_TARGET.independentOfOpenFamily === true &&
       IMP95046_SLAB_44_TARGET.provesBound === false &&
@@ -179,7 +179,7 @@ export const IMP95046_SLAB_44_TARGET_ASSERTIONS = [
       SLAB_HYPOTHESIS.presupposesOpenFamily === false &&
       IMP95046_SLAB_44_TARGET.namedSubGap === 'imp-95046-sub-slab-box-nonvanishing-certificate' &&
       /NO QED/.test(IMP95046_SLAB_44_TARGET.verdict) &&
-      /remains SOTA/.test(IMP95046_SLAB_44_TARGET.verdict),
+      /refereed bound is changed/i.test(IMP95046_SLAB_44_TARGET.verdict),
   },
 ];
 

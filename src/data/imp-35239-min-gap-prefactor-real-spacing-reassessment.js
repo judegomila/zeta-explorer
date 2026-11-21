@@ -81,7 +81,7 @@
  * N-uniform field-Lipschitz constant, and the imp-35218 R1 refutation SHARPENS rather
  * than removes the min-gap advantage. Assessment only; discharges nothing; I3 stays
  * OPEN; establishes no operator positivity; changes no bound; C_mb GUE-conditional
- * per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35214-min-gap-field-lipschitz-surrogate-assessment (the Q2 PRESENT rating reassessed here)
  * @see imp-35218-real-ordinate-background-field-sup (R1 real-ordinate beta NOT N-uniform; R2 front law survives)
@@ -194,7 +194,7 @@ export const IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT = {
     'whole-trajectory bound (imp-35214 Q3 = imp-35167 M2/M5), which the height-dependent real-spacing scale makes ' +
     'HARDER (imp-35218 conclusion). Assessment only; discharges nothing; I3 stays OPEN; establishes no operator ' +
     'positivity; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35214-min-gap-field-lipschitz-surrogate-assessment (the Q2 PRESENT rating reassessed here); ' +
     'imp-35218-real-ordinate-background-field-sup (R1 real-ordinate beta NOT N-uniform; R2 front law survives); ' +
@@ -258,9 +258,9 @@ export const IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT_ASSERTIONS = [
       N_GRID.length === 3,
   },
   {
-    // Honesty gate: still beats strip true, prefactor NOT N-uniform (artifact), advantage degrades, I3 OPEN, NO QED, PT SOTA.
+    // Honesty gate: still beats strip true, prefactor NOT N-uniform (artifact), advantage degrades, I3 OPEN, NO QED, no refereed bound is changed.
     id: 'imp35239-honesty-gate-no-qed',
-    description: 'Assessment only: stillBeatsStrip true, prefactorNUniform false (unit-scale artifact), advantage degrades not collapses, I3 not discharged, isRigorous false, NO QED, PT SOTA',
+    description: 'Assessment only: stillBeatsStrip true, prefactorNUniform false (unit-scale artifact), advantage degrades not collapses, I3 not discharged, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.stillBeatsStripOnRealSpacing === true &&
       IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.prefactorNUniformOnRealSpacing === false &&
@@ -270,7 +270,7 @@ export const IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT_ASSERTIONS = [
       IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.i3Discharged === false &&
       IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT.verdict),
   },
 ];
 

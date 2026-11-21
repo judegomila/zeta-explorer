@@ -48,8 +48,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Curve fit + surrogate extrapolation of an inherited ratio, NOT an RH
  * bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the quadratic
  * refit and its extrapolation are descriptive within that model only; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the single-exponential fit refit here)
  * @see imp-34041-eflow-widening-ratio-growth-law-tournament (exponential wins the ratio-form tournament)
@@ -365,7 +364,7 @@ export const IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT = {
     'residual sign change at kEnd* ~ 21.281 is unchanged. The inherited imp-3220/imp-3406 component model ' +
     'is NOT a rigorous asymptotic; the quadratic refit and its extrapolation are descriptive within the ' +
     'model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34023 (the single-exponential F4 fit and the prose acceleration note refit here); imp-34041 ' +
     '(the exponential-wins ratio-form tournament); imp-33969 (the 9-window kEnd=11..13 F4 collapse); ' +
@@ -417,13 +416,13 @@ export const IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT_ASSERTIONS = [
       EXTENDED.find((r) => r.kEnd === 20).logErrQuad > 0,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34090-honesty-gate-no-qed',
-    description: 'Curve-fit/extrapolation only: isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Curve-fit/extrapolation only: isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT.isRigorous === false &&
       /NO QED/.test(IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT.verdict) &&
-      /remains SOTA/.test(IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34090_F4_COLLAPSE_QUADRATIC_LOG_DECAY_REFIT.verdict),
   },
 ];

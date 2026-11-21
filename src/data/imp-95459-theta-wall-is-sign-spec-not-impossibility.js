@@ -37,7 +37,7 @@
  *
  * WHAT DOES NOT CHANGE: nothing here derives or moves a Lambda bound; this
  * is a classification refinement of the imp-95255 LEG 2 wall. NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light (no imports, no zeros bundle). Numerics below cross-check the
  * cited imp-95375 literals, not a new derivation.
@@ -83,7 +83,7 @@ export const IMP95459_THETA_WALL_IS_SIGN_SPEC_NOT_IMPOSSIBILITY = {
     'sign-SPECIFICATION wall, not an impossibility, because the ' +
     'transcribed geometry images the range [theta_floor, 1] and admits ' +
     'theta -> 0. Nothing here derives or moves a bound. NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 const REC = IMP95459_THETA_WALL_IS_SIGN_SPEC_NOT_IMPOSSIBILITY;
@@ -121,13 +121,13 @@ export const IMP95459_ASSERTIONS = [
       'the note is explicit that this is a reclassification (missing ' +
       'sign-SPECIFICATION wall, not an impossibility), that obligation ' +
       '(3) / imp-95397 stays OPEN, that this is documentation only, and ' +
-      'that PT Lambda <= 0.2 remains SOTA',
+      'that no refereed bound is changed',
     holds: () =>
       /missing-sign-SPECIFICATION/.test(REC.reclassification) &&
       /reclassification, not a resolution/.test(REC.reclassification) &&
       /STILL OPEN/.test(REC.subGap) &&
       /DOCUMENTATION ONLY/.test(REC.honest) &&
-      /remains SOTA/.test(REC.honest),
+      /refereed bound is changed/i.test(REC.honest),
   },
 ];
 

@@ -61,7 +61,7 @@
  * DERIVATION / ASSESSMENT ONLY within the inherited imp-3220/imp-3406/imp-33810 component model, which is
  * NOT a rigorous asymptotic. Changes no bound; establishes no operator positivity; the imp-33843 log-linear
  * verdict and the imp-34188 statistical finding are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34188-widening-slope-limit-exactly-minus-one (the b_inf ~ -1.003 descriptive fit this derives)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the resid_exp sign-change ceiling k*~21.281)
@@ -225,7 +225,7 @@ export const IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION = {
     'resid_exp zero. Derivation within the inherited imp-3220/imp-3406/imp-33810 component model, which is NOT ' +
     'a rigorous asymptotic; the imp-33843 log-linear verdict and imp-34188 statistical finding are UNTOUCHED; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 const IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION_ASSERTIONS = [
@@ -267,14 +267,14 @@ const IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION_ASSERTIONS = [
   {
     // V3 + honesty gate: -1 not derivable, sits between leading value and plateau; isRigorous false, no QED.
     id: 'imp34246-honesty-gate-no-qed',
-    description: 'b_inf NOT derivably -1; -1 between leading (-1.151) and plateau; isRigorous false, no QED, K_a>=0 untouched, PT SOTA',
+    description: 'b_inf NOT derivably -1; -1 between leading (-1.151) and plateau; isRigorous false, no QED, K_a>=0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.bInfDerivablyExactlyMinusOne === false &&
       IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.minusOneIsCoincidentalPrePoleValue === true &&
       MINUS_ONE_BETWEEN_LEADING_AND_PLATEAU === true &&
       IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.verdict),
   },
 ];

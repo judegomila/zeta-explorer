@@ -28,7 +28,7 @@
  *  (+0.026 ± 0.008, ≈ 3σ against a noisy CUE400 reference summing to −0.9888) and "m ≥ 2 is what the smaller V gives" (crude g² scaling gives
  *  0.014 vs 0.021) are heuristic.
  *
- * No Λ claim. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_23_ASSERTIONS recompute live: E[gD] = −1 for CUE_2 and CUE_3
+ * No Λ claim. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_23_ASSERTIONS recompute live: E[gD] = −1 for CUE_2 and CUE_3
  * by quadrature against the exact Weyl densities, the weighted 1/L² fit (c, its error, χ²) from the stored bins, the high-block-only fit,
  * β_eff, the unfolding scale, and the isolated-pair collision rule against the first measured collision.
  */
@@ -80,7 +80,7 @@ export const ROUTE_23 = Object.freeze({
   verdict: 'Route 23 is partial; a mapping result, not progress on Λ or RH. The H_t flow is exactly the drift of Dyson BM, so the β = 2 loop '
     + 'identity gives an exact test dV/dτ(0) = −4 (proved for finite CUE_N; standard). Finite-height zeros miss it: Q + 1 = 0.059 at T ≈ 1e6 '
     + '(> 12σ under heavy-tail-aware errors), consistent with (0.434 ± 0.008)·12Λ_B/L² over L ∈ [7, 12] only (β_eff ≈ 2.13). Q is not evaluable in '
-    + 'the BBLM effective-N model. Finite-τ evolution and its numerical audit are unfinished. Nothing certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'the BBLM effective-N model. Finite-τ evolution and its numerical audit are unfinished. Nothing certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_23;
@@ -134,7 +134,7 @@ export const ROUTE_23_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r23-honest-scope',
-    holds: () => R.status === 'partial' && /not evaluable in the BBLM/.test(R.verdict) && /L ∈ \[7, 12\] only/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'partial' && /not evaluable in the BBLM/.test(R.verdict) && /L ∈ \[7, 12\] only/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && !/22σ/.test(R.headline + R.verdict) && R.running.pids.length === 2,
     why: 'Partial (production runs in flight); BBLM inference withdrawn; 1/L² law scoped to L ∈ [7, 12]; no 22σ claim; no Λ claim; no QED.',
   },

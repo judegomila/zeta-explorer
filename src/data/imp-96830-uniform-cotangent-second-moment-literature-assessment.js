@@ -10,7 +10,7 @@
  * uniform cotangent-sum second-moment results are actually available, whether any covers the
  * coupled weighted double sum T(N) needs, and precisely what the gap is.
  *
- * No bound is proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound is proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE OBJECT. The Vasyunin integral I(a,b) is NOT the bare cotangent sum. In the pinned
@@ -83,7 +83,7 @@
  * hard leg (the h-uniform moment) is already in hand and, per imp-96828, the weighted growth is
  * only logarithmic. The residual is: a tail-regime, coupled, weighted double-sum estimate for the
  * Vasyunin integral -- unwritten in the literature, but of modest analytic depth given L1-L2.
- * No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js (named the obstruction)
  * @see imp-96828-coprime-core-vasyunin-second-moment-growth.js (measured T(N) ~ 3.54 log N)
@@ -163,8 +163,8 @@ export const IMP96830_HONEST_BANNER =
   'moment Sum_{(h,k)=1} c_0(h/k)^2 ~ c k^2 log k uniformly in h, plus value-distribution limit ' +
   'laws -- but NO coupled, weighted, two-argument uniform statement of the kind T(N) needs. The ' +
   'gap is a coupled tail-regime weighted double sum for the Vasyunin integral, not a stronger ' +
-  'moment; imp-96795 mis-located it. No growth law and no bound are proved. PT Lambda <= 0.2 ' +
-  'SOTA; RH open; NO QED.';
+  'moment; imp-96795 mis-located it. No growth law and no bound are proved. No refereed bound is changed' +
+  '; RH open; NO QED.';
 
 export const IMP96830_SUBGAP = Object.freeze({
   id: 'imp-96830-coupled-weighted-vasyunin-double-sum-unwritten-but-modest',
@@ -223,7 +223,7 @@ const IMP96830_ASSERTIONS = [
     holds: () =>
       IMP96830_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96830_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96830_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96830_HONEST_BANNER) &&
       /RH open/.test(IMP96830_HONEST_BANNER) &&
       /coupled-weighted-vasyunin-double-sum/.test(IMP96830_SUBGAP.id),
     why: 'assessment only: no bound moved, honesty markers present, and the coupled-weighted-assembly sub-gap is recorded.',

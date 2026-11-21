@@ -78,7 +78,7 @@
  * positive, magnitude 4 B u = O(beta g^2) differential / O(beta g^4) integrated).
  * It does NOT discharge C_H (the Holder modulus), and 1/8 is NOT a Holder-modulus
  * upper bound -- on the contrary, B > 0 confirms |tau_c|/g0^2 >= 1/8, the
- * imp-2642 NEGATIVE that is locked. No beat is claimed; PT Lambda <= 0.2 SOTA.
+ * imp-2642 NEGATIVE that is locked. No beat is claimed; no refereed bound is changed.
  *
  * @see imp-366 polymath15-lemma52-shock-holder.js (O(g_min) remainder, coefficient 8)
  * @see imp-2563-min-gap-sandwich-theorem.js (exact du/ds = -8 + 4 B u; sandwich)
@@ -284,8 +284,8 @@ export const TANGENCY_REMAINDER_SIGN = {
   honest:
     'Verifies the LEADING coefficient 8 and the remainder STRUCTURE (one-signed ' +
     'positive, O(beta g^2) differential / O(beta g^4) integrated). Does NOT ' +
-    'discharge C_H. 1/8 is NOT a Holder-modulus upper bound. No beat; PT ' +
-    'Lambda <= 0.2 SOTA.',
+    'discharge C_H. 1/8 is NOT a Holder-modulus upper bound. No beat; no refereed bound is changed' +
+    '.',
 
   witness: {
     twoParticle: TWO_PARTICLE,

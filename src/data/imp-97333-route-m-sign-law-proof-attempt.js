@@ -81,7 +81,7 @@
  *       prove U(m) = Sum_{e|m,e>1} mu(e) D_{p1}(e) < J(p1 - 1) uniformly in omega (equivalently
  *       T(b) < 0 for all squarefree b), despite Upos(m) = Sum_{omega(e) even} D_{p1}(e) -> infinity.
  *       This is the sign specialization of IMP97309_CANCELLATION_SUBGAP. OPEN. No bound on Lambda
- *       moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *       moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97309-route-m-arith-tail-cancellation-assessment.js (RESULT 1 complementary identity; RESULT 4 measured sign law; RESULT 2 divergence localization)
  * @see imp-97289-route-m-arith-tail-o1-proof.js (Binet positive-kernel representation of J and R)
@@ -241,11 +241,11 @@ export const IMP97333_VERDICT = Object.freeze({
     'Upos(m) < J(p1-1). The OBSTRUCTION: Upos diverges ((1/24)(loglog b)^2, Mertens), the same inter-level ' +
     'divergence as imp-97309 RESULT 2, so the certificate is finite-omega only and the tail reduces to ' +
     'IMP97333_SIGN_TAIL_SUBGAP (the sign specialization of IMP97309_CANCELLATION_SUBGAP). No bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97333_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97309 sign law T(b) < 0 is ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97309 sign law T(b) < 0 is ' +
   'PROVED on a certified initial segment (omega <= 3 elementarily for all squarefree b; and via the ' +
   'positive-part certificate Upos < J(p1-1) for all primorials omega <= 20 and any b with Upos < J(p1-1)) ' +
   'through the exact smallest-prime peel identity T(b) = -J(p1-1) + Sum_{e|m,e>1} mu(e) D_{p1}(e). The tail ' +
@@ -312,7 +312,7 @@ const IMP97333_ASSERTIONS = [
       IMP97333_VERDICT.residualSubgap === 'IMP97333_SIGN_TAIL_SUBGAP' &&
       /IMP97309_CANCELLATION_SUBGAP/.test(IMP97333_SIGN_TAIL_SUBGAP.isSignSpecializationOf) &&
       /NO QED/.test(IMP97333_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97333_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97333_HONEST_BANNER) &&
       /RH open/.test(IMP97333_HONEST_BANNER),
     why: 'honest partial: sign law proved on a certified initial segment (omega<=3 all squarefree; primorials omega<=20) and reduced, for the tail, to IMP97333_SIGN_TAIL_SUBGAP -- no proof for all omega, no bound moved, no rigorous ceiling, no QED.',
   },

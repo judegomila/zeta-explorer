@@ -73,8 +73,8 @@
  *   (extendedPrecisionRebuildStillNeeded below). RH-EQUIVALENT, representative
  *   monomial truncation, not the section-26 Gram; empirical/forward-error
  *   diagnostic, NOT a proof or a reduction; the off-diagonal endpoint-Hankel
- *   operator step (imp-3066) is untouched; Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA. No false QED.
+ *   operator step (imp-3066) is untouched; no refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3217-residual-exponent-s-limit.js (the module this assesses; whose G(s)-cancellation floor is corrected here)
  *   @see imp-3153-cosh-monomial-conditioning-ceiling.js (the conditioning ceiling this pins as the real floor)
@@ -451,7 +451,7 @@ export const IMP3329_RESIDUAL_EXPONENT_EXTENDED_PRECISION_FLOOR = Object.freeze(
     operatorStepUntouched:
       'The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT ' +
       'addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   whatRemains: Object.freeze({
@@ -549,7 +549,7 @@ export const IMP3329_RESIDUAL_EXPONENT_EXTENDED_PRECISION_FLOOR_ASSERTIONS = [
         typeof c.didNotRunExtendedPrecisionRebuild === 'string' &&
         typeof w.extendedPrecisionRebuildStillNeeded === 'string' &&
         typeof w.momentsMustBeExtendedPrecision === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

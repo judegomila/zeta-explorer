@@ -52,8 +52,8 @@
  * imp-97038-firstorder-tail-decomp-breaks-past-N148: a trustworthy absolute-fraction comparison past
  * N~148 needs a resolved tail (larger T, finer panels, or higher-precision assembly) so A_lo+A_tail
  * reproduces A_full to the residual scale. Measurement only; the floor is a Rayleigh UPPER bound; no
- * operator positivity; interval-rigorous certificate reach stays 2a <= 0.96; Platt-Trudgian
- * Lambda <= 0.2 SOTA; RH open; NO QED.
+ * operator positivity; interval-rigorous certificate reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (the committed {76,100,124} comparison)
  * @see imp-96917-krein-tladder-plateau-viz-data.js (the beyond-T=3200 residual this decomposes)

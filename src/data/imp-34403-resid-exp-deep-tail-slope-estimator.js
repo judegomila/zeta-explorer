@@ -49,8 +49,7 @@
  *   ~ -2.65e-7, corroborating the imp-34310 bracketing-secant -2.32e-7 in sign and to ~14%, and
  *   the descending log-log exponent ladder (2.327 -> 1.072) is a second, independent witness of the
  *   simple order-1 zero. Surrogate finite-difference read on 4 rungs; NOT a rigorous asymptotic;
- *   C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian
- *   Lambda<=0.2 remains the SOTA unconditional bound.
+ *   C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (2-rung bracketing secant this cross-checks)
  *   @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (source tail rung literals)
@@ -135,7 +134,7 @@ export const IMP34403_RESID_EXP_DEEP_TAIL_SLOPE_ESTIMATOR = {
     'loss below that). A single 4-point power-law over-steepens (p~1.34) because the far rungs are ' +
     'still exponential; only the nearest pair is in the p~1 zone. Surrogate NOT rigorous; changes no ' +
     'bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const IMP34403_ASSERTIONS = [

@@ -11,7 +11,7 @@
  * and whether an ADAPTIVE (non-uniform) cover concentrated at the binding
  * far corner matches K = 4096 at lower cost. Measurement only; reproduces
  * the imp-95330 machinery verbatim; changes no bound; adds no bound; no
- * onset moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * onset moves; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95330 normalization, verbatim). a = ln rho, tau = b / a,
  * P(w) = (2 pi / a) sech(pi w / a), w_n = theta + 2 pi n. On the uniform
@@ -197,7 +197,7 @@ export const IMP95358_CHART_COUNT_CONVERGENCE = {
     "the same LEMMA G-MONO chart floors placed non-uniformly and would " +
     "need a proven binding-chart localization to be a production " +
     "certificate); dyadic skeleton, model family only; changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
   verdict:
     "MEASUREMENT: the imp-95330 CHART-currency-exhausted claim is " +
     "quantified across the K ladder. K = 256 within 0.7271% of K = 4096 " +
@@ -205,7 +205,7 @@ export const IMP95358_CHART_COUNT_CONVERGENCE = {
     "second-order (O(K^-2)) approach, onset within 0.0039 of the " +
     "continuum, and an adaptive far-corner cover matching K = 4096 at " +
     "~32x lower cost at large rho. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -441,12 +441,12 @@ export const IMP95358_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT only, " +
       "no bound change, no onset move, adaptive cover is a cost " +
-      "observation not a theorem, NO QED, PT SOTA",
+      "observation not a theorem, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement only/i.test(REC.honestScope) &&
       /cost observation, not a new theorem/.test(REC.honestScope) &&
       /model family only/.test(REC.honestScope),

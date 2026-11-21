@@ -55,7 +55,7 @@ export const IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE = {
     'AUDIT ONLY. No new viz-data module or page added -- imp-35863 already supplies the ' +
     'full artifact imp-35875 requested. This module records the duplicate-ticket finding ' +
     'and pins a permanent regression guard confirming the citation stays consistent. ' +
-    'Changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'Changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE_ASSERTIONS = [
@@ -85,11 +85,11 @@ export const IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE_ASSERTIONS = [
   },
   {
     id: 'imp35875-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE.isRigorous === false &&
       /NO QED/.test(IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE.verdict) &&
-      /remains SOTA/.test(IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE.verdict),
+      /refereed bound is changed/i.test(IMP35875_SPLIT_INVERSION_VIZ_AUDIT_DUPLICATE.verdict),
   },
 ];
 

@@ -61,7 +61,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee relocation to N* ~ 3.38e9 -- the reading tested here)
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (whole-decade ladder placing the knee at [1e10,1e11])
@@ -278,8 +278,8 @@ export const IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY = {
     'so the W=1.0 ladder could only see a decade-smeared shadow that lands at [1e10,1e11]. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33721 (sub-decade knee relocation to N* ~ 3.38e9 -- the reading tested here); imp-33701 ' +
     '(whole-decade ladder placing the knee at [1e10,1e11]); imp-33582 (six-decade exponent ladder ' +
@@ -328,14 +328,14 @@ export const IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY_ASSERTIONS = [
       WIDTH_SWEEP.filter((r) => r.widthDecades >= 0.4).every((r) => r.signChanges === 0),
   },
   {
-    // Honesty gate: measurement/fit only, bracket-robust verdict, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, bracket-robust verdict, no QED, no refereed bound is changed.
     id: 'imp97708-honesty-gate-no-qed',
-    description: 'Measurement only: bracket-robust verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: bracket-robust verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY.isRigorous === false &&
       IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY.verdictBracketRobust === true &&
       /NO QED/.test(IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP97708_SIGMA_KNEE_BRACKET_WIDTH_SENSITIVITY.verdict),
   },
 ];
 

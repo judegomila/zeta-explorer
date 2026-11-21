@@ -41,7 +41,7 @@ export const R4_G0D = Object.freeze({
   floorMargin: Object.freeze({ storedField: [7.176e-6, 1.205e-5], consumerRead: [7.266e-6, 1.214e-5], coneMarginMin: 1.743e-4 }),
   verdict: 'G0-d: AF Part I §§6–9 SOUND (no ERROR, 8 expository GAPs with fixes), proved as written with one internal referee pass; every one-point '
     + 'producer field read by the three PT-height values certified by independent code. PROBE_kap_0_88 C = 17/5 rows carry no valid floor (unread). '
-    + 'No Λ value moves. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No Λ value moves. No refereed bound is changed. RH open. NO QED.',
 });
 
 const G = R4_G0D;

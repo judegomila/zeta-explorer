@@ -60,7 +60,7 @@
  * NOT limits of the two-scale form. This leaves IMP96669_SUBGAP open: no N-asymptotics for w1 or
  * the gap ratio are established -- a spectral-edge growth-rate theorem for the multiplicative
  * Vasyunin / Dirichlet-Bohr Gram is still required. Measurement only; no closed form for the
- * 0.3526 coefficient; changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open;
+ * 0.3526 coefficient; changes no bound; no operator positivity; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-96652-route-m-lammax-sigmoid-onset-spectral-derivation.js (the two-scale derivation this measures the inputs of)
@@ -130,8 +130,8 @@ export const IMP96669_VERDICT = Object.freeze({
     '(r0=2.94, k=0.86): the r0 curve crosses 2.94 near N~4000 and keeps rising, so the imp-96652 ' +
     '"climbing toward 2.94" reading was a coincidental crossing, not a limit. The imp-96636 (2.94, ' +
     '0.86) are truncated-ladder b_r/L fit values, not asymptotic limits of the two-scale inputs. ' +
-    'IMP96669_SUBGAP (N-asymptotics of w1 and the gap ratio) stays open. No bound moved; PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'IMP96669_SUBGAP (N-asymptotics of w1 and the gap ratio) stays open. No bound moved; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96669_SUBGAP = Object.freeze({
@@ -146,7 +146,7 @@ export const IMP96669_SUBGAP = Object.freeze({
 });
 
 export const IMP96669_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only (numpy eigh, ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only (numpy eigh, ' +
   'tmp/imp-96669-spectral-ladder-extend.py, same exact V-table as imp-96105/96443/96612/96652). ' +
   'The two-scale inputs w1 and lam1/lam2 keep DRIFTING over N=1000..6000 (monotone down, steps ' +
   'shrink but do not vanish); the derived two-scale r0 and k climb monotonically and OVERSHOOT the ' +
@@ -218,7 +218,7 @@ const IMP96669_ASSERTIONS = [
       IMP96669_VERDICT.measuredAreLimits === false &&
       IMP96669_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96669_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96669_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96669_HONEST_BANNER) &&
       /RH open/.test(IMP96669_HONEST_BANNER) &&
       /drift-no-established-nlimit/.test(IMP96669_SUBGAP.id),
     why: 'measurement only: both inputs drift with no established N-limit, the two-scale (r0,k) overshoot the measured targets, no bound moved, and the honesty markers plus the open sub-gap are present.',

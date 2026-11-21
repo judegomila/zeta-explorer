@@ -70,7 +70,7 @@
  * consumer relies on more than ~10 stored figures. The imp-97763 headroom (~34 usable figs) is real but
  * carries no readable information for these consumers. Re-baking is inert -- do NOT re-attempt it as a
  * precision lever. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no
- * bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97763-route-m-ladder-constant-precision-floor.js (constants carry ~40.6 figs; storage-limit finding)
  * @see imp-97742-route-m-ladder-dps40-crosscheck.js (dps=40 reproduces the baked rungs to ~10.5-11 figs)
@@ -158,11 +158,11 @@ export const IMP97778_VERDICT = Object.freeze({
     'recompute, not a storage limit, and no downstream consumer (imp-97739/97747/97758/97763) parses ' +
     'more than ~10 stored figures. The imp-97763 ~34-usable-fig headroom is real but carries no readable ' +
     'information for these diagnostics; a re-bake is inert. MCM stays refuted from omega=11; b/4 ceiling ' +
-    'untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97778_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment of re-baking the imp-97722 Route M ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment of re-baking the imp-97722 Route M ' +
   'gap-law residual ladder at 20-30 stored figures: no measurable gain -- the tightest sign-oscillation ' +
   'call clears the ~10-fig storage granularity by ~2.37 million granules, and the ~1.42-wide exponent ' +
   'band is a dynamical Mertens oscillation ~2.8e9 above the ~5e-10 storage noise. The imp-97640 sub-gap ' +
@@ -209,7 +209,7 @@ const IMP97778_ASSERTIONS = [
       IMP97778_VERDICT.anyBoundMoved === false &&
       IMP97778_VERDICT.qed === false &&
       /NO QED/.test(IMP97778_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97778_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97778_HONEST_BANNER) &&
       /RH open/.test(IMP97778_HONEST_BANNER),
     why: 'assessment only -- re-bake inert; MCM refuted from omega=11; no bound moved, no QED.',
   },

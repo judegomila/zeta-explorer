@@ -15,7 +15,7 @@
  * @see imp-33538 (the named ~10.78 ULP fp64 tau-uniform envelope this assesses)
  *
  * Ticket: imp-33594 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33594_FP64_ENVELOPE_ULP = 10.7793;

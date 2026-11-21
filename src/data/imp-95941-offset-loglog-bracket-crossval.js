@@ -58,8 +58,7 @@
  * direction. The cross-check therefore neither confirms nor refutes the bracket -- it confirms
  * the imp-95921 bracket rests on the ANALYTIC saturation law, not on the accessible data, and
  * the imp-95710 window-reach sub-gap (6.8 decades below T = 3e12) is unchanged. Changes no
- * bound; NO QED; the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; NO QED; the zero-side route stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the six sd(C - E) values are baked
  * measured literals (imp-95562 over the verified ordinates, identical to imp-95710 / imp-95921);
@@ -210,7 +209,7 @@ export const IMP95941_OFFSET_LOGLOG_BRACKET_CROSSVAL = {
     'therefore neither confirms nor refutes the bracket -- it confirms the imp-95921 bracket rests on ' +
     'the ANALYTIC saturation law, not on the accessible data, and the imp-95710 window-reach sub-gap ' +
     '(6.8 decades below T = 3e12) is unchanged. Changes no bound; NO QED; the zero-side route stays ' +
-    'PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95921 (analytic 1/2pi^2 upward-drift bracket); imp-95710 (six measured sd(C - E) inputs, ' +
     'window-reach sub-gap); imp-95897 (raw-slope R^2 = 0.0007, interior max at 1.5e5); imp-95562 ' +
@@ -239,11 +238,11 @@ export const IMP95941_OFFSET_LOGLOG_BRACKET_CROSSVAL = {
   if (!(rmseAnalytic < 1.1 * rmseFree)) throw new Error('imp-95941: analytic-slope model should fit about as well as free');
   // the scatter swamps the predicted drift (why the slope is unresolvable at these heights).
   if (!(scatterToDriftRatio > 3)) throw new Error('imp-95941: scatter-to-drift ratio unexpectedly small');
-  // honesty gates: measurement, no QED, PT stays SOTA.
+  // honesty gates: measurement, no QED, no refereed bound is changed.
   if (!/NO QED/.test(IMP95941_OFFSET_LOGLOG_BRACKET_CROSSVAL.verdict))
     throw new Error('imp-95941: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95941_OFFSET_LOGLOG_BRACKET_CROSSVAL.verdict))
-    throw new Error('imp-95941: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95941_OFFSET_LOGLOG_BRACKET_CROSSVAL.verdict))
+    throw new Error('imp-95941: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95941_OFFSET_LOGLOG_BRACKET_CROSSVAL;

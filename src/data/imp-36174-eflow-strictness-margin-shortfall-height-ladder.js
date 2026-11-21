@@ -56,7 +56,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35102-nhalf-ncross-strictness-multirung-verify (single-point surplus this ladder extends)
  * @see imp-33848-nhalf-ncross-strict-ordering-closed-form (the two closed-form conditions)
@@ -183,7 +183,7 @@ export const IMP36174_EFLOW_STRICTNESS_MARGIN_SHORTFALL_HEIGHT_LADDER = {
     'ordering N_half < N_cross rests on a real but asymptotically vanishing margin. The component ' +
     'model is the inherited extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35102 (single-point surplus this ladder extends); imp-33848 (two closed-form strictness ' +
     'conditions); imp-33723 (closed-form N_cross); imp-33601 (parts(N) model + surplus identity); ' +
@@ -225,13 +225,13 @@ export const IMP36174_EFLOW_STRICTNESS_MARGIN_SHORTFALL_HEIGHT_LADDER_ASSERTIONS
     holds: () => SHORTFALL_DECADE_SPAN > 3.5 && SHORTFALL_TOP > SHORTFALL_BOTTOM,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp36174-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP36174_EFLOW_STRICTNESS_MARGIN_SHORTFALL_HEIGHT_LADDER.isRigorous === false &&
       /NO QED/.test(IMP36174_EFLOW_STRICTNESS_MARGIN_SHORTFALL_HEIGHT_LADDER.verdict) &&
-      /remains SOTA/.test(IMP36174_EFLOW_STRICTNESS_MARGIN_SHORTFALL_HEIGHT_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP36174_EFLOW_STRICTNESS_MARGIN_SHORTFALL_HEIGHT_LADDER.verdict),
   },
 ];
 

@@ -43,7 +43,7 @@
  * residual and checks it against an already stated attribution; it introduces no new mathematical claim and
  * changes no bound. The component model is NOT a rigorous asymptotic. The C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no
- * operator positivity; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains the SOTA bound.
+ * operator positivity; changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-34470-height-map-affinity-departure-fit (the OLS linear fit and convex residual this fits a quadratic to)
  * @see imp-34246-widening-slope-limit-analytic-derivation (the b(u) = ln10*(1-1/u) slope whose curvature is checked)
@@ -198,7 +198,7 @@ export const IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK = {
     'the constant-curvature model predicts. Measurement / cross-check only within the inherited ' +
     'imp-3220/imp-3406/imp-33810/imp-34246 component model, NOT a rigorous asymptotic; imp-34470 findings ' +
     'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
 };
 
 const IMP34510_ASSERTIONS = [
@@ -234,13 +234,13 @@ const IMP34510_ASSERTIONS = [
       Math.abs(PRED_DRIFT_RATE * B_SLOPE - PRED_CURVATURE) < 5e-5,
   },
   {
-    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34510-honesty-gate-no-qed',
-    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, C_mb per imp-486 untouched, PT SOTA',
+    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, C_mb per imp-486 untouched, no refereed bound is changed',
     holds: () =>
       IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK.isRigorous === false &&
       /NO QED/.test(IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK.verdict) &&
-      /remains SOTA/.test(IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK.verdict) &&
       /C_mb GUE-conditional per imp-486 UNTOUCHED/.test(IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34510_AFFINITY_RESIDUAL_QUADRATIC_CURVATURE_CHECK.verdict),
   },

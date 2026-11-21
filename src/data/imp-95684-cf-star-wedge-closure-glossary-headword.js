@@ -28,15 +28,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95660 cf* figure and the ~16pct headline for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   Sensitivity/measurement only, NOT an RH bound; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   Sensitivity/measurement only, NOT an RH bound; no QED. No refereed bound is changed.
  *
  * @see imp-95660-cf-multiplier-wedge-closure (source: the cf sweep and the bisected cf* = 0.83891)
  * @see imp-95617-transition-knee-ordering-joint-2d (the joint 2-D sweep that surfaced the wedge)
  * @see imp-95639-eflow-zero-inversion-wedge (the cf=0 endpoint this sweep interpolates toward)
  * @see imp-95695-cf-wedge-foreclosure-glossary-headword (whether the honest C_F band reaches cf*: it does not)
  *
- * Ticket: imp-95684 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95684 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The cf*-wedge-closure headword, baked verbatim (no re-import).
@@ -76,7 +75,7 @@ export const IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Restates the imp-95660 measurement: the ' +
     'imp-95617 E_flow-driven inversion wedge closes at a C_F multiplier cf* = 0.83891, i.e. under a ' +
     '~16.11pct downward revision of the imp-398 C_F prefactor. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95660 (bisected cf* = 0.83891); imp-95617 (joint 2-D sweep surfacing the wedge); imp-95639 ' +
     '(cf=0 endpoint); imp-95674/imp-95695 (whether the honest C_F band reaches cf*: it does not).',
@@ -101,11 +100,11 @@ export const IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95684-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD.verdict) &&
       IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD.glosses === 'imp-95660' &&
       IMP95684_CF_STAR_WEDGE_CLOSURE_GLOSSARY_HEADWORD.scopes === 'imp-95617',
   },

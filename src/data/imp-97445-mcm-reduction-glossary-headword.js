@@ -46,7 +46,7 @@
  *   omega=11 and why the b/4 ceiling survives it)
  *
  * Ticket: imp-97445 (content, sonnet-4-6, sonnet). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The MCM reduction headword, baked verbatim (no re-import).
@@ -82,7 +82,7 @@ const MCM_REDUCTION_HEADWORD = Object.freeze({
     'the conditional MCM=>0<=T(b)<1/4 induction are verified directly. MCM was later refuted as a ' +
     'universal hypothesis at omega=11 (imp-97432; see imp-97465), though the weaker b/4 ceiling ' +
     'survives that counterexample. Naming / glossary headword only; supplies no new bound; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -100,7 +100,7 @@ export const IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD = Object.freeze({
     'T(b) = Sum_{d|b} mu(d) g(d)/d = (D_{p1}...D_{pk} h)(1) collapsing SIGN + MAGNITUDE to ' +
     '|T(b)|<=1/4, the multiplicative-difference pairing (max signed group 8 -> 4 -> 2 -> 1 at ' +
     'omega=4), and the conditional consequence MCM => 0<=T(b)<1/4. No bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97422 (the reduction, pairing, and conditional MCM consequence this glosses); ' +
     'imp-97392 (the per-term over-charge obstruction the pairing bypasses); imp-97465 (the later ' +
@@ -128,11 +128,11 @@ export const IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97445-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97422.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97422.',
     holds: () =>
       IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD.verdict) &&
       IMP97445_MCM_REDUCTION_GLOSSARY_HEADWORD.glosses === 'imp-97422',
   },
 ];

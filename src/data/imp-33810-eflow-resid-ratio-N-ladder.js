@@ -57,8 +57,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Cross-consistency + attribution diagnostic, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33773-ecoll-sigma-offset-eflow-attribution (M2 refutation whose tail ratio is tracked here)
  * @see imp-33809-saturation-curvature-hump-vs-k (M3 curvature-hump amplitude vs k)
@@ -272,8 +271,8 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER = {
     'The imp-33773 M3 saturation-curvature attribution is the one left standing. The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33773 (M2 refutation whose tail ratio is tracked here); imp-33809 (M3 curvature-hump vs k); ' +
     'imp-33727 (offset ladder + E_flow attribution); imp-33620 (separated-E_coll exponent ladder); ' +
@@ -330,15 +329,15 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER_ASSERTIONS = [
       SEPARATION_WIDENING_FULLPREC < SEPARATION_WIDENING,
   },
   {
-    // Honesty gate: measurement/attribution only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement/attribution only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33810-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, ratio below unity throughout, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, ratio below unity throughout, no QED, no refereed bound is changed',
     holds: () =>
       IMP33810_EFLOW_RESID_RATIO_N_LADDER.isRigorous === false &&
       IMP33810_EFLOW_RESID_RATIO_N_LADDER.ratioTrend.all_below_unity === true &&
       IMP33810_EFLOW_RESID_RATIO_N_LADDER.ratioTrend.same_sign_positive === true &&
       /NO QED/.test(IMP33810_EFLOW_RESID_RATIO_N_LADDER.verdict) &&
-      /remains SOTA/.test(IMP33810_EFLOW_RESID_RATIO_N_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP33810_EFLOW_RESID_RATIO_N_LADDER.verdict),
   },
 ];
 

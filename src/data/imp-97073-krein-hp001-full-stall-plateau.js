@@ -44,7 +44,7 @@
  *   to 0.01 all exhausted, the kmax=5 top-family design F still dips to ~0.95 < eps at t~36.4 near the T=40
  *   cutoff; the untested lever is a richer design family (kmax>5 or a non-periodic tail ansatz), matching
  *   the imp-97032 structural sub-gap IMP97032_TAIL_EDGE_DIP_IS_STRUCTURAL_NOT_PARAMETRISATION.
- * RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-97032-krein-tail-parametrisation-lever.js (parent: sub-gap IMP97032_DENSER_HP_RUN_RESOURCE_LIMITED_TO_ROUND5, round-5 plateau -0.0615)
  * @see imp-97013-krein-finer-fineh-3e5-convergence.js (grandparent: FINEH=3e-5 exposes the design-F tail dip)

@@ -5,7 +5,7 @@
  * keeps rising, stabilizes, or whether the R2 gap keeps widening -- i.e. whether the
  * on-line margin floor is an asymptote or a still-drifting finite-height feature.
  * Import-light (literals baked, no zeros bundle); holds() assertions; self-executing.
- * Measurement only. NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Measurement only. NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. imp-96148 fit the worst-support (N=32) on-line margin rho(32,T) over a seven-
  * point grid stopping at T=395.98 (gamma_200) to rho=c+d/lnT (c=0.14256, R2=0.99093 vs
@@ -53,7 +53,7 @@
  * strictly feasible at every extended height; what is UNSETTLED is the numeric floor value
  * and the functional form, not the sign. The uniform-in-T obstruction still lives OFF the
  * line (Weil-positivity strength), inaccessible to this on-line construction -- unchanged.
- * Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA1000 = Object.freeze({
@@ -66,7 +66,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA1000 = Object.freeze({
     + 'floor REVERSES its rise (0.16030 -> 0.11063) and the reciprocal-log/log-linear R2 gap COLLAPSES (0.02792 -> '
     + '0.00214, both laws ~0.985). This partly corrects the imp-96167 "positive asymptote" reading. The margin still '
     + 'stays strictly positive (0.4580 at T~1419, no crossing; log-linear cross recedes to T~3.3e5). '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED',
 
   method: {
     pipeline: 'reproduces imp-96020/imp-96167: a_n(x)=n^-1/2 cos(theta(x)-x log n); near-collision x*=inter-zero '
@@ -158,7 +158,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA1000 = Object.freeze({
     + 'imp-96167 read into the gamma_500 column -- deciding the true asymptote would need census depth well beyond '
     + 'gamma_1000 (or an off-line argument). What IS stable across all depths is the sign: the margin stays strictly '
     + 'positive with no crossing (0.4580 at T~1419), and the uniform-in-T obstruction stays off the line. '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED.',
 
   subGap: {
     name: 'the on-line margin floor VALUE / functional form is not asymptotically settled by gamma_1000 (finite-height drift)',
@@ -232,7 +232,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA1000_ASSERTIONS = Object.freeze([
     name: 'honest status: measurement only, no bound change, no QED',
     holds: () => /MEASURED/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

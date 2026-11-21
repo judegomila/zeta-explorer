@@ -41,15 +41,15 @@
  *   STATUS: a MEASUREMENT/classification headword, not a proof. Confirms the O(u)
  *   growth class on three-prime rungs and explains away the apparent totient
  *   sub-linearity as a mixing artifact. Establishes no operator positivity, moves no
- *   Lambda bound, and does not touch the top confined states. RH open; PT Lambda<=0.2
- *   SOTA; NO QED.
+ *   Lambda bound, and does not touch the top confined states. RH open; no refereed bound is changed
+ *   ; NO QED.
  *
  * @see imp-96366-mixed-ladder-multiplicity-growth-exponent (source: the measurement this glosses)
  * @see imp-96333-mixed-ladder-235-spectral-gap-margin-tabulation (HONEST LIMITS flag this measurement answers)
  * @see imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability (the m_u ~ C u multiplicity model calibrated to p=2)
  *
  * Ticket: imp-96400 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The index-vs-totient headword, baked verbatim (no re-import).
@@ -90,7 +90,7 @@ const INDEX_VS_TOTIENT_HEADWORD = Object.freeze({
     'the class-mixing artifact, not a departure from O(u)). The imp-96143 cubic tail majorant ' +
     'only needs the O(u) growth class (it is robust to the constant), so this measurement ' +
     'leaves that conclusion unaffected. Establishes no operator positivity; moves no Lambda ' +
-    'bound; does not touch the top confined states; RH open; PT Lambda <= 0.2 SOTA; NO QED.',
+    'bound; does not touch the top confined states; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD = Object.freeze({
@@ -112,7 +112,7 @@ export const IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD = Object.freeze({
     'WITHIN a single prime-content class, but its pooled slope (0.985668 full three-prime) is a ' +
     'finite-range artifact of mixing classes with different leading Euler constants, not ' +
     'sub-linear growth. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96366 (the multiplicity measurement this glosses); imp-96333 (HONEST LIMITS flag this ' +
     'measurement answers); imp-96143 (the m_u ~ C u multiplicity model calibrated to p=2).',
@@ -138,11 +138,11 @@ export const IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96400-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD.verdict) &&
       IMP96400_INDEX_VS_TOTIENT_GLOSSARY_HEADWORD.glosses === 'imp-96366',
   },
 ];

@@ -35,8 +35,8 @@
 // in log space (log t and decades of T).
 //
 // Measurement only; the operative region stays classical throughout the window
-// with the inert per-zero factor ~0.845; changes no bound; NO QED; Platt-Trudgian
-// Lambda <= 0.2 remains SOTA (imp-3463 lineage).
+// with the inert per-zero factor ~0.845; changes no bound; NO QED; no refereed bound is changed
+//  (imp-3463 lineage).
 
 const ln = Math.log;
 const LN10 = Math.LN10;
@@ -135,7 +135,7 @@ export const IMP_95694_VK_CROSSOVER_CONSTANT_SENSITIVITY = {
     + 'to ~12.1 (with MTY classical), a ~4.75x improvement over Ford that no admissible '
     + 'constant achieves. The imp-95632 zero-VK-saving verdict is ROBUST to constant '
     + 'provenance, not an artifact of the 57.54 / 5.558691 pair. Measurement only; '
-    + 'changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    + 'changes no bound; NO QED; no refereed bound is changed.',
   // self-check (log-space; the raw exp(crossover) factors are not representable):
   holds: () =>
     Math.abs(CANONICAL_CROSSOVER - 10242.2363) < 1e-2 &&

@@ -53,7 +53,7 @@
  * MEASUREMENT / MODEL-SELECTION reusing the imp-36018 (=imp-35970) slack literals. Certifies no W1
  * bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound;
  * establishes no positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent (source: free OLS depth-scaling exponent + points)
  * @see imp-35970-w1-pairwise-apriori-depth-bound-slack (per-shape a-priori-vs-measured slack table)
@@ -64,7 +64,7 @@
 import { IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT } from './imp-36018-w1-pairwise-slack-depth-scaling-exponent.js';
 
 const SOURCE = IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT;
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this model selection
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this model selection
 
 // (depth, slack) points read verbatim from the imp-36018 export (which reads them from imp-35970).
 const POINTS = SOURCE.points.map((p) => ({
@@ -211,8 +211,8 @@ export const IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION = {
     'sqrt-in-d and linear-in-d, refining imp-35970 "linearly in d" and locating the imp-36018 sub-linear ~0.75 ' +
     'exponent as the sqrt-linear midpoint. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
     'interval; verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate ' +
-    'at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36018 (source free OLS depth-scaling exponent + points); imp-35970 (a-priori-vs-measured slack table); ' +
     'imp-35893 (tree-SHAPE sweep + measured errors); imp-35952 (measured error is an N-independent floor at fixed ' +
@@ -271,16 +271,16 @@ export const IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION_ASSERTIONS = [
       Math.abs(FREE_SLOPE - 0.75) < 0.05,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36039-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /statistical TIE/.test(IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION.conclusion.threeWayVerdict) &&
       /GREENFIELD/.test(IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION.verdict) &&
-      /remains SOTA/.test(IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION.verdict),
+      /refereed bound is changed/i.test(IMP36039_W1_PAIRWISE_SLACK_DEPTH_LAW_ADJUDICATION.verdict),
   },
 ];
 

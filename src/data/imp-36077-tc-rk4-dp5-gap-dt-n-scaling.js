@@ -51,8 +51,7 @@
  * common-mode error simply by refining the step. The visible disagreement is a
  * poor proxy for the true integration error near the collision front. This is a
  * MEASUREMENT/ASSESSMENT of the blind-spot size, explicitly NOT a certified
- * a-priori step-error bound. No inequality is discharged; NO QED; the
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * a-priori step-error bound. No inequality is discharged; NO QED; no refereed bound is changed.
  *
  * NAMED SUB-GAP
  * -------------
@@ -192,7 +191,7 @@ function deriveVerdict() {
       'disagreement is floored by the dt-quantization of the threshold crossing (~dt/t_c) and is ' +
       'a poor proxy for the true integration error near the front. Measurement only; the shared ' +
       'systematic remains uncertified (GAP-36077-common-mode-uncertified); NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
   };
 }
 

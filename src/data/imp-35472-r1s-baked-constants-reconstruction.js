@@ -40,7 +40,7 @@
  * on R1t (the OPEN true-dynamic residue); imp-35243a stays OPEN; the single-rate/height-map fidelity halves
  * R2/R3 stay OPEN; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); changes NO bound; no operator positivity; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35414-r1s-zero-residue-surrogate-lemma (the lemma whose baked constants this reconstructs)
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (the source chain: gD, N_CROSS_FP, gPrimeAtStep)
@@ -138,8 +138,8 @@ export const IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION = {
     'sensitivity -1/ln(1/r) agree to the same floor. H1-H3 numerical inputs verified. VERIFICATION of numerical ' +
     'inputs ONLY; discharges NOTHING on R1t; imp-35243a stays OPEN; the C_C = (1/8) sqrt(3 pi) ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '(imp-3463); changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35414 (the lemma whose baked constants this reconstructs); imp-35243 (source chain gD/N_CROSS_FP/' +
     'gPrimeAtStep, R_CONTRACT, LN_INV_R); imp-35357 (R1s/R1t split); imp-35453 (sibling closed-form threshold); ' +
@@ -189,13 +189,13 @@ export const IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION_ASSERTIONS = [
   {
     // Honesty gate: verification of numerical inputs only, isRigorous false, discharges nothing, R1t/imp-35243a OPEN.
     id: 'imp35472-honesty-gate-no-qed',
-    description: 'verification of numerical inputs only: isRigorous false, discharges nothing, imp-35243a OPEN, no QED, PT SOTA',
+    description: 'verification of numerical inputs only: isRigorous false, discharges nothing, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION.isRigorous === false &&
       /discharges NOTHING on R1t/.test(IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION.verdict) &&
       /imp-35243a stays OPEN/.test(IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION.verdict) &&
       /NO QED/.test(IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION.verdict) &&
-      /remains SOTA/.test(IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION.verdict),
+      /refereed bound is changed/i.test(IMP35472_R1S_BAKED_CONSTANTS_RECONSTRUCTION.verdict),
   },
 ];
 

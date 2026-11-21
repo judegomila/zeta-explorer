@@ -48,7 +48,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive,
  * not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643)
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34368-residexp-resolution-floor-measurement (source of eps_f, |f2|, dk, k*; reused verbatim)
  * @see imp-34551 (the bignum resid_exp recompute this table scopes the payoff for)
@@ -132,7 +132,7 @@ export const IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF = {
     '3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, ' +
     'not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-' +
     '2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34368 (source of eps_f, |f2|, dk, k*; reused verbatim); imp-34551 (the bignum recompute this ' +
     'table scopes); imp-34228 (the ~4.27e-11 offset used as the resolution target); imp-486 (C_mb GUE-' +
@@ -190,14 +190,14 @@ export const IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF_ASSERTIONS = [
       Math.abs(P_NEEDED_FOR_OFFSET - 74.4) < 1.0,
   },
   {
-    // Honesty gate: derivation only, isRigorous false, no QED, PT SOTA, inherited constants untouched.
+    // Honesty gate: derivation only, isRigorous false, no QED, no refereed bound is changed, inherited constants untouched.
     id: 'imp34552-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, PT Lambda<=0.2 SOTA, imp-3066 and inherited constants untouched',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed, imp-3066 and inherited constants untouched',
     holds: () =>
       IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.isRigorous === false &&
       /NOT rigorous/.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict) &&
       /NO QED/.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict) &&
-      /remains\s+SOTA/.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict) &&
+      /refereed bound is changed/i.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34552_RESIDEXP_PRECISION_FLOOR_PAYOFF.verdict),

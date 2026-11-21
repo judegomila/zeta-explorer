@@ -6,8 +6,7 @@
  * SCOPE. Accuracy audit only. Independently re-derives the arithmetic
  * relationships stated in imp-95210-window1-pilot-certificate.js
  * (LEDGERS_PER_X + FEASIBILITY) and flags any discrepancy. Changes no
- * bound, certifies nothing, promotes nothing. NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound, certifies nothing, promotes nothing. NO QED; no refereed bound is changed.
  *
  * WHAT WAS VERIFIED (recomputable from the frozen imp-95210 constants):
  *  1. LEDGER RATIO. 84.76908 / 44.476493 = 1.905930, matching the
@@ -64,7 +63,7 @@ export const IMP95137_ALIAS_LEDGER_CROSSCHECK = Object.freeze({
     'NO DISCREPANCY: 84.76908/44.476493 = 1.9059 matches the claimed 1.906 (7e-5); ' +
     'cell reduction equals the ledger ratio by the linear feasibility model (stored 1.9066 vs 1.9059, ' +
     'rounding-level); the absolute 44.476 ledger stays an unverified external Arb byproduct. ' +
-    'Audit only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Audit only; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -99,12 +98,12 @@ export const IMP95137_ASSERTIONS = [
   {
     id: 'imp95137-honesty-gate-audit-only',
     description:
-      'fail-closed honesty: absolute constant not independently re-derived, sub-gap OPEN, no bound promoted, NO QED and PT-SOTA stated',
+      'fail-closed honesty: absolute constant not independently re-derived, sub-gap OPEN, no bound promoted, NO QED and no-refereed-bound-change stated',
     holds: () =>
       IMP95137_ALIAS_LEDGER_CROSSCHECK.aliasConstantIndependentlyRederived === false &&
       /OPEN/.test(IMP95137_ALIAS_LEDGER_CROSSCHECK.subGap) &&
       /NO QED/.test(IMP95137_ALIAS_LEDGER_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP95137_ALIAS_LEDGER_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP95137_ALIAS_LEDGER_CROSSCHECK.verdict),
   },
 ];
 

@@ -27,7 +27,7 @@
  *
  *   Ticket: imp-97178 (ux, low). Presentation of an already-derived/verified
  *   asymptotic; adds no new Lambda bound. The boundary term stays
- *   O(b log b) = o(phi(b) b) (imp-97119). PT Lambda <= 0.2 SOTA. RH open. NO QED.
+ *   O(b log b) = o(phi(b) b) (imp-97119). No refereed bound is changed. RH open. NO QED.
  */
 
 // -- series (1): resid vs model, copied verbatim from imp-97139 IMP97139_TABLE --
@@ -69,7 +69,7 @@ export const IMP97178_VERDICT = Object.freeze({
 });
 
 export const IMP97178_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: reshapes the ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: reshapes the ' +
   'already-derived (imp-97139) and already-verified O(1/b) sub-leading coefficient ' +
   '-pi/36 of the classical cotangent sum V(1,b) into a resid-vs-model overlay and a ' +
   'scaled (resid + pi/(36b)) * b^3 ladder. No re-derivation, no bound moved, says ' +

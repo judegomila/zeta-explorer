@@ -11,7 +11,7 @@
  *
  *   MEASUREMENT ONLY. Rayleigh-Ritz floors are UPPER bounds on the true infinite-dim lambda_min; this
  *   leaf establishes NO operator positivity and produces NO rigorous lower bound; interval-rigorous
- *   certificate reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * WHAT WAS RUN (tmp/imp-97183-csharp-extprec-ladder.py, tmp/imp-97183-tsweep.py). The pole-free basis
  *   phi_n(x) = (a^2-x^2)^m P_n(x/a), m=3, at 2a=ln3 (a = ln3/2). The Gram B and the sigma_2-weighted

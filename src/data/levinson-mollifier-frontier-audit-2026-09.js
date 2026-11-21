@@ -40,7 +40,7 @@
 //    Littmann–Milinovich).  Beyond it lies F(α) for |α| > 1 — pair correlation
 //    beyond the diagonal, i.e. Hardy–Littlewood prime-pair correlations on average —
 //    the same wall as Montgomery's PCC.  Full PCC ⇒ 100% (Montgomery), not RH.
-// 6. NO QED.  RH open.  PT Λ ≤ 0.2 stands (this module touches Λ nowhere).
+// 6. NO QED.  RH open.  No refereed bound is changed (this module touches Λ nowhere).
 //
 // FUNCTIONAL (Conrey 1989 Thm 2, quoted verbatim as Bui–Conrey–Young 2011 eq. (3.2)):
 //   c(P,Q,R,θ) = 1 + (1/θ) ∫₀¹∫₀¹ e^{2Rv} ( Q(v)P′(u) + θQ′(v)P(u) + θR Q(v)P(u) )² du dv,

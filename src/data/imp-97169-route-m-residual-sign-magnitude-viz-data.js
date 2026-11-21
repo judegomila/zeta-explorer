@@ -25,7 +25,7 @@
  *   @see imp-97167-route-m-parity-sign-law-derivation.js (derives the corrected (-1)^(omega+1) form)
  *
  *   Ticket: imp-97169 (ux, low). Presentation of an already-established measurement; adds no new
- *   Lambda bound. The residual is a measurement, not a certificate. PT Lambda <= 0.2 SOTA.
+ *   Lambda bound. The residual is a measurement, not a certificate. No refereed bound is changed.
  *   RH open. NO QED.
  */
 

@@ -68,7 +68,7 @@
  * imp-3220/imp-3406 surrogate crossover map on the imp-34842 band; it introduces NO new bound and
  * changes none. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 is UNTOUCHED; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34842-crossover-gpppp5-fifth-deriv-fourth-band (g_fifth_deriv > 0 on [1e12,1e13]; predicts g_sixth < 0)
  * @see imp-34822-crossover-gpppp-convexity-fourth-band (g_quadruple_prime < 0 on [1e12,1e13]; convexity)
@@ -269,7 +269,7 @@ export const IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND = {
     'the frozen literal to ~1e-9 relative. Measurement/derivation only on the INHERITED ' +
     'imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) are UNTOUCHED; imp-3066 K_a >= 0 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34842 (g_fifth_deriv > 0 on [1e12,1e13]; predicts g_sixth < 0); imp-34822 (g_quadruple_prime ' +
     '< 0 on [1e12,1e13]; convexity); imp-34793 (g_quadruple_prime closed form; convexity on ' +
@@ -327,13 +327,13 @@ export const IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp34859-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND.isRigorous === false &&
       /NO QED/.test(IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND.verdict) &&
-      /remains SOTA/.test(IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND.verdict),
+      /refereed bound is changed/i.test(IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND.verdict),
   },
 ];
 

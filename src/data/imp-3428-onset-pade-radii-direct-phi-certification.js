@@ -42,7 +42,7 @@
  *   rational reconstruction of the imp-3064 degree-0 scalar onset signature against a
  *   direct evaluation of phi; it neither proves nor weakens RH. The off-diagonal
  *   endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is
- *   untouched. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA.
+ *   untouched. No refereed bound is changed.
  *
  *   @see imp-3383-onset-third-order-higher-pade.js (the ladder being certified)
  *   @see imp-3325-onset-pade-resummation.js (the [1/1] Pade)
@@ -177,7 +177,7 @@ export const IMP3428_ONSET_PADE_RADII_DIRECT_PHI_CERTIFICATION = Object.freeze({
       'Re-measures Pade accuracy radii of a rational reconstruction of the imp-3064 degree-0 scalar ' +
       'onset signature against a direct evaluation of phi; the off-diagonal endpoint-Hankel operator ' +
       'step (imp-3066) remains the lone obstruction and is NOT addressed.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -219,8 +219,8 @@ export const IMP3428_ONSET_PADE_RADII_DIRECT_PHI_CERTIFICATION_ASSERTIONS = [
   {
     id: 'imp3428-honest-rh-equivalent-certification-only',
     why: 'Mandatory honesty: this is a certification/accuracy-radius re-measurement, RH-EQUIVALENT, ' +
-         'not a proof, not a reduction below RH, leaves the operator step untouched, and PT 0.2 ' +
-         'stays SOTA. If any flip, the module over-claims.',
+         'not a proof, not a reduction below RH, leaves the operator step untouched, and no refereed bound is changed' +
+         '. If any flip, the module over-claims.',
     holds: () => {
       const c = IMP3428_ONSET_PADE_RADII_DIRECT_PHI_CERTIFICATION.honestCaveat;
       return (
@@ -228,7 +228,7 @@ export const IMP3428_ONSET_PADE_RADII_DIRECT_PHI_CERTIFICATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.isCertificationOnly === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

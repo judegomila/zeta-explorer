@@ -49,7 +49,7 @@
  * rigor upgrade of the imp-97312 remainder-envelope constant only -- it changes no bound: the Cauchy-Schwarz
  * step and the P/Q order-collapse are inherited exact algebra, and imp-97227 Obstruction B (the degree-to-v0
  * overlap inversion d = C^T v0, imp-97164) stays open, so Route B does not close on the remainder bound alone.
- * Interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97312-krein-bessel-z4-pointwise-single-constant.js (the IEEE-double C_ptwise this certifies)
  * @see imp-97294-krein-bessel-z4-coherent-jfreq-majorant.js (the coherent P_j,Q_j across-order construction)

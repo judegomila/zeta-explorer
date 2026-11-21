@@ -21,7 +21,7 @@
  *
  * ORDER-OF-MAGNITUDE ESTIMATE ONLY. Evaluates no sum; instantiates no interval; verifies
  * no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * FORWARD-ERROR MODEL (worst-case directed rounding)
  * -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35725 / imp-35674) ----
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this estimate
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this estimate
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -162,8 +162,8 @@ export const IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE = {
     'gives strict headroom -- so the obstruction is the ENGINEERING of the certified length-N interval sum ' +
     'and the strict-inequality check, exactly the MECHANICAL classification of imp-35725. Evaluates no sum; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
-    'A + B - C certificate at T_PT stays GREENFIELD; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'A + B - C certificate at T_PT stays GREENFIELD; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35725 (names the mechanical N-term certified-rounding cost); imp-35760 (barrier-margin allocation); ' +
     'imp-35674 Part D (N(x)=floor(sqrt(x/4 pi)) retained terms); imp-35759 (arbitrary-precision working-digit ' +
@@ -210,16 +210,16 @@ export const IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE_ASSERTIONS = [
       Math.abs(Math.log2(N_AT_TPT) - 18.9) < 0.1,
   },
   {
-    // Honesty gate: precision not binding; obstruction MECHANICAL/engineering; greenfield; estimate only; PT SOTA.
+    // Honesty gate: precision not binding; obstruction MECHANICAL/engineering; greenfield; estimate only; no refereed bound is changed.
     id: 'imp35761-honesty-gate',
-    description: 'Precision not binding; obstruction is engineering; greenfield; estimate only, no QED, PT SOTA',
+    description: 'Precision not binding; obstruction is engineering; greenfield; estimate only, no QED, no refereed bound is changed',
     holds: () =>
       IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /ENGINEERING/.test(IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE.conclusion.obstructionIsEngineering) &&
       /GREENFIELD/.test(IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35761_W1_CERTIFIED_ROUNDING_COST_SCOPE.verdict),
   },
 ];
 

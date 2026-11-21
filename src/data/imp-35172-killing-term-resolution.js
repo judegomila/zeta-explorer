@@ -54,7 +54,7 @@
  * SURROGATE structural property (the N->0+ branch of a Newton inverse), NOT operator positivity and NOT a
  * Levy-Khintchine representation of any true resolvent. C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35114-bernstein-ingredients-extract (the extraction that left a = g(0+) as two candidates)
  * @see imp-35012 (the Bernstein / Levy-Khintchine surrogate representation g = K log T0)
@@ -137,7 +137,7 @@ export const IMP35172_KILLING_TERM_RESOLUTION = {
     'conclusions stand. MEASUREMENT/RESOLUTION ONLY on the inherited imp-35012/imp-35114 surrogate; a ' +
     'SURROGATE branch property, NOT operator positivity and NOT a true-resolvent Levy-Khintchine form. ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35114 (Bernstein ingredient extraction; the two undecided killing-term candidates); imp-35012 ' +
     '(Bernstein / Levy-Khintchine surrogate g = K log T0); imp-34861 (g = K log T0(N), g_prime = ' +
@@ -192,13 +192,13 @@ export const IMP35172_KILLING_TERM_RESOLUTION_ASSERTIONS = [
       Math.abs(K_AMPL - 1.572709e8) < 1e3, // K matches the shared amplitude
   },
   {
-    // Honesty gate: surrogate resolution, not rigorous, no operator positivity, no QED, PT stays SOTA.
+    // Honesty gate: surrogate resolution, not rigorous, no operator positivity, no QED, no refereed bound is changed.
     id: 'imp35172-honesty-gate-no-qed',
-    description: 'surrogate killing-term resolution only; not rigorous; changes no bound; no QED; PT Lambda<=0.2 SOTA',
+    description: 'surrogate killing-term resolution only; not rigorous; changes no bound; no QED; no refereed bound is changed',
     holds: () =>
       IMP35172_KILLING_TERM_RESOLUTION.isRigorous === false &&
       /NO QED/.test(IMP35172_KILLING_TERM_RESOLUTION.verdict) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP35172_KILLING_TERM_RESOLUTION.verdict) &&
+      /refereed bound is changed/i.test(IMP35172_KILLING_TERM_RESOLUTION.verdict) &&
       /SURROGATE/.test(IMP35172_KILLING_TERM_RESOLUTION.verdict),
   },
 ];

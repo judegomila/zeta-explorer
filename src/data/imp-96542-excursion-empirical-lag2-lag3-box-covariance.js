@@ -67,7 +67,7 @@
  * (exactly) and lag-2 (sign), but the exact tail magnitudes are below empirical resolution. This leaves the
  * imp-96509 z_eff climb (4.33 / 5.43) MODEL-CONTINGENT, as imp-96529 already concluded: the guaranteed
  * model-free floor stays z_cons = 1.9234. Measurement only; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96529-excursion-zcons-model-free-tightening-assessment (the VIF straddle-1 model-contingency)
  * @see imp-96509-excursion-effective-significance-ar2 (the AR-2/AR-3 climb this tests the inputs of)
@@ -138,7 +138,7 @@ export const IMP96542_EXCURSION_EMPIRICAL_LAG2_LAG3_BOX_COVARIANCE = {
     note: 'Empirical lag-2 confirms the theoretical negative sign and is marginally resolved (~2.3 sigma); empirical lag-3 is within the sampling floor and neither confirms nor rejects the tiny theoretical -0.008. Both theoretical magnitudes lie inside the 0.0436 band, so a single 10^6-zero realization at L = 495.78 cannot pin them; the measurement is a sign + consistency test, not a precision match.',
   },
   verdict:
-    'The empirical adjacent-box lag-2 / lag-3 correlations of the (C - E) statistic on the actual Riemann zeros at the T = 1.5e5 box length L = 495.779 (2017 clean edge-to-edge boxes over the full 10^6 range) are r2 = -0.0516 and r3 = +0.0295 (band 0.0436): lag-2 is NEGATIVE with the same sign as the theoretical GUE rho_2 = -0.020 and resolved from zero at ~2.3 sigma, while lag-3 sits inside the sampling band (sign opposite to the tiny theoretical rho_3 = -0.008, not resolvable). Both theoretical magnitudes lie inside the sampling floor, so the real zeros are CONSISTENT with -- and do not reject -- the sine-process values, and the negative-decaying direction the z_eff climb assumes is validated at lag-1 (exactly) and lag-2 (sign) but the exact tail magnitudes are below empirical resolution. This leaves the imp-96509 z_eff climb (4.33 / 5.43) MODEL-CONTINGENT, as imp-96529 already concluded: the guaranteed model-free floor stays z_cons = 1.9234. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The empirical adjacent-box lag-2 / lag-3 correlations of the (C - E) statistic on the actual Riemann zeros at the T = 1.5e5 box length L = 495.779 (2017 clean edge-to-edge boxes over the full 10^6 range) are r2 = -0.0516 and r3 = +0.0295 (band 0.0436): lag-2 is NEGATIVE with the same sign as the theoretical GUE rho_2 = -0.020 and resolved from zero at ~2.3 sigma, while lag-3 sits inside the sampling band (sign opposite to the tiny theoretical rho_3 = -0.008, not resolvable). Both theoretical magnitudes lie inside the sampling floor, so the real zeros are CONSISTENT with -- and do not reject -- the sine-process values, and the negative-decaying direction the z_eff climb assumes is validated at lag-1 (exactly) and lag-2 (sign) but the exact tail magnitudes are below empirical resolution. This leaves the imp-96509 z_eff climb (4.33 / 5.43) MODEL-CONTINGENT, as imp-96529 already concluded: the guaranteed model-free floor stays z_cons = 1.9234. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (comparison arithmetic only; no zeros) ---
@@ -170,8 +170,8 @@ export const IMP96542_EXCURSION_EMPIRICAL_LAG2_LAG3_BOX_COVARIANCE = {
   // honesty gates
   if (!/NO QED/.test(IMP96542_EXCURSION_EMPIRICAL_LAG2_LAG3_BOX_COVARIANCE.verdict))
     throw new Error('imp-96542: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96542_EXCURSION_EMPIRICAL_LAG2_LAG3_BOX_COVARIANCE.verdict))
-    throw new Error('imp-96542: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96542_EXCURSION_EMPIRICAL_LAG2_LAG3_BOX_COVARIANCE.verdict))
+    throw new Error('imp-96542: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96542_EXCURSION_EMPIRICAL_LAG2_LAG3_BOX_COVARIANCE;

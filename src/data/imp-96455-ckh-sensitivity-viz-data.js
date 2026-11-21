@@ -57,7 +57,7 @@ export const IMP96455_LANDMARKS = Object.freeze({
 });
 
 export const IMP96455_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every C_KH, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every C_KH, '
   + 'factorVsBaseline, rateRelGap and eCollA1e22 value plotted here is copied verbatim from '
   + 'the imp-96429 baked sweep table; the only new arithmetic is the log10 axis reshaping, a '
   + 'double-precision floor clip (~1e-16) so the exact-zero 1e22 gap is plottable on a log '

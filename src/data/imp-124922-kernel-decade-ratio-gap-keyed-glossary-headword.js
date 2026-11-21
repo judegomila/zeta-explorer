@@ -39,7 +39,7 @@
  *   not a restatement of the same fact)
  *
  * Ticket: imp-124922 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import { IMP124776_SUMMARY } from './imp-124776-kernel-decade-ratio-vs-gap-viz-data.js';
@@ -65,7 +65,7 @@ const KERNEL_DECADE_RATIO_GAP_KEYED_HEADWORD = Object.freeze({
     'Re-cited from the imp-124776 viz-data leaf (src/data/imp-124776-kernel-decade-ratio-vs-gap-' +
     'viz-data.js), itself reusing the imp-97823 measurement verbatim. Naming / glossary headword ' +
     'only; supplies no new bound; DIAG3 == 0 and the C_C 1/8 ansatz are untouched; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD = Object.freeze({
@@ -83,8 +83,8 @@ export const IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD = Object.
     'presentation of the imp-97823/imp-97842 kernel |K| = |1/(N sigma_N)| sqrt(10)-per-decade ' +
     'growth ratio: both arms bracket sqrt(10) = 3.162278 as the trailing gap g shrinks (wide ' +
     'g = 1e-2 .. 1e-7, deep g = 1e-6 .. 1e-8). No new computation; no bound moved; imp-3066 K_a >= 0 ' +
-    'untouched; DIAG3 == 0 and all pinned surrogate constants untouched; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; DIAG3 == 0 and all pinned surrogate constants untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124776 (the gap-keyed presentation this headword names); imp-97823 (the deep-limit ' +
     'sqrt(10) fit it reuses); imp-97842 (sibling headword naming the same fit keyed by decade ' +
@@ -122,11 +122,11 @@ export const IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp124922-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.verdict),
+      /refereed bound is changed/i.test(IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.verdict),
   },
   {
     id: 'imp124922-imp3066-untouched-citation',

@@ -43,7 +43,7 @@ export const IMP96839_LANDMARKS = Object.freeze({
 });
 
 export const IMP96839_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every floorFactor, ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every floorFactor, ' +
   'sigma_max and headroom value plotted here is copied verbatim from the imp-96794 ' +
   'reductionTable; the only new arithmetic is the log10 axis reshaping. Measurement/' +
   'sensitivity audit only: the adverse-sign verdict (a tighter E_trunc floor RAISES the ' +

@@ -16,7 +16,7 @@
  *
  * MEASUREMENT ONLY. Positions no rectangle; certifies no floor delta_short > 0;
  * evaluates no |H_t|; fixes no Delta; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE QUANTIZATION (why a naive Delta cannot be used verbatim)
  * -----------------------------------------------------------------------------
@@ -54,7 +54,7 @@
  * [T_PT, T_PT + Delta]. It positions no rectangle, evaluates no |H_t|, certifies no
  * delta_short > 0, fixes no Delta or h, and instantiates no interval enclosure.
  * Establishes no positivity; certifies no non-vanishing; changes no bound; C_mb
- * GUE-conditional (imp-486) untouched; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GUE-conditional (imp-486) untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-35778-i3-edge-type-floor-decomposition-scope (short-edge Delta quantized to ~integer mean gaps; asserted, never measured)
  * @see imp-35757-i2-panel-width-count-scope (mean zero gap delta(T_PT) = 2 pi / log(T_PT/2 pi) ~ 0.2336)
@@ -67,7 +67,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35778) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const TWO_PI = 2 * Math.PI;
 
 // Mean zero gap delta(T) = 2 pi / log(T / 2 pi) = pi / w(T) (imp-35757).
@@ -153,7 +153,7 @@ export const IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION = {
     '(GUE-conditional, imp-486), adding a secondary deviation this model does NOT capture. Positions no rectangle; ' +
     'evaluates no |H_t|; certifies no floor delta_short > 0; fixes no Delta or h; instantiates no enclosure; ' +
     'establishes no positivity; certifies no non-vanishing; changes no bound; C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35778 (short-edge Delta quantized to ~integer mean gaps, asserted never measured); imp-35757 (mean zero gap ' +
     'delta(T_PT) = 2 pi / log(T_PT/2 pi) ~ 0.2336); imp-35758 (delta_short = reverse-triangle margin surplus); ' +
@@ -223,9 +223,9 @@ export const IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, uniform surrogate, no certification, no QED, PT SOTA.
+    // Honesty gate: measurement only, uniform surrogate, no certification, no QED, no refereed bound is changed.
     id: 'imp35816-honesty-gate-no-qed',
-    description: 'Measurement only; uniform mean-gap surrogate; certifies no floor; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; uniform mean-gap surrogate; certifies no floor; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -233,7 +233,7 @@ export const IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION_ASSERTIONS = [
       /certifies no floor delta_short > 0/.test(IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION.verdict) &&
       /changes no bound/.test(IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION.verdict) &&
       /NO QED/.test(IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION.verdict) &&
-      /remains SOTA/.test(IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION.verdict),
+      /refereed bound is changed/i.test(IMP35816_SHORT_EDGE_DELTA_INTEGER_GAP_DEVIATION.verdict),
   },
 ];
 

@@ -38,7 +38,7 @@
  *   interchange feeds into if eventually justified)
  *
  * Ticket: imp-97364 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The friable-partial-sum reformulation headword, baked verbatim (no re-import).
@@ -68,7 +68,7 @@ const FRIABLE_PARTIAL_SUM_REFORMULATION_HEADWORD = Object.freeze({
     'reformulation) and RESULT 3 (boundary-layer localization) are rigorous; the friable-Mertens ' +
     'bound sup_t |M_k(t)| = o(p_k) needed to actually justify the interchange ' +
     '(IMP97332_INTERCHANGE_SUBGAP) remains OPEN. Naming / glossary headword only; no bound moved; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,7 +86,7 @@ export const IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD = Obje
     'reformulation T_k = Integral g(t)(e^t M_k(t)-1) dt with M_k the P_k-friable partial sum of ' +
     'M, and the rigorous localization of the whole interchange defect to the t -> 0 boundary ' +
     'layer. No bound moved; the friable-Mertens sub-gap IMP97332_INTERCHANGE_SUBGAP stays open; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97332 (the finite reformulation and boundary-layer localization this glosses); ' +
     'imp-97309 (the RESULT 5 interchange conjecture being reformulated); imp-97289 (the tail-o1 ' +
@@ -113,12 +113,12 @@ export const IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp97364-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD.verdict) &&
       IMP97364_FRIABLE_PARTIAL_SUM_REFORMULATION_GLOSSARY_HEADWORD.glosses === 'imp-97332',
   },
 ];

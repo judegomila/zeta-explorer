@@ -59,7 +59,7 @@
  *     families, primorial family reduced to one named inequality (imp-97289).
  *
  *   STATUS: a grouping/index note over nine already-committed modules, not a new derivation. No
- *   bound changes: PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   bound changes: no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js (E0 closure)
  * @see imp-97231-route-m-e0-uniform-remainder-honest-status.js (E0 closure honest-status note)
@@ -73,7 +73,7 @@
  * @see imp-97282-route-m-cotangent-c1-m2w-cohort-index.js (sibling cohort: the SEPARATE cotangent gap this excludes)
  *
  * Ticket: imp-97305 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ARITH_FIRST_MOMENT_REMAINDER_COHORT = Object.freeze([
@@ -184,8 +184,8 @@ export const IMP97305_ARITH_FIRST_MOMENT_REMAINDER_FAMILY_COHORT_INDEX = Object.
     'b/4 ceiling (already ruled out) or the primorial tail via the plain triangle bound (already ' +
     'shown asymptotically infinitely loose), and should target the two live residuals: the E1 ' +
     'Mertens-product constituent and the primorial-family tail cancellation inequality. No bound ' +
-    'on Lambda moves; establishes nothing new; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'on Lambda moves; establishes nothing new; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97202 (E0 closure); imp-97231 (E0 honest-status note); imp-97218 (arith/cotangent split ' +
     'banner); imp-97208 (E1 tighter ceiling + prime proof); imp-97269 (E1 ceiling class-uniformity ' +
@@ -233,11 +233,11 @@ export const IMP97305_ARITH_FIRST_MOMENT_REMAINDER_FAMILY_COHORT_INDEX_ASSERTION
   },
   {
     id: 'imp97305-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97305_ARITH_FIRST_MOMENT_REMAINDER_FAMILY_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97305_ARITH_FIRST_MOMENT_REMAINDER_FAMILY_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97305_ARITH_FIRST_MOMENT_REMAINDER_FAMILY_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97305_ARITH_FIRST_MOMENT_REMAINDER_FAMILY_COHORT_INDEX.verdict),
   },
 ];
 

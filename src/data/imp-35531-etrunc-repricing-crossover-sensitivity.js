@@ -43,8 +43,7 @@
  * artifact of the vestigial C_T=1,B=0 idealization, consistent with the imp-35419/
  * imp-35459 reclassification of 3.06e-5 as a mispriced count value with no Lambda
  * leverage. Measurement/sensitivity only; re-derives NO new certified E_trunc;
- * changes no bound; C_mb GUE-conditional per imp-486; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; C_mb GUE-conditional per imp-486; NO QED. No refereed bound is changed.
  *
  * @see imp-35459-etrunc-ct-kappat-dependence-scope (the C_T/kappa_T functional form + repricing menu)
  * @see imp-35419-etrunc-barrier-lemma-porting-scope (the barrier reclassification the sensitivity confirms)
@@ -98,7 +97,7 @@ export const IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY = {
     'N_cross ~ 3.28e9 is NOT robust to E_trunc repricing -- it is an artifact of the vestigial C_T=1,B=0 ' +
     'idealization, consistent with the imp-35419/imp-35459 reclassification of 3.06e-5 as a mispriced ' +
     'count value with no Lambda leverage. Re-derives NO new certified E_trunc; changes no bound; C_mb ' +
-    'GUE-conditional per imp-486; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional per imp-486; NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-35459 (E_trunc = (2 C_T/kappa_T)(log T_PT)^B T_PT^{-kappa_T} functional form + repricing menu; ' +
@@ -179,7 +178,7 @@ export const IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY_ASSERTIONS = [
         /NOT robust/.test(IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY.verdict) &&
         /artifact of the vestigial/.test(IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY.verdict) &&
         /NO QED/.test(IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY.verdict) &&
-        /remains SOTA/.test(IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY.verdict)
+        /refereed bound is changed/i.test(IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY.verdict)
       );
     },
   },

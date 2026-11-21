@@ -3,7 +3,7 @@
  * site extend the proven archimedean Weil positivity PAST the first prime shift
  * u = ln 2? Answers roadmap opening.nextTests[1]
  * (rh-novel-routes-sweep-synthesis-2026-09-23.js). Assessment only; changes no
- * bound; conditional-frontier; PT Λ≤0.2 SOTA; RH open; NO QED.
+ * bound; conditional-frontier; no refereed bound is changed; RH open; NO QED.
  *
  * WHAT IS ALREADY PROVEN (the partial the sweep names). Weil positivity is a
  * THEOREM when the test function g = h * h~ has u-support inside the prime-free
@@ -60,7 +60,7 @@
  * HONEST LIMITS. Structural assessment of an external-geometry route; numerics
  * are only the lattice-ordering / weight witnesses recomputed by the assertions.
  * Touches no Lambda bound, no verified height, no paper packet. RH OPEN;
- * PT Lambda <= 0.2 stands; NO QED.
+ * no refereed bound is changed; NO QED.
  */
 
 // Weil prime-side weight on the log-prime lattice: w_{p,k} = (log p) p^(-k/2).
@@ -88,7 +88,7 @@ export const SCALING_SITE_WEIL_PAST_LN2 = Object.freeze({
   status:
     'ASSESSMENT — no candidate extension; precise obstruction recorded. The scaling site supplies a reflection-positive '
     + 'transverse Euclidean direction ONLY at the archimedean place, reproducing exactly the u < ln2 window; the finite '
-    + 'place p=2 (first shift at u = ln 2) has no such direction, so positivity does not extend. RH open; PT Λ≤0.2 stands; NO QED',
+    + 'place p=2 (first shift at u = ln 2) has no such direction, so positivity does not extend. RH open; no refereed bound is changed; NO QED',
   answers: 'rh-novel-routes-sweep-synthesis-2026-09-23.js opening.nextTests[1] (archimedean Weil positivity past u = ln 2)',
 
   provenPartial: {
@@ -125,7 +125,7 @@ export const SCALING_SITE_WEIL_PAST_LN2 = Object.freeze({
 
   honest:
     'Structural assessment of an external-geometry route; the only numerics are the lattice-ordering and weight witnesses. '
-    + 'No Lambda bound, verified height, or paper packet is touched. RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+    + 'No Lambda bound, verified height, or paper packet is touched. RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 export const SCALING_SITE_WEIL_PAST_LN2_ASSERTIONS = Object.freeze([
@@ -170,9 +170,9 @@ export const SCALING_SITE_WEIL_PAST_LN2_ASSERTIONS = Object.freeze([
       && /archimedean channel exists/.test(SCALING_SITE_WEIL_PAST_LN2.subGap),
   },
   {
-    name: 'honesty: RH open, PT Λ≤0.2 stands, NO QED',
+    name: 'honesty: RH open, no refereed bound is changed, NO QED',
     check: () => /RH open/.test(SCALING_SITE_WEIL_PAST_LN2.status)
-      && /PT Λ≤0.2 stands/.test(SCALING_SITE_WEIL_PAST_LN2.status)
+      && /refereed bound is changed/i.test(SCALING_SITE_WEIL_PAST_LN2.status)
       && /NO QED/.test(SCALING_SITE_WEIL_PAST_LN2.status),
   },
 ]);

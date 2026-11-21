@@ -7,7 +7,7 @@
  *   present their component statuses side by side; this leaf does exactly that -- one row per component
  *   with its value, EXACT/PROVED/MEASURED status, the specific open input, and the owning ticket.
  *   Report/cross-validation only; asserts nothing beyond the already-established per-leaf status;
- *   changes no bound; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   changes no bound; no refereed bound is changed; RH open; NO QED.
  *
  *   THE FIRST-MOMENT DECOMPOSITION (imp-97071/97096/97097). The Route M lower companion uses the
  *   Cauchy-Schwarz bound Q(b) >= F(b)^2/S(b), reducing the mean-square lower companion to the first
@@ -33,7 +33,7 @@
  *
  *   HONESTY. Every row restates a status already established (and cited) in its owning ticket; no row
  *   upgrades a MEASURED status to PROVED. kappa ~ 0.696 > 0 stays a measurement. No bound on Lambda
- *   moves. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   moves. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97155-route-m-first-moment-evaluation-cohort-index.js (the cohort this ledger tabulates)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith)
@@ -46,7 +46,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97210 (accuracy, medium, opus-4-8). Report/cross-validation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const GAMMA = 0.5772156649015329;
@@ -144,8 +144,8 @@ export const IMP97210_ROUTE_M_KAPPA_OBLIGATION_LEDGER = Object.freeze({
     'the mean-square M2w < 0.32546. So the whole first-moment positivity consolidates into ONE open ' +
     'scalar inequality, not four separate gaps -- a reading the individual leaves never state ' +
     'jointly. Restates only already-established statuses; upgrades no MEASURED row to PROVED; moves no ' +
-    'bound; kappa ~ 0.696 stays a measurement; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'bound; kappa ~ 0.696 stays a measurement; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97155 (cohort index / measured total); imp-97096 + imp-97202 (exact kappa_arith + uniform ' +
     'remainder); imp-97097 (fixed-modulus zero); imp-97119 (boundary term); imp-97204 (signed half ' +
@@ -209,10 +209,10 @@ export const IMP97210_ROUTE_M_KAPPA_OBLIGATION_LEDGER_ASSERTIONS = [
   },
   {
     id: 'imp97210-honesty-gate-no-qed',
-    why: 'Report/cross-validation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Report/cross-validation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97210_ROUTE_M_KAPPA_OBLIGATION_LEDGER.verdict) &&
-      /remains\s*\n?\s*SOTA|remains SOTA/.test(IMP97210_ROUTE_M_KAPPA_OBLIGATION_LEDGER.verdict) &&
+      /refereed bound is changed/i.test(IMP97210_ROUTE_M_KAPPA_OBLIGATION_LEDGER.verdict) &&
       /RH open/.test(IMP97210_ROUTE_M_KAPPA_OBLIGATION_LEDGER.verdict),
   },
 ];

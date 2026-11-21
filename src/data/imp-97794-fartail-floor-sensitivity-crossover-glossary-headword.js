@@ -37,7 +37,7 @@
  *   swap this crossover reuses)
  *
  * Ticket: imp-97794 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The floor-sensitivity-crossover headword, baked verbatim (no re-import).
@@ -71,7 +71,7 @@ const FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_HEADWORD = Object.freeze({
     'local-minimum locate plus log10-bisection of the rising-branch crossing under the ' +
     'imp-33708 0.5x/1x/2x/5x E_trunc-floor swap. Naming / glossary headword only; supplies no ' +
     'new bound; conditional-share diagnostic, not an RH bound; no bound moved; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,7 +91,7 @@ export const IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD = Ob
     '(t ~ 0.9774); above it the shift decays like the crossing sigma ~ N^(-1/2) ' +
     '(~2.67% at log10 N ~ 20.3 down to ~3.2e-12% at log10 N ~ 45.4). This confirms imp-97744 F4 ' +
     'with enormous margin at every headline crossing. No bound moved; conditional-share ' +
-    'diagnostic, not an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'diagnostic, not an RH bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97759 (the crossover measurement and per-target floor-sensitivity ladder this ' +
     'glosses); imp-97744 (the far-tail crossing heights confirmed here); imp-97723 (the full ' +
@@ -118,11 +118,11 @@ export const IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD_ASSE
   },
   {
     id: 'imp97794-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       IMP97794_FARTAIL_FLOOR_SENSITIVITY_CROSSOVER_GLOSSARY_HEADWORD.glosses === 'imp-97759',
   },
 ];

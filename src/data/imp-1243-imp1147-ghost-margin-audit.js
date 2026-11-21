@@ -68,7 +68,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 // ── Anchors ──────────────────────────────────────────────────────────────
 
-const PT_BOUND       = 0.2;                      // Platt-Trudgian 2021 SOTA Lambda <= 0.2
+const PT_BOUND       = 0.2;                      // Platt-Trudgian 2021 bound <= 0.2
 const T_PT           = 3e12;                     // Platt-Trudgian 2021 verified height (RH below)
 const LAMBDA_TARGET  = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.composition.lambdaAsymptoticUpper;
 // NOTE (post imp-1261): the imp-1147 file was rewritten to use the imp-1246

@@ -19,8 +19,7 @@
  * The conversion to the RATE-RED currency d_m = dist(hStar, E_(P_m))
  * remains OPEN (head-tail angle obstruction, recorded precisely and
  * measured LARGE: d_m^2 exceeds the tail mass squared by 7+ orders).
- * Model family only; changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Model family only; changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95506..95509 normalization). Twin lattice Q = { 2^k,
  * 1.1 * 2^k : k >= 0 } (rho = 2, r = 1.1); E_(P_m) = span{ e^(-pt) :
@@ -443,8 +442,8 @@ export const IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY = {
     "tail-mass currency only -- (mu-rate) for the computable E_(P_m) " +
     "sections is NOT closed; RITZ-GEO is approximability, not an " +
     "algorithm; the (mu-exact) bracket (5.09361535799, 84/11] is " +
-    "unchanged; changes no bound; NO QED; Platt-Trudgian Lambda <= " +
-    "0.2 remains SOTA",
+    "unchanged; changes no bound; NO QED; no refereed bound is changed" +
+    "",
   promotesBound: false,
   isRigorous: true,
   rigorScope:
@@ -472,7 +471,7 @@ export const IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY = {
     "(mu-exact) bracket is unchanged. MODEL FAMILY ONLY: no " +
     "paper-packet constant is touched and the finite-N Lambda beat " +
     "did NOT become rigorous. Changes no bound; NO QED on any RH " +
-    "statement; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "statement; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -614,7 +613,7 @@ export const IMP95510_ASSERTIONS = [
       "the record scopes to the model family and the tail-mass " +
       "currency, flags RITZ-GEO as approximability-not-algorithm, " +
       "names the re-scoped (mu-eig-decay) and untouched (mu-exact), " +
-      "promotes no bound, NO QED, PT stays SOTA",
+      "promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.promotesBound === false &&
       /IN PART/.test(IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.residualExecuted) &&
@@ -629,7 +628,7 @@ export const IMP95510_ASSERTIONS = [
       /NOT closed/.test(IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.honestScope) &&
       /MODEL FAMILY/.test(IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.verdict) &&
       /NO QED/.test(IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.verdict) &&
-      /remains SOTA/.test(IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.verdict) &&
+      /refereed bound is changed/i.test(IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.verdict) &&
       /did NOT become rigorous/.test(
         IMP95510_EIGENFUNCTION_TAIL_GEOMETRIC_DECAY.verdict
       ),

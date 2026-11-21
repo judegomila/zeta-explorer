@@ -41,8 +41,7 @@
  *
  *   STATUS: a diagnosis of why one specific upper-bound route is numerically useless,
  *   drawn from a single cross-validated measurement (N=100, 2a=ln3). Not a proof, not a
- *   new bound, not an operator-positivity result. NO QED. Platt-Trudgian Lambda <= 0.2
- *   SOTA.
+ *   new bound, not an operator-positivity result. NO QED. No refereed bound is changed.
  *
  * @see imp-96876-krein-tresidual-crossval-measurement.js (source measurement: the
  *   IMP96876_TRACE_VACUOUS sub-gap and the GEOM-vs-TRACE cross-tabulation this glosses)
@@ -52,7 +51,7 @@
  *   that remains the only numerically usable residual route)
  *
  * Ticket: imp-96900 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The trace-vacuous headword, baked verbatim (no re-import).
@@ -93,7 +92,7 @@ const KREIN_TRACE_VACUOUS_HEADWORD = Object.freeze({
     'cross-validated measurement diagnosing why one bound route is numerically vacuous; ' +
     'not an asymptotic theorem, not a new interval majorant. IMP96848_TAILTRACE_MAJORANT ' +
     'stays open; establishes no operator positivity; interval-rigorous reach stays ' +
-    '2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.',
+    '2a <= 0.96; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD = Object.freeze({
@@ -117,7 +116,7 @@ export const IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD = Object.freeze({
     'remain ~15 orders too loose; a usable rigorous bound needs to control lambda_max(R_T) ' +
     'directly. The imp-96827 GEOM envelope (2.84x actual) remains the only numerically ' +
     'usable residual bound. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96876 (the cross-validated measurement and IMP96876_TRACE_VACUOUS sub-gap this ' +
     'glosses); imp-96848 (the closed-form TRACE bound / IMP96848_TAILTRACE_MAJORANT ' +
@@ -144,11 +143,11 @@ export const IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96900-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD.verdict) &&
       IMP96900_KREIN_TRACE_VACUOUS_GLOSSARY_HEADWORD.glosses === 'imp-96876',
   },
 ];

@@ -104,7 +104,7 @@ export const IMP97630_SUMMARY = Object.freeze({
     IMP97600_VERDICT.answer
     + (IMP97600_VERDICT.boundMoves === false && IMP97600_VERDICT.qed === false
       ? ' MEASUREMENT / DIAGNOSIS ONLY: no bound moved; no operator positivity; interval-rigorous reach '
-        + 'stays 2a<=0.96; PT Lambda <= 0.2 SOTA; RH open; NO QED.'
+        + 'stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.'
       : ''),
 });
 

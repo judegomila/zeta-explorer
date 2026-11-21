@@ -45,8 +45,7 @@
  * NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8
  * ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc is perturbed only as a
  * sensitivity probe, the pinned 3.06e-5 value is unchanged; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97520-sigma-conditional-share-landmark-ladder (the four-landmark object)
  * @see imp-97565 (C_C sensitivity of the halving landmark -- the complementary axis)
@@ -170,7 +169,7 @@ export const IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY = {
     'here E_trunc is perturbed across a 0.5x..2x ladder for ALL FOUR imp-97520 landmarks. Measurement ' +
     'only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; C_C 1/8 ' +
     'ansatz untouched; the pinned E_trunc 3.06e-5 is unchanged; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY_ASSERTIONS = [
@@ -224,11 +223,11 @@ export const IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY_ASSERTIONS = [
   },
   {
     id: 'imp97584-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY.note) &&
-      /remains SOTA/.test(IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY.note),
+      /refereed bound is changed/i.test(IMP97584_SIGMA_LANDMARK_ETRUNC_SENSITIVITY.note),
   },
 ];
 

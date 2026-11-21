@@ -33,8 +33,7 @@
  *
  * REGRESSION-GUARD ONLY; recomputes established measurement figures; changes no bound;
  * far-tail E_coll exponent 1/2 per imp-3463; E_flow > 0 strictness (imp-33848) untouched;
- * C_mb GUE-conditional per imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional per imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35577-fartail-crossings-height-map-sensitivity (the literals pinned here)
  * @see imp-35619-eflow-fartail-remnant-span-ladder-assertion (the sibling span-growth guard)
@@ -157,7 +156,7 @@ export const IMP35660_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY_GUARD = {
     'divergence) and the sub-1e-4 crossing 109.1892 -> 156.0294 (+46.84 decades, 1.8740x ' +
     'inflation, +2.654 percent divergence). Recomputes established measurement figures; ' +
     'changes no bound; E_coll far-tail exponent 1/2 per imp-3463; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.',
   citation:
     'imp-35577 (the height-map sensitivity literals pinned here); imp-35619 (the sibling ' +
     'span-growth guard); imp-35497 (sub-1e-3 swap +15.31 decades); imp-35198 (analytic ' +
@@ -216,13 +215,13 @@ export const IMP35660_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY_GUARD_ASSERTIONS 
       Math.abs(INFLATION_SUB1E4 - REC.sub1e4.remnantInflation) < 1e-3,
   },
   {
-    // Honesty gate: regression-guard only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: regression-guard only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35660-honesty-gate-no-qed',
-    description: 'Regression-guard only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Regression-guard only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35660_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY_GUARD.isRigorous === false &&
       /NO QED/.test(IMP35660_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY_GUARD.verdict) &&
-      /remains SOTA/.test(IMP35660_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY_GUARD.verdict),
+      /refereed bound is changed/i.test(IMP35660_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY_GUARD.verdict),
   },
 ];
 

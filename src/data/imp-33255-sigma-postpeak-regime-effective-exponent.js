@@ -61,7 +61,7 @@
  *
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm)
  * @see imp-3529-sigma-postpeak-decay-exponent (LOCAL pointwise exponent p(N), "no single exponent")
@@ -216,8 +216,8 @@ export const IMP33255_SIGMA_POSTPEAK_REGIME_EFFECTIVE_EXPONENT = {
     'gives only ~0.070 at R^2 ~ 0.84, confirming the single-exponent description is proper ' +
     'to the E_trunc-outlives-E_coll arm. This quantifies imp-3406s qualitative monotone ' +
     'decay-to-0 claim with a fitted number. The C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3406 (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm); imp-3529 (LOCAL ' +
     'pointwise exponent p(N), no single exponent); imp-3463 (far-tail leading form, ' +
@@ -277,13 +277,13 @@ export const IMP33255_SIGMA_POSTPEAK_REGIME_EFFECTIVE_EXPONENT_ASSERTIONS = [
       PRECROSS.R2 < EXPONENT_LADDER[0].R2,
   },
   {
-    // Honesty gate: measurement/fit only, window-dependence acknowledged, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, window-dependence acknowledged, no QED, no refereed bound is changed.
     id: 'imp33255-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, PT stays SOTA',
+    description: 'Measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33255_SIGMA_POSTPEAK_REGIME_EFFECTIVE_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP33255_SIGMA_POSTPEAK_REGIME_EFFECTIVE_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP33255_SIGMA_POSTPEAK_REGIME_EFFECTIVE_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP33255_SIGMA_POSTPEAK_REGIME_EFFECTIVE_EXPONENT.verdict),
   },
 ];
 

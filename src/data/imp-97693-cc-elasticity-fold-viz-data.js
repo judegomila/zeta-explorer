@@ -39,8 +39,8 @@ export const IMP97693_SUMMARY = Object.freeze({
     + 'fold rather than a simple pole.',
   verdict:
     'Presentation only: all fields reused verbatim from imp-97662 (peak-divergence measurement), no new '
-    + 'computation. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open; NO QED.',
+    + 'computation. Changes no bound; establishes no operator positivity; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

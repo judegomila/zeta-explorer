@@ -826,7 +826,7 @@ export const IMP95149_TOPHEAVY_VCHART_RATE_STEP = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM VT is unconditional given the carried THEOREM FP/DP/PO/TP/QP/VP machinery: the cover is the imp-95148 L2 production cover with only the rate floor lowered (every lemma it consumes is rate-generic; the OD2 fold point 2 x 59/250 = 0.472 lies inside the covered interval; the Lemma TR exponent floor at 59/250 equals the 47/200 value 120, so the carried tail constants are unchanged; the gLo domain clamp is respected - max in-cell head separation 2 x 16 x 9/10 - 16 x 59/250 = 25.024 < 48). Deterministic bisection, ZERO unresolved cells, every approximation inflates caps: the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, ONE COMMON RATE, at most FOUR packets in ONE block (the HIGHEST head position) and at most one in every other; lower occupancies dominated by subset domination as in the siblings. The middle-heavy strip [47/200, 121/500) is NOT touched; the top-heavy strip [47/200, 59/250) is NOT closed - both remain named sub-gaps with measured budget walls; the class sandwich [0.2320723, 0.24502] is carried unchanged; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM VT is unconditional given the carried THEOREM FP/DP/PO/TP/QP/VP machinery: the cover is the imp-95148 L2 production cover with only the rate floor lowered (every lemma it consumes is rate-generic; the OD2 fold point 2 x 59/250 = 0.472 lies inside the covered interval; the Lemma TR exponent floor at 59/250 equals the 47/200 value 120, so the carried tail constants are unchanged; the gLo domain clamp is respected - max in-cell head separation 2 x 16 x 9/10 - 16 x 59/250 = 25.024 < 48). Deterministic bisection, ZERO unresolved cells, every approximation inflates caps: the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, ONE COMMON RATE, at most FOUR packets in ONE block (the HIGHEST head position) and at most one in every other; lower occupancies dominated by subset domination as in the siblings. The middle-heavy strip [47/200, 121/500) is NOT touched; the top-heavy strip [47/200, 59/250) is NOT closed - both remain named sub-gaps with measured budget walls; the class sandwich [0.2320723, 0.24502] is carried unchanged; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -914,11 +914,11 @@ export const IMP95149_TOPHEAVY_VCHART_RATE_STEP_ASSERTIONS = [
   {
     id: "imp95149-honesty-gate",
     description:
-      "the verdict is scoped: COMMON RATE only, constant/budget step (NO new lemma, no new class constant), top-heavy channel NARROWED not closed, middle-heavy strip untouched and still the dominant open channel, class sandwich carried unchanged; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: COMMON RATE only, constant/budget step (NO new lemma, no new class constant), top-heavy channel NARROWED not closed, middle-heavy strip untouched and still the dominant open channel, class sandwich carried unchanged; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95149_TOPHEAVY_VCHART_RATE_STEP.promotesBound === false &&
       /NO QED/.test(IMP95149_TOPHEAVY_VCHART_RATE_STEP.rigorScope) &&
-      /remains SOTA/.test(IMP95149_TOPHEAVY_VCHART_RATE_STEP.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95149_TOPHEAVY_VCHART_RATE_STEP.rigorScope) &&
       /ONE COMMON RATE/.test(IMP95149_TOPHEAVY_VCHART_RATE_STEP.rigorScope) &&
       /carried unchanged/.test(IMP95149_TOPHEAVY_VCHART_RATE_STEP.rigorScope) &&
       /NOT closed/.test(IMP95149_TOPHEAVY_VCHART_RATE_STEP.rigorScope) &&

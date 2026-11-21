@@ -105,7 +105,7 @@ export const TLB_ARB_LEGE = Object.freeze({
     + 'Implies nothing about Lambda, zero locations or RH. NO QED.',
   verdict: 'SUCCESS: W(h) >= 8.2045e-4 ||h||^2 (9.0435e-4 at T=400) on pole-free h in L^2(-a,a), all 2a <= ln 3, certified in Arb; '
     + 'repo interval-rigorous reach moves from 2a <= 0.96 to 2a <= ln 3 (novelty vs small-support literature not checked). '
-    + 'No new Lambda bound. PT Lambda <= 0.2 stands; 0.1758354 remains a candidate. NO QED.',
+    + 'No new Lambda bound. No refereed bound is changed; 0.1758354 remains a candidate. NO QED.',
   a0: 'ln(3)/2 (Arb ball)',
   arithmetic: 'python-flint 0.9.0 (Arb), 256-bit working precision; Bessel recomputed at 512-2048 bits where Arb returned a wide ball',
   quadrature: {
@@ -278,9 +278,9 @@ export const TLB_ARB_LEGE_ASSERTIONS = Object.freeze([
   },
   {
     id: 'arb-lege-honesty',
-    description: 'status/verdict/label: computer-assisted, pending external referee, NO QED, PT Lambda <= 0.2 stands, nothing about Lambda',
+    description: 'status/verdict/label: computer-assisted, pending external referee, NO QED, no refereed bound is changed, nothing about Lambda',
     holds: () => /pending external referee/.test(C.label) && /NO QED/.test(C.label) && /nothing about Lambda/.test(C.label)
-      && /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /NO QED/.test(C.status)
+      && /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /NO QED/.test(C.status)
       && /No new Lambda bound/.test(C.verdict) && /not checked/.test(C.verdict),
   },
 ]);

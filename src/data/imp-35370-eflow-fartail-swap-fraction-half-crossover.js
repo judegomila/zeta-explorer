@@ -42,7 +42,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; E_flow > 0
  * strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail
  * exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (four-rung swap-fraction ladder 0.786->0.568; crossover located here)
  * @see imp-35236-eflow-fartail-inverse-swap-isolation (isolated the swap at 1e6/1e16)
@@ -168,7 +168,7 @@ export const IMP35370_EFLOW_FARTAIL_SWAP_FRACTION_HALF_CROSSOVER = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness ' +
     '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent ' +
     '1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35279 (swap-fraction ladder 0.786->0.568, crossover unlocated); imp-35236 (isolated ' +
     'the swap at 1e6/1e16); imp-35280 (complementary fd-vs-analytic remnant framing); imp-35217 ' +
@@ -216,13 +216,13 @@ export const IMP35370_EFLOW_FARTAIL_SWAP_FRACTION_HALF_CROSSOVER_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35370-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35370_EFLOW_FARTAIL_SWAP_FRACTION_HALF_CROSSOVER.isRigorous === false &&
       /NO QED/.test(IMP35370_EFLOW_FARTAIL_SWAP_FRACTION_HALF_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP35370_EFLOW_FARTAIL_SWAP_FRACTION_HALF_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP35370_EFLOW_FARTAIL_SWAP_FRACTION_HALF_CROSSOVER.verdict),
   },
 ];
 

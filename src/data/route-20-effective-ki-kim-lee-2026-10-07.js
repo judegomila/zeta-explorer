@@ -76,7 +76,7 @@ export const ROUTE_20 = Object.freeze({
   verdict: 'Ki–Kim–Lee with explicit constants (an explicit version of Polymath15 Theorem Zero(i)) is Arb-certified on [0.1, 0.2]: x0(t) ≈ 4π·exp(c/t), '
     + 'c ≈ 5.3–5.8, conditional on Polymath15 Theorem 1.3 and de Bruijn\'s theorem. It does not replace verified height: it can only stand in for the far '
     + 'part of the canopy hypothesis (ii), never hypothesis (i); at X = 6e12 it covers only t ≥ 0.217 (Λ ≤ 0.217 + y0²/2, weaker than PT). A verification-free '
-    + 'route would need ≈ 6.8X for Λ ≤ 0.2. Internal referee only. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'route would need ≈ 6.8X for Λ ≤ 0.2. Internal referee only. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_20;
@@ -130,7 +130,7 @@ export const ROUTE_20_ASSERTIONS = Object.freeze([
   {
     id: 'r20-honest-scope',
     holds: () => R.status === 'done' && /Theorem Zero\(i\)/.test(R.verdict) && /conditional on Polymath15 Theorem 1\.3/.test(R.verdict)
-      && /does not replace verified height/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+      && /does not replace verified height/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && R.heuristicMollifierCrossing < R.ptBenchmark,
     why: 'Prior art attributed; conditionality stated with the numbers; no verified-height replacement; no QED.',
   },

@@ -197,7 +197,7 @@
  * gammaSL map, off-lattice rates, or the paper-packet constants, and the
  * sub-gap imp-95212-subgap-fresnel-airy-envelope-port STAYS OPEN. No
  * bound of the Lambda program changes. NO QED on any RH-adjacent
- * statement. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * statement. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -282,7 +282,7 @@ export const IMP95287_NRATE_MONOTONICITY_DOMINANCE = {
     "imp-95251 THEOREM COAL-N and imp-95286 THEOREM CONF-LB for the " +
     "closed-form cap literals. Decides the imp-95227 conjecture on the " +
     "model family; changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -664,14 +664,14 @@ export const IMP95287_NRATE_MONO_DOM_ASSERTIONS = [
   {
     id: "imp95287-honest-scope",
     description:
-      "honest-scope strings present: NO QED, PT SOTA, sub-gap STILL OPEN, " +
+      "honest-scope strings present: NO QED, no refereed bound is changed, sub-gap STILL OPEN, " +
       "partial-block strictness named residual, decides wording scoped to " +
       "the model family",
     holds: () => {
       const o = IMP95287_NRATE_MONOTONICITY_DOMINANCE;
       return (
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /STILL OPEN/.test(o.subGap) &&
         /STRICTNESS on partially-confluent/.test(o.subGap) &&
         /model family/.test(o.verdict) &&

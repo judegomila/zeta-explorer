@@ -14,7 +14,7 @@
  * (signalEmp = |rhoEmp + 1/2|, signalGue = |rhoGue + 1/2|) are a direct
  * arithmetic reshape of the same baked rhoEmp/rhoGue values, not new
  * measurements. Changes no bound, establishes no operator positivity, no RH
- * claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation.js (source finding + all baked numbers)
  * @see imp-96640-rankr-power-iteration-bracket-viz-data.js (sibling viz-data leaf, same convention)
@@ -71,7 +71,7 @@ export const IMP96721_HONEST_BANNER =
   'Presentation only: every Sigma2/rho value is reused verbatim from imp-96695; only the ' +
   'chart reshape and the derived |rho + 1/2| signal columns are new. Measures a finite-height ' +
   '(Berry semiclassical) saturation effect, not a GUE-universality failure; moves no bound. ' +
-  'Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.';
+  'No refereed bound is changed. RH open. NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -113,7 +113,7 @@ const IMP96721_ASSERTIONS = [
     id: 'imp96721-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96721_HONEST_BANNER) &&
-      /PT Lambda <= 0.2|Platt-Trudgian Lambda <= 0.2/.test(IMP96721_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(IMP96721_HONEST_BANNER) &&
       /NO QED/.test(IMP96721_HONEST_BANNER),
     why: 'every Route M / basis-C viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

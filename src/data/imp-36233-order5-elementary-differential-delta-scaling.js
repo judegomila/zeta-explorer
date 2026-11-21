@@ -9,8 +9,7 @@
  *   (LTE ~ C dt^5 x^(5)); if it blows up like delta^-9 in the boundary layer then the
  *   a-priori fixed-dt RK4 step bound is vacuous there, which is the I2 CRUX.
  *   Measurement ONLY: bounds no truncation error; instantiates no step certificate;
- *   G-step-error stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   G-step-error stays OPEN; changes no bound; NO QED; no refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -249,7 +248,7 @@ const IMP36233_ORDER5_ELEMENTARY_DIFFERENTIAL_DELTA_SCALING_ASSERTIONS = [
         h.gStepErrorStaysOpen === true &&
         h.changesAnyBound === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

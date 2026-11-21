@@ -83,8 +83,8 @@ export const SEAM_GRAM_HEAVY_IMPORT_AUDIT = {
     'directly or transitively. Both resolve cleanly under plain node with their ' +
     'self-executing throw-on-failure assertions passing, and both are present in ' +
     'run-assertions.mjs DATA_MODULES (imp-95846 registered by the prior imp-95871 audit). ' +
-    'No gap found, no fix required. No bound change; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-    'remains SOTA.',
+    'No gap found, no fix required. No bound change; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const SEAM_GRAM_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
@@ -123,9 +123,9 @@ export const SEAM_GRAM_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95874-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(SEAM_GRAM_HEAVY_IMPORT_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(SEAM_GRAM_HEAVY_IMPORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(SEAM_GRAM_HEAVY_IMPORT_AUDIT.honest),
   },
 ];
 

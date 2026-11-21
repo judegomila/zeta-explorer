@@ -57,7 +57,7 @@
  * (imp-35337a) stays OPEN and is not touched. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED; C_mb stays
  * GUE-conditional per imp-486; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35451-sigma-peak-arm-asymmetry (measured c3 ~ -2.6237e-4 on the RvM base map only)
  * @see imp-35458-crossover-height-map-sensitivity (opened the RvM-vs-closed-surrogate height-map axis)
@@ -247,7 +247,7 @@ export const IMP35579_CUBIC_SKEW_CLOSED_SURROGATE = {
     'rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) and ' +
     'the imp-398 C_F prefactor are UNTOUCHED; C_mb stays GUE-conditional per imp-486; the surrogate-vs-true ' +
     'fidelity half (imp-35337a) stays OPEN; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35451 (cubic skew c3 ~ -2.6237e-4 on the RvM base map only); imp-35458 (RvM-vs-closed-surrogate ' +
     'height-map axis); imp-35557 / imp-35615 (multiplicative RvM x {1.02,0.98,1.05,0.95} skew robustness); ' +
@@ -314,13 +314,13 @@ export const IMP35579_CUBIC_SKEW_CLOSED_SURROGATE_ASSERTIONS = [
     holds: () => MULT_EFF_AT_PEAK > 0.70 && MULT_EFF_AT_PEAK < 0.80 && MULT_EFF_AT_PEAK < 0.95,
   },
   {
-    // Honesty gate: measurement only, not rigorous, no QED, PT SOTA, sub-gap imp-35337a named.
+    // Honesty gate: measurement only, not rigorous, no QED, no refereed bound is changed, sub-gap imp-35337a named.
     id: 'imp35579-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-35337a stays OPEN',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35579_CUBIC_SKEW_CLOSED_SURROGATE.isRigorous === false &&
       /NO QED/.test(IMP35579_CUBIC_SKEW_CLOSED_SURROGATE.verdict) &&
-      /remains SOTA/.test(IMP35579_CUBIC_SKEW_CLOSED_SURROGATE.verdict) &&
+      /refereed bound is changed/i.test(IMP35579_CUBIC_SKEW_CLOSED_SURROGATE.verdict) &&
       /imp-35337a/.test(IMP35579_CUBIC_SKEW_CLOSED_SURROGATE.residual_sub_gap),
   },
 ];

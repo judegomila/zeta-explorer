@@ -12,7 +12,7 @@
  *
  *   Measurement only. The Ritz value is an UPPER bound on lambda_1(T), so eta_T,inf / the floor is an
  *   upper estimate, NOT a certified lower bound. No bound moves; interval-rigorous reach stays
- *   2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ *   2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * DATA. Reused verbatim from imp-96911-krein-eta-nconvergence-scout.js IMP96911_T_SENSITIVITY: the
  *   T-sensitivity rungs at Nbig in {120,200,240}, T in {800,1600,3200} (a geometric T ladder, ratio 2).

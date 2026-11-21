@@ -41,7 +41,7 @@
  * certificate, and does NOT discharge the imp-34714a Krawczyk lemma or the imp-34687a directed-rounding layer.
  * The kappa_dG ~ 4/a model is the imp-35855 de-cancellation surrogate, not the imp-34687a layer. imp-34714a
  * REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35969-krawczyk-residual-directed-rounding-width (measured dG width diverges as a->0; never located O(1) height)
  * @see imp-35855-rclean-interval-de-cancellation-assessment (de-cancelled dG node kappa_dG ~ 4/a)
@@ -215,7 +215,7 @@ export const IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT = {
     'the imp-34687a directed-rounding layer; no certified interval instantiated; the informative-enclosure ' +
     'reading is NECESSARY but not SUFFICIENT. Reuses the imp-34774/imp-35855/imp-35969 machinery (identical ' +
     'K_AMPL, aOf); C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35969 (measured the dG width diverges as a->0; never located the O(1) vacuity height); imp-35855 ' +
     '(de-cancelled the dG node kappa_dG ~ 4/a); imp-35810 (eps_mach/a dG departure envelope); imp-34774 ' +
@@ -251,15 +251,15 @@ export const IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT_ASSERTIONS = [
     holds: () => VACUITY_ABOVE_PHYSICAL === true,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp36044-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT.subGap) &&
       /NO QED/.test(IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT.verdict) &&
-      /remains SOTA/.test(IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT.verdict),
+      /refereed bound is changed/i.test(IMP36044_KRAWCZYK_DG_NODE_VACUITY_HEIGHT.verdict),
   },
 ];
 

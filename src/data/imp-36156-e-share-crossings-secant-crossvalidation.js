@@ -36,8 +36,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Re-solves the imp-36097 crossings with a second
  * root-finder on the same pinned imp-3406 / imp-33582 constants and imp-35889 sub-terms;
  * derives no remainder; discharges nothing; changes no bound; C_C GUE-conditional
- * (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36097-e-share-threshold-crossings-viz-data.js (the four bisection crossings cross-validated here)
  * @see imp-35889-e-share-decomposition-at-knees.js (the parts(N) sub-terms replicated here)
@@ -51,7 +50,7 @@ import { IMP36097_E_SHARE_THRESHOLD_CROSSINGS } from './imp-36097-e-share-thresh
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any cross-validation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any cross-validation here)
 
 // EXACT imp-35889 sub-terms (bit-for-bit copy of the imp-35889 private parts(N); no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -166,7 +165,7 @@ export const IMP36156_E_SHARE_CROSSINGS_SECANT_CROSSVALIDATION = {
     'imp-33582 constants and the imp-35889 sub-terms unchanged; derives no remainder; discharges nothing; ' +
     'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643) and ' +
     'E_trunc = 3.06e-5 (imp-2631) UNTOUCHED, C_mb GUE-conditional (imp-486) kept; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36097 (the four bisection crossings cross-validated here); imp-35889 (the parts(N) sub-terms replicated ' +
     'here); imp-33582 (sigma-decay model); imp-3220 / imp-3406 (RvM surrogate log-height); imp-2642 / imp-2643 ' +
@@ -225,7 +224,7 @@ const IMP36156_ASSERTIONS = [
         r.isUnconditional === false &&
         /imp-486/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

@@ -30,7 +30,7 @@
  *  per-cell costs and gains, torus brackets, relaxation-ladder gaps, ODE outputs (tables below).
  * HEURISTIC: the torus model itself; |F| = 0 instead of |F| ≤ ε (the true constraint enlarges the feasible set and shrinks gain).
  *
- * Verdict: outcome (c). PT Lambda <= 0.2 stands. RH open. NO QED.
+ * Verdict: outcome (c). No refereed bound is changed. RH open. NO QED.
  * Files: tmp/s145-2-{step0,condcell,ytorus,ode,reopt-path,pathcells,pathode,exactreplay,capmargin,cone}.py (+ .json/.out/.log);
  * referee scripts tmp/s145-2-ref0-pathcheck{,2,3,4}.py, tmp/s145-2-ref0-shift.py, tmp/s145-2-ref1-ucheck.py.
  * Import-free. ASSERTIONS recompute the per-cell gains and counts, the path-vs-torus-zero violations, the torus t + y²/2 minimum,
@@ -99,7 +99,7 @@ export const S145_ZERO_CONDITIONED_FLOOR = Object.freeze({
   verdict:
     'Outcome (c): measured intermediate result. Conditioning is real on the multiplicative torus but worth ΔΛ ≈ −0.0008 to −0.0009; no model-consistent '
     + 'schedule passes the 0.1435 gate (0.1444–0.1462); the gain is invisible to phase-decoupled certificates with ≤ 11 exactly coupled primes. '
-    + 'Do not start an Arb certificate design for the zero-conditioned floor. No bound moves. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'Do not start an Arb certificate design for the zero-conditioned floor. No bound moves. No refereed bound is changed. RH open. NO QED.',
 });
 
 const Z = S145_ZERO_CONDITIONED_FLOOR;
@@ -173,7 +173,7 @@ export const S145_ZERO_CONDITIONED_FLOOR_ASSERTIONS = Object.freeze([
   },
   {
     id: 's145-zc-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(Z.verdict) && /NO QED/.test(Z.verdict) && /NO QED/.test(Z.status)
+    holds: () => /refereed bound is changed/i.test(Z.verdict) && /NO QED/.test(Z.verdict) && /NO QED/.test(Z.status)
       && /not certified/.test(Z.status) && /no model-consistent/.test(Z.headline) && /Do not start an Arb/.test(Z.verdict)
       && Math.abs(Z.ode.raymondRecordsExact - 0.149395073827688) < 1e-15,
     why: 'Nothing certified except the exact replay of Raymond’s records; the gate failure is stated; no bound moves.',

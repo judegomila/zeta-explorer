@@ -48,7 +48,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34863-sigma-knee-cauchy-hadamard-radius (root-test radius R ~ 139 and the delta_1..delta_9 literals reused)
  * @see imp-34882-sigma-knee-domb-sykes-radius (Domb-Sykes/Neville-sharpened radius R ~ 91)
@@ -372,7 +372,7 @@ export const IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION = {
     'self-consistent iterate is FD-discretization-dominated. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ASSESSES the imp-34863 open question -- does resummation beat the imp-34821 +4.86e-5 FD-floor plateau -- with ' +
     'a NO: diagonal Pade [4/4]/[3/3], Wynn epsilon, and Borel-Laplace all reproduce the plain 9-term sum to ' +
@@ -456,15 +456,15 @@ export const IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION_ASSERTIONS = [
       LOG10_N_EXACTF < 9.5365,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34888-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION.isRigorous === false &&
       IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION.farTailExponent === 0.5 &&
       typeof IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION.subGap === 'string' &&
       /NO QED/.test(IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION.verdict) &&
-      /remains SOTA/.test(IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION.verdict),
+      /refereed bound is changed/i.test(IMP34888_SIGMA_KNEE_PADE_BOREL_RESUMMATION.verdict),
   },
 ];
 

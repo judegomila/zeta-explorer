@@ -3,7 +3,7 @@
  * PD-persistence window W(S) = mu_S(0)/M1 BELOW the ~1e-6 float64 ceiling and
  * locating the node count n at which W crosses the Lehmer collision threshold
  * 1.15e-11. Closes the imp-95557 SUB-GAP W-DECAY-PRECISION on the numeric side.
- * Report only; changes no bound; NO QED; PT Lambda <= 0.2 stands; RH open.
+ * Report only; changes no bound; NO QED; no refereed bound is changed; RH open.
  *
  * THE SUB-GAP. imp-95557 measured W(S) for structured node families but hit the
  * float64 wall: mu_S(0) sinks below the ~1e-10 double-precision noise floor (the
@@ -152,7 +152,7 @@ export const IMP95576_ARB_EPS0_WINDOW = Object.freeze({
   method: 'Port the imp-95531 Cauchy-Gram pencil verbatim to mpmath at dps=60 (arbitrary precision): G, P, P prime built from mp.quad integrals of phi and its eps-derivative; mu0=lambda_min(P;G) and M1=||G^{-1/2}P prime G^{-1/2}||_2 via mpmath Cholesky + eigsy, so the super-exponentially ill-conditioned metric no longer floors mu0 at ~1e-10. Validated against the imp-95557 float64 rows (rel ~1e-5) and re-checked at dps=100 (10 sig figs).',
   finding: 'Dense families reach the collision threshold at a small, now-certified count: ARITHMETIC crosses 1.15e-11 at n=8 (W=9.74e-12), GEOMETRIC r=1.5 at n=9 (W=7.73e-12), with clean monotone decay continuing to W~1e-17 (mu0~1e-18), no floor. The NESTED DYADIC family does NOT cross: W does not decay to zero but CONVERGES to a positive limit W_inf~2.03e-6 (mu0->~5.48e-8, ~1.76e5 x the threshold), because a far-out node at nu=2^(n-1) barely perturbs the pencil. This corrects imp-95557 extrapolated dyadic crossing n~14-45: within the nested-dyadic family there is NO finite crossing.',
   scope: 'Numeric measurement at arbitrary precision, not a proof. Changes NO bound: the imp-95531 window is per-finite-S and A4(i) flow-stability is unaffected. inf_S W(S)=0 (imp-95530 A5) is realized by DENSE families (crossing near n~8-9); node SPREAD can HALT the decay, not merely slow it (refines imp-95557). The 1.15e-11 threshold is a de Bruijn-Newman flow time; crossing it means only that a dense-enough node set gives a certificate whose guaranteed soft flow-window drops below the first unconditional non-real-zero time.',
-  verdict: 'W-DECAY-PRECISION sub-gap closed on the numeric side: arbitrary precision resolves W(S) far below the float64 ceiling. Dense families cross 1.15e-11 at n=8 (arithmetic) and n=9 (geometric r=1.5); the nested dyadic family plateaus at W_inf~2.03e-6 and never crosses. Changes no bound; RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'W-DECAY-PRECISION sub-gap closed on the numeric side: arbitrary precision resolves W(S) far below the float64 ceiling. Dense families cross 1.15e-11 at n=8 (arithmetic) and n=9 (geometric r=1.5); the nested dyadic family plateaus at W_inf~2.03e-6 and never crosses. Changes no bound; RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -220,7 +220,7 @@ export const IMP95576_ASSERTIONS = [
       && /not a proof/.test(IMP95576_ARB_EPS0_WINDOW.scope)
       && /refines imp-95557/.test(IMP95576_ARB_EPS0_WINDOW.scope)
       && /RH OPEN/.test(IMP95576_ARB_EPS0_WINDOW.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95576_ARB_EPS0_WINDOW.verdict)
+      && /refereed bound is changed/i.test(IMP95576_ARB_EPS0_WINDOW.verdict)
       && /NO QED/.test(IMP95576_ARB_EPS0_WINDOW.verdict),
   },
 ];

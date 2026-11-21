@@ -29,7 +29,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95231 / imp-95227 closed
  * forms verbatim; changes no bound, no operator positivity, no RH claim;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-95231-coalescence-ratio-monotonicity.js (source: lam2, coalLaw, THEOREM COAL-DESC)
  * @see imp-95227-two-rate-coalescence-dominance-theorem.js (source: capC dominance theorem)

@@ -49,8 +49,7 @@
  * ASSESSMENT / MEASUREMENT ONLY. This bounds the curvature of the INHERITED imp-3220/imp-3406
  * surrogate crossover map on the inherited surrogate; it adds NO RH bound and asserts no operator
  * positivity. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
- * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-34731-crossover-map-second-derivative-bound (closed-form g_dd + ceiling on [1e9,1e10])
  * @see imp-33723-sigma-half-vs-crossover-closed-form (fixed point N = K log T0(N), g_prime form)
@@ -191,7 +190,7 @@ export const IMP34750_CROSSOVER_GPP_POSTPEAK_PERDECADE_BOUND = {
     'magnitude per decade. Assessment/measurement only on the INHERITED surrogate map; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34731 (closed-form g_dd + sharp ceiling B ~ 1.4802e-10 on [1e9,1e10]); imp-34727 ' +
     '(identical closed form inside its seed-band enclosure); imp-33723 (fixed point ' +
@@ -227,13 +226,13 @@ export const IMP34750_CROSSOVER_GPP_POSTPEAK_PERDECADE_BOUND_ASSERTIONS = [
       DECADE_ROWS[1].B_decade > DECADE_ROWS[2].B_decade,
   },
   {
-    // Honesty gate: assessment/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: assessment/measurement only, no QED, no refereed bound is changed.
     id: 'imp34750-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34750_CROSSOVER_GPP_POSTPEAK_PERDECADE_BOUND.isRigorous === false &&
       /NO QED/.test(IMP34750_CROSSOVER_GPP_POSTPEAK_PERDECADE_BOUND.verdict) &&
-      /remains SOTA/.test(IMP34750_CROSSOVER_GPP_POSTPEAK_PERDECADE_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP34750_CROSSOVER_GPP_POSTPEAK_PERDECADE_BOUND.verdict),
   },
 ];
 

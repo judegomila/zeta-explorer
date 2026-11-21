@@ -39,7 +39,7 @@
  *   N_peak ~ 9.22e5)
  *
  * Ticket: imp-97842 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The kernel-fold sqrt(10) headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -67,7 +67,7 @@ const KERNEL_DECADE_GROWTH_SQRT10_HEADWORD = Object.freeze({
     '(src/data/imp-97823-kernel-decade-growth-sqrt10.js): deep-window LS slope p = -0.4994 ' +
     '(upslope) / -0.5006 (downslope) brackets -1/2 to ~1e-3 on both arms, log-linear residual ' +
     '~4e-4. Naming / glossary headword only; supplies no new bound; DIAG3 == 0 and the C_C 1/8 ' +
-    'ansatz are untouched; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'ansatz are untouched; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,7 +86,7 @@ export const IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD = Object.fre
     'near-peak gap (deep-window slope p = -0.4994 / -0.5006, residual ~4e-4), with the far-from-peak ' +
     'apparent departure identified as an O(sqrt(g)) running correction, not an exponent shift. No ' +
     'bound moved; DIAG3 == 0 and all pinned surrogate constants untouched; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97823 (the deep-limit sqrt(10) fit this glosses); imp-97721 (the qualitative kernel ' +
     'observation refined here); imp-97520 (the L1 sigma peak this measurement straddles).',
@@ -113,11 +113,11 @@ export const IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp97842-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97823.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97823.',
     holds: () =>
       IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD.verdict) &&
       IMP97842_KERNEL_DECADE_GROWTH_SQRT10_GLOSSARY_HEADWORD.glosses === 'imp-97823',
   },
 ];

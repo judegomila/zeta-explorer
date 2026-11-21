@@ -71,7 +71,7 @@
  * truncating the fit's lower tail without contradiction. The imp-96656 6.5% tight spot
  * against the old trace ceiling is gone (both lower edges now +37-41% above 2.59e7), and
  * compute (9916) still binds first by ~3600-3800x. No bound moved; error-propagation /
- * tabulation only; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * tabulation only; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96656-route-m-conditioning-ceiling-confidence-interval.js (FINDING 3 tight spot; delta-method)
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (raised rigorous lower ceiling 3.75e7)
@@ -208,7 +208,7 @@ export const IMP96674_VERDICT = Object.freeze({
     'measured all-eight point ceiling 3.784e7 now agree to ~0.9%. The imp-96656 6.5% tight ' +
     'spot against the OLD trace ceiling 2.59e7 is dissolved (both lower edges now +37-41% ' +
     'above it), and the compute ceiling 9916 still binds first by ~3600-3800x. No bound moved; ' +
-    'error-propagation / tabulation only; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'error-propagation / tabulation only; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96674_SUBGAP = Object.freeze({
@@ -225,7 +225,7 @@ export const IMP96674_SUBGAP = Object.freeze({
 });
 
 export const IMP96674_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Error-propagation / tabulation only: every ' +
+  'RH open; no refereed bound is changed; NO QED. Error-propagation / tabulation only: every ' +
   'cond# value is a reproducible numeric already committed in imp-96649 / imp-96570, the ' +
   'OLS covariance and delta-method band are the imp-96656 method re-applied to the enlarged ' +
   'rung set (tmp/imp-96674-scratch.mjs), and the reference ceilings are the committed ' +
@@ -286,7 +286,7 @@ const IMP96674_ASSERTIONS = [
     holds: () =>
       IMP96674_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96674_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96674_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96674_HONEST_BANNER) &&
       /RH open/.test(IMP96674_HONEST_BANNER) &&
       /share-nonrigorous-inputs/.test(IMP96674_SUBGAP.id),
     why: 'error-propagation / tabulation only: no bound moved, the honesty markers are present, and the residual sub-gap (band and Frobenius ceiling share non-rigorous extrapolated inputs; their ~0.9% agreement is a convergence of extrapolations) is recorded.',

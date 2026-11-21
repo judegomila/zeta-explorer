@@ -41,7 +41,7 @@
  * changes no bound; establishes no operator positivity. C_H = 1/8 stays the ANSATZ that
  * blocks the rigorous beat (imp-2642); the assembled E(N) is NOT a rigorous unconditional
  * bound; imp-486 GUE-conditional caveat is UNTOUCHED; imp-35337a stays OPEN; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35889-e-share-decomposition-at-knees (the surrogate three-way split reused here)
  * @see imp-2643-honest-assembled-EN (the roadmap assembled E(N) capstone, E_trunc = 3.1e-5)
@@ -55,7 +55,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { PT_SCALE_EXTRAPOLATION } from './lambda-pt-scale-extrapolation.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const TWO_PI = 2 * Math.PI;
 const TC_A1_TRAP = 2.37e-4; // |t_c| <= 2.37e-4, A1 unconditional (imp-2633 / imp-2644)
 const GRONWALL = Math.exp(1.0 * TC_A1_TRAP); // C_G = 1.0 non-binding (imp-2644)
@@ -148,7 +148,7 @@ export const IMP36024_SURROGATE_VS_ASSEMBLED_EN_CROSSVALIDATION = {
     'constants and the imp-321 ladder unchanged; derives no remainder; discharges nothing; changes no ' +
     'bound. C_H = 1/8 stays the ANSATZ that blocks the rigorous beat (imp-2642); the assembled E(N) is NOT ' +
     'a rigorous unconditional bound; imp-486 GUE-conditional caveat UNTOUCHED; imp-35337a stays OPEN; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35889 (surrogate three-way split reused here); imp-35971 (surrogate sole-survivor height); ' +
     'imp-2643 (roadmap assembled E(N), E_trunc = 3.1e-5); imp-2631 (E_trunc = 3.06e-5 fixed strip); ' +
@@ -202,7 +202,7 @@ export const IMP36024_SURROGATE_VS_ASSEMBLED_EN_CROSSVALIDATION_ASSERTIONS = [
       rows.every((r) => Math.abs(r.residual_total - (r.E_trunc_surrogate - r.E_trunc_assembled)) < 5e-9),
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, C_H ansatz + imp-486 kept, PT SOTA, NO QED.
+    // (7) honesty gate: measurement only, conditional, no bound moves, C_H ansatz + imp-486 kept, no refereed bound is changed, NO QED.
     id: 'imp36024-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps C_H ansatz + imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -215,7 +215,7 @@ export const IMP36024_SURROGATE_VS_ASSEMBLED_EN_CROSSVALIDATION_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

@@ -54,7 +54,7 @@
  * asymptotic; changes no bound. Surrogate-vs-true fidelity (imp-35337a) UNTOUCHED;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * E_flow > 0 strictness (imp-33848) untouched; no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35337-sigma-peak-crossover-dd-certification (the peak locator recomputed here)
  * @see imp-35458 (the height-map sensitivity method, applied to the E_coll=E_trunc crossover)
@@ -220,7 +220,7 @@ export const IMP35536_PEAK_HEIGHT_MAP_SENSITIVITY = {
     'NOT a rigorous asymptotic; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; ' +
     'E_flow > 0 strictness (imp-33848) untouched; changes no bound; no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35337 (sigma interior-peak locator, recomputed here); imp-35458 (height-map ' +
     'sensitivity method); imp-35497 (same method on the far-tail crossing); imp-35017 ' +
@@ -260,13 +260,13 @@ export const IMP35536_PEAK_HEIGHT_MAP_SENSITIVITY_ASSERTIONS = [
     holds: () => SURROGATE_ROW.dLog10N > 0.1 && SURROGATE_ROW.dLog10N < 0.25,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35536-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35536_PEAK_HEIGHT_MAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35536_PEAK_HEIGHT_MAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35536_PEAK_HEIGHT_MAP_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35536_PEAK_HEIGHT_MAP_SENSITIVITY.verdict),
   },
 ];
 

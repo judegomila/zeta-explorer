@@ -53,8 +53,7 @@
  * moves no Lambda bound.
  *
  * GRADE: documentation/measurement only. Import-light (all literals baked, no
- * heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96289-margin-floor-t60-anchor-sensitivity (fractional SE tightening)
  * @see imp-96265-margin-floor-loo-stability (LOO/LTO leverage ranking)
@@ -141,7 +140,7 @@ export const IMP_96307_ANCHOR_CONFIDENCE_GAIN_PROJECTION = {
     + 'the cheapest single-datum confidence gain, confirming imp-96289 finding 5',
   note:
     'documentation/measurement/design only; import-light baked literals; changes '
-    + 'no Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'no Lambda bound; no refereed bound is changed',
   closesTickets: ['imp-96307'],
 };
 

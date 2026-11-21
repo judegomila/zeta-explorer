@@ -79,8 +79,7 @@
  *        curvature evaluation.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3599-flow-gap-nextorder-correction (exact identity + O(eps^2) crude model and its tail)
  * @see imp-3580-sigma-crossover-floor-invariance (leading gap ~ 2 E_flow/E_trunc law and residual)
@@ -294,8 +293,8 @@ export const IMP3617_FLOW_GAP_THIRDORDER_EXPANSION = {
     'plateau at ~3e-10..2.3e-8 pp survives from the neglected O(eps^4) term and the finite-difference ' +
     'evaluation of the curvature slopes -- the exact identity is complete, the closed expansion is now ' +
     'truncated at O(eps^3). Derivation/measurement only; no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3599 (exact gap identity + O(eps^2) crude model and its ~5% residual tail); imp-3580 (leading ' +
     'gap ~ 2 E_flow/E_trunc law and residual); imp-3556 (baseline half-decay <=> crossover ' +
@@ -354,14 +353,14 @@ export const IMP3617_FLOW_GAP_THIRDORDER_EXPANSION_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: measurement/derivation only, named sub-gap, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/derivation only, named sub-gap, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3617-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: named sub-gap, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/derivation only: named sub-gap, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3617_FLOW_GAP_THIRDORDER_EXPANSION.isRigorous === false &&
       IMP3617_FLOW_GAP_THIRDORDER_EXPANSION.subGap === 'imp-3617-fourthorder-fd-floor' &&
       /NO QED/.test(IMP3617_FLOW_GAP_THIRDORDER_EXPANSION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3617_FLOW_GAP_THIRDORDER_EXPANSION.verdict) &&
+      /refereed bound is changed/i.test(IMP3617_FLOW_GAP_THIRDORDER_EXPANSION.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3617_FLOW_GAP_THIRDORDER_EXPANSION.verdict),
   },
 ];

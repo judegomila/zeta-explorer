@@ -9,7 +9,7 @@
  * limiting value, and cross-check the combined first-moment constant
  *     kappa(b) = kappa_arith + kappa_cot(b),   kappa_arith = (3/2)C - 3/8 = 0.5704960511308594 (imp-97096)
  * against the memory route_m_lower_companion figure kappa ~ 0.696. MEASUREMENT ONLY; kappa still MEASURED,
- * not proved; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * not proved; no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * QUANTITIES (imp-97097 exact decomposition; notation as imp-96750/imp-97071).
@@ -63,7 +63,7 @@
  * ~ 0.696 and confirming the empirical infimum sits ~ 0.70 above zero -- no cancellation of the arithmetic
  * +0.5705. This is MEASURED, not proved; the -1/(4 pi) / 1/8 limits are conjectural (the varying-modulus
  * Bettin-Conrey mean value is not elementarised, per the imp-97097 sub-gap). No bound moved; no rigorous
- * ceiling posted; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * ceiling posted; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97097-route-m-cotangent-first-moment-reciprocity.js (parent; the exact Phi decomposition + RESULT 2)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (kappa_arith = (3/2)C - 3/8, exact)
@@ -124,8 +124,8 @@ export const IMP97541_VERDICT = Object.freeze({
     'matching the memory route_m_lower_companion figure ~ 0.696 and confirming the empirical infimum sits ' +
     '~ 0.70 above zero (the arithmetic +0.5705 is NOT cancelled: |varyCoeff| ~ 0.0796 << 0.5705). This is ' +
     'MEASURED, not proved -- the -1/(4 pi) / 1/8 limits are conjectural, exactly the imp-97097 ' +
-    'varying-modulus Bettin-Conrey mean-value sub-gap. No bound moved; no rigorous ceiling posted; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'varying-modulus Bettin-Conrey mean-value sub-gap. No bound moved; no rigorous ceiling posted; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97541_SUBGAP = Object.freeze({
@@ -140,7 +140,7 @@ export const IMP97541_SUBGAP = Object.freeze({
 });
 
 export const IMP97541_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97097 kappa_cot = ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97097 kappa_cot = ' +
   '-(pi/2) Phi(b)/(phi(b) b) is measured to b=30030 and PINNED -- the varying-modulus coefficient ' +
   'converges to ~ -0.07958 ~ -1/(4 pi) and the boundary decays to 0, so kappa_cot -> ~ 0.125 (~ 1/8) and ' +
   'the combined kappa = kappa_arith + kappa_cot -> ~ 0.6955 (~ the memory ~ 0.696), comfortably above 0. ' +
@@ -214,7 +214,7 @@ const IMP97541_ASSERTIONS = [
       /varying-modulus/.test(IMP97541_SUBGAP.id) &&
       /NOT proved/.test(IMP97541_SUBGAP.statement) &&
       /NO QED/.test(IMP97541_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97541_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97541_HONEST_BANNER) &&
       /RH open/.test(IMP97541_HONEST_BANNER),
     why: 'measurement leaf: kappa_cot pinned but MEASURED not proved (the -1/(4 pi) / 1/8 limits are conjectural), no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

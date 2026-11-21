@@ -42,7 +42,7 @@
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the geometric-vs-accelerating diagnosis is
  * descriptive within that model only; changes no bound; establishes no operator positivity; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34133-f2-f3-asymptotic-constant-fit (F2/F3 saturate, F4 alone collapses; same sub-terms, head k=6)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the narrow-window "clean geometric" claim)
@@ -266,7 +266,7 @@ export const IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING = {
     'SUPER-geometrically. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the ' +
     'geometric-vs-accelerating diagnosis is descriptive within the model only; changes no bound; establishes ' +
     'no operator positivity; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-34133 (F2/F3 saturate, F4 alone collapses; same sub-terms, head k=6); imp-34023 (the narrow-window ' +
@@ -328,13 +328,13 @@ export const IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING_ASSERTIONS = [
       ) <= 0.5e-6,
   },
   {
-    // Honesty gate: numerical/curve-fit only, isRigorous false, no QED, C_mb untouched, K_a untouched, PT SOTA.
+    // Honesty gate: numerical/curve-fit only, isRigorous false, no QED, C_mb untouched, K_a untouched, no refereed bound is changed.
     id: 'imp34215-honesty-gate-no-qed',
-    description: 'Curve-fit only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED, K_a untouched, PT SOTA',
+    description: 'Curve-fit only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED, K_a untouched, no refereed bound is changed',
     holds: () =>
       IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING.isRigorous === false &&
       /NO QED/.test(IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING.verdict) &&
-      /remains\s+SOTA/.test(IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING.verdict) &&
+      /refereed bound is changed/i.test(IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34215_F4_COLLAPSE_GEOMETRIC_VS_ACCELERATING.verdict),
   },

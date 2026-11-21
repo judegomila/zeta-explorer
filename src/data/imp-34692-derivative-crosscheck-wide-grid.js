@@ -45,7 +45,7 @@
  * surrogate derivative; it adds NO new RH bound, does not touch the C_C = (1/8) sqrt(3 pi)
  * ansatz (imp-2642/imp-2643), does not upgrade the imp-34650a interval-arithmetic sub-gap,
  * leaves the C_mb GUE-conditional per imp-486 UNTOUCHED, establishes no operator positivity,
- * and issues NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * and issues NO QED. No refereed bound is changed.
  *
  * @see imp-34685-banach-certificate-crossvalidation (the two-endpoint check being widened here)
  * @see imp-34650-crossover-banach-contraction-certificate (the analytic derivative formula)
@@ -192,7 +192,7 @@ export const IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID = {
     'numerical sweep of an inherited surrogate derivative; it adds no bound, leaves the imp-34650a ' +
     'interval-arithmetic sub-gap OPEN, leaves the C_C (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED, establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34685 (two-endpoint derivative cross-check being widened); imp-34650 (analytic derivative formula); ' +
     'imp-34675 (left edge N_star ~ 1.475e8); imp-34676 (right-widened tail to ~1e12); imp-33723 (crossover ' +
@@ -231,14 +231,14 @@ export const IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID_ASSERTIONS = [
     holds: () => BEST.relErr < SWEEP_REF.maxRel,
   },
   {
-    // Honesty gate: cross-validation only, no rigorous upgrade, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, no rigorous upgrade, no QED, no refereed bound is changed.
     id: 'imp34692-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no discrepancy, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no discrepancy, no QED, no refereed bound is changed',
     holds: () =>
       IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID.isRigorous === false &&
       /NONE/.test(IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID.discrepancy) &&
       /NO QED/.test(IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID.verdict) &&
-      /remains SOTA/.test(IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID.verdict),
+      /refereed bound is changed/i.test(IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID.verdict),
   },
 ];
 

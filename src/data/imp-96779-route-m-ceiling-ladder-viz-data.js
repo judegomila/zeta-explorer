@@ -13,7 +13,7 @@
  * this module is presentation only.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96682-route-m-conditioning-ceiling-ladder-status.js (source ladder + ratios + verdict)
  * @see imp-96683-route-m-conditioning-ceiling-ci-viz-data.js (sibling viz-data leaf convention)
@@ -107,7 +107,7 @@ const IMP96779_ASSERTIONS = [
     id: 'imp96779-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96779_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96779_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96779_HONEST_BANNER) &&
       /NO QED/.test(IMP96779_HONEST_BANNER) &&
       IMP96779_VERDICT_SUMMARY.strictlyOrdered === true,
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers, matching the source verdict.',

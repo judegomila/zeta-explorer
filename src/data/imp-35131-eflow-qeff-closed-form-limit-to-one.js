@@ -51,7 +51,7 @@
  * component model, NOT a rigorous asymptotic for the physical E_flow decay. The C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 untouched;
  * far-tail exponent stays 1/2 (imp-3463, the E_coll exponent); changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35039-eflow-qeff-profile-crossing-to-fartail (the finite-difference profile this derives)
  * @see imp-34950 / imp-34973 (the eflowRatio kernel reused verbatim)
@@ -207,8 +207,8 @@ export const IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE = {
     'Closed-form re-expression of the inherited imp-3220/imp-3406 surrogate component model, NOT a rigorous ' +
     'asymptotic for the physical E_flow decay; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'DERIVES imp-35039 P0/P2: q_eff(v) = (1 - 1/v)(1 - 1/(v + ln 2pi) - 1/(v + 1)) in closed form, limit 1 ' +
     'with 1 - q_eff ~ 3/v, 0.6 root at v ~ 5.847, and the separate E_coll exponent -> 1/2. What stays OPEN ' +
@@ -254,15 +254,15 @@ export const IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE_ASSERTIONS = [
       Math.abs(LIMIT_SEPARATION - 0.5) < 0.02,
   },
   {
-    // Honesty gate: derivation only, far-tail exponent = 1/2 (E_coll), no QED, PT stays SOTA.
+    // Honesty gate: derivation only, far-tail exponent = 1/2 (E_coll), no QED, no refereed bound is changed.
     id: 'imp35131-honesty-gate-no-qed',
-    description: 'Derivation only: far-tail exponent = 1/2 (E_coll), no QED, PT stays SOTA',
+    description: 'Derivation only: far-tail exponent = 1/2 (E_coll), no QED, no refereed bound is changed',
     holds: () =>
       IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE.isRigorous === false &&
       IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE.farTailExponent === 0.5 &&
       typeof IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE.subGap === 'string' &&
       /NO QED/.test(IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE.verdict) &&
-      /remains SOTA/.test(IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE.verdict),
+      /refereed bound is changed/i.test(IMP35131_EFLOW_QEFF_CLOSED_FORM_LIMIT_TO_ONE.verdict),
   },
 ];
 

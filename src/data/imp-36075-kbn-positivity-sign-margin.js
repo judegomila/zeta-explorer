@@ -43,7 +43,7 @@
  * H_0; instantiates no interval; verifies no inequality; changes no bound; the C_mb
  * GUE-conditional constant (imp-486) is untouched; the W1 A + B - C certificate at T_PT stays
  * GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. The oscillatory family is a representative proxy,
+ * No refereed bound is changed. The oscillatory family is a representative proxy,
  * NOT the actual mollified H_t sum -- "positivity" here means sign-margin preservation of the
  * compensated sum relative to its own exact reference, nothing stronger.
  *
@@ -57,7 +57,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36023) ---------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -291,7 +291,7 @@ export const IMP36075_KBN_POSITIVITY_SIGN_MARGIN = {
     'sum relative to its own exact reference, nothing stronger. Establishes NO positivity theorem; ' +
     'certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; ' +
     'changes no bound; the W1 A + B - C certificate at T_PT stays GREENFIELD/MECHANICAL; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36023 (compensated error magnitude N-flat; verdict "never checked positivity"); imp-35973 ' +
     '(single-endpoint combined stress); imp-35852 (clustered worst ORDER); imp-35890 / imp-36061 ' +
@@ -345,7 +345,7 @@ export const IMP36075_KBN_POSITIVITY_SIGN_MARGIN_ASSERTIONS = [
   },
   {
     id: 'imp36075-honesty-gate',
-    description: 'Measurement only; sign margin preserved; no positivity theorem; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; sign margin preserved; no positivity theorem; no QED; no refereed bound is changed',
     holds: () =>
       IMP36075_KBN_POSITIVITY_SIGN_MARGIN.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -356,7 +356,7 @@ export const IMP36075_KBN_POSITIVITY_SIGN_MARGIN_ASSERTIONS = [
       /GREENFIELD/.test(IMP36075_KBN_POSITIVITY_SIGN_MARGIN.conclusion.staysGreenfield) &&
       /NO positivity theorem/i.test(IMP36075_KBN_POSITIVITY_SIGN_MARGIN.verdict) &&
       /NO QED/.test(IMP36075_KBN_POSITIVITY_SIGN_MARGIN.verdict) &&
-      /remains SOTA/.test(IMP36075_KBN_POSITIVITY_SIGN_MARGIN.verdict),
+      /refereed bound is changed/i.test(IMP36075_KBN_POSITIVITY_SIGN_MARGIN.verdict),
   },
 ];
 

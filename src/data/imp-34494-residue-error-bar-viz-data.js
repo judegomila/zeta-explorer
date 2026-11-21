@@ -15,7 +15,7 @@
  *
  *   NO QED. Viz-data reshaping + outlier re-derivation only; the imp-34449 ladder values and
  *   measured +/-1.1% error bar are UNCHANGED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes
- *   no bound; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   no bound; no refereed bound is changed.
  *
  *   @see imp-34449-residue-curvature-error-bar-extended-rungs.js (source of the ladder + error band)
  */

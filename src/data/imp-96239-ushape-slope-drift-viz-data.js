@@ -126,8 +126,8 @@ export const IMP96239_CAVEAT_BANNER =
   'component model (E_trunc frozen fixed-strip value, Gronwall E_flow, GUE-conditional C_C_PINNED ' +
   'E_coll) purely to expose the per-N curve for charting -- no new derivation, no re-baking of the ' +
   'underlying constants. The C_mb GUE-conditional share (imp-486) stays GUE-conditional and ' +
-  'UNTOUCHED; changes no bound; establishes no operator positivity; no RH claim; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA; NO QED.';
+  'UNTOUCHED; changes no bound; establishes no operator positivity; no RH claim; no refereed bound is changed' +
+  '; NO QED.';
 
 export const IMP96239_ASSERTIONS = [
   {
@@ -164,7 +164,7 @@ export const IMP96239_ASSERTIONS = [
     holds: () =>
       /GUE-conditional/.test(IMP96239_CAVEAT_BANNER) &&
       /NO QED/.test(IMP96239_CAVEAT_BANNER) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP96239_CAVEAT_BANNER),
+      /refereed bound is changed/i.test(IMP96239_CAVEAT_BANNER),
   },
 ];
 

@@ -52,8 +52,7 @@
  * MEASUREMENT/DERIVATION ONLY. This guards the curvature (and now the third-order) behaviour of
  * the INHERITED imp-3220/imp-3406 surrogate crossover map; it changes NO bound. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34757-crossover-gpp-dense-cross-check (dense g_double_prime FD check; per-band supremum)
  * @see imp-34731-crossover-map-second-derivative-bound (g_double_prime closed form; 5-probe check)
@@ -209,7 +208,7 @@ export const IMP34768_CROSSOVER_GPPP_GLOBAL_ENVELOPE = {
     'the imp-34757 per-band sharp supremum to one global constant. Measurement/derivation only on ' +
     'the INHERITED imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional per imp-486 and the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34757 (dense g_double_prime FD check; per-band sharp supremum); imp-34731 ' +
     '(g_double_prime closed form; 5-probe check); imp-34750 (per-decade B ladder across ' +
@@ -247,13 +246,13 @@ export const IMP34768_CROSSOVER_GPPP_GLOBAL_ENVELOPE_ASSERTIONS = [
     holds: () => Math.abs(B_GLOBAL / 1.480193e-10 - 1) < 1e-3,
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp34768-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34768_CROSSOVER_GPPP_GLOBAL_ENVELOPE.isRigorous === false &&
       /NO QED/.test(IMP34768_CROSSOVER_GPPP_GLOBAL_ENVELOPE.verdict) &&
-      /remains SOTA/.test(IMP34768_CROSSOVER_GPPP_GLOBAL_ENVELOPE.verdict),
+      /refereed bound is changed/i.test(IMP34768_CROSSOVER_GPPP_GLOBAL_ENVELOPE.verdict),
   },
 ];
 

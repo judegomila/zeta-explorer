@@ -72,7 +72,7 @@
  * confirms the empty eps^{5/2} slot survives past eps = 1e-6. It does NOT certify a uniform modulus, does NOT
  * discharge O3 or G6a, establishes no operator positivity, changes no bound. G6a_shock_lipschitz stays OPEN;
  * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35244-rho-eps52-coefficient-measurement (read K_{7/2} on the imp-35193 window, excluded deeper rungs)
  * @see imp-35240-rho-prefactor-finer-grid-remeasurement (the compensated finite-cutoff ladder reused here)
@@ -274,8 +274,8 @@ export const IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION = {
     'empty eps^{5/2} slot survives past eps = 1e-6 (r1/eps^{5/2} decays ~eps, far from the SUM-integrand ' +
     '-16/(15 A_2) = -0.32011). It does NOT certify a uniform modulus, does NOT discharge O3 or G6a, ' +
     'establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35261_K72_COMPENSATED_DEEP_RUNG_ASSERTIONS = [
@@ -319,16 +319,16 @@ export const IMP35261_K72_COMPENSATED_DEEP_RUNG_ASSERTIONS = [
     holds: () => LADDER.every((r) => r.eps < IMP35244_FLOOR_EPS) && TAIL_ROW.N > 1e12,
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35261-honesty-gate-no-qed',
     description:
-      'Measurement only: K_{7/2} confirmed on deeper rungs but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: K_{7/2} confirmed on deeper rungs but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.isRigorous === false &&
       IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.verdict) &&
       /STAYS OPEN/.test(IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.verdict) &&
-      /rigorous SOTA/.test(IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35261_K72_COMPENSATED_DEEP_RUNG_CONFIRMATION.verdict,
       ),

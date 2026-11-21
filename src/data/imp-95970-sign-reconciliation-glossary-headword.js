@@ -28,20 +28,20 @@
  *
  *   STATUS: the equivalence itself is EXACT (Airy zero structure); the underlying depth
  *   condition d >= a_1/mu is NOT established at any witness window, so K_k >= 0 remains open.
- *   No bound moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No bound moves; NO QED; no refereed bound is changed.
  *
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
  *   A glossary-style lookup restating the imp-95942 reconciliation for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95942-fresnel-airy-envelope-sign-assessment (source: the reconciliation this glosses)
  * @see imp-95917-vonmangoldt-weighted-sign-image (STEP 5: the envelope-sign obligation)
  * @see imp-95336-fresnel-airy-envelope-port-assessment (MAP 4: collar-past-caustic hypothesis)
  *
  * Ticket: imp-95970 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The sign-reconciliation headword, baked verbatim (no re-import).
@@ -85,8 +85,8 @@ export const IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD = Object.freeze({
     'imp-95336 MAP-4 collar-past-caustic depth condition -- so the imp-95917 STEP-5 obligation ' +
     'is not independent of MAP-4. Both remain conditional on the still-open Section 4.5 ' +
     'turning-point geometry; K_k >= 0 is NOT established at any witness window. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95942 (the sign-transcription and MAP-4 reconciliation this glosses); imp-95917 (STEP 5, ' +
     'the envelope-sign obligation); imp-95336 (MAP 4, the collar-past-caustic hypothesis and ' +
@@ -113,11 +113,11 @@ export const IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95970-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
       IMP95970_SIGN_RECONCILIATION_GLOSSARY_HEADWORD.glosses === 'imp-95942',
   },
 ];

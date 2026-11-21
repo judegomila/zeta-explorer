@@ -34,7 +34,7 @@
  *   5516.954964; window shift 5462.61632)
  *
  * Ticket: imp-97548 (content, low, sonnet-4-6). Documentation only; establishes nothing
- * new; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * new; NO QED; no refereed bound is changed.
  */
 
 import {
@@ -66,8 +66,8 @@ const LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_HEADWORD = Object.freeze({
   verificationStatus:
     'Re-cited from the imp-97514 assessment ' +
     '(src/data/imp-97514-krein-m2-window-enclosure-assessment.js). Naming / glossary ' +
-    'headword only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; NO QED.',
+    'headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,8 +86,8 @@ export const IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD = Obje
     'while the m=2 window shift rho_2 must live in the ~5433.864-wide (lambda_2, ' +
     'lambda_3) gap, sixty-five times wider -- so the generous 82.547 reading is ' +
     'orthogonal to the m=2 gate, which instead requires a certified lower bound on ' +
-    'lambda_3 exceeding 83.090493. No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'lambda_3 exceeding 83.090493. No bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97514-krein-m2-window-enclosure-assessment.js (FINDING 1 gap/gate distinction, ' +
     'FINDING 2 lambda_3 recursion sharing the concentration wall); ' +
@@ -131,7 +131,7 @@ export const IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp97548-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, ' +
       'glosses imp-97514.',
     holds: () =>
       IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD.anyBoundMoved ===
@@ -139,7 +139,7 @@ export const IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD_ASSERT
       /NO QED/.test(
         IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD.verdict
       ) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD.verdict
       ) &&
       IMP97548_LEHMANN_MAEHLY_WINDOW_GAP_VS_GATE_GLOSSARY_HEADWORD.glosses ===

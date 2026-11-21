@@ -61,7 +61,7 @@
  * threaten the sub-1 margin there, so the conservatism is robust to the finite-height
  * slack. This measures the derived envelope only; it does NOT sharpen r itself (the true
  * r(T) lies in (0, r_cap(T)]), adds no cited input, and changes no bound. The zero-side
- * route stays PCC/GRH-gated; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * route stays PCC/GRH-gated; NO QED; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the
  * same measured literals imp-95710/imp-95722 baked (imp-95562 over the 10^6 Odlyzko
@@ -185,7 +185,7 @@ export const IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE = {
     'with height, and it would have to grow ~4x to threaten the sub-1 margin at the crossover, so the ' +
     'conservatism is robust to the finite-height slack. Measures the derived envelope only; does not ' +
     'sharpen r itself (true r in (0, r_cap]); adds no cited input; changes no bound. The zero-side ' +
-    'route stays PCC/GRH-gated; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'route stays PCC/GRH-gated; NO QED; no refereed bound is changed.',
   citation:
     'imp-95722 (derived envelope r_cap, offset C0, r_cap(3e12) ~ 0.26); imp-95750 (dead-zone ' +
     'reliance F3, ceiling gamma_1e6 = 6.003e5); imp-95729 (crossover T0 ~ 1.14e9); imp-95519 ' +
@@ -221,8 +221,8 @@ export const IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE = {
     throw new Error('imp-95766: isRigorous must be false');
   if (!/NO QED/.test(IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE.verdict))
     throw new Error('imp-95766: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE.verdict))
-    throw new Error('imp-95766: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE.verdict))
+    throw new Error('imp-95766: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE;

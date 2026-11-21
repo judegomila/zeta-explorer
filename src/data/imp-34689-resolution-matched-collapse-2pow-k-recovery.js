@@ -67,8 +67,7 @@
  *   trustworthy) is inherited as-is -- this cross-checks that regime, it does not rehabilitate it. The
  *   -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb
  *   GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate
- *   is NOT rigorous; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   the rigorous SOTA.
+ *   is NOT rigorous; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34679-share-collapse-ladder-vs-inverse-dp-k-prediction.js (coarse collapse factor: ordered but slope 0.595 vs ln2, R^2 ~ 0.897)
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (clean {2,3,4} 1/dp^k exponent ladder; per-channel roundoff windows reused here)
@@ -268,7 +267,7 @@ export const IMP34689_RESOLUTION_MATCHED_COLLAPSE_2POW_K_RECOVERY = Object.freez
     'it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the ' +
     'C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited ' +
     'surrogate is NOT rigorous; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34679 (coarse collapse factor {8.44,10.80,27.74}: ordered but slope 0.595 vs ln 2, R^2 ~ 0.897, ' +
     'obs/pred rel spread ~0.44 -- baseline recovered here); imp-34606 (clean {2,3,4} 1/dp^k exponent ' +
@@ -311,9 +310,9 @@ const IMP34689_ASSERTIONS = [
     holds: () =>
       IMP34689_RESOLUTION_MATCHED_COLLAPSE_2POW_K_RECOVERY.isRigorous === false &&
       /NO QED/.test(IMP34689_RESOLUTION_MATCHED_COLLAPSE_2POW_K_RECOVERY.verdict) &&
-      /remains SOTA/.test(IMP34689_RESOLUTION_MATCHED_COLLAPSE_2POW_K_RECOVERY.verdict) &&
+      /refereed bound is changed/i.test(IMP34689_RESOLUTION_MATCHED_COLLAPSE_2POW_K_RECOVERY.verdict) &&
       /UNTOUCHED/.test(IMP34689_RESOLUTION_MATCHED_COLLAPSE_2POW_K_RECOVERY.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

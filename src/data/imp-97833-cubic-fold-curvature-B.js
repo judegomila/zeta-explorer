@@ -11,7 +11,7 @@
  * antisymmetry to < 1%. Reuses the imp-97721/imp-97823 kernel construction verbatim; measurement/sensitivity ONLY
  * on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 and the C_C 1/8 ansatz are UNTOUCHED; pinned constants untouched; changes no bound; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE EXPANSION AND WHAT B CONTROLS
  * --------------------------------
@@ -58,7 +58,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only as the fixed surrogate; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97823-kernel-decade-growth-sqrt10 (|K| ~ sqrt(10) per decade + the M2 cubic-fold running correction)
  * @see imp-97721-diag3-peak-upslope-crossvalidation (shared kernel construction)
@@ -274,8 +274,8 @@ export const IMP97833_CUBIC_FOLD_CURVATURE_B = {
     'extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97823 (|K| ~ sqrt(10) per decade + M2 cubic-fold running correction); imp-97721 (shared kernel ' +
     'construction); imp-97662 (near-peak individual-elasticity square-root fold); imp-97520 (L1 peak ' +
@@ -341,13 +341,13 @@ export const IMP97833_CUBIC_FOLD_CURVATURE_B_ASSERTIONS = [
     holds: () => ANTISYM_DECAY.every((d) => d < 0.5),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97833-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97833_CUBIC_FOLD_CURVATURE_B.isRigorous === false &&
       /NO QED/.test(IMP97833_CUBIC_FOLD_CURVATURE_B.verdict) &&
-      /remains SOTA/.test(IMP97833_CUBIC_FOLD_CURVATURE_B.verdict),
+      /refereed bound is changed/i.test(IMP97833_CUBIC_FOLD_CURVATURE_B.verdict),
   },
 ];
 

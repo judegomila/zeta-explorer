@@ -50,7 +50,7 @@
  * finite-window onset coefficient is NOT the uniform ANALYTIC tracking of C_ren that H4 needs (imp-33766),
  * and it says nothing about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) that dominates and
  * jointly governs the discharge. H4 is NOT discharged. G6a_shock_lipschitz STAYS OPEN. No positivity;
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33845-cren-gap-onset-rate (MEASURED the 3/2 onset and 4/3 amplitude; this module DERIVES both)
  * @see imp-33646-h4-privalov-sokhotski-constant-scoping (defines C_ren, PS constant pi/sqrt(2), N-exponent 3/4)
@@ -209,7 +209,7 @@ export const IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM = {
     'coefficient at fixed z_0* = i eps is not the uniform ANALYTIC tracking of C_ren the H4 minimal-input ' +
     'condition requires (imp-33766), and it says nothing about the coupled H3 curvature rung (N-exponent ' +
     '5/4, imp-33786) that dominates and jointly governs the discharge. No positivity; imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33853_CREN_GAP_COEFFICIENT_ASSERTIONS = [
@@ -240,15 +240,15 @@ export const IMP33853_CREN_GAP_COEFFICIENT_ASSERTIONS = [
         Math.abs(IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.tailCoeffResidual),
   },
   {
-    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33853-honesty-gate-no-qed',
-    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.isRigorous === false &&
       IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.dischargesH4 === false &&
       /NO QED/.test(IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.verdict) &&
       /STAYS OPEN/.test(IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.verdict) &&
+      /refereed bound is changed/i.test(IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33853_CREN_GAP_COEFFICIENT_CLOSED_FORM.verdict,
       ),

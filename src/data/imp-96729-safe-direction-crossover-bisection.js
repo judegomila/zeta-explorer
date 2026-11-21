@@ -50,8 +50,8 @@
  *   A bisection MEASUREMENT that tightens the imp-96714 (60,120) safe-direction bracket
  *   to (60,61) with L* ~ 60.08, using the same baked pipeline. It recomputes rho from
  *   the zeros over the intermediate rungs only; it moves no bound, instantiates no
- *   interval, closes no sub-gap of the RH program. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA; RH open.
+ *   interval, closes no sub-gap of the RH program. NO QED. No refereed bound is changed
+ *   ; RH open.
  *
  * @see imp-96714-safe-direction-per-rung-verification (the (60,120) bracket this pins)
  * @see imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation (the zeros6 MC rho pipeline reused, and the L~3-8 saturation onset)
@@ -120,8 +120,8 @@ export const IMP96729_SAFE_DIRECTION_CROSSOVER = Object.freeze({
     'd_sig re-touches zero inside the ~5e-4 MC noise floor at L=64..66 (a spurious FAIL blip at ' +
     'L=65 where rho_emp passes through the GUE value), unresolvable without a lower-variance ' +
     'estimator; d_sig is unambiguously negative from L>=67. Reuses the imp-96695 zeros6 ' +
-    'pipeline; moves no bound; instantiates no interval; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; RH open.',
+    'pipeline; moves no bound; instantiates no interval; NO QED. No refereed bound is changed' +
+    '; RH open.',
   citation:
     'imp-96714 (the (60,120) safe-direction bracket pinned here); imp-96695 (the zeros6 MC rho ' +
     'pipeline and L~3-8 saturation onset); imp-96430 (calibration window and sigma2Exact GUE rho).',

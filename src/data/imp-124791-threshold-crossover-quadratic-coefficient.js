@@ -50,7 +50,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97838-threshold-landmark-residual-trend (D2 flagged the visible near-peak curvature; parent)
  * @see imp-33743-sigma-fartail-crossover-closed-form (thr = 0.1 far-tail closed form; the E_flow explanation)
@@ -233,7 +233,7 @@ export const IMP124791_THRESHOLD_CROSSOVER_QUADRATIC_COEFFICIENT = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97838 (near-peak curvature flagged, D2; parent); imp-33743 (thr=0.1 far-tail closed ' +
     'form, the E_flow explanation); imp-33723 (halving closed form, thr=1/2); imp-33601 (exact ' +
@@ -278,13 +278,13 @@ export const IMP124791_THRESHOLD_CROSSOVER_QUADRATIC_COEFFICIENT_ASSERTIONS = [
     holds: () => C2_ANCHORED > C2_FREE && C2_SPREAD > 0 && C2_SPREAD < 0.35,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp124791-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124791_THRESHOLD_CROSSOVER_QUADRATIC_COEFFICIENT.isRigorous === false &&
       /NO QED/.test(IMP124791_THRESHOLD_CROSSOVER_QUADRATIC_COEFFICIENT.verdict) &&
-      /remains SOTA/.test(IMP124791_THRESHOLD_CROSSOVER_QUADRATIC_COEFFICIENT.verdict),
+      /refereed bound is changed/i.test(IMP124791_THRESHOLD_CROSSOVER_QUADRATIC_COEFFICIENT.verdict),
   },
 ];
 

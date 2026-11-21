@@ -56,7 +56,7 @@
  * CLOSED-FORM PINNING / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the
  * inherited imp-3406/imp-97702/imp-97723 component model and RvM inverse, NOT a rigorous
  * asymptotic; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (F2: crossings "near 1e45 / near 1e89", N not pinned)
  * @see imp-97702-sigma-fartail-exponent-residual-half-loglaw (splits the residual)
@@ -151,7 +151,7 @@ export const IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS = {
     'full-model bisection to < 0.06. Conditional-share diagnostic, NOT an RH bound; uses the ' +
     'inherited imp-3406/imp-97702/imp-97723 component model and RvM inverse, NOT a rigorous ' +
     'asymptotic; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97723 (diagnostic = 1 - 1/log(T0/2pi), crossings "near 1e45 / near 1e89" not pinned); ' +
     'imp-97702 (residual split); lambda-rh-height-mapping (RvM inverse).',
@@ -250,13 +250,13 @@ export const IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS_ASSERTIONS = [
       CROSSINGS[2].log10_N < CROSSINGS[3].log10_N,
   },
   {
-    // Honesty gate: closed-form pinning only, no QED, PT stays SOTA.
+    // Honesty gate: closed-form pinning only, no QED, no refereed bound is changed.
     id: 'imp97744-honesty-gate-no-qed',
-    description: 'Closed-form pinning/measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Closed-form pinning/measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS.isRigorous === false &&
       /NO QED/.test(IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS.verdict) &&
-      /remains SOTA/.test(IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS.verdict),
+      /refereed bound is changed/i.test(IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS.verdict),
   },
 ];
 

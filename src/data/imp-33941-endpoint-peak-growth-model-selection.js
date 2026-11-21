@@ -57,8 +57,7 @@
  * derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the OLS surrogate is descriptive, not derived; the imp-33843 log-linear-vs-power-law
  * verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33917-endpoint-residual-growth-law (the 9 endpoint peaks + the two descriptive fits scored here)
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (the boundary-locked endpoint peak)
@@ -210,8 +209,8 @@ export const IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION = {
     'verdict are UNTOUCHED. Both forms are descriptive, not derived; the OLS surrogate is descriptive, ' +
     'not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33917 (the 9 endpoint peaks and the two descriptive fits scored here); imp-33877 (the ' +
     'boundary-locked endpoint peak); imp-33843 (the log-linear OLS whose endpoint residual is the peak); ' +
@@ -267,14 +266,14 @@ export const IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION_ASSERTIONS = [
   },
   {
     // Honesty gate: model-selection verdict, isRigorous false, edge-artifact and imp-33843 verdict
-    // untouched, no QED, PT SOTA.
+    // untouched, no QED, no refereed bound is changed.
     id: 'imp33941-honesty-gate-no-qed',
-    description: 'Measurement only: log-favored not decisive, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: log-favored not decisive, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION.isRigorous === false &&
       IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION.selection.strength === 'positive-not-decisive' &&
       /NO QED/.test(IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION.verdict) &&
-      /remains SOTA/.test(IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION.verdict),
+      /refereed bound is changed/i.test(IMP33941_ENDPOINT_PEAK_GROWTH_MODEL_SELECTION.verdict),
   },
 ];
 

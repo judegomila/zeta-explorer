@@ -28,7 +28,7 @@
  * imp-97497 IMP97497_TAIL_CONVERGED_OPTIMUM finding as a standalone indexable module (glossary/audit
  * sweeps that grep for honest-status modules by filename, per imp-36209's finding that inline-only
  * corrections are not reliably discoverable). Read-only record; changes no bound; establishes no
- * operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-97497-krein-welloptimum-tail-converged.js (the tail-convergence measurement this note records)
  * @see imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js (the original informal "~7.3" estimate)
@@ -72,7 +72,7 @@ export const IMP97524_WELLOPTIMUM_HONEST_STATUS = {
     '(imp-97206), sharpening the informal ~12.5x. The smooth confinement scalar optimum stays an order ' +
     'of magnitude above the spectral optimum; the far-field cost is spectral, not a scalar the radius ' +
     'can dial away. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97497-krein-welloptimum-tail-converged.js (IMP97497_TAIL_CONVERGED_OPTIMUM, the source finding ' +
     'this note records); imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js (the original ' +
@@ -101,12 +101,12 @@ export const IMP97524_WELLOPTIMUM_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp97524-no-fix-honesty-gate',
-    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, PT stays SOTA',
+    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97524_WELLOPTIMUM_HONEST_STATUS.fixApplied === false &&
       IMP97524_WELLOPTIMUM_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP97524_WELLOPTIMUM_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP97524_WELLOPTIMUM_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP97524_WELLOPTIMUM_HONEST_STATUS.verdict),
   },
 ];
 

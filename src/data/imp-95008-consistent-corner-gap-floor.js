@@ -136,8 +136,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -410,7 +409,7 @@ export const IMP95008_CONSISTENT_CORNER_GAP_FLOOR = {
     'Lemma X is elementary two-variable monotonicity calculus with the corner value in closed form; sharpness is witnessed by explicit admissible grid pairs approaching the corner. Corollaries X1-X3 are termwise substitutions into the sibling chain, which consumes the geometry only through the per-pair floor. The bracket statements of X3 quantify over the two-currency bound class with tail functionals T* <= Tx(2) at cNear <= 2; bounds in other currencies are outside scope. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS step: Lemma G - the single geometry inequality feeding every tail currency of the weld chain - is slack by EXACTLY 2^beta, because its proof takes the far-block width supremum and center-separation infimum at incompatible corners of the same variable. NEW Lemma X fixes this with a consistent-corner joint minimization: Delta/rMax > 2^beta G(j), uniform in j, b, and all parameters - and the sharpened floor is SHARP (grid pairs at p = 1 mod 4 approach it like 2.7/p), so the gap-geometry lever is terminal. Consequences: the achieved far budget of Corollary P shrinks 3.39x at reference theta = 10 at the same constant; the Theorem F near-floor evaluation tightens to 1.91607; in the sharpened currency the far bracket closes [0.0076125, 8] -> [0.025882, 8], gap 1050.9 -> 309.09. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS step: Lemma G - the single geometry inequality feeding every tail currency of the weld chain - is slack by EXACTLY 2^beta, because its proof takes the far-block width supremum and center-separation infimum at incompatible corners of the same variable. NEW Lemma X fixes this with a consistent-corner joint minimization: Delta/rMax > 2^beta G(j), uniform in j, b, and all parameters - and the sharpened floor is SHARP (grid pairs at p = 1 mod 4 approach it like 2.7/p), so the gap-geometry lever is terminal. Consequences: the achieved far budget of Corollary P shrinks 3.39x at reference theta = 10 at the same constant; the Theorem F near-floor evaluation tightens to 1.91607; in the sharpened currency the far bracket closes [0.0076125, 8] -> [0.025882, 8], gap 1050.9 -> 309.09. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -598,12 +597,12 @@ export const IMP95008_CCGF_ASSERTIONS = [
   {
     id: 'imp95008-ccgf-honesty-gate',
     description:
-      'the verdict records the exact 2^beta slack, the sharpness (terminal lever), the still-open bracket, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict records the exact 2^beta slack, the sharpness (terminal lever), the still-open bracket, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_CONSISTENT_CORNER_GAP_FLOOR.promotesBound === false &&
       IMP95008_CONSISTENT_CORNER_GAP_FLOOR.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_CONSISTENT_CORNER_GAP_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_CONSISTENT_CORNER_GAP_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_CONSISTENT_CORNER_GAP_FLOOR.verdict) &&
       /EXACTLY 2\^beta/.test(IMP95008_CONSISTENT_CORNER_GAP_FLOOR.verdict) &&
       /terminal/.test(IMP95008_CONSISTENT_CORNER_GAP_FLOOR.verdict) &&
       /EXHAUSTED/.test(IMP95008_CONSISTENT_CORNER_GAP_FLOOR.openResiduals[4]) &&

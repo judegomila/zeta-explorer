@@ -16,7 +16,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (bLo, s0, cQ, cL) value below is copied verbatim from
  * the imp-97241 baked IMP97241_POINTWISE / IMP97241_THREE_PARAM / IMP97241_WINDOW_LADDERS tables
  * (no re-derivation of the Vasyunin-kernel Q(b) ladder). Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97241-route-m-cq-subleading-finer-ladder.js (IMP97241_POINTWISE, IMP97241_THREE_PARAM, IMP97241_WINDOW_LADDERS, IMP97241_VERDICT)
  *
@@ -63,7 +63,7 @@ export const IMP97275_ASYMPTOTES = Object.freeze({
 });
 
 export const IMP97275_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (bLo, s0, cQ, cL) row is ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (bLo, s0, cQ, cL) row is ' +
   'copied verbatim from the imp-97241 baked IMP97241_POINTWISE / IMP97241_THREE_PARAM tables (no ' +
   're-derivation of the Vasyunin-kernel Q(b) ladder); no bound is claimed and no operator positivity ' +
   'is established.';
@@ -128,7 +128,7 @@ const IMP97275_ASSERTIONS = [
     id: 'imp97275-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97275_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97275_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97275_HONEST_BANNER) &&
       /NO QED/.test(IMP97275_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

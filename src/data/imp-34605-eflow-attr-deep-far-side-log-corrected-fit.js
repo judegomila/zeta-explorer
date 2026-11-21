@@ -63,7 +63,7 @@
  *   verbatim. Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is the
  *   inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  *   changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34586-eflow-attr-fp-floor-far-side-ladder.js (the seven deep rungs this fits)
  *   @see imp-34585-eflow-attr-log-corrected-fit.js (the near/mid log-corrected fit + solve3 machinery this reuses)
@@ -253,8 +253,8 @@ export const IMP34605_EFLOW_ATTR_DEEP_FAR_SIDE_LOG_CORRECTED_FIT = {
     'log-residual 2.878e-9, even tighter than near/mid). Descriptive surrogate fit, NOT a rigorous ' +
     'asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34605_ASSERTIONS = [
@@ -301,13 +301,13 @@ export const IMP34605_ASSERTIONS = [
       Math.abs(IMP34605_DEEPEST4_FIT.q - 3.334473) < 1e-5,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34605-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34605_EFLOW_ATTR_DEEP_FAR_SIDE_LOG_CORRECTED_FIT.isRigorous === false &&
       /NO QED/.test(IMP34605_EFLOW_ATTR_DEEP_FAR_SIDE_LOG_CORRECTED_FIT.honest) &&
-      /remains SOTA/.test(IMP34605_EFLOW_ATTR_DEEP_FAR_SIDE_LOG_CORRECTED_FIT.honest) &&
+      /refereed bound is changed/i.test(IMP34605_EFLOW_ATTR_DEEP_FAR_SIDE_LOG_CORRECTED_FIT.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34605_EFLOW_ATTR_DEEP_FAR_SIDE_LOG_CORRECTED_FIT.honest),
   },
 ];

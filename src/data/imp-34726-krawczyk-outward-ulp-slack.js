@@ -55,7 +55,7 @@
  * imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8)
  * sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the exact lemma; named sub-gap imp-34714a)
  * @see imp-34687-crossover-interval-arithmetic-scope (scoped the IA upgrade; sub-gap imp-34687a directed rounding)
@@ -215,8 +215,8 @@ export const IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK = {
     'the k*eps model is a surrogate for the imp-34687a directed-rounding layer, not that layer. Measurement ' +
     'only for the inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34714 (Krawczyk existence-uniqueness lemma; sub-gap imp-34714a double-precision surrogate); ' +
     'imp-34687 (crossover interval-arithmetic scope; sub-gap imp-34687a directed-rounding layer); ' +
@@ -268,15 +268,15 @@ export const IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK_ASSERTIONS = [
     holds: () => SLACK_ORDERS >= 8,
   },
   {
-    // Honesty gate: slack assessment / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: slack assessment / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34726-honesty-gate-no-qed',
-    description: 'Surrogate assessment: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Surrogate assessment: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK.isRigorous === false &&
       /imp-34714a/.test(IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK.subGap) &&
       /REMAINS OPEN/.test(IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK.subGap) &&
       /NO QED/.test(IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK.verdict) &&
-      /remains SOTA/.test(IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK.verdict),
+      /refereed bound is changed/i.test(IMP34726_KRAWCZYK_OUTWARD_ULP_SLACK.verdict),
   },
 ];
 

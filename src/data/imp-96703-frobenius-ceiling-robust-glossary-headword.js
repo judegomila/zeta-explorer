@@ -39,7 +39,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96684 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96684-route-m-frobenius-majorant-high-n-rungs.js (source: the measurement this glosses)
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (the eight-rung ladder extended)
@@ -48,7 +48,7 @@
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured composed ceiling 4.109e7)
  *
  * Ticket: imp-96703 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The robustness headword, baked verbatim (no re-import).
@@ -87,7 +87,7 @@ const FROBENIUS_CEILING_ROBUST_HEADWORD = Object.freeze({
     'Frobenius log-fit four decades to N ~ 3.76e7, resting on a fitted (not proved) ' +
     'asymptotic for ||G||_F, and shares the non-rigorous imp-96428 lam_min N^-p ' +
     'extrapolation with every other Route M ceiling. Changes no bound; establishes ' +
-    'no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD = Object.freeze({
@@ -106,8 +106,8 @@ export const IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD = Object.freeze
     'verdict: the eleven-rung Frobenius majorant slope flattens 0.48652 -> 0.47808 ' +
     '(~1.7%, like the imp-96649 lam_max) but the re-solved rigorous-lower ceiling ' +
     'moves only 3.748e7 -> 3.764e7 (+0.42%) -- ROBUST, not tightened. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96684 (the measurement this glosses); imp-96648 (the eight-rung ladder ' +
     'extended); imp-96649 (NMAX=9000 Gram, lam_max flattening); imp-96548 (rigorous ' +
@@ -135,11 +135,11 @@ export const IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96703-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD.verdict) &&
       IMP96703_FROBENIUS_CEILING_ROBUST_GLOSSARY_HEADWORD.glosses === 'imp-96684',
   },
 ];

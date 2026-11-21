@@ -70,7 +70,7 @@
  *   Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is the inherited
  *   imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  *   bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34636-eflow-attr-pole-centred-window-slope.js (the 5-rung pole-centred baseline)
  *   @see imp-34609-eflow-attr-near-far-slope-diff-log-corrected.js (the near/far log-corrected baselines)
@@ -330,7 +330,7 @@ export const IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE = {
     'tradeoff. Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34645_ASSERTIONS = [
@@ -383,13 +383,13 @@ export const IMP34645_ASSERTIONS = [
       W9.centroidK < W7.centroidK,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34645-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE.isRigorous === false &&
       /NO QED/.test(IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE.honest) &&
-      /remains SOTA/.test(IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE.honest),
+      /refereed bound is changed/i.test(IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE.honest),
   },
 ];
 

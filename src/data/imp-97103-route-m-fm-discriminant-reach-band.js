@@ -16,7 +16,7 @@
  * percent). No new law is fit, no Gram is rebuilt, no O(N^3) rung is computed: alpha, beta and the
  * exact spread ladder are imported verbatim from imp-97033 and only differenced to recover residuals.
  * Only the trace ceiling T ~ 2.594e7 stays rigorous; F, M inherit non-rigorous extrapolations; no
- * bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE PROPAGATION. Inverse-regression (calibration) prediction interval.
@@ -60,7 +60,7 @@
  * This does not move any bound: it only attaches honest error bars to the reach-threshold table, and
  * the band stays entirely within the far-reach regime (N_top still ~30..80 percent of N* ~ 4e7 at
  * 1 percent). Measurement/tabulation only; only the trace ceiling T ~ 2.594e7 is rigorous; no bound
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97060-route-m-fm-discriminant-crossvalidation.js (the anchor back-check + confidence table this bands)
  * @see imp-97033-route-m-fm-discriminant-reach-threshold.js (the inverted decay law + threshold ladder)
@@ -200,11 +200,11 @@ export const IMP97103_VERDICT = Object.freeze({
     'imp-97060 verdict that the reach-threshold risk is dominated by the ~3.3-decade far reach, not ' +
     'anchor misfit. No bound moves: even the band low end (1.2e7, ~30 percent of N* ~ 4e7) stays deep ' +
     'in the far-reach regime. Measurement/tabulation only; only the trace ceiling T ~ 2.594e7 is ' +
-    'rigorous; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'rigorous; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97103_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/tabulation only: no law was refit, no ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement/tabulation only: no law was refit, no ' +
   'Gram was rebuilt and no O(N^3) rung was computed -- the imp-97033 (alpha, beta) and exact spread ' +
   'ladder are imported verbatim and only differenced to recover the residual s and OLS parameter ' +
   'covariance, which are then propagated through the log-decay inversion (delta method / calibration ' +
@@ -260,7 +260,7 @@ const IMP97103_ASSERTIONS = [
       IMP97103_VERDICT.postsRigorousCeiling === false &&
       IMP97103_VERDICT.qed === false &&
       /NO QED/.test(IMP97103_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97103_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97103_HONEST_BANNER) &&
       /RH open/.test(IMP97103_HONEST_BANNER),
     why: 'measurement/tabulation only: no bound moved, no rigorous ceiling posted, and the honesty markers are present.',
   },

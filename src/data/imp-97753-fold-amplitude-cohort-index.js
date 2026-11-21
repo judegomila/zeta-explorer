@@ -68,7 +68,7 @@
  *   - the C_C 1/8 ansatz, E_trunc pinned 3.06e-5, and imp-3066 K_a >= 0 are UNTOUCHED throughout.
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
- *   changes: RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   changes: RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97662-cc-elasticity-peak-divergence.js (fold law + first K route ~0.423330)
  * @see imp-97683-fold-amplitude-independent-crosscheck.js (even-poly fit cross-check + branch resolution)
@@ -77,7 +77,7 @@
  * @see imp-97674-late-frontier-leaves-cohort-index-2.js (sibling cohort-index pattern this follows)
  *
  * Ticket: imp-97753 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const K_MEASURED = 0.42333;
@@ -160,7 +160,7 @@ export const IMP97753_FOLD_AMPLITUDE_COHORT_INDEX = Object.freeze({
     'structure K = sqrt(sigma_max(1-sigma_max)/(2 phi_xx)), with an EXACT numerator but a curvature ' +
     'denominator (phi_xx) that has no elementary closed form -- so K = 0.4233 is pinned as a ' +
     'structure, not as a universal dimensionless constant. No bound moves in this batch: RH open; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97662 (fold law, first K route); imp-97683 (even-poly-fit cross-check, branch resolution); ' +
     'imp-97700 (implicit-differentiation machinery); imp-97725 (analytic pin, K-not-universal sub-gap).',
@@ -209,11 +209,11 @@ export const IMP97753_FOLD_AMPLITUDE_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97753-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97753_FOLD_AMPLITUDE_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97753_FOLD_AMPLITUDE_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97753_FOLD_AMPLITUDE_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97753_FOLD_AMPLITUDE_COHORT_INDEX.verdict),
   },
 ];
 

@@ -19,7 +19,7 @@
  *
  * Content/organization only. No computation performed, no bound changed, no operator positivity
  * established. The inherited component model is NOT a rigorous asymptotic; C_mb GUE-conditional per
- * imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ * imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.
  *
  * @see imp-33936-sigma-decay-cohort-citation-audit (sibling cohort-audit pattern this module follows)
  * @see SurrogateDiagnosticCohortNote (shared honest-status boilerplate for the imp-34082..34087 cohort)
@@ -68,7 +68,7 @@ export const LADDER_SURROGATE_WHAT_REMAINS = {
     'This note tabulates an inherited-surrogate diagnostic thread, not an RH bound. The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; changes no bound; no operator ' +
-    'positivity established; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'positivity established; NO QED; no refereed bound is changed.',
 };
 
 const LADDER_SURROGATE_WHAT_REMAINS_ASSERTIONS = [
@@ -93,9 +93,9 @@ const LADDER_SURROGATE_WHAT_REMAINS_ASSERTIONS = [
   {
     id: 'imp34163-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(LADDER_SURROGATE_WHAT_REMAINS.honestNote) &&
+      /refereed bound is changed/i.test(LADDER_SURROGATE_WHAT_REMAINS.honestNote) &&
       /NO QED/.test(LADDER_SURROGATE_WHAT_REMAINS.honestNote),
-    why: 'VERDICT LOCK: this is a content/organization tabulation, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a content/organization tabulation, not a bound; no refereed bound is changed.',
   },
 ];
 

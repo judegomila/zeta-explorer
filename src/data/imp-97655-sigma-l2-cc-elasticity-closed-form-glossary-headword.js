@@ -40,7 +40,7 @@
  *   the mechanism behind the elasticity relaxing toward +2)
  *
  * Ticket: imp-97655 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The sigma-landmark C_C-elasticity closed-form headword, baked verbatim (no re-import).
@@ -71,8 +71,8 @@ const SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_HEADWORD = Object.freeze({
     'the L2 closed form matches the imp-97598 measured value to 4 digits, the closed form matches ' +
     'independent numeric central-difference at all three downslope landmarks, the form collapses ' +
     'to the imp-97565 halving value at L3, and |d ln R/dx| falls monotonically L2 -> L3 -> L4. ' +
-    'Naming / glossary headword only; supplies no new bound; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'Naming / glossary headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,7 +90,7 @@ export const IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD = Obj
     'E = 2/(1 + 2 d(ln R)/dx - d(ln L)/dx) for the sigma-landmark C_C-elasticity, matching the ' +
     'imp-97598 measured L2 value +2.5554 at +2.555354, and the flow-share mechanism (imp-97585) ' +
     'explaining why L2 is steepest. No bound moved; not a rigorous asymptotic; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97622 (the closed-form derivation this glosses); imp-97598 (the L2 measurement refined ' +
     'here); imp-97565 (the L3 halving special case); imp-97585 (the flow-share collapse mechanism).',
@@ -116,11 +116,11 @@ export const IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp97655-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97622.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97622.',
     holds: () =>
       IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
       IMP97655_SIGMA_L2_CC_ELASTICITY_CLOSED_FORM_GLOSSARY_HEADWORD.glosses === 'imp-97622',
   },
 ];

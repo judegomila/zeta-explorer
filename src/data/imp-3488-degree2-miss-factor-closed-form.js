@@ -65,8 +65,7 @@
  *   NECESSARY-BUT-NOT-SUFFICIENT and the degree-2 face carries no feasibility
  *   comparison at all (D_2 = 0 identically, imp-3482). The operator-level
  *   K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3469-degree2-bridge-mass-scaling.js (the measured k-ladder certified here)
  *   @see imp-3481-autocorrelation-moment-ladder.js (the moment M_2 and Taylor ladder)
@@ -279,7 +278,7 @@ export const IMP3488_DEGREE2_MISS_FACTOR_CLOSED_FORM = Object.freeze({
       'comparison at all (D_2 = 0 identically, imp-3482). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -336,7 +335,7 @@ export const IMP3488_DEGREE2_MISS_FACTOR_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3488-honest-derivation-not-a-verdict',
     why: 'Mandatory honesty: derivation/certification only, mass-feasibility necessary-but-not-sufficient ' +
-         '(no degree-2 ratio, D_2=0), operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(no degree-2 ratio, D_2=0), operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3488_DEGREE2_MISS_FACTOR_CLOSED_FORM.honestCaveat;
       return (
@@ -344,7 +343,7 @@ export const IMP3488_DEGREE2_MISS_FACTOR_CLOSED_FORM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isDerivationAndCertification === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -18,14 +18,14 @@
  *   is wrong; this note documents the correction so it is directly citable without re-deriving imp-97399.
  *
  *   Documentation only: no new numerics, no operator positivity, no bound moves; interval-rigorous
- *   reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ *   reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (source FINDING 1 + the new -3200.029 floor)
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (the corrected prose; assertions unaffected)
  * @see imp-97350-krein-csharp-lower-bound-routes-shared-obstruction.js (originally named the "confined negative well")
  *
  * Ticket: imp-97417 (content, sonnet-4-6, sonnet). Honest-status correction note only; no bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97399_WELL, IMP97399_VERDICT } from './imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js';

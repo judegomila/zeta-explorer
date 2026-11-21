@@ -59,7 +59,7 @@
  *   root); this certifies its U-invariance, not a closed form. Certification /
  *   derivation only; RH-equivalent; the imp-3066 off-diagonal endpoint-Hankel
  *   K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3489-xistar-U-independence-certification.js (MEASURED drift = 0; this derives WHY it is bit-exact)
  *   @see imp-3470-Ttilde-spectral-peak-xistar-obstruction.js (located xi*; P2 = 0 stays transcendental)
@@ -252,7 +252,7 @@ export const IMP3506_XISTAR_U_INVARIANCE_BITIDENTITY_DERIVATION = Object.freeze(
     'the SAME IEEE-754 xi* = 12.08704387272693, reconciling imp-3489 drift = 0 as bit-exact rather than approximate. ' +
     'xi* stays a determined transcendental number (imp-3470: P2 = 0 has no elementary root); this certifies its ' +
     'U-invariance, not a closed form. Derivation/certification only; RH-equivalent; the imp-3066 K_a >= 0 magnitude ' +
-    'is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -346,7 +346,7 @@ export const IMP3506_XISTAR_U_INVARIANCE_BITIDENTITY_DERIVATION = Object.freeze(
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -399,8 +399,8 @@ export const IMP3506_XISTAR_U_INVARIANCE_BITIDENTITY_DERIVATION_ASSERTIONS = [
   {
     id: 'imp3506-honest-assessment-no-qed',
     why: 'Mandatory honesty: DERIVES a numerical bit-identity but is NOT a proof about RH, does NOT close xi* ' +
-      '(equation transcendental), invariance is quadrature-scoped, positivity not attempted, RH-equivalent, PT 0.2 ' +
-      'stays SOTA. Any flip over-claims.',
+      '(equation transcendental), invariance is quadrature-scoped, positivity not attempted, RH-equivalent, no refereed bound is changed' +
+      '. Any flip over-claims.',
     holds: () => {
       const c = IMP3506_XISTAR_U_INVARIANCE_BITIDENTITY_DERIVATION.honestCaveat;
       return (
@@ -410,7 +410,7 @@ export const IMP3506_XISTAR_U_INVARIANCE_BITIDENTITY_DERIVATION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.derivesInvarianceNotClosedForm === 'string' &&
         typeof c.invarianceIsQuadratureScoped === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

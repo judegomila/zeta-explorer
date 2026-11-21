@@ -76,7 +76,7 @@ export const IMP34557_HUMP_SKEW_MIRROR_VIZ_J5 = {
     'head, with the j = 4,5 amplitudes sitting in the deep collision-dominated (sigma -> 1) regime ' +
     'where the inherited imp-3220/imp-3406 component model is least trustworthy. Changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33851 (original mirror viz, j = 1..3); imp-34532 (head-heavy skew ladder extended to ' +
     'j = 4,5, source of the fullSkewLadder/fullAsymmetryLadder reuse-gate); imp-33809 (per-k hump ' +

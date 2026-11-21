@@ -48,8 +48,7 @@
  * silently re-seed under a future grep for "imp-341 + T_PT".
  *
  * Inventory / assessment only; re-points nothing (nothing needs it); changes no
- * bound; establishes no positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; establishes no positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35681-w1-w2-w4-existing-infra-inventory (Part D: base external, misattributed)
  * @see imp-35653-sbarrier-finite-check-porting-scope (Part D: N_off(T_PT)=0 necessary-not-sufficient)
@@ -60,7 +59,7 @@
 
 // -- Anchor constants (import-light; matching imp-35681 / imp-35717) -----------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (EXTERNAL barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this audit
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this audit
 
 export const IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT = {
   id: 'imp-35719',
@@ -130,7 +129,7 @@ export const IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT = {
     'by imp-35681 Part D and surfaced by imp-35741. Consequently ZERO src modules need re-pointing; the ' +
     'audit catalogues the three correct-use classes as a guard against silent re-seeding. Inventories ' +
     'nothing new; re-points nothing; changes no bound; establishes no positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35681 Part D (base external Platt-Trudgian 2021, NOT repo imp-341); imp-35653 Part D ' +
     '(N_off(T_PT) = 0 necessary-not-sufficient); imp-35741 (dashboard banner surfacing the correction); ' +
@@ -188,9 +187,9 @@ export const IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT_ASSERTIONS
       ),
   },
   {
-    // Honesty gate: zero re-pointing needed, null-result fan-out, no discharge, no QED, PT SOTA, no stray key.
+    // Honesty gate: zero re-pointing needed, null-result fan-out, no discharge, no QED, no refereed bound is changed, no stray key.
     id: 'imp35719-honesty-gate-null-result-no-qed',
-    description: 'ZERO re-pointing needed; audit only; no bound change; NO QED; Platt-Trudgian Lambda<=0.2 SOTA',
+    description: 'ZERO re-pointing needed; audit only; no bound change; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -199,7 +198,7 @@ export const IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT_ASSERTIONS
       IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT.repointingNeeded.list.length === 0 &&
       /NULL result/.test(IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT.verdict) &&
       /NO QED/.test(IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35719_IMP341_BARRIER_BASE_MISATTRIBUTION_FANOUT_AUDIT.verdict),
   },
 ];
 

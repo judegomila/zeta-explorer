@@ -28,7 +28,7 @@
  * @see imp-97441-route-m-crossover-fraction-tolerance-table.js (the bimodal 1% row this explains)
  *
  * Ticket: imp-97571 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97459_DEFAULT, { IMP97459_VERDICT, IMP97459_SUBGAP } from './imp-97459-route-m-bimodal-1pct-crossover-peaks.js';
@@ -58,7 +58,7 @@ export const IMP97571_HONEST_BANNER =
   'near b ~ 2100), NOT a genuine curvature feature -- A(b) = x*(1%) b stays exactly proportional to b ' +
   'within each branch. No consumer should cite the 1% bimodality as evidence of non-linear crossover ' +
   'curvature; the live residual is the un-pinned continuum threshold b (IMP97459_SUBGAP). No bound on ' +
-  'Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'Lambda moves; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97571_ASSERTIONS = [
@@ -91,9 +91,9 @@ const IMP97571_ASSERTIONS = [
       IMP97571_STATUS.qed === false &&
       /GRID-RESOLUTION ARTIFACT/.test(IMP97571_HONEST_BANNER) &&
       /NO QED/.test(IMP97571_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97571_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97571_HONEST_BANNER) &&
       /RH open/.test(IMP97571_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

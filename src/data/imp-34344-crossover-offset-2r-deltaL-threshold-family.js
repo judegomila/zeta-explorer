@@ -61,7 +61,7 @@
  * the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. E_flow is the
  * benign mesoscopic-Gronwall term (imp-2845); its vanishing here does NOT touch the divergent
- * C_Lip collision-Gronwall. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * C_Lip collision-Gronwall. No refereed bound is changed.
  *
  * @see imp-34270-eflow-gronwall-crossover-offset-correction (thr=1/2 relOffset = 2r + deltaL decomposition)
  * @see imp-34174-crossover-surplus-threshold-family-decay (generalised N_cross(thr), threshold family)
@@ -209,8 +209,8 @@ export const IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY = {
     'component model; NO QED. The component model is NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional ' +
-    'bound. E_flow is the benign mesoscopic-Gronwall term (imp-2845); its vanishing here does NOT ' +
+    'positivity; changes no bound; no refereed bound is changed' +
+    '. E_flow is the benign mesoscopic-Gronwall term (imp-2845); its vanishing here does NOT ' +
     'touch the divergent C_Lip collision-Gronwall.',
   citation:
     'imp-34270 (thr=1/2 relOffset = 2r + deltaL decomposition, named the offset only at the halving ' +
@@ -260,14 +260,14 @@ export const IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY_ASSERTIONS = [
     holds: () => Math.abs(HALF.gap - HALF_GAP_PREDICTED) / HALF.gap < 3e-3 && HALF.gap > 0,
   },
   {
-    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34344-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY.honestScope) &&
       /NO QED/.test(IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY.honestScope) &&
-      /remains the SOTA/.test(IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY.honestScope),
+      /refereed bound is changed/i.test(IMP34344_CROSSOVER_OFFSET_2R_DELTAL_THRESHOLD_FAMILY.honestScope),
   },
 ];
 

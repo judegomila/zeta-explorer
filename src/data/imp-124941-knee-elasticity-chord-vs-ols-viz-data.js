@@ -81,7 +81,7 @@ export const IMP124941_SUMMARY = Object.freeze({
     + 'computation. Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 '
     + 'extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is untouched; '
     + 'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, '
-    + 'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'NO QED. No refereed bound is changed.',
 });
 
 // ---------------------------------------------------------------------------

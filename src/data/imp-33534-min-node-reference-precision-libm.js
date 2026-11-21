@@ -46,8 +46,7 @@
  *   reordering, so it upgrades the imp-33314 proxy to a measured error. It establishes NO operator
  *   positivity and NO new bound. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. The NPHI=10
- *   Phi-series truncation is inherited upstream. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   stays SOTA.
+ *   Phi-series truncation is inherited upstream. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33314-eval-order-ulp-sensitivity.js (the reorder PROXY this quantifies)
  *   @see imp-33296-min-node-lattice-jitter-band.js (the band + the latticeJitterCaveat)
@@ -244,7 +243,7 @@ const verdict =
       'BELOW-THE-imp-33314-~1.34-ULP-REORDER-PROXY-(SO-THE-PROXY-WAS-CONSERVATIVE);-THE-imp-33296-BAND-' +
       '(~5-ULP-CEILING,-~4.3-ULP-WIDTH)-KEEPS-~4.5x-HEADROOM-AND-SURVIVES.-ACCURACY-MEASUREMENT-ONLY;-' +
       'DOUBLE-DOUBLE-IS-A-REFERENCE-PRECISION-SURROGATE-NOT-A-PLATFORM-SURVEY;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33534_MIN_NODE_REFERENCE_PRECISION_LIBM = Object.freeze({
@@ -268,8 +267,8 @@ export const IMP33534_MIN_NODE_REFERENCE_PRECISION_LIBM = Object.freeze({
     'precision (the latticeJitterCaveat, now quantified) -- yet it stays BELOW the 1 ULP bar and BELOW the ' +
     'imp-33314 ~1.34 ULP reorder proxy (the proxy was conservative), while the imp-33296 band (~5 ULP ceiling, ' +
     '~4.3 ULP width) keeps ~4.5x headroom and survives. ACCURACY MEASUREMENT ONLY, RH-EQUIVALENT, ' +
-    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no new bound; no QED. PT ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no new bound; no QED. No refereed bound is changed' +
+    '.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -350,7 +349,7 @@ export const IMP33534_MIN_NODE_REFERENCE_PRECISION_LIBM = Object.freeze({
       'NOT a survey of real platform libms. It is a genuine higher-precision recompute (an upgrade over the ' +
       'imp-33314 same-precision reorder proxy), but a specific platform libm with a ~1 ULP exp/log error could ' +
       'still differ; the conclusion -- single-hit margin lost, band retained -- is the robust one.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -401,7 +400,7 @@ export const IMP33534_MIN_NODE_REFERENCE_PRECISION_LIBM_ASSERTIONS = [
   {
     id: 'imp33534-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement only, reference-precision surrogate not a platform survey, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33534_MIN_NODE_REFERENCE_PRECISION_LIBM.honestCaveat;
       return (
@@ -409,7 +408,7 @@ export const IMP33534_MIN_NODE_REFERENCE_PRECISION_LIBM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

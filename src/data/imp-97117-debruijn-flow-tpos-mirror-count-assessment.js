@@ -65,7 +65,7 @@
  * remaining obstruction (sharpened NS-RIGID wall): uniform-in-t, all-x lower bound
  * on the mirror pull at a fixed spatial window over the continuum t in (0, t0],
  * with no arithmetic input and only pointwise finite-height instruments. This is
- * an assessment only: no Lambda bound follows, PT Lambda <= 0.2 remains SOTA, RH
+ * an assessment only: no Lambda bound follows, no refereed bound is changed, RH
  * open, NO QED.
  *
  * @see imp-97101-palm-mirror-parity-crossing-ladder.js (t = 0-proxy ladder, residual (c))
@@ -175,7 +175,7 @@ export const IMP97117_ASSESSMENT = Object.freeze({
     'mirror count (2.529 -> 1.812 at 1.2x spacing) below the already-1.73x-short ' +
     't = 0 proxy; and uniformity over t in (0, t0] on an Euler-product-free family ' +
     'stays unsupplied. Assessment only: no Lambda bound follows, no Euler product ' +
-    'for t > 0, PT Lambda <= 0.2 remains SOTA, RH open. NO QED.',
+    'for t > 0, no refereed bound is changed, RH open. NO QED.',
   anyBoundMoved: false,
 });
 
@@ -216,13 +216,13 @@ export const IMP97117_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp97117-honesty-gate-no-qed',
     why: 'assessment only: wall not breached, no bound moved, no Euler product for ' +
-      't > 0, PT SOTA line and NO QED present.',
+      't > 0, no-refereed-bound-change line and NO QED present.',
     holds: () =>
       IMP97117_ASSESSMENT.breachesNsRigidWall === false &&
       IMP97117_ASSESSMENT.anyBoundMoved === false &&
       /no Euler product/i.test(IMP97117_ASSESSMENT.verdict) &&
       /no Lambda bound follows/i.test(IMP97117_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP97117_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP97117_ASSESSMENT.verdict) &&
       /RH open/.test(IMP97117_ASSESSMENT.verdict) &&
       /NO QED/.test(IMP97117_ASSESSMENT.verdict),
   },

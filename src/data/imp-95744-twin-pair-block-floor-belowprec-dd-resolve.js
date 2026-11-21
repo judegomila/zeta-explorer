@@ -6,7 +6,7 @@
  *
  * GRADE: numerical completion of an already-established interior mechanism.
  * Imports no heavy bundle; no imports at all. Changes NO Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * WHY imp-95723 LEFT THEM BLANK. imp-95723 built F_inf as the smaller
  * eigenvalue d(0) - |off(0)| of the 2x2 block symbol and evaluated it as an
@@ -85,7 +85,7 @@
  * two deepest cells keep an OPEN biasPct pending a dd eigensolver
  * (finite-80-dd-eigensolver sub-gap). (c) Model seam family only; the imp-95212
  * envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO
- * bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95723-twin-pair-block-floor-full-grid-bias (the full grid with the five below-prec cells)
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the single-delta infimum + bias this completes)
@@ -170,7 +170,7 @@ export const IMP95744_TWIN_PAIR_BLOCK_FLOOR_BELOWPREC_DD_RESOLVE = {
     "eigensolver. Numerical completion of an established interior mechanism; no new " +
     "cited input. Model seam family only; imp-95212 envelope port, signed WEIGHT, " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95744"],
 };
 
@@ -343,7 +343,7 @@ export const IMP95744_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /FIVE BELOW-PRECISION CELLS RESOLVED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95744-closes-self",

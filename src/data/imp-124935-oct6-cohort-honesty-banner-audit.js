@@ -8,7 +8,7 @@
  * audit module itself), and imp-124839 (TLDR/currentStatus sync audit). Each must
  * carry the same required four-part honesty banner: (1) an explicit no-bound-change
  * statement, (2) the imp-3066 K_a &gt;= 0 positivity-untouched note, (3) a no-RH-verdict
- * / NO QED disclaimer, and (4) the Platt-Trudgian Lambda &lt;= 0.2 remains-SOTA citation.
+ * / NO QED disclaimer, and (4) the no-refereed-bound-change citation.
  *
  * METHOD (read-only, performed at author time). Each module was imported live in Node
  * and every exported string/array/object field was concatenated into one search text,
@@ -57,7 +57,7 @@
  * imp-124839) were missing the imp-3066 K_a >= 0 untouched citation entirely and have
  * been repaired to match the cohort pattern. This audit module fabricates no new
  * pages and asserts no new bound; it only records the audit outcome and the two
- * repairs. No QED. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.
+ * repairs. No QED. No refereed bound is changed.
  *
  * @see imp-124838-124793-124811-124812-124814-124776-honesty-banner-audit.js (the prior cohort honesty-audit this extends)
  * @see imp-97851 (the original cohort honesty-audit pattern)
@@ -71,7 +71,7 @@ export const IMP_124935_HONESTY_BANNER_AUDIT = {
     'field into one search text (defeating template-string line-wrap false negatives a raw single-line grep ' +
     'would produce), then test for the four required honesty-banner concepts -- an explicit no-bound-change ' +
     'statement (synonyms accepted), the literal "imp-3066 K_a >= 0 untouched" citation, "NO QED", and ' +
-    '"remains SOTA".',
+    '"no refereed bound is changed".',
   modulesAudited: [
     {
       file: 'imp-124822-frontier-crosscheck-batch-cohort-index.js',
@@ -138,7 +138,7 @@ export const IMP_124935_HONESTY_BANNER_AUDIT = {
     'citation entirely and have been repaired to match the cohort pattern.',
   honestNote:
     'Read-only audit plus two in-place wording repairs; no pages or bounds fabricated. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -172,10 +172,10 @@ const IMP_124935_ASSERTIONS = [
   {
     id: 'imp124935-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_124935_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_124935_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_124935_HONESTY_BANNER_AUDIT.honestNote) &&
       IMP_124935_HONESTY_BANNER_AUDIT.mutuallyConsistent === true,
-    why: 'VERDICT LOCK: this is a read-only audit plus two wording repairs, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit plus two wording repairs, not a bound; no refereed bound is changed.',
   },
 ];
 

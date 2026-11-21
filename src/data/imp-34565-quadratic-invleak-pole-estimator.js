@@ -60,8 +60,7 @@
  * one on an inherited pole, NOT an RH bound. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural
  * observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34550-recovered-pole-ladder-two-tighter-rungs (the F3 claim tested; tightest linear residual ~3.69e-4)
  * @see imp-34529-recovered-pole-convergence-vs-inherited (the seven-rung ladder; ~1/3 shrink R2/R3)
@@ -375,7 +374,7 @@ export const IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR = {
     'limit. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'residExp simple-zero structure is a numerical/structural observation, not a derivation; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34550 (the F3 claim tested; tightest linear residual ~3.69e-4); imp-34529 (the ~1/3-shrink ladder); ' +
     'imp-34512 (LINEAR invLeakRoot reused VERBATIM); imp-34368 (resid_exp peak-location floor dk ~ 7.2e-8); ' +
@@ -433,13 +432,13 @@ export const IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR_ASSERTIONS = [
       RESIDEXP_NOISE_FLOOR_DK === 7.2e-8,
   },
   {
-    // Honesty gate: cross-validation / measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: cross-validation / measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34565-honesty-gate-no-qed',
-    description: 'measurement/cross-validation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/cross-validation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR.isRigorous === false &&
       /NO QED/.test(IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR.verdict) &&
-      /remains SOTA/.test(IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34565_QUADRATIC_INVLEAK_POLE_ESTIMATOR.verdict),
   },
 ];

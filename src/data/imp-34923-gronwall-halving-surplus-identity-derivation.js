@@ -65,7 +65,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34904-landmark-3p3e9-reconciliation-table (states the identity as the
  *      L1-L3 gap cause but never derives or residual-checks it)
@@ -216,7 +216,7 @@ export const IMP34923_GRONWALL_HALVING_SURPLUS_IDENTITY_DERIVATION = {
     'lives in sigma-space a factor ~8 below the relative-N landmark gap. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34904 (landmark reconciliation stating the identity); imp-33601 (sigma=1/2 <=> E_coll=E_trunc+E_flow, ' +
     'leading (1+r)^2 N-gap prediction); imp-3444 (E_coll=E_trunc crossover N ~3.280e9); imp-33582 (sigma=1/2 ' +
@@ -267,13 +267,13 @@ export const IMP34923_GRONWALL_HALVING_SURPLUS_IDENTITY_DERIVATION_ASSERTIONS = 
       Math.abs(EIGHT_TIMES_SURPLUS - 2 * R_FLOW_TRUNC) / (2 * R_FLOW_TRUNC) < 0.05,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp34923-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34923_GRONWALL_HALVING_SURPLUS_IDENTITY_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP34923_GRONWALL_HALVING_SURPLUS_IDENTITY_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP34923_GRONWALL_HALVING_SURPLUS_IDENTITY_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP34923_GRONWALL_HALVING_SURPLUS_IDENTITY_DERIVATION.verdict),
   },
 ];
 

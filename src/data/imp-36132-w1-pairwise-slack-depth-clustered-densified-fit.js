@@ -66,7 +66,7 @@
  * order on the imp-36081 37-shape family and reconciling the seven original shapes to the
  * imp-36020 clustered literals. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity; C_mb
- * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36084-w1-pairwise-slack-depth-clustered-order-refit (seven-point clustered fit ~0.417 this densifies)
  * @see imp-36081-w1-pairwise-slack-depth-densified-fit (the DEFAULT-order densification this mirrors under the hostile order)
@@ -80,7 +80,7 @@ import { IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT } from './imp-36
 
 const REFIT = IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT;
 const CLUSTERED_7 = IMP36020_W1_CLUSTERED_ORDER_SHAPE_ARGMAX;
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this regression
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this regression
 
 // -- Anchor + operative constants (import-light; identical to imp-35893 / imp-36081 / imp-36020) -
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
@@ -436,7 +436,7 @@ export const IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT = {
     '(~0.44) and the floor still spans ~3600x, so the resolving power is from the larger sample, not tighter ' +
     'scatter. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; ' +
     'changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36084 (seven-point clustered fit ~0.417 this densifies); imp-36081 (default-order densification this ' +
     'mirrors, shift ~0.005); imp-36020 (source seven-shape clustered errors, reconciled bit-for-bit); imp-35852 ' +
@@ -517,16 +517,16 @@ export const IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT_ASSERTIONS
     holds: () => FIT.r2 > 0.3 && FIT.r2 < 0.55 && FLOOR_SPREAD > 50,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36132-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GENUINE/.test(IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT.conclusion.preciseValueArtifactHeadlineGenuine) &&
       /GREENFIELD/.test(IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT.verdict) &&
-      /remains SOTA/.test(IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT.verdict),
+      /refereed bound is changed/i.test(IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT.verdict),
   },
 ];
 

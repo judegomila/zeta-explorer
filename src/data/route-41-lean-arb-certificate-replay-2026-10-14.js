@@ -36,7 +36,7 @@
  *  (digamma 2–4 weeks, spherical Bessel 1–2, Gauss–Legendre error 3–6, analytic reduction months) is the bottleneck. The certificate format
  *  ports to other PSD claims (barrier prisms, Toeplitz–Krein LP certificates).
  *
- * Verdict: a stronger trust story for one leg of a fixed-window positivity certificate; nothing about Λ or RH. PT Lambda <= 0.2 stands; RH
+ * Verdict: a stronger trust story for one leg of a fixed-window positivity certificate; nothing about Λ or RH. No refereed bound is changed; RH
  * open; NO QED. Import-free. ROUTE_41_ASSERTIONS recompute live: c_Lean from mT, s and KQ; the δ = 1e-8 gap to the Arb c_lower; the HS tail
  * value 1.466e-101 and KQ ≈ 3.83e-51 for N = 240; the n³ cost scaling; the margin/size bookkeeping.
  */
@@ -80,7 +80,7 @@ export const ROUTE_41 = Object.freeze({
     + 'sector certificates by decide +kernel only; finite-dimensional assembly inequality in Galerkin coefficients with c_Lean up to 9.0434e-4; '
     + 'N = 240 tail arithmetic). The transcendental enclosures, m_T, Φ, KQ for N160/T400, η and the analytic Galerkin/Hilbert–Schmidt reduction '
     + 'stay Arb- or paper-trusted. A stronger trust story for one leg of a fixed-window positivity certificate; nothing about Λ or RH. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_41;
@@ -117,7 +117,7 @@ export const ROUTE_41_ASSERTIONS = Object.freeze([
     id: 'r41-trust-boundary',
     holds: () => R.instances.filter((I) => I.tailInLean).length === 1 && R.instances.find((I) => I.tailInLean).N === 240 && R.cert.maxBits === 100
       && R.cert.rhoA400 > R.cert.rhoA200 && /Galerkin coefficients/.test(R.verdict) && /paper-trusted/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 4,
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 4,
     why: 'Tail in Lean for N = 240 only; assembly stated in Galerkin coefficients; transcendental and analytic legs trusted; no Λ change; no QED.',
   },
 ]);

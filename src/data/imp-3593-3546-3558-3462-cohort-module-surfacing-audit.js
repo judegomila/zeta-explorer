@@ -53,7 +53,7 @@
  * refinement section; imp-3558 (far-tail N=9600 ladder) belongs beside the
  * far-tail band-max grid narrative. This module fabricates NO pages; it only
  * records the audit and flags the orphans. No new bound, no QED;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498, imp-3517, imp-3539, imp-3568 (the prior audits in this series)
  */
@@ -88,7 +88,7 @@ export const IMP_3593_3546_3558_3462_COHORT_MODULE_SURFACING_AUDIT = {
     'miss-factor moment refinement section; imp-3558 beside the far-tail band-max grid narrative. ' +
     'Do not fabricate pages in this audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -109,9 +109,9 @@ const IMP_3593_ASSERTIONS = [
   },
   {
     id: 'imp3593-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3593_3546_3558_3462_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3593_3546_3558_3462_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3593_3546_3558_3462_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

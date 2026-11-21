@@ -15,7 +15,7 @@
  * copied verbatim from IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION (imp-96486). The only
  * new arithmetic here is deriving each rung's branch label (cancellation / truncation)
  * from the existing truncationOnsetL landmark. Changes no bound; establishes no operator
- * positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96486-basis-c-ppp-collapse-transition.js (the source object this reshapes)
  * @see imp-96430-basis-c-corroboration-reach-crossover.js (the L-linear floor model)
@@ -50,7 +50,7 @@ export const IMP96515_LANDMARKS = Object.freeze({
 });
 
 export const IMP96515_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every L, optPpp, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every L, optPpp, '
   + 'floor, floorModel and floorOverModel value plotted here is copied verbatim from the '
   + 'imp-96486 baked rung map; the only new step is labelling each rung cancellation or '
   + 'truncation branch from the existing crossover landmark. This maps a theoretical GUE '

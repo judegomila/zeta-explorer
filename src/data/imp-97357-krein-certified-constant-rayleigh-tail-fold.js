@@ -50,7 +50,7 @@
  * z >= Z0 = 54.93), where F is far below its tail-edge peak -- named IMP97357_CERTIFIED_SUP_AT_BINDING_CUTOFF.
  *
  * Rayleigh floors stay UPPER bounds on the true lambda_min; establishes NO operator positivity; interval-
- * rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97331-krein-bessel-z4-interval-certified-tail-constant.js (C_certified = 45504.154; the propagated constant)
  * @see imp-97351-krein-sigma2-weighted-tail-integral-majorant.js (M(T) assembly; sigma_2 majorant; B residual)

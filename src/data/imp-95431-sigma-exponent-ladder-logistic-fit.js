@@ -68,7 +68,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (whole-decade ladder + single D2 sign change)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee at log10 N* ~ 9.529)
@@ -266,7 +266,7 @@ export const IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT = {
     '(A_struct ~ 0.4786). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33701 (whole-decade exponent ladder + single D2 sign change); imp-33721 (sub-decade knee ' +
     'log10 N* ~ 9.529); imp-36197 (sigma(N) is a logistic, this ladder is its derivative-image); ' +
@@ -319,14 +319,14 @@ export const IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT_ASSERTIONS = [
       Math.abs(A_STRUCT - 0.4786) < 1e-3 && FIT3.A <= A_STRUCT && A_STRUCT < 0.5,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp95431-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT.isRigorous === false &&
       IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT.farTailExponent === 0.5 &&
       /NO QED/.test(IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT.verdict) &&
-      /remains SOTA/.test(IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT.verdict),
+      /refereed bound is changed/i.test(IMP95431_SIGMA_EXPONENT_LADDER_LOGISTIC_FIT.verdict),
   },
 ];
 

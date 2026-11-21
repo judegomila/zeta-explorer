@@ -77,7 +77,7 @@
  *   replaces with an m-independent constant)
  *
  * Ticket: imp-95326 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95252).
@@ -141,8 +141,8 @@ export const IMP95326_TOEPLITZ_GRENANDER_SZEGO_CONCEPT_NOTE = Object.freeze({
     'structure, and why the resulting symbol-infimum bound is both ' +
     'm-uniform and sharp, while noting it supplies no closed-form value ' +
     'on its own (that is LEMMA POISSON and THEOREM RZ-LAT / RZ-TWIN). ' +
-    'Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95252-muniform-block-riesz-seam-pencil.js (LEMMA NORM, LEMMA ' +
     'TOEP, LEMMA POISSON, THEOREM RZ-LAT, THEOREM RZ-TWIN); imp-95226-' +
@@ -237,12 +237,11 @@ export const IMP95326_TOEPLITZ_GRENANDER_SZEGO_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95326-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95326_TOEPLITZ_GRENANDER_SZEGO_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95326_TOEPLITZ_GRENANDER_SZEGO_CONCEPT_NOTE.verdict
       ) &&
       IMP95326_TOEPLITZ_GRENANDER_SZEGO_CONCEPT_NOTE.glosses === 'imp-95252' &&

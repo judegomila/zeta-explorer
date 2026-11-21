@@ -47,7 +47,7 @@
  * two rails. No new computation feeds any bound: the cap-independent 1/(720 d^3) tail budget (< 5.69e-11)
  * dwarfs any cap-to-infinity shift of the +7.520579e-5 omega=10 gap regardless of the exact cap, so the
  * primorial p_10# stays the strict minimiser and the MCM onset stays exactly omega=11. MCM refuted; b/4
- * ceiling untouched; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * ceiling untouched; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97761-mcm-snr10-cap-independent-refit.js  (SNR>=10 rail refit; dps=30 1173276 -> 1530859)
  * @see imp-97736-mcm-cap-jitter-dps36.js             (SNR=1/SNR>=10 full-prec rails; cap jitter diagnosis)
@@ -135,7 +135,7 @@ export const IMP97783_HONEST_BANNER =
   'diagnosed on the two rails. Every threshold gives a ~1/4-modulo-slow-log exponent. No bound moves: the ' +
   'cap-independent 1/(720 d^3) tail budget (< 5.69e-11) dwarfs any cap-to-infinity shift of the +7.520579e-5 ' +
   'omega=10 gap regardless of the exact cap, so the primorial p_10# stays the strict minimiser and the MCM onset ' +
-  'stays omega=11. MCM refuted; b/4 ceiling untouched. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'stays omega=11. MCM refuted; b/4 ceiling untouched. No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -195,7 +195,7 @@ const IMP97783_ASSERTIONS = [
       IMP97783_FULLPREC_EXPONENT_SET.anyBoundMoved === false &&
       IMP97783_FULLPREC_EXPONENT_SET.qed === false &&
       /NO QED/.test(IMP97783_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97783_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97783_HONEST_BANNER) &&
       /RH open/.test(IMP97783_HONEST_BANNER) &&
       /omega=11/.test(IMP97783_HONEST_BANNER),
     why: 'cross-validation only -- the full-precision exponent set collapses the apparent threshold spread and reproduces the imp-97736 rails; no bound moved; MCM stays refuted from omega=11; no QED.',

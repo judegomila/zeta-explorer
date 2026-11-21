@@ -20,8 +20,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity; C_mb
- * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MACHINERY (identical to imp-35852; the exact reference is permutation-invariant)
  * -----------------------------------------------------------------------------
@@ -83,7 +82,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35852) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35852 anchor)
 
@@ -382,7 +381,7 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER = {
     'certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
     'A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35852 (single-N ordering stress this scales up); imp-35812 (single-ordering baseline); imp-35761 ' +
     '(coherent linear ceiling N eps); imp-35725 (mechanical N-term certified cost); imp-35760 (barrier-margin ' +
@@ -457,9 +456,9 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER_ASSERTIONS = [
     holds: () => LIVE_MATCH_REL < 1e-6 && LIVE.o.clustered.naive > 0,
   },
   {
-    // Honesty gate: measurement only; amplification saturates + margin widens; no QED; PT SOTA.
+    // Honesty gate: measurement only; amplification saturates + margin widens; no QED; no refereed bound is changed.
     id: 'imp35927-honesty-gate',
-    description: 'Measurement only; amplification saturates, margin widens; obstruction mechanical/greenfield; no QED; PT SOTA',
+    description: 'Measurement only; amplification saturates, margin widens; obstruction mechanical/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -467,7 +466,7 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER_ASSERTIONS = [
       /does NOT erode/.test(IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER.conclusion.marginRobust) &&
       /GREENFIELD/.test(IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER.verdict),
   },
 ];
 

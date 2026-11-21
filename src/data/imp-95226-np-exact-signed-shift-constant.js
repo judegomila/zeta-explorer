@@ -147,7 +147,7 @@
  * = in-octave multiplicity hybrid + off-lattice rates; the signed WEIGHT
  * port and per-window modulus/phase stay OPEN; obligations (1), (3), (4)
  * and leg (alpha) unchanged. No bound of the Lambda program changed.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -218,7 +218,7 @@ export const IMP95226_NP_EXACT_SIGNED_SHIFT_CONSTANT = {
     "exactness by classical Pick sufficiency (cited), SGN-2X and COAL-2 " +
     "elementary and exact, BL and BL-LAT elementary; the open legs remain " +
     "open and are named. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -518,7 +518,7 @@ export const IMP95226_NP_EXACT_ASSERTIONS = [
         IMP95226_NP_EXACT_SIGNED_SHIFT_CONSTANT.subGap,
       ) &&
       /NO QED/.test(IMP95226_NP_EXACT_SIGNED_SHIFT_CONSTANT.verdict) &&
-      /remains SOTA/.test(IMP95226_NP_EXACT_SIGNED_SHIFT_CONSTANT.verdict),
+      /refereed bound is changed/i.test(IMP95226_NP_EXACT_SIGNED_SHIFT_CONSTANT.verdict),
   },
 ];
 

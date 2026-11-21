@@ -80,7 +80,7 @@
  *     which is open.
  *
  * Assessment only. Changes no bound; establishes no operator positivity; makes no RH
- * claim. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * claim. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (the measured fit assessed here)
  * @see imp-96480-route-m-lammax-glossary-headword.js (the "not a rigorous proof" status this addresses)
@@ -187,11 +187,11 @@ export const IMP96548_VERDICT = Object.freeze({
     'larger), so the precise figure N ~ 4.11e7 still rests on the non-rigorous imp-96443 ' +
     'fit; matching 0.3526 rigorously needs the open off-diagonal-mass / Szego-type ' +
     'asymptotic (sub-gap imp-96548-lammax-coefficient-offdiagonal-mass). Changes no bound; ' +
-    'no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96548_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the rigorous bound is ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the rigorous bound is ' +
   'elementary SPD trace domination on the same exact Vasyunin Gram as imp-96105 / imp-96443; ' +
   'the ceiling re-solve is pure re-analysis of the imp-96428 lam_min power law. No bound is ' +
   'claimed moved and no operator positivity is established.';
@@ -239,7 +239,7 @@ const IMP96548_ASSERTIONS = [
       IMP96548_VERDICT.rigorousLogShapeBoundExists === true &&
       IMP96548_VERDICT.reproducesMeasuredCoefficient === false &&
       /NO QED/.test(IMP96548_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96548_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96548_HONEST_BANNER) &&
       /RH open/.test(IMP96548_HONEST_BANNER) &&
       /offdiagonal-mass/.test(IMP96548_SUBGAP.id),
     why: 'assessment only: no bound moved, the rigorous-shape/non-rigorous-coefficient split is recorded, the honesty markers and the residual off-diagonal-mass sub-gap are present.',

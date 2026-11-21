@@ -51,7 +51,7 @@
  * rounding interval, certifies no W1 bound, changes no bound. The CERTIFIED a-priori bound stays
  * the imp-35890 deterministic ~6.41e-14; the certified length-N interval sum stays MECHANICAL /
  * GREENFIELD (imp-35725 / imp-35681 Part A); C_mb GUE-conditional (imp-486) untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35990-w1-lambda-confidence-calibration (the 0.54 single-realization reading this tests)
  * @see imp-35948-w1-probabilistic-sqrtN-apriori-scale (the Higham-Mary u*sqrt(Sum S_i^2) scale)
@@ -63,7 +63,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35948 / imp-35990) ----
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_AT_TPT = Math.floor(Math.sqrt(T_PT / (4 * Math.PI))); // ~488602 retained terms at T_PT
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp)
 
@@ -227,7 +227,7 @@ export const IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE = {
     'rounding interval; evaluates no true H_0; verifies no inequality; changes no bound; the ' +
     'CERTIFIED a-priori bound stays imp-35890 ~6.41e-14; the W1 A + B - C certificate at T_PT stays ' +
     'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35990 (the 0.54 single-realization reading this ensemble tests); imp-35948 (Higham-Mary ' +
     'u*sqrt(Sum S_i^2) scale); imp-35812 (exact-BigInt achieved naive error ~3.0e-17); imp-36023 ' +
@@ -289,16 +289,16 @@ export const IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE_ASSERTIONS = [
       ACHIEVED_IN_TRUE_SIGMA < 1.45,
   },
   {
-    // Honesty gate: probabilistic (not certified); greenfield/mechanical obstruction; no QED; PT SOTA.
+    // Honesty gate: probabilistic (not certified); greenfield/mechanical obstruction; no QED; no refereed bound is changed.
     id: 'imp36036-honesty-gate',
-    description: 'Probabilistic/not-certified; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Probabilistic/not-certified; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE.verdict) &&
       /SUB-GAP/.test(IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE.verdict) &&
       /NO QED/.test(IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE.verdict) &&
-      /remains SOTA/.test(IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE.verdict),
+      /refereed bound is changed/i.test(IMP36036_W1_ENSEMBLE_SIGMA_RESAMPLED_PHASE.verdict),
   },
 ];
 

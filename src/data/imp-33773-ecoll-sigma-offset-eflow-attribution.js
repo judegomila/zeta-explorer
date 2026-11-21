@@ -69,7 +69,7 @@
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33727-sigma-ecoll-exponent-ladder-crossvalidation (offset ladder + E_flow claim tested here)
  * @see imp-33730-sigma-exponent-ladder-reproduction-residual (full-sigma ladder reproduction)
@@ -244,7 +244,7 @@ export const IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION = {
     'picture stands; the E_flow sub-attribution is corrected. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33727 (offset ladder + E_flow attribution tested here); imp-33730 (full-sigma ladder ' +
     'reproduction); imp-33620 (separated-E_coll exponent ladder); imp-33582 (full-sigma OLS ladder); ' +
@@ -306,15 +306,15 @@ export const IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/attribution only, far-tail exponent = 1/2, no QED, PT SOTA.
+    // Honesty gate: measurement/attribution only, far-tail exponent = 1/2, no QED, no refereed bound is changed.
     id: 'imp33773-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, isRigorous false, E_flow attribution refuted, no QED, PT SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, isRigorous false, E_flow attribution refuted, no QED, no refereed bound is changed',
     holds: () =>
       IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION.isRigorous === false &&
       IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION.farTailExponent === 0.5 &&
       IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION.eflowTest.attribution_holds === false &&
       /NO QED/.test(IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION.verdict) &&
-      /remains SOTA/.test(IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION.verdict),
+      /refereed bound is changed/i.test(IMP33773_ECOLL_SIGMA_OFFSET_EFLOW_ATTRIBUTION.verdict),
   },
 ];
 

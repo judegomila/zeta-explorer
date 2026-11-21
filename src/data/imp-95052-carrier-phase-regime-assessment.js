@@ -94,7 +94,7 @@
  *       slope ~ 0.
  *
  * Assessment only; changes no bound; does NOT promote Lambda <= 0.14; promotes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // -- anchored constants (imp-95011 / imp-95006 / imp-95007) -----------------
@@ -186,7 +186,7 @@ export const IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT = {
     'the controlling quantity (Riemann-von Mangoldt phase advance), the survival inequality, and the lower-edge eliminate arithmetic are exact; the per-shell amplitude band and the raw-comb model are the documented/assumed structure, and the escape hatches E1/E2 are the honest unestablished route to smooth. No arithmetic measurement of C_E,17 is made or synthesized.',
   promotesBound: false,
   verdict:
-    'ASSESSMENT (honest partial, leaning RAW / burden-on-smooth): under the raw prime-alias-comb reading the per-unit-N increment L ~ a_g*2pi*log(p_g)/log(N) exceeds the 1e-2 batching-kill threshold at the correlated lower edge by ~3.6x for ANY genuine prime (smallest shell 0.11, smallest prime 2 -> 0.0762 >> 0.0214), so smooth is a NECESSARY non-generic condition, not a default. Gate-2 batching survives iff the correlated carrier has a genuine stationary-phase structure (envelope advance ~1/sqrt N) via escape hatch E1 (near-DC dominant aliases) or E2 (cross-shell phase alignment) - neither established in-repo. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'ASSESSMENT (honest partial, leaning RAW / burden-on-smooth): under the raw prime-alias-comb reading the per-unit-N increment L ~ a_g*2pi*log(p_g)/log(N) exceeds the 1e-2 batching-kill threshold at the correlated lower edge by ~3.6x for ANY genuine prime (smallest shell 0.11, smallest prime 2 -> 0.0762 >> 0.0214), so smooth is a NECESSARY non-generic condition, not a default. Gate-2 batching survives iff the correlated carrier has a genuine stationary-phase structure (envelope advance ~1/sqrt N) via escape hatch E1 (near-DC dominant aliases) or E2 (cross-shell phase alignment) - neither established in-repo. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // -- assertions (self-executing; throw on violation) ------------------------
@@ -225,13 +225,13 @@ export const IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT_ASSERTIONS = [
   },
   {
     id: 'imp95052-honesty-gate-no-qed',
-    description: 'assessment-only honest partial: promotes no bound, names the unmeasured offline sub-gap, leans raw with the smooth caveat, NO QED, PT stays SOTA',
+    description: 'assessment-only honest partial: promotes no bound, names the unmeasured offline sub-gap, leans raw with the smooth caveat, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT.promotesBound === false &&
       IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT.isRigorous === false &&
       IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT.namedSubGap === 'imp-95011-sub-arithmetic-carrier-scan' &&
       /NO QED/.test(IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT.verdict),
   },
 ];
 

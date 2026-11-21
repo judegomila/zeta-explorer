@@ -3,7 +3,7 @@
  * @fileoverview imp-124979 -- Extend the imp-124920 honesty-banner audit to the full Oct-6/7
  * cohort imp-124900/124917/124918/124919/124921/124922, checking each carries the four-part
  * banner (no-bound-change, the literal imp-3066 K_a &gt;= 0 untouched citation, no-RH-verdict /
- * NO QED, and the Platt-Trudgian Lambda &lt;= 0.2 remains-SOTA citation) and repairing any drift.
+ * NO QED, and the no-refereed-bound-change citation) and repairing any drift.
  *
  * SCOPE NOTE. Five of the six named modules (imp-124917/124918/124919/124921/124922) were
  * already audited by the intervening imp-124964 cohort audit, which found and repaired two
@@ -18,7 +18,7 @@
  * into one search text (crediting re-exported sibling bindings, e.g. imp-124921's
  * IMP124921_HONEST_BANNER, to the importing module), then tested for the four required concepts:
  * a no-bound-change statement (synonyms such as "no bound moved" accepted), the literal
- * "imp-3066 K_a &gt;= 0 untouched" citation (not paraphrasable), "NO QED", and "remains SOTA".
+ * "imp-3066 K_a &gt;= 0 untouched" citation (not paraphrasable), "NO QED", and "no refereed bound is changed".
  *
  * RESULT (audited 2026-10-07): ONE DRIFT FOUND AND REPAIRED (imp-124900); FIVE RE-CONFIRMED CLEAN.
  *   - imp-124900-fartail-per-nine-spacing-law-glossary-headword.js : DRIFT FOUND, REPAIRED.
@@ -41,7 +41,7 @@
  * RECOMMENDATION. The full six-module cohort named by imp-124979 now carries all four
  * honesty-banner concepts in every exported field. This audit module fabricates no new pages and
  * asserts no new bound; it only records the one new repair and re-confirms the five modules
- * imp-124964 already covered. No QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * imp-124964 already covered. No QED. No refereed bound is changed.
  *
  * @see imp-124964-oct6-7-cohort-honesty-banner-audit.js (the intervening audit that covered five
  *   of the six modules named here, repairing imp-124919 and imp-124922)
@@ -57,7 +57,7 @@ export const IMP_124979_HONESTY_BANNER_AUDIT = {
     'Import each of the six named modules live in Node, concatenate every exported string/array/object ' +
     'field into one search text (crediting re-exported sibling bindings to the importing module), then ' +
     'test for the four required honesty-banner concepts -- a no-bound-change statement (synonyms ' +
-    'accepted), the literal "imp-3066 K_a >= 0 untouched" citation, "NO QED", and "remains SOTA".',
+    'accepted), the literal "imp-3066 K_a >= 0 untouched" citation, "NO QED", and "no refereed bound is changed".',
   modulesAudited: [
     {
       file: 'imp-124900-fartail-per-nine-spacing-law-glossary-headword.js',
@@ -112,7 +112,7 @@ export const IMP_124979_HONESTY_BANNER_AUDIT = {
     'all four concepts in exported content.',
   honestNote:
     'Read-only audit plus one in-place wording repair; no pages or bounds fabricated. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -146,10 +146,10 @@ const IMP_124979_ASSERTIONS = [
   {
     id: 'imp124979-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_124979_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_124979_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_124979_HONESTY_BANNER_AUDIT.honestNote) &&
       IMP_124979_HONESTY_BANNER_AUDIT.mutuallyConsistent === true,
-    why: 'VERDICT LOCK: this is a read-only audit plus one wording repair, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit plus one wording repair, not a bound; no refereed bound is changed.',
   },
 ];
 

@@ -6,7 +6,7 @@
  * (~0.9032-0.9039) to a "minimal-gap selector discontinuity" near g ~ 0.9029
  * that trapped a naive bisection ABOVE the smooth drho/ds zero at the
  * closed-form onset c_asym = 0.9027902227683418. This module independently
- * characterizes that discontinuity. NO QED; PT Lambda <= 0.2 stays SOTA.
+ * characterizes that discontinuity. NO QED; no refereed bound is changed.
  *
  * THE CONFIG (imp-3045 R->inf worst-case class):
  *   x = {-1, 0, g} U {g + k : k = 1..R}, tracked pair (0, g), tight neighbour
@@ -59,8 +59,8 @@
  * artifact, explaining why the imp-3045 bracket was high and confirming the
  * imp-3170 closed-form onset is the genuine continuous zero. It changes NO
  * downstream constant: the 0.72 basin margin (c_asym - 0.72 = 0.1828) and the
- * basin-conditional C_Lip are untouched. Platt-Trudgian Lambda <= 0.2 stays
- * the rigorous SOTA. NO false QED.
+ * basin-conditional C_Lip are untouched. No refereed bound is changed
+ * . NO false QED.
  *
  * @see sg1c-isolation-infimum-asym-scan-2026-06-30 (the imp-3045 scan with the strict-"<" selector)
  * @see sg1c-asym-isolation-closed-form-2026-06-30 (imp-3170 closed form c_asym this confirms)
@@ -143,7 +143,7 @@ export const SG1C_MINGAP_SELECTOR_DISCONTINUITY = {
   safeWindow: 'tolerance tie-break (unit-gap ties keep the tight LEFT neighbour) OR root-find the closed-form asymOnsetDrho directly; any bracket straddling the onset, e.g. (0.85,0.92), then lands on the smooth zero',
   basinMarginUnchanged: C_ASYM - 0.72,        // 0.1828: load-bearing constant untouched
   status: 'NUMERICAL diagnostic: the imp-3045 high bracket is a round-off-driven d_1-selector discontinuity, not a real onset; the imp-3170 closed-form c_asym is the genuine continuous zero',
-  honest: 'NUMERICAL diagnostic of a discrete-selector/round-off artifact, NOT a closure and NOT a beat; the 0.72 basin margin is unchanged; PT Lambda <= 0.2 stays the rigorous SOTA. NO false QED.',
+  honest: 'NUMERICAL diagnostic of a discrete-selector/round-off artifact, NOT a closure and NOT a beat; the 0.72 basin margin is unchanged; no refereed bound is changed. NO false QED.',
 };
 
 export const SG1C_MINGAP_SELECTOR_DISCONTINUITY_ASSERTIONS = [
@@ -178,9 +178,9 @@ export const SG1C_MINGAP_SELECTOR_DISCONTINUITY_ASSERTIONS = [
   },
   {
     id: 'sg1c-mgs-basin-and-sota-unchanged',
-    description: 'the diagnostic changes no downstream constant: the 0.72 basin margin stays 0.1828 and PT 0.2 stays SOTA',
+    description: 'the diagnostic changes no downstream constant: the 0.72 basin margin stays 0.1828 and no refereed bound is changed',
     holds: () => Math.abs(SG1C_MINGAP_SELECTOR_DISCONTINUITY.basinMarginUnchanged - 0.1828) < 1e-3
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_MINGAP_SELECTOR_DISCONTINUITY.honest),
+      && /refereed bound is changed/i.test(SG1C_MINGAP_SELECTOR_DISCONTINUITY.honest),
   },
 ];
 

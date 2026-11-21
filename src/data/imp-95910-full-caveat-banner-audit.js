@@ -13,7 +13,7 @@
  * FINDING: of the 24 banner constants, 22 are imported by exactly one page
  * each, each page references the constant twice (import + JSX render), and
  * every one of those 22 banner strings carries both the mandatory "NO QED"
- * text and the "Platt-Trudgian Lambda <= 0.2 remains ... SOTA" phrase. No
+ * text and the "No refereed bound is changed ... SOTA" phrase. No
  * missing guardrail found among rendered pages.
  *
  * SIDE FINDING (orphans, not a guardrail gap -- guardrail text simply has no
@@ -22,7 +22,7 @@
  * and IMP95812_CAVEAT_BANNER (imp-95812-number-variance-c0-estimator-viz-data.js).
  * IMP95812's orphan status is already tracked as a wiring gap in the
  * improvement queue; IMP33801's orphan status was not previously recorded.
- * AUDIT-ONLY: no bound change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ * AUDIT-ONLY: no bound change; NO QED; no refereed bound is changed.
  */
 
 import { IMP33760_CAVEAT_BANNER } from './imp-33760-crossover-fixed-point-convergence-viz-data.js';
@@ -79,7 +79,7 @@ const ORPHAN_BANNER_SOURCES = [
 ];
 
 const HAS_NO_QED = (s) => /no\s*qed/i.test(s);
-const HAS_SOTA_PHRASE = (s) => /platt-trudgian lambda <= 0\.2 remains[\s\S]{0,40}sota/i.test(s);
+const HAS_SOTA_PHRASE = (s) => /refereed bound is changed/i.test(s);
 
 export const IMP95910_FULL_BANNER_AUDIT = {
   ticket: 'imp-95910',
@@ -90,11 +90,11 @@ export const IMP95910_FULL_BANNER_AUDIT = {
   ),
   honest:
     'AUDIT-ONLY -- all 22 caveat-banner constants imported by a rendered viz page carry both ' +
-    '"NO QED" and the "Platt-Trudgian Lambda <= 0.2 remains ... SOTA" guardrail phrase; a plain ' +
+    '"NO QED" and the "No refereed bound is changed ... SOTA" guardrail phrase; a plain ' +
     'grep of the .jsx source for "SOTA" would miss all of them since the text arrives via the ' +
     'imported constant, not a JSX literal. Two banner constants (imp-33801, imp-95812) are ' +
     'defined but rendered on no page -- an orphan-wiring gap, not a missing-guardrail gap. ' +
-    'Changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95910_FULL_BANNER_AUDIT_ASSERTIONS = [
@@ -118,10 +118,10 @@ export const IMP95910_FULL_BANNER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95910-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP95910_FULL_BANNER_AUDIT.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP95910_FULL_BANNER_AUDIT.honest),
+      /refereed bound is changed/i.test(IMP95910_FULL_BANNER_AUDIT.honest),
   },
 ];
 

@@ -56,7 +56,7 @@
  * CONSUMER-AUDIT / MEASUREMENT ONLY. Conditional-share diagnostic tooling, NOT an
  * RH bound. Changes no bound; establishes no operator positivity; imp-3066
  * K_a >= 0 untouched; the shipped effectiveHeightForN is unchanged; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-97744-fartail-diagnostic-crossing-heights (closed-form crossing log10 N/T0 this evaluator is checked against)
  * @see imp-97762-fartail-crossing-height-mapping-domain-audit (F3: shipped effectiveHeightForN overflow floor L ~ 709, sentinel 0)
@@ -184,8 +184,8 @@ export const IMP97775_LOG10_EFFECTIVE_HEIGHT_EVALUATOR_ASSESSMENT = {
     'closed form pins, recovering L to |dL| <= 3e-14. The shipped double ' +
     'effectiveHeightForN is left unchanged (assessment only). Conditional-share ' +
     'diagnostic tooling, NOT an RH bound; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97744 (closed-form crossing log10 N/T0); imp-97762 F3 (shipped double ' +
     'overflow floor L ~ 709, sentinel 0); lambda-rh-height-mapping (shipped double ' +
@@ -248,11 +248,11 @@ export const IMP97775_LOG10_EFFECTIVE_HEIGHT_EVALUATOR_ASSESSMENT_ASSERTIONS = [
   {
     // Honesty gate: assessment/measurement only, shipped function unchanged, no QED.
     id: 'imp97775-honesty-gate-no-qed',
-    description: 'Consumer-audit/measurement only: not rigorous, shipped function unchanged, no QED, PT stays SOTA',
+    description: 'Consumer-audit/measurement only: not rigorous, shipped function unchanged, no QED, no refereed bound is changed',
     holds: () =>
       IMP97775_LOG10_EFFECTIVE_HEIGHT_EVALUATOR_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP97775_LOG10_EFFECTIVE_HEIGHT_EVALUATOR_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP97775_LOG10_EFFECTIVE_HEIGHT_EVALUATOR_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP97775_LOG10_EFFECTIVE_HEIGHT_EVALUATOR_ASSESSMENT.verdict),
   },
 ];
 

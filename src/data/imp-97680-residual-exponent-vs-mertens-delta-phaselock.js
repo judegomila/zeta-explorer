@@ -51,7 +51,7 @@
  * Pearson r ~ 0.993. They are NOT independent -- both are the same oscillating PNT/Mertens error, as the
  * imp-97619 sub-gap predicts. HONEST nuance: the lock is in phase, not amplitude (|res|/delta drifts ~1.5x,
  * not a fixed proportion). MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged;
- * no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97659-route-m-gap-law-decay-extprec.js (residual decay exponent OSCILLATES; negative rung at p ~ 3.25e7)
  * @see imp-97639-route-m-mcm-binf-deep-mertens-crosscheck.js (delta = gamma - M wiggles; bracket dips at p ~ 3.2e7)
@@ -162,11 +162,11 @@ export const IMP97680_VERDICT = Object.freeze({
     '|residual|/delta drifts ~1.50x across the heights, so there is no single multiplicative constant ' +
     '(consistent with the residual carrying an extra 1/log p factor from the law term). MCM stays refuted ' +
     'from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97680_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-correlation of the imp-97659 residual-exponent ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-correlation of the imp-97659 residual-exponent ' +
   'oscillation and the imp-97639 Mertens delta = gamma - M wiggle on their shared dps=30 deep heights: they ' +
   'are PHASE-LOCKED -- the single upward turn is the same rung in both series (landing at p = 32452843, ' +
   'omega = 2e6), sign-of-change agrees 4/4, and Pearson r ~ 0.993. Both are the same oscillating ' +
@@ -233,7 +233,7 @@ const IMP97680_ASSERTIONS = [
       IMP97680_VERDICT.anyBoundMoved === false &&
       IMP97680_VERDICT.qed === false &&
       /NO QED/.test(IMP97680_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97680_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97680_HONEST_BANNER) &&
       /RH open/.test(IMP97680_HONEST_BANNER),
     why: 'measurement only -- the residual oscillation and the Mertens delta wiggle are phase-locked (same rung, 4/4 concordance, r ~ 0.993), the same PNT/Mertens error; MCM refuted from omega=11; no bound moved, no QED.',
   },

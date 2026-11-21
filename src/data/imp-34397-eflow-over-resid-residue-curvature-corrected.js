@@ -54,7 +54,7 @@
  *   caveat; the quadratic zero independently recovers k* to <5e-4. Simple-pole classification and
  *   all upstream verdicts UNCHANGED. Surrogate diagnostic, finite-difference re-read on 3 rungs;
  *   NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
- *   untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (linear secant read, F4 caveat this tightens)
  *   @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (source rung literals, same pole)
@@ -127,7 +127,7 @@ export const IMP34397_EFLOW_OVER_RESID_RESIDUE_CURVATURE_CORRECTED = {
     'MEASUREMENT ONLY -- a higher-order re-read of the SAME 3 baked rungs, not new data; the residual ' +
     'floor is set by the unmeasured cubic term (~1-2% heuristic, data-limited as resid_exp->0 loses ' +
     'digits). Surrogate NOT rigorous; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
-    'imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34397_ASSERTIONS = [

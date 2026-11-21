@@ -339,7 +339,7 @@ export const IMP3408_CAPTURE_RATIO_QUADRATURE_CROSS_VALIDATION = Object.freeze({
     'with nGL to a COMMON continuum limit r_lin(U = 6) ~ 0.02938 (midpoint O(H^2) Richardson 0.0293772 vs GL ' +
     'nGL = 256 0.0293678, agreeing to ~9.4e-6), so the imp-3350 headline 0.0296645 carries a ~0.98% finite-N ' +
     'midpoint bias above the resolution-converged value. Cross-validation only; RH-equivalent; imp-3066 ' +
-    'positivity untouched; carries NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity untouched; carries NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -410,7 +410,7 @@ export const IMP3408_CAPTURE_RATIO_QUADRATURE_CROSS_VALIDATION = Object.freeze({
       'Robustness of the ratio measurement is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator ' +
       'magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -464,7 +464,7 @@ export const IMP3408_CAPTURE_RATIO_QUADRATURE_CROSS_VALIDATION_ASSERTIONS = [
   {
     id: 'imp3408-honest-cross-validation-no-qed',
     why: 'Mandatory honesty: CROSS-VALIDATION only -- not a proof, not a reduction below RH, RH-equivalent, ' +
-      'positivity not attempted, agreement is numerical not symbolic, PT 0.2 stays SOTA. Any flip is over-claiming.',
+      'positivity not attempted, agreement is numerical not symbolic, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3408_CAPTURE_RATIO_QUADRATURE_CROSS_VALIDATION.honestCaveat;
       return (
@@ -473,7 +473,7 @@ export const IMP3408_CAPTURE_RATIO_QUADRATURE_CROSS_VALIDATION_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.stillNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

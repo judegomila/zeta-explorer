@@ -55,7 +55,7 @@
  * route to a rigorous conditional VIF via a one-sided closed form is closed, and the residual is a
  * certified |DeltaCov_k| envelope (oscillatory-integral bound), not a sign. Measurement only;
  * conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN);
- * changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ * changes NO unconditional bound; RH open; NO QED; no refereed bound is changed; the
  * zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the closed form whose sign this probes)
@@ -116,12 +116,12 @@ export const IMP96617_FINITE_L_CORRECTION_SIGN = {
   conditionality:
     'All of the above is conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'The O(1/L) finite-L correction DeltaCov_k(L) = Cov_k(L) - Cov_k(inf) to the box sine-kernel lag correlation is genuinely OSCILLATORY in sign -- it takes both signs across the L-window near 495.779 and is lag-alternating (-, +, +, +, - for k = 2..6) at the fixed certificate window L = 495.779 -- so the imp-96567 closed form rho_k(inf) = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) is NOT a certified one-sided VIF upper bound on the true finite-L box correlation, confirming imp-96593 obstruction (ii) that the sign is unpinned. The amplitude is tiny and obeys a measured O(1/L^2) envelope |DeltaCov_k| <~ 2.07e-3/L^2 (L^2*max|DeltaCov_2| = 2.026e-3, 2.057e-3, 2.063e-3, 2.066e-3 at L ~ 50, 200, 495, 2000), one power below the O(1/L) obstruction (ii) assumed, because the Bartlett triangle weight (1-|v|) vanishes at the box edges and removes the leading term; relative to Cov_k(inf) the correction is only ~1e-7 at L = 495.779. So the closed form is a ~6-7-digit two-SIDED approximation with an available two-sided enclosure Cov_k = Cov_k(inf) +/- C/L^2, just not a one-SIDED bound: the route to a rigorous conditional VIF via a one-sided closed form is CLOSED, and the residual obstruction is now a CERTIFIED |DeltaCov_k| envelope (an oscillatory-integral bound), not a sign. Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The O(1/L) finite-L correction DeltaCov_k(L) = Cov_k(L) - Cov_k(inf) to the box sine-kernel lag correlation is genuinely OSCILLATORY in sign -- it takes both signs across the L-window near 495.779 and is lag-alternating (-, +, +, +, - for k = 2..6) at the fixed certificate window L = 495.779 -- so the imp-96567 closed form rho_k(inf) = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) is NOT a certified one-sided VIF upper bound on the true finite-L box correlation, confirming imp-96593 obstruction (ii) that the sign is unpinned. The amplitude is tiny and obeys a measured O(1/L^2) envelope |DeltaCov_k| <~ 2.07e-3/L^2 (L^2*max|DeltaCov_2| = 2.026e-3, 2.057e-3, 2.063e-3, 2.066e-3 at L ~ 50, 200, 495, 2000), one power below the O(1/L) obstruction (ii) assumed, because the Bartlett triangle weight (1-|v|) vanishes at the box edges and removes the leading term; relative to Cov_k(inf) the correction is only ~1e-7 at L = 495.779. So the closed form is a ~6-7-digit two-SIDED approximation with an available two-sided enclosure Cov_k = Cov_k(inf) +/- C/L^2, just not a one-SIDED bound: the route to a rigorous conditional VIF via a one-sided closed form is CLOSED, and the residual obstruction is now a CERTIFIED |DeltaCov_k| envelope (an oscillatory-integral bound), not a sign. Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96567 convention).
 export const IMP96617_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the O(1/L) finite-L correction '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the O(1/L) finite-L correction '
   + 'DeltaCov_k(L) to the box sine-kernel lag correlation is OSCILLATORY in sign (both signs across L '
   + 'near 495.779, lag-alternating -,+,+,+,- for k = 2..6 at the window), so the imp-96567 closed form '
   + 'is NOT a one-sided VIF upper bound -- confirming imp-96593 obstruction (ii). Amplitude tiny and '
@@ -160,11 +160,11 @@ export const IMP96617_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96617_FINITE_L_CORRECTION_SIGN.verdict))
     throw new Error('imp-96617: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96617_FINITE_L_CORRECTION_SIGN.verdict))
-    throw new Error('imp-96617: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96617_FINITE_L_CORRECTION_SIGN.verdict))
+    throw new Error('imp-96617: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96617_FINITE_L_CORRECTION_SIGN.verdict))
     throw new Error('imp-96617: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96617_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96617_HONEST_BANNER) && /NO QED/.test(IMP96617_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96617_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96617_HONEST_BANNER) && /NO QED/.test(IMP96617_HONEST_BANNER)))
     throw new Error('imp-96617: IMP96617_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

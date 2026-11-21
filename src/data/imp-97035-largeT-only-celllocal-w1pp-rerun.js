@@ -42,7 +42,7 @@
  * implementation in-pool run) and the separate interpretive step from a T_a[sigma_2]>=0 certificate to
  * Weil/operator positivity (the operator floor is a Rayleigh UPPER bound; the semilocal Sonine port is
  * obstructed at 2a=ln2). Certified reach stays 2a<=0.96; operator positivity not proved; RH open;
- * Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96992-w1pp-celllocal-enclosure.js (the cell-local bound; sub-gap IMP96992_LARGET_ONLY_RERUN_NOT_RUN)
  * @see imp-97012-krein-kmax5-100-celllocal-w1pp-verify.js (full [0,40] domain pass; the 59-fail A/B control)

@@ -45,7 +45,7 @@
  * x=5e5 blip: c(x) = h(x) - h(2x) stays strictly positive and monotone decreasing toward 0 from above at
  * least to x = 2e6, obeying (1/24)(ln x)/x + M0/x to 1e-10, with a corrected (2.4% lower) window-top value.
  * The base of the tower is safe in the extended range. MCM stays VERIFIED not proved (and FALSE from
- * omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA;
+ * omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97463-route-m-mcm-level1-baseterm-decay.js (the double-precision fit + CAVEAT this leaf resolves)
@@ -134,11 +134,11 @@ export const IMP97478_VERDICT = Object.freeze({
     'trustworthy value is 1.397144e-6 (~2.4% lower, on the smooth law). The base of the MCM tower stays ' +
     'safe in the extended range; the induction top term T(b) stays ~1e4x higher in [1.34e-2, 2.02e-2]. MCM ' +
     'stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97478_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-precision (mpmath 40 dps) re-evaluation of the ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-precision (mpmath 40 dps) re-evaluation of the ' +
   'imp-97463 level-1 base term c(x)=h(x)-h(2x): the x=5e5 non-monotone blip is confirmed a double-precision ' +
   'artifact (true c(5e5)=1.284522e-6), c stays strictly positive and monotone decreasing to 0 from above at ' +
   'least to x=2e6, matching (1/24)(ln x)/x + M0/x to 1e-10. The imp-97463 window-top value 1.431333e-6 was ' +
@@ -190,7 +190,7 @@ const IMP97478_ASSERTIONS = [
       IMP97478_VERDICT.qed === false &&
       IMP97478_VERDICT.mcmProved === false &&
       /NO QED/.test(IMP97478_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97478_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97478_HONEST_BANNER) &&
       /RH open/.test(IMP97478_HONEST_BANNER),
     why: 'the decay leading coefficient is exactly 1/24 and the constant term is M0=LN_A/2-(ln2)/24; measurement only, no bound moved, no QED.',
   },

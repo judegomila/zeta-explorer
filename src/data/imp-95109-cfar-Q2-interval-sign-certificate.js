@@ -72,7 +72,7 @@
  * remaining work.
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- parameterized ceiling machinery (identical shape to imp-95093/imp-95075) --
@@ -204,7 +204,7 @@ export const IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE = {
   obstruction:
     "(I) UN-VERIFIED CARRIER: cFar = 2 Omega/D with Omega a sup over b of a MIDPOINT-rule quadrature (iQuad, N=2e5, NO verified remainder) and D = Tx(2) a truncated series - so there is currently NO interval enclosure of Omega. A certificate needs a verified interval quadrature of iQuad (discretization + tail remainder), a truncation bound on Tx(2), and a sup-over-b enclosure (argmax fixed at b=2 => single branch + runner-up margin). (II) DIVERGENCE AT Q*: the Route-B ratio diverges as Q -> Q* (num -> 0), so NO uniform certificate on the closed region including the endpoint Q*; only on Q >= Q* + delta with precision ~1/dist(Q, Q*).",
   verdict:
-    "An interval-arithmetic NEGATIVE-sign certificate for d2 cFar/dQ2 is FEASIBLE IN PRINCIPLE on Q >= Q0 (bounded away from Q*) at ~4-digit verified-quadrature precision via ROUTE B - the ~150:1 cancellation the imp-95093 sub-gap named is AFFORDABLE (~619:1 at the model point, ~3-4 extra digits), NOT the blocker. It is NOT delivered here: blocked by (I) the un-verified midpoint carrier and (II) the divergence of the required precision as Q -> Q*, so no certificate holds on the closed region up to the inflection. The ticket-proposed QUOTIENT-RULE SPLIT (Route A) is the WRONG carrier (sign-destroying at low Q). SUB-GAP (named): a rigorous certificate needs a verified interval quadrature of iQuad + a Tx(2) tail bound + a sup-over-b margin; paper Q not pinned in-repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "An interval-arithmetic NEGATIVE-sign certificate for d2 cFar/dQ2 is FEASIBLE IN PRINCIPLE on Q >= Q0 (bounded away from Q*) at ~4-digit verified-quadrature precision via ROUTE B - the ~150:1 cancellation the imp-95093 sub-gap named is AFFORDABLE (~619:1 at the model point, ~3-4 extra digits), NOT the blocker. It is NOT delivered here: blocked by (I) the un-verified midpoint carrier and (II) the divergence of the required precision as Q -> Q*, so no certificate holds on the closed region up to the inflection. The ticket-proposed QUOTIENT-RULE SPLIT (Route A) is the WRONG carrier (sign-destroying at low Q). SUB-GAP (named): a rigorous certificate needs a verified interval quadrature of iQuad + a Tx(2) tail bound + a sup-over-b margin; paper Q not pinned in-repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   anchors: {
     routeB: {
       model: { Q: Q0, d2: B_D2_MODEL, num: B_NUM_MODEL, blowupRatio: B_RATIO_MODEL },
@@ -227,7 +227,7 @@ export const IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE = {
     "ASSESSMENT. The two candidate interval-certificate carriers are evaluated and their blow-up ratios MEASURED (Route A quotient-split residue ratio 116.9 model / 28.2 low-Q, and sign-destroying; Route B direct-ratio numerator blow-up 618.7 model / 1053.7 low-Q / 3443.5 near-inflection, sign-preserving). The obstruction to a rigorous certificate is DERIVED (un-verified midpoint carrier + divergence as Q -> Q*). No verified interval quadrature and no paper Q are produced. NO QED.",
   promotesBound: false,
   verdictShort:
-    "Interval sign certificate for d2 cFar/dQ2 on Q >= Q* is FEASIBLE IN PRINCIPLE via the direct-ratio route (~619:1 cancellation at the model point, ~4 digits) but NOT delivered: blocked by an un-verified midpoint carrier and by precision divergence at Q*. The ticket quotient-rule SPLIT is the WRONG carrier (sign-destroying at low Q). NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Interval sign certificate for d2 cFar/dQ2 on Q >= Q* is FEASIBLE IN PRINCIPLE via the direct-ratio route (~619:1 cancellation at the model point, ~4 digits) but NOT delivered: blocked by an un-verified midpoint carrier and by precision divergence at Q*. The ticket quotient-rule SPLIT is the WRONG carrier (sign-destroying at low Q). NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -288,12 +288,12 @@ export const IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE_ASSERTIONS = [
   {
     id: "imp95109-honesty-gate",
     description:
-      "the verdict names the obstruction (un-verified midpoint carrier + divergence at Q*), records that Route A is the wrong carrier and Route B is feasible-in-principle, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the obstruction (un-verified midpoint carrier + divergence at Q*), records that Route A is the wrong carrier and Route B is feasible-in-principle, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.promotesBound === false &&
       IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.openResiduals.length === 3 &&
       /NO QED/.test(IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.verdict) &&
+      /refereed bound is changed/i.test(IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.verdict) &&
       /FEASIBLE IN PRINCIPLE/.test(IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.verdict) &&
       /WRONG carrier/.test(IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.verdict) &&
       /SUB-GAP/.test(IMP95109_CFAR_Q2_INTERVAL_SIGN_CERTIFICATE.verdict),

@@ -58,8 +58,7 @@
  * structure of the joint leading amplitude; it does NOT re-derive the m_prime -> C_ren map off-axis or
  * off-exponent, and a finite-window onset at fixed |z_0| = eps is NOT the uniform ANALYTIC tracking of
  * C_ren that H4 needs (imp-33766). H4 is NOT discharged. G6a_shock_lipschitz STAYS OPEN. No positivity;
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33927-phase-zero-uniqueness (uniqueness at the single anchor alpha = 1/2, winding -3/2)
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (joint closed form A(alpha,theta), winding -(1+alpha))
@@ -193,7 +192,7 @@ export const IMP33970_JOINT_PHASE_ZERO_UNIQUENESS = {
     'theta -> 0+ and theta -> pi- both become phase-zeros in the limit. Uniqueness thus holds on the ENTIRE ' +
     'open exponent range (0, 1). This does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent and ' +
     'does NOT DISCHARGE H4 (imp-33766). No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33970_JOINT_PHASE_ZERO_UNIQUENESS_ASSERTIONS = [
@@ -234,15 +233,15 @@ export const IMP33970_JOINT_PHASE_ZERO_UNIQUENESS_ASSERTIONS = [
       IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.uniquenessHoldsOverGrid === true,
   },
   {
-    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33970-honesty-gate-no-qed',
-    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.isRigorous === false &&
       IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.dischargesH4 === false &&
       /NO QED/.test(IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.verdict) &&
       /STAYS OPEN/.test(IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.verdict) &&
+      /refereed bound is changed/i.test(IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP33970_JOINT_PHASE_ZERO_UNIQUENESS.verdict),
   },
 ];

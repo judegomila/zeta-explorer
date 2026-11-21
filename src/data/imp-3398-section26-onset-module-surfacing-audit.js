@@ -30,7 +30,7 @@
  * for the imp-3385/imp-3386 chain that currently only consumes it) so it appears on
  * at least one page; the ClosureRoutesPage mupass-core section is the natural home.
  * This module fabricates NO pages; it only records the audit and flags the orphan.
- * No QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * No QED; no refereed bound is changed.
  *
  * @see imp-3083 (the prior finding-module surfacing audit this pattern follows)
  */
@@ -73,7 +73,7 @@ export const IMP_3398_SECTION26_ONSET_MODULE_SURFACING_AUDIT = {
     'Mint a follow-up surfacing ticket for imp-3310 (mupass passive-core assembly recipe) ' +
     'so it is rendered on at least one page; do not fabricate pages in this audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -106,9 +106,9 @@ const IMP_3398_ASSERTIONS = [
   },
   {
     id: 'imp3398-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3398_SECTION26_ONSET_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3398_SECTION26_ONSET_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3398_SECTION26_ONSET_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

@@ -6,7 +6,7 @@
  * roadmap "ZERO violations" binary (PATH 1, imp-833/imp-858) into a signed
  * margin with an explicit robust-vs-fragile verdict.
  *
- * Method (measure only; no proof, no positivity, PT Lambda <= 0.2 stays SOTA)
+ * Method (measure only; no proof, no positivity, no refereed bound is changed)
  * -------------------------------------------------------------------------
  * For each N the PATH-1 record (m-raw-from-umon-bridge.js) sets
  *   H_N       = min_{k<N-1} [F(gamma_{k+1}) - F(gamma_k)]   (prefix-min RvM gap)
@@ -110,7 +110,7 @@ export const IMP3276_E1_E2_MARGIN_QUANTIFICATION = Object.freeze({
     isReductionBelowRH: false,
     isMeasurementOnly: true,
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA; PATH-1 leading-order predicates stay GUE-conditional at the analytic-bridge step (imp-486/imp-583).',
+    sota: 'No refereed bound is changed; PATH-1 leading-order predicates stay GUE-conditional at the analytic-bridge step (imp-486/imp-583).',
   }),
 });
 
@@ -167,7 +167,7 @@ export const IMP3276_E1_E2_MARGIN_QUANTIFICATION_ASSERTIONS = [
   },
   {
     id: 'imp3276-honest-measurement-only',
-    why: 'Mandatory honesty: measurement only, no proof, no positivity, PT 0.2 stays SOTA; ' +
+    why: 'Mandatory honesty: measurement only, no proof, no positivity, no refereed bound is changed; ' +
          'any flip means the module is over-claiming.',
     holds: () => {
       const c = IMP3276_E1_E2_MARGIN_QUANTIFICATION.honestCaveat;
@@ -176,7 +176,7 @@ export const IMP3276_E1_E2_MARGIN_QUANTIFICATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isMeasurementOnly === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

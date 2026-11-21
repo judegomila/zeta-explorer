@@ -63,7 +63,7 @@
  * Import-light: an independent closed-form copy identical to the sibling chain,
  * cross-checked against the imp-95008 continuation-twenty baked literals. NO
  * heavy bundle. Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95008_SUBSTITUTION_CORNER_ATTAINMENT } from "./imp-95008-substitution-corner-attainment.js";
@@ -276,7 +276,7 @@ export const IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL = {
     "Measurement step. The realized sups are exact finite enumerations over the p-grid admissible pairs; the envelopes envE(b,j) = I(V(b,j), rhoCap(j)) are reproduced by an independent closed-form copy and cross-checked against the imp-95008 continuation-twenty baked literals (dominant ratio 0.8258474234948617, deep ratio 0.47384446409436176, envE(0,2) = 3.9197920255561178e-5) to rel 1e-12. Every iExact evaluation has T >= 1.26, outside the recorded small-T conditioning trap. The shortfall quantifies attainment; it moves no bound and envE remains a valid per-pair upper bound.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT (no bracket move): the finite-rate per-pair envelope attainment shortfall of the EXHIBITED far-bracket witness (fixed p = 97) is 0.17415257650513827 (17.42 pct) at the dominant cell (0,2) - the exhibited witness realizes only 0.8258 x envE, so the E-realization split attainment-shortfall factor is 0.8258 for this witness, NOT the ~1 the continuous-family limit suggests; at the deeper cell (2,2) the shortfall is 0.5262. The shortfall is a finite-rate effect: it decays linearly in the corner offset eps (per-decade ~0.10) and roughly as O(1/p) under grid refinement, -> 0 in the continuous limit (recovering the imp-95019 ratio -> 1). Independently reproduces and cross-checks the imp-95008 continuation-twenty fixed-97 literals. The shortfall says the envE-based ceiling is CONSERVATIVE for the exhibited witness by the dominant-cell factor - a partial, unapplied fixed-97 grid lever. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (no bracket move): the finite-rate per-pair envelope attainment shortfall of the EXHIBITED far-bracket witness (fixed p = 97) is 0.17415257650513827 (17.42 pct) at the dominant cell (0,2) - the exhibited witness realizes only 0.8258 x envE, so the E-realization split attainment-shortfall factor is 0.8258 for this witness, NOT the ~1 the continuous-family limit suggests; at the deeper cell (2,2) the shortfall is 0.5262. The shortfall is a finite-rate effect: it decays linearly in the corner offset eps (per-decade ~0.10) and roughly as O(1/p) under grid refinement, -> 0 in the continuous limit (recovering the imp-95019 ratio -> 1). Independently reproduces and cross-checks the imp-95008 continuation-twenty fixed-97 literals. The shortfall says the envE-based ceiling is CONSERVATIVE for the exhibited witness by the dominant-cell factor - a partial, unapplied fixed-97 grid lever. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) ---------------------------
@@ -333,12 +333,12 @@ export const IMP95090_FRAS_ASSERTIONS = [
   {
     id: "imp95090-fras-honesty-gate",
     description:
-      "verdict is a measurement/no-go step: promotes no bound, names the unapplied fixed-97 lever and the surviving residuals, NO QED, PT stays SOTA",
+      "verdict is a measurement/no-go step: promotes no bound, names the unapplied fixed-97 lever and the surviving residuals, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.promotesBound === false &&
       IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.openResiduals.length === 4 &&
       /NO QED/.test(IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.verdict) &&
-      /remains SOTA/.test(IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.verdict) &&
+      /refereed bound is changed/i.test(IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.verdict) &&
       /no bracket move/.test(IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.verdict) &&
       /attainment-shortfall factor/.test(IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.verdict) &&
       /NOT the ~1/.test(IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.verdict),

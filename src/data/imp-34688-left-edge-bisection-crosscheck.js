@@ -52,7 +52,7 @@
  * surrogate crossover, NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8
  * ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
  * K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34675-crossover-contraction-left-edge (the closed form N_star = K(1 - 1/W(K)) this cross-checks)
  * @see imp-34676-crossover-contraction-right-widening (cites the left edge as the sole binding constraint)
@@ -196,7 +196,7 @@ export const IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK = {
     'imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34675 (closed form N_star = K(1 - 1/W(K)), verified through Lambert-W algebra); imp-34676 ' +
     '(cites the left edge as the sole binding constraint); imp-34650 (Banach contraction certificate ' +
@@ -245,14 +245,14 @@ export const IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK_ASSERTIONS = [
       GP_AT_N_CROSS > 0,
   },
   {
-    // Honesty gate: verification of a surrogate boundary, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: verification of a surrogate boundary, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34688-honesty-gate-no-qed',
-    description: 'Verification only: isRigorous false, named sub-gap, no QED, Platt-Trudgian stays SOTA',
+    description: 'Verification only: isRigorous false, named sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK.isRigorous === false &&
       /imp-34688a/.test(IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK.subGap) &&
       /NO QED/.test(IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP34688_LEFT_EDGE_BISECTION_CROSSCHECK.verdict),
   },
 ];
 

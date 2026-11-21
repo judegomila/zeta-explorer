@@ -30,7 +30,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95252 / imp-95250 closed
  * forms verbatim; changes no bound, no operator positivity, no RH claim;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-95252-muniform-block-riesz-seam-pencil.js (source: COROLLARY
  *   SPLIT-RZ certificate, A_blk, coalLaw)

@@ -8,7 +8,7 @@
  * imp-95206), prices complete rows along the diagonal family of paper
  * section 10.7 / Theorem 11.1, and locates the verified-height wall. It
  * derives no bound, certifies nothing, and closes no gap. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA (PT-floor audit: verified
+ * No refereed bound is changed (PT-floor audit: verified
  * height binds).
  *
  * CONTEXT (paper section 10.7 + Theorem 11.1 + section 11). Any sequence of
@@ -408,7 +408,7 @@ export const IMP95218_ROUTE7_COST_CURVE = Object.freeze({
     'Falsifiable side-prediction: the paper-contract 0.14 row tail reprices to N1* ~ 2.85e8 ' +
     'in this architecture (5.2x the K2 line - also economically dead verbatim). This module ' +
     'derives no bound and certifies nothing; all rows are conditional-frontier objects; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ────────────
@@ -559,7 +559,7 @@ export const IMP95218_ROUTE7_COST_CURVE_ASSERTIONS = [
   },
   {
     id: 'imp95218r7-hygiene',
-    description: 'grade analysis, no bound claimed, no QED, PT SOTA, no-go language present, frontier unchanged',
+    description: 'grade analysis, no bound claimed, no QED, no refereed bound is changed, no-go language present, frontier unchanged',
     holds: () =>
       IMP95218_ROUTE7_COST_CURVE.grade === 'analysis' &&
       IMP95218_ROUTE7_COST_CURVE.provesBound === false &&
@@ -567,7 +567,7 @@ export const IMP95218_ROUTE7_COST_CURVE_ASSERTIONS = [
       IMP95218_ROUTE7_COST_CURVE.movesRigorousBound === false &&
       IMP95218_ROUTE7_COST_CURVE.changesConditionalFrontier === false &&
       /NO QED/.test(IMP95218_ROUTE7_COST_CURVE.verdict) &&
-      /remains SOTA/.test(IMP95218_ROUTE7_COST_CURVE.verdict) &&
+      /refereed bound is changed/i.test(IMP95218_ROUTE7_COST_CURVE.verdict) &&
       /NEW tail mechanism/.test(IMP95218_ROUTE7_COST_CURVE.verdict) &&
       /compute-blocked/.test(SUBEXPONENTIAL_VERDICT.citableNoGo),
   },

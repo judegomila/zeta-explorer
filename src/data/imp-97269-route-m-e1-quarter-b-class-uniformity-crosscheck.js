@@ -63,7 +63,7 @@
  * smooth class as the mu-sign cancellation removes the -b/4 leader. The 4(log b + 2) over-count is a
  * class-independent function of b; the larger raw old/new ratios off primes are the old bound's
  * 2^omega inflation, not a failure of b/4 uniformity. Cross-validation only; kappa_arith unchanged;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97208-route-m-theorem2-tighter-remainder.js (the b/4 constant + prime asymptotic this checks)
  * @see imp-97158-route-m-theorem1-remainder-sharpness.js (all-class saturation r1 -> 0)
@@ -174,11 +174,11 @@ export const IMP97269_VERDICT = Object.freeze({
     '0.040 at 30030, 0.00117 at 10000). The 4(log b+2) over-count is a class-independent function of b ' +
     '(~54 at b~10^5); the much larger raw old/new ratios off primes (up to 2852x at the primorial 30030) ' +
     'are entirely the old bound 2^omega inflation, not a failure of the b/4 scale. Cross-validation only; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97269_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-check of the imp-97208 b/4 E1 ceiling across all ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-check of the imp-97208 b/4 E1 ceiling across all ' +
   'divisor classes: |E1(b)|/(b/4) saturates -> 1 only on primes (0.765 -> 0.99995) and undershoots on prime ' +
   'powers / primorials / generic composites (down to ~0.0008) -- b/4 is class-uniform (0 violations, ' +
   'b in [2,20000]). The 4(log b+2) over-count is class-independent (b only); larger raw old/new ratios off ' +
@@ -270,7 +270,7 @@ const IMP97269_ASSERTIONS = [
       IMP97269_VERDICT.overCountAnalyticIsClassUniform === true &&
       IMP97269_VERDICT.fullOldNewRatioIsClassDependent === true &&
       /NO QED/.test(IMP97269_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97269_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97269_HONEST_BANNER) &&
       /RH open/.test(IMP97269_HONEST_BANNER),
     why: 'cross-validation only -- confirms b/4 class-uniformity, moves no bound, posts no rigorous ceiling, claims no QED.',
   },

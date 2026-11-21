@@ -48,7 +48,7 @@
  *   the three intercept constituents there); its full value over b >= 3 stays UNPINNED (head + far
  *   tail unmeasured). No value is pinned; no bound is moved; F stays a slope-derived placement,
  *   exactValuePinned = false; the only rigorous anchor is the trace ceiling T = 2.594e7; compute
- *   (N ~ 9916, imp-96352) binds first by >2600x; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   (N ~ 9916, imp-96352) binds first by >2600x; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97207-route-m-farfield-intercept-derivation (defines c1_T = ... + 2R; leaves 2R symbolic)
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction (the Q(b) window means; O(1) unpinned)
@@ -143,12 +143,12 @@ export const IMP97244_VERDICT = Object.freeze({
     'the remainder. Sub-gap imp-97244-remainder-head-and-far-tail: R = Sum_{b>=3} also carries an ' +
     'unmeasured head b in [3,100) and far tail b >= 1200, so R (hence C, hence F as a value) stays ' +
     'UNPINNED. Measurement only; pins no value; changes no bound; no operator positivity; the ' +
-    'rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first by >2600x; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first by >2600x; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97244_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97207 intercept ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97207 intercept ' +
   'constituent (C) = 2R, R = Sum_{b>=3} r(b)/b^2, is SIZED directly from the imp-96750 computed ' +
   'Q(b) window means by subtracting the fitted s0 b + cQ and summing the weighted remainder. Over ' +
   'the measured range b in [100,1200), R_measured ~ 9.43e-3 and (C) = 2R ~ 1.89e-2 -- the SMALLEST ' +
@@ -211,7 +211,7 @@ const IMP97244_ASSERTIONS = [
       IMP97244_VERDICT.computeBindsFirst === true &&
       IMP97244_VERDICT.constituentCIsSmallest === true &&
       /NO QED/.test(IMP97244_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97244_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97244_HONEST_BANNER) &&
       /RH open/.test(IMP97244_HONEST_BANNER) &&
       /imp-96750/.test(IMP97244_VERDICT.conclusion),
   },

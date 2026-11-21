@@ -60,8 +60,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (FAR-tail sliding window, p_eff -> 1/2)
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm)
@@ -226,7 +225,7 @@ export const IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY = {
     'at N ~ 3.21e11. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33274 (FAR-tail sliding-window p_eff -> 1/2); imp-3406 (interior MAX N ~ 9.22e5, ' +
     'monotone decay-to-0 right arm); imp-3529 (LOCAL pointwise exponent p(N)); imp-3463 ' +
@@ -280,14 +279,14 @@ export const IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY_ASSERTIONS = [
     holds: () => Math.abs(N_CROSS_0_5 / IMP3444_CROSSOVER - 1) < 1e-2,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp33582-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY.isRigorous === false &&
       IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY.verdict) &&
-      /remains SOTA/.test(IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY.verdict),
+      /refereed bound is changed/i.test(IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY.verdict),
   },
 ];
 

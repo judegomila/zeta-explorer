@@ -37,7 +37,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * SWEPT as a sensitivity knob but its pinned value is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34931-sigma-knee-raw-total-crossing (the fixed-model 5%/25% crossing pins this varies over C_mb)
  * @see imp-34882-sigma-knee-domb-sykes-radius (Domb-Sykes/Neville radius R ~ 91, range [79,106])
@@ -357,7 +357,7 @@ export const IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY = {
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
     'is swept as a sensitivity knob but its pinned value is UNTOUCHED; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34955 sensitivity question: the imp-34931 Domb-Sykes-boundary coincidence is ROBUST to C_mb ' +
     'at the RANGE level (25% crossing in [79,106] for all C_mb in [0.5,1]) but C_mb-SPECIFIC at the POINT level ' +
@@ -429,15 +429,15 @@ export const IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY_ASSERTIONS = [
     holds: () => CMB_GRID.every((cmb) => crossingsForCmb(cmb).devAt1 < 1e-9),
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34955-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY.isRigorous === false &&
       IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY.farTailExponent === 0.5 &&
       typeof IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY.subGap === 'string' &&
       /NO QED/.test(IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY.verdict),
   },
 ];
 

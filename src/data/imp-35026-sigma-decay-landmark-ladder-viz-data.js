@@ -12,7 +12,7 @@
  *
  * VIZ-ONLY. Measurement/fit only, on the inherited imp-3220/imp-3406 surrogate; C_mb
  * GUE-conditional per imp-486 untouched; establishes no operator positivity; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (threshold crossings, per-decade ladder)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade inflection knee N*)
@@ -55,7 +55,7 @@ export const IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA = {
     'inflection knee N* -- all imported literals, no new computation. Measurement on the ' +
     'inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; ' +
     'establishes no operator positivity; changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA_ASSERTIONS = [
@@ -93,12 +93,12 @@ export const IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp35026-honesty-gate-no-qed',
-    description: 'Viz-only: not rigorous, far-tail exponent 1/2, no QED, PT stays SOTA',
+    description: 'Viz-only: not rigorous, far-tail exponent 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA.isRigorous === false &&
       IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA.verdict) &&
-      /remains SOTA/.test(IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA.verdict),
+      /refereed bound is changed/i.test(IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA.verdict),
   },
 ];
 

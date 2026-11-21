@@ -46,8 +46,8 @@
 //
 // Accuracy audit only. No zero is verified, no new T_PT is claimed, the
 // rigorous bound stays E_trunc = 3.06e-5, and C_mb stays GUE-conditional per
-// imp-486. Changes no bound; no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2
-// remains SOTA; RH OPEN.
+// imp-486. Changes no bound; no RH claim; NO QED. No refereed bound is changed
+// ; RH OPEN.
 //
 // @see imp-96229-reciprocal-elasticity-consistency-audit (flags the 3.9e-8 gap as display rounding)
 // @see imp-96232-kappa-star-floor-height-cross-validation (pin-independent inversion table)
@@ -174,7 +174,7 @@ export const IMP96246_ETRUNC_PIN_CONSUMER_AUDIT = {
     'value would erase the cosmetic split but is out of scope. No zero is ' +
     'verified, no new T_PT claimed, the rigorous bound stays E_trunc = 3.06e-5, ' +
     'C_mb stays GUE-conditional per imp-486. Changes no bound; no RH claim; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH OPEN.',
+    'QED. No refereed bound is changed; RH OPEN.',
   citation:
     'imp-96229 (flags gap as display rounding); imp-96232 (pin-independent ' +
     'inversion); imp-96207 (bakes rounded baseline); imp-96185 (imports full ' +
@@ -220,13 +220,13 @@ export const IMP96246_ETRUNC_PIN_CONSUMER_AUDIT_ASSERTIONS = [
   {
     // Every enumerated consumer is rounding-safe; audit is non-rigorous, no QED.
     id: 'imp96246-honesty-gate-no-qed',
-    description: 'all consumers rounding-safe, accuracy audit only, no QED, PT stays SOTA',
+    description: 'all consumers rounding-safe, accuracy audit only, no QED, no refereed bound is changed',
     holds: () =>
       IMP96246_ETRUNC_PIN_CONSUMER_AUDIT.isRigorous === false &&
       IMP96246_ETRUNC_PIN_CONSUMER_AUDIT.consumers.every((c) => c.roundingSafe === true) &&
       /ROUNDING-SAFE/.test(IMP96246_ETRUNC_PIN_CONSUMER_AUDIT.verdict) &&
       /NO QED/.test(IMP96246_ETRUNC_PIN_CONSUMER_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP96246_ETRUNC_PIN_CONSUMER_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP96246_ETRUNC_PIN_CONSUMER_AUDIT.verdict),
   },
 ];
 

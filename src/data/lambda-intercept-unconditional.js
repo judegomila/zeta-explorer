@@ -187,8 +187,8 @@ const G6_POLYMATH15_BRIDGE = {
     'E(N) → 0 is NOT unconditional -- it is GATED on the N-uniform leading ' +
     'constant C_H, which is RH-HARD (imp-2640 Gronwall discharge NEGATIVE; ' +
     'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). The structural ' +
-    'lim-sup |t_c(N)| = 0 (route B) stays unconditional; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'lim-sup |t_c(N)| = 0 (route B) stays unconditional; no refereed bound is changed' +
+    '.',
   closures: [
     'imp-345 — E_trunc + E_flow rigorous modulo constants (Polymath15 Lemma 3.3 ' +
       '+ Guth-Maynard tail).',

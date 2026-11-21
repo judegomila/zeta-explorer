@@ -54,8 +54,8 @@
  * MEASUREMENT ONLY. Same inherited imp-3220/imp-3406/imp-33582/imp-33602 component model as
  * imp-33854/imp-33925/imp-33960/imp-34007/imp-34067; same sub-terms; changes no bound; the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; C_C = 1/8 ansatz untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA. Realized round-off magnitudes are platform-dependent, so the leave-out cross-rung
+ * K_a >= 0 untouched; C_C = 1/8 ansatz untouched; no RH verdict, NO QED. No refereed bound is changed
+ * . Realized round-off magnitudes are platform-dependent, so the leave-out cross-rung
  * slopes are asserted only to order (full ~sub-linear, interior-eight still sub-linear and not
  * reaching +1, the two extreme rungs opposing high-leverage endpoints).
  *
@@ -163,8 +163,8 @@ export const IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS = {
     'sub-linearly in |ln N| in the interior of the ladder because per-rung round-off is stochastic and ' +
     'only fractionally same-sign. Same inherited imp-3220/imp-3406 component model; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34007 (geomean cross-rung slope ~+0.71, non-monotone ceiling-fraction d=100/d=200); ' +
     'imp-34067 (sub-linearity is not a geomean artifact); imp-33960 (fit at max rung N = 1e200); ' +
@@ -192,14 +192,14 @@ export const IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS_ASSERTIONS = [
     holds: () => NOT_OUTLIER_DRIVEN && OPPOSING_LEVERAGE,
   },
   {
-    // Honesty gate: measurement only, no QED, imp-3066 untouched, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, imp-3066 untouched, no refereed bound is changed.
     id: 'imp34068-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, imp-3066 untouched, Platt-Trudgian SOTA',
+    description: 'Measurement only: isRigorous false, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS.isRigorous === false &&
       /NO QED/.test(IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS.verdict) &&
-      /remains SOTA/.test(IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS.verdict),
+      /refereed bound is changed/i.test(IMP34068_I1_ROUNDOFF_LEAVE_OUT_EXTREME_RUNGS.verdict),
   },
 ];
 

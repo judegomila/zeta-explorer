@@ -21,7 +21,7 @@
  *   MEASUREMENT / ASSESSMENT ONLY. lam_min(N,.) are Rayleigh-Ritz UPPER brackets; the fixed-T* column is
  *   T-limited (reads spuriously LOW, since each fixed-N column is monotone INCREASING in T). Establishes NO
  *   operator positivity; NO rigorous lower bound; brackets stay upper brackets; no bound moves; interval-
- *   rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * THE FIXED-T*=8000 COLUMN (identical inner-T resolution for every N; from imp-97498):
  *     N       lam_min(N, T=8000)      1/N-fit residual to a + b/N

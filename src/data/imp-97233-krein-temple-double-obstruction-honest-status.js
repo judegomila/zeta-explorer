@@ -20,7 +20,7 @@
  * @see imp-97136-krein-temple-lower-bound-feasibility.js (INGREDIENT 2 originally flagged uncommitted)
  *
  * Ticket: imp-97233 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97162_DEFAULT, { IMP97162_MEASURED, IMP97162_VERDICT } from './imp-97162-krein-temple-defect-eta2-measurement.js';
@@ -49,7 +49,7 @@ export const IMP97233_HONEST_BANNER =
   'magnitude and keeps growing with the evaluation space (INGREDIENT 1). Reaching the 0.5 uniform-N target ' +
   'would need beta >= 7.16e10, astronomically beyond any admissible lambda_2. Do NOT re-attempt the Temple ' +
   'route for the uniform-N Krein floor (SUB-GAP IMP97162_TEMPLE_DEFECT_ETA2_HUGE). No bound on Lambda moves; ' +
-  'interval-rigorous reach stays 2a<=0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97233_ASSERTIONS = [
@@ -81,10 +81,10 @@ const IMP97233_ASSERTIONS = [
       IMP97233_STATUS.intervalRigorousReachUnchanged === 0.96 &&
       IMP97233_STATUS.doNotReattemptTemple === true &&
       /NO QED/.test(IMP97233_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97233_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97233_HONEST_BANNER) &&
       /RH open/.test(IMP97233_HONEST_BANNER) &&
       /Do NOT re-attempt/.test(IMP97233_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open, do-not-re-attempt stated.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open, do-not-re-attempt stated.',
   },
 ];
 

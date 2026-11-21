@@ -63,8 +63,7 @@
  *        the imp-3463 sqrt(1/N) value 1/2.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3556-sigma-threshold-crossings-rootsolve (six shallower crossings, odds-ratio law)
  * @see imp-3463-sigma-fartail-decay (far-tail leading form sigma ~ (C_C/E_trunc) sqrt(logT0/N), p -> 1/2)
@@ -202,7 +201,7 @@ export const IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS = {
     'sigma spans ~2.06 decades of N (measured 2.070, 2.055) and the local decay exponent climbs ' +
     '0.4791 -> 0.4855 -> 0.4875 toward 1/2. Measurement/certification only; no positivity, no ' +
     'bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity ' +
-    'UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3556 (six shallower crossings, odds-ratio spacing law, K=(C_C/E_trunc)^2); imp-3463 ' +
     '(far-tail sqrt(logT0/N) leading form, p -> 1/2); imp-3444 (E_coll=E_trunc crossover); ' +
@@ -279,13 +278,13 @@ export const IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/certification only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/certification only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3577-honesty-gate-no-qed',
-    description: 'Measurement/certification only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/certification only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS.isRigorous === false &&
       /NO QED/.test(IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS.verdict) &&
+      /refereed bound is changed/i.test(IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3577_SIGMA_DEEP_THRESHOLD_CROSSINGS.verdict),
   },
 ];

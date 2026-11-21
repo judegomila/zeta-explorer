@@ -49,7 +49,7 @@
  * arm widths and their difference are not a double-rounding artifact). The surrogate-vs-true fidelity half
  * (imp-35337a) stays OPEN and is not touched. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35411-sigma-peak-plateau-width (TOTAL W(tol)/sqrt(tol) = 15.3165 on the four decade tols)
  * @see imp-35476-sigma-peak-plateau-sqrt-tol-offgrid (seven-tolerance union total-width constancy)
@@ -226,7 +226,7 @@ export const IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW = {
     'surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), the E_trunc = ' +
     '3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; the surrogate-vs-true fidelity half ' +
     '(imp-35337a) stays OPEN; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35411 (TOTAL W(tol)/sqrt(tol) = 15.3165 on the four decade tols); imp-35476 (seven-tolerance union ' +
     'total-width constancy, spread ~1.6e-5); imp-35451 (single-tol rising-vs-falling arm asymmetry); imp-35337 ' +
@@ -280,13 +280,13 @@ export const IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW_ASSERTIONS = [
     holds: () => A_SKEW_SPREAD < 2e-2 && A_SKEW > 10 && A_SKEW < 12,
   },
   {
-    // Honesty gate: measurement only, not rigorous, no QED, PT SOTA, sub-gap imp-35337a named.
+    // Honesty gate: measurement only, not rigorous, no QED, no refereed bound is changed, sub-gap imp-35337a named.
     id: 'imp35492-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-35337a stays OPEN',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW.isRigorous === false &&
       /NO QED/.test(IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW.verdict) &&
-      /remains SOTA/.test(IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW.verdict) &&
+      /refereed bound is changed/i.test(IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW.verdict) &&
       /imp-35337a/.test(IMP35492_SIGMA_PEAK_PLATEAU_ARM_SQRT_LAW.residual_sub_gap),
   },
 ];

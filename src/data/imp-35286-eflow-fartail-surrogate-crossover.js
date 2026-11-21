@@ -54,8 +54,7 @@
  * MEASUREMENT ONLY on the inherited surrogate. Changes no bound; establishes no operator
  * positivity. Component model is the imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486
- * UNTOUCHED; far-tail exponent 1/2 per imp-3463; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; far-tail exponent 1/2 per imp-3463; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35237-eflow-fartail-exponent-ladder-crosscheck (the ladder table whose crossover this pins)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the leading -1 + 3/log N law)
@@ -215,7 +214,7 @@ export const IMP35286_EFLOW_FARTAIL_SURROGATE_CROSSOVER = {
     'changes no bound; component model is the imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; far-tail exponent 1/2 per imp-3463; no operator positivity; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-35237 (full-surrogate vs leading ladder table whose crossover this pins); imp-35198 ' +
     '(leading +3/log N law); imp-35135 (measured far-tail E_flow exponent, reproduced here); ' +
@@ -259,13 +258,13 @@ export const IMP35286_EFLOW_FARTAIL_SURROGATE_CROSSOVER_ASSERTIONS = [
     holds: () => Math.abs(AT_CROSS.leadResidual - AT_CROSS.fullResidual) < 1e-6,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35286-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35286_EFLOW_FARTAIL_SURROGATE_CROSSOVER.isRigorous === false &&
       /NO QED/.test(IMP35286_EFLOW_FARTAIL_SURROGATE_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP35286_EFLOW_FARTAIL_SURROGATE_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP35286_EFLOW_FARTAIL_SURROGATE_CROSSOVER.verdict),
   },
 ];
 

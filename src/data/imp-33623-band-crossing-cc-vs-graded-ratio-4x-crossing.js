@@ -78,8 +78,7 @@
  *   at n=510 is CONDITIONAL -- reported with the graded floorInBand=false flag -- NOT a clean node-budget
  *   comparison. The NPHI = 10 Phi-series truncation is inherited. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33584-deeper-tail-cc-vs-graded-ratio-4x-crossing.js (the n in {425,450,475} ratio measurement this extends)
  *   @see imp-33560-deep-tail-graded-vs-cc-cross-solver-node-budget.js (the original n in {350,375,400} ratio measurement)
@@ -342,7 +341,7 @@ const verdict =
       'RUNGS-n=500/525-WHILE-THE-EXACT-RUNG-BY-RUNG-BUDGET-BOUNCES-ON-THE-JITTERY-ARITHMETIC-FLOOR.-ACCURACY/RULE-' +
       'DESIGN-CROSS-SOLVER-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-imp-33557-BOUNDS-THE-<64-BAND-AT-n>=510-(GRADED-' +
       'FLOOR-OUT-OF-BAND-AT-n=510);-NO-LITERAL-PATCHED;-imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33560/' +
-      'imp-33584-INTACT;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'imp-33584-INTACT;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33623_BAND_CROSSING_CC_VS_GRADED_RATIO_4X_CROSSING = Object.freeze({
@@ -373,7 +372,7 @@ export const IMP33623_BAND_CROSSING_CC_VS_GRADED_RATIO_4X_CROSSING = Object.free
     'flat-vs-climbing graded edge does eventually cross the bar (smallest crossing rung n=500) but only at in-band ' +
     'rungs, with the exact budget bouncing on the arithmetic floor. ACCURACY/RULE-DESIGN CROSS-SOLVER MEASUREMENT, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; imp-33557 bounds the < 64 band at n >= 510; ' +
-    'no literal patched; imp-3066 untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'no literal patched; imp-3066 untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -487,7 +486,7 @@ export const IMP33623_BAND_CROSSING_CC_VS_GRADED_RATIO_4X_CROSSING = Object.free
       'above/below the < 64 bar (n=510 N=512 lands at ~1.6 ULP, n=500 N=512 lands at ~88 ULP). The robust reading is ' +
       'the order of the node budgets (~500-1000) and the ratio order (~5x at the in-band rungs), not the exact ' +
       '1025/513 counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -543,7 +542,7 @@ export const IMP33623_BAND_CROSSING_CC_VS_GRADED_RATIO_4X_CROSSING_ASSERTIONS = 
   {
     id: 'imp33623-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-solver measurement only, not a certified bound, no literal ' +
-         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, PT 0.2 SOTA.',
+         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33623_BAND_CROSSING_CC_VS_GRADED_RATIO_4X_CROSSING.honestCaveat;
       return (
@@ -555,7 +554,7 @@ export const IMP33623_BAND_CROSSING_CC_VS_GRADED_RATIO_4X_CROSSING_ASSERTIONS = 
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

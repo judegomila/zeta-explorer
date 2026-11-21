@@ -63,7 +63,7 @@
  * envelope/slack shortcut survives — the ONLY live path stays the tier-P/B/S
  * phase-resolving batching (which can still adopt the 44.476 alias ledger for
  * a free 1.9x). Assessment only; changes no bound; certifies nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * Grade: ASSESSMENT (NEGATIVE, witnessed). Recomputes from imp-95210 frozen
  * constants; no new compute launched.
@@ -123,7 +123,7 @@ export const ALIAS_ENVELOPE_ASSESSMENT = Object.freeze({
     'broadband-obstructed BY PROXY through its co-summands. No envelope or slack shortcut ' +
     'exists; the only live path remains tier-P/B/S phase-resolving batching (which can ' +
     'still adopt the 44.476 alias ledger separately). Assessment only; changes no bound; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -162,14 +162,14 @@ export const IMP95230_ASSERTIONS = [
   {
     id: 'imp95230-negative-verdict-honesty-gate',
     description:
-      'fail-closed honesty: verdict is NEGATIVE (envelope-scale but envelope-inert), the separately-real 44.476 alias ledger is preserved, and NO QED / PT-SOTA is stated',
+      'fail-closed honesty: verdict is NEGATIVE (envelope-scale but envelope-inert), the separately-real 44.476 alias ledger is preserved, and NO QED / no-refereed-bound-change is stated',
     holds: () =>
       ALIAS_ENVELOPE_ASSESSMENT.verdictSign === 'NEGATIVE' &&
       ALIAS_ENVELOPE_ASSESSMENT.aliasIsSlow === true &&
       ALIAS_ENVELOPE_ASSESSMENT.aliasIsSmall === true &&
       ALIAS_ENVELOPE_ASSESSMENT.aliasLedgerStillAdoptable < LEDGERS_PER_X.existingCertifier &&
       /NO QED/.test(ALIAS_ENVELOPE_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(ALIAS_ENVELOPE_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(ALIAS_ENVELOPE_ASSESSMENT.verdict) &&
       /BY PROXY/.test(ALIAS_ENVELOPE_ASSESSMENT.verdict),
   },
 ];

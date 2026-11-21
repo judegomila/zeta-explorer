@@ -64,8 +64,7 @@
  *   already-established quantity; adds no new Lambda bound. Component model is the inherited imp-3220/
  *   imp-3406 extrapolation, NOT a rigorous asymptotic; the leading value 2 (N proportional to
  *   E_coll^-2) and the C_C ansatz are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- *   K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  */
 
 // -- five-landmark comparison: closed-form coupling ratio and its excess above the leading value 2 --
@@ -149,7 +148,7 @@ export const IMP34487_SUMMARY = Object.freeze({
     'below, consistent with imp-34447) and matches coupling = residual/r -> 2 as r -> 0 ' +
     '(imp-34270/34351). Measurement/extrapolation only; component model NOT rigorous; the leading ' +
     'value 2 and the C_C ansatz are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
-    'K_a >= 0 untouched; no bound change; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no bound change; NO QED. No refereed bound is changed.',
 });
 
 export default Object.freeze({
@@ -260,9 +259,9 @@ const IMP34487_ASSERTIONS = [
     id: 'imp34487-honesty-gate-no-qed',
     holds: () =>
       /NO QED/.test(IMP34487_SUMMARY.verdict) &&
-      /remains SOTA/.test(IMP34487_SUMMARY.verdict) &&
+      /refereed bound is changed/i.test(IMP34487_SUMMARY.verdict) &&
       /UNTOUCHED/.test(IMP34487_SUMMARY.verdict),
-    why: 'Honesty gate: measurement/extrapolation only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement/extrapolation only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

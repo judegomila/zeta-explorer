@@ -62,8 +62,7 @@
  * the two intermediate rungs, nothing more. The component model is the imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
- * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * IMP-35389 / IMP-35371 UPDATE (honest-status companion)
  * -------------------------------------------------------
@@ -209,7 +208,7 @@ export const IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness ' +
     '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent ' +
     '1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35236 (two-endpoint decomposition, extended here); imp-35217 (leading residual); ' +
     'imp-35198 (analytic -1 + 3/log N); imp-35135 (measured on effectiveHeightForN, reproduced ' +
@@ -274,13 +273,13 @@ export const IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP_ASSERTIONS = [
       /nonzero asymptote/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.imp35371Refinement),
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35280-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.isRigorous === false &&
       /NO QED/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.verdict) &&
-      /remains SOTA/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.verdict),
+      /refereed bound is changed/i.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.verdict),
   },
 ];
 

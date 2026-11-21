@@ -53,7 +53,7 @@ export const R6_SUFFIX = Object.freeze({
     'A1 not asserted in p47mix (holds)', 'l1l5ref files store no per-piece rows', 'P47 cone configuration noise ~0.02']),
   verdict: 'Rounding slacks fixed at source; all 425 affected path certificates re-run (0 failures); exact consumer gives the certified '
     + 'route-P value 146660920737233/10^15 = 0.146660920737233 (1.08e-9 below r5) on the same 337-floor path, E1-E8 0 failures. '
-    + 'P-cond 0.144797588795775 still assumes WOL-C for 369 P47 floors: NOT certified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'P-cond 0.144797588795775 still assumes WOL-C for 369 P47 floors: NOT certified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const X = R6_SUFFIX;
@@ -81,7 +81,7 @@ export const R6_SUFFIX_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r6-suffix-honest',
-    holds: () => /NOT certified/.test(X.verdict) && /NO QED/.test(X.verdict) && /PT Lambda <= 0\.2 stands/.test(X.verdict) && X.corrections.length === 6,
+    holds: () => /NOT certified/.test(X.verdict) && /NO QED/.test(X.verdict) && /refereed bound is changed/i.test(X.verdict) && X.corrections.length === 6,
     why: 'Certified, not proved; sub-0.145 conditional on WOL-C; referee corrections carried.',
   },
 ]);

@@ -41,7 +41,7 @@
  * Measurement only, within the inherited imp-3406/imp-33810 component model; both the imp-34127
  * closed form (21.00) and the canonical bisection (21.28095) stay DISTINCT literals; the two readings
  * are unchanged; no bound changes; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0
- * untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * untouched; no refereed bound is changed. NO QED.
  *
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (leading closed form + D^2/160 net bias)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (bisected kEnd* ~ 21.281)
@@ -234,7 +234,7 @@ export const IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE = {
     'literals. Descriptive within the inherited imp-3406/imp-33810 component model only; the component ' +
     'model is NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34127 (leading closed form + D^2/160 net cubic bias, kEnd ~ 21.00); imp-34023 (bisected ' +
     'kEnd* ~ 21.281); imp-34302 (canonical-value gate whose -0.28 attribution is measured here); ' +
@@ -281,12 +281,12 @@ export const IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE_ASSERTIONS = [
     holds: () => RESIDUAL_SHARE_REMOVED === 1,
   },
   {
-    // (G) Governance: measurement only, NO QED, SOTA preserved.
+    // (G) Governance: measurement only, NO QED, no refereed bound is changed.
     id: 'imp34311-governance-no-qed-sota',
-    description: 'isRigorous false and the verdict carries the NO QED / remains SOTA governance markers',
+    description: 'isRigorous false and the verdict carries the NO QED / no-refereed-bound-change governance markers',
     holds: () =>
       IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.isRigorous === false &&
       /NO QED/.test(IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.verdict) &&
-      /remains SOTA/.test(IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.verdict),
+      /refereed bound is changed/i.test(IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.verdict),
   },
 ];

@@ -54,7 +54,7 @@
  * is now symbolic-in-m; the accumulation order and coincidence combinatorics are the remaining pieces."
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO
- * Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the offline-measured per-locus jump
+ * Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the offline-measured per-locus jump
  * tracks and the fitted laws as literals; no reconstruction quadrature at import.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95901-scratch.mjs
@@ -160,7 +160,7 @@ export const TIER3_PER_LOCUS_JUMP_LAWS = Object.freeze({
     + 'positions v=j/(am+b), the growing locus count, and the m-dependent coincidence set -- NOT by any '
     + 'per-locus non-smoothness. Does NOT close the transport identity (absolute cell coefficients need '
     + 'the running jump accumulation + interleaved order; aggregate assembly not performed). G '
-    + 'irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -233,8 +233,8 @@ export const TIER3_PER_LOCUS_JUMP_LAWS = Object.freeze({
     + '(coincidence loci excluded, where family lattices meet and jumps superimpose). No new import-time '
     + 'quadrature -- tracks and laws are baked literals. The laws describe the per-locus JUMPS, not the '
     + 'absolute cell coefficients or the assembled aggregate; the transport identity is NOT closed. '
-    + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 '
-    + 'SOTA; NO QED.',
+    + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const TIER3_PER_LOCUS_JUMP_LAWS_ASSERTIONS = Object.freeze([
@@ -310,7 +310,7 @@ export const TIER3_PER_LOCUS_JUMP_LAWS_ASSERTIONS = Object.freeze([
         && /aggregate assembly still OPEN/.test(v.outcome)
         && /accumulation order and coincidence combinatorics/.test(v.remainingObstruction)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

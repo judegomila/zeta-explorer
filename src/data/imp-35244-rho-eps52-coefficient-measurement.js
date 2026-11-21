@@ -59,7 +59,7 @@
  * and sharpens the remainder shape but does NOT certify a uniform modulus, does NOT discharge O3 or G6a,
  * establishes no operator positivity, changes no bound. G6a_shock_lipschitz stays OPEN; imp-3066
  * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35216-rho-prefactor-closed-form-assessment (derived K = 8 sqrt(2)/(9 pi); implied but never checked eps^{5/2})
  * @see imp-35193-rho-convergence-rate-modulus-measurement (the 9-rung eps ladder and rho re-formed here)
@@ -235,7 +235,7 @@ export const IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT = {
     'corrects the imp-35216 R_3 mis-pairing and sharpens the remainder shape but does NOT certify a uniform ' +
     'modulus, does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 ' +
     'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35244_RHO_EPS52_ASSERTIONS = [
@@ -272,16 +272,16 @@ export const IMP35244_RHO_EPS52_ASSERTIONS = [
     holds: () => Math.abs(TAIL_ROW.r2OverEps72) < 0.1 * Math.abs(TAIL_ROW.r1OverEps72),
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35244-honesty-gate-no-qed',
     description:
-      'Measurement only: eps^{5/2} slot pinned empty but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: eps^{5/2} slot pinned empty but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.isRigorous === false &&
       IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.verdict) &&
       /STAYS OPEN/.test(IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT.verdict,
       ),

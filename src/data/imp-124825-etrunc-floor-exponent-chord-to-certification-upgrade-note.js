@@ -15,7 +15,7 @@
  *   this note isolates the specific chord-to-certification upgrade for standalone discoverability)
  *
  * Ticket: imp-124825 (meta, low, sonnet-4-6). Cross-reference note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY } from './imp-97822-sigma-knee-etrunc-floor-elasticity.js';
@@ -48,7 +48,7 @@ export const IMP124825_ETRUNC_FLOOR_EXPONENT_CHORD_TO_CERTIFICATION_UPGRADE_NOTE
 });
 
 export const IMP124825_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. imp-97822 fit the knee floor-elasticity ' +
+  'RH open; no refereed bound is changed; NO QED. imp-97822 fit the knee floor-elasticity ' +
   'p_knee in N* ~ E_trunc^(p_knee) from only two of the ten imp-33708 floor factors (0.5x and 2x), ' +
   'reading p_knee ~ ' + TWO_FLOOR_CHORD.toFixed(3) + ' -- a chord that is EXACT BY CONSTRUCTION (any two ' +
   '(log E_trunc, log N*) points define a line with zero residual) and so cannot by itself rule out that ' +
@@ -74,7 +74,7 @@ if (
     IMP124825_ETRUNC_FLOOR_EXPONENT_CHORD_TO_CERTIFICATION_UPGRADE_NOTE.isRigorous === false &&
     IMP124825_ETRUNC_FLOOR_EXPONENT_CHORD_TO_CERTIFICATION_UPGRADE_NOTE.qed === false &&
     /NO QED/.test(IMP124825_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP124825_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124825_HONEST_BANNER) &&
     /RH open/.test(IMP124825_HONEST_BANNER) &&
     /imp-3066 K_a >= 0 untouched/.test(IMP124825_HONEST_BANNER)
   )

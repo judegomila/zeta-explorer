@@ -54,8 +54,8 @@
  * VERDICT. The imp-97515 named robust witness b_101 = Prod_{101<=p<=2,742,754,087} p is independently
  * CONFIRMED (extended-precision recompute + rigorous forward-error bound): T(b_101) < -1/4 with margin
  * 3.4e4x the true fp-accumulation error. No bound on Lambda moves; the b/4-ceiling line stays a dead route
- * (imp-97544 consolidated verdict); kappa_arith unchanged; cotangent first moment (imp-97097) open; PT
- * Lambda <= 0.2 SOTA; RH open; NO QED. Accuracy check only.
+ * (imp-97544 consolidated verdict); kappa_arith unchanged; cotangent first moment (imp-97097) open; no refereed bound is changed
+ * ; RH open; NO QED. Accuracy check only.
  *
  * @see imp-97515-route-m-quarter-ceiling-p0-101-crossing-rigorous.js (located the boundary + named the robust witness)
  * @see imp-97544 (consolidated b/4-ceiling dead-route verdict)
@@ -133,12 +133,12 @@ export const IMP97542_VERDICT = Object.freeze({
     'of the full ~1.33e8-term run at <= 7.4e-9 (worst-case; realized ~1.2e-13). The robust-witness margin 2.5e-4 ' +
     'exceeds this by 3.4e4x, so T(b_101) < -1/4 is rigorously safe. The razor-thin boundary margin 5e-11 sits ' +
     'BELOW the worst-case bound, vindicating imp-97515 naming a robust witness rather than the boundary. No bound ' +
-    'on Lambda moves; the b/4-ceiling line stays a dead route (imp-97544); kappa_arith unchanged; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'on Lambda moves; the b/4-ceiling line stays a dead route (imp-97544); kappa_arith unchanged; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97542_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-precision (mpmath dps=50) recompute CONFIRMS the ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-precision (mpmath dps=50) recompute CONFIRMS the ' +
   'imp-97515 robust witness b_101 = Prod_{101<=p<=2,742,754,087} p: the float64 Kahan accumulator is faithful to ' +
   '~1e-14 and the true fp-accumulation error of the full run is <= 7.4e-9 (worst-case). The robust margin 2.5e-4 ' +
   'exceeds it by 3.4e4x (rigorously safe); the razor-thin boundary margin 5e-11 sits below it, vindicating ' +
@@ -188,7 +188,7 @@ const IMP97542_ASSERTIONS = [
       IMP97542_VERDICT.qed === false &&
       IMP97542_VERDICT.accumulatorFaithful === true &&
       /NO QED/.test(IMP97542_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97542_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97542_HONEST_BANNER) &&
       /RH open/.test(IMP97542_HONEST_BANNER) &&
       /dead route/.test(IMP97542_HONEST_BANNER),
     why: 'accuracy check confirming an exploratory-ceiling witness (load-bearing for nothing); no bound moved, no QED.',

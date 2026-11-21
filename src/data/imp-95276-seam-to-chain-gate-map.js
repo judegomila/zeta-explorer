@@ -8,7 +8,7 @@
  * recorded UNCHANGED across every leg by the imp-95233 / imp-95255 ledgers.
  * SCOPING ONLY: identifies the minimal analytic ingredient the gate side
  * needs and re-classifies what actually stays open. Changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  *
  * THE GATE (imp-95210 / imp-95211 / imp-95216 conventions). The chain gate
  * is a single scalar functional g -> gammaSL(g) that caps the class overlap
@@ -77,7 +77,7 @@
  * SCOPING ONLY: no LamBar is re-bounded, no packet is transcribed, no
  * certificate is instantiated on a paper window; the map's admissibility
  * is CONDITIONAL on the still-open (i)+(ii). Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; measured class sup unchanged.
+ * no refereed bound is changed; measured class sup unchanged.
  */
 
 // ── carried gate constants (literals; imp-95210/95216 single source), so this
@@ -135,7 +135,7 @@ export const IMP95276_SEAM_TO_CHAIN_GATE_MAP = {
     + 'application is the safe route (flagged, not resolved).',
   honest: 'SCOPING ONLY -- no LamBar re-bounded, no packet transcribed, no certificate instantiated on a '
     + 'paper window. The map is CONDITIONAL on the still-open transcription inputs (i) imp-95212 port and '
-    + '(ii) per-window Q. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + '(ii) per-window Q. Changes no bound; NO QED; no refereed bound is changed.',
   gammaOvBaseline: GAMMA_OV,
   // re-exported functionals for downstream viz / assertions
   fns: { gammaSL, gFromLam, gFromR, seamToChainGate },
@@ -198,9 +198,9 @@ export const IMP95276_SEAM_TO_CHAIN_GATE_MAP_ASSERTIONS = [
   },
   {
     id: 'imp-95276-scoping-only-honest',
-    description: 'explicitly SCOPING ONLY, conditional on open transcription, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly SCOPING ONLY, conditional on open transcription, no refereed bound is changed',
     holds: () => /SCOPING ONLY/.test(IMP95276_SEAM_TO_CHAIN_GATE_MAP.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95276_SEAM_TO_CHAIN_GATE_MAP.honest),
+      && /refereed bound is changed/i.test(IMP95276_SEAM_TO_CHAIN_GATE_MAP.honest),
   },
 ];
 

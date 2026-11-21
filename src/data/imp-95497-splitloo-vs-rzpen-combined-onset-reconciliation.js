@@ -42,7 +42,7 @@
  *       column, not imp-95429's rzpenTotalOnset alone.
  *
  *   MEASUREMENT / BOOKKEEPING ONLY. No fresh computation; changes no bound;
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED; no refereed bound is changed.
  *
  * @see imp-95429-rzpen-offlattice-total-onset.js (the coalLaw-proxy TOTAL onset)
  * @see imp-95445-total-offlattice-onset-blaschke-composition.js (the actual SPLIT-LOO combined onset, min of the two legs)
@@ -79,13 +79,13 @@ export const IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION = {
     'superseded as an estimate of the true combined onset, which it over-states by 0.25..7.48 depth units ' +
     '(~2%..32%). The two modules are COMPLEMENTARY: proxy model (imp-95429) vs actual certificate ' +
     '(imp-95445), not duplicate or conflicting measurements. Bookkeeping reconciliation only; changes no ' +
-    'bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED; no refereed bound is changed.',
   honest:
     'Bookkeeping reconciliation only, re-using the already-published imp-95445 rows (which themselves ' +
     'reproduce the imp-95429 baked RZ-PEN total column) with no fresh computation. Establishes no operator ' +
     'positivity, changes no Lambda bound, and supplies no off-lattice floor/onset theorem. gammaSL ' +
     'obligation (3), signed WEIGHT / modulus-phase legs, and the imp-95212 envelope port remain OPEN. NO ' +
-    'QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED; no refereed bound is changed.',
 };
 
 export const IMP95497_ASSERTIONS = [
@@ -120,7 +120,7 @@ export const IMP95497_ASSERTIONS = [
       /RECONCILED/.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.verdict) &&
       /COMPLEMENTARY/.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.verdict) &&
       /Bookkeeping reconciliation only/.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.honest) &&
       /remain OPEN/.test(IMP95497_SPLITLOO_VS_RZPEN_RECONCILIATION.honest),
   },

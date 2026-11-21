@@ -6,7 +6,7 @@
  * protocol (deterministic-PRNG jitter of the lattice sites), but for the
  * leave-one-out multi-block certificate rather than the raw
  * Blaschke-Lagrange bound. MEASUREMENT ONLY; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT. The imp-95250 COROLLARY EV-OCT closed-form certificate for a
  * twin pair {2^k, r 2^k} in every octave k = 0..m-1 at depth x is
@@ -93,8 +93,7 @@
  * a perturbation nearly collides two octave sites (eps ~ 0.3). The
  * count-uniform lattice structure is a convenience, not a cliff: generic
  * well-separated octave sites are certified at a modest depth premium.
- * MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -144,7 +143,7 @@ export const IMP95253_SPLITLOO_OFF_LATTICE_DEGRADATION = {
     "multiplies four cross Blaschke factors per octave; collapses only when " +
     "a perturbation nearly collides two octave sites (eps ~ 0.3). Lattice " +
     "structure is a convenience, not a cliff. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -460,7 +459,7 @@ export const IMP95253_SPLITLOO_OFF_LATTICE_ASSERTIONS = [
     description:
       "the verdict carries the honest labels: measurement only, mild " +
       "quantified degradation, more separation-fragile than raw BL, no bound " +
-      "change, no QED, PT SOTA",
+      "change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT ONLY/.test(
         IMP95253_SPLITLOO_OFF_LATTICE_DEGRADATION.verdict,
@@ -472,7 +471,7 @@ export const IMP95253_SPLITLOO_OFF_LATTICE_ASSERTIONS = [
         IMP95253_SPLITLOO_OFF_LATTICE_DEGRADATION.verdict,
       ) &&
       /NO QED/.test(IMP95253_SPLITLOO_OFF_LATTICE_DEGRADATION.verdict) &&
-      /remains SOTA/.test(IMP95253_SPLITLOO_OFF_LATTICE_DEGRADATION.verdict),
+      /refereed bound is changed/i.test(IMP95253_SPLITLOO_OFF_LATTICE_DEGRADATION.verdict),
   },
 ];
 

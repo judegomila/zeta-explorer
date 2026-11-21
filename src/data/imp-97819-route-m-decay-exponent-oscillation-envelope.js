@@ -55,7 +55,7 @@
  * envelope from the imp-97659 dps=30 spread ~35.46 to ~85.68 (~2.42x), entirely via the new deep rungs
  * (the first-10 spread reproduces the dps=30 value exactly). This is the oscillating-PNT/Mertens-error
  * fingerprint and reinforces "neither climb nor saturate". MCM stays refuted from omega=11; b/4 ceiling
- * untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97780-route-m-decay-exponent-reconciliation.js (local exponents oscillate -28.79 .. +56.89)
  * @see imp-97706-route-m-deep-ladder-extension.js (dps=35 combined 23-rung ladder to p ~ 4.93e8)
@@ -173,12 +173,12 @@ export const IMP97819_VERDICT = Object.freeze({
     'deep rungs (the first-10 combined spread reproduces the dps=30 value exactly), not by the raised ' +
     'precision re-touching the shallow ladder. A widening envelope is the oscillating-PNT/Mertens-error ' +
     'fingerprint and reinforces the imp-97780 verdict (neither climb nor saturate). MCM stays refuted from ' +
-    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97819_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Characterizing the imp-97780 dps=35 local-exponent ' +
+  'RH open; no refereed bound is changed; NO QED. Characterizing the imp-97780 dps=35 local-exponent ' +
   'oscillation envelope: it WIDENS with depth -- running cumulative max-min 0 -> ~85.7, running RMS ' +
   '~10.2 -> ~24.2, second-half spread ~2.35x the first-half. The dps=35 doubling widened the envelope from ' +
   'the imp-97659 dps=30 spread ~35.46 to ~85.68 (~2.42x), entirely via the new deep rungs (the first-10 ' +
@@ -239,7 +239,7 @@ const IMP97819_ASSERTIONS = [
       IMP97819_VERDICT.anyBoundMoved === false &&
       IMP97819_VERDICT.qed === false &&
       /NO QED/.test(IMP97819_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97819_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97819_HONEST_BANNER) &&
       /RH open/.test(IMP97819_HONEST_BANNER),
     why: 'measurement only -- the oscillation envelope widens with depth and the dps=35 doubling widened it via the new rungs; MCM refuted from omega=11; no bound moved, no QED.',
   },

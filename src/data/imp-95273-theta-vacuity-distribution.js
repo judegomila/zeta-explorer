@@ -53,8 +53,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses imp-95233 PHASE-CERT and the
  * imp-95224 witness family verbatim; changes NO bound, no operator
- * positivity, no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. Import-light (no zeros bundle, no sibling imports); Simpson
+ * positivity, no RH claim; NO QED. No refereed bound is changed
+ * . Import-light (no zeros bundle, no sibling imports); Simpson
  * quadrature is recomputed here, cross-checked against the imp-95233 exact
  * closed forms.
  *
@@ -143,7 +143,7 @@ export const IMP95273_SUMMARY = {
   ratioMinVacuous: 1.838394e-4, // deepest into the vacuous regime (SGN-SAT phi_3)
   ratioMaxActive: 2.120401e4, // furthest into the active regime (deep-well separated)
   finding:
-    'the deep-cancellation families the seam actually produces (co-centered / near-antipodal signs) all sit BELOW the boundary (r < 1, PHASE-CERT VACUOUS), while mild-sign and well-separated families sit ABOVE it (r > 1, bound < 1/2, PHASE-CERT ACTIVE). The honest-partial gap imp-95233 flagged is thus confined to the deep-cancellation corner, quantified here as the span of families with r < 1; PHASE-CERT (R <= bound) is verified to HOLD for every family, active and vacuous alike. Measurement only; the 1/theta loss is unchanged; NO bound touched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'the deep-cancellation families the seam actually produces (co-centered / near-antipodal signs) all sit BELOW the boundary (r < 1, PHASE-CERT VACUOUS), while mild-sign and well-separated families sit ABOVE it (r > 1, bound < 1/2, PHASE-CERT ACTIVE). The honest-partial gap imp-95233 flagged is thus confined to the deep-cancellation corner, quantified here as the span of families with r < 1; PHASE-CERT (R <= bound) is verified to HOLD for every family, active and vacuous alike. Measurement only; the 1/theta loss is unchanged; NO bound touched; NO QED; no refereed bound is changed.',
 };
 
 // -- self-executing assertions (imp-3715 convention; THROW on violation) ------
@@ -244,7 +244,7 @@ export const IMP95273_ASSERTIONS = [
         Math.abs(IMP95273_SUMMARY.ratioMinVacuous - minVac) < 1e-9 &&
         Math.abs(IMP95273_SUMMARY.ratioMaxActive - maxAct) < 1e-3 &&
         /NO QED/.test(IMP95273_SUMMARY.finding) &&
-        /remains\s+SOTA/.test(IMP95273_SUMMARY.finding) &&
+        /refereed bound is changed/i.test(IMP95273_SUMMARY.finding) &&
         /Measurement only/.test(IMP95273_SUMMARY.finding)
       );
     },

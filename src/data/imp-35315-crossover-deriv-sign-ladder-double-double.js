@@ -64,7 +64,7 @@
  * the sign ladder is a structural property of the SURROGATE map, NOT of the RH operator. The C_mb
  * GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are
  * UNTOUCHED. Changes NO bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35113-crossover-deriv-sign-ladder-finite-difference (double-precision ceiling n* = 4)
  * @see imp-35012-crossover-complete-monotonicity-bernstein-assessment (analytic Bernstein sign ladder)
@@ -278,7 +278,7 @@ export const IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE = {
     'coefficient-positivity induction. MEASUREMENT ONLY on the surrogate map: the C_mb GUE-conditional ' +
     'per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; ' +
     'establishes no operator positivity; changes no bound; far-tail exponent stays 1/2 (imp-3463); no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35113 (double-precision ceiling n* = 4); imp-35012 (analytic Bernstein sign ladder); ' +
     'imp-34880 / imp-35107 (all-orders coefficient positivity); imp-35109 / imp-33229 (double-double ' +
@@ -331,13 +331,13 @@ export const IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE_ASSERTIONS = [
     id: 'imp35315-honesty-gate-no-qed',
     description:
       'measurement scope is the surrogate-map derivative signs only: establishes no operator ' +
-      'positivity, changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'positivity, changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.changesBound === false &&
       IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.isRigorous === false &&
       /NO QED/.test(IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.verdict) &&
       /no operator positivity/.test(IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.verdict) &&
-      /remains SOTA/.test(IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.verdict) &&
+      /refereed bound is changed/i.test(IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.verdict) &&
       /surrogate/i.test(IMP35315_CROSSOVER_DERIV_SIGN_LADDER_DOUBLE_DOUBLE.rigorousScope),
   },
 ];

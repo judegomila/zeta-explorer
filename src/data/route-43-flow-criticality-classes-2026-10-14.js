@@ -34,7 +34,7 @@
  *  ≈ (Y⁴/2) Σ x_k^{−2} ≈ 0.0036 at Y = 3/4.
  *
  * Verdict: in the graded κ sense an intermediate class exists (close to definitional; the new content is the exact witness value); in NS-RIGID's
- * binary sense the question stays unconditionally open. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free.
+ * binary sense the question stays unconditionally open. No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free.
  * ROUTE_43_ASSERTIONS recompute live: the witness formula and its Y²/2 limit, the κ ladder values, the κ_low table from G4 (T²κ_low → 0.349),
  * the forced backward strip √(2τ) vs the measured zeros, the escape thresholds, the quartet bound and the second-order loss.
  */
@@ -79,7 +79,7 @@ export const ROUTE_43 = Object.freeze({
     + 'only ≤ in ξ-like classes), PT\'s package at ≤ 0.2, fixed-support Weil positivity on a lower-bound ladder, tail-blind inputs at the strip value. '
     + 'An intermediate κ-class exists in a near-definitional sense; whether flow-critical-but-not-RH statements exist in NS-RIGID\'s binary sense '
     + 'stays conditional on an escape law not tested at small τ. Lean content: the QRH symmetric strip (trusting OAI 003) plus abstract arithmetic. '
-    + 'No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_43;
@@ -121,7 +121,7 @@ export const ROUTE_43_ASSERTIONS = Object.freeze([
   {
     id: 'r43-second-order-and-scope',
     holds: () => { const s = R.secondOrder; return abs((s.Y ** 4 / 2) * s.sumInvX2 - s.loss) < 1e-4 && R.nativeSpan.lambdaMin12 > 0
-        && /de Bruijn class without Φ > 0/.test(R.verdict) && /conditional on an escape law/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+        && /de Bruijn class without Φ > 0/.test(R.verdict) && /conditional on an escape law/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
         && /NO QED/.test(R.verdict) && R.refereeKilled.length === 6; },
     why: 'Second-order ordinate-0 loss (Y⁴/2)·Σx_k^{−2} ≈ 0.0036 at Y = 3/4; native-span λ_min positive (measured); exact κ only without Φ > 0; binary class conditional; no Λ change; no QED.',
   },

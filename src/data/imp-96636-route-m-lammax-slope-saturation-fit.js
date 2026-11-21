@@ -55,7 +55,7 @@
  * IMP96562_SUBGAP with a mode-count constant (half-saturation rank ~3, 90% near ~6); it does
  * NOT close it: it is a fit to the measured surrogate, R_r -> lam_max by construction, no
  * closed-form / averaged-symbol asymptotic for the 0.3526 coefficient is produced. Changes no
- * bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96612-route-m-lammax-rankr-power-iteration-bracket.js (the discrete b_r table fit here)
  * @see imp-96586-route-m-lammax-meanfield-cesaro-proxy.js (rank-one brackets, FINDING 2 collective)
@@ -165,7 +165,7 @@ export const IMP96636_VERDICT = Object.freeze({
     'and quantifying imp-96586 FINDING 2 that the 0.3526 log-coefficient is a collective, not ' +
     'low-rank, off-diagonal effect. This SHARPENS IMP96562_SUBGAP with a mode-count constant; ' +
     'it does NOT close it -- it is a fit to a surrogate that converges to lam_max by ' +
-    'construction, giving no closed-form pin. Changes no bound; PT Lambda <= 0.2 SOTA; NO QED.',
+    'construction, giving no closed-form pin. Changes no bound; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96636_SUBGAP = Object.freeze({
@@ -181,7 +181,7 @@ export const IMP96636_SUBGAP = Object.freeze({
 });
 
 export const IMP96636_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Curve-fit / measurement only: the three ' +
+  'RH open; no refereed bound is changed; NO QED. Curve-fit / measurement only: the three ' +
   'models are scipy curve_fit fits to the imp-96612 discrete b_r table (tmp/imp-96636-saturation' +
   '-fit.py). The requested single-exponential saturation is a poor fit; the logistic is reported ' +
   'as the honest continuous summary. This fits a surrogate whose b_r -> 0.3526 by construction, ' +
@@ -245,7 +245,7 @@ const IMP96636_ASSERTIONS = [
       IMP96636_VERDICT.bestModel === 'logistic' &&
       IMP96636_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96636_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96636_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96636_HONEST_BANNER) &&
       /RH open/.test(IMP96636_HONEST_BANNER) &&
       /sigmoidal-half-saturation-rank/.test(IMP96636_SUBGAP.id),
     why: 'measurement only: the requested exponential fails, the logistic is the summary, no bound moved, and the honesty markers plus the sharpened sub-gap are present.',

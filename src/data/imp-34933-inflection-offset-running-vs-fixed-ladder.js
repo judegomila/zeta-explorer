@@ -51,7 +51,7 @@
  *   MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate. Changes NO bound;
  *   recomputes no landmark used in any bound; C_mb GUE-conditional per imp-486 is
  *   UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- *   RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-34904-landmark-3p3e9-reconciliation-table (the single-scale L1-L4/L3-L4 gaps)
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma_infl = 1/2 - g_prime/(2 g^2) closed form)
@@ -213,7 +213,7 @@ export const IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER = {
     '(predicted -2, running-g shallower), offset -> 0 as N -> infinity. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34904 (single-scale L1-L4/L3-L4 landmark gaps); imp-33744 (sigma_infl = 1/2 - g_prime/(2 g^2) closed ' +
     'form, offset ~ 1/(t-1)^2); imp-33721 (sub-decade ramp knee log10 N* ~ 9.529); imp-33582/imp-33708 ' +
@@ -291,13 +291,13 @@ export const IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no bound change, C_mb GUE-conditional, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, C_mb GUE-conditional, no QED, no refereed bound is changed.
     id: 'imp34933-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER.isRigorous === false &&
       /NO QED/.test(IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER.verdict),
   },
 ];
 

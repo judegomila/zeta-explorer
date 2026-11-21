@@ -49,7 +49,7 @@
  *   ------------------------
  *   A glossary-style lookup distinguishing the three named ceilings and restating why
  *   their order is p-invariant. It establishes nothing, instantiates no interval, closes
- *   no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96833-route-m-ceiling-p-sensitivity-band.js (source: the p-sensitivity band and ordering proof this glosses)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (the three reported ceilings T/F/M)
@@ -57,7 +57,7 @@
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (wall-clock compute ceiling ~9916, binds first)
  *
  * Ticket: imp-96920 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The T/F/M distinguishing headword, baked verbatim (no re-import).
@@ -91,7 +91,7 @@ const CEILING_ORDERING_HEADWORD = Object.freeze({
     'their parent log-fit extrapolation sub-gaps (imp-96684 / imp-96443). Every ceiling ' +
     'sits >= 1500x above the imp-96352 wall-clock compute ceiling ~9916, so compute binds ' +
     'first regardless of which ceiling or p-band point is used. Changes no bound; ' +
-    'establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD = Object.freeze({
@@ -110,7 +110,7 @@ export const IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD = Object.freeze
     'identical lam_min = A N^-p factor, so the strict ordering T < F < M is p-INVARIANT ' +
     'by construction and survives the imp-96833 non-overlapping +/-2-sigma bands. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96833 (the p-sensitivity band and ordering proof this glosses); imp-96693 (the ' +
     'three reported ceilings T/F/M); imp-96428 (shared lam_min power law, p = 1.917927); ' +
@@ -138,11 +138,11 @@ export const IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96920-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD.verdict) &&
       IMP96920_ROUTE_M_CEILING_ORDERING_GLOSSARY_HEADWORD.glosses === 'imp-96833',
   },
 ];

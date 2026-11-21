@@ -41,8 +41,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reproduces the imp-35110/imp-34996 machinery
  * (identical K, delta, N_cross, band). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a
  * double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
- * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35110-krawczyk-headroom-small-n-edge (the small-N edge + FP_LO pole this closes the crossing search on)
  * @see imp-34996-krawczyk-headroom-safety-factor-asymptote (S_inf = 1/(2 delta) large-N floor + the S ~ 100 heuristic)
@@ -210,7 +209,7 @@ export const IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING = {
     'inherited imp-3220/imp-3406 surrogate; reproduces the imp-35110/imp-34996 machinery (identical K, delta, ' +
     'N_cross, band); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; ' +
     'imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-35110 (small-N edge + FP_LO pole; the S ~ 100 heuristic is an FP_LO ~ 1 artifact); imp-34996 ' +
     '(S_inf = 1/(2 delta) large-N floor, small-N heuristic); imp-34929 (closed-form dS/dN < 0); imp-34817 ' +
@@ -251,15 +250,15 @@ export const IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING_ASSERTIONS = [
       Math.abs(GAIN_POLE_DECADES_BELOW_BAND - 1.626) < 0.05,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35176-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING.isRigorous === false &&
       /imp-34714a/.test(IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING.subGap) &&
       /REMAINS OPEN/.test(IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING.subGap) &&
       /NO QED/.test(IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP35176_KRAWCZYK_HEADROOM_S100_CROSSING.verdict),
   },
 ];
 

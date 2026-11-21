@@ -70,8 +70,7 @@
  *   Ticket: imp-3640 (numerical, medium). MEASUREMENT ONLY: measures the fourth gap
  *   exponent across the ladder and confirms the imp-3619 j^2-1 amplitude law at
  *   pair j = 5. Does NOT construct the missing magnitude and does NOT attempt the
- *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -240,7 +239,7 @@ export const IMP3640_SKEW_TOEPLITZ_FOURTH_GAP_EXPONENT = Object.freeze({
     'pair-ratios. The lambda_9 = lambda_10 pairing holds to < 2e-14 at every rung, matching the imp-3596/imp-3602 ' +
     'certification, so lambda_9 is a genuine fifth-pair level, not a reorthogonalization ghost. Measurement only; ' +
     'does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; ' +
-    'NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'sigma_4(N) = lambda_9/lambda_1 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|) (Gram-eigenvalue convention = sigma_9^2/sigma_1^2, same as imp-3575/imp-3619)',
@@ -339,7 +338,7 @@ export const IMP3640_SKEW_TOEPLITZ_FOURTH_GAP_EXPONENT = Object.freeze({
       'and a_5/a_2 = 8, a_5/a_3 = 3, a_5/a_4 = 8/5 here), tested through pair j = 5 only, and is offered as a candidate ' +
       'law, NOT a derived one.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -394,7 +393,7 @@ export const IMP3640_SKEW_TOEPLITZ_FOURTH_GAP_EXPONENT_ASSERTIONS = [
   {
     id: 'imp3640-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- measures a fourth gap exponent and tests the j^2-1 amplitude law at ' +
-      'pair j=5, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'pair j=5, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3640_SKEW_TOEPLITZ_FOURTH_GAP_EXPONENT.honestCaveat;
       return (
@@ -404,7 +403,7 @@ export const IMP3640_SKEW_TOEPLITZ_FOURTH_GAP_EXPONENT_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresNotConstructs === 'string' &&
         typeof c.amplitudeLawIsEmpirical === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

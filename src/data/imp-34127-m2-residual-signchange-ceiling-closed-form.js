@@ -48,7 +48,7 @@
  *
  * Derivation/measurement within the inherited imp-3406/imp-33810 component model only; the component
  * model is NOT a rigorous asymptotic; no bound changes; C_mb GUE-conditional per imp-486 untouched;
- * imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * imp-3066 K_a >= 0 untouched; no refereed bound is changed. NO QED.
  *
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (bisected kEnd* ~ 21.281 derived here)
  * @see imp-34087-f4-surrogate-cancellation-digit-loss (the digit-loss view of the same cancellation)
@@ -253,7 +253,7 @@ export const IMP34127_M2_RESIDUAL_SIGNCHANGE_CEILING_CLOSED_FORM = {
     'window-width correction since e*D/4 ~ 0.28 at a full-decade window. The inherited component model is ' +
     'NOT a rigorous asymptotic; this is descriptive within the model only; changes no bound; establishes ' +
     'no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34023 (bisected the M2-residual sign-change ceiling kEnd* ~ 21.281, derived closed-form here); ' +
     'imp-34087 (digit-loss view of the same F4-surrogate cancellation); imp-33773 (the M2 residual whose ' +

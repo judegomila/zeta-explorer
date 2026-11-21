@@ -47,7 +47,7 @@
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the component model is the
  *   inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  *   share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34486-slowlog-t0-drift-analytic-derivation.js (closed form x = -2 g/(1-g))
  *   @see imp-34446-coupling-exponent-independent-recompute.js (measured -2.0664 exponent, +0.0664 excess)
@@ -183,7 +183,7 @@ export const IMP34513_DRIFT_RESIDUAL = Object.freeze({
     'reproduces the +0.0664 excess exactly across the whole ladder. The -2 asymptote and C_C = ' +
     '(1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34486 (closed-form drift x = -2 g/(1-g), cross-checked here); imp-34446 (measured -2.0664 ' +
     'exponent, +0.0664 excess); imp-33620 (deep-tail landmark N* ~ 4.62e13); imp-2714 (C_C = ' +
@@ -217,9 +217,9 @@ const IMP34513_ASSERTIONS = [
     holds: () =>
       IMP34513_DRIFT_RESIDUAL.isRigorous === false &&
       /NO QED/.test(IMP34513_DRIFT_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP34513_DRIFT_RESIDUAL.verdict) &&
+      /refereed bound is changed/i.test(IMP34513_DRIFT_RESIDUAL.verdict) &&
       /UNTOUCHED/.test(IMP34513_DRIFT_RESIDUAL.verdict),
-    why: 'Honesty gate: derivation/cross-check only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: derivation/cross-check only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

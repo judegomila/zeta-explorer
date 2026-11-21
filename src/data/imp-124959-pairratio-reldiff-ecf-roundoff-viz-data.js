@@ -57,7 +57,7 @@ export const IMP124959_SUMMARY = Object.freeze({
     'Presentation only: every log-log point and the fit-line constants are reused verbatim from '
     + 'imp-124811 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on '
     + 'the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound; '
-    + 'establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

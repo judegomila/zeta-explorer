@@ -59,7 +59,7 @@
  *
  * Grade: STATIC OPERATION-COUNT DERIVATION over the frozen imp-95214/95238/95257/
  * 95277 ledgers; NOT a native run, NOT a wall-clock measurement; launches nothing;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 import { PRECISION_REPLAY_LADDER } from './imp-95277-precision-replay-ladder.js';
@@ -124,7 +124,7 @@ export const TIER2_MULTIPLY_MIX_LOCALIZATION = Object.freeze({
     'gap, a ~5-9x collapse of the replay-factor uncertainty per band. The blend rescales both routes ' +
     'equally, so the 17.9x dominance and DO-NOT-run-level-1 recommendation are unchanged. Static ' +
     'operation-count derivation over the frozen imp-95214/95238/95257/95277 ledgers; not a native ' +
-    'run; launches nothing; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'run; launches nothing; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ────
@@ -204,7 +204,7 @@ export const IMP95401_ASSERTIONS = [
   {
     id: 'imp95401-dominance-preserved-and-honesty-gate',
     description:
-      'fail-closed honesty: the localization is a static operation-count derivation not a native run or wall-clock measurement, it moves no bound, weights sum to one, and the verdict states LOCALIZED, NO QED and PT-SOTA',
+      'fail-closed honesty: the localization is a static operation-count derivation not a native run or wall-clock measurement, it moves no bound, weights sum to one, and the verdict states LOCALIZED, NO QED and no-refereed-bound-change',
     holds: () =>
       Math.abs(
         TIER2_MULTIPLY_MIX_LOCALIZATION.multiplyBoundFraction +
@@ -216,7 +216,7 @@ export const IMP95401_ASSERTIONS = [
       TIER2_MULTIPLY_MIX_LOCALIZATION.movesBound === false &&
       /LOCALIZED/.test(TIER2_MULTIPLY_MIX_LOCALIZATION.verdict) &&
       /NO QED/.test(TIER2_MULTIPLY_MIX_LOCALIZATION.verdict) &&
-      /remains SOTA/.test(TIER2_MULTIPLY_MIX_LOCALIZATION.verdict),
+      /refereed bound is changed/i.test(TIER2_MULTIPLY_MIX_LOCALIZATION.verdict),
   },
 ];
 

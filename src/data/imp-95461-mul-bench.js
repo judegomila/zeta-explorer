@@ -62,7 +62,7 @@
  * cost model. Confirms the schoolbook-as-upper-budget structure; corrects the
  * small-limb exponent (overhead-flattened, <2) and the crossover placement
  * (true threshold > 20 limbs, so L_c = 10 is conservative). Changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // -- the measured ledger (best-of-9 ns per mpn_mul_n, 2-40 limbs) ---------------
@@ -148,7 +148,7 @@ export const MUL_BENCH = Object.freeze({
     'schoolbook column imp-95277 budgets against stays a strict upper bound. ' +
     'Single-threaded on the API-pool machine, so per-rung scheduling noise is ' +
     'visible (L=14, L=27 spikes) and only the noise-robust regime slopes are relied ' +
-    'on. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'on. Changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // -- self-executing assertions (recompute from the embedded ledger) ------------
@@ -191,14 +191,14 @@ export const IMP95461_ASSERTIONS = [
   {
     id: 'imp95461-measurement-honesty-gate',
     description:
-      'fail-closed honesty: this is a wall-clock native measurement that moves no bound, the dominance margin is invariant under the shared-multiply rescale, and the verdict states the noise caveat, NO QED, and PT-SOTA',
+      'fail-closed honesty: this is a wall-clock native measurement that moves no bound, the dominance margin is invariant under the shared-multiply rescale, and the verdict states the noise caveat, NO QED, and no-refereed-bound-change',
     holds: () =>
       MUL_BENCH.isWallClockMeasurement === true &&
       MUL_BENCH.movesBound === false &&
       MUL_BENCH.dominanceMarginInvariant === true &&
       /noise/i.test(MUL_BENCH.verdict) &&
       /NO QED/.test(MUL_BENCH.verdict) &&
-      /remains SOTA/.test(MUL_BENCH.verdict),
+      /refereed bound is changed/i.test(MUL_BENCH.verdict),
   },
 ];
 

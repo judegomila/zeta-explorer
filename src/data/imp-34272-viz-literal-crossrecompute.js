@@ -44,7 +44,7 @@
  *   underlying component model is the inherited imp-3220/imp-3406 extrapolation,
  *   NOT a rigorous asymptotic; the OLS surrogate and the zero bisection are
  *   descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
- *   imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (the baked viz literals cross-checked here)
  *   @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (the source measurement re-run to produce RECOMPUTED_*)
@@ -104,7 +104,7 @@ export const IMP34272_VIZ_LITERAL_CROSSRECOMPUTE = {
     'CROSS-RECOMPUTE / VERIFICATION ONLY -- confirms the imp-34237 viz literals match a fresh imp-34169 ' +
     'recompute; adds no new derivation and changes no bound. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34272_ASSERTIONS = [

@@ -19,7 +19,7 @@
  * @see imp-33638-band-clearing-tail-reintensification-n900-1200.js (the [900,1200] source)
  *
  * Ticket: imp-33676 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- * Platt-Trudgian Lambda &lt;= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  */
 
 import {

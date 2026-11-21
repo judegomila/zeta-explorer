@@ -8,8 +8,8 @@
  * an arithmetic part and a cotangent part, MEASURING the arithmetic part at ~0.575 phi(b) b and noting
  * it is "elementary -- a Moebius-weighted coprime sum, in principle rigorously evaluable". This ticket
  * carries out that evaluation and derives the EXACT leading coefficient. The cotangent first moment is
- * left to a separate leaf (imp-97097 reciprocity route). No bound is proved rigorous; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * left to a separate leaf (imp-97097 reciprocity route). No bound is proved rigorous; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * Notation as imp-96750/imp-97071. A(a,b) = C(a+b) + (1/2)(a-b) log(b/a) is the ARITHMETIC part of
  * I(a,b), with C = (log 2pi - gamma)/2 = 0.6303307... The arithmetic first moment over the interior
@@ -82,7 +82,7 @@
  * EXACT leading coefficient kappa_arith = (3/2) C - 3/8 = 0.5704960511... -- matching the imp-97071
  * measured ~0.575 and expressed in gamma, log 2pi. This reduces the arithmetic leaf to a single explicit
  * remainder-bound residual; the cotangent leaf stays open (imp-97097). No rigorous ceiling posted; the
- * trace ceiling T ~ 2.594e7 stays the anchor; compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA;
+ * trace ceiling T ~ 2.594e7 stays the anchor; compute (N ~ 9916) binds first. No refereed bound is changed;
  * RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97096-arith-first-moment-explicit-remainder -- an explicit rigorous
@@ -159,7 +159,7 @@ export const IMP97096_VERDICT = Object.freeze({
     'phi(b)); the remaining Moebius/Stirling coprime sum cancels the log b and supplies -(3/8) b phi(b). ' +
     'This reduces the arithmetic leaf to a single explicit-remainder-bound residual on L0(b), L1(b); ' +
     'the cotangent first moment stays open on a SEPARATE leaf (imp-97097). No bound moved, no rigorous ' +
-    'ceiling posted; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; ' +
+    'ceiling posted; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -176,7 +176,7 @@ export const IMP97096_SUBGAP = Object.freeze({
 });
 
 export const IMP97096_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + partial only: the ARITHMETIC part of ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + partial only: the ARITHMETIC part of ' +
   'the Route M first moment is evaluated to the EXACT leading coefficient kappa_arith = (3/2) C - 3/8 = ' +
   '0.5704960511... (matching the imp-97071 measured ~0.575), with two exact elementary sub-parts and a ' +
   'provable log b cancellation. The explicit remainder bound turning this into an absolute lower bound, ' +
@@ -234,7 +234,7 @@ const IMP97096_ASSERTIONS = [
       IMP97096_VERDICT.leadingCoefficientDerived === true &&
       /explicit-remainder/.test(IMP97096_SUBGAP.id) &&
       /NO QED/.test(IMP97096_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97096_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97096_HONEST_BANNER) &&
       /RH open/.test(IMP97096_HONEST_BANNER),
     why: 'derivation + partial: the leading coefficient is exact and the elementary parts rigorous, but the explicit remainder bound (and the cotangent leaf) remain open -- no bound moved, no rigorous ceiling posted, honesty markers and named residual present.',
   },

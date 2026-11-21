@@ -60,7 +60,7 @@ export const IMP95931_CAVEAT_BANNER =
   'the ln 1.3 level but has NOT crossed it (0.247% vs 0.23%, still 1.07x looser); ' +
   'crossing needs still larger N per the imp-95820-ln125-shift-budget-scaling ' +
   'residual. Changes no bound, establishes no operator positivity, no RH claim; ' +
-  'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'no refereed bound is changed; NO QED.';
 
 export const IMP95931_ASSERTIONS = [
   {

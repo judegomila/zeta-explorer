@@ -45,7 +45,7 @@
  *   clean integer power. CONSEQUENCE: the imp-97626 fraction stays ~0.513 with band [0.508,0.520] (conservative
  *   [0.508,0.543]); the 1/T^2 best-full-fit does not tighten it to 0.508. Measurement/derivation only over baked
  *   IEEE-double finite-section eigenvalues; no operator positivity; scalar bound stays a negative floor; no bound
- *   moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97638_TAIL_EXPONENT_UNDERDETERMINED_BY_SIX_RUNGS: distinguishing 1/T from 1/T^2 (and hence pinning the
  *   fraction below the two-rung 0.513) needs either an interval-certified infinite-line eigenvalue or many more
  *   deep, high-precision window rungs, not a longer least-squares on the existing six.
@@ -57,7 +57,7 @@
  *
  * Import-light: bakes the 6-rung ladder literals + recomputes the three exponent probes in-JS (O(1)); no heavy
  *   import, no eigenvalue recompute. NO QED.
- * Ticket: imp-97638 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97638 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);

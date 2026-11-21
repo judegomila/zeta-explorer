@@ -47,7 +47,7 @@
  * 1/(720 d^3) bound: the next term only TIGHTENS the budget, by ~4.7e-18 combined (~8e-8 relative), leaving
  * the < 5.69e-11 tail budget, the 1.32e6 gap-over-budget ratio, the omega=10 ordering, and the d <= 1000 exact
  * cap all unchanged. The MCM onset stays omega=11; MCM refuted; the b/4 ceiling is untouched; no bound on
- * Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97647-route-m-mcm-omega10-cap-robustness.js  (one-term tail budget; omega=10 gap +7.52e-5)
  * @see imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js  (two-term remainder derivation)
@@ -118,8 +118,8 @@ export const IMP97685_HONEST_BANNER =
   '1/(720 d^3) bound: the negative next term only TIGHTENS the budget, by ~4.7e-18 combined (~8e-8 relative), ' +
   'leaving the < 5.69e-11 budget, the 1.32e6 gap-over-budget ratio, the omega=10 ordering, and the d <= 1000 ' +
   'exact cap all unchanged (the cap is set by IEEE Gexact-GKmain cancellation SNR, not by the tail-bound term ' +
-  'count). MCM onset stays omega=11; MCM refuted; b/4 ceiling untouched; no bound moved. PT Lambda <= 0.2 ' +
-  'SOTA; RH open; NO QED.';
+  'count). MCM onset stays omega=11; MCM refuted; b/4 ceiling untouched; no bound moved. No refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws --
 
@@ -181,7 +181,7 @@ const IMP97685_ASSERTIONS = [
       IMP97685_TWO_TERM_TAIL_BUDGET.anyBoundMoved === false &&
       IMP97685_TWO_TERM_TAIL_BUDGET.qed === false &&
       /NO QED/.test(IMP97685_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97685_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97685_HONEST_BANNER) &&
       /RH open/.test(IMP97685_HONEST_BANNER) &&
       /omega=11/.test(IMP97685_HONEST_BANNER),
     why: 'measurement/accuracy only -- the two-term tail budget confirms the one-term bound, tightening it negligibly; onset stays omega=11; d<=1000 cap stays; no bound moved; no QED.',

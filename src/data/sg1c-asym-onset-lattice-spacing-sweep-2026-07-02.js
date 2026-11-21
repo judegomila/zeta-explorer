@@ -64,7 +64,7 @@
  *     strictly below it, so the global c_glob stays OPEN, bracketed by the
  *     imp-3236 lower bound 0.86566 and the imp-3270 ceiling 0.89802.
  *   - Deterministic CM-flow / digamma algebra; basin-conditional throughout; the
- *     basin margin to Theorem-C 0.72 is unaffected. PT Lambda <= 0.2 stays SOTA.
+ *     basin margin to Theorem-C 0.72 is unaffected. No refereed bound is changed.
  *
  * @see sg1c-asym-isolation-closed-form-2026-06-30 (imp-3170 L=1 c_asym anchor this generalizes)
  * @see sg1c-asym-onset-bracket-ledger-2026-06-30   (imp-3198 ledger; asymUnitLatticeDrho row)
@@ -159,8 +159,8 @@ export const SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP = {
     'Deterministic CM-flow / digamma algebra, NOT RH-hard; probes ONLY the Config-A opposite-lattice sub-family '
     + 'parametrized by spacing L. Confirms c_asym is the L>=1 infimum of THAT sub-family; does NOT claim it is '
     + 'the global asymmetric infimum -- the denser half-lattice c_half ~ 0.8980 sits strictly below, so c_glob '
-    + 'stays OPEN in (0.86566, 0.89802]. Basin-conditional; basin margin to 0.72 unaffected; PT Lambda <= 0.2 '
-    + 'stays the rigorous SOTA. NO false QED, NO RH claim.',
+    + 'stays OPEN in (0.86566, 0.89802]. Basin-conditional; basin margin to 0.72 unaffected; no refereed bound is changed'
+    + '. NO false QED, NO RH claim.',
 };
 
 export const SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP_ASSERTIONS = [
@@ -206,7 +206,7 @@ export const SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP_ASSERTIONS = [
     description: 'the module confirms only the sub-family L>=1 infimum, keeps c_glob OPEN below (denser half-lattice c_half ~ 0.8980), and keeps PT Lambda<=0.2 as SOTA',
     holds: () => /L>=1 infimum of THAT sub-family/.test(SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP.honest)
       && /c_glob\s+stays OPEN/.test(SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP.honest)
-      && /Lambda <= 0.2\s+stays the rigorous SOTA/.test(SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP.honest),
+      && /refereed bound is changed/i.test(SG1C_ASYM_ONSET_LATTICE_SPACING_SWEEP.honest),
   },
 ];
 

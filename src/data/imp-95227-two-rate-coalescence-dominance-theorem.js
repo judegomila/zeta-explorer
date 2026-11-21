@@ -105,7 +105,7 @@
  * signed WEIGHT port, in-octave multiplicity hybrid, off-lattice rates,
  * modulus/phase currency, envelope-shape port, paper-packet constants.
  * No bound of the Lambda program changed. NO QED on any RH-adjacent
- * statement. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * statement. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -156,7 +156,7 @@ export const IMP95227_TWO_RATE_COALESCENCE_DOMINANCE = {
     "RIGOROUS at the stated scope: elementary proof from the imp-95226 " +
     "exact closed form, one Pade bound, one rationalization; strictness " +
     "and sharpness both established. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "program; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -323,7 +323,7 @@ export const IMP95227_COAL_DOM_ASSERTIONS = [
         IMP95227_TWO_RATE_COALESCENCE_DOMINANCE.dcNogoConsistency,
       ) &&
       /NO QED/.test(IMP95227_TWO_RATE_COALESCENCE_DOMINANCE.verdict) &&
-      /remains SOTA/.test(IMP95227_TWO_RATE_COALESCENCE_DOMINANCE.verdict),
+      /refereed bound is changed/i.test(IMP95227_TWO_RATE_COALESCENCE_DOMINANCE.verdict),
   },
 ];
 

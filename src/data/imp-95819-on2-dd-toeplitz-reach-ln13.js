@@ -79,8 +79,8 @@
  * HONEST SCOPE. Numerical assessment of solver adequacy at ln 1.3; no new cited
  * input and no new bound. The imp-95767 certified interval is unchanged. Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs
- * stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * . Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95779-on2-dd-toeplitz-lambda-min-ln12 (the O(N^2) solver this ports to ln 1.3)
  * @see imp-95784-dual-primal-larger-dd-grid-direction (the one-signed monotone direction verdict)
@@ -267,7 +267,7 @@ export const IMP95819_ON2_DD_TOEPLITZ_REACH_LN13 = {
     "imp-95779 a shared blocker for both the ln 1.2 sub-1% C measurement and the ln 1.3 " +
     "u_fit shrink. Numerical solver-adequacy assessment; model seam family only; the " +
     "imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no " +
-    "bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. " +
+    "bound of the Lambda program; NO QED; no refereed bound is changed. " +
     "Sun arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95819"],
 };
@@ -372,7 +372,7 @@ export const IMP95819_ASSERTIONS = [
     description: "numerical solver-adequacy measurement; it moves no Lambda bound and proves no QED",
     holds: () =>
       REF.boundChange === false && REF.qed === false &&
-      /remains SOTA/.test(REF.verdict) && REF.closesTickets.includes("imp-95819"),
+      /refereed bound is changed/i.test(REF.verdict) && REF.closesTickets.includes("imp-95819"),
   },
 ];
 

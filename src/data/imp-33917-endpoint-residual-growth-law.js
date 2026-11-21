@@ -62,7 +62,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not
  * derived; the linear/log growth fits are descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (the three endpoint peaks fit here)
  * @see imp-33858-widening-fit-residual-localization (the original k=11 far-tail excursion)
@@ -271,7 +271,7 @@ export const IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW = {
     'growth fits are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33877 (the three endpoint peaks whose growth is fit here); imp-33858 (the original k=11 ' +
     'far-tail excursion); imp-33843 (the log-linear OLS re-run per boundary); imp-33810 (the k=6.. ' +
@@ -327,14 +327,14 @@ export const IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW_ASSERTIONS = [
   },
   {
     // Honesty gate: growth-law-fit verdict, isRigorous false, edge-artifact confirmed not overturned,
-    // no QED, PT SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp33917-honesty-gate-no-qed',
-    description: 'Measurement only: scales-with-boundary verdict, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: scales-with-boundary verdict, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW.verdictScalesWithBoundaryNotSaturating === true &&
       IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW.isRigorous === false &&
       /NO QED/.test(IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW.verdict) &&
-      /remains SOTA/.test(IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW.verdict),
+      /refereed bound is changed/i.test(IMP33917_ENDPOINT_RESIDUAL_GROWTH_LAW.verdict),
   },
 ];
 

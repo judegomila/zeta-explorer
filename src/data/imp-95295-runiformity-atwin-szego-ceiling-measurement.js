@@ -90,7 +90,7 @@
  * pencil route; this leg is the coefficient-norm ceiling picture). Does
  * NOT change any Lambda bound, fires no certificate, certifies no paper
  * packet. imp-95212-subgap-fresnel-airy-envelope-port STILL OPEN.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -161,7 +161,7 @@ export const IMP95295_RUNIFORMITY_ATWIN_SZEGO_CEILING = {
     "sin^2(pi tau) scale collapse of the ceiling VALUE, with an r-uniform " +
     "finite-m convergence shape and a merely logarithmic SPLIT-RZ onset " +
     "degradation. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -376,13 +376,13 @@ export const IMP95295_RUNIFORMITY_ATWIN_ASSERTIONS = [
   {
     id: "imp95295-honest-scope",
     description:
-      "honest-scope strings present: NO QED, PT SOTA, MEASUREMENT only, does " +
+      "honest-scope strings present: NO QED, no refereed bound is changed, MEASUREMENT only, does " +
       "NOT supply the r-uniform pencil floor, sub-gap STILL OPEN",
     holds: () => {
       const o = IMP95295_RUNIFORMITY_ATWIN_SZEGO_CEILING;
       return (
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /MEASUREMENT only/.test(o.subGap) &&
         /does NOT supply/.test(o.subGap) &&
         /STILL OPEN/.test(o.subGap)

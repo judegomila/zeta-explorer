@@ -16,8 +16,7 @@
  * verbatim; off-lattice jitter is a mild, quantified degradation of the
  * RAW BL bound only (the count-uniform LAT collar is a separate, ~70x
  * looser object per imp-95232 FINDING 1); changes no bound; no operator
- * positivity; no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * positivity; no RH claim; NO QED. No refereed bound is changed.
  *
  * @see imp-95232-bl-lat-off-lattice-degradation.js (source: FINDING 2 offLatticeTable / offLatticeWitness)
  *

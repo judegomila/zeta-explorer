@@ -57,8 +57,7 @@
  *   is least trustworthy, is inherited as-is (this diagnoses the finite-difference conditioning OF that
  *   measurement, it does not rehabilitate the model). The -2 asymptote and C_C = (1/8)sqrt(3 pi)
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
- *   imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34633-roundoff-prefactor-amplitude-vs-epsmach.js (q2/q3/q4 amplitudes; this adds the k=1 rung q1)
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (the {2,3,4} SLOPE ladder q1 sits one below)
@@ -229,7 +228,7 @@ export const IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR = Object.freeze({
     'diagnoses the finite-difference conditioning of that measurement, it does not rehabilitate the model. ' +
     'The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34633 (q2/q3/q4 roundoff amplitudes -- this adds the k=1 rung q1); ' +
     'imp-34606 (the {2,3,4} SLOPE ladder q1 sits one below); ' +
@@ -265,9 +264,9 @@ const IMP34646_ASSERTIONS = [
     holds: () =>
       IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR.isRigorous === false &&
       /NO QED/.test(IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR.verdict) &&
       /UNTOUCHED/.test(IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

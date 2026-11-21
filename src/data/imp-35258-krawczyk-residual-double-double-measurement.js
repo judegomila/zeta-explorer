@@ -73,8 +73,7 @@
  * compact hand-rolled double-double reproduced VERBATIM from imp-35109/imp-35174, self-checked below. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; imp-34714a REMAINS OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * no operator positivity; imp-34714a REMAINS OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the certificate whose F(m); sub-gap imp-34714a)
  * @see imp-35241-krawczyk-headroom-band-profile (the admissible seed band [N_bot, N_top]; F(m) = 0 artifact)
@@ -324,7 +323,7 @@ export const IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT = {
     'inherited imp-3220/imp-3406 surrogate crossover map; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) ' +
     'and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent ' +
     'stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34714 (Krawczyk existence-uniqueness lemma for the RvM height inverse; sub-gap imp-34714a); imp-35241 ' +
     '(admissible seed band [N_bot, N_top]; F(m) = 0 flagged double artifact); imp-34799 (a-priori nonzero-' +
@@ -363,13 +362,13 @@ export const IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT_ASSERTIONS = [
     holds: () => ANY_ABOVE_FLOOR === true && F_M_IS_ARTIFACT === true,
   },
   {
-    // Honesty gate: measurement of a surrogate residual, not rigorous, no QED, imp-34714a OPEN, PT SOTA.
+    // Honesty gate: measurement of a surrogate residual, not rigorous, no QED, imp-34714a OPEN, no refereed bound is changed.
     id: 'imp35258-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, imp-34714a REMAINS OPEN, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, imp-34714a REMAINS OPEN, no refereed bound is changed',
     holds: () =>
       IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT.isRigorous === false &&
       /NO QED/.test(IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT.verdict) &&
-      /remains SOTA/i.test(IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT.verdict) &&
       /imp-34714a machine certificate REMAINS OPEN/.test(IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT.verdict) &&
       /imp-35258a/.test(IMP35258_KRAWCZYK_RESIDUAL_DOUBLE_DOUBLE_MEASUREMENT.residual_sub_gap_imp_35258a),
   },

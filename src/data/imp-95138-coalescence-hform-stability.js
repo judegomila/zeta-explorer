@@ -43,8 +43,7 @@
  * measurement: the expm1 h-form stays exact where BOTH the naive subtraction
  * h-form AND the direct pencil determinant lose digits, and the pencil loses
  * them fastest (~ separation^(-2)), as flagged. Measurement only; reproduces
- * imp-95226; changes no bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-95226; changes no bound of the Lambda program; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -146,7 +145,7 @@ export const IMP95138_COALESCENCE_HFORM_STABILITY = {
     "determinant loses digits fastest (~ separation^(-2), O(1) by s = 1e-8). " +
     "The expm1 form also tracks the imp-95226 COAL-2 confluent law as s -> 0. " +
     "Measurement only; reproduces imp-95226; changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -245,7 +244,7 @@ export const IMP95138_ASSERTIONS = [
       /reproduces imp-95226/.test(IMP95138_COALESCENCE_HFORM_STABILITY.verdict) &&
       /changes no bound/.test(IMP95138_COALESCENCE_HFORM_STABILITY.verdict) &&
       /NO QED/.test(IMP95138_COALESCENCE_HFORM_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP95138_COALESCENCE_HFORM_STABILITY.verdict),
+      /refereed bound is changed/i.test(IMP95138_COALESCENCE_HFORM_STABILITY.verdict),
   },
 ];
 

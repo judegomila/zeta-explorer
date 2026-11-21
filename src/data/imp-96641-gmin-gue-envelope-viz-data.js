@@ -12,7 +12,7 @@
  * ratioOverGue, argminIdx) is reused verbatim from imp-96616; only the
  * chart-friendly reshape (log-log points + plateau flags) is new here.
  * Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96616-gmin-ratio-extreme-gap-decay.js (source finding + all baked numbers)
  * @see imp-96640-rankr-power-iteration-bracket-viz-data.js (sibling viz-data leaf, same convention)

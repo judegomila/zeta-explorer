@@ -165,7 +165,7 @@
  * claim. Import-light (no heavy bundle; imports only the imp-95172 sibling
  * for carried constants and the twenty-third-module terminal literals it
  * re-exports). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -282,7 +282,7 @@ export const IMP95208_MB_UNIFORM_BALLAST_CAP = {
     "LEMMA GS is unconditional (within-block triangle + the imp-95172 LEMMA NT per-packet transfer, both elementary); the Gram identity B^2 = N_o + X_o is an exact double-sum split. THEOREM BU/BW-U/GB-U and COROLLARY OM-U are conditional exactly as THEOREM OD (imp-95129): the carried MAJ per-pair caps and per-class Lemma SW enter only through the X_o cap (imp-95172 fact F2) and fact F4 -- the SAME two facts the imp-95172 chain already consumed; no new conditional input is introduced. The algebra is checked by the exact identities alphaU^2 xStarU = LwEven(1 - xStarU/(1 - q)) and omegaMinU(1 - xStarU) = xStarU/(1 - q), both to rel 1e-12. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the imp-95172 successor dichotomy is RESOLVED on the first horn. LEMMA GS (unconditional Gram-split diagonal bound N_o <= c(s)^2 M_odd: within-block triangle + LEMMA NT, fully ell-2 in the block index) plus the exact identity B^2 = N_o + X_o and the ALREADY-CARRIED odd-class cap on X_o (imp-95172 fact F2 -- no new conditional input) give THEOREM BU: B <= cU sqrt(omega) with cU = sqrt(c(s)^2 + q LwEven) = 0.30501330232499435, removing the sqrt(m_B) of the imp-95172 fact F5 entirely. The chain then upgrades verbatim: THEOREM GB-U caps phi <= gammaU = 0.9996167883494768 for EVERY witness of the class with NO occupancy hypothesis (old: gamma(m_B) -> 1 as m_B grows, nothing at unbounded m_B), and COROLLARY OM-U gives the m_B-FREE odd-mass floor omega >= (LwEven/cU^2)[bracket]^2 (phi_0 -> 1 limit 4.213331487864178e-4). CONSEQUENCE: the diluted-ballast escape family (m_B -> infinity, omega -> 0, phi -> 1) named by imp-95172 as the alternative horn CANNOT exist in the conditional class -- the m_B dependence was a proof artifact, not a truth; the floor and the THEOREM OD cap meet exactly at the GB-U extremal point (consistency identity omegaMinU(1 - xStarU) = xStarU/(1 - q), rel 7e-16). Comparison ledger: old gamma(1) < gammaU < old gamma(2), so every m_B >= 2 class is strictly sharpened and the carried p = 999983 grid cap improves 0.99996 -> 0.99962 without the grid-specific occupancy argument. HONEST: the constant gap is untouched (gammaU far above the measured class sup phi = 0.3572 and the parity-pure 1/2 -- norm currency, not overlap currency; named successor sub-gap imp-95208-subgap-overlap-currency-constant); BW-U stays vacuous-side at every exhibited in-class witness (new lhs 0.1849 < old 0.2615, bracket -0.0034); conditional exactly as THEOREM OD. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the imp-95172 successor dichotomy is RESOLVED on the first horn. LEMMA GS (unconditional Gram-split diagonal bound N_o <= c(s)^2 M_odd: within-block triangle + LEMMA NT, fully ell-2 in the block index) plus the exact identity B^2 = N_o + X_o and the ALREADY-CARRIED odd-class cap on X_o (imp-95172 fact F2 -- no new conditional input) give THEOREM BU: B <= cU sqrt(omega) with cU = sqrt(c(s)^2 + q LwEven) = 0.30501330232499435, removing the sqrt(m_B) of the imp-95172 fact F5 entirely. The chain then upgrades verbatim: THEOREM GB-U caps phi <= gammaU = 0.9996167883494768 for EVERY witness of the class with NO occupancy hypothesis (old: gamma(m_B) -> 1 as m_B grows, nothing at unbounded m_B), and COROLLARY OM-U gives the m_B-FREE odd-mass floor omega >= (LwEven/cU^2)[bracket]^2 (phi_0 -> 1 limit 4.213331487864178e-4). CONSEQUENCE: the diluted-ballast escape family (m_B -> infinity, omega -> 0, phi -> 1) named by imp-95172 as the alternative horn CANNOT exist in the conditional class -- the m_B dependence was a proof artifact, not a truth; the floor and the THEOREM OD cap meet exactly at the GB-U extremal point (consistency identity omegaMinU(1 - xStarU) = xStarU/(1 - q), rel 7e-16). Comparison ledger: old gamma(1) < gammaU < old gamma(2), so every m_B >= 2 class is strictly sharpened and the carried p = 999983 grid cap improves 0.99996 -> 0.99962 without the grid-specific occupancy argument. HONEST: the constant gap is untouched (gammaU far above the measured class sup phi = 0.3572 and the parity-pure 1/2 -- norm currency, not overlap currency; named successor sub-gap imp-95208-subgap-overlap-currency-constant); BW-U stays vacuous-side at every exhibited in-class witness (new lhs 0.1849 < old 0.2615, bracket -0.0034); conditional exactly as THEOREM OD. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -443,12 +443,12 @@ export const IMP95208_MBU_ASSERTIONS = [
   {
     id: "imp95208-mbu-honesty-gate",
     description:
-      "the verdict records the closure horn (m_B removal), the refuted escape family, the surviving constant-gap sub-gap, the conditionality (exactly as THEOREM OD, no new conditional input), the vacuous-side status and the untouched ledger; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the closure horn (m_B removal), the refuted escape family, the surviving constant-gap sub-gap, the conditionality (exactly as THEOREM OD, no new conditional input), the vacuous-side status and the untouched ledger; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95208_MB_UNIFORM_BALLAST_CAP.promotesBound === false &&
       IMP95208_MB_UNIFORM_BALLAST_CAP.openResiduals.length === 5 &&
       /NO QED/.test(IMP95208_MB_UNIFORM_BALLAST_CAP.verdict) &&
-      /remains SOTA/.test(IMP95208_MB_UNIFORM_BALLAST_CAP.verdict) &&
+      /refereed bound is changed/i.test(IMP95208_MB_UNIFORM_BALLAST_CAP.verdict) &&
       /Floors and ceilings untouched/.test(IMP95208_MB_UNIFORM_BALLAST_CAP.verdict) &&
       /overlap-currency-constant/.test(IMP95208_MB_UNIFORM_BALLAST_CAP.subGap) &&
       /no new conditional input/.test(IMP95208_MB_UNIFORM_BALLAST_CAP.rigorScope) &&

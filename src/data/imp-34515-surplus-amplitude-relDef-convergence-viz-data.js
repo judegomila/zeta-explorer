@@ -21,7 +21,7 @@
  *   Ticket: imp-34515 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Component model is the inherited imp-34329/imp-34248/imp-34174/
  *   imp-33743 extrapolation, NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- *   K_a>=0 untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   K_a>=0 untouched; NO QED. No refereed bound is changed.
  */
 
 // -- convergence grid: log T0, measured asymptote M, residual A_r-M, relative deficit, and

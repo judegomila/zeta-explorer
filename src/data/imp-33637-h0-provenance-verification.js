@@ -116,7 +116,7 @@ export const IMP33637_H0_PROVENANCE_VERIFICATION = {
     'Polymath15 lemma text. This does not change the mathematical content of imp-33603: G6a_shock_lipschitz ' +
     'stays OPEN, the H4 strip-height-uniformity residual is unaffected, no positivity, no bridge closure, ' +
     'no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share ' +
-    'untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. The mis-citation recurs in 17 ' +
+    'untouched. No refereed bound is changed. The mis-citation recurs in 17 ' +
     'files / 49 occurrences repo-wide and its correction is left as a follow-up ticket, out of scope here.',
   citation:
     'imp-33603-lemma52-port-scoping (the H1..H5 catalogue + H0 flag verified here); arXiv:1904.12438 ' +
@@ -162,14 +162,14 @@ export const IMP33637_H0_PROVENANCE_VERIFICATION_ASSERTIONS = [
       IMP33637_H0_PROVENANCE_VERIFICATION.findings.length === 2,
   },
   {
-    // Honesty gate: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33637-honesty-gate-no-qed',
-    description: 'Verification only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Verification only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33637_H0_PROVENANCE_VERIFICATION.isRigorous === false &&
       /NO QED/.test(IMP33637_H0_PROVENANCE_VERIFICATION.verdict) &&
       /stays OPEN/.test(IMP33637_H0_PROVENANCE_VERIFICATION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33637_H0_PROVENANCE_VERIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP33637_H0_PROVENANCE_VERIFICATION.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33637_H0_PROVENANCE_VERIFICATION.verdict),
   },
 ];

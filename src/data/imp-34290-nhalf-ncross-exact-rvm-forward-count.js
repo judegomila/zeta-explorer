@@ -61,8 +61,7 @@
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8
  * ansatz is UNTOUCHED (imp-2642); changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33848-nhalf-ncross-strict-ordering-closed-form (closed-form strict ordering in N)
  * @see imp-33796-nhalf-below-ncross-independent-recompute (N-axis independent recompute)
@@ -255,7 +254,7 @@ export const IMP34290_NHALF_NCROSS_EXACT_RVM_FORWARD_COUNT = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33848 (closed-form strict ordering N_half < N_cross); imp-33796 (N-axis independent recompute); ' +
     'imp-34213 (fixed point in height then exact forward count zeroCountAtHeight); imp-33767 (F3 ' +
@@ -302,13 +301,13 @@ export const IMP34290_NHALF_NCROSS_EXACT_RVM_FORWARD_COUNT_ASSERTIONS = [
       Math.abs(SEP_RATIO_N_OVER_HEIGHT / RVM_JACOBIAN - 1) < 0.01,
   },
   {
-    // Honesty gate: measurement/interpretation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/interpretation only, no QED, no refereed bound is changed.
     id: 'imp34290-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34290_NHALF_NCROSS_EXACT_RVM_FORWARD_COUNT.isRigorous === false &&
       /NO QED/.test(IMP34290_NHALF_NCROSS_EXACT_RVM_FORWARD_COUNT.verdict) &&
-      /remains SOTA/.test(IMP34290_NHALF_NCROSS_EXACT_RVM_FORWARD_COUNT.verdict),
+      /refereed bound is changed/i.test(IMP34290_NHALF_NCROSS_EXACT_RVM_FORWARD_COUNT.verdict),
   },
 ];
 

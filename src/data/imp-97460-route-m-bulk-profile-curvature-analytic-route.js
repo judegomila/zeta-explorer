@@ -77,7 +77,7 @@
  *   Derivation + measurement only; pins NO analytic curvature constant (the smooth O(x^2) coefficient
  *   is <~ 1e-2 and Bettin-Conrey-resummation-locked, not isolated); no bound moves; the rigorous
  *   anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x;
- *   no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97460-bulk-profile-curvature-endpoint-resummation -- the curvature reduces
  *   EXACTLY to r(x) = -(pi/2)[w(x) - w_lin(x)] and the analytic obstruction is localised to the
@@ -165,7 +165,7 @@ export const IMP97460_VERDICT = Object.freeze({
     'below kappa_eff = 0.0995 (|kappa_smooth| <~ 1e-2, sign-swinging) under a wobble of RMS ~4.1e-2, ' +
     'SHARPENING the verdict: kappa_eff is the arithmetic wobble AMPLITUDE at the crossover, not the ' +
     'smooth curvature. Derivation + measurement only; pins no analytic constant; the rigorous anchor ' +
-    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -183,7 +183,7 @@ export const IMP97460_SUBGAP = Object.freeze({
 });
 
 export const IMP97460_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the O(x^2) curvature ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the O(x^2) curvature ' +
   'is reduced EXACTLY to r(x) = -(pi/2)[w(x) - w_lin(x)] and the analytic obstruction is localised to ' +
   'the coincidence of the smooth phi->0 and arithmetic frac(n x b) endpoints at the same O(x^2) order; ' +
   'the smooth coefficient (|kappa_smooth| <~ 1e-2, below the wobble RMS ~4e-2) needs the Bettin-Conrey ' +
@@ -255,7 +255,7 @@ const IMP97460_ASSERTIONS = [
       IMP97460_VERDICT.kappaEffIsWobbleAmplitude === true &&
       IMP97460_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97460_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97460_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97460_HONEST_BANNER) &&
       /RH open/.test(IMP97460_HONEST_BANNER) &&
       /endpoint-resummation/.test(IMP97460_SUBGAP.id),
   },

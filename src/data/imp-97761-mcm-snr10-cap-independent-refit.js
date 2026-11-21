@@ -44,7 +44,7 @@
  * literal, and reproduces the imp-97736 full-precision dps=30 cap 1530859 (+30.5 percent, exponent 0.2229)
  * under a consistent constant. The baked comment is a valid transcription; the dps=30 entry carries the
  * imp-97736-flagged literal contamination. No new computation feeds any bound: MCM stays refuted from
- * omega=11; the b/4 ceiling is untouched; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * omega=11; the b/4 ceiling is untouched; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97746-mcm-dps-cap-scaling-viz-data.js  (bakes CAPS_SNR10 from the imp-97724 comment)
  * @see imp-97724-mcm-dps-cap-scaling-fit.js        (source recipe; SNR>=10 caps in the RESULT 2 comment)
@@ -123,8 +123,8 @@ export const IMP97761_HONEST_BANNER =
   'full-precision Glaisher constant the dps=16/24 caps are unchanged but the dps=30 cap shifts 1173276 -> ' +
   '1530859 (+30.5 percent, exponent 0.2229), independently reproducing the imp-97736 full-precision ' +
   're-measurement to the exact integer and confirming the dps=30 rung carries the flagged 17-digit-literal ' +
-  'contamination. No bound moves: MCM stays refuted from omega=11; the b/4 ceiling is untouched. PT Lambda ' +
-  '<= 0.2 SOTA; RH open; NO QED.';
+  'contamination. No bound moves: MCM stays refuted from omega=11; the b/4 ceiling is untouched. No refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -165,7 +165,7 @@ const IMP97761_ASSERTIONS = [
       IMP97761_SNR10_REFIT.anyBoundMoved === false &&
       IMP97761_SNR10_REFIT.qed === false &&
       /NO QED/.test(IMP97761_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97761_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97761_HONEST_BANNER) &&
       /RH open/.test(IMP97761_HONEST_BANNER) &&
       /omega=11/.test(IMP97761_HONEST_BANNER),
     why: 'cross-validation only -- the refit confirms the baked array and the imp-97736 contamination; no bound moved; no QED.',

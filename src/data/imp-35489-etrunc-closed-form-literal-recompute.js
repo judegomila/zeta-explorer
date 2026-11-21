@@ -15,7 +15,7 @@
  * (imp-35419/imp-35459: a fixed C_T = 1, B = 0 idealization, off-line residual
  * carried by the deterministic barrier lemma S_barrier, count value mispriced
  * ~3.75e11x) is held FIXED. C_mb GUE-conditional per imp-486 UNTOUCHED. No RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * THE CLOSED LEADING FORM (imp-35459 Part A, from the imp-34791 R2 count integral)
  * -----------------------------------------------------------------------------
@@ -86,7 +86,7 @@ const REL_RESID = ABS_RESID / E_TRUNC_STORED; // 1.270e-3
 const ABS_RESID_CORR = Math.abs(E_TRUNC_CORR_RECOMPUTED - E_TRUNC_CORR_STORED); // ~5.2e-9
 const REL_RESID_CORR = ABS_RESID_CORR / E_TRUNC_CORR_STORED; // ~1.0e-4
 const ROUNDS_TO_STORED = +E_TRUNC_RECOMPUTED.toExponential(2) === E_TRUNC_STORED; // true (3.06e-5)
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged; this is a transcription audit, not a bound)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged; this is a transcription audit, not a bound)
 
 export const IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE = {
   id: 'imp-35489',
@@ -136,7 +136,7 @@ export const IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE = {
     'error) -- so the stored decimal is a FAITHFUL evaluation. Does NOT re-pin C_T/kappa_T (the separate ' +
     'Guth-Maynard/Ingham pinning line), tightens no bound, holds the E_trunc barrier reclassification ' +
     '(imp-35419/imp-35459) FIXED; C_mb GUE-conditional per imp-486 UNTOUCHED. No RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35459 (the closed leading form + C_T/kappa_T dependence scope this recomputes); imp-34791 ' +
     '(kappa_T = 2/5 lock R1; prefactor 3 -> 5 R2); imp-35339 (the literal-consistency audit method); ' +
@@ -177,7 +177,7 @@ export const IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE_ASSERTIONS = [
       /FAITHFUL/.test(IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE.verdict) &&
       /NOT re-pin/.test(IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE.verdict) &&
       /NO QED/.test(IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE.verdict) &&
-      /remains SOTA/.test(IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE.verdict),
+      /refereed bound is changed/i.test(IMP35489_ETRUNC_CLOSED_FORM_LITERAL_RECOMPUTE.verdict),
   },
 ];
 

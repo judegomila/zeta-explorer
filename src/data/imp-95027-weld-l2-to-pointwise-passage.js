@@ -57,7 +57,7 @@
  * confirm K(x0, x0) = B / L, that the sharp vector attains sqrt(B / L), and
  * that an in-band probe respects the bound. Import-light (no heavy bundle).
  * Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ── finite cyclic band-limited model (import-light) ──────────────────────────
@@ -179,7 +179,7 @@ export const IMP95027_WELD_L2_TO_POINTWISE_PASSAGE = {
     'The reproducing-kernel passage and its sharp constant are unconditional GIVEN the band-limited (Paley-Wiener) structure of the weld image; that structure, and the numerical value of its effective bandwidth, remain to be certified. Numerics are cross-checks of the RKHS identity, not the claim.',
   promotesBound: false,
   verdict:
-    'ASSESSMENT: residual (c) is a BOUNDED ENGINEERING LOSS, not a genuine open lemma. The l2-to-pointwise passage is the reproducing-kernel bound |g(x0)| <= sqrt(K(x0,x0)) ||g||_2, with sharp constant sqrt(B/L) (the effective band fraction). It reduces the residual to a single scalar - the effective bandwidth of the five-shell image - and does not resolve the fold-overlap K or the named quadratic scalar. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'ASSESSMENT: residual (c) is a BOUNDED ENGINEERING LOSS, not a genuine open lemma. The l2-to-pointwise passage is the reproducing-kernel bound |g(x0)| <= sqrt(K(x0,x0)) ||g||_2, with sharp constant sqrt(B/L) (the effective band fraction). It reduces the residual to a single scalar - the effective bandwidth of the five-shell image - and does not resolve the fold-overlap K or the named quadratic scalar. Changes no bound; NO QED. No refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -213,11 +213,11 @@ export const IMP95027_WELD_L2_TO_POINTWISE_PASSAGE_ASSERTIONS = [
   },
   {
     id: 'imp95027-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95027_WELD_L2_TO_POINTWISE_PASSAGE.promotesBound === false &&
       /NO QED/.test(IMP95027_WELD_L2_TO_POINTWISE_PASSAGE.verdict) &&
-      /remains SOTA/.test(IMP95027_WELD_L2_TO_POINTWISE_PASSAGE.verdict),
+      /refereed bound is changed/i.test(IMP95027_WELD_L2_TO_POINTWISE_PASSAGE.verdict),
   },
 ];
 

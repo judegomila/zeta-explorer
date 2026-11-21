@@ -117,7 +117,7 @@
  * [0.2320723, 0.24502], unconditional window [0.23209, 0.24502], open
  * strip endpoints, covered-band floor 0.2320727, k <= 4 ladder floor
  * 47/200 all carried UNCHANGED. Changes no Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light; zero imports; deterministic; in-sweep well under 1 s.
  */
@@ -549,7 +549,7 @@ export const IMP95169_COPOSITIVE_WELD_DISSOLUTION = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // ---------------------------------------------------------------------------

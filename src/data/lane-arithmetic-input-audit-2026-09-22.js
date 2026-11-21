@@ -7,8 +7,8 @@
  * barrier at x in [X, X+1], (iii) H_{t0}(x+iy) != 0 for x >= X, y0 <= y <=
  * sqrt(1-2t0)). Result: NO unconditional input closes the lane; ONE precise
  * conditional theorem (flow descent) and ONE precise obstruction (mean values
- * lose to the triangle inequality in the lane) are delivered. NO QED. PT
- * Lambda <= 0.2 remains SOTA. RH open.
+ * lose to the triangle inequality in the lane) are delivered. NO QED. No refereed bound is changed
+ * . RH open.
  *
  * 1. THE EXACT GAP (what must improve).
  * Hypothesis (iii) is certified through the effective approximate functional
@@ -278,7 +278,7 @@ export const LANE_ARITHMETIC_INPUT_AUDIT = Object.freeze({
     fReqCorrectedN1Star: 0.864,
     verdict: 'the naive f_req UNDERSTATES the requirement by 1/0.204 ~ 4.9x at the seam; corrected f_req_corrected = 1.596 > 1 means the constant-p form needs a local surplus over the all-real neutral configuration at the seam (0.864 at N1*), not a sub-2/3 fraction; no-shortage framing REFUTED, matching the mirror-descent C1 correction',
   }),
-  status: 'RH open; PT Lambda <= 0.2 SOTA; Lambda < 0.145 NOT established; NO QED',
+  status: 'RH open; no refereed bound is changed; Lambda < 0.145 NOT established; NO QED',
   files: [
     'src/data/imp-95218-route7-cost-curve.js',
     'src/data/imp-95206-t-p1-tail-repricing.js',
@@ -379,10 +379,10 @@ export const LANE_ARITHMETIC_INPUT_AUDIT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'laia-honest-scope',
-    why: 'record says NOT established / NO QED / RH open / PT SOTA and names the input as pointwise, not mean-value',
+    why: 'record says NOT established / NO QED / RH open / no refereed bound is changed and names the input as pointwise, not mean-value',
     holds: () =>
       /NOT established/.test(LANE_ARITHMETIC_INPUT_AUDIT.status) && /NO QED/.test(LANE_ARITHMETIC_INPUT_AUDIT.status) &&
-      /RH open/.test(LANE_ARITHMETIC_INPUT_AUDIT.status) && /SOTA/.test(LANE_ARITHMETIC_INPUT_AUDIT.status) &&
+      /RH open/.test(LANE_ARITHMETIC_INPUT_AUDIT.status) && /refereed bound is changed/i.test(LANE_ARITHMETIC_INPUT_AUDIT.status) &&
       /pointwise/.test(LANE_ARITHMETIC_INPUT_AUDIT.conditionalTheorem.inputStatus) &&
       /flagged for referee/.test(LANE_ARITHMETIC_INPUT_AUDIT.conditionalTheorem.rigorCaveat),
   },

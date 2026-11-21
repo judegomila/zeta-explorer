@@ -54,7 +54,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * enter only through the imported imp-124769 anchor literals; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124836-invariant-product-discriminator-general-test (the general discriminator + D_min applied here)
  * @see imp-124769-ecf-stencil-noise-floor-crossover (the direct E_CF ladder + tau/R crossover -- anchor source)
@@ -224,7 +224,7 @@ export const IMP124869_ECF_LADDER_DRIFT_DISCRIMINATOR = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, ' +
     'the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (enter only ' +
     'through the imported imp-124769 anchors); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124836 (the general discriminator + D_min applied here); imp-124769 (the direct E_CF ladder + tau/R ' +
     'crossover, anchor source); imp-124849 (extended-precision E_CF floor / sigma_crit); imp-124811 (the first ' +
@@ -278,13 +278,13 @@ export const IMP124869_ECF_LADDER_DRIFT_DISCRIMINATOR_ASSERTIONS = [
     holds: () => SIGMA_CRIT > 0.005 && SIGMA_CRIT < 0.02 && ECF_CRIT > 1e-6,
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124869-honesty-gate-no-qed',
-    description: 'Measurement/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124869_ECF_LADDER_DRIFT_DISCRIMINATOR.isRigorous === false &&
       /NO QED/.test(IMP124869_ECF_LADDER_DRIFT_DISCRIMINATOR.verdict) &&
-      /remains SOTA/.test(IMP124869_ECF_LADDER_DRIFT_DISCRIMINATOR.verdict),
+      /refereed bound is changed/i.test(IMP124869_ECF_LADDER_DRIFT_DISCRIMINATOR.verdict),
   },
 ];
 

@@ -15,7 +15,7 @@
  * rigorously; the ~6e-4 residual is the finite-b (b=24001) truncation of that signed leg, not a
  * certified error bar. The positivity of the whole kappa still rests on the single open scalar c_1
  * (equivalently M2w < 0.32546) named by imp-97210.
- * No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97270-route-m-kappa-cot-three-leaf-reconciliation.js (source of every value/verdict flag below)
  * @see imp-97210-route-m-kappa-obligation-ledger.js (ledger: kappa_cot ~ +0.12 stored 2-sig-fig)
@@ -23,7 +23,7 @@
  * @see imp-97119-route-m-boundary-cotangent-asymptotic.js (boundary V(1,b) = o(phi b b), PROVED)
  *
  * Ticket: imp-97304 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97270_DEFAULT, { IMP97270_RECONCILIATION, IMP97270_VERDICT } from './imp-97270-route-m-kappa-cot-three-leaf-reconciliation.js';
@@ -61,7 +61,7 @@ export const IMP97304_HONEST_BANNER =
   '(+0.125504) to a residual of 6.05e-4 (~0.48%). kappa_cot stays MEASURED (the signed leg is a ' +
   'non-elementary Bettin-Conrey mean value, not certified); the residual is finite-b truncation, not a ' +
   'certified error bar; the whole positivity still rests on the single open scalar M2w < 0.32546. No ' +
-  'bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'bound on Lambda moves; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97304_ASSERTIONS = [
@@ -96,9 +96,9 @@ const IMP97304_ASSERTIONS = [
       IMP97304_STATUS.rhResolved === false &&
       IMP97304_STATUS.qed === false &&
       /NO QED/.test(IMP97304_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97304_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97304_HONEST_BANNER) &&
       /RH open/.test(IMP97304_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

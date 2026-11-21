@@ -52,7 +52,7 @@
  * so the branch is not decided. SUB-GAP IMP96951_EXTENSION_BRACKETED_NOT_SOLVED. Measurement of the
  * coherence models only; the 5 new rungs are model forecasts, not solves; the qualitative VIF>1
  * conclusion is untouched; interval-rigorous certificate reach stays 2a<=0.96; C_mb GUE-conditional
- * (imp-486); Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ * (imp-486); no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96933-burnol-peak-fap-rung-count.js (estimated n*=26 coherent, band 1-12 rungs -- FINDING 1)
  * @see imp-96915-burnol-oscillation-frequency-periodogram.js (genuine peak w=0.70, power 5.18, FAP 0.111 at 21 rungs)

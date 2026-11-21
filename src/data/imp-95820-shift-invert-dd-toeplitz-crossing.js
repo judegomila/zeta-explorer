@@ -91,7 +91,7 @@
  * shift is mandatory. (d) Numerical solver assessment of an established scaling
  * law; introduces no new cited input and no new bound. Model seam family only; the
  * imp-95212 envelope port, signed WEIGHT and modulus/phase legs stay OPEN. Changes
- * NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95799-rstar-delta-drift-linear-fit (the crossing test this unblocks; its solver sub-gap)
  * @see imp-95779-on2-dd-toeplitz-lambda-min-ln12 (the O(N^2) DD solver + the corrected shift claim)
@@ -280,8 +280,8 @@ export const IMP95820_SHIFT_INVERT_DD_TOEPLITZ_CROSSING = {
     "budget at its top N ~ 1370-1523 (small-budget N=1372 still ~2e-5 high) -- new named sub-gap " +
     "imp-95820-ln125-shift-budget-scaling. Numerical solver-adequacy assessment of an established " +
     "scaling law; model seam family only; imp-95212 envelope port, signed WEIGHT and modulus/phase " +
-    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95820"],
 };
 
@@ -413,7 +413,7 @@ export const IMP95820_ASSERTIONS = [
     description: "numerical solver-assessment module; it moves no Lambda bound and proves no QED",
     holds: () =>
       REF.boundChange === false && REF.qed === false &&
-      /remains SOTA/.test(REF.verdict) && REF.closesTickets.includes("imp-95820"),
+      /refereed bound is changed/i.test(REF.verdict) && REF.closesTickets.includes("imp-95820"),
   },
 ];
 

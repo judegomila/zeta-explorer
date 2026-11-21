@@ -56,7 +56,7 @@
  * falls through the constant truncation floor.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (N-shape, coarse sigma(2)-recross / 0.5 crossing)
  * @see imp-3323-sigma-argmin-locator (interior MIN pinned N ~ 97.80, same formulas)
@@ -191,8 +191,8 @@ export const IMP3444_SIGMA_NSHAPE_LANDMARK_LADDER = {
     '0.5 crossing sits only ~0.40% below the E_coll = E_trunc crossover because E_flow is ' +
     'small there (E_flow/E_trunc ~ 1.9e-3), so the half-share landmark essentially IS the ' +
     'floor-crossover -- the point where the vanishing collision term drops through the constant ' +
-    'truncation floor. No positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'truncation floor. No positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3406 (N-shape extrapolation, coarse sigma(2)-recross / 0.5 crossing); imp-3323 ' +
     '(interior min pinned N ~ 97.80); imp-3220 (U-shaped sigma(N) decade ladder); imp-2642 ' +
@@ -250,13 +250,13 @@ export const IMP3444_SIGMA_NSHAPE_LANDMARK_LADDER_ASSERTIONS = [
       N_MIN < N_MAX && N_MAX < N_RECROSS && N_RECROSS < N_HALF && N_HALF < N_ECOLL_EQ_ETRUNC,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp3444-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, PT stays SOTA',
+    description: 'Measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP3444_SIGMA_NSHAPE_LANDMARK_LADDER.isRigorous === false &&
       /NO QED/.test(IMP3444_SIGMA_NSHAPE_LANDMARK_LADDER.verdict) &&
-      /remains SOTA/.test(IMP3444_SIGMA_NSHAPE_LANDMARK_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP3444_SIGMA_NSHAPE_LANDMARK_LADDER.verdict),
   },
 ];
 

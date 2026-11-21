@@ -119,7 +119,7 @@
  * and seam-to-chain-gate map UNCHANGED; (4) paper constants UNCHANGED.
  *
  * Import-light (no zeros bundle, no sibling imports). Changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  */
 
 // -- baked literals (recomputed by the assertions) ---------------------------
@@ -240,7 +240,7 @@ export const IMP95233_MODULUS_PHASE_CURRENCY_FEASIBILITY = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED; (2) amplitude sign/modulus certificate ADVANCED -- the modulus/phase leg left OPEN by imp-95224/95226 is now a CONFIRMED-FEASIBLE currency carrying a first constructive (crude) phase-priced bound R <= e^(-y_min)/(2 theta); its siblings are the count leg (imp-95225 SGN-C, escaped, NP-terminal) and the weight leg (imp-95133, both candidates failed); the residual is a SHARP phase-priced bound removing the 1/theta loss, which is VACUOUS in the deep-cancellation regime theta < e^(-y_min) where the seam families sit; (3) envelope-shape port and seam-to-chain-gate (gammaSL-form) map UNCHANGED; (4) paper constants per window UNCHANGED.",
   verdict:
-    "RIGOROUS step (constructive FEASIBILITY, honest partial): LEMMA MAJ (pointwise g >= |f|, one line from the triangle inequality since f_n >= 0) plus imp-95222 FA-2 yield COROLLARY PHASE-CERT, an EXPLICIT phase-priced signed certificate R <= e^(-y_min)/(2 theta) that depends on modulus/phase currency (theta) beyond depth (y_min), recovers FA-2 at theta = 1 (TIGHT), and drops below the DC-NOGO symmetry ceiling 1/2 whenever theta > e^(-y_min) -- so the depth-only no-go (imp-95224) does NOT obstruct modulus/phase currency, which escapes exactly as count did (imp-95225). The escape is exact: the SGN-SAT saturating family has theta = 1/17, 1/769, 1/40193 -> 0 and modulus 2^K, C(2K,K) -> infinity, and bounded-theta families cannot saturate. HONEST: PHASE-CERT is CRUDE (loses 1/theta, VACUOUS for theta < e^(-y_min) where the seam families sit -- the exact witness c = (3,-4) has theta = 1/33 and bound 33/8), so obligation (2) is ADVANCED (a live currency with a first bound), NOT discharged; a SHARP phase-priced bound is the residual; nothing touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (constructive FEASIBILITY, honest partial): LEMMA MAJ (pointwise g >= |f|, one line from the triangle inequality since f_n >= 0) plus imp-95222 FA-2 yield COROLLARY PHASE-CERT, an EXPLICIT phase-priced signed certificate R <= e^(-y_min)/(2 theta) that depends on modulus/phase currency (theta) beyond depth (y_min), recovers FA-2 at theta = 1 (TIGHT), and drops below the DC-NOGO symmetry ceiling 1/2 whenever theta > e^(-y_min) -- so the depth-only no-go (imp-95224) does NOT obstruct modulus/phase currency, which escapes exactly as count did (imp-95225). The escape is exact: the SGN-SAT saturating family has theta = 1/17, 1/769, 1/40193 -> 0 and modulus 2^K, C(2K,K) -> infinity, and bounded-theta families cannot saturate. HONEST: PHASE-CERT is CRUDE (loses 1/theta, VACUOUS for theta < e^(-y_min) where the seam families sit -- the exact witness c = (3,-4) has theta = 1/33 and bound 33/8), so obligation (2) is ADVANCED (a live currency with a first bound), NOT discharged; a SHARP phase-priced bound is the residual; nothing touches any Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "LEMMA MAJ is the triangle inequality on nonnegative packets (exact). COROLLARY PHASE-CERT is exact algebra given imp-95222 FA-2 (which it consumes as a lemma, not re-proves). theta(phi_K) = 1/17, 1/769, 1/40193 is exact BigInt rational integration. Modulus blow-up 2^K, C(2K,K) is an exact binomial identity. All float quadrature below is cross-check only; the theorem statements consume none of it.",
 };
@@ -365,7 +365,7 @@ export const IMP95233_PHASE_CURRENCY_ASSERTIONS = [
         IMP95233_MODULUS_PHASE_CURRENCY_FEASIBILITY.escape,
       ) &&
       /NO QED/.test(IMP95233_MODULUS_PHASE_CURRENCY_FEASIBILITY.verdict) &&
-      /remains SOTA/.test(IMP95233_MODULUS_PHASE_CURRENCY_FEASIBILITY.verdict),
+      /refereed bound is changed/i.test(IMP95233_MODULUS_PHASE_CURRENCY_FEASIBILITY.verdict),
   },
 ];
 

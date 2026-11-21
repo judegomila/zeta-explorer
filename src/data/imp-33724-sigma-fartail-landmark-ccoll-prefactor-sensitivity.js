@@ -76,7 +76,7 @@
  * the single ratio C_C/E_trunc squared.
  *
  * ASSESSMENT ONLY. C_mb stays GUE-conditional (imp-486); no bound changes, no positivity,
- * no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the far-tail landmarks perturbed here)
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (COMPLEMENTARY E_trunc floor swap on the SAME landmarks, exponent ~ -2.0)
@@ -254,7 +254,7 @@ export const IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY = {
     '3.21e11" pins are model-dependent in the prefactor too. BUT for any positive prefactor both ' +
     'crossings still EXIST and stay ordered -- the milestones themselves are structural, only their ' +
     'N-coordinates move. Assessment only; C_mb stays GUE-conditional (imp-486), no bound changes, no ' +
-    'positivity, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (far-tail landmarks perturbed here); imp-33708 (COMPLEMENTARY E_trunc floor swap on ' +
     'the SAME landmarks, exponent ~ -2.0); imp-33684 (E_trunc floor swap on the interior peak, ' +
@@ -322,16 +322,16 @@ export const IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY_ASSERTI
       PREFACTOR_FACTORS.every((f, i) => LANDMARK_0_5.table[i].N_landmark < LANDMARK_0_1.table[i].N_landmark),
   },
   {
-    // Honesty gate: sensitivity/assessment only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity/assessment only, split verdict, no QED, no refereed bound is changed.
     id: 'imp33724-honesty-gate-no-qed',
-    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY.isRigorous === false &&
       /ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY/.test(
         IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY.verdict,
       ) &&
       /NO QED/.test(IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33724_SIGMA_FARTAIL_LANDMARK_CCOLL_PREFACTOR_SENSITIVITY.verdict),
   },
 ];
 

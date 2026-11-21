@@ -71,7 +71,7 @@
  * collar-past-caustic depth condition d >= a_1/mu -- the SAME still-open
  * Section 4.5 turning-point-depth geometry (leg (i)), not a free fact and
  * not an independent lever. This RECONCILES the two open sub-gaps into one.
- * No bound moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No bound moves; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) ASSESSMENT / DERIVATION only. (b) The sign law
  * Ai(x) > 0 iff x > -a_1 and the equivalence K_k >= 0 <=> support past the
@@ -145,7 +145,7 @@ export const IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-SIGN -- STILL OPEN and now RECONCILED with imp-95336 MAP 4. K_k >= 0 on the imp-95917 witness windows is EQUIVALENT to the collar-past-caustic depth condition d >= a_1/mu (a_1 = 2.338107...), the SAME still-open Section 4.5 turning-point-depth geometry (imp-95336 leg (i)); it is not a free fact and not an independent lever, so no window-level nonnegativity is established.",
   verdict:
-    "ASSESSMENT / DERIVATION (honest PARTIAL): the Fresnel-Airy envelope sign is TRANSCRIBABLE EXACTLY -- Ai(x) >= 0 iff x >= -a_1 (a_1 = 2.338107410459767), so the local envelope K_k(t) = Ai(mu(t-c)) is nonnegative iff the support stays past the first pre-caustic lobe t >= c - a_1/mu. On the imp-95917 witness windows this makes the STEP-5 envelope-SIGN obligation EQUIVALENT to the imp-95336 MAP-4 collar-past-caustic depth condition d >= a_1/mu -- the SAME still-open Section 4.5 turning-point-depth geometry (leg (i)), not a free fact and not an independent lever. This RECONCILES the two open sub-gaps into one; K_k >= 0 is NOT established at the witness windows. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT / DERIVATION (honest PARTIAL): the Fresnel-Airy envelope sign is TRANSCRIBABLE EXACTLY -- Ai(x) >= 0 iff x >= -a_1 (a_1 = 2.338107410459767), so the local envelope K_k(t) = Ai(mu(t-c)) is nonnegative iff the support stays past the first pre-caustic lobe t >= c - a_1/mu. On the imp-95917 witness windows this makes the STEP-5 envelope-SIGN obligation EQUIVALENT to the imp-95336 MAP-4 collar-past-caustic depth condition d >= a_1/mu -- the SAME still-open Section 4.5 turning-point-depth geometry (leg (i)), not a free fact and not an independent lever. This RECONCILES the two open sub-gaps into one; K_k >= 0 is NOT established at the witness windows. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "The sign law Ai(x) > 0 iff x > -a_1 and the equivalence K_k >= 0 iff support past the first pre-caustic lobe are EXACT (Airy zero structure, cross-checked here on |x| <= 4). The local Airy profile K_k = Ai(mu(t-c)) is the imp-95336 documented envelope model of the Section 4.5 packets, NOT a re-derivation. The reduction shows K_k >= 0 is not establishable at the witness windows without the still-open turning-point-depth geometry. Changes no bound; NO QED.",
 };
@@ -215,14 +215,14 @@ export const IMP95942_ASSERTIONS = [
   {
     id: "imp95942-verdict-honesty",
     description:
-      "the verdict carries the honest scope: sign TRANSCRIBABLE, a PRECISE OBSTRUCTION equivalent to imp-95336 MAP 4, sub-gap STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: sign TRANSCRIBABLE, a PRECISE OBSTRUCTION equivalent to imp-95336 MAP 4, sub-gap STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /honest PARTIAL/.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.verdict) &&
       /TRANSCRIBABLE/.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.verdict) &&
       /MAP-4/.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.verdict) &&
       /STILL OPEN/.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.subGap) &&
       /NO QED/.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95942_FRESNEL_AIRY_ENVELOPE_SIGN_ASSESSMENT.verdict),
   },
 ];
 

@@ -44,7 +44,7 @@
  * model VERBATIM and resamples their fit grids; it changes NO bound. It does NOT discharge the GUE
  * conditional (C_mb GUE-conditional per imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34994-cmb-exponent-bootstrap-jackknife (the ~1.35x factor for the PINNED exponent this generalizes)
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the free-K exponent p_free ~ 1.5453)
@@ -418,8 +418,8 @@ export const IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK = {
     'bisection kernels and the imp-34954 E_coll component model VERBATIM and resamples their fit grids; it ' +
     'changes NO bound; does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486); the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-35112: the imp-34994 ~1.35x resampling-over-residual SE under-estimation is ' +
     'ESTIMATOR-GENERAL -- free-K exponent bootstrap/jackknife ~1.38x/~1.45x (SE ~1.63e-3/~1.71e-3 vs residual ' +
@@ -429,8 +429,8 @@ export const IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK = {
     'central-difference derivative), so its comparison rests on a reconstructed local-regression grid -- a ' +
     'first-principles small-sample SE-inflation factor for n = 21 through-origin/free OLS would let the ' +
     '~1.35x be predicted rather than measured; and whether the resampling band is surrogate-independent or ' +
-    'drifts with the imp-3220/imp-3406 extrapolation. C_mb GUE-conditional per imp-486; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'drifts with the imp-3220/imp-3406 extrapolation. C_mb GUE-conditional per imp-486; NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-34994 (the ~1.35x factor for the pinned exponent this generalizes); imp-34950 (the free-K exponent ' +
     'p_free ~ 1.5453); imp-34954 (the G-conversion slope -0.47729); imp-3463 (far-tail exponent 1/2); ' +
@@ -500,16 +500,16 @@ export const IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK_ASSERTIONS = [
       BOOT_SLOPE_N > 3900,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp35112-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.isRigorous === false &&
       IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.farTailExponent === 0.5 &&
       typeof IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.subGap === 'string' &&
       /imp-486/.test(IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.subGap) &&
       /NO QED/.test(IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP35112_SIBLING_ESTIMATOR_RESAMPLING_SE_CROSSCHECK.verdict),
   },
 ];
 

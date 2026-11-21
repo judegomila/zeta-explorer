@@ -50,7 +50,7 @@
  *   quadrature-rule accuracy audit; it establishes NO operator positivity and touches no bound.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33232-a-weight-fixed-graded-gl-budget-full-window-verify.js (the qualitative root cause)
  *   @see imp-3919-a-weight-fixed-graded-gl-crossover-budget-tau6.js (the crossover + minimal budget)
@@ -169,7 +169,7 @@ export const IMP33254_GRADED_PANEL_WIDTH_RATIO_SUBPEAK_COUNT_MEASURE = Object.fr
     'the peak shoulder across ~222 peak-widths (~7x grade 5). So imp-33232 is directionally right (second ' +
     'panel ~2^grade x peak scale) but the mechanism is an exponentially widening lone panel, not a ' +
     'dwindling sub-peak count. MEASUREMENT ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     panelGeometry: 'panel i of a P-panel grade-g power-graded rule on [0,hi] is [hi*(i/P)^g, hi*((i+1)/P)^g], width W_i = hi/P^g * [(i+1)^g - i^g]',
@@ -228,7 +228,7 @@ export const IMP33254_GRADED_PANEL_WIDTH_RATIO_SUBPEAK_COUNT_MEASURE = Object.fr
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -268,7 +268,7 @@ export const IMP33254_GRADED_PANEL_WIDTH_RATIO_SUBPEAK_COUNT_MEASURE_ASSERTIONS 
   {
     id: 'imp33254-honest-measurement-not-a-verdict',
     why: 'Mandatory honesty: measurement only, mass-feasibility necessary-but-not-sufficient, operator ' +
-         'positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33254_GRADED_PANEL_WIDTH_RATIO_SUBPEAK_COUNT_MEASURE.honestCaveat;
       return (
@@ -276,7 +276,7 @@ export const IMP33254_GRADED_PANEL_WIDTH_RATIO_SUBPEAK_COUNT_MEASURE_ASSERTIONS 
         c.isReductionBelowRH === false &&
         c.measurementOnly === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

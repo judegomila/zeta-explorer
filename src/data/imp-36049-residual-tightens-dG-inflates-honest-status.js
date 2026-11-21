@@ -12,8 +12,8 @@
  *   lives entirely in the dG node, not the residual node.
  *
  *   Ticket: imp-36049 (content, low). Note only; re-reads nothing new; changes no bound;
- *   imp-34714a REMAINS OPEN; C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; NO QED.
+ *   imp-34714a REMAINS OPEN; C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed
+ *   ; NO QED.
  *
  *   @see imp-35969-krawczyk-residual-directed-rounding-width.js (source module this note restates)
  *   @see imp-35885-krawczyk-node-cancellation-audit (NODE B: asserted the residual is a small tightening interval)
@@ -78,7 +78,7 @@ export const IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS = Object.freez
     isNewMeasurement: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -89,7 +89,7 @@ export const IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS = Object.freez
     'while the de-cancelled dG surplus-split node relative width DIVERGES ~ (4/a) eps over the same ' +
     'axis. The imp-34714a certificate cost lives entirely in the dG node, not the residual node. ' +
     'Restatement only; changes no bound; imp-34714a REMAINS OPEN; C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
 });
 
 export const IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS_ASSERTIONS = [
@@ -123,11 +123,11 @@ export const IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS_ASSERTIONS = [
     holds: () =>
       IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS.honestCaveat.isNewMeasurement === false &&
       IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36049-verdict-no-qed-and-open',
-    why: 'The verdict must record NO QED and that imp-34714a remains open, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED and that imp-34714a remains open, matching the standing no-refereed-bound-change caveat.',
     holds: () =>
       /NO QED/.test(IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS.verdict) &&
       /imp-34714a REMAINS OPEN/.test(IMP36049_RESIDUAL_TIGHTENS_DG_INFLATES_HONEST_STATUS.verdict),

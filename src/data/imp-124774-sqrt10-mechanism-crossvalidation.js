@@ -67,8 +67,7 @@
  * numbers verbatim as baked literals; derives no fresh numerics. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and
  * the C_C 1/8 ansatz are UNTOUCHED and appear only as the fixed surrogate; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97823-kernel-decade-growth-sqrt10 (interior-peak |K| ~ g^(-1/2), deep growth 3.158/3.167)
  * @see imp-34528-tailside-hump-decay-vs-sqrt-n-fartail (far-tail sigma ~ N^(-1/2), localDecay -> sqrt(10))
@@ -193,8 +192,8 @@ export const IMP124774_SQRT10_MECHANISM_CROSSVALIDATION = {
     'MECHANISMS are not one. Re-tabulates the three modules headline numbers verbatim; component model ' +
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz are UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97823 (interior-peak |K| ~ g^(-1/2), deep growth 3.158/3.167); imp-34528 (far-tail sigma ~ ' +
     'N^(-1/2), localDecay -> sqrt(10)); imp-35663 (E_flow remnant span-ratio -> sqrt(10)); imp-35552 ' +
@@ -264,13 +263,13 @@ export const IMP124774_SQRT10_MECHANISM_CROSSVALIDATION_ASSERTIONS = [
       Math.abs(A_KERNEL_FOLD.residualDecayPerDecade - B_COLL_AMPLITUDE.residualDecayPerDecade) > 0.1,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124774-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124774_SQRT10_MECHANISM_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP124774_SQRT10_MECHANISM_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP124774_SQRT10_MECHANISM_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP124774_SQRT10_MECHANISM_CROSSVALIDATION.verdict),
   },
 ];
 

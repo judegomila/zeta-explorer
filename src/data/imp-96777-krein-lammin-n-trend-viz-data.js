@@ -14,8 +14,8 @@
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
  * the uniform-in-N spectral gap remains the open analyticObstruction;
- * interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96749-krein-lammin-N-trend-measurement.js (source ladder + verdict)
  * @see imp-96772-krein-lammin-double-double-recompute.js (extended-precision recompute REFUTING
@@ -91,7 +91,7 @@ export const IMP96777_HONEST_BANNER =
   'Measurement only: this is a Rayleigh-Ritz UPPER floor, not an operator positivity proof. ' +
   'The uniform-in-N spectral gap lambda_min(T_a[sigma_2]) >= c > 0 stays OPEN past the ' +
   'double-precision-trustworthy window; interval-rigorous certificate reach stays 2a<=0.96; ' +
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -132,7 +132,7 @@ const IMP96777_ASSERTIONS = [
     id: 'imp96777-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96777_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96777_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96777_HONEST_BANNER) &&
       /NO QED/.test(IMP96777_HONEST_BANNER) &&
       IMP96777_VERDICT_SUMMARY.qed === false,
     why: 'every Route I viz surface carries the RH-open / PT-Lambda / NO-QED markers, matching the source verdict.',

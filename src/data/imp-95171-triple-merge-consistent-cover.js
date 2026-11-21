@@ -147,7 +147,7 @@
  * burden to >= 4 packets in some middle block ON THE TOP SUB-BAND ONLY,
  * leaves the rest of the covered band at the imp-95170 burden, and closes
  * no sub-band of the open strip. Changes no Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light; zero imports; deterministic; in-sweep ~0.3 s (batteries +
  * per-layer binding-cell re-certification; the full 10-D cover itself is
@@ -932,7 +932,7 @@ export const IMP95171_TRIPLE_MERGE_CONSISTENT_COVER = {
   run: RUN,
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // ---------------------------------------------------------------------------

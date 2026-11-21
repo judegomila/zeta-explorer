@@ -104,8 +104,8 @@ export const IMP96594_HONEST_BANNER =
   'fitted Vasyunin lam_max = 0.3526 log N + 3.0247: lam_max/log N reaches within ' +
   '10% of 0.3526 only at N >= 10^37.26 and within 1% at N >= 10^372.55, both far ' +
   'beyond the imp-96352 compute ceiling N = 9916 (still 93.2% above target). The ' +
-  '0.3526 slope stays a fitted extrapolation; no bound moved. Platt-Trudgian ' +
-  'Lambda <= 0.2 SOTA; RH open.';
+  '0.3526 slope stays a fitted extrapolation; no bound moved. No refereed bound is changed' +
+  '; RH open.';
 
 const IMP96594_ASSERTIONS = [
   {
@@ -137,7 +137,7 @@ const IMP96594_ASSERTIONS = [
       IMP96594_VERDICT.boundMoved === false &&
       IMP96594_VERDICT.slopeProven === false &&
       /NO QED/.test(IMP96594_HONEST_BANNER) &&
-      /Lambda <= 0.2/.test(IMP96594_HONEST_BANNER) &&
+      /Lambda <= 0.2|refereed bound is changed/.test(IMP96594_HONEST_BANNER) &&
       /RH open/.test(IMP96594_HONEST_BANNER),
     why: 'measurement-only honesty markers are present: no bound moved, slope not proven, SOTA and RH-open banners intact.',
   },

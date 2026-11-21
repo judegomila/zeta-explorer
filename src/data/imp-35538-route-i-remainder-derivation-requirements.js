@@ -18,8 +18,7 @@
  * no bound; tightens no bound; establishes no operator positivity; no RH
  * verdict, NO QED. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the
  * E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are
- * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED. No refereed bound is changed.
  *
  * THE OBJECT TO BE DERIVED
  * -----------------------------------------------------------------------------
@@ -86,7 +85,7 @@
  * Route-(ii) (the imp-35488 two-height data-anchored spot check, both landmark
  * heights below T_PT = 3e12) remains the only viable partial for the OPEN
  * imp-35337a. Assessment/scoping only; discharges nothing; changes no bound; no
- * positivity; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; NO QED. No refereed bound is changed.
  *
  * CROSS-REFERENCE (imp-35712): imp-35652 assesses REQ 3's option (a) directly --
  * whether E_coll can be re-expressed via a restricted-Fourier-support surrogate
@@ -110,7 +109,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (imp-2642/imp-2643 ansatz)
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any route-(i) requirements scoping)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any route-(i) requirements scoping)
 const T_PT = 3e12; // Platt-Trudgian verified height
 
 // The two interior landmark N values (imp-35337 / imp-35475), taken as given.
@@ -250,7 +249,7 @@ export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS = {
     'remains the only viable partial for the OPEN imp-35337a. Derives NO remainder; discharges NOTHING; ' +
     'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631), the imp-398 C_F prefactor and C_mb GUE-conditional (imp-486) are ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35475 (Part B flags route-(i) absent, Part C budgets, Part D imp-486); imp-35493 (literature survey ' +
     'CONFIRMS route-(i) absent -- this module scopes its derivation requirements); imp-35488 (route-(ii) ' +
@@ -316,7 +315,7 @@ export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS_ASSERTIONS = [
     },
   },
   {
-    // (3) honesty gate: conditional (inherits imp-486, not unconditional), no bound moves, PT SOTA, sub-gap named; NO QED.
+    // (3) honesty gate: conditional (inherits imp-486, not unconditional), no bound moves, no refereed bound is changed, sub-gap named; NO QED.
     id: 'imp35538-conditional-no-bound-moves-no-qed',
     description: 'route-(i) inherits imp-486 and is not unconditional, sigma-fidelity is not a Lambda lever so no bound moves, PT 0.2 unchanged, imp-35337a named, NO QED',
     holds: () =>
@@ -326,7 +325,7 @@ export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS_ASSERTIONS = [
       /imp-486/.test(IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.requirements.req5Conditionality) &&
       /imp-35337a/.test(IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.citation) &&
       /NO QED/.test(IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.verdict) &&
-      /remains SOTA/.test(IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.verdict),
+      /refereed bound is changed/i.test(IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.verdict),
   },
 ];
 

@@ -68,8 +68,8 @@
  * the ordering survives fit-parameter noise but sits WITHIN the model-selection error bar; the F < M
  * separation is model-form-limited, not fit-noise-limited. Robustness audit only; no bound moved; no
  * operator positivity; the ceilings still inherit the non-rigorous lam_min N^-p / ||G||_F log-fit
- * extrapolations (only the trace ceiling T is a rigorous lower bound); PT Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * extrapolations (only the trace ceiling T is a rigorous lower bound); no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (imp-96976-fm-separation-model-form-limited). The audit RESOLVES the (A, p)
  * fit-parameter question (robust) but the model-form question is only ADJUDICATED by imp-96912's
@@ -211,7 +211,7 @@ export const IMP96976_VERDICT = Object.freeze({
     'magnitude larger than the gap, and the data-favoured quad ceiling (4.1029e7) EXCEEDS M_lo ' +
     '(3.919e7) by +4.69 percent, inverting F < M; only the tail model preserves it. The binding ' +
     'uncertainty on F < M is model selection (which ||G||_F extrapolant), not the fit noise. ' +
-    'Robustness audit only; no bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Robustness audit only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96976_SUBGAP = Object.freeze({
@@ -227,7 +227,7 @@ export const IMP96976_SUBGAP = Object.freeze({
 });
 
 export const IMP96976_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Robustness audit only: the 12 lam_min rungs, the ' +
+  'RH open; no refereed bound is changed; NO QED. Robustness audit only: the 12 lam_min rungs, the ' +
   'F ceiling (b = 0.478) and the quad/tail ceilings are imported verbatim from the import-light ' +
   'siblings imp-96428 / imp-96833 / imp-96912 / imp-96955; the joint (A, p) band is the OLS ' +
   'prediction std at the ceiling divided by (b + p) (tmp/imp-96976-scratch.mjs). No Gram was ' +
@@ -286,7 +286,7 @@ const IMP96976_ASSERTIONS = [
       IMP96976_VERDICT.robustToFitParam === true &&
       IMP96976_VERDICT.robustToModelForm === false &&
       /NO QED/.test(IMP96976_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96976_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96976_HONEST_BANNER) &&
       /RH open/.test(IMP96976_HONEST_BANNER) &&
       /model-form-limited/.test(IMP96976_SUBGAP.id),
     why: 'robustness audit only: no bound moved, the fit-parameter/model-form split is recorded, the honesty markers are present, and the model-form-limited sub-gap is named.',

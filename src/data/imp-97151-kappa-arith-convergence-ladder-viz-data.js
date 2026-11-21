@@ -15,7 +15,7 @@
  *   @see imp-97096-route-m-arith-first-moment-evaluation.js (the exact kappa_arith this converges to)
  *
  *   Ticket: imp-97151 (ux, low). Presentation of an already-established measurement; adds no new
- *   Lambda bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- baked from imp-97122 IMP97122_MEASURED.generalB --

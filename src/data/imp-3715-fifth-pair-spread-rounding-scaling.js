@@ -67,8 +67,7 @@
  *   (imp-3692, which re-extracts the N<=2000 literals) and does NOT re-run the
  *   heavy dense solve. It does NOT establish the fifth-pair amplitude LAW, does
  *   NOT construct the missing magnitude, and does NOT attempt the imp-3066
- *   K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3668-skew-toeplitz-fifth-pair-dense-crossval.js (source of the fifth-pair spread ladder measured here)
  *   @see imp-3643-skew-toeplitz-third-gap-dense-crossval.js (the fourth-pair dense cross-val imp-3668 extends)
@@ -78,7 +77,7 @@
  *   Ticket: imp-3715 (numerical, medium). Scaling measurement / threat assessment
  *   only: the fifth-pair spread sits at the few-ULP floor, the linear N*eps model
  *   is falsified, and the double-precision solve is projected safe at N=2400/2800.
- *   imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -178,7 +177,7 @@ export const IMP3715_FIFTH_PAIR_SPREAD_ROUNDING_SCALING = Object.freeze({
     'resolved growth exponent; the extrapolation is a floor-model bound, not a measured value at N=2400/2800. ' +
     'Distinct from the imp-3692 independent Sturm-bisection verify; does NOT establish the fifth-pair amplitude LAW, ' +
     'does NOT construct the missing magnitude, does NOT attempt imp-3066 K_a>=0 positivity; RH-EQUIVALENT; NO RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     spreadQuantity: 'worstPairSpread(N) = |lambda_9 - lambda_10| / lambda_9 of the imp-3668 dense Gram top-10 (fifth adjacent pair)',
@@ -253,7 +252,7 @@ export const IMP3715_FIFTH_PAIR_SPREAD_ROUNDING_SCALING = Object.freeze({
       'The margin assessed here is for the fifth-pair PAIRING STRUCTURE (lambda_9=lambda_10 degeneracy) only; it does ' +
       'NOT establish the fifth-pair AMPLITUDE LAW sigma_4=lambda_9/lambda_1 (the distinct pending Lanczos ticket).',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -292,7 +291,7 @@ export const IMP3715_FIFTH_PAIR_SPREAD_ROUNDING_SCALING_ASSERTIONS = [
     id: 'imp3715-honest-assessment-no-qed',
     why: 'Mandatory honesty: SCALING MEASUREMENT / threat assessment only on a coarse 3-rung sample -- falsifies the ' +
       'linear model and projects the double solve safe, but fits no exponent and re-certifies nothing; positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3715_FIFTH_PAIR_SPREAD_ROUNDING_SCALING.honestCaveat;
       return (
@@ -303,7 +302,7 @@ export const IMP3715_FIFTH_PAIR_SPREAD_ROUNDING_SCALING_ASSERTIONS = [
         typeof c.coarseThreeRungSample === 'string' &&
         typeof c.extrapolationIsBoundNotMeasurement === 'string' &&
         typeof c.pairingNotAmplitudeLaw === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

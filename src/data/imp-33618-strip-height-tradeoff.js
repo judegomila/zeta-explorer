@@ -69,7 +69,7 @@
  * floor that does NOT vanish as y^2. Both laws here are ILLUSTRATIVE parametrizations, not rigorous
  * bounds; this changes no bound. G6a_shock_lipschitz stays OPEN; no positivity, no bridge closure, no
  * RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share
- * untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * untouched. No refereed bound is changed.
  *
  * @see imp-33603-lemma52-port-scoping (names H4 strip-height-uniformity as the precise residual)
  * @see imp-3726-y2-adapted-flow-depth-schedule (the s(y) ~ y^2 self-similar depth this model uses)
@@ -173,8 +173,8 @@ export const IMP33618_STRIP_HEIGHT_TRADEOFF = {
     'curvature floor that does not vanish as y^2. Both model laws are ILLUSTRATIVE, not rigorous; this ' +
     'confirms imp-33603 H4 as the load-bearing residual and changes no bound. G6a_shock_lipschitz ' +
     'stays OPEN; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share untouched. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share untouched. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33603-lemma52-port-scoping (H4 strip-height-uniformity residual); ' +
     'imp-3726-y2-adapted-flow-depth-schedule and imp-3708-s2-gronwall-vacuity-intrinsic-assessment ' +
@@ -225,14 +225,14 @@ export const IMP33618_STRIP_HEIGHT_TRADEOFF_ASSERTIONS = [
       IMP33618_STRIP_HEIGHT_TRADEOFF.conflictFundamental === true,
   },
   {
-    // Honesty gate: assessment only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: assessment only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33618-honesty-gate-no-qed',
-    description: 'Assessment only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Assessment only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33618_STRIP_HEIGHT_TRADEOFF.isRigorous === false &&
       /NO QED/.test(IMP33618_STRIP_HEIGHT_TRADEOFF.verdict) &&
       /stays OPEN/.test(IMP33618_STRIP_HEIGHT_TRADEOFF.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33618_STRIP_HEIGHT_TRADEOFF.verdict) &&
+      /refereed bound is changed/i.test(IMP33618_STRIP_HEIGHT_TRADEOFF.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33618_STRIP_HEIGHT_TRADEOFF.verdict),
   },
 ];

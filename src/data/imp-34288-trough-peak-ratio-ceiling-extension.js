@@ -68,7 +68,7 @@
  * log-linear verdict is untouched; R^2 stays > 0.98). The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34214-trough-peak-ratio-limit-fit (the convergence REFUTED at w = 7, extended here)
  * @see imp-34085-trough-peak-ratio-convergence (the |trough|/|peak| ratio sequence and machinery reused)
@@ -315,7 +315,7 @@ export const IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION = {
     '(R^2 stays > 0.98). The OLS surrogate is descriptive, not derived; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34214 (the convergence refuted at w = 7, extended here); imp-34085 (the |trough|/|peak| ratio ' +
     'sequence and machinery reused); imp-33843 (the log-linear OLS re-run on the extended grid); ' +
@@ -376,16 +376,16 @@ export const IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, no overshoot / no artifact exhibited, isRigorous false, form
-    // verdict untouched (R^2 > 0.98), no QED, PT SOTA, imp-3066 untouched.
+    // verdict untouched (R^2 > 0.98), no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34288-honesty-gate-no-qed',
-    description: 'Measurement only: overshoot false, isRigorous false, R^2 > 0.98, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Measurement only: overshoot false, isRigorous false, R^2 > 0.98, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.overshootsCeiling === false &&
       IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.isComponentModelArtifact === false &&
       IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.isRigorous === false &&
       GRID.every((g) => g.r2 > 0.98) &&
       /NO QED/.test(IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.verdict) &&
+      /refereed bound is changed/i.test(IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.verdict),
   },
 ];

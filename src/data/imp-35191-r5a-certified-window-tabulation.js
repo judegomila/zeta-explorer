@@ -198,7 +198,7 @@ export const IMP_35191_R5A_CERTIFIED_WINDOW = {
     r5bStaysIrreducible: true,
     cmbStaysGueConditional: true,
     isQED: false,
-    ptFloor: "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    ptFloor: "No refereed bound is changed.",
   },
 };
 

@@ -13,7 +13,7 @@
  * same figures. Regression-guard only; recomputes an established
  * assessment figure; changes no bound; establishes no operator positivity;
  * C_mb GUE-conditional (imp-486) UNTOUCHED; imp-34791 E_trunc reclassification
- * UNCHANGED; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNCHANGED; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-35654-ported-barrier-far-tail-mixed-conditionality (source module pinned here)
  * @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality (sigma<1e-3 landmark shares)

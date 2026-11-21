@@ -51,8 +51,7 @@
  * bound. (b) The quantitative rate is float64-floor-limited; only the monotone
  * decay toward 1 is established, not the exact limit or exponent. (c) Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase
- * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the rho = 1 endpoint this refines)
  * @see imp-95642-twin-pair-symbol-offlattice-obstruction (the two pinned endpoints)
@@ -112,7 +111,7 @@ export const IMP95677_RHO1_SZEGO_FINITE_SIZE_CONVERGENCE = {
     "exponent needs extended precision. Measures an established endpoint; no new " +
     "cited input. Model seam family only; the imp-95212 envelope port, signed " +
     "WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95677"],
 };
 
@@ -282,7 +281,7 @@ export const IMP95677_ASSERTIONS = [
       REF.isFiniteSizeArtifact === true &&
       /MEASURED/.test(REF.verdict) &&
       /SUB-GAP/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95677-closes-self",

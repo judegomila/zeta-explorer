@@ -53,7 +53,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Provenance-band assembly + reachability decision, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95660-cf-multiplier-wedge-closure (measured cf* ~ 0.839; called it "inside a modest band")
  * @see imp-95617-transition-knee-ordering-joint-2d (the joint sweep WITH E_flow at cf=1)
@@ -182,8 +182,8 @@ export const IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY = {
     'FORECLOSED. This corrects the imp-95660 reading that cf* < 1 lay "inside a modest band": it does ' +
     'not. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95660 (measured cf* ~ 0.839, called it inside a modest band); imp-95617 (joint 2-D sweep ' +
     'WITH E_flow at cf=1); imp-1134 c-f-bulk-refinement (C_F is a LOWER bound; honest downward factor ' +
@@ -239,13 +239,13 @@ export const IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY_ASSERTIONS = [
       OVERSHOOT_FACTOR >= 20,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95674-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY.isRigorous === false &&
       /NO QED/.test(IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY.verdict) &&
-      /remains SOTA/.test(IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY.verdict),
+      /refereed bound is changed/i.test(IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY.verdict),
   },
 ];
 

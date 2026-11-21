@@ -63,7 +63,7 @@
  *
  * Accuracy cross-check only; no bound moves; both source derivations stand as written; kappa_arith
  * unchanged; T ~ 2.594e7 trace anchor unchanged; the cotangent first moment (imp-97097) stays the
- * separate open leaf; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * separate open leaf; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js ((1/2) Lambda on E0; the F_arith = kappa phi b + (1/2)(b E0 - E1) identity)
  * @see imp-97167-route-m-parity-sign-law-derivation.js ((1/4) Lambda on r phi; psi kernel, delta(m) tail)
@@ -143,11 +143,11 @@ export const IMP97223_VERDICT = Object.freeze({
     'L0 = Sum log a, so the shared identity Sum mu(d) log d = -Lambda(b) turns the Stirling half-log into ' +
     '(1/4) log m rather than (1/2) log m. Coefficient 1/2 governs E0 (the binding log-a remainder); ' +
     'coefficient 1/4 governs r(b) phi(b) = (1/2)(E0 - E1/b). No bound moved; both derivations stand; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97223_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy cross-check: the imp-97202 (1/2) Lambda on E0 ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy cross-check: the imp-97202 (1/2) Lambda on E0 ' +
   'and the imp-97167 (1/4) Lambda on r(b) phi(b) are CONSISTENT -- 1/4 = (1/2)*(1/2), the same prime-power ' +
   'contribution. The exact relation r(b) phi(b) = (1/2) E0(b) - E1(b)/(2 b) halves E0 (E1 adds no von ' +
   'Mangoldt term); equivalently the kernel weights the log by 1/2, so the shared identity ' +
@@ -238,7 +238,7 @@ const IMP97223_ASSERTIONS = [
       IMP97223_VERDICT.quarterIsHalfOfHalf === true &&
       IMP97223_VERDICT.bothDerivationsStand === true &&
       /NO QED/.test(IMP97223_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97223_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97223_HONEST_BANNER) &&
       /RH open/.test(IMP97223_HONEST_BANNER),
     why: 'accuracy cross-check only: the 1/2 and 1/4 coefficients are reconciled as the same contribution (1/4 = (1/2)*(1/2)), both source derivations stand unchanged, no bound moved, no rigorous ceiling, no QED.',
   },

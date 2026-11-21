@@ -8,7 +8,7 @@
  * b-independent CONTINUUM profile integral, MEASURES the stable lower/upper imbalance that drives the
  * negativity, and reaches the sharpened obstruction: the sign becomes an equidistribution-with-bias
  * statement about the a-weighted residue density of frac(b/a) against an odd, non-sign-definite profile.
- * Derivation + measurement only; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Derivation + measurement only; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (imp-97287 exact decomposition; imp-97314 growth-order obstruction).
@@ -88,7 +88,7 @@
  * equidistribution-with-bias correlation between C and the a-weighted residue density of frac(b/a), a
  * signed shifted-divisor average with no closed form (the direct-line twin of the imp-97181 odd inverse-map
  * bias, beyond the a<->b-a antisymmetry and the even moments). Measured S/(phi b) ~ -0.0795 stays measured.
- * No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97328-cotangent-aweighted-residue-density-bias -- an equidistribution
  * statement that the (a/b)-weighted density of frac(b/a) correlates negatively with the odd profile C by the
@@ -228,11 +228,11 @@ export const IMP97328_VERDICT = Object.freeze({
     'residue density of frac(b/a) -- a signed shifted-divisor average with no closed form, the direct-line ' +
     'twin of the imp-97181 odd inverse-map bias, beyond the a<->b-a antisymmetry (imp-97097) and the even ' +
     'moments (imp-97180/imp-97203). Measured S/(phi b) ~ -0.0795 stays measured. No bound on Lambda moves; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97328_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Continuum reduction + partial only: the sign S(b) < 0 ' +
+  'RH open; no refereed bound is changed; NO QED. Continuum reduction + partial only: the sign S(b) < 0 ' +
   'of the Route M cotangent varying-modulus leg is NOT proved. Proved/measured: the odd scaling profile ' +
   'C(x) = lim c_0(round(x a)/a)/a exists and is exactly odd about 1/2 (C(x)+C(1-x)=0 to ~1e-14); the ' +
   'continuum reduction S/(phi b) = (1/phi) Sum (a/b) C(frac(b/a)) + o(1) reproduces S to ~1%; the ' +
@@ -312,7 +312,7 @@ const IMP97328_ASSERTIONS = [
       /aweighted-residue-density-bias/.test(IMP97328_SUBGAP.id) &&
       /equidistribution/.test(IMP97328_SUBGAP.statement) &&
       /NO QED/.test(IMP97328_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97328_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97328_HONEST_BANNER) &&
       /RH open/.test(IMP97328_HONEST_BANNER),
     why: 'continuum reduction + partial: the scaling profile, its odd symmetry, the (RED) reduction and the b-stable imbalance are established/measured, but the sign S(b) < 0 stays measured (an equidistribution-with-bias correlation, invisible to the deployed antisymmetry/even-moment tools) -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

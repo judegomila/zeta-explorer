@@ -62,7 +62,7 @@
  * order on a 75-shape superset of the imp-36081 family and reconciling the shared shapes to the
  * imp-36132 clustered errors bit-for-bit. Certifies no W1 bound; evaluates no true H_0;
  * instantiates no interval; verifies no inequality; changes no bound; establishes no positivity;
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36132-w1-pairwise-slack-depth-clustered-densified-fit (the 37-shape clustered fit this densifies; ~0.532)
  * @see imp-36084-w1-pairwise-slack-depth-clustered-order-refit (the original seven-point clustered fit ~0.417)
@@ -74,7 +74,7 @@
 import { IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT } from './imp-36132-w1-pairwise-slack-depth-clustered-densified-fit.js';
 
 const PRIOR = IMP36132_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_DENSIFIED_FIT;
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this regression
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this regression
 
 // -- Anchor + operative constants (import-light; identical to imp-35893 / imp-36081 / imp-36132) -
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
@@ -443,7 +443,7 @@ export const IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT = {
     'is pinned -- only the sub-linear / below-default bracket. Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
     'A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-36132 (37-shape clustered fit ~0.532 this densifies, reconciled bit-for-bit); imp-36084 (seven-point ' +
     'clustered fit ~0.417); imp-36081 (default-order densification; the 37-shape family this superset extends); ' +
@@ -523,16 +523,16 @@ export const IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT_ASSERTIONS =
     holds: () => FIT.r2 > 0.4 && FIT.r2 < 0.6 && FLOOR_SPREAD > 50,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36212-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /NOT a stable sqrt law/.test(IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT.conclusion.exponentUnstableBracketRobust) &&
       /GREENFIELD/.test(IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT.verdict) &&
-      /remains SOTA/.test(IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT.verdict),
+      /refereed bound is changed/i.test(IMP36212_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_75SHAPE_FIT.verdict),
   },
 ];
 

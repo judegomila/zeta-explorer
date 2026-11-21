@@ -61,7 +61,7 @@
  * stable reading is the 1/p^s abscissa (s ~ 0.78 -> 0.82 across half-periods), corroborating imp-97687
  * RESULT 4 that the large 1/(log p)^q exponent is a log(log p)-abscissa amplification. All half-period
  * exponents stay far above 3, so "outruns every fixed power <= 3" is unchanged. MCM stays refuted from
- * omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA;
+ * omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97687-route-m-avg-exponent-robustness.js (RESULT 3 window dependence ~10 -> ~15; RESULT 4 abscissa)
@@ -188,11 +188,11 @@ export const IMP97699_VERDICT = Object.freeze({
     '1/p^s abscissa (s ~ 0.782 -> 0.817 across half-periods, spread ~0.035), corroborating imp-97687 ' +
     'RESULT 4 that the large 1/(log p)^q exponent is a log(log p)-abscissa amplification. All ' +
     'half-period exponents stay far above 3. MCM stays refuted from omega=11; b/4 ceiling untouched; ' +
-    'kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97699_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Local half-period decay rate of the imp-97659 Route M ' +
+  'RH open; no refereed bound is changed; NO QED. Local half-period decay rate of the imp-97659 Route M ' +
   'residual: restricting the log|residual| regression to a single monotone half-period between the two ' +
   'RESULT-1 sign changes does NOT converge the local exponent (pre-rise ~12.28 vs post-rise ~14.58, still ' +
   '~2.3 apart; within-segment q_local still swings 2.3 -> 28.7), so no window yields a stable local q. The ' +
@@ -245,7 +245,7 @@ const IMP97699_ASSERTIONS = [
       IMP97699_VERDICT.anyBoundMoved === false &&
       IMP97699_VERDICT.qed === false &&
       /NO QED/.test(IMP97699_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97699_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97699_HONEST_BANNER) &&
       /RH open/.test(IMP97699_HONEST_BANNER),
     why: 'measurement only -- no monotone half-period yields a stable local q; the oscillation persists below the sign change; MCM refuted from omega=11; no bound moved, no QED.',
   },

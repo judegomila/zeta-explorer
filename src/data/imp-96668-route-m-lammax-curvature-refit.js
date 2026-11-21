@@ -58,7 +58,7 @@
  * (R^2 0.9941 -> 0.99997) shows the local slope near N=9000 is ~0.26 and still slowing. The
  * recomputed conditioning ceiling stays in the ~4e7 band (4.10-4.49e7) and, because a smaller
  * lam_max lowers cond#, moves slightly UP -- more conservative, not less. Compute binds first
- * by >2000x. No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * by >2000x. No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96649-route-m-condfit-rungs-above-6000.js (measured lam_max 7000/8000/9000 + lam_min ladder)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (original log-linear fit, N<=6000)
@@ -221,7 +221,7 @@ export const IMP96668_VERDICT = Object.freeze({
     '(R^2 0.9941 -> 0.99997) shows the local slope near N=9000 is ~0.26 and still slowing. The ' +
     'recomputed 1/eps conditioning ceiling stays in the ~4e7 band (4.10-4.49e7) and, because a ' +
     'smaller lam_max lowers cond#, moves slightly UP (more conservative). Compute binds first by ' +
-    '>2000x (N ~ 9916). No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '>2000x (N ~ 9916). No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // Honest residual sub-gap.
@@ -240,7 +240,7 @@ export const IMP96668_SUBGAP = Object.freeze({
 });
 
 export const IMP96668_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/re-analysis only: every lam_max / ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement/re-analysis only: every lam_max / ' +
   'lam_min value is a reproducible power-/inverse-power iteration on the same exact Vasyunin Gram ' +
   'as imp-96443 / imp-96649; the re-fits, revised slopes and recomputed ceilings ' +
   '(tmp/imp-96668-refit-lammax.py) are pure re-analysis; no bound is claimed moved and no operator ' +
@@ -297,7 +297,7 @@ const IMP96668_ASSERTIONS = [
       IMP96668_VERDICT.anyBoundMoved === false &&
       IMP96668_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96668_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96668_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96668_HONEST_BANNER) &&
       /RH open/.test(IMP96668_HONEST_BANNER) &&
       /not asymptotically identifiable/.test(IMP96668_SUBGAP.id.replace(/-/g, ' ')),
     why: 'measurement only: no bound moved, compute binds first, honesty markers present, and the residual sub-gap (curvature not asymptotically identifiable; extrapolation still non-rigorous) is recorded.',

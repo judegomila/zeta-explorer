@@ -39,7 +39,7 @@
  * MEASUREMENT / RECONCILIATION ONLY. Attribution diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the closed-form E_flow
  * scaling is exact WITHIN that model only; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-28895-eflow-resid-widening-model-derivation (R4: the ~1.6% gap attributed to toFixed(1) here confirmed)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the ladder whose toFixed(1) ~917.9 widening is reconciled)
@@ -197,8 +197,8 @@ export const IMP33884_EFLOW_RESID_WIDENING_FULLPREC_RECOMPUTE = {
     'roe(6)=2.134 to 2.1 (head-only round reproduces 917.9 to 1.4e-6; tail-only round shifts by ' +
     '1.4e-6). The ~1.6% is a pure toFixed(1) reporting artifact. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-28895 (R4 toFixed(1) attribution confirmed here); imp-33810 (the ~917.9 reported widening); ' +
     'imp-33843 (fit the form but not the un-rounded value); imp-2631 (E_trunc fixed-strip); ' +
@@ -231,13 +231,13 @@ export const IMP33884_EFLOW_RESID_WIDENING_FULLPREC_RECOMPUTE_ASSERTIONS = [
     holds: () => HEAD_ONLY_MATCHES_REPORTED < 1e-5 && TAIL_ROUND_SHIFT < 1e-4 && HEAD_ROUND_SHIFT > 1e-2,
   },
   {
-    // Honesty gate: measurement/reconciliation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement/reconciliation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33884-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33884_EFLOW_RESID_WIDENING_FULLPREC_RECOMPUTE.isRigorous === false &&
       /NO QED/.test(IMP33884_EFLOW_RESID_WIDENING_FULLPREC_RECOMPUTE.verdict) &&
-      /remains SOTA/.test(IMP33884_EFLOW_RESID_WIDENING_FULLPREC_RECOMPUTE.verdict),
+      /refereed bound is changed/i.test(IMP33884_EFLOW_RESID_WIDENING_FULLPREC_RECOMPUTE.verdict),
   },
 ];
 

@@ -72,7 +72,7 @@
  *
  *   Derivation + measurement only; pins NO analytic curvature constant; no bound moves; the only
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97437-bulk-profile-curvature-wobble-obstruction -- the analytic crossover
  *   formula x*(eps) = (eps/kappa)[(C+1/2)+(1/2)log(1/x*)] is derived and validated (kappa_eff =
@@ -208,8 +208,8 @@ export const IMP97437_VERDICT = Object.freeze({
     'is b-independent and comparable to the kappa x^2 ~ 3e-4 signal at x=0.1). Pinning the constant ' +
     'needs the exact Bettin-Conrey reciprocity smooth/fluctuation split of V(b,a), not finite-b ' +
     'compute. Derivation + measurement only; pins no analytic constant; the rigorous anchor stays ' +
-    'T = 2.594e7; compute N ~ 9916 binds first by >2600x; no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'T = 2.594e7; compute N ~ 9916 binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97437_SUBGAP = Object.freeze({
@@ -228,7 +228,7 @@ export const IMP97437_SUBGAP = Object.freeze({
 });
 
 export const IMP97437_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the analytic ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the analytic ' +
   'boundary-to-bulk crossover x*(eps) = (eps/kappa)[(C+1/2)+(1/2)log(1/x*)] is derived from ' +
   '(I - I_lin)/I = r(x)/f(x) and VALIDATED (effective kappa_eff = 0.0995 reproduces both converged ' +
   'imp-97419 crossovers to ~1-2%). The PURE analytic O(x^2) curvature coefficient stays OBSTRUCTED ' +
@@ -325,7 +325,7 @@ const IMP97437_ASSERTIONS = [
       IMP97437_VERDICT.separatesSqrtVsLog2b === false &&
       IMP97437_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97437_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97437_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97437_HONEST_BANNER) &&
       /RH open/.test(IMP97437_HONEST_BANNER) &&
       /curvature-wobble-obstruction/.test(IMP97437_SUBGAP.id),
   },

@@ -7,8 +7,8 @@
  * real shift ~ +0.8, giving Re s_B ~ 1.4", pushing the coefficient-ladder abscissa
  * to the RIGHT of the critical strip where zeta and L(s, chi) are unconditionally
  * zero-free. This module ASSESSES the provenance of that +0.8 shift from the
- * paper's own definitions. Accuracy audit only: no bound changes, PT Lambda <= 0.2
- * stands, RH open, NO QED.
+ * paper's own definitions. Accuracy audit only: no bound changes, no refereed bound is changed
+ * , RH open, NO QED.
  *
  * WHAT THE PAPER ACTUALLY DEFINES. Coefficient vector (10) of "Permuting the Zeta
  * Twin Ladder" (Sections 4.1-4.6) reads, verbatim as transcribed by imp-95519:
@@ -49,7 +49,7 @@
  * no-go stands on the abscissa-invariant prime side and the section 5(i)
  * small-prime closure regardless (imp-95542 already established that). Only the
  * FRAMING is corrected: do not treat Re s_B ~ 1.4 as established; the transcribed
- * effective abscissa is sub-1. No bound; NO QED; PT Lambda <= 0.2 remains SOTA;
+ * effective abscissa is sub-1. No bound; NO QED; no refereed bound is changed;
  * RH open.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived.
@@ -105,7 +105,7 @@ export const IMP95564_EFFECTIVE_ABSCISSA_AUDIT = Object.freeze({
   },
 
   netVerdict:
-    'On the only transcribed definition (eq (10)) the effective abscissa STAYS in the critical strip at Re s_B = 0.59045 < 1; the Re s_B ~ 1.4 reading is UNSUBSTANTIATED - it contradicts the paper A/B-effective exponent and has no in-repo derivation, so its +0.8 shift is spurious. Therefore the imp-95542 "obstruction dissolves at Re s_B ~ 1.4" branch is CONDITIONAL on an unverified premise, and the imp-95519 zero-side framing as written (sigma_B = 0.59045, PCC-gated) is the definition-supported one. This changes NO bound: the last-lever no-go stands on the abscissa-invariant prime side and the section 5(i) small-prime closure regardless. Only the framing is corrected: do not treat Re s_B ~ 1.4 as established. No bound; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'On the only transcribed definition (eq (10)) the effective abscissa STAYS in the critical strip at Re s_B = 0.59045 < 1; the Re s_B ~ 1.4 reading is UNSUBSTANTIATED - it contradicts the paper A/B-effective exponent and has no in-repo derivation, so its +0.8 shift is spurious. Therefore the imp-95542 "obstruction dissolves at Re s_B ~ 1.4" branch is CONDITIONAL on an unverified premise, and the imp-95519 zero-side framing as written (sigma_B = 0.59045, PCC-gated) is the definition-supported one. This changes NO bound: the last-lever no-go stands on the abscissa-invariant prime side and the section 5(i) small-prime closure regardless. Only the framing is corrected: do not treat Re s_B ~ 1.4 as established. No bound; NO QED; no refereed bound is changed; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -153,11 +153,11 @@ export const IMP95564_EFFECTIVE_ABSCISSA_AUDIT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95564-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95564_EFFECTIVE_ABSCISSA_AUDIT.promotesBound === false &&
       /NO QED/.test(IMP95564_EFFECTIVE_ABSCISSA_AUDIT.netVerdict) &&
-      /remains SOTA/.test(IMP95564_EFFECTIVE_ABSCISSA_AUDIT.netVerdict),
+      /refereed bound is changed/i.test(IMP95564_EFFECTIVE_ABSCISSA_AUDIT.netVerdict),
   },
 ]);
 

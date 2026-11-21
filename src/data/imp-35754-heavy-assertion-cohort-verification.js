@@ -32,7 +32,7 @@ export const IMP35754_HEAVY_ASSERTION_COHORT_VERIFICATION = {
     IMP35695_RESOLUTION_FLOOR_FACTOR_M_LADDER.id,
     IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK.id,
   ],
-  verdict: 'all six cohort modules import cleanly and their self-executing assertions pass; verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all six cohort modules import cleanly and their self-executing assertions pass; verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35677', 'imp-35678', 'imp-35679', 'imp-35680', 'imp-35695', 'imp-35696'];

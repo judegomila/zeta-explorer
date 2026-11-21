@@ -4,8 +4,8 @@
  * imp-97286 (numerical, MEASUREMENT): extend the imp-97226/imp-97270 signed-half ratio
  * S(b)/(phi(b) b) ladder past b=24001 to pin the ~-0.0795 asymptote more sharply and fit the
  * functional form of its creep, sharpening the imp-97270 6e-4 kappa_cot reconciliation residual.
- * Measurement only; certifies neither the limit nor its sign; no bound moved; PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * Measurement only; certifies neither the limit nor its sign; no bound moved; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97097 / imp-97180 / imp-97204 / imp-97226).
@@ -66,7 +66,7 @@
  * non-elementary Bettin-Conrey period-function mean value (imp-97226/imp-97204 obstruction). The C/b
  * creep form is an empirical fit, not a proved rate. kappa_cot stays MEASURED; the whole-kappa
  * positivity still rests on the single open scalar c_1 (M2w < 0.32546, imp-97210). No bound on Lambda
- * moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * moves. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97226-route-m-cotangent-cancellation-ratio-ladder.js (parent ladder to b=24001)
  * @see imp-97270-route-m-kappa-cot-three-leaf-reconciliation.js (the 6e-4 residual attributed here)
@@ -184,12 +184,12 @@ export const IMP97286_VERDICT = Object.freeze({
     'reconstruction. The signed leg is now pinned finer than the total it feeds. The asymptote, its ' +
     'sign, and the C/b creep form are all MEASURED/extrapolated, not certified (non-elementary ' +
     'Bettin-Conrey mean value, imp-97204). kappa_cot stays MEASURED; whole-kappa positivity still ' +
-    'rests on the single open scalar M2w < 0.32546. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; ' +
+    'rests on the single open scalar M2w < 0.32546. No bound on Lambda moves. No refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97286_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: extending the imp-97226 signed ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: extending the imp-97226 signed ' +
   'half S(b)/(phi b b) ladder to b=64007 shows a clean ~C/b creep (C ~ 1.4..1.5) with extrapolated ' +
   'asymptote L ~ -0.079575 (stable to 5 decimals). This sharpens the imp-97270 kappa_cot residual ' +
   'from 6.05e-4 to 5.08e-4: only ~1e-4 was finite-b truncation of the signed leg, the rest ~5e-4 is ' +
@@ -251,7 +251,7 @@ const IMP97286_ASSERTIONS = [
       IMP97286_VERDICT.anyBoundMoved === false &&
       IMP97286_VERDICT.qed === false &&
       /NO QED/.test(IMP97286_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97286_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97286_HONEST_BANNER) &&
       /RH open/.test(IMP97286_HONEST_BANNER),
     why: 'measurement only: the asymptote and its sign stay MEASURED (non-elementary), no bound moved, honesty markers present.',
   },

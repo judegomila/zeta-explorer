@@ -33,7 +33,7 @@
  *   OCR "2 -> 2u" reading imp-95745 flagged.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no
- * bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * bound; NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  */
 
 // m-free telescoping identities (Hurwitz-zeta v-averages), verified in scratch:
@@ -76,7 +76,7 @@ export const SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS = Object.freeze({
     + '-5/2, so offset = 3/2 - (-5/2) = 4 at every m. CONSISTENCY WITNESS not a proof: only m=20 has '
     + 'a certified kappa; off the anchor const=3/2 is an internal structural fact (the const '
     + 'integrand has no m), corroborating m-independence, not proving the true offset = 4 off m=20. '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'tmp/sun-catalan/paper.txt Section 6, Proposition 6.3, eqs (6.11)-(6.23)',
   builtOn:
@@ -115,7 +115,7 @@ export const SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS = Object.freeze({
     + 'still needs a second certified c_odd anchor (imp-95781) or a from-scratch re-derivation '
     + 'resolving the imp-95745 OCR "2 -> 2u" reading. Double-precision, NOT interval-certified. '
     + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; '
-    + 'PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.',
+    + 'no refereed bound is changed; NO QED. NO heavy imports.',
 });
 
 export const SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS_ASSERTIONS = Object.freeze([
@@ -164,7 +164,7 @@ export const SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS_ASSERTIONS = Obje
     holds: () =>
       /consistency witness/i.test(SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS.verdict)
       && /second certified c_odd anchor/.test(SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS.caveats)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS.status)
+      && /refereed bound is changed/i.test(SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS.status)
       && /NO QED/.test(SUN_PROP63_PLUS4_OFFSET_CONST_SECTOR_WIDE_MODULUS.status),
   },
 ]);

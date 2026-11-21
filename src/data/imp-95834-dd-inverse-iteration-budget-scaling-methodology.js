@@ -44,14 +44,14 @@
  *   underlying quantity.
  *
  *   STATUS: a methodology/Concepts lookup only. Establishes nothing new;
- *   changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (fixed-budget artifact + converged re-run)
  * @see imp-95799-rstar-delta-drift-linear-fit (independent hit: DD Levinson crossing test blocked by the same failure mode)
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (the shift-invert cure for the same under-convergence)
  *
  * Ticket: imp-95834 (meta, low). Documentation only; establishes nothing;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 // The DD inverse-iteration budget-scaling methodology caveat, baked verbatim (no re-import).
@@ -115,7 +115,7 @@ export const IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY = Object.f
     '(imp-95803: biasPct 4.82->9.60->2.12->2.46; imp-95799: lambda_min rising ' +
     'at N=778->865) are a diagnostic artifact, not a real feature. Establishes ' +
     'nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95803 (fixed-budget artifact + iteration-scaled converged re-run to ' +
     'N=500); imp-95799 (independent hit: DD Levinson crossing test blocked by ' +
@@ -145,11 +145,11 @@ export const IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY_ASSERTIONS
   },
   {
     id: 'imp95834-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY.anyBoundMoved === false &&
       /NO QED/.test(IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY.verdict) &&
-      /remains SOTA/.test(IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY.verdict) &&
+      /refereed bound is changed/i.test(IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY.verdict) &&
       IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY.glosses.includes('imp-95803') &&
       IMP95834_DD_INVERSE_ITERATION_BUDGET_SCALING_METHODOLOGY.glosses.includes('imp-95799'),
   },

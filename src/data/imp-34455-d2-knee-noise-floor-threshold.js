@@ -60,7 +60,7 @@
  * MEASUREMENT / DETECTABILITY DIAGNOSTIC ONLY. Conditional-share curvature diagnostic, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34371-d2-knee-detectability-threshold (loss-of-knee frontier span = 4W; F2 "not noise-limited")
  * @see imp-34291-sigma-inflection-uniqueness-robustness (39-config uniqueness sweep; under-count F2/F3)
@@ -263,7 +263,7 @@ export const IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD = {
     'and W* is fit-extrapolated below the directly resolvable grid. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34371 (loss-of-knee frontier span = 4W; F2 "not noise-limited"); imp-34291 (39-config ' +
     'uniqueness sweep); imp-33721 (sub-decade knee location log10 N* ~ 9.529); imp-33582 (six-decade ' +
@@ -318,14 +318,14 @@ export const IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD_ASSERTIONS = [
       CROSSOVER_FAR_BELOW_FINEST_TESTED && Math.abs(CROSSOVER_WSTAR / 2.565e-4 - 1) < 5e-2,
   },
   {
-    // Honesty gate: detectability diagnostic only, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: detectability diagnostic only, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34455-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD.isRigorous === false &&
       /FIT-EXTRAPOLATED/.test(IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD.subGap) &&
       /NO QED/.test(IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD.verdict) &&
-      /remains SOTA/.test(IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD.verdict),
+      /refereed bound is changed/i.test(IMP34455_D2_KNEE_NOISE_FLOOR_THRESHOLD.verdict),
   },
 ];
 

@@ -142,7 +142,7 @@
  * statement is Bohr-Landau (1914) via Littlewood's lemma; its quantitative form is the
  * zero-density exponent; its RH form is Littlewood's criterion. Route E is ABSORBED into
  * this classical chain; it yields heuristic framing, not a new mechanism. Status: tested,
- * absorbed, no lever. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * absorbed, no lever. No refereed bound is changed; RH open; NO QED.
  *
  * NEXT TEST (the one nontrivial residual). The mean-vanishing RATE: measure
  * m_T(sigma) = (1/T) int_T^{2T} log|zeta(sigma+it)| dt at sigma = 0.6, 0.75 for T = 1e3..1e6 and
@@ -363,7 +363,7 @@ export const RH_ROUTE_E_WIDOM_LD = Object.freeze({
     + '(1914) through Littlewood\'s lemma; its quantitative form is the zero-density exponent, its RH '
     + 'form is Littlewood\'s criterion. The primon-gas fluctuation model reproduces the mean and the '
     + 'variance but is blind to the O(log T) vs T^{1-I} refinement that is RH. Heuristic framing only; '
-    + 'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'no refereed bound is changed; RH open; NO QED.',
   nextTest:
     'Measure m_T(sigma) = (1/T) int_T^{2T} log|zeta(sigma+it)| dt at sigma = 0.6, 0.75 for T = '
     + '1e3..1e6 against the O(log T / T) Littlewood scaling; a T^{-I} tail with I<1 would be an '
@@ -527,7 +527,7 @@ export const RH_ROUTE_E_WIDOM_LD_ASSERTIONS = Object.freeze([
     holds: () => {
       const v = RH_ROUTE_E_WIDOM_LD.verdict;
       return /ABSORBED/.test(v) && /NO LEVER/.test(v) && /RH-blind/.test(v) && /Bohr-Landau/.test(v)
-        && /NO QED/.test(v) && /RH open/.test(v) && /remains SOTA/.test(v)
+        && /NO QED/.test(v) && /RH open/.test(v) && /refereed bound is changed/i.test(v)
         && !/prov(e|ed|es) RH/i.test(v) && typeof RH_ROUTE_E_WIDOM_LD.nextTest === 'string';
     },
     why: 'verdict states the route is absorbed into the classical Bohr-Landau/Littlewood/zero-density chain, RH-blind, no lever, NO QED, RH open, and records a next test.',

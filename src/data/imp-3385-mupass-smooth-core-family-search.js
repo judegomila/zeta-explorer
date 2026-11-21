@@ -56,7 +56,7 @@
  *   "milder, shape-tuned core with far stronger lag-cutoff sensitivity" is NOT a
  *   smooth-decay kernel -- it needs sharper-than-smooth lag structure than either
  *   PD Toeplitz smoothing supplies. RH-equivalent residual untouched; no
- *   positivity, no reduction; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   positivity, no reduction; no refereed bound is changed.
  *
  *   @see imp-3310-mupass-passive-core-assembly-recipe.js (the evaluator + the additive-Fejer verdict this extends)
  *   @see imp-3214-mupass-symmetric-normalization-port.js (named this residual; ported the functional calculus)
@@ -345,7 +345,7 @@ export const IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH = Object.freeze({
     '~0.10-0.12) while holding lag<=0.2=0.876. VERDICT: the smooth Gaussian/exponential ' +
     'family is RULED OUT -- its lag contrast is structurally too flat -- sharpening the ' +
     'imp-3310 residual toward a sharper-than-smooth lag structure. Measurement only, ' +
-    'RH-equivalent, no positivity, no reduction, NO QED. PT Lambda <= 0.2 remains SOTA.',
+    'RH-equivalent, no positivity, no reduction, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -413,7 +413,7 @@ export const IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH = Object.freeze({
       'Ruling out the smooth Gaussian/exponential core family and bounding its lag-contrast ceiling does NOT ' +
       'construct the exact passive-core assembly or attempt the K_a >= 0 positivity, which remains the RH-equivalent ' +
       'obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -472,7 +472,7 @@ export const IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH_ASSERTIONS = [
   {
     id: 'imp3385-honest-no-qed-no-reproduction',
     why: 'Mandatory honesty: smooth family ruled out and the imp-3310 residual sharpened, but the exact 0.876/0.711 ' +
-         'recipe is NOT reproduced (still out-of-repo); MEASUREMENT only, RH-equivalent, positivity not attempted, PT 0.2 SOTA.',
+         'recipe is NOT reproduced (still out-of-repo); MEASUREMENT only, RH-equivalent, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH.honestCaveat;
       return (
@@ -485,7 +485,7 @@ export const IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH_ASSERTIONS = [
         c.smoothFamilyRuledOut === true &&
         c.coreAssemblyRecipeStillOutOfRepo === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

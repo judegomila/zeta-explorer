@@ -99,7 +99,7 @@
  * attainment x occupancy <= gamma < 1 (that needs omega_min); at omega = 0
  * the law degenerates to the known phi <= 1. Floors and ceilings untouched;
  * changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) Lemma TM was checked numerically
  * against the exact Lemma PF closed form on the full grid b <= 15,
@@ -458,7 +458,7 @@ export const IMP95129_ODD_MASS_DILUTION_LAW = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM OD is a two-line chain of carried and unconditional lemmas: the parity split of capSum is definitional (same-parity pairs only), Lemma SW per class and Lemma PB are unconditional, and the per-pair envelope caps are the carried MAJ chain (Lemmas CC/RM/PF) - so the law holds wherever THEOREM ER holds, with no new conditionality. Lemma TM is unconditional elementary calculus, and the odd-class constant it certifies covers all odd blocks including the unscanned tail. The float evaluation of the exact closed forms carries ~1e-8 relative rounding, absorbed by the 1e-6 guard on LwOddCert. The battery and terminal-witness numerics CROSS-CHECK the law; they are not the claim. The law does NOT close the tradeoff sub-gap: omega_min remains open and named. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM OD is a two-line chain of carried and unconditional lemmas: the parity split of capSum is definitional (same-parity pairs only), Lemma SW per class and Lemma PB are unconditional, and the per-pair envelope caps are the carried MAJ chain (Lemmas CC/RM/PF) - so the law holds wherever THEOREM ER holds, with no new conditionality. Lemma TM is unconditional elementary calculus, and the odd-class constant it certifies covers all odd blocks including the unscanned tail. The float evaluation of the exact closed forms carries ~1e-8 relative rounding, absorbed by the 1e-6 guard on LwOddCert. The battery and terminal-witness numerics CROSS-CHECK the law; they are not the claim. The law does NOT close the tradeoff sub-gap: omega_min remains open and named. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -546,11 +546,11 @@ export const IMP95129_DILUTION_LAW_ASSERTIONS = [
   {
     id: "imp95129-od-honesty-gate",
     description:
-      "the verdict inherits exactly the THEOREM ER conditionality, names the remaining sub-gap imp-95129-subgap-min-odd-mass, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict inherits exactly the THEOREM ER conditionality, names the remaining sub-gap imp-95129-subgap-min-odd-mass, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95129_ODD_MASS_DILUTION_LAW.promotesBound === false &&
       /NO QED/.test(IMP95129_ODD_MASS_DILUTION_LAW.rigorScope) &&
-      /remains SOTA/.test(IMP95129_ODD_MASS_DILUTION_LAW.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95129_ODD_MASS_DILUTION_LAW.rigorScope) &&
       /imp-95129-subgap-min-odd-mass/.test(IMP95129_ODD_MASS_DILUTION_LAW.subGap) &&
       /does NOT close the tradeoff sub-gap/.test(IMP95129_ODD_MASS_DILUTION_LAW.rigorScope) &&
       /no new conditionality/.test(IMP95129_ODD_MASS_DILUTION_LAW.rigorScope) &&

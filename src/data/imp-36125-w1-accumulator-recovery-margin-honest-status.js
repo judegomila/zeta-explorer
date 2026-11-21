@@ -15,7 +15,7 @@
  *   either axis alone symmetrically.
  *
  *   Ticket: imp-36125 (content, medium). Note only; re-reads nothing new; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-36061-w1-accumulator-recovery-detuning-width.js (source module this note restates)
  *   @see imp-35991-w1-accumulator-baseline-margin-to-resonance (the r < 1e-2 basin edge this widens)
@@ -76,7 +76,7 @@ export const IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS = Object.free
     mustMonitorAtRuntime: true,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -88,8 +88,8 @@ export const IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS = Object.free
     'beta edges lie beyond the baseline beta (drift alone under-recovers). Precision stays NOT the ' +
     'binding constraint even at full collapse; the obstruction stays the ENGINEERING of the ' +
     'certified length-N interval sum (GREENFIELD / MECHANICAL). Restatement only; changes no ' +
-    'bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS_ASSERTIONS = [
@@ -139,11 +139,11 @@ export const IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS_ASSERTIONS = 
       IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS.honestCaveat.isSymmetricAcrossAxes === false &&
       IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS.honestCaveat.mustMonitorAtRuntime === true &&
       IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36125-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36125_W1_ACCUMULATOR_RECOVERY_MARGIN_HONEST_STATUS.verdict),
   },
 ];

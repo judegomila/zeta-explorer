@@ -95,8 +95,8 @@ export const IMP95406_RZPEN6_FLOOR_GAP_NOTE_STALENESS_RECONCILIATION = {
     '3.0-5.1x to 1.01-1.08x. The corrected residual scope is chart ' +
     'refinement, kept-pair endpoint headroom, the uniform-only ' +
     'BCAP branch, and off-lattice rates. AUDIT/RECONCILIATION ONLY: ' +
-    'changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 const REC = IMP95406_RZPEN6_FLOOR_GAP_NOTE_STALENESS_RECONCILIATION;
@@ -152,7 +152,7 @@ export const IMP95406_ASSERTIONS = [
       /AUDIT\/RECONCILIATION ONLY/.test(REC.verdict) &&
       /changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /bitwise unchanged/.test(REC.unchanged),
   },
 ];

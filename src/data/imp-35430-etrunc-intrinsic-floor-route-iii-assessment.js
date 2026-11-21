@@ -66,8 +66,7 @@
  * OPEN. ASSESSMENT / DERIVATION ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi)
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; the E_TRUNC = 3.06e-5 floor value (imp-2631) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35356-reentry-band-r1-route-enumeration (the three R1 routes; route (iii) circularity flag)
  * @see imp-35357-reentry-band-pure-artifact-proof-requirement (the EXACT floor-slide identity d xArg/d log FLOOR)
@@ -178,7 +177,7 @@ export const IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT = {
     'surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_TRUNC = 3.06e-5 floor value ' +
     '(imp-2631) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail ' +
     'exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35356 (three R1 routes; route (iii) circularity flag); imp-35357 (EXACT floor-slide identity); imp-35332 ' +
     '(non-constant DRIFT(N)); imp-35372 (bakes E_TRUNC_PT = 3.06e-5); imp-35243 (D1 floor-sensitivity); imp-2631 ' +
@@ -242,14 +241,14 @@ export const IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT_ASSERTIONS = [
       Math.abs(LOG10_EPS_FP - (-15.6383)) < 1e-3,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gaps named.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gaps named.
     id: 'imp35430-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, discharges nothing, R1t stays OPEN, no QED, PT SOTA, sub-gaps named',
+    description: 'Assessment only: isRigorous false, discharges nothing, R1t stays OPEN, no QED, no refereed bound is changed, sub-gaps named',
     holds: () =>
       IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.isRigorous === false &&
       /Discharges nothing/.test(IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.finding) &&
       /NO QED/.test(IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.verdict) &&
       /imp-35243a/.test(IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.residual_sub_gap) &&
       /imp-35111a/.test(IMP35430_ETRUNC_INTRINSIC_FLOOR_ROUTE_III_ASSESSMENT.residual_sub_gap),
   },

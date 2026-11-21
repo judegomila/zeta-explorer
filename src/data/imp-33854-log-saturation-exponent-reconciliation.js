@@ -74,7 +74,7 @@
  * MEASUREMENT / DERIVATION ONLY. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (gap_sigma ~ 1/(2 log T0), ratio -> 1)
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (E_coll exponent -> -1/2 from above, resid 0.0152 at 1e15)
@@ -223,7 +223,7 @@ export const IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION = {
     '-0.4848 (residual 0.0152) under the identical inherited imp-3220/imp-3406 model. The component ' +
     'model is that extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33816 (gap_sigma ~ 1/(2 log T0), ratio -> 1); imp-33620 (E_coll exponent -> -1/2 from ' +
     'above, residual 0.0152 at 1e15); imp-33865 (baked gap_sigma curve, gap_sigma(1e15)=0.01578); ' +
@@ -270,13 +270,13 @@ export const IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION_ASSERTIONS = [
       Math.abs(ECOLL_DISCRETE_RESID_1E15 - 0.0152) < 5e-4,
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp33854-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION.verdict),
   },
 ];
 

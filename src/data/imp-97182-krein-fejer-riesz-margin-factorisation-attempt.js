@@ -10,7 +10,7 @@
  *
  *   ATTEMPT / DERIVATION ONLY. The prefactor square is executed exactly; the margin is NOT certified.
  *   Produces NO coercivity constant c > 0 and no operator positivity at 2a = ln3; changes no bound;
- *   interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * STEP 1 -- THE PREFACTOR IS A MANIFEST HERMITIAN SQUARE (this half of the SOS is FREE and exact).
  *   The polynomial prefactor is symbol-positive and factors on the nose:

@@ -41,7 +41,7 @@
  *   < 1e-3 tail bar the resolved bias sits 36.7x below)
  *
  * Ticket: imp-97658 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The tail-bias signal-vs-floor headword, baked verbatim (no re-import).
@@ -71,7 +71,7 @@ const KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_HEADWORD = Object.freeze({
     'confirm both floor estimates recompute to ~1e-9, the SNR exceeds 1e3-1e4x at R* = 3.36, ' +
     'the resolved bias sits 36.7x below the tail bar, and the sign-change radius at Rc stays ' +
     'unresolved while the sign at R* is resolved. Naming / glossary headword only; supplies no ' +
-    'new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -89,8 +89,8 @@ export const IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD = Object
     'far-field tail bias relBias(3.36) = -2.72746e-5 is resolvable ~1e4x above the ~1e-9 ' +
     'edge-amplitude floor (a genuine signal, not noise), while the exact sign-change radius at ' +
     'Rc = 1/a stays unresolvable there. The resolved bias sits 36.7x below the imp-97497 < 1e-3 ' +
-    'tail bar. No bound moved; not a rigorous asymptotic; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'tail bar. No bound moved; not a rigorous asymptotic; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97625 (the floor assessment this glosses); imp-97605 (the direct cross-validation and ' +
     'zero-crossing floor); imp-97580 (the relBias closed factor and sign change); imp-97497 ' +
@@ -117,11 +117,11 @@ export const IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp97658-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97625.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97625.',
     holds: () =>
       IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP97658_KREIN_TAIL_BIAS_SIGNAL_VS_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-97625',
   },
 ];

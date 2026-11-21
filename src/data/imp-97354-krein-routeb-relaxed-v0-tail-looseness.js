@@ -52,7 +52,7 @@
  * SCOPE. Measurement / instantiation only for a representative degree-level relaxed trial (rigorous upper bound
  * for any fixed trial by imp-96888, but this trial is a stand-in, not a committed near-optimal v0). Produces no
  * committed v0, no interval majorant, no operator positivity; Rayleigh floors stay UPPER bounds; interval-
- * rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97337-krein-routeb-certified-bessel-enclosure.js (the scheme; 8-sparse baseline C_far ~ 48524.3)
  * @see imp-97338-krein-cjk-exact-band-inversion-obstruction.js (closes 8-sparse inversion; leaves 6-carrier relaxation live)

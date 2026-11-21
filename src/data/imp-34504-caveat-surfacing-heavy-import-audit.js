@@ -3,7 +3,7 @@
  *
  * imp-34504 (meta): AUDIT of whether the honest-status caveat block
  * (component model NOT a rigorous asymptotic, C_mb GUE-conditional per
- * imp-486, no bound change, NO QED, Platt-Trudgian Lambda<=0.2 SOTA) present
+ * imp-486, no bound change, NO QED, no refereed bound is changed) present
  * in the imp-34446..34454 JSDoc is ALSO surfaced wherever the improvements
  * viewer renders these cluster modules to end-readers, following the
  * imp-34463 precedent audit of the earlier imp-34369..34398 cohort -- and
@@ -78,7 +78,7 @@ export const CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT = {
   honest: 'AUDIT-ONLY -- confirms the caveat reaches end-readers on every render surface for all 9 cohort ' +
     'modules, and that none imports the heavy zeros bundle directly or transitively; no surfacing or import ' +
     'fix was made because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
@@ -116,10 +116,10 @@ export const CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34504-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no fix applied, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no fix applied, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT.honest)
       && /no surfacing or import\s*/.test(CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_HEAVY_IMPORT_AUDIT.honest),
   },
 ];
 

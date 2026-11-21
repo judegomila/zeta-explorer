@@ -21,7 +21,7 @@
  *
  * VERDICT. Both modules (imp-124917/imp-124918) are indexed with routed consumer pages.
  * No silent orphan leaf found. Read-only discoverability audit; changes no bound;
- * establishes no operator positivity; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; NO QED; no refereed bound is changed.
  *
  * @see imp-124901-sigma-leaves-visualizations-index-discoverability-audit (precedent method)
  * @see imp-124804-far-frontier-import-light-audit (original discoverability-audit precedent)

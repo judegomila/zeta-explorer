@@ -39,7 +39,7 @@
  *
  *   STATUS: a grouping/index note over four already-committed modules, not a new derivation. No
  *   bound changes; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066
- *   K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-124823-f2-curvature-honest-status.js (honest-status: F2 residual curvature real-but-harmless)
  * @see imp-124824-ecf-stencil-crossover-viz-data.js (viz leaf: E_CF stencil crossover ladder L2..L6)
@@ -49,7 +49,7 @@
  * @see imp-124923-doc-leaf-batch-role-cohort-index.js (overlapping but distinct cohort-index: swaps imp-124776/imp-124821 for imp-124825)
  *
  * Ticket: imp-124936 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const OCT6_NOTE_STATUS_COHORT = Object.freeze([
@@ -119,8 +119,8 @@ export const IMP124936_OCT6_NOTE_STATUS_RESTATEMENT_COHORT_INDEX = Object.freeze
     'and should not mistake either cohort-index for the other or for the imp-124822 measurement ' +
     'index. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation; C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 ' +
-    'K_a >= 0 untouched; establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124823 (honest-status, F2 residual curvature real-but-harmless); imp-124824 (viz leaf, ' +
     'E_CF stencil crossover ladder L2..L6); imp-124825 (cross-reference, chord-to-certification ' +
@@ -161,11 +161,11 @@ export const IMP124936_OCT6_NOTE_STATUS_RESTATEMENT_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp124936-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124936_OCT6_NOTE_STATUS_RESTATEMENT_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP124936_OCT6_NOTE_STATUS_RESTATEMENT_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP124936_OCT6_NOTE_STATUS_RESTATEMENT_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP124936_OCT6_NOTE_STATUS_RESTATEMENT_COHORT_INDEX.verdict),
   },
 ];
 

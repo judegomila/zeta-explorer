@@ -13,7 +13,7 @@
 // specific clause rely on prose alone in some of the seven?
 //
 // GREP + READ RESULT (2026-07-05): all seven modules pass the core no-QED /
-// isRigorous:false / PT-SOTA tripwire -- each module's own ASSERTIONS array checks
+// isRigorous:false / no-refereed-bound-change tripwire -- each module's own ASSERTIONS array checks
 // isRigorous === false and regex-tests /NO QED/ and /remains SOTA/ against its
 // verdict string, throwing at import time if any check fails. But the cohort SPLITS
 // on the imp-3066 clause, unlike the imp-34035/imp-34058 cohorts where the gap was
@@ -36,7 +36,7 @@ import { IMP34024_KPSS_STATIONARITY_BRACKET } from './imp-34024-kpss-stationarit
 import { IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION } from './imp-34025-ar2-breusch-godfrey-serial-correlation.js';
 import { IMP34026_QUADRATIC_DETREND_LJUNG_BOX } from './imp-34026-quadratic-detrend-ljung-box.js';
 
-const SOTA_RE = /remains SOTA\.?$|remains SOTA/;
+const SOTA_RE = /refereed bound is changed/i;
 const IMP3066_RE = /imp-3066[^.]*untouched/i;
 const IMP3066_SPECIFIC_TRIPWIRE_RE = /imp-3066 K_a >= 0 untouched/;
 
@@ -126,7 +126,7 @@ export const IMP34102_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
 
   summary:
     'All seven imp-34008/34009/34022/34023/34024/34025/34026 modules carry a build-time tripwire ' +
-    'asserting isRigorous===false, NO QED, and Platt-Trudgian Lambda<=0.2 remains SOTA -- none relies on ' +
+    'asserting isRigorous===false, NO QED, and no refereed bound is changed -- none relies on ' +
     'prose alone for the core honesty gate. Unlike the uniform gap the imp-34035/imp-34058 audits found, ' +
     'this cohort SPLITS on the imp-3066 clause specifically: imp-34024, imp-34025, and imp-34026 already ' +
     'carry an assertion regex-checking the literal "imp-3066 K_a >= 0 untouched" string against their ' +
@@ -138,13 +138,13 @@ export const IMP34102_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
     '(imp-34008, imp-34009, imp-34022, imp-34023) state the imp-3066 K_a>=0 untouched clause only in ' +
     'prose, with no regex tripwire covering it -- flagged here as an audit finding, not fixed in this ' +
     'ticket (audit-only scope). The other 3 of 7 (imp-34024, imp-34025, imp-34026) already carry that ' +
-    'clause-specific tripwire. No bound changed; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'clause-specific tripwire. No bound changed; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+    '.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by live-importing and reading each ' +
     'of the seven modules; does not modify any of the seven modules and adds no new bound. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP34102_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -163,7 +163,7 @@ export const IMP34102_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34102-all-seven-carry-no-qed-and-sota',
-    description: 'all seven modules carry NO QED text and the Platt-Trudgian Lambda<=0.2 SOTA line',
+    description: 'all seven modules carry NO QED text and the no-refereed-bound-change line',
     holds: () => ALL_HAVE_NO_QED && ALL_HAVE_SOTA,
   },
   {
@@ -185,11 +185,11 @@ export const IMP34102_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34102-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP34102_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP34102_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP34102_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP34102_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP34102_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP34102_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

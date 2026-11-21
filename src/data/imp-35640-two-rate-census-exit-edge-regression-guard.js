@@ -21,8 +21,7 @@
  * from first principles rather than trusting imp-35608 exports. It then asserts the three exit-edge
  * log10 N and the three decade offsets match 7-sig-fig reference literals within 1e-6 RELATIVE tolerance
  * (storage-precision tolerance). VERIFICATION TOOLING ONLY: it recomputes an established measurement,
- * changes no bound, discharges nothing; imp-35243a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound, discharges nothing; imp-35243a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35608-two-rate-census-exit-edge-location (the located edges this module guards)
  * @see imp-35572-reentry-band-terminal-width-rate-robustness (in-band zero change; census exit lower bound)
@@ -161,7 +160,7 @@ export const IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD = {
     '141.1806374, 182.3247578, 184.6079757 reproduce the imp-35608 located values to 1e-6 relative, so any ' +
     'silent drift in the surrogate, the amplitude, or the ceil/peel logic now trips a build. VERIFICATION ' +
     'TOOLING ONLY: recomputes an established measurement, changes no bound, discharges nothing; imp-35243a ' +
-    'stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays OPEN; NO QED; no refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-35608 (two-rate census exit edge location, the guarded values); imp-35572 (in-band zero change; ' +
@@ -201,14 +200,14 @@ export const IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD_ASSERTIONS = [
       GUARD_EDGES[1].exit_log10N < GUARD_EDGES[2].exit_log10N,
   },
   {
-    // Honesty gate: verification tooling only, changes no bound, sub-gap OPEN, no QED, PT SOTA.
+    // Honesty gate: verification tooling only, changes no bound, sub-gap OPEN, no QED, no refereed bound is changed.
     id: 'imp35640-honesty-gate-no-qed',
-    description: 'Verification tooling only: isRigorous false, imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Verification tooling only: isRigorous false, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD.isRigorous === false &&
       /imp-35243a\s+stays OPEN/.test(IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD.finding) &&
       /NO QED/.test(IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD.finding) &&
-      /remains SOTA/.test(IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD.finding),
+      /refereed bound is changed/i.test(IMP35640_TWO_RATE_CENSUS_EXIT_EDGE_REGRESSION_GUARD.finding),
   },
 ];
 

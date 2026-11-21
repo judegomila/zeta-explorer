@@ -66,7 +66,7 @@
  * GUE-conditional burden -- the ~0.95 peak share is carried by E_coll, not by the
  * floor. Measurement/sensitivity only; C_mb stays GUE-conditional (imp-486); no
  * bound changes, no positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior max N_max ~ 9.22e5, sigma_max ~ 0.9494)
  * @see imp-33684-sigma-interior-peak-etrunc-model-sensitivity (peak LOCATION robustness; this module adds the peak-SHARE reduction direction)
@@ -180,7 +180,7 @@ export const IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE = {
     'E_coll term. "Tighten E_trunc" is therefore closed off as a route to reducing the C_mb ' +
     'GUE-conditional burden. Measurement/sensitivity only; C_mb stays GUE-conditional ' +
     '(imp-486); no bound changes, no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-3406 (interior max N_max ~ 9.22e5, sigma_max ~ 0.9494); imp-33684 (peak LOCATION ' +
@@ -233,14 +233,14 @@ export const IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE_ASSERTIONS = [
       SIGMA_AT_ZERO_FLOOR_1e10 > 0.99 && SIGMA_AT_ZERO_FLOOR_1e20 > SIGMA_AT_ZERO_FLOOR_1e10,
   },
   {
-    // Honesty gate: measurement/assessment only, adverse-sign verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, adverse-sign verdict, no QED, no refereed bound is changed.
     id: 'imp96794-honesty-gate-no-qed',
-    description: 'Assessment only: cannot-shrink/adverse-sign verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: cannot-shrink/adverse-sign verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE.isRigorous === false &&
       /CANNOT SHRINK/.test(IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE.verdict) &&
       /NO QED/.test(IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE.verdict) &&
-      /remains SOTA/.test(IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE.verdict),
+      /refereed bound is changed/i.test(IMP96794_ETRUNC_REDUCTION_PEAK_SHARE_LEVERAGE.verdict),
   },
 ];
 

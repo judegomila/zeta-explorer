@@ -70,7 +70,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No bound
  *   changes: MCM onset stays omega=11, interval-rigorous certified reach unaffected; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97725-fold-amplitude-analytic-pin.js (baseline: closed-form numerator, phi_xx curvature, K=0.423330)
  * @see imp-97735-fold-amplitude-height-ladder-drift.js (height axis: phi_xx drifts to 0, no plateau)
@@ -79,7 +79,7 @@
  * @see imp-97764-fold-amplitude-wide-window-power-law.js (floor axis extended to 0.1x..10x: genuine core power law)
  *
  * Ticket: imp-97789 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- unrelated Krein constant, kept only for cross-cohort scale reference
@@ -181,7 +181,7 @@ export const IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX = Object.freeze(
     'landmark N-exponents. The cross-axis comparison (imp-97757) puts both on a shared grid: the floor ' +
     'dominates the height locally by ratio ~1.79, and the two act through disjoint numerator/denominator ' +
     'channels with opposite sign, so nothing cancels to make K stationary. No bound moves in any group: ' +
-    'MCM onset stays omega=11, RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'MCM onset stays omega=11, RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97725 (analytic pin, K=0.423330); imp-97735 (height-axis ladder, phi_xx no plateau); ' +
     'imp-97743 (floor-axis 0.5x..5x, K~E_trunc^0.221); imp-97764 (floor-axis extended 0.1x..10x, ' +
@@ -254,13 +254,13 @@ export const IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97789-honesty-gate-no-qed',
-    why: 'Documentation/index only: K not claimed universal, no bound moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: K not claimed universal, no bound moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX.kIsUniversalConstant === false &&
       IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX.anyBoundMoved === false &&
       IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX.mcmOnsetOmega === 11 &&
       /NO QED/.test(IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97789_FOLD_AMPLITUDE_K_SENSITIVITY_COHORT_INDEX.verdict),
   },
 ];
 

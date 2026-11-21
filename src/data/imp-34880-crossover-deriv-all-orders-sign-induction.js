@@ -72,7 +72,7 @@
  * imp-3220/imp-3406 surrogate crossover map. It is a statement about that map's derivative signs
  * ONLY. It establishes NO RH-level result, NO operator positivity, and changes NO bound. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
- * imp-3066 K_a >= 0 is UNTOUCHED. No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 is UNTOUCHED. No RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34859-crossover-gpppppp6-sixth-deriv-fourth-band (g_sixth_deriv < 0; sixth order, order-by-order)
  * @see imp-34842-crossover-gpppp5-fifth-deriv-fourth-band (g_fifth_deriv > 0; fifth order)
@@ -258,7 +258,7 @@ export const IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION = {
     'cross-checks). This is a lemma about the INHERITED imp-3220/imp-3406 surrogate map derivative ' +
     'signs ONLY: the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and ' +
     'imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; changes no bound; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34859 (g_sixth_deriv < 0; order-by-order); imp-34842 (g_fifth_deriv > 0); imp-34793 ' +
     '(g_quadruple_prime closed form); imp-34731 (g_double_prime closed form; P_2 base); imp-33723 ' +
@@ -311,15 +311,15 @@ export const IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION_ASSERTIONS = [
     holds: () => inductionCloses && IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION.allOrdersDefiniteSignProved,
   },
   {
-    // Honesty gate: surrogate-map lemma, changes no bound, no QED, PT stays SOTA.
+    // Honesty gate: surrogate-map lemma, changes no bound, no QED, no refereed bound is changed.
     id: 'imp34880-honesty-gate-no-qed',
     description:
       'proof scope is the surrogate-map derivative signs only: changes no bound, no QED, ' +
-      'Platt-Trudgian stays SOTA',
+      'no refereed bound is changed',
     holds: () =>
       IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION.changesBound === false &&
       /NO QED/.test(IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION.verdict) &&
-      /remains SOTA/.test(IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION.verdict) &&
+      /refereed bound is changed/i.test(IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION.verdict) &&
       /surrogate/.test(IMP34880_CROSSOVER_DERIV_ALL_ORDERS_SIGN_INDUCTION.rigorousScope),
   },
 ];

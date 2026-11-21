@@ -29,8 +29,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96105 measurement and its headline figures for
  *   quick reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves
- *   no bound. Measurement/numerics only, NOT an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   no bound. Measurement/numerics only, NOT an RH bound; NO QED. No refereed bound is changed.
  *
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000 (source: the N=6000 extension this glosses)
  * @see imp-96094-route-m-burnol-ratio-dense-ladder (the pre-extension N<=2600 dense ladder)
@@ -38,7 +37,7 @@
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling (conditioning does not cap the reach)
  *
  * Ticket: imp-96436 (content, sonnet-4-6, sonnet). Documentation only; establishes nothing; NO
- * QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * QED; no refereed bound is changed.
  */
 
 // The Route-M ratio(N) plateau headword, baked verbatim (no re-import).
@@ -85,7 +84,7 @@ export const IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD = Object.freeze({
     'a monotone approach to the Burnol constant -- every new rung sits below 1, the full ladder ' +
     'oscillates in a ~4.6 percent band with six sign changes, and a smooth 1/logN model fits ' +
     'worse. Establishes nothing; instantiates no interval; moves no bound; measurement only, NOT ' +
-    'an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'an RH bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96105 (N=6000 extension and headline figures); imp-96094 (pre-extension N<=2600 dense ' +
     'ladder); imp-96325 (later N=1e4 run, same plateau); imp-96428 (conditioning does not cap ' +
@@ -112,11 +111,11 @@ export const IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96436-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD.verdict) &&
       IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD.glosses === 'imp-96105' &&
       IMP96436_ROUTE_M_RATIO_PLATEAU_GLOSSARY_HEADWORD.scopes === 'imp-96094',
   },

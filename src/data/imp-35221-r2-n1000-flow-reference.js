@@ -45,8 +45,8 @@
  * SCOPE: MEASUREMENT / CERTIFICATION ONLY. Extends R2 by exactly one rung
  * (N=1000). Does NOT test R2 at N>=2000 (no flow reference there -- imp-857
  * baseline is MAP-bracket-only). Removes NO conditional; C_mb stays
- * GUE-conditional per imp-486; changes NO bound; Platt-Trudgian Lambda <= 0.2
- * stays SOTA; NO QED.
+ * GUE-conditional per imp-486; changes NO bound; no refereed bound is changed
+ * ; NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt^4" / "dt/2" prose.
  *
@@ -141,7 +141,7 @@ export const IMP_35221_R2_N1000_FLOW_REFERENCE = {
       'Does NOT test R2 at N>=2000 (imp-857 baseline is map-bracket-only there, ' +
       'no order-robust flow reference); does NOT extend the C_mb certificate past ' +
       'N=1000; does NOT remove the imp-486 GUE conditional; changes NO Lambda ' +
-      'bound. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'bound. No refereed bound is changed.',
     residualId: 'imp-857-sub-scale-to-N10k / imp-2528-sub-certified-flow-enclosure (N>=2000)',
   },
 };
@@ -217,6 +217,6 @@ export const IMP_35221_R2_N1000_FLOW_REFERENCE_ASSERTIONS = [
     why:
       'Measurement/certification only: never a QED or a bound change. R2 must NOT ' +
       'be claimed at N>=2000 (no flow reference there). C_mb stays GUE-conditional ' +
-      '(imp-486); Lambda <= 0.2 stays SOTA.',
+      '(imp-486); no refereed bound is changed.',
   },
 ];

@@ -59,8 +59,7 @@
  * MEASUREMENT / INTERPRETATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); no
- * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33744-sigma-inflection-vs-half-closed-form (~3.3% knee-vs-halving closed form)
  * @see imp-33729-sigma-knee-vs-crossover-offset (~3.0% knee-vs-crossover measurement)
@@ -238,7 +237,7 @@ export const IMP33767_SIGMA_INFLECTION_OFFSET_RECONCILIATION = {
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33744 (closed-form knee-vs-halving ~3.3%); imp-33729 (measured knee-vs-crossover ~3.0%); ' +
     'imp-33723 (E_flow puts N_half just below N_cross); imp-33582 (sigma=1/2 halving landmark); ' +
@@ -286,13 +285,13 @@ export const IMP33767_SIGMA_INFLECTION_OFFSET_RECONCILIATION_ASSERTIONS = [
     holds: () => LANDMARK_SEP > 0 && Math.abs(LANDMARK_SEP / EFLOW_DISPLACEMENT_PRED - 1) < 0.1,
   },
   {
-    // Honesty gate: measurement/interpretation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/interpretation only, no QED, no refereed bound is changed.
     id: 'imp33767-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33767_SIGMA_INFLECTION_OFFSET_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP33767_SIGMA_INFLECTION_OFFSET_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP33767_SIGMA_INFLECTION_OFFSET_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP33767_SIGMA_INFLECTION_OFFSET_RECONCILIATION.verdict),
   },
 ];
 

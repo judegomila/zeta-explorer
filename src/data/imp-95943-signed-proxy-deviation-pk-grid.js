@@ -56,8 +56,7 @@
  * MAGNITUDE (both below 1, both O(1/(p-1)^2)) but NOT the sign-sensitive detail:
  * the physical kernel sign is a first-order effect on the small image, not a
  * vanishing correction. Measurement only (a PROXY, not the true imp-95212
- * Fresnel-Airy kernel); changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Fresnel-Airy kernel); changes no bound; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) MEASUREMENT only, on a signed PROXY for |K_k|; the true
  * Fresnel-Airy kernel is the imp-95212 port, NOT evaluated here. (b) The Gram
@@ -232,7 +231,7 @@ export const IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-SIGN -- STILL OPEN. This measurement only quantifies a signed PROXY; whether the true imp-95212 Fresnel-Airy envelope K_k is nonnegative (which would restore the imp-95917 nonneg-proxy behaviour and force theta_phys < 1) is untouched. The measurement shows that if the true kernel is genuinely signed, the residue-uniform approximation captures only the MAGNITUDE of the image, not its sign-sensitive detail.",
   verdict:
-    "MEASUREMENT (honest): the signed Fresnel-oscillating proxy stays strictly below 1 across the whole 32-point (p,k) grid, but its relative deviation from the residue-uniform sign image does NOT shrink with p -- it is erratic and non-monotone (2.5% at p=3, 114% and a sign flip at p=7, tens of percent thereafter), because the uniform image decays as 1/(p-1)^2 (imp-95918) while the sign-driven additive bias does not. The residue-uniform approximation captures the MAGNITUDE (both below 1, both O(1/(p-1)^2)) but NOT the sign-sensitive detail: the physical kernel sign is a first-order effect on the small image, not a vanishing correction. Measurement only (a PROXY, not the true imp-95212 kernel); changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): the signed Fresnel-oscillating proxy stays strictly below 1 across the whole 32-point (p,k) grid, but its relative deviation from the residue-uniform sign image does NOT shrink with p -- it is erratic and non-monotone (2.5% at p=3, 114% and a sign flip at p=7, tens of percent thereafter), because the uniform image decays as 1/(p-1)^2 (imp-95918) while the sign-driven additive bias does not. The residue-uniform approximation captures the MAGNITUDE (both below 1, both O(1/(p-1)^2)) but NOT the sign-sensitive detail: the physical kernel sign is a first-order effect on the small image, not a vanishing correction. Measurement only (a PROXY, not the true imp-95212 kernel); changes no bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form and the theta_phys = sum_ml G_ml <cos>_w(h_m-h_l)/S reduction are EXACT (imp-95898/imp-95917); only the kernel weight is a signed PROXY. The below-1 property of the signed proxy is empirical over this 32-point grid, not a proof. The does-not-shrink conclusion is a statement about the RELATIVE deviation against a 1/(p-1)^2-decaying denominator over an 8x range in p. Changes no bound; NO QED.",
 };
@@ -310,13 +309,13 @@ export const IMP95943_ASSERTIONS = [
   {
     id: "imp95943-verdict-honesty",
     description:
-      "the verdict carries the honest scope: deviation does NOT shrink with p, a PROXY not the true kernel, sub-gap STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: deviation does NOT shrink with p, a PROXY not the true kernel, sub-gap STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /does NOT shrink with p/.test(IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID.verdict) &&
       /PROXY/.test(IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID.verdict) &&
       /STILL OPEN/.test(IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID.subGap) &&
       /NO QED/.test(IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID.verdict) &&
-      /remains SOTA/.test(IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID.verdict),
+      /refereed bound is changed/i.test(IMP95943_SIGNED_PROXY_DEVIATION_PK_GRID.verdict),
   },
 ];
 

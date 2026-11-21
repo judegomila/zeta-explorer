@@ -46,8 +46,7 @@
  *   -------------------------
  *   PURE CROSS-VALIDATION OF TWO DEGREE-0 SCALARS. Neither quantity is an operator step;
  *   neither proves nor weakens RH. The off-diagonal endpoint-Hankel step (imp-3066)
- *   remains the lone obstruction and is untouched. No QED. Platt-Trudgian Lambda <= 0.2
- *   REMAINS the rigorous SOTA.
+ *   remains the lone obstruction and is untouched. No QED. No refereed bound is changed.
  *
  *   @see imp-3106-excess-fraction-integrability.js (the regular mass 0.2690)
  *   @see imp-3026-c-shock-cross-validation.js (C_shock dual-appearance ~0.2692 at N*=1e4)
@@ -135,7 +134,7 @@ export const REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 = Object.freeze({
     operatorStepUntouched:
       'Pure cross-validation of two degree-0 scalars; the off-diagonal endpoint-Hankel ' +
       'operator step (imp-3066) remains the lone obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -187,7 +186,7 @@ export const REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_ASSERTIONS_IMP3126 = [
     id: 'imp3126-verdict-is-coincidence-not-structural',
     why: 'VERDICT LOCK: this is a COINCIDENCE (not a structural identity) and pure ' +
          'cross-validation -- not a proof, not a reduction below RH, operator step untouched, ' +
-         'PT 0.2 stays SOTA. Blocks any future edit from upgrading the near-miss into a claimed ' +
+         'no refereed bound is changed. Blocks any future edit from upgrading the near-miss into a claimed ' +
          'shared closed form or RH-relevant link.',
     holds: () => {
       const r = REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126;
@@ -198,7 +197,7 @@ export const REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_ASSERTIONS_IMP3126 = [
         c.isProof === false &&
         c.isReductionBelowRH === false &&
         c.isCrossValidationOnly === true &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         /COINCIDENCE/.test(r.verdict)
       );
     },

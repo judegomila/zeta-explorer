@@ -51,7 +51,7 @@
  * -------------------------------------------------------------------------------
  * AUDIT CLEAN. No Route M consumer module or page treats F or M as rigorous; T is the sole
  * rigorous lower bound throughout. No bound moved; no fit ceiling made rigorous; no operator
- * positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (source of the rigorous T bound)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (origin of the T<F<M ladder)
@@ -132,12 +132,12 @@ export const IMP97006_VERDICT = Object.freeze({
     'AUDIT CLEAN. Across 23 Route M T/F/M consumer data modules and both consumer pages, T is ' +
     'labelled "rigorous" throughout and F/M are always labelled "fit" / "measured", never ' +
     '"rigorous". The three independently-authored labelled ladders (imp-96713, imp-96833, ' +
-    'imp-96741) agree exactly. No bound moved; no fit ceiling made rigorous; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'imp-96741) agree exactly. No bound moved; no fit ceiling made rigorous; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97006_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Audit only: every value re-exported here is ' +
+  'RH open; no refereed bound is changed; NO QED. Audit only: every value re-exported here is ' +
   'imported verbatim from imp-96713 / imp-96833 / imp-96741; no Gram was rebuilt and no bound is ' +
   'claimed moved. This module confirms a labelling invariant across the ladder, it does not ' +
   'establish or improve any ceiling.';

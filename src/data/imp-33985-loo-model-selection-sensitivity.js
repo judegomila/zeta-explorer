@@ -53,7 +53,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS
  * surrogate is descriptive, not derived; the imp-33843 log-linear-vs-power-law FORM verdict is UNTOUCHED;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33941-endpoint-peak-growth-model-selection (the full-sample AIC/BIC/AICc decision stress-tested here)
  * @see imp-33917-endpoint-residual-growth-law (the 9 endpoint peaks reused verbatim as the LOO data)
@@ -190,7 +190,7 @@ export const IMP33985_LOO_MODEL_SELECTION_SENSITIVITY = {
     'derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the imp-33843 log-linear-vs-power-law FORM verdict is UNTOUCHED; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33941 (the full-sample AIC/BIC/AICc decision stress-tested here); imp-33917 (the 9 endpoint ' +
     'peaks reused verbatim as the LOO data); imp-33843 (the log-linear OLS whose endpoint residual is the ' +
@@ -240,14 +240,14 @@ export const IMP33985_LOO_MODEL_SELECTION_SENSITIVITY_ASSERTIONS = [
       IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.summary.mostInfluentialDroppedKEnd === 11,
   },
   {
-    // Honesty gate: LOO sensitivity, isRigorous false, imp-33843 verdict untouched, no QED, PT SOTA.
+    // Honesty gate: LOO sensitivity, isRigorous false, imp-33843 verdict untouched, no QED, no refereed bound is changed.
     id: 'imp33985-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-33843 FORM verdict UNTOUCHED, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, imp-33843 FORM verdict UNTOUCHED, no QED, no refereed bound is changed',
     holds: () =>
       IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.isRigorous === false &&
       /UNTOUCHED/.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict),
   },
   {
     // imp-34058/imp-34080: the generic /UNTOUCHED/ check above is satisfied by the separate "C_mb

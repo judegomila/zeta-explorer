@@ -48,7 +48,7 @@
  * inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; C_C 1/8 (imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 untouched; changes no bound;
  * establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34956-pinned-product-window-sensitivity (W1 ~4.6e-8 separation, W2 ~9.1e-8 point estimate, W3 ~52.8x)
  * @see imp-34924-eflow-pinned-product-derivation (derived P = g* r0 at the fixed crossing window)
@@ -297,7 +297,7 @@ export const IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 (imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 ' +
     'untouched; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CERTIFIES the residual absolute-value uncertainty on the imp-34924 pinned product P = g* r0 by measuring ' +
     'the crossing-landmark localization (~7.76e-7 dex, FD-step-dominated) and propagating it through ' +
@@ -363,15 +363,15 @@ export const IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL_ASSERTIONS = [
     holds: () => FREE_WINDOW_MAX_OVER_MIN > 40 && RESIDUAL_REL_FROM_FD < 1e-4,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35034-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL.isRigorous === false &&
       IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL.farTailExponent === 0.5 &&
       typeof IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL.subGap === 'string' &&
       /NO QED/.test(IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL.verdict),
+      /refereed bound is changed/i.test(IMP35034_CROSSING_LANDMARK_LOCALIZATION_RESIDUAL.verdict),
   },
 ];
 

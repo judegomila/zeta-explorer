@@ -54,7 +54,7 @@
  * and its pole is the imp-34023 M2 sign-change ceiling, NOT a statement about the divergent C_Lip
  * collision-Gronwall. The C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator
- * positivity; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * positivity; changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-34246-widening-slope-limit-analytic-derivation (the two-term prediction and k<=18 residual this extends)
  * @see imp-34247-widening-slope-pole-divergence (the resid_exp simple pole at k*~21.281, residue +1)
@@ -261,8 +261,8 @@ export const IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL = {
     '(imp-34246 S2) and its pole is the imp-34023 M2 sign-change ceiling, NOT a statement about the ' +
     'divergent C_Lip collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll ' +
     'untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'establishes no operator positivity; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'the SOTA unconditional bound.',
+    'establishes no operator positivity; changes no bound; NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-34246-widening-slope-limit-analytic-derivation.js (the two-term prediction and k<=18 residual this ' +
     'extends); imp-34247-widening-slope-pole-divergence.js (the resid_exp simple pole at k*~21.281, residue ' +
@@ -335,15 +335,15 @@ export const IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34330-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause and imp-3066 K_a>=0; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause and imp-3066 K_a>=0; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL.honestScope) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL.honestScope) &&
       /NO QED/.test(IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL.honestScope) &&
-      /remains\s+the SOTA/.test(IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL.honestScope),
+      /refereed bound is changed/i.test(IMP34330_WIDENING_RESIDUAL_PREPOLE_REVERSAL.honestScope),
   },
 ];
 

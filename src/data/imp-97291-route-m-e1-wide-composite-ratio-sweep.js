@@ -80,7 +80,7 @@
  * like ~sqrt(b) on the binding semiprime family -- the uniform ceiling is not merely saturated but held
  * with growing absolute room, so a uniform proof should target the b-linear leader's cancellation with a
  * positive O(sqrt b) semiprime margin (not the vanishing relative margin). Measurement only; no bound on
- * Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Lambda moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (per-divisor identity; prime ceiling; Step 3 obstruction)
  * @see imp-97224-route-m-arith-first-moment-uniform-E1.js (2^omega removal; E1 = CK + E1_tail; tail bound)
@@ -198,11 +198,11 @@ export const IMP97291_VERDICT = Object.freeze({
     '1 - r(b) ~ b^{-1/2} -> 0 -- so the uniform ceiling is held with growing absolute room, and a uniform ' +
     'proof should target the b-linear leader against a positive O(sqrt b) semiprime margin, not the ' +
     'vanishing relative margin. Measurement only; no omega-class headroom; no bound on Lambda moves; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97291_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Wide-range measurement of the composite ratio ' +
+  'RH open; no refereed bound is changed; NO QED. Wide-range measurement of the composite ratio ' +
   'r(b)=|E1(b)|/(b/4): the worst composite ratio APPROACHES 1 (0.9369 at 71*83 over [2,6000] -> 0.9934 at ' +
   '991*1009 over [4,1e6]) along close-prime semiprimes, never plateauing below 1; semiprimes bind and ' +
   'higher omega classes fall away; the absolute margin b/4-|E1| stays positive and grows ~sqrt(b) while ' +
@@ -279,7 +279,7 @@ const IMP97291_ASSERTIONS = [
       IMP97291_VERDICT.classHeadroomExists === false &&
       IMP97291_VERDICT.supComposite === 1 &&
       /NO QED/.test(IMP97291_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97291_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97291_HONEST_BANNER) &&
       /RH open/.test(IMP97291_HONEST_BANNER),
     why: 'measurement only -- the sup composite ratio is 1 (approached, not attained), semiprimes bind, no omega-class headroom; no rigorous ceiling posted, no bound moved, no QED.',
   },

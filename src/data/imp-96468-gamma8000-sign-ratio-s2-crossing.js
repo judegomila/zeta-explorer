@@ -42,7 +42,7 @@
  * denominator (s2) sensitivity of that ratio; it does not settle the projected numerator.
  *
  * UNCHANGED. No fresh rho evaluated; the binding measured envelope rho_min = 0.3791 at gamma_4000
- * stays strictly positive; changes NO Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * stays strictly positive; changes NO Lambda bound; no refereed bound is changed;
  * RH open; NO QED.
  *
  * GRADE: measurement only. Import-light (design + s2 recomputed from the same baked
@@ -175,7 +175,7 @@ export const IMP_96468_SIGN_RATIO_S2_CROSSING = {
     + 'the projected-numerator sign question stays deferred to the imp-96392 fresh-height sub-gap',
   unchanged:
     'no fresh rho evaluated; the binding measured envelope rho_min = 0.3791 at gamma_4000 stays '
-    + 'strictly positive; changes NO Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; '
+    + 'strictly positive; changes NO Lambda bound; no refereed bound is changed; '
     + 'RH open; NO QED',
   note:
     'measurement only; import-light, design + s2 recomputed from the same baked '
@@ -221,8 +221,8 @@ export const IMP_96468_ASSERTIONS = [
     id: 'imp-96468-no-fresh-rho-no-qed',
     holds: () => /no fabricated rho/i.test(IMP_96468_SIGN_RATIO_S2_CROSSING.note)
       && /NO QED/.test(IMP_96468_SIGN_RATIO_S2_CROSSING.note)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP_96468_SIGN_RATIO_S2_CROSSING.unchanged),
-    why: 'measurement only: no fresh rho, changes no bound, Platt-Trudgian Lambda <= 0.2 remains SOTA, RH open, NO QED.',
+      && /refereed bound is changed/i.test(IMP_96468_SIGN_RATIO_S2_CROSSING.unchanged),
+    why: 'measurement only: no fresh rho, changes no bound, no refereed bound is changed, RH open, NO QED.',
   },
   {
     id: 'imp-96468-closes-self',

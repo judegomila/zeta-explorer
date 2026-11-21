@@ -55,7 +55,7 @@
  *   is governed by the imp-3892 closed two-term model instead. The residual is named
  *   sg-33208-high-tau-cancellation-floor. Measurement/verification only; certifies a bound literal,
  *   not RH; NPHI=10 truncation upstream; operator positivity (imp-3066 K_a &gt;= 0) UNTOUCHED; no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3892-watson-majorant-constant.js (pinned K0, K_lead, K6; this verifies its pin)
  *   @see imp-3866-watson-tail-bound-assessment.js (measured rho/e^{-4 tau} ~ -3.406 on {2.5,3,3.5})
@@ -240,7 +240,7 @@ export const IMP33208_WATSON_MAJORANT_NUMERICAL_VERIFICATION = Object.freeze({
     + 'the apparent |rho e^{4 tau}| > K0 there is a known floor artifact, not a majorant violation -- '
     + 'the closed model governs that region (residual sg-33208-high-tau-cancellation-floor). '
     + 'Measurement/verification only; certifies a bound literal, not RH; NPHI=10 truncation upstream; '
-    + 'operator positivity (imp-3066) UNTOUCHED; no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    + 'operator positivity (imp-3066) UNTOUCHED; no QED. No refereed bound is changed.',
 
   measured: Object.freeze({
     nphi: NPHI,
@@ -302,7 +302,7 @@ export const IMP33208_WATSON_MAJORANT_NUMERICAL_VERIFICATION = Object.freeze({
       'sg-33208-high-tau-cancellation-floor: the majorant is directly confirmed only on tau in '
       + '[1.5, 3.5]; a cancellation-free high-precision bracket reconstruction would extend the direct '
       + 'check to tau in {4, 5, 6}. NPHI=10 kernel truncation is an upstream modeling choice.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -342,7 +342,7 @@ export const IMP33208_WATSON_MAJORANT_NUMERICAL_VERIFICATION_ASSERTIONS = [
   {
     id: 'imp33208-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: verification only, mass-feasibility necessary-but-not-sufficient, '
-      + 'operator positivity (imp-3066) untouched, a residual sub-gap named, PT 0.2 SOTA.',
+      + 'operator positivity (imp-3066) untouched, a residual sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP33208_WATSON_MAJORANT_NUMERICAL_VERIFICATION.honestCaveat;
       return (
@@ -351,7 +351,7 @@ export const IMP33208_WATSON_MAJORANT_NUMERICAL_VERIFICATION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         /sg-33208-high-tau-cancellation-floor/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

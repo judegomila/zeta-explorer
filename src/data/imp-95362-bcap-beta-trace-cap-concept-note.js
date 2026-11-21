@@ -71,7 +71,7 @@
  *   the tail leg that LEMMA BCAP leaves untouched)
  *
  * Ticket: imp-95362 (content, low). Documentation only; establishes no
- * new bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * new bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95329).
@@ -141,8 +141,8 @@ export const IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE = Object.freeze({
     '(measured sup ratio/cap 0.9998), while noting the companion LEMMA ' +
     'ACAP and the other named residual legs (pair-identity truncation, ' +
     'tail constant, corner reduction) remain separate matters. ' +
-    'Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95329-beta-trace-capped-pencil-floor.js (LEMMA BCAP, LEMMA ' +
     'ACAP, THEOREM RZ-PEN3); imp-95328-* (the quadratic trace weight ' +
@@ -223,12 +223,11 @@ export const IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95362-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present, glosses and scopes fields consistent.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present, glosses and scopes fields consistent.',
     holds: () =>
       IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE.verdict) &&
       IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE.glosses === 'imp-95329' &&
       IMP95362_BCAP_BETA_TRACE_CAP_CONCEPT_NOTE.scopes ===
         'LEMMA BCAP: uniform-in-b beta trace cap (1 - cos(w b/a)) / ' +

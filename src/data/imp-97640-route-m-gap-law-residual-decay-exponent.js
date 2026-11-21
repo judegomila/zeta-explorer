@@ -57,7 +57,7 @@
  * RESULT 3 (the correction is the PNT/Mertens error). The measurement is precision-limited past p ~ 2e6;
  * a firm asymptotic exponent needs extended-precision gap/law recomputation at the imp-97639 deep heights.
  * MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97619-route-m-mcm-binf-mertens-closed-form.js (residual ladder; sub-gap: next order = PNT/Mertens error)
  * @see imp-97639-route-m-mcm-binf-deep-mertens-crosscheck.js (deep delta ladder to p ~ 5e7; delta wiggles)
@@ -161,11 +161,11 @@ export const IMP97640_VERDICT = Object.freeze({
     'difference, so the third rung is precision-limited (ratio 1.25) and a firm asymptotic exponent needs ' +
     'an extended-precision (dps >= 30) recompute of gap AND law at the imp-97639 deep heights ' +
     '(IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6). MCM stays refuted from omega=11; b/4 ' +
-    'ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97640_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Decay-rate measurement of the imp-97619 gap-law ' +
+  'RH open; no refereed bound is changed; NO QED. Decay-rate measurement of the imp-97619 gap-law ' +
   'residual: the local exponent q in |residual| ~ C/(log p)^q is ~7-9 and CLIMBS with height ' +
   '(6.839 -> 8.713 on the precision-clean rungs), so the residual outruns every fixed inverse power -- ' +
   'no clean 1/log^3 term (both |res|*log^2 and |res|*log^3 strictly decrease). The correction is the ' +
@@ -272,7 +272,7 @@ const IMP97640_ASSERTIONS = [
       IMP97640_VERDICT.anyBoundMoved === false &&
       IMP97640_VERDICT.qed === false &&
       /NO QED/.test(IMP97640_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97640_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97640_HONEST_BANNER) &&
       /RH open/.test(IMP97640_HONEST_BANNER),
     why: 'measurement only -- exponent q ~ 7-9 climbing, no fixed power fits, PNT-strength correction, precision-limited past 2e6; MCM refuted from omega=11; no bound moved, no QED.',
   },

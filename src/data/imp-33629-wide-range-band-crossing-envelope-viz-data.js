@@ -22,7 +22,7 @@
  * @see imp-33316-graded-plateau-deep-tail-node-budget.js (the &lt; 64 ULP deep band)
  *
  * Ticket: imp-33629 (ux, medium). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda &lt;= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33629_BAND_ULP = 64;

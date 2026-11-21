@@ -76,7 +76,7 @@
  * D_k = Integral_0^tau g(t) e^t [M - M_k](t) dt can still -> 0 through genuine SIGNED (oscillatory)
  * cancellation of the alternating friable sum inside the integral, which no sup bound can see. The missing
  * ingredient is therefore not a friable-Mertens sup bound (impossible) but a SIGNED boundary-layer
- * cancellation estimate. RH open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; NO QED.
+ * cancellation estimate. RH open; no bound on Lambda moves; no refereed bound is changed; NO QED.
  *
  * -------------------------------------------------------------------------------
  * RESIDUAL (refined sub-gap; replaces the impossible one).
@@ -200,11 +200,11 @@ export const IMP97353_VERDICT = Object.freeze({
     'therefore DEAD (width*sup -> infinity); the interchange can hold only via SIGNED oscillatory cancellation ' +
     'in Integral_0^tau g e^t [M - M_k] dt, which no sup bound can see. Also corrects the imp-97332 RESULT 4(ii) ' +
     'coarse-grid sup underestimate (true k=14 sup ~ 75.7, not ~6.0). Obstruction relocated to ' +
-    'IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97353_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97332 RESULT 4(iii) missing ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97332 RESULT 4(iii) missing ' +
   'ingredient sup_t |M_k(t)| = o(p_k) is REFUTED (measured, grid-converged): sup_t |M_k| ~ 1.71^k grows ' +
   'exponentially in k, not even O(p_k). New rigorous structure: dilation recursion M_k = (I - D_{p_k}) M_{k-1}, ' +
   'slope identity |M_k dash (0)| = prod(p-1), and sup <= TV(M_{k-1}). The sup-majorant route to the interchange ' +
@@ -313,7 +313,7 @@ const IMP97353_ASSERTIONS = [
       IMP97353_VERDICT.residualSubgap === 'IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP' &&
       /IMP97309_CANCELLATION_SUBGAP/.test(IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP.refinesSubgap) &&
       /NO QED/.test(IMP97353_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97353_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97353_HONEST_BANNER) &&
       /RH open/.test(IMP97353_HONEST_BANNER),
     why: 'honest partial: refuted the specific sup=o(p_k) ingredient and relocated the obstruction -- no bound moved, no rigorous ceiling, no QED.',
   },

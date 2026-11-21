@@ -11,7 +11,7 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96829
  * IMP96829_LADDER / IMP96829_INCREMENTS / IMP96829_STATS / IMP96829_VERDICT
  * records; only the chart reshape is new. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity, no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96829-route-m-frobenius-inner-g-factor-band.js (source measurement)

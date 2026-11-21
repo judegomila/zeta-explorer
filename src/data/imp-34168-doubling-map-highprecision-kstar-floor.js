@@ -78,7 +78,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34106-sawtooth-phase-realignment-deep-ladder (the ladder re-run here, with the 6-decimal k*)
  * @see imp-34044-sawtooth-phase-realignment-schedule (the closed-form doubling-map schedule)
@@ -324,8 +324,8 @@ export const IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34106 (the ladder re-run here, with the 6-decimal k*); imp-34044 (the closed-form doubling-map ' +
     'schedule); imp-33942 (P3 sawtooth-residue closed form); imp-33878 (source of k*~8.821092 and the ' +
@@ -369,14 +369,14 @@ export const IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR_ASSERTIONS = [
     holds: () => HP.rungs.every((r) => r.relDeviationFromClosedForm < 8e-6),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, re-runs imp-34106, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, isRigorous false, re-runs imp-34106, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34168-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, RE-RUNS the imp-34106 ladder, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, RE-RUNS the imp-34106 ladder, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.isRigorous === false &&
       /RE-RUNS the imp-34106/.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict) &&
       /NO QED/.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34168_DOUBLING_MAP_HIGHPRECISION_KSTAR_FLOOR.verdict),

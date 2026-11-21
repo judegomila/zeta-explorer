@@ -17,7 +17,7 @@
  *
  *   Presentation/measurement only. NOT an RH bound; the component model is the inherited
  *   imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; imp-3066
- *   K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-95639-eflow-zero-inversion-wedge.js (source model: the on/off sweep this bakes)
  *   @see imp-95617-transition-knee-ordering-joint-2d.js (the joint sweep WITH E_flow)
@@ -133,7 +133,7 @@ export const IMP95658_HEADLINE = Object.freeze({
   },
   wedgeRemovedByZeroingFlow: true,
   isRigorous: false,
-  note: 'Presentation/measurement only; NOT an RH bound; no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  note: 'Presentation/measurement only; NOT an RH bound; no QED; no refereed bound is changed.',
 });
 
 // Cheap import-light self-check: baked literals stay internally consistent with the imp-95639 headline
@@ -204,11 +204,11 @@ export const IMP95658_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95658-honesty-gate-no-qed',
-    description: 'presentation/measurement only: isRigorous false, PT stays SOTA, no QED',
+    description: 'presentation/measurement only: isRigorous false, no refereed bound is changed, no QED',
     holds: () =>
       IMP95658_HEADLINE.isRigorous === false &&
       /NOT an RH bound/.test(IMP95658_HEADLINE.note) &&
-      /remains SOTA/.test(IMP95658_HEADLINE.note),
+      /refereed bound is changed/i.test(IMP95658_HEADLINE.note),
   },
 ];
 

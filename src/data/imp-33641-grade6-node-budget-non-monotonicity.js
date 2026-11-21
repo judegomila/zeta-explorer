@@ -74,8 +74,7 @@
  *   QUALITATIVE separation -- a single-panel spike over a jittery band with an in-band floor and only a weak
  *   upward trend -- not the exact per-panel ULP. The NPHI = 10 Phi-series truncation is inherited upstream.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
- *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33600-band-crossing-grade-vs-node-driver.js (the coarse grade-6 budget row this densifies)
  *   @see imp-33630-grade-vs-node-budget-viz-data.js (the IMP33630_GRADE_TABLE viz that surfaced the bounce)
@@ -294,7 +293,7 @@ const verdict =
       'HONEST-NUANCE:-A-WEAK-SECONDARY-UPWARD-DRIFT-IS-PRESENT-(WINDOWED-FLOOR-~55.8->63.8)-THE-MILD-imp-33621/' +
       'imp-33638-GRADE-6-LATTICE-FLOOR-COARSENING,-BUT-IT-RIDES-ON-DOMINANT-JITTER-AND-DOES-NOT-PUSH-THE-WINDOWED-' +
       'FLOOR-OUT-OF-BAND.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY = Object.freeze({
@@ -322,7 +321,7 @@ export const IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY = Object.freeze({
     '(windowed floor ~55.8 -> 63.8, the mild imp-33621/imp-33638 grade-6 lattice-floor coarsening) but it rides on ' +
     'dominant jitter and keeps the windowed floor in band. VERDICT: DENSE-LADDER-JITTER-ARTIFACT-NOT-ANTI-CONVERGENCE. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -423,7 +422,7 @@ export const IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY = Object.freeze({
       'variation can shift the few-ULP measurements, so the robust reading is the QUALITATIVE separation -- a ' +
       'single-panel spike over a jittery band with a ~6 ULP in-band floor and only a weak (r ~ +0.30) upward trend -- ' +
       'not the exact per-panel ULP, the exact floor node count, or the exact correlation coefficient.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -475,7 +474,7 @@ export const IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY_ASSERTIONS = [
   {
     id: 'imp33641-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY.honestCaveat;
       return (
@@ -484,7 +483,7 @@ export const IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

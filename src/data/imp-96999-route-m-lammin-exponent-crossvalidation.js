@@ -77,7 +77,7 @@
  * bases; the second-basis rebuild is the residual (IMP96999_SUBGAP).
  *
  * Accuracy cross-validation only. Changes no bound, establishes no operator positivity,
- * makes no RH claim. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * makes no RH claim. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (the lam_min power law cross-validated here)
  * @see imp-96570-route-m-conditioning-ceiling-crossvalidation.js (composite cond# single-object cross-check)
@@ -187,7 +187,7 @@ export const IMP96999_SUBGAP = Object.freeze({
 });
 
 export const IMP96999_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation only: every lam_min value ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-validation only: every lam_min value ' +
   'is a reproducible numeric already committed in imp-96428 IMP96428_LAMMIN_ROWS; the four ' +
   'estimator re-fits are pure re-analysis (tmp/imp-96999-scratch.mjs); no Gram was rebuilt, no ' +
   'bound is claimed moved and no operator positivity is established.';
@@ -243,7 +243,7 @@ const IMP96999_ASSERTIONS = [
       IMP96999_VERDICT.intervalRigorousReachUnchanged === 0.96 &&
       IMP96999_VERDICT.qed === false &&
       /NO QED/.test(IMP96999_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96999_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96999_HONEST_BANNER) &&
       /RH open/.test(IMP96999_HONEST_BANNER) &&
       /estimator-not-second-basis/.test(IMP96999_SUBGAP.id),
     why: 'cross-validation only: the exponent is robust, no second-basis Gram was rebuilt (residual sub-gap), no bound moved, reach stays 0.96, and the honesty markers are present.',

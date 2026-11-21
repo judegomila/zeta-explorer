@@ -18,7 +18,7 @@
  *   imp-36082 source object verbatim (no re-derivation, no new numerics).
  *
  *   Ticket: imp-36147 (content, medium). Note only; ports nothing; changes no
- *   bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   bound; no refereed bound is changed; NO QED.
  *
  * @see imp-36082-routeB-perN-rate-form-and-bridge-consumability (source: the r(N) derivation and consumability verdict)
  * @see imp-36045-perN-translation-route-readiness-assessment (route ranking C > B > A this note is consistent with)
@@ -64,7 +64,7 @@ export const IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS = Object.fre
     changesAnyBound: false,
     portsAnyRoute: false,
     scope: 'restates imp-36082 measurement/assessment only; derives no new rate; verifies no inequality',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -73,8 +73,8 @@ export const IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS = Object.fre
     ' exists explicitly and unconditionally, but the Step-4 E(N) bridge cannot consume it per-N because it bounds ' +
     'a DEVIATION, not the absolute |t_c(N)| the bridge requires -- the missing ingredient is an unconditional ' +
     'finite-N anchor on t_c(m_infinity), and supplying one re-imports GUE/ESY local-law rigidity. Assessment/' +
-    'restatement only; changes no bound; per-N translation stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'restatement only; changes no bound; per-N translation stays OPEN; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 export const IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS_ASSERTIONS = [
@@ -111,7 +111,7 @@ export const IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS_ASSERTIONS =
       IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36147_ROUTEB_CONSUMABLE_MODULO_ANCHOR_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36147-verdict-anchor-no-qed',

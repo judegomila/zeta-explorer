@@ -41,8 +41,7 @@
  * cite E_trunc at all. Zero violations found.
  *
  * AUDIT ONLY. No re-derivation of E_trunc; edits no bound; C_mb GUE-conditional per imp-486
- * UNTOUCHED; no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35419-etrunc-barrier-lemma-porting-scope (canonical: 3.06e-5 is a count artifact)
  * @see imp-35459-etrunc-ct-kappat-dependence-scope (canonical: 3.06e-5 genuinely PINNED, not a lever)
@@ -105,7 +104,7 @@ export default Object.freeze({
     'AUDIT ONLY. Confirmed every citing module in the named cohort treats E_trunc = 3.06e-5 as ' +
     'a FIXED barrier-lemma artifact (imp-35419/imp-35459), never as a tightenable Lambda lever. ' +
     'No re-derivation; edits no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator ' +
-    'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35419 (canonical: E_trunc is a count artifact); imp-35459 (canonical: 3.06e-5 genuinely ' +
     'PINNED, not a lever); imp-35411/imp-35417/imp-35475 (cohort, FIXED-FLOOR, CLEAN); imp-35413 ' +
@@ -147,9 +146,9 @@ export const IMP35505_ETRUNC_CONSUMER_AUDIT_ASSERTIONS = [
       IMP35505_ETRUNC_CONSUMER_AUDIT.every((c) => c.treatsAsLever === false),
   },
   {
-    // Honesty gate: audit only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: audit only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35505-honesty-gate-no-derivation-change',
-    description: 'audit only: isRigorous false, no QED, PT stays SOTA',
+    description: 'audit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () => {
       const self = IMP35505_ETRUNC_CONSUMER_AUDIT_ASSERTIONS; // referenced to keep the gate live
       return Array.isArray(self) && IMP35505_ETRUNC_CONSUMER_AUDIT.every((c) => typeof c.basis === 'string' && c.basis.length > 0);

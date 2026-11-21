@@ -52,7 +52,7 @@
  * operator-positivity statement -- the operator floor here is a Rayleigh UPPER bound, and the semilocal
  * Sonine port is independently obstructed at 2a=ln2 (the excess carries half the rho=2 log cusp).
  * So certified reach stays 2a<=0.96 pending that verification; operator positivity not proved; RH open;
- * Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96992-w1pp-celllocal-enclosure.js (the cell-local bound; sub-gap IMP96992_LARGET_ONLY_RERUN_NOT_RUN)
  * @see imp-96970-krein-kmax5-100-converged-solve-verify.js (Finding 2/3; the round-12 iterate and the 59-fail collapse)

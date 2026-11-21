@@ -47,8 +47,8 @@
  *
  * Measurement/derivation within the inherited imp-3406/imp-33810 component model only; the component
  * model is NOT a rigorous asymptotic; no bound changes; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. NO QED.
+ * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-34345-m2-ceiling-exactfit-90-vs-8994-residual-channel-decomposition (the +72.94 bump split)
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (eD~1.13=O(1); non-convergent window series)
@@ -255,7 +255,7 @@ export const IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL = {
     'of the matcher and must be read off the bisection, the same eD ~ 1.13 = O(1) non-convergence imp-34189 ' +
     'found. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; descriptive within ' +
     'the model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34345 (the +72.94 bump split tested here); imp-34189 (eD~1.13=O(1); non-convergent window series); ' +
     'imp-34211 (the O((eD)^2) log-T0-drift/window shortfall ~0.28); imp-34127 (the leading OLS-cubic-bias ' +
@@ -303,13 +303,13 @@ export const IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL_ASSERTIONS = 
       EARLY_SECANT > 50 * Math.max(PLATEAU_SECANT, 1e-6), // slope range ratio in the tens-plus
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34430-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL.isRigorous === false &&
       /NO QED/.test(IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL.verdict) &&
-      /remains SOTA/.test(IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL.verdict) &&
+      /refereed bound is changed/i.test(IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34430_DRIFT_BUMP_CLOSED_FORM_FROM_WINDOW_SHORTFALL.verdict),
   },
 ];

@@ -220,8 +220,8 @@ export const IMP96290_STEP4_BRIDGE_SUBCONSTANT_INVENTORY = {
     'INVENTORY COMPLETE. The three named Step-4 objects: G6 (bridge assembly) ' +
     'and G6a (shock Holder mechanism) are CLOSED; C_H is the one open leading ' +
     'constant and its residual gap localizes to the single factor C_Lip. RATE ' +
-    'unconditional, E(N) -> 0 gated on C_Lip. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA. This module closes nothing and changes no bound. RH open. NO QED.',
+    'unconditional, E(N) -> 0 gated on C_Lip. No refereed bound is changed' +
+    '. This module closes nothing and changes no bound. RH open. NO QED.',
   provenance:
     'lambda-polymath15-bridge.js; polymath15-lemma52-shock-holder.js; ' +
     'imp-2706-ecoll-conditional-modulo-ch.js; imp-2701-ch-rigor-lock.js; imp-838',

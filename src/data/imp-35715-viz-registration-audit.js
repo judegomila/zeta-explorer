@@ -85,7 +85,7 @@ export const IMP35715_VIZ_REGISTRATION_AUDIT = {
     'matches the module default-export id, whose route matches the App.jsx <Route> wired to the ' +
     'corresponding page component, and each module’s own self-executing assertions passed on import ' +
     '(no throw). No orphan found; no registration fix needed. Changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-35663, imp-35664, imp-35665 (audited modules); imp-35447, imp-35468 (registration-check method ' +
     'precedent); imp-35484 (sibling audit that found and fixed an orphan class, for contrast).',
@@ -106,12 +106,12 @@ export const IMP35715_VIZ_REGISTRATION_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35715-audit-clean-no-qed',
-    description: 'audit found no orphan (allClean true); audit only, no bound changed, no QED, PT stays SOTA',
+    description: 'audit found no orphan (allClean true); audit only, no bound changed, no QED, no refereed bound is changed',
     holds: () =>
       IMP35715_VIZ_REGISTRATION_AUDIT.allClean === true &&
       IMP35715_VIZ_REGISTRATION_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35715_VIZ_REGISTRATION_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35715_VIZ_REGISTRATION_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35715_VIZ_REGISTRATION_AUDIT.verdict),
   },
 ];
 

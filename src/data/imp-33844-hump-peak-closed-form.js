@@ -60,7 +60,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33809-saturation-curvature-hump-vs-k (M3 hump peak located numerically at k=9)
  * @see imp-33810-eflow-resid-ratio-N-ladder (M2 refutation leaving M3 the one attribution standing)
@@ -213,7 +213,7 @@ export const IMP33844_HUMP_PEAK_CLOSED_FORM = {
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33809 (M3 hump peak located numerically at k=9); imp-33810 (M2 refutation leaving M3 standing); ' +
     'imp-33723 (closed-form Banach crossover N ~ 3.2803e9); imp-3444 (E_coll = E_trunc crossover ' +
@@ -254,14 +254,14 @@ export const IMP33844_HUMP_PEAK_CLOSED_FORM_ASSERTIONS = [
       Math.abs(RESID_LEADING) / Math.abs(RESID_CORRECTED) >= 5,
   },
   {
-    // Honesty gate: derivation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: derivation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33844-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, crossover sigma ~ 1/2, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Derivation only: isRigorous false, crossover sigma ~ 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP33844_HUMP_PEAK_CLOSED_FORM.isRigorous === false &&
       Math.abs(IMP33844_HUMP_PEAK_CLOSED_FORM.sigmaAtCrossover - 0.5) < 5e-3 &&
       /NO QED/.test(IMP33844_HUMP_PEAK_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP33844_HUMP_PEAK_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP33844_HUMP_PEAK_CLOSED_FORM.verdict),
   },
 ];
 

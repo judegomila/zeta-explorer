@@ -50,8 +50,7 @@
  * value of P; it introduces no new model and changes no bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; C_C 1/8 (imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 untouched; establishes no operator
- * positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35034-crossing-landmark-localization-residual (the fixed-window |dP/P| <= ~1.53e-6)
  * @see imp-35010-ramp-invariance-bisection-tolerance-floor (the across-m residual floor ~3.69e-7 / ~1.6e-7)
@@ -176,8 +175,8 @@ export const IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION = {
     'imp-35010 floor the fixed-window dominates ~3.2x (combined ~1.60e-6). The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; C_C 1/8 (imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 untouched; changes no bound; establishes ' +
-    'no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'RECONCILES the two residuals into a combined statement |dP/P| <= ~1.542e-6 (~2.212e-9 absolute) by ' +
     'quadrature of the fixed-window r0-factor localization (~1.53e-6, binding) and the across-m g*-factor noise ' +
@@ -237,15 +236,15 @@ export const IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION_ASSERTIONS =
       RAMP_CONTRIBUTION_PCT < 1.5,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35133-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION.isRigorous === false &&
       IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION.farTailExponent === 0.5 &&
       typeof IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION.subGap === 'string' &&
       /NO QED/.test(IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP35133_FIXED_WINDOW_VS_ACROSS_M_RESIDUAL_COMPOSITION.verdict),
   },
 ];
 

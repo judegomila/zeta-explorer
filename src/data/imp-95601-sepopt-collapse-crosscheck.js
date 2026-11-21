@@ -10,8 +10,8 @@
  * confirms the theta-transform identity between them, reproduces the
  * supersession factors over the imp-95335 Ingham floor A_sep, and
  * re-bisects the imp-95419 COROLLARY SPLIT-OPT off-lattice onset. It
- * changes NO bound and asserts NO new theorem; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. NO QED.
+ * changes NO bound and asserts NO new theorem; no refereed bound is changed
+ * . NO QED.
  *
  * RESULTS (this module, doubles, verified below):
  *  - theta-dual form reproduces the baked A_opt(ln 2) = 2.374484801080e-5

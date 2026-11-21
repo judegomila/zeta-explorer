@@ -65,7 +65,7 @@
  * (projected l1 ~ 3.6e7, eps ~ 4.0) was NOT solved / interval-verified here; a double-double or
  * rational-feasibility LP solve at 2a in (0.96, 1.0) would settle whether the sub-window is truly
  * recoverable. Assessment only; interval-rigorous reach stays exactly 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source literals: normGrowthLaw, epsMarginDecay, analyticObstruction, lpWallIsSymptom)
  * @see imp-96646-krein-certificate-margin-viz-data.js (sibling margin/norm viz leaf)

@@ -53,8 +53,8 @@
  *   measurement of how the off-diagonal obstruction magnitude scales with the lag window U,
  *   and a derivation that it saturates (rather than diverging or vanishing) at the all-ones
  *   Perron ceiling fixed by the truncation size. imp-3066 / G7 are UNTOUCHED as a proof;
- *   positivity is NOT attempted; the bare-V pilot (imp-1240) is NOT re-run. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   positivity is NOT attempted; the bare-V pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3066-offdiagonal-hankel-obstruction.js (imp-3066: the single-cell G7 magnitude)
  *   @see imp-3107-dehomogenized-offdiag-aU-grid.js (imp-3107: the de-homogenized off-diag entries track s = a*U)
@@ -275,7 +275,7 @@ export const IMP33704_G7_OBSTRUCTION_U_SCALING = Object.freeze({
       'magnitude and its all-ones saturation ceiling are asserted.',
     imp3066Untouched: true,
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -343,7 +343,7 @@ export const IMP33704_G7_OBSTRUCTION_U_SCALING_ASSERTIONS = [
     id: 'imp33704-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic sweep, ||R|| carries no RH verdict, ' +
          'imp-3066/G7 are untouched, positivity was not attempted, it is not a proof or a reduction, ' +
-         'and PT 0.2 stays SOTA. If any of these flip the module is over-claiming.',
+         'and no refereed bound is changed. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP33704_G7_OBSTRUCTION_U_SCALING.honestCaveat;
       return (
@@ -354,7 +354,7 @@ export const IMP33704_G7_OBSTRUCTION_U_SCALING_ASSERTIONS = [
         c.imp3066Untouched === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

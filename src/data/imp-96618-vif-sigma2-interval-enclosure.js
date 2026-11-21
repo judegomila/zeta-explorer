@@ -55,7 +55,7 @@
  * closed-form box tail is >= the true finite-L correlation, its O(1/L) oscillatory correction sign
  * pinned] and (iii) [GUE throughout] remain open. All conditional on the GUE sine kernel / Montgomery
  * pair correlation for the zeta zeros (UNPROVEN, GRH-flavored); changes NO unconditional bound;
- * measurement only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * measurement only; RH open; NO QED; no refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated.
  *
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment (VERDICT clause (i): the 6-digit obstruction)
@@ -134,11 +134,11 @@ export const IMP96618_VIF_SIGMA2_INTERVAL_ENCLOSURE = {
   independentConfirmation:
     'imp-96811 (frontier-scout re-seed of the same obstruction (i)) is SUBSUMED by this enclosure: the scout rationale "interval-certified Sigma^2(L) never delivered" is factually superseded. Cross-checked here by a DIFFERENT method than the enveloping asymptotic Si/Ci brackets above -- mpmath native CONVERGENT Si/Ci (mp.si/mp.ci) evaluated at 60 and 120 decimal places -- giving Sigma^2(495.779) = 0.974833699983010389481813904096660103713716... The two precisions agree to ~5.5e-59 and the value lies strictly INSIDE the baked interval [0.97483369998301038948181390409666009, 0.97483369998301038948181390409666011], independently confirming both the 35-digit midpoint and the outward-rounded VIF_2LAG <= 0.0334214 / z_2LAG >= 10.5211285 propagation. Still conditional on the GUE sine kernel (UNPROVEN); changes no unconditional bound; RH open; NO QED.',
   verdict:
-    'DISCHARGED (obstruction (i) only). The sine-kernel Sigma^2(495.779) admits an interval-arithmetic enclosure [0.97483369998301038948181390409666009, 0.97483369998301038948181390409666011] of width ~1.08e-35 (300-bit mpmath.iv, precision-limited via the enveloping auxiliary-function brackets), far tighter than the ~2.1e-5 slack in level (A). It converts the two-lag figures from a 6-digit match to certified intervals: VIF_2LAG in [0.0334213808734075830, 0.0334213808734075831], z_2LAG in [10.52112850165883463, 10.52112850165883464]; the interval-rigorous outward-rounded statement is VIF_2LAG <= 0.0334214, z_2LAG >= 10.5211285 (the display 0.0334 was truncated down, exceeded by ~2.1e-5). This does NOT by itself make level (A) fully interval-rigorous: obstructions (ii) [one-sided finite-L closed-form correction, sign pinned] and (iii) [GUE throughout] remain. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; measurement only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'DISCHARGED (obstruction (i) only). The sine-kernel Sigma^2(495.779) admits an interval-arithmetic enclosure [0.97483369998301038948181390409666009, 0.97483369998301038948181390409666011] of width ~1.08e-35 (300-bit mpmath.iv, precision-limited via the enveloping auxiliary-function brackets), far tighter than the ~2.1e-5 slack in level (A). It converts the two-lag figures from a 6-digit match to certified intervals: VIF_2LAG in [0.0334213808734075830, 0.0334213808734075831], z_2LAG in [10.52112850165883463, 10.52112850165883464]; the interval-rigorous outward-rounded statement is VIF_2LAG <= 0.0334214, z_2LAG >= 10.5211285 (the display 0.0334 was truncated down, exceeded by ~2.1e-5). This does NOT by itself make level (A) fully interval-rigorous: obstructions (ii) [one-sided finite-L closed-form correction, sign pinned] and (iii) [GUE throughout] remain. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; measurement only; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 export const IMP96618_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the sine-kernel number variance '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the sine-kernel number variance '
   + 'Sigma^2(495.779) is enclosed to width ~1.08e-35 (300-bit mpmath.iv, enveloping Si/Ci auxiliary-function '
   + 'brackets), discharging imp-96593 obstruction (i) -- the 6-digit GUE-asymptotic match is now a certified '
   + 'interval. Propagated, VIF_2LAG in [0.03342138, 0.03342138] and z_2LAG in [10.5211285, 10.5211285]; the '
@@ -180,9 +180,9 @@ export const IMP96618_HONEST_BANNER =
   // honesty gates
   const V = IMP96618_VIF_SIGMA2_INTERVAL_ENCLOSURE.verdict;
   if (!/NO QED/.test(V)) throw new Error('imp-96618: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(V)) throw new Error('imp-96618: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(V)) throw new Error('imp-96618: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(V)) throw new Error('imp-96618: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96618_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96618_HONEST_BANNER) && /NO QED/.test(IMP96618_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96618_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96618_HONEST_BANNER) && /NO QED/.test(IMP96618_HONEST_BANNER)))
     throw new Error('imp-96618: IMP96618_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

@@ -51,7 +51,7 @@
  *   saturating sequence with pinned limit tr(A2)(infinity)=4818.776M (p~=1.93); the previously-named ~4819.1M
  *   is a slight eyeball overshoot (-6.73e-5). No bound moves: this only pins the second-moment trace normalizer
  *   behind the Route-2 lower-bound floor, which stays four orders below the required 0.581059 and thus the m=1
- *   enclosure stays UNUSABLE at 2a=ln3. Platt-Trudgian Lambda<=0.2 SOTA; interval-rigorous reach stays
+ *   enclosure stays UNUSABLE at 2a=ln3. No refereed bound is changed; interval-rigorous reach stays
  *   2a<=0.96; RH open; NO QED.
  *
  * @see imp-97495-krein-route2-kbig300-380-direct-floor.js (the {300,340,380} half of the ladder)

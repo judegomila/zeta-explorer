@@ -32,15 +32,14 @@
  *   A glossary-style lookup restating the imp-36154 residual-node definition
  *   and R1-R6 ladder names for quick reference. It establishes nothing,
  *   instantiates no interval, closes no sub-gap. imp-34714a stays OPEN;
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-36154-krawczyk-existence-uniqueness-subgap-requirements (source: the R1-R6 requirements this glosses)
  * @see imp-36136-krawczyk-residual-directed-rounding-layer-construction-scope (residual-VALUE width side, R1)
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the exact (H1)-(H2) lemma; sub-gap imp-34714a)
  *
  * Ticket: imp-36230 (content, medium). Documentation only; establishes no
- * enclosure; imp-34714a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * enclosure; imp-34714a stays OPEN; NO QED; no refereed bound is changed.
  */
 
 // The Krawczyk residual-node glossary headword, baked verbatim (no re-import).
@@ -85,8 +84,8 @@ export const IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD = Object.freeze({
     'residual node F(m) = m - K log T0(m), its (H1) nonvanishing-derivative ' +
     'margin (F-prime(N_cross) ~ 0.9546, large), and the R1-R6 requirement ladder ' +
     'for quick reference. Establishes nothing; instantiates no interval; closes ' +
-    'no sub-gap; imp-34714a stays OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'no sub-gap; imp-34714a stays OPEN; NO QED. No refereed bound is changed' +
+    '.',
   citation: 'imp-36154 (source R1-R6 requirements); imp-36136 (residual-VALUE op-DAG); imp-34714 (existence/uniqueness lemma).',
 });
 
@@ -111,11 +110,11 @@ export const IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp36230-honesty-gate-no-qed',
-    why: 'Documentation only: no enclosure claimed established, imp-34714a stays OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no enclosure claimed established, imp-34714a stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.anyEnclosureEstablished === false &&
       /NO QED/.test(IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.verdict) &&
       /imp-34714a stays OPEN/.test(IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.verdict) &&
       IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.glosses === 'imp-36154' &&
       IMP36230_KRAWCZYK_RESIDUAL_NODE_GLOSSARY_HEADWORD.scopes === 'imp-34714a',

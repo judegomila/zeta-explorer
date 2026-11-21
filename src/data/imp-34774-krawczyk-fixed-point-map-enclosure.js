@@ -73,7 +73,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous asymptotic and
  * NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34752-krawczyk-outward-ulp-slack-N (the inverse-map outward-ULP slack sweep this reuses; sub-gap imp-34714a)
  * @see imp-34755-two-route-residual-across-N (the two-route N_cross fixed point; states it adds NO interval enclosure)
@@ -280,8 +280,8 @@ export const IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE = {
     'imp-34714a REMAINS OPEN: the k eps model is a surrogate for the imp-34687a directed-rounding layer, ' +
     'not that layer. Measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34752 (outward-ULP Krawczyk slack of the inverse map across N; sub-gap imp-34714a); imp-34755 ' +
     '(two-route N_cross fixed point, states it adds NO interval enclosure); imp-34714 (Krawczyk ' +
@@ -331,15 +331,15 @@ export const IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE_ASSERTIONS = [
       PAST_BREAK.H1,
   },
   {
-    // Honesty gate: enclosure assessment / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: enclosure assessment / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34774-honesty-gate-no-qed',
-    description: 'Surrogate enclosure: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Surrogate enclosure: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE.isRigorous === false &&
       /imp-34714a/.test(IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE.subGap) &&
       /REMAINS OPEN/.test(IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE.subGap) &&
       /NO QED/.test(IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE.verdict) &&
-      /remains SOTA/.test(IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE.verdict),
+      /refereed bound is changed/i.test(IMP34774_KRAWCZYK_FIXED_POINT_MAP_ENCLOSURE.verdict),
   },
 ];
 

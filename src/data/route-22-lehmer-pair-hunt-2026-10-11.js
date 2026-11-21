@@ -27,7 +27,7 @@
  *  statistics. Rodgers–Tao proved Λ ≥ 0 unconditionally by a DIFFERENT argument (Λ < 0 forces regular spacing, contradicting pair-correlation
  *  information) — not the N → ∞ limit of this mechanism.
  *
- * Lower-bound side only; nothing touches the upper side. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_22_ASSERTIONS
+ * Lower-bound side only; nothing touches the upper side. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_22_ASSERTIONS
  * recompute live: λ_CSV for the certified 1e10 pair (and its G-insensitivity), the two-zero limit, outward rounding of every bound, the
  * ratio to the SGD record, the GUE small-gap counts from the Taylor expansion of the GUE spacing density, the z-scores, and the projection
  * arithmetic.
@@ -84,7 +84,7 @@ export const ROUTE_22 = Object.freeze({
   verdict: 'Route 22 cannot produce a competitive or new Λ lower bound: best certified local bound −4.2577e-6 (assuming FLINT/Arb, CSV quoted '
     + 'from memory and re-derived), reach falling like N^{−2/3}, and Rodgers–Tao (Λ ≥ 0, by a different argument) has closed this side. What '
     + 'the run adds is measurement: an independent ≈ 3σ replication of the Bogomolny et al. CUE_Neff finite-height small-gap correction, and '
-    + 'near-sharpness of the CSV comparison for close pairs. Lower-bound side only. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'near-sharpness of the CSV comparison for close pairs. Lower-bound side only. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_22;
@@ -133,7 +133,7 @@ export const ROUTE_22_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r22-honest-scope',
-    holds: () => R.status === 'done' && /different argument/.test(R.verdict) && /replication/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /different argument/.test(R.verdict) && /replication/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && R.zeros.flintDistinct === 1551082 && !/1\.95M/.test(R.headline),
     why: 'Zero count corrected; Rodgers–Tao mechanism corrected; replication not a new law; lower-bound side only; no QED.',
   },

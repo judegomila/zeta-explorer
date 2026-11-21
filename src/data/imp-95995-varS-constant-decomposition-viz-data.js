@@ -14,8 +14,8 @@
  * re-derivation, no re-execution of the underlying prime sieve.
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. Catalan G irrationality OPEN; Sun arXiv:2609.04176 unrefereed.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . Catalan G irrationality OPEN; Sun arXiv:2609.04176 unrefereed.
  * NO QED.
  *
  * @see imp-95964-fujii-varS-constant-locate-obstruction.js (source finding:

@@ -65,7 +65,7 @@
  * derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the imp-33843 log-linear widening verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34234-trough-peak-perstep-crossover-tenth-decade (source of the peak-step sequence fit here)
  * @see imp-34308-trough-peak-perstep-slope-extended-to-pole (argmax de-pins at kEnd ~15.4; why the linear-to-zero is local)
@@ -217,7 +217,7 @@ export const IMP34313_PEAK_STEP_DECAY_LAW_FIT = {
     'log-linear widening verdict (which is untouched). The OLS forms are descriptive, not derived; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34234 (the peak-step sequence fit here); imp-34308 (argmax de-pin break at kEnd ~ 15.4 making the ' +
     'linear-to-zero local); imp-33843 (the parent log-linear widening verdict); imp-34153 (the crossover the ' +
@@ -281,14 +281,14 @@ export const IMP34313_PEAK_STEP_DECAY_LAW_FIT_ASSERTIONS = [
       Math.abs(perUnitRatio - 0.58174) < 5e-3,
   },
   {
-    // Honesty gate: descriptive fit only -- isRigorous false, imp-33843 verdict untouched, no QED, PT SOTA,
+    // Honesty gate: descriptive fit only -- isRigorous false, imp-33843 verdict untouched, no QED, no refereed bound is changed,
     // imp-3066 K_a >= 0 untouched, C_mb GUE-conditional per imp-486 untouched.
     id: 'imp34313-honesty-gate-no-qed',
-    description: 'Descriptive fit only: isRigorous false, imp-33843 untouched, no QED, PT SOTA, imp-3066 & C_mb untouched',
+    description: 'Descriptive fit only: isRigorous false, imp-33843 untouched, no QED, no refereed bound is changed, imp-3066 & C_mb untouched',
     holds: () =>
       IMP34313_PEAK_STEP_DECAY_LAW_FIT.isRigorous === false &&
       /NO QED/.test(IMP34313_PEAK_STEP_DECAY_LAW_FIT.verdict) &&
-      /remains SOTA/.test(IMP34313_PEAK_STEP_DECAY_LAW_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34313_PEAK_STEP_DECAY_LAW_FIT.verdict) &&
       /imp-33843 log-linear widening verdict \(which is untouched\)/.test(IMP34313_PEAK_STEP_DECAY_LAW_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34313_PEAK_STEP_DECAY_LAW_FIT.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34313_PEAK_STEP_DECAY_LAW_FIT.verdict),

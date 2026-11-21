@@ -51,15 +51,15 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95562 measurement and the imp-95710
  *   height-trend tabulation for quick reference. It establishes nothing, instantiates no
- *   interval, closes no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA; the zero-side route stays PCC/GRH-gated.
+ *   interval, closes no sub-gap, moves no bound. NO QED. No refereed bound is changed
+ *   ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-95562-meansquare-vs-pointwise-gap (source: the on-zeros measurement of r(T) ~ 0.40)
  * @see imp-95710-number-variance-ratio-vs-height (source: the six-height trend tabulation and window-reach sub-gap)
  * @see imp-95519 (verified-height window bottom T = 3.0e12 this sub-gap is measured against)
  *
  * Ticket: imp-95735 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The number-variance-ratio + envelope-conservatism headword, baked verbatim (no re-import).
@@ -107,7 +107,7 @@ export const IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD = Object.freeze({
     '(weak, noise-dominated negative slope); (3) extending that conservatism to the ' +
     'imp-95519 window bottom T = 3.0e12 is a NAMED sub-gap (window reach), unmeasured across ' +
     'the remaining ~6.8 decades. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95562 (on-zeros measurement of r(T) ~ 0.40, additive height-decaying pointwise ' +
     'excess); imp-95710 (six-height trend tabulation, window-reach sub-gap); imp-95519 ' +
@@ -134,11 +134,11 @@ export const IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95735-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD.verdict) &&
       IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD.glosses === 'imp-95562,imp-95710' &&
       IMP95735_NUMBER_VARIANCE_RATIO_GLOSSARY_HEADWORD.scopes === 'imp-95519,imp-95534',
   },

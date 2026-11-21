@@ -64,7 +64,7 @@
  * certificate, and does NOT discharge R2 / the imp-36154 derivative-enclosure artifact -- it only measures
  * which of two surrogates is tighter and by how much. imp-34714a and imp-34687a REMAIN OPEN; C_C = 1/8
  * (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (the VALUE-node ~2x measurement this extends to the derivative node)
  * @see imp-36219-krawczyk-derivative-enclosure-r2-discharge-scope (R2 derivative enclosure; (H1) budget r < ~0.9546)
@@ -275,8 +275,8 @@ export const IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS = {
     'layer; no certified interval is instantiated, the R2 artifact is not discharged, over-estimation is ' +
     'NECESSARY but not SUFFICIENT. Reuses the imp-35969/imp-36017 machinery (identical K_AMPL, N_cross, ' +
     'axis, nextUp/nextDown); C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36017 (VALUE-node surrogate-vs-layer ~2x measurement extended here); imp-36219 (R2 derivative ' +
     'enclosure discharge; (H1) budget r < ~0.9546); imp-36154 (R2 the un-built certified derivative node; ' +
@@ -307,15 +307,15 @@ export const IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS_ASSERT
     holds: () => CROSS_ABOVE_TWO === true && RATIO_AT_CROSS > 2 && RATIO_AT_CROSS < 3,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, no refereed bound is changed.
     id: 'imp36235-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS.subGap) &&
       /NO QED/.test(IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS.verdict) &&
-      /remains SOTA/.test(IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS.verdict),
+      /refereed bound is changed/i.test(IMP36235_KRAWCZYK_DERIVATIVE_NODE_SURROGATE_CONSERVATIVENESS.verdict),
   },
 ];
 

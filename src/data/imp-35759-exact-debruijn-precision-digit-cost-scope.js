@@ -16,7 +16,7 @@
  *
  * ORDER-OF-MAGNITUDE COST ESTIMATE ONLY. Extends no evaluator; runs no arbitrary-
  * precision code; certifies nothing at T_PT; changes no bound; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED. No refereed bound is changed.
  *
  * THE UNDERFLOW-DRIVEN DIGIT LAW
  * -----------------------------------------------------------------------------
@@ -75,18 +75,18 @@
  * Phi-series terms, and the argument-reduction precision for the oscillatory factor
  * -- all of which only make the picture WORSE. It extends no evaluator, runs no
  * high-precision arithmetic, certifies no value, and changes no bound. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35726-w1-sign-reconciliation-cost-scope (Part D: names the x ~< 104 cap, |H_0| ~ exp(-pi x/8) under 1e-17, uncosted)
  * @see scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104], roundoff floor ~1e-17)
  * @see project_winding_thread_closed_corrected (imp-34813: Gaussian conv proxy = EXACT de Bruijn flow at negative time t = -4 tau_repo)
  * @see imp-35757-i2-panel-width-count-scope (sibling frontier OOM scoping module)
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35726 / imp-35757) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified zero-ordinate (gamma) height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const X_EXACT_CAP = 104; // observed double-precision x-ceiling (scripts/imp-34813-...offline.mjs)
 const X_TPT = 2 * T_PT; // x = 2 gamma convention; T_PT ordinate maps to x = 6e12
 const LN10 = Math.LN10; // 2.302585092994046
@@ -181,12 +181,12 @@ export const IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE = {
     '(quad precision roughly doubles the height); x = 1000 needs ~171 digits. A T_PT-scale lift (x = 6e12) needs ' +
     '~1.0e12 decimal digits ~ 425 GB per value -- a trillion working digits, a categorical wall. It counts only ' +
     'the underflow digits (node/term/argument-reduction costs only worsen it); extends no evaluator, runs no ' +
-    'high-precision arithmetic, certifies no value, and changes no bound. NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'high-precision arithmetic, certifies no value, and changes no bound. NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35726 Part D (names the x ~< 104 cap, |H_0| ~ exp(-pi x/8) under the ~1e-17 floor, uncosted); ' +
     'scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104], roundoff ' +
-    'floor ~1e-17); imp-35757 (sibling frontier OOM scoping); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'floor ~1e-17); imp-35757 (sibling frontier OOM scoping); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE_ASSERTIONS = [
@@ -232,15 +232,15 @@ export const IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE_ASSERTIONS = [
       Math.abs(D_TPT_BITS / (D_TPT_DIGITS * Math.log2(10)) - 1) < 1e-12,
   },
   {
-    // Honesty gate: OOM cost estimate only, extends no evaluator, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: OOM cost estimate only, extends no evaluator, no QED, no refereed bound is changed.
     id: 'imp35759-honesty-gate-no-qed',
-    description: 'Cost estimate only; extends no evaluator; certifies nothing at T_PT; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Cost estimate only; extends no evaluator; certifies nothing at T_PT; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE.verdict) &&
       /NO QED/.test(IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35759_EXACT_DEBRUIJN_PRECISION_DIGIT_COST_SCOPE.verdict),
   },
 ];
 

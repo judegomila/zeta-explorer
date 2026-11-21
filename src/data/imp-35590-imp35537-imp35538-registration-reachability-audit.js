@@ -29,8 +29,7 @@
  * backing a page of its own. Zero imp-34987-class orphans, zero dangling exports.
  *
  * SCOPE. Read-only audit only. No source file required correction. Changes no bound;
- * establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2
- * remains the rigorous SOTA.
+ * establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35472-imp354xx-registration-reachability-audit (earlier batch establishing the method)
  * @see imp-35545-imp354xx-registration-reachability-audit (prior registration/reachability sweep)
@@ -90,7 +89,7 @@ export const IMP35590_REGISTRATION_REACHABILITY_AUDIT = {
     'statements and DATA_MODULES wiring in scripts/run-assertions.mjs for the imp-35537 and ' +
     'imp-35538 modules. Result: zero unwired assertions arrays, zero dangling exports. No ' +
     'source file required correction. Changes no bound; establishes no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation: 'imp-35472..imp-35477 / imp-35545 (prior audit method this ticket mirrors).',
 };
 
@@ -122,11 +121,11 @@ export const IMP35590_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35590-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35590_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35590_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35590_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35590_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

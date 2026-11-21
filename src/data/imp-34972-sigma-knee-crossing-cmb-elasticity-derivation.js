@@ -42,7 +42,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * SWEPT/differentiated as a knob but its pinned value is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34955-sigma-knee-crossing-cmb-sensitivity (MEASURED the ~0.18 elasticity this derives)
  * @see imp-34931-sigma-knee-raw-total-crossing (the fixed-model 5%/25% crossing anchors)
@@ -385,7 +385,7 @@ export const IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION = {
     'has binding-method-switch kinks. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; C_mb GUE-conditional per imp-486 is differentiated as a knob but its pinned value is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34972 derivation question: the ~0.18 elasticity = closed-form X-shift 2/(1 - (ln L)_prime) ' +
     '(~2.10, near-constant) times a MEASURED crossing-eps shape sensitivity (~0.086), and it is constant across ' +
@@ -440,15 +440,15 @@ export const IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION_ASSERTIONS =
     holds: () => LOCAL_E5_RANGE > 1,
   },
   {
-    // Honesty gate: derivation/measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34972-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION.isRigorous === false &&
       IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION.farTailExponent === 0.5 &&
       typeof IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION.subGap === 'string' &&
       /NO QED/.test(IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP34972_SIGMA_KNEE_CROSSING_CMB_ELASTICITY_DERIVATION.verdict),
   },
 ];
 

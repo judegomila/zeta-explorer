@@ -26,7 +26,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * SWEPT as a sensitivity knob but its pinned value is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34955-sigma-knee-crossing-cmb-sensitivity (the C_mb sweep this separates and threshold-pins)
  * @see imp-34972-sigma-knee-crossing-cmb-elasticity-derivation (closed-form elasticity; method-switch kinks)
@@ -325,7 +325,7 @@ export const IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT = {
     'sensitive. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'C_mb GUE-conditional per imp-486 is swept as a sensitivity knob but its pinned value is UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34955 open items: (Q1) the two crossing elasticities are 0.18878 (5%) vs 0.17507 (25%), a ' +
     '~7.8% asymmetry the "~0.18" bundle hid; (Q2) the 5% crossing exits the [79,106] low edge at C_mb* ~ 0.984 ' +
@@ -397,15 +397,15 @@ export const IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT_ASSERTIONS = [
       C_HI.epsAt25pct < 91.5,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35013-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT.isRigorous === false &&
       IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT.farTailExponent === 0.5 &&
       typeof IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT.subGap === 'string' &&
       /NO QED/.test(IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT.verdict) &&
-      /remains SOTA/.test(IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT.verdict),
+      /refereed bound is changed/i.test(IMP35013_SIGMA_KNEE_5PCT_LOWEDGE_EXIT.verdict),
   },
 ];
 

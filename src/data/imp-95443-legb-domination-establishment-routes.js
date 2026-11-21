@@ -11,7 +11,7 @@
  * OPEN); this module classifies HOW the OPEN off-diagonal Loewner content could
  * be discharged, and which candidate criterion, if any, already supplies a
  * checkable partial route. ASSESSMENT only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * WHAT THE DOMINATION REQUIRES (restated exactly). Both sides are restricted-
  * Rayleigh suprema over the SAME signed coefficient space a in R^N (imp-95424):
@@ -110,7 +110,7 @@
  * linear-algebra status of each route, not paper-window Gram matrices. (e) The
  * full off-diagonal Loewner content stays OPEN as imp-95212-subgap-fresnel-airy-
  * envelope-port. Import-light (no zeros bundle, no sibling imports). Changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; measured class sup
+ * bound; NO QED; no refereed bound is changed; measured class sup
  * unchanged.
  */
 
@@ -249,7 +249,7 @@ export const IMP95443_LEGB_ESTABLISHMENT_ROUTES = {
     + 'a route failing does not refute LEG B. Route (R1) is sufficient-not-necessary and its availability is '
     + 'CONDITIONAL on an off-diagonal decay bound not proved here. Witnesses are small exact configurations '
     + 'fixing each route status, not paper-window Gram matrices. Full off-diagonal Loewner content stays OPEN as '
-    + 'imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; no refereed bound is changed.',
   fns: { eigMinSym2, traceSym2, isDiagDominantNonnegDiag },
 };
 
@@ -297,11 +297,11 @@ export const IMP95443_LEGB_ESTABLISHMENT_ROUTES_ASSERTIONS = [
   },
   {
     id: 'imp-95443-assessment-only-honest',
-    description: 'explicitly ASSESSMENT ONLY, no QED, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly ASSESSMENT ONLY, no QED, no refereed bound is changed',
     holds: () =>
       /ASSESSMENT ONLY/.test(IMP95443_LEGB_ESTABLISHMENT_ROUTES.honest)
       && /NO QED/.test(IMP95443_LEGB_ESTABLISHMENT_ROUTES.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95443_LEGB_ESTABLISHMENT_ROUTES.honest),
+      && /refereed bound is changed/i.test(IMP95443_LEGB_ESTABLISHMENT_ROUTES.honest),
   },
 ];
 

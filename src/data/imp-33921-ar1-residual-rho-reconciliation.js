@@ -65,7 +65,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not derived; the AR(1) CI
  * is a small-sample normal-theory interval on N=21 (hence its unit-root-spanning width); the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33886-widening-residual-significance-test (the DW ~0.22 and the unfit three-rho gap reconciled here)
  * @see imp-33858-widening-fit-residual-localization (the lag-1 ~+0.757 and head/far-tail endpoint residuals)
@@ -222,7 +222,7 @@ export const IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION = {
     'small-sample normal-theory interval on N=21; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33886 (the DW ~0.22 and the unfit three-rho gap reconciled here); imp-33858 (the lag-1 ~+0.757 ' +
     'and head/far-tail endpoint residuals); imp-33843 (the aggregate RMSE ~0.116 log-linear fit); ' +
@@ -279,13 +279,13 @@ export const IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION_ASSERTIONS = [
       RHO_SPREAD < CI_HALFWIDTH,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, and the residual stays small (bound untouched).
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, and the residual stays small (bound untouched).
     id: 'imp33921-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual still small',
     holds: () =>
       IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION.verdict) &&
       /12% multiplicative/.test(IMP33921_AR1_RESIDUAL_RHO_RECONCILIATION.verdict),
   },
 ];

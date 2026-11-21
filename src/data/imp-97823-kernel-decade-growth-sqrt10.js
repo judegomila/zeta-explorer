@@ -49,7 +49,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486,
  * the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED
  * and appear only as the fixed surrogate; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97721-diag3-peak-upslope-crossvalidation (kernel |K| ~ sqrt(10) per decade reported qualitatively)
  * @see imp-97662-cc-elasticity-peak-divergence (near-peak individual-elasticity square-root fold)
@@ -243,7 +243,7 @@ export const IMP97823_KERNEL_DECADE_GROWTH_SQRT10 = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97721 (kernel |K| ~ sqrt(10) per decade, reported qualitatively); imp-97662 (near-peak ' +
     'individual-elasticity square-root fold); imp-97520 (L1 peak sigma_max ~ 0.949429, N_peak ~ 9.22e5); ' +
@@ -303,13 +303,13 @@ export const IMP97823_KERNEL_DECADE_GROWTH_SQRT10_ASSERTIONS = [
       Math.abs(DOWN.full_ls.growth_per_decade - SQRT10) / SQRT10 > 0.03,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97823-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97823_KERNEL_DECADE_GROWTH_SQRT10.isRigorous === false &&
       /NO QED/.test(IMP97823_KERNEL_DECADE_GROWTH_SQRT10.verdict) &&
-      /remains SOTA/.test(IMP97823_KERNEL_DECADE_GROWTH_SQRT10.verdict),
+      /refereed bound is changed/i.test(IMP97823_KERNEL_DECADE_GROWTH_SQRT10.verdict),
   },
 ];
 

@@ -47,7 +47,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34947-conjugate-pair-argument-theta-cross-check (single-pair 2-step Darboux read this generalizes; R_median scale)
  * @see imp-34932-sigma-knee-extended-order-domb-sykes (analytic delta ladder + sign-cycle theta ~ 40 deg)
@@ -317,7 +317,7 @@ export const IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE = {
     'sub-dominant relative contribution ~ 0.70^k decays. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the imp-34947 open thread (a full two-point Darboux / d-log Pade fit to pin R e^(+- i theta) jointly and ' +
     'quantify the sub-dominant correction): the two nearest conjugate pairs are now fit at once, the dominant ' +
@@ -375,15 +375,15 @@ export const IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE_ASSERTIONS = [
       LOG10_N_CROSS > 9.5158 && LOG10_N_CROSS < 9.5161,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34991-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE.isRigorous === false &&
       IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE.farTailExponent === 0.5 &&
       typeof IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE.subGap === 'string' &&
       /NO QED/.test(IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE.verdict) &&
-      /remains SOTA/.test(IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE.verdict),
+      /refereed bound is changed/i.test(IMP34991_TWO_PAIR_DARBOUX_JOINT_RADIUS_ANGLE.verdict),
   },
 ];
 

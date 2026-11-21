@@ -43,7 +43,7 @@
  * @see imp-97437-route-m-bulk-profile-curvature-crossover.js (kappa_eff = 0.0995, a wobble amplitude)
  *
  * Ticket: imp-97590 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The quantum-modular-form-obstruction headword, baked verbatim (no re-import).
@@ -76,8 +76,8 @@ const QUANTUM_MODULAR_FORM_OBSTRUCTION_HEADWORD = Object.freeze({
     '(imp-97437) remains a wobble amplitude, not an estimate of kappa_smooth. No analytic constant is ' +
     'pinned (exact kappa_smooth is the uncomputed psi cusp coefficient); no bound moved; the rigorous ' +
     'anchor stays the trace ceiling T = 2.594e7, compute (N ~ 9916, imp-96352) binds first by >2600x; ' +
-    'no operator positivity. Naming / glossary headword only; RH open; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; NO QED.',
+    'no operator positivity. Naming / glossary headword only; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -96,7 +96,7 @@ export const IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD = Objec
     'reciprocity cocycle, yet does not extend continuously to real x, so the reciprocity split ' +
     'isolates the smooth curvature kappa_smooth only as a Gauss-Kuzmin average over generic rationals ' +
     '-- pointwise separation from the O(4e-2) intrinsic wobble is impossible in principle. No bound ' +
-    'moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97563 (the reciprocity-split assessment this glosses); imp-97460 (localises the obstruction ' +
     'and names the reciprocity route); imp-97437 (kappa_eff = 0.0995, the wobble amplitude).',
@@ -123,11 +123,11 @@ export const IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp97590-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97563.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97563.',
     holds: () =>
       IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
       IMP97590_QUANTUM_MODULAR_FORM_OBSTRUCTION_GLOSSARY_HEADWORD.glosses === 'imp-97563',
   },
 ];

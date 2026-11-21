@@ -68,8 +68,8 @@
  *    p ~ 0.03), NOT conclusive. Named sub-gap imp-3916-sub-second-nearest-gap
  *    remains OPEN: measuring the second-nearest D_{a+-2}/Dmin gap (an offline
  *    frozen-distance scan) to test whether it sharpens the Dmin association.
- *  - No positivity claim; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2
- *    REMAINS SOTA; touches no imp-3854 INEQUALITY; NO QED.
+ *  - No positivity claim; imp-3066 K_a >= 0 UNTOUCHED; no refereed bound is changed
+ *    ; touches no imp-3854 INEQUALITY; NO QED.
  *
  * @see imp-3894-endpoint-concavity-slack-measurement.js (proxyAccuracyFactor source)
  * @see imp-3870-smin-dmin-slack-measurement.js (Dmin, smin, distFromPair source)
@@ -194,7 +194,7 @@ export const IMP_3916_PROXY_ACCURACY_STRUCTURAL_CORRELATION = Object.freeze({
       'is unbaked (open sub-gap). The proxy magnitude (H/Dmin)^2 is itself weakly ' +
       'NEGATIVELY correlated, so absolute nearest-distance -- not the small ' +
       'parameter size -- sets the proxy accuracy. Association on n = 10, marginal ' +
-      'significance; imp-3066 untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; ' +
+      'significance; imp-3066 untouched; no refereed bound is changed; ' +
       'NO QED.',
   },
 
@@ -207,7 +207,7 @@ export const IMP_3916_PROXY_ACCURACY_STRUCTURAL_CORRELATION = Object.freeze({
     measurementOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -270,7 +270,7 @@ export const IMP_3916_PROXY_ACCURACY_STRUCTURAL_CORRELATION_ASSERTIONS = [
       IMP_3916_PROXY_ACCURACY_STRUCTURAL_CORRELATION.scope.noQED === true,
     why:
       'Honesty guard: a correlation study, not a bound. It must not assert a new ' +
-      'Lambda bound or a QED, imp-3066 stays untouched, PT Lambda <= 0.2 stays SOTA.',
+      'Lambda bound or a QED, imp-3066 stays untouched, no refereed bound is changed.',
   },
 ];
 

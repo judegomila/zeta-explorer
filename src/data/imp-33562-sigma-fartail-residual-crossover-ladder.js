@@ -58,7 +58,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. C_C is GUE-conditional per
  * imp-486; extrapolation past the 10^6 empirical ceiling is a projection not a measurement
  * (imp-3406); changes no bound; imp-3066 K_a >= 0 untouched; no positivity, no bridge closure,
- * no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33540-sigma-fartail-overshoot-two-power-decomposition (measured OS off-regime at the interior max)
  * @see imp-33291-sigma-fartail-two-parameter-lnN-lnlogT0-fit (the (-1/2, +1/2) joint power pair)
@@ -195,7 +195,7 @@ export const IMP33562_SIGMA_FARTAIL_RESIDUAL_CROSSOVER_LADDER = {
     'product OS = sigma_ft*sigma_full*(E_flow/E_coll) holds to < 1e-15 at every rung. C_C is ' +
     'GUE-conditional per imp-486; extrapolation past the 10^6 empirical ceiling is a projection ' +
     '(imp-3406); changes no bound; imp-3066 K_a >= 0 untouched; no positivity, no bridge closure, ' +
-    'no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33540 (far-tail overshoot measured off-regime at the interior max); imp-33291 ((-1/2, +1/2) ' +
     'joint power law); imp-33315 (~3.0e-2 interior-max overshoot); imp-3406 (interior MAX N ~ 9.22e5); ' +
@@ -240,13 +240,13 @@ export const IMP33562_SIGMA_FARTAIL_RESIDUAL_CROSSOVER_LADDER_ASSERTIONS = [
       MAX_IDENTITY_GAP < 1e-15,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33562-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, PT stays SOTA',
+    description: 'Measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33562_SIGMA_FARTAIL_RESIDUAL_CROSSOVER_LADDER.isRigorous === false &&
       /NO QED/.test(IMP33562_SIGMA_FARTAIL_RESIDUAL_CROSSOVER_LADDER.verdict) &&
-      /remains SOTA/.test(IMP33562_SIGMA_FARTAIL_RESIDUAL_CROSSOVER_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP33562_SIGMA_FARTAIL_RESIDUAL_CROSSOVER_LADDER.verdict),
   },
 ];
 

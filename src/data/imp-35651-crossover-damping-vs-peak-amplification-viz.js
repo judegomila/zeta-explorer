@@ -21,7 +21,7 @@
  * imp-35632 crossover-placement construction (pure Math, inlined RvM count
  * and closed surrogate map, never the 16.7MB zeros bundle per
  * no_heavy_imports_in_pages); no new derivation, no new bound, discharges
- * nothing, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * nothing, NO QED. No refereed bound is changed.
  *
  * @see imp-35594-peak-crossover-mechanism-derivation (Derivation 1 closed form tabulated here)
  * @see imp-35632-crossover-damping-height-ladder (the same predicted-vs-measured crossover ladder)
@@ -140,7 +140,7 @@ export const IMP35651_CROSSOVER_DAMPING_VS_PEAK_AMPLIFICATION_VIZ = {
     'on the inherited imp-3220/imp-3406 double surrogate; surrogate-vs-true fidelity (imp-35337a) ' +
     'stays OPEN; C_C ansatz (imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
     'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; discharges nothing; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35594 (Derivation 1 closed form tabulated here); imp-35632 (predicted-vs-measured ' +
     'crossover ladder); imp-35633 (flat peak-location damping ~0.553 contrasted); imp-35458 ' +
@@ -180,13 +180,13 @@ export const IMP35651_ASSERTIONS = [
     holds: () => INSULATION_RATIO_AT_PT > 20,
   },
   {
-    // Honesty gate: presentation only, no QED, PT stays SOTA.
+    // Honesty gate: presentation only, no QED, no refereed bound is changed.
     id: 'imp35651-honesty-gate-no-qed',
-    description: 'Presentation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Presentation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35651_CROSSOVER_DAMPING_VS_PEAK_AMPLIFICATION_VIZ.isRigorous === false &&
       /NO QED/.test(IMP35651_CROSSOVER_DAMPING_VS_PEAK_AMPLIFICATION_VIZ.verdict) &&
-      /remains SOTA/.test(IMP35651_CROSSOVER_DAMPING_VS_PEAK_AMPLIFICATION_VIZ.verdict),
+      /refereed bound is changed/i.test(IMP35651_CROSSOVER_DAMPING_VS_PEAK_AMPLIFICATION_VIZ.verdict),
   },
 ];
 

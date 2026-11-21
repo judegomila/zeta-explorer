@@ -280,7 +280,7 @@ export const IMP3461_C_INF_FIFTH_RUNG_WYNN_EPS4 = Object.freeze({
     '~2.3e-5 above the headline 0.1751 (still inside the imp-3346 1e-4), and the eps_2 column is still slowly ' +
     'climbing, so C_inf is pinned to the upper cluster ~0.17512 but its last digit (0.17511 vs 0.17512) is not ' +
     'frozen to 1e-6 here. Certification / measurement only; RH-equivalent; NO RH verdict and NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -378,7 +378,7 @@ export const IMP3461_C_INF_FIFTH_RUNG_WYNN_EPS4 = Object.freeze({
       'The 1/U scaling of the capture ratio is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator ' +
       'magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -447,7 +447,7 @@ export const IMP3461_C_INF_FIFTH_RUNG_WYNN_EPS4_ASSERTIONS = [
     id: 'imp3461-honest-residual-subgap-and-no-qed',
     why: 'Mandatory honesty: DISCRIMINATION only -- the tie is broken toward the upper cluster but the last digit ' +
       '(0.17511 vs 0.17512) is not frozen to 1e-6, C_inf is a determined number not a symbolic identity, positivity ' +
-      'not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3461_C_INF_FIFTH_RUNG_WYNN_EPS4.honestCaveat;
       return (
@@ -456,7 +456,7 @@ export const IMP3461_C_INF_FIFTH_RUNG_WYNN_EPS4_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.residualSubGapLastDigitNotFrozen === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

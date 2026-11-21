@@ -70,7 +70,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the inherited imp-3220/imp-3406 component
  * model is NOT a rigorous asymptotic; changes no bound; no positivity, no bridge closure,
- * no RH claim, imp-3066 K_a >= 0 untouched, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH claim, imp-3066 K_a >= 0 untouched, NO QED. No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm; direction only)
  * @see imp-3529-sigma-postpeak-decay-exponent (LOCAL pointwise exponent p(N), anchored past crossover)
@@ -282,7 +282,7 @@ export const IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE = {
     'the ramp from the far-tail sqrt(1/N) tail (imp-33274). The inherited imp-3220/imp-3406 ' +
     'component model is NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; no positivity, no bridge closure, no RH claim, imp-3066 ' +
-    'K_a >= 0 untouched, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched, NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior MAX N ~ 9.22e5, monotone decay-to-0, DIRECTION only); imp-3529 (LOCAL ' +
     'pointwise exponent, anchored past crossover); imp-33274/imp-33255 (past-crossover OLS ' +
@@ -347,14 +347,14 @@ export const IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = imp-3463 1/2, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = imp-3463 1/2, no QED, no refereed bound is changed.
     id: 'imp34028-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, fartail exponent 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, fartail exponent 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE.isRigorous === false &&
       IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE.fartailExponent === 0.5 &&
       /NO QED/.test(IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE.verdict) &&
-      /remains SOTA/.test(IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE.verdict),
+      /refereed bound is changed/i.test(IMP34028_SIGMA_POSTPEAK_RAMP_CROSSOVER_SCALE.verdict),
   },
 ];
 

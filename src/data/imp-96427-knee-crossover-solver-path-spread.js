@@ -64,7 +64,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_H
  * isRigorousUpperBound stays false (imp-2642/imp-2701); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -292,7 +292,7 @@ export const IMP96427_KNEE_CROSSOVER_SOLVER_PATH_SPREAD = Object.freeze({
     'iteration artifacts. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H isRigorousUpperBound ' +
     'stays false (imp-2642/imp-2701); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96404 (inter-COUNT-MODEL +7/8 knee shift ~1.3e-10, crossover shift ~6e-12); imp-96363 ' +
     '(closed-form Lambert-W reproduces the Newton main-term gamma to relative 3.9e-16 at N=1e6); ' +
@@ -346,11 +346,11 @@ const IMP96427_ASSERTIONS = [
   },
   {
     id: 'imp96427-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96427_KNEE_CROSSOVER_SOLVER_PATH_SPREAD.isRigorous === false &&
       /NO QED/.test(IMP96427_KNEE_CROSSOVER_SOLVER_PATH_SPREAD.verdict) &&
-      /remains SOTA/.test(IMP96427_KNEE_CROSSOVER_SOLVER_PATH_SPREAD.verdict),
+      /refereed bound is changed/i.test(IMP96427_KNEE_CROSSOVER_SOLVER_PATH_SPREAD.verdict),
   },
 ];
 

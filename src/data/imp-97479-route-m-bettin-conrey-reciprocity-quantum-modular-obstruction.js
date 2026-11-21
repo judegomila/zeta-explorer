@@ -68,8 +68,8 @@
  *   Derivation + measurement only; pins NO universal analytic curvature constant (there is none -- the
  *   O(x^2) curvature is an x-dependent quantum-modular limit, Bettin-Conrey-reciprocity-locked, spanning
  *   -0.097..+2.09 across x); no bound moves; the rigorous anchor stays the trace ceiling T = 2.594e7;
- *   compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains
- *   SOTA; RH open; NO QED.
+ *   compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97479-quantum-modular-curvature-limit -- the smooth O(x^2) coefficient does not
  *   exist as a universal constant; the reciprocal Vasyunin combination converges along CF convergents to
@@ -165,7 +165,7 @@ export const IMP97479_VERDICT = Object.freeze({
     'kappa(golden) ~ -0.097 matches |kappa_eff| = 0.0995, confirming kappa_eff is the golden-type local ' +
     'value of this x-dependent quantum-modular curvature, not a smooth constant. Derivation + measurement ' +
     'only; pins no universal constant (there is none); no bound moves; rigorous anchor stays T = 2.594e7; ' +
-    'compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'compute binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97479_SUBGAP = Object.freeze({
@@ -182,7 +182,7 @@ export const IMP97479_SUBGAP = Object.freeze({
 });
 
 export const IMP97479_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the Bettin-Conrey ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the Bettin-Conrey ' +
   'reciprocity resummation of the frac(n x b) phases does NOT isolate a smooth O(x^2) curvature ' +
   'coefficient because none exists -- the reciprocal Vasyunin combination converges (parity-oscillating) ' +
   'along CF convergents to an x-dependent quantum-modular limit kappa(x) spanning -0.097..+2.09. ' +
@@ -245,7 +245,7 @@ const IMP97479_ASSERTIONS = [
       IMP97479_VERDICT.limitIsXDependent === true &&
       IMP97479_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97479_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97479_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97479_HONEST_BANNER) &&
       /RH open/.test(IMP97479_HONEST_BANNER) &&
       /quantum-modular-curvature-limit/.test(IMP97479_SUBGAP.id),
   },

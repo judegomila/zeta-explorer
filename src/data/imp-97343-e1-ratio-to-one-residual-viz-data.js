@@ -15,7 +15,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (b, rExact, marginOverSqrtB) row below is copied
  * verbatim from the imp-97315 baked IMP97315_RESULTS.directExactLadder (no re-derivation of the
  * O(b) coprime-sum kernel). Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97315-route-m-e1-direct-exact-ratio-crosscheck.js (IMP97315_RESULTS, IMP97315_HONEST_BANNER)
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (RESULT 4: residual b^{-1/2} law)
@@ -61,7 +61,7 @@ export const IMP97343_SUMMARY = Object.freeze({
 });
 
 export const IMP97343_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, rExact, marginOverSqrtB) ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, rExact, marginOverSqrtB) ' +
   'row is copied verbatim from the imp-97315 baked IMP97315_RESULTS.directExactLadder (no re-derivation ' +
   'of the O(b) coprime-sum kernel); no bound is claimed and no operator positivity is established.';
 
@@ -105,7 +105,7 @@ const IMP97343_ASSERTIONS = [
     id: 'imp97343-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97343_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97343_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97343_HONEST_BANNER) &&
       /NO QED/.test(IMP97343_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

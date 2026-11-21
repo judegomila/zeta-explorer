@@ -69,7 +69,7 @@
  * imp-95767 certified interval (that interval is at ln 1.3; this is the ln 1.2 companion
  * measurement). Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed. Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95896-ln12-past2800-ufit-tightening (the 14-point N<=5200 grid this extends)
  * @see imp-95881-ln12-past1000-ufit-tightening (the 11-point N<=2800 predecessor)
@@ -161,7 +161,7 @@ export const IMP95919_LN12_PAST5200_DD_FLOOR = {
     "measurement extending an established audit grid to the DD floor; no new cited input; " +
     "no numeric change to the imp-95767 certified interval; model seam family only; the " +
     "imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no " +
-    "bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95919"],
 };
 
@@ -396,7 +396,7 @@ export const IMP95919_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95919"),
   },
 ];

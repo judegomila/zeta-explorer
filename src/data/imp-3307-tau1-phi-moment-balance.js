@@ -6,7 +6,7 @@
  *   whether the a-cancellation in the nu/mu ratio is EXACT or only leading-order.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE QUESTION (imp-3216 finding E1)
  *   ----------------------------------
@@ -72,7 +72,7 @@
  *   balance geometry only; it re-derives no absolute deficit magnitude. A nonzero
  *   overflow fraction is necessary-but-NOT-sufficient at operator order; the
  *   off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone
- *   obstruction. No RH verdict. No false QED. Platt-Trudgian Lambda &lt;= 0.2 SOTA.
+ *   obstruction. No RH verdict. No false QED. No refereed bound is changed.
  *
  *   @see imp-3216-overflow-support-length-closed-form.js (finding E1, the origin)
  *   @see imp-3199-overflow-fraction-cell-sweep.js (the cell sweep imp-3216 revises)
@@ -460,7 +460,7 @@ export const IMP3307_TAU1_PHI_MOMENT_BALANCE = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -504,7 +504,7 @@ export const IMP3307_TAU1_PHI_MOMENT_BALANCE_ASSERTIONS = [
   {
     id: 'imp3307-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC deriving the lower-endpoint balance only, a-cancellation leading-order ' +
-         'only, necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA. ' +
+         'only, necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed. ' +
          'If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3307_TAU1_PHI_MOMENT_BALANCE.honestCaveat;
@@ -513,7 +513,7 @@ export const IMP3307_TAU1_PHI_MOMENT_BALANCE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

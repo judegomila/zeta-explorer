@@ -29,8 +29,8 @@
  * MEASUREMENT ONLY. This RE-USES the imp-34950 / imp-34925 s* bisection kernels verbatim and resamples the
  * fit grid; it changes NO bound. It does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486);
  * the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA. "p is non-rational" is a statement about the SURROGATE fit, NOT a structural or arithmetic fact.
+ * untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed
+ * . "p is non-rational" is a statement about the SURROGATE fit, NOT a structural or arithmetic fact.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the single residual-based CI this stress-tests)
  * @see imp-34925-eflow-crossing-strength-cmb-functional-form (the power-law form + point p ~ 1.549)
@@ -322,7 +322,7 @@ export const IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE = {
     'resamples the fit grid; it changes NO bound; does NOT discharge the GUE conditional (C_mb ' +
     'GUE-conditional per imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34994: bootstrap (SE ~1.19e-3, 95% percentile CI ~[1.5475, 1.5521]) and jackknife ' +
     '(SE ~1.23e-3) of the imp-34950 pinned exponent p = 1.5493 give resampling SEs ~1.35x the residual-based ' +
@@ -330,7 +330,7 @@ export const IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE = {
     'sigma out and outside the 95% CI, confirming imp-34950 F1. What stays OPEN (deferred, changes no bound): ' +
     'whether the resampling band itself is surrogate-independent or drifts with the imp-3220/imp-3406 ' +
     'extrapolation; and a derivation PINNING C_mb below the GUE bound of 1 (imp-486) would then fix the ' +
-    'physical s* via C_mb^p. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'physical s* via C_mb^p. NO QED; no refereed bound is changed.',
   citation:
     'imp-34950 (the single residual-based CI stress-tested here); imp-34925 (the power-law form and point ' +
     'exponent p ~ 1.549); imp-34886 (the s* ~ 0.78 crossing at C_mb=1, D2/D3 kernels reused verbatim); ' +
@@ -392,16 +392,16 @@ export const IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE_ASSERTIONS = [
       HIST_COUNTS.reduce((a, b) => a + b, 0) === BOOT_N,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp34994-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.isRigorous === false &&
       IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.farTailExponent === 0.5 &&
       typeof IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.subGap === 'string' &&
       /imp-486/.test(IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.subGap) &&
       /NO QED/.test(IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.verdict) &&
-      /remains SOTA/.test(IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.verdict),
+      /refereed bound is changed/i.test(IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE.verdict),
   },
 ];
 

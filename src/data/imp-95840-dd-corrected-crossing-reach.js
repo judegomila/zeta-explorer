@@ -76,7 +76,7 @@
  * still driven mainly by the two DD points. (c) Measurement/curve-fit of an
  * established scaling law; no new cited input. Model seam family only; the imp-95212
  * envelope port, signed WEIGHT and modulus/phase legs stay OPEN. Changes NO bound of
- * the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun
+ * the Lambda program; NO QED; no refereed bound is changed; Sun
  * arXiv:2609.04176 unrefereed.
  *
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (the RESULT-4 DD reach sweeps fit here)
@@ -178,8 +178,8 @@ export const IMP95840_DD_CORRECTED_CROSSING_REACH = {
     "correction term is a 2-point zero-dof fit, so a denser DD reach sweep (cells bracketing the -1% " +
     "level) would sharpen a2 / kappa -- new named sub-gap imp-95840-dd-crossing-reach-needs-denser-sweep. " +
     "Measurement / curve-fit of an established scaling law; model seam family only (imp-95212 envelope " +
-    "port, signed WEIGHT and modulus/phase legs stay OPEN); changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.",
+    "port, signed WEIGHT and modulus/phase legs stay OPEN); changes no bound; NO QED; no refereed bound is changed" +
+    "; Sun arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95840"],
 };
 
@@ -320,7 +320,7 @@ export const IMP95840_ASSERTIONS = [
     holds: () =>
       REF.boundChange === false &&
       REF.qed === false &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.subGap === "imp-95840-dd-crossing-reach-needs-denser-sweep" &&
       REF.closesTickets.includes("imp-95840"),
   },

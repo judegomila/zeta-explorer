@@ -44,7 +44,7 @@
  * back-conversion, not a band-collapse boundary on a finite ladder, and it says nothing about the coupled
  * H3 curvature rung (N-exponent 5/4, imp-33786) that dominates and jointly governs the discharge.
  * G6a_shock_lipschitz STAYS OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-33794-cren-window-measurement (the whole-ladder [2.95e-2] and asymptotic [9.1e-4] windows this localizes between)
  * @see imp-33845-cren-gap-onset-rate (C_ren - C_PS ~ (4/3) eps^{3/2}: the ~3/2 exponent the spread inherits)
@@ -202,7 +202,7 @@ export const IMP33849_CREN_WINDOW_ONSET_BOUNDARY = {
     'tracking of C_ren through the fold-modulus back-conversion, not a band-collapse boundary on a finite ladder, and ' +
     'it says nothing about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) that dominates and jointly ' +
     'governs the discharge. No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; imp-3066 ' +
-    'UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33849_CREN_WINDOW_ONSET_BOUNDARY_ASSERTIONS = [
@@ -241,15 +241,15 @@ export const IMP33849_CREN_WINDOW_ONSET_BOUNDARY_ASSERTIONS = [
       Math.abs(IMP33849_CREN_WINDOW_ONSET_BOUNDARY.spreadExponentK - 1.5) < 0.2,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33849-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33849_CREN_WINDOW_ONSET_BOUNDARY.isRigorous === false &&
       IMP33849_CREN_WINDOW_ONSET_BOUNDARY.dischargesH4 === false &&
       /NO QED/.test(IMP33849_CREN_WINDOW_ONSET_BOUNDARY.verdict) &&
       /STAYS OPEN/.test(IMP33849_CREN_WINDOW_ONSET_BOUNDARY.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33849_CREN_WINDOW_ONSET_BOUNDARY.verdict) &&
+      /refereed bound is changed/i.test(IMP33849_CREN_WINDOW_ONSET_BOUNDARY.verdict) &&
       /imp-3066 UNTOUCHED/.test(IMP33849_CREN_WINDOW_ONSET_BOUNDARY.verdict),
   },
 ];

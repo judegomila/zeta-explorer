@@ -388,7 +388,7 @@ export const PAPER_ROADMAP = Object.freeze({
         'normalization. The bare ‖V‖ ≤ 1 finite-window number is scale-miscalibrated (the imp-1240 ' +
         '“5000× below 1” margin measures the WRONG object). The only surviving target is the degree-0, ' +
         'scale-invariant relative bound ‖R‖ ≤ 1 ⇔ K_a ⪰ 0, which is RH-EQUIVALENT — a faithful ' +
-        'restatement, not a reduction to something cheaper. Platt–Trudgian Λ ≤ 0.2 remains rigorous SOTA.',
+        'restatement, not a reduction to something cheaper. No refereed bound is changed.',
     }),
     Object.freeze({
       id: 's28-discussion',

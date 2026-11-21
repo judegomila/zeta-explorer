@@ -60,8 +60,8 @@
  *   rate over a FINITE degree window; extending the window to DEG 20 shows p is still drifting,
  *   NOT that it has converged. legendreTrustworthyMaxDegree = 20 is the sweep ceiling, not a
  *   located Legendre breakdown. The off-diagonal endpoint-Hankel operator step (imp-3066) remains
- *   the lone obstruction and is untouched. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous
- *   SOTA. No false QED.
+ *   the lone obstruction and is untouched. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3196-residual-gap-convergence-rate.js (the {2..10}-only power-law fit this extends)
  *   @see imp-3153-cosh-monomial-conditioning-ceiling.js (the cond(P) ceiling this reconditions past)
@@ -539,7 +539,7 @@ export const IMP3235_CONDITIONED_BASIS_DEGREE_EXTENSION = Object.freeze({
     operatorStepUntouched:
       'The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT ' +
       'addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -615,7 +615,7 @@ export const IMP3235_CONDITIONED_BASIS_DEGREE_EXTENSION_ASSERTIONS = [
     id: 'imp3235-honest-rh-equivalent-not-a-verdict',
     why: 'Mandatory honesty: reconditioning diagnostic, RH-EQUIVALENT, representative truncation, basis change ' +
          'is pure reconditioning, exponent still empirical and drifting, Legendre ceiling not located, no ' +
-         'positivity, operator step untouched, not a proof/reduction, PT 0.2 stays SOTA. If any flip the ' +
+         'positivity, operator step untouched, not a proof/reduction, no refereed bound is changed. If any flip the ' +
          'module is over-claiming.',
     holds: () => {
       const c = IMP3235_CONDITIONED_BASIS_DEGREE_EXTENSION.honestCaveat;
@@ -627,7 +627,7 @@ export const IMP3235_CONDITIONED_BASIS_DEGREE_EXTENSION_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

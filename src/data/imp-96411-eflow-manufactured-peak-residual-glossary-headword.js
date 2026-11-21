@@ -43,7 +43,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96266 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual (source: the residual identity and peak-recovery measurement this glosses)
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (closed-form share model; peak omitted)
@@ -52,7 +52,7 @@
  * @see imp-486 (C_mb GUE-conditional, UNTOUCHED)
  *
  * Ticket: imp-96411 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The manufactured-peak headword, baked verbatim (no re-import).
@@ -80,7 +80,7 @@ const EFLOW_MANUFACTURED_PEAK_HEADWORD = Object.freeze({
     'Measurement (frontier-direction), conditional-share diagnostic, not a rigorous ' +
     'asymptotic. Component model is the inherited imp-3220/imp-3406/imp-33723 ' +
     'extrapolation; the C_mb GUE-conditional per imp-486 stays untouched. Changes no ' +
-    'bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD = Object.freeze({
@@ -99,7 +99,7 @@ export const IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD = Objec
     'exact identity (not a fit), strictly negative, and differentially strong on the left ' +
     'arm of the U-shape -- this is what manufactures the imp-3220 interior peak out of an ' +
     'otherwise monotone-decreasing two-term share. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96266 (the residual identity and peak-recovery measurement this glosses); ' +
     'imp-96151 (closed-form share model; peak omitted); imp-96176 (caption attributing ' +
@@ -126,11 +126,11 @@ export const IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp96411-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD.verdict) &&
       IMP96411_EFLOW_MANUFACTURED_PEAK_RESIDUAL_GLOSSARY_HEADWORD.glosses === 'imp-96266',
   },
 ];

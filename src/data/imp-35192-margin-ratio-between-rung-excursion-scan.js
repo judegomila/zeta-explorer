@@ -52,7 +52,7 @@
  * (G-a is closed only by O3, a certified |rho(eps) - 2/3| <= K eps^theta, which a finer grid cannot
  * supply). Establishes no operator positivity, changes no bound. G6a_shock_lipschitz stays OPEN; imp-3066
  * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (the 9-rung ladder this densifies)
  * @see imp-35152-n-uniform-fold-modulus-back-conversion-scoping (gap G-a; obligation O3 the certified rate)
@@ -232,7 +232,7 @@ export const IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN = {
     '|rho(eps) - 2/3| <= K eps^theta (the load-bearing obligation O3), so imp-35152 gap G-a stays OPEN. ' +
     'Establishes no operator positivity, changes no bound. G6a_shock_lipschitz stays OPEN; imp-3066 ' +
     'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_ASSERTIONS = [
@@ -270,17 +270,17 @@ export const IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_ASSERTIONS = [
       Math.abs(IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.marginRatioLimitClosedForm - 2 / 3) < 1e-12,
   },
   {
-    // Honesty gate: measurement only; does NOT close G-a, no modulus, G6a OPEN, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT close G-a, no modulus, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35192-honesty-gate-no-qed',
     description:
-      'Measurement only: no between-rung excursion exposed but G-a not closed (no modulus/rate), G6a OPEN, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: no between-rung excursion exposed but G-a not closed (no modulus/rate), G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.isRigorous === false &&
       IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.betweenRungExcursionExposed === false &&
       IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.suppliesModulusOfContinuity === false &&
       /NO QED/.test(IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.verdict) &&
       /G6a_shock_lipschitz stays OPEN/.test(IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.verdict) &&
-      /rigorous SOTA/.test(IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.verdict) &&
+      /refereed bound is changed/i.test(IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35192_MARGIN_RATIO_BETWEEN_RUNG_EXCURSION_SCAN.verdict,
       ),

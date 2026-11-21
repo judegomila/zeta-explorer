@@ -58,8 +58,7 @@
  * imp-34687a directed-rounding layer. It instantiates NO interval, ports NO certificate, and does NOT
  * discharge the F(m) = 0 residual-at-root artifact (it only classifies it as a-independent, not dG-type).
  * imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35855-rclean-interval-de-cancellation-assessment (de-cancelled the dG node; left F/[F-prime]/g audit open)
  * @see imp-34774-krawczyk-fixed-point-map-enclosure (the operator K(m)=m-[F-prime]^-1 F(m); F(m)=0 artifact; contraction gap)
@@ -233,8 +232,8 @@ export const IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT = {
     'catalogue, NOT a machine certificate; no interval instantiated, the F(m)=0 artifact is classified not ' +
     'discharged, the imp-34687a layer is not ported. Reuses the imp-34774/imp-35855 machinery (identical ' +
     'K_AMPL, g, aOf, N_cross); C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35855 (de-cancelled the dG node; left F/[F-prime]/g audit open); imp-34774 (the operator K(m), ' +
     'F(m)=0 artifact, contraction gap); imp-34714 (Krawczyk existence-uniqueness lemma; sub-gap ' +
@@ -283,15 +282,15 @@ export const IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment/scoping, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: assessment/scoping, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35885-honesty-gate-no-qed',
-    description: 'assessment: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'assessment: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT.subGap) &&
       /NO QED/.test(IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35885_KRAWCZYK_NODE_CANCELLATION_AUDIT.verdict),
   },
 ];
 

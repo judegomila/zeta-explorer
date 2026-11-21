@@ -44,8 +44,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-
  * conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124771-knee-amp-bracket-width-reconcile (the A(W) ladder + linear W -> 0 chord ~9.33)
  * @see imp-124787-knee-amp-quadratic-richardson (the O(W^2) subset-instability spread ~0.73)
@@ -158,8 +157,8 @@ export const IMP124807_KNEE_AMP_THREE_FINEST_RESIDUAL_CONCAVITY = {
     'O(W^2) concavity. SUB-GAP: a jitter-suppressed knee estimator is needed. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124771 (A(W) bracket-width ladder + linear W -> 0 chord ~9.33); imp-124787 (O(W^2) subset-' +
     'instability spread ~0.73); imp-97804 (closed-form A ~ 9.42 via the continuous d2p/dt2 = 0 knee); ' +
@@ -207,13 +206,13 @@ export const IMP124807_KNEE_AMP_THREE_FINEST_RESIDUAL_CONCAVITY_ASSERTIONS = [
     holds: () => Math.abs(2 * a2 * H * H - SECOND_DIFF) < 1e-6,
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp124807-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124807_KNEE_AMP_THREE_FINEST_RESIDUAL_CONCAVITY.isRigorous === false &&
       /NO QED/.test(IMP124807_KNEE_AMP_THREE_FINEST_RESIDUAL_CONCAVITY.verdict) &&
-      /remains SOTA/.test(IMP124807_KNEE_AMP_THREE_FINEST_RESIDUAL_CONCAVITY.verdict),
+      /refereed bound is changed/i.test(IMP124807_KNEE_AMP_THREE_FINEST_RESIDUAL_CONCAVITY.verdict),
   },
 ];
 

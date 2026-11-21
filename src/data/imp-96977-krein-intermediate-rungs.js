@@ -51,8 +51,8 @@
  * SCOPE. The Rayleigh floors are UPPER bounds on the true infinite-dim lambda_min (monotone decreasing
  * in N); the positive-tail-dropped construction makes each TABULATED cell a rigorous LOWER bound on the
  * finite-N Rayleigh value, not an operator positivity theorem. The interval-rigorous certificate reach
- * stays exactly 2a <= 0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; RH open; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; NO QED. SUB-GAP IMP96977_TRUE_LIMIT_UNSETTLED: these are finite-N floors
+ * stays exactly 2a <= 0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; RH open; no refereed bound is changed
+ * ; NO QED. SUB-GAP IMP96977_TRUE_LIMIT_UNSETTLED: these are finite-N floors
  * (uniform-in-N spectral gap lambda_min >= c > 0 still open, per imp-96749 analyticObstruction); pinning
  * the N -> infinity limit at these rungs needs the extended-precision / orthogonal-basis recompute.
  *

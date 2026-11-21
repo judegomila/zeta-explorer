@@ -13,7 +13,7 @@
  * shared route-P ledger, hence conditional), CONDITIONAL (named open hypothesis), MEASURED, HEURISTIC. Every route result is internal-referee
  * only (one adversarial internal pass per route). No route proves RH; no route lowers the accepted benchmark.
  *
- * PT Lambda <= 0.2 stands (accepted, peer-reviewed); 0.1758354 / 0.1787854 remain computer-assisted candidates; RH open; NO QED.
+ * No refereed bound is changed (accepted, peer-reviewed); 0.1758354 / 0.1787854 remain computer-assisted candidates; RH open; NO QED.
  * Import-light (imports only the import-free roadmap). FIFTY_ROUTES_SYNTHESIS_ASSERTIONS check: 50 routes covered once each, statuses and
  * result modules equal to the roadmap, status counts, wall labels from the allowed set, the Λ ledger as exact rationals and its ordering,
  * the ranked next steps (15, distinct, referencing real routes), and the honesty strings.
@@ -198,7 +198,7 @@ export const FIFTY_ROUTES_SYNTHESIS = Object.freeze({
     + 'route-P ledger; dependencies G0, Lemma B, Theorem B\'_m, the v4c engine, PT\'s verified height); the conditional-on-QRH best is 0.116091488672439 (additionally '
     + 'conditional on the openai/math 7/8 half-plane), a conditional value, not a bound. Neither is externally reviewed; the binding premise of both is G0. '
     + 'No route proves RH or a new zero-free region, and the structural results are maps of what each class of input can see. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const S = FIFTY_ROUTES_SYNTHESIS;
@@ -249,7 +249,7 @@ export const FIFTY_ROUTES_SYNTHESIS_ASSERTIONS = Object.freeze([
   },
   {
     id: 'syn-honesty',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(S.verdict) && /NO QED/.test(S.verdict) && /not a bound/.test(S.verdict)
+    holds: () => /refereed bound is changed/i.test(S.verdict) && /NO QED/.test(S.verdict) && /not a bound/.test(S.verdict)
       && !SYNTHESIS_STATUS_TABLE.some((r) => /\b(proves RH|RH proved|QED)\b/.test(r.line)) && S.ledger.accepted.value === '0.2',
     why: 'Verdict keeps PT Λ ≤ 0.2 as the benchmark, calls the 7/8 value conditional (not a bound) and claims no QED; no route line claims RH.',
   },

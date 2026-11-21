@@ -44,8 +44,8 @@ export const IMP97612_SUMMARY = Object.freeze({
   verdict:
     'PRESENTATION ONLY, no new computation; reshapes imp-97576 literals verbatim. kappa_smooth is NOT '
     + 'pinned (only the cusp limit is measured, not extrapolated to an exact constant). Changes no '
-    + 'bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; NO QED.',
+    + 'bound, establishes no operator positivity, no RH claim; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 // ---------------------------------------------------------------------------
@@ -98,7 +98,7 @@ const IMP97612_VIZ_DATA_ASSERTIONS = [
       /NOT/.test(IMP97612_SUMMARY.verdict) &&
       /no bound/.test(IMP97612_SUMMARY.verdict) &&
       /NO QED/.test(IMP97612_SUMMARY.verdict) &&
-      /SOTA/.test(IMP97612_SUMMARY.verdict),
+      /refereed bound is changed/i.test(IMP97612_SUMMARY.verdict),
   },
 ];
 

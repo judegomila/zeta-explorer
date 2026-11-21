@@ -42,15 +42,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95946 self-consistency caveat for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA.
+ *   bound. imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95946-number-variance-envelope-vs-measured-crossvalidation (source: the overlap
  *   residual table and self-consistency caveat this glosses)
  * @see imp-95750-number-variance-dead-zone-audit (source of the F3 dead-zone-reliance finding)
  *
  * Ticket: imp-95968 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The self-consistency-not-out-of-sample headword, baked verbatim (no re-import).
@@ -96,8 +95,8 @@ export const IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD = Object.
     'independent confirmation. It quantifies max-anchor slack (0 at the anchor, up to ~38.1% ' +
     'at T = 7e4), and the dead-zone conservatism above 5e5, out to the 3e12 window bottom, ' +
     'stays reliant on the derived envelope (imp-95750 F3), untouched by this check. ' +
-    'Establishes nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95946 (the overlap residual table and self-consistency caveat this glosses); ' +
     'imp-95750 (F3, the dead-zone measurement-ceiling finding this headword restates); ' +
@@ -127,11 +126,11 @@ export const IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp95968-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD.verdict) &&
       IMP95968_RCAP_ENVELOPE_SELF_CONSISTENCY_GLOSSARY_HEADWORD.glosses === 'imp-95946',
   },
 ];

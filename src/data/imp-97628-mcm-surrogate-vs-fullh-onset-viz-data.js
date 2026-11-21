@@ -56,7 +56,7 @@ export const IMP97628_SUMMARY = Object.freeze({
     + `(${IMP97628_ROWS.find((r) => r.isFullOnset).T.toExponential(3)}).`,
   verdict:
     'MEASUREMENT ONLY. The bounded R-correction buys exactly one order of reprieve, not an all-orders '
-    + 'rescue; b/4 ceiling untouched; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    + 'rescue; b/4 ceiling untouched; no bound moved; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

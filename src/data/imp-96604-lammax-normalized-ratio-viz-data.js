@@ -13,7 +13,7 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96562
  * IMP96562_ROWS / IMP96562_NUMERICAL_PINNABILITY records; only the two-series
  * reshape is new. Changes no bound, establishes no operator positivity, no
- * RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (source measurement)
  *
@@ -97,7 +97,7 @@ const IMP96604_ASSERTIONS = [
     id: 'imp96604-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96604_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96604_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96604_HONEST_BANNER) &&
       /NO QED/.test(IMP96604_HONEST_BANNER),
     why: 'every Route M lam_max viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

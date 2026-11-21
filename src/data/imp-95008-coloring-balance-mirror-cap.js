@@ -179,8 +179,7 @@
  *
  * The numerics below CROSS-CHECK the lemma statements; they are not the
  * claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -563,7 +562,7 @@ export const IMP95008_COLORING_BALANCE_MIRROR_CAP = {
     "residual (c): the passage from the l2 weld bound to the pointwise scalar |C_E,17|",
   ],
   rigorScope:
-    "Lemma CB unconditional bilinear algebra; Lemma UC, Theorem CC, Theorem MIR conditional on MAJ(sigma, theta) exactly like the carried chain; Theorem MIR covers the exact-translate mirror family only; Proposition WD is a relaxation-insufficiency statement, not a phi -> 1 construction. Model family only. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Lemma CB unconditional bilinear algebra; Lemma UC, Theorem CC, Theorem MIR conditional on MAJ(sigma, theta) exactly like the carried chain; Theorem MIR covers the exact-translate mirror family only; Proposition WD is a relaxation-insufficiency statement, not a phi -> 1 construction. Model family only. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── precomputed shared state for the assertions ──────────────────────────────
@@ -721,11 +720,11 @@ export const IMP95008_CBM_ASSERTIONS = [
   {
     id: "imp95008-cbm-honesty-gate",
     description:
-      "honesty gate: the full-balance ceiling GAMMA_MIRROR = 0.0724 sits strictly BELOW the measured terminal phi 0.3563 (exact balance is suboptimal - the tradeoff extremum is interior, no contradiction with the twenty-third measurement), the rigor scope carries the NO QED and Platt-Trudgian SOTA lines, and the 5-entry open-residual ledger (new currency-crossing sub-gap first) is carried",
+      "honesty gate: the full-balance ceiling GAMMA_MIRROR = 0.0724 sits strictly BELOW the measured terminal phi 0.3563 (exact balance is suboptimal - the tradeoff extremum is interior, no contradiction with the twenty-third measurement), the rigor scope carries the NO QED and no-refereed-bound-change lines, and the 5-entry open-residual ledger (new currency-crossing sub-gap first) is carried",
     holds: () =>
       GAMMA_MIRROR < PHI_LIT &&
       /NO QED/.test(IMP95008_COLORING_BALANCE_MIRROR_CAP.rigorScope) &&
-      /remains SOTA/.test(IMP95008_COLORING_BALANCE_MIRROR_CAP.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95008_COLORING_BALANCE_MIRROR_CAP.rigorScope) &&
       IMP95008_COLORING_BALANCE_MIRROR_CAP.openResiduals.length === 5 &&
       /partial-balance-currency-crossing/.test(IMP95008_COLORING_BALANCE_MIRROR_CAP.openResiduals[0]),
   },

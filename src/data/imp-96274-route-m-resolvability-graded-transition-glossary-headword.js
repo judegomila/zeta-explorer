@@ -21,7 +21,7 @@
  * @see imp-96264-route-m-amplitude-ratio-sensitivity (equal-amplitude assumption stress test)
  *
  * Ticket: imp-96274 (content, low). Documentation only; establishes nothing; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The graded-transition + two-threshold headword, baked verbatim (no re-import).
@@ -67,7 +67,7 @@ export const IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD 
     'spans 2-14 (no binary switch), and two thresholds are well separated -- amplitude ' +
     'recovery usable at span ~6 (N ~ 1e5, ~18 percent error) versus confident separation only ' +
     'at span ~9-10 (N ~ 5.5e6, coincident with Rayleigh). Establishes nothing; changes no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96248 (graded resolvability curve and two-threshold verdict); imp-96231 (the binary ' +
     'Rayleigh-span threshold this sharpens); imp-96264 (equal-amplitude assumption stress test).',
@@ -92,11 +92,11 @@ export const IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD_
   },
   {
     id: 'imp96274-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD.verdict) &&
       IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD.glosses === 'imp-96248' &&
       IMP96274_ROUTE_M_RESOLVABILITY_GRADED_TRANSITION_GLOSSARY_HEADWORD.scopes === 'imp-96231',
   },

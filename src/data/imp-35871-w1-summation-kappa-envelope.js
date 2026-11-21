@@ -42,8 +42,7 @@
  *
  * MEASUREMENT ONLY (re-reading of the imp-35854 sweep). Certifies no W1 bound; evaluates no true
  * H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no
- * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35854-w1-summation-kappa-sweep (supplies the measured kappa sweep this re-reads)
  * @see imp-35812-w1-summation-scheme-measured-cost (single-kappa baseline drawing the reading)
@@ -55,7 +54,7 @@
 import { IMP35854_W1_SUMMATION_KAPPA_SWEEP } from './imp-35854-w1-summation-kappa-sweep.js';
 
 // -- Anchor + operative constants (import-light; matching imp-35854 / imp-35812) --------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this re-reading
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this re-reading
 
 // The condition number imp-35812 chose; imp-35871 tests robustness ABOVE and BELOW it.
 const ANCHOR_KAPPA = 1.4e3;
@@ -168,7 +167,7 @@ export const IMP35871_W1_SUMMATION_KAPPA_ENVELOPE = {
     '(imp-35760); precision is NOT the binding constraint at any conditioning. Certifies no W1 bound; evaluates ' +
     'no true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; ' +
     'the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35854 (measured kappa sweep this re-reads); imp-35812 (single-kappa baseline drawing the random-walk ' +
     'vs coherent reading); imp-35761 (pessimistic N u coherent ceiling); imp-35760 (barrier-margin allocation); ' +
@@ -235,9 +234,9 @@ export const IMP35871_W1_SUMMATION_KAPPA_ENVELOPE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only; reading ROBUST but sqrt(N)u only an ENVELOPE; no QED; PT SOTA.
+    // Honesty gate: measurement only; reading ROBUST but sqrt(N)u only an ENVELOPE; no QED; no refereed bound is changed.
     id: 'imp35871-honesty-gate',
-    description: 'Measurement only; reading kappa-robust; sqrt(N)u an envelope; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; reading kappa-robust; sqrt(N)u an envelope; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35871_W1_SUMMATION_KAPPA_ENVELOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -245,7 +244,7 @@ export const IMP35871_W1_SUMMATION_KAPPA_ENVELOPE_ASSERTIONS = [
       /envelope/.test(IMP35871_W1_SUMMATION_KAPPA_ENVELOPE.conclusion.honestRefinementCarriesOver) &&
       /GREENFIELD/.test(IMP35871_W1_SUMMATION_KAPPA_ENVELOPE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35871_W1_SUMMATION_KAPPA_ENVELOPE.verdict) &&
-      /remains SOTA/.test(IMP35871_W1_SUMMATION_KAPPA_ENVELOPE.verdict),
+      /refereed bound is changed/i.test(IMP35871_W1_SUMMATION_KAPPA_ENVELOPE.verdict),
   },
 ];
 

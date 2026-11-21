@@ -65,8 +65,7 @@
  *   minimum-budget reading is unaffected, but the &lt; 64 band is NOT claimed to hold at every deep
  *   rung. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33316-graded-plateau-deep-tail-node-budget.js (the fixed-budget deep-tail measurement this sweeps)
  *   @see imp-33537-deep-tail-plateau-spike-recurrence.js (the dense scan that bounds the &lt; 64 band validity)
@@ -258,7 +257,7 @@ const verdict =
       'SAVING-~186x-UNDERSTATES-IT).-THE-GRADED-PANELS-a_j=7(j/panels)^4-AUTO-CONCENTRATE-TO-TRACK-THE-SHARPENING-' +
       'PEAK-WITHOUT-ADDING-NODES.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-imp-33537-BOUNDS-' +
       'THE-<64-BAND-AT-n>=510;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-' +
-      'PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33539_GRADED_PLATEAU_DEEPER_TAIL_MIN_BUDGET = Object.freeze({
@@ -287,7 +286,7 @@ export const IMP33539_GRADED_PLATEAU_DEEPER_TAIL_MIN_BUDGET = Object.freeze({
     '-- the true minimum-budget saving (~186x = 37205/200) UNDERSTATES it. The graded panels a_j = 7 (j/panels)^4 ' +
     'auto-concentrate to track the sharpening saddle without adding nodes. VERDICT: FIXED-BUDGET-WIN-HOLDS. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; imp-33537 ' +
-    'bounds the &lt; 64 band at n &gt;= 510; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'bounds the &lt; 64 band at n &gt;= 510; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -370,7 +369,7 @@ export const IMP33539_GRADED_PLATEAU_DEEPER_TAIL_MIN_BUDGET = Object.freeze({
       'imp-33537 showed the imp-33316 constant < 64 ULP band is a coarse-grid artifact the fixed plateau crosses at ' +
       'n ~ 510, 596; the deeper rungs measured here (n in {350,375,400}) sit firmly inside the band, so the ' +
       'minimum-budget reading is unaffected, but the < 64 band is NOT claimed to hold at every deep rung.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -419,7 +418,7 @@ export const IMP33539_GRADED_PLATEAU_DEEPER_TAIL_MIN_BUDGET_ASSERTIONS = [
   {
     id: 'imp33539-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33539_GRADED_PLATEAU_DEEPER_TAIL_MIN_BUDGET.honestCaveat;
       return (
@@ -428,7 +427,7 @@ export const IMP33539_GRADED_PLATEAU_DEEPER_TAIL_MIN_BUDGET_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

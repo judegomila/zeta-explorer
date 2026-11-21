@@ -52,7 +52,7 @@
  * MEASUREMENT / VERIFICATION CROSS-CHECK ONLY on the inherited imp-3220/imp-3406
  * surrogate component model. C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8
  * ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97585-eflow-etrunc-share-full-ladder (E_flow=E_trunc crossing; asserted E_coll head dominance)
  * @see imp-97520-sigma-conditional-share-landmark-ladder (sigma(N)=E_coll/E_N landmark ladder, N_cross)
@@ -175,7 +175,7 @@ export const IMP97602_E_TRIPLE_CROSSING_HEAD_REGION = {
     'all three pairwise crossings and the binding term across the head. Measurement / verification ' +
     'cross-check only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; ' +
     'C_C 1/8 ansatz untouched; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
 };
 
 export const IMP97602_E_TRIPLE_CROSSING_HEAD_REGION_ASSERTIONS = [
@@ -213,11 +213,11 @@ export const IMP97602_E_TRIPLE_CROSSING_HEAD_REGION_ASSERTIONS = [
   },
   {
     id: 'imp97602-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97602_E_TRIPLE_CROSSING_HEAD_REGION.isRigorous === false &&
       /NO QED/.test(IMP97602_E_TRIPLE_CROSSING_HEAD_REGION.note) &&
-      /remains SOTA/.test(IMP97602_E_TRIPLE_CROSSING_HEAD_REGION.note),
+      /refereed bound is changed/i.test(IMP97602_E_TRIPLE_CROSSING_HEAD_REGION.note),
   },
 ];
 

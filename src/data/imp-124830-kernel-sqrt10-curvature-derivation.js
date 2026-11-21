@@ -11,7 +11,7 @@
  * window on BOTH arms. Reuses the imp-97721/imp-97823/imp-97833 kernel construction verbatim; measurement/
  * derivation ONLY on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 and the C_C 1/8 ansatz are UNTOUCHED; pinned constants untouched; changes no
- * bound; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE DERIVATION -- WHY sqrt(10), AND WHAT THE CURVATURE ACTUALLY CONTROLS
  * ----------------------------------------------------------------------
@@ -64,7 +64,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only as the fixed surrogate; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97823-kernel-decade-growth-sqrt10 (|K| ~ sqrt(10) per decade measured; sqrt(10) stated, not derived)
  * @see imp-124776-kernel-decade-ratio-vs-gap-viz-data (per-decade ratio brackets sqrt(10) from both arms)
@@ -248,7 +248,7 @@ export const IMP124830_KERNEL_SQRT10_CURVATURE_DERIVATION = {
     'on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor ' +
     'are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97823 (|K| ~ sqrt(10) per decade measured, stated not derived); imp-124776 (per-decade ratio brackets ' +
     'sqrt(10) from both arms); imp-97833 (A = -sigma_2prime/2, B = -sigma_3prime/6 stencils; cubic-fold ' +
@@ -311,13 +311,13 @@ export const IMP124830_KERNEL_SQRT10_CURVATURE_DERIVATION_ASSERTIONS = [
       Math.abs(DOWN.per_decade_ratios[1] - SQRT10) < 1.5e-3,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp124830-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124830_KERNEL_SQRT10_CURVATURE_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP124830_KERNEL_SQRT10_CURVATURE_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP124830_KERNEL_SQRT10_CURVATURE_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP124830_KERNEL_SQRT10_CURVATURE_DERIVATION.verdict),
   },
 ];
 

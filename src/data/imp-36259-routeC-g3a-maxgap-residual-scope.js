@@ -7,7 +7,7 @@
  *   per-N exponent r_C(N), and record the CONDITIONAL r_C(N) form that a GUE-type
  *   sqrt(log N) max-gap scale would imply. ILLUSTRATION ONLY: closes NOTHING,
  *   discharges no gap, the per-N translation and G3a_max_gap stay OPEN, respects the
- *   imp-2519 no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -121,8 +121,8 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE = Object.freeze({
     'is the wrong sign: a GROWING max-gap eliminates the squeeze (matching the imp-451 c_total -> 0 diagnostic). A ' +
     'per-N form would need a max-gap BOUNDED below R_critical uniformly, which no known extremal input supplies ' +
     '(S-B ~ 2.51 under RH, GUE grows). ILLUSTRATION ONLY; closes NOTHING; discharges no gap; per-N translation ' +
-    'and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed' +
+    '.',
 
   gapObject: Object.freeze({
     name: 'G3a_max_gap',
@@ -189,7 +189,7 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE = Object.freeze({
       'requirements to pin r_C(N)) and records the CONDITIONAL, VACUOUS r_C(N) a GUE sqrt(log N) max-gap scale ' +
       'implies. Closes nothing; discharges no gap; G3a_max_gap and the per-N translation stay OPEN; respects the ' +
       'imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -249,7 +249,7 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE_ASSERTIONS = [
   {
     id: 'imp36259-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a SCOPING that closes NOTHING, discharges no gap, does not pin the Route-C ' +
-         'exponent, keeps G3a_max_gap and the per-N translation OPEN, carries NO RH verdict, PT 0.2 stays SOTA.',
+         'exponent, keeps G3a_max_gap and the per-N translation OPEN, carries NO RH verdict, no refereed bound is changed.',
     holds: () => {
       const h = IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE.honestCaveat;
       return (
@@ -262,7 +262,7 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE_ASSERTIONS = [
         h.perNTranslationStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

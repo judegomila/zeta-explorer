@@ -44,7 +44,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Curve fit of an inherited surrogate ratio, NOT an RH bound. The inherited
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the anchor/extended fits are descriptive
  * within that model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the F4 collapse + the near-flat F2, F3
  *   assertion this module fits on the anchor window and the extended ladder; same sub-terms, head at k=6)
@@ -284,8 +284,8 @@ export const IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT = {
     'kEnd=11->21) NEITHER factor materially moves (F2 x0.9395, F3 x0.9435), confirming F4 as the sole ' +
     'divergence driver. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; ' +
     'the fits are descriptive within the model only; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34023 (the F4 collapse fit + the near-flat F2, F3 assertion refined here); imp-34133 (the ' +
     'extended-ladder constant-plus-decay fit extended with the anchor comparison and material-movement ' +
@@ -344,13 +344,13 @@ export const IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT_ASSERTIONS = [
       Math.abs(F3_CPD.c - 0.835) < 0.01 && F3_CPD.r > 0.1 && F3_CPD.r < 0.15 && F3_CPD.R2 > 0.999,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34266-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT.isRigorous === false &&
       /NO QED/.test(IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT.verdict) &&
-      /remains SOTA/.test(IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT.verdict) &&
+      /refereed bound is changed/i.test(IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34266_F2_F3_ATTENUATION_DRIFT_VS_CONSTANT.verdict),
   },
 ];

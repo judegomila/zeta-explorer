@@ -47,7 +47,7 @@
  * crossover bisector unchanged; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643) and C_mb
  * GUE-conditional (imp-486) are UNTOUCHED; the nominal E_trunc = 3.06e-5 (imp-2631) baseline is
- * unchanged; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * unchanged; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-36139-etrunc-coll-crossover-sensitivity (measured the OLS elasticity -2.0953 this derives)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (the N_cross ~ (C_C/E_trunc)^2 logT0 fixed point)
@@ -59,7 +59,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any derivation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any derivation here)
 const TWO_PI = 2 * Math.PI;
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631) -- the nominal baseline
 
@@ -169,7 +169,7 @@ export const IMP36277_CROSSOVER_ELASTICITY_ANALYTIC_DERIVATION = {
     'imp-33582 sub-terms and the imp-35968 bisector unchanged; derives no remainder; discharges nothing; changes ' +
     'no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643) and C_mb ' +
     'GUE-conditional (imp-486) are UNTOUCHED; the nominal E_trunc = 3.06e-5 (imp-2631) baseline is unchanged; ' +
-    'imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36139 (measured OLS elasticity -2.0953 and local slopes, attributed excess to logT0 growth); imp-33723 ' +
     '(N_cross ~ (C_C/E_trunc)^2 logT0 closed form); imp-35968 (located N_cross, reused bisector); imp-3444 (L5 ' +
@@ -213,7 +213,7 @@ export const IMP36277_CROSSOVER_ELASTICITY_ANALYTIC_DERIVATION_ASSERTIONS = [
       S_DOUBLE < S_HALF, // steeper (more negative) toward smaller N, as g rises
   },
   {
-    // (6) honesty gate: derivation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (6) honesty gate: derivation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36277-derivation-only-no-qed',
     description: 'derivation only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -225,7 +225,7 @@ export const IMP36277_CROSSOVER_ELASTICITY_ANALYTIC_DERIVATION_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

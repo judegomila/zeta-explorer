@@ -16,7 +16,7 @@
  *   @see imp-35552-eflow-fartail-remnant-product-decay-limit.js (the remnant leading form fixing the sqrt(10) asymptote)
  *
  *   Ticket: imp-35663 (ux, medium). Presentation only of an already-established measurement;
- *   adds no new Lambda bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   adds no new Lambda bound. NO QED. No refereed bound is changed.
  */
 
 import IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT from './imp-35553-eflow-fartail-remnant-decade-span-growth-fit.js';

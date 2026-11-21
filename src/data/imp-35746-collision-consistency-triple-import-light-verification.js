@@ -40,7 +40,7 @@ export const IMP35746_COLLISION_CONSISTENCY_TRIPLE_IMPORT_LIGHT_VERIFICATION = {
   verdict:
     'all three collision-consistency modules (imp-35680, imp-35695, imp-35696) import cleanly, bundle to 15.9-27.0kb ' +
     '(no transitive pull of the 16.7MB zeros bundle), and their self-executing assertions pass; verification only, ' +
-    'changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+    'changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35680', 'imp-35695', 'imp-35696'];

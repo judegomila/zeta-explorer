@@ -62,7 +62,7 @@
  *   literals reproduce from an independent quadrature and pins their residual as storage rounding;
  *   it establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33213-moment-weight-vs-dual-path-a-cross-validation.js (the g5/300/hi10 reconstruction cross-checked here)
  *   @see imp-3850-a-weight-dual-path-tau25-30-reconciliation.js (the g4/200/hi14 ladder path at tau in {2.5,3.0})
@@ -248,7 +248,7 @@ export const IMP33235_IMP33213_LADDER_LITERAL_CROSS_CHECK = Object.freeze({
     'grid (2000 nodes) share ZERO node abscissae and only the trivial s=0 panel breakpoint; the nearest ' +
     'cross-grid node is ~2.9e-12 away -- genuinely disjoint panelization. CROSS-CHECK/CONSISTENCY, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no RH verdict, ' +
-    'no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'no QED; no refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -307,7 +307,7 @@ export const IMP33235_IMP33213_LADDER_LITERAL_CROSS_CHECK = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -352,7 +352,7 @@ export const IMP33235_IMP33213_LADDER_LITERAL_CROSS_CHECK_ASSERTIONS = [
   {
     id: 'imp33235-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: cross-check/consistency only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33235_IMP33213_LADDER_LITERAL_CROSS_CHECK.honestCaveat;
       return (
@@ -361,7 +361,7 @@ export const IMP33235_IMP33213_LADDER_LITERAL_CROSS_CHECK_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

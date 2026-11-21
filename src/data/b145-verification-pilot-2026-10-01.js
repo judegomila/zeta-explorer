@@ -25,7 +25,7 @@
  *  re-checked with acb_dirichlet_hardy_z (separate code path); referee: 6 intervals around the hand-off at 200 bit. MEASURED: rate, stall
  *  rate, RAM, restart. HEURISTIC: campaign costs, storage, κ_hw.
  * Verdict: the RH-verification route is technically ready on open-source code and priced; it supplies only the RH-to-T* input.
- *  PT Lambda <= 0.2 stands. RH open. NO QED.
+ *  No refereed bound is changed. RH open. NO QED.
  * Files: formalization/rh-verification-campaign/{PLAN.md, pilot/chain.c, pilot.c, pilot2.c, run_job.sh, retry.sh, assemble_check.py,
  *  handoff_check.py}; tmp/b145-D-pilot/runs/ (logs, incl. long/), tmp/b145-D-pilot/platt_local_hardy_z_zeros.c.
  * Import-free. ASSERTIONS recompute the sustained rate, zeros/s from the zero density, the smooth count at the hand-off, zero counts and
@@ -81,7 +81,7 @@ export const B145_VERIFICATION_PILOT = Object.freeze({
     'MEASURED + PLAN. FLINT 3.6.0 isolates zeros at 88 height units (384 zeros) per core-second at heights 3e12–7.8e12 and reproduces '
     + 'PT’s N(3000175332800) = 12,363,153,437,138 independently. Cheapest RH height that the b145 stack needs for Λ < 0.145 is T* = 5.10e12: '
     + '≈ 6.6e6 physical core-hours (≈ $0.13M–0.33M at $0.02–0.05, before κ_hw and vCPU factors). The campaign supplies only RH to T*; the '
-    + 'Λ value would remain conditional on the analytic chain. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'Λ value would remain conditional on the analytic chain. No refereed bound is changed. RH open. NO QED.',
 });
 
 const D = B145_VERIFICATION_PILOT;
@@ -139,7 +139,7 @@ export const B145_VERIFICATION_PILOT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'b145-pilot-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(D.verdict) && /NO QED/.test(D.verdict) && /NO QED/.test(D.status)
+    holds: () => /refereed bound is changed/i.test(D.verdict) && /NO QED/.test(D.verdict) && /NO QED/.test(D.status)
       && /Nothing spent/.test(D.status) && D.campaign.beforeSpending.length >= 3,
     why: 'Measurement and plan only; the campaign supplies RH to T*, not a Λ bound; nothing purchased.',
   },

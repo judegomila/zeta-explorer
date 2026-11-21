@@ -64,7 +64,7 @@
  * 1.376. Everything reduces to the peak log-derivatives of the imp-3220 sub-terms.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3446-nmax-closed-form (the implicit stationarity equation F = 0 differentiated here)
  * @see imp-3443-nmax-etrunc-sensitivity (measured p ~ 1.376, local elasticity -1.373)
@@ -243,7 +243,7 @@ export const IMP3462_NMAX_TURNOVER_EXPONENT = {
     'to ~1e-4, and (grid chord) reproducing the imp-3443 global 1.376; the local exponent ' +
     'drifts gently ~1.36 -> ~1.39 across the half-to-double floor grid, so the measured power ' +
     'law is a slowly-varying local elasticity. Derivation/measurement only; no positivity, no ' +
-    'bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3446 (implicit stationarity equation, differentiated here); imp-3443 (measured p ~ ' +
     '1.376, local elasticity -1.373); imp-3406 (interior MAX N_max ~ 9.22e5); imp-3220 ' +
@@ -292,13 +292,13 @@ export const IMP3462_NMAX_TURNOVER_EXPONENT_ASSERTIONS = [
       GRID.every((r, i) => i === 0 || GRID[i - 1].p_local < r.p_local),
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA, no rigorous or RH claim.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed, no rigorous or RH claim.
     id: 'imp3462-honesty-gate-no-qed',
-    description: 'Derivation only: no QED, PT stays SOTA, not rigorous',
+    description: 'Derivation only: no QED, no refereed bound is changed, not rigorous',
     holds: () =>
       IMP3462_NMAX_TURNOVER_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP3462_NMAX_TURNOVER_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP3462_NMAX_TURNOVER_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP3462_NMAX_TURNOVER_EXPONENT.verdict),
   },
 ];
 

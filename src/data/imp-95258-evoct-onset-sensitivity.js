@@ -6,7 +6,7 @@
  * each of the three parameters one at a time to show whether that single
  * onset is representative of the every-octave family or an artifact of the
  * small m = 6 skeleton. Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT. Generalize the imp-95250 dyadic skeleton to arbitrary lattice
  * ratio rho: blocks V_k = {rho^k, r rho^k}, k = 0..m-1, 1 < r <= 1.3,
@@ -198,7 +198,7 @@ export const IMP95258_EVOCT_ONSET_SENSITIVITY = {
     "bisected), not the exact pencil; the cert-vs-exact collar is unchanged; " +
     "twin-pair blocks only (>= 3-per-octave residual untouched); off-lattice " +
     "rates unchanged; model family only; changes NO bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -277,11 +277,11 @@ export const IMP95258_ASSERTIONS = [
     id: "imp95258-honesty",
     description:
       "the record carries the honest scope labels: no bound change, NO QED, " +
-      "PT SOTA, closed-form measurement only",
+      "no refereed bound is changed, closed-form measurement only",
     holds: () =>
       /changes NO bound/.test(IMP95258_EVOCT_ONSET_SENSITIVITY.honestScope) &&
       /NO QED/.test(IMP95258_EVOCT_ONSET_SENSITIVITY.honestScope) &&
-      /remains SOTA/.test(IMP95258_EVOCT_ONSET_SENSITIVITY.honestScope) &&
+      /refereed bound is changed/i.test(IMP95258_EVOCT_ONSET_SENSITIVITY.honestScope) &&
       /CLOSED-FORM/.test(IMP95258_EVOCT_ONSET_SENSITIVITY.honestScope),
   },
 ];

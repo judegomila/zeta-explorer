@@ -41,7 +41,7 @@
  * inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the fitted exponent/constant
  * are descriptive within that model only; changes no bound; establishes no operator positivity; C_mb
  * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34151-cancellation-numerator-past-crossing (the monotone numerator -> 1.0 tabulated but unfit)
  * @see imp-34087-f4-surrogate-cancellation-digit-loss (the reciprocal identity + ~0.978 O(1) numerator)
@@ -218,7 +218,7 @@ export const IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY = {
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the fitted exponent/constant ' +
     'are descriptive within the model only; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34151 (the monotone numerator -> 1.0 tabulated but unfit, whose approach law is fit here); ' +
     'imp-34087 (the reciprocal identity and ~0.978 O(1) numerator); imp-34150 (the direct kEnd* ~ 21.28095 ' +
@@ -274,13 +274,13 @@ export const IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: numerical/curve-fit only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: numerical/curve-fit only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34210-honesty-gate-no-qed',
-    description: 'Approach-rate fit only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Approach-rate fit only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY.isRigorous === false &&
       /NO QED/.test(IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY.verdict) &&
-      /remains SOTA/.test(IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY.verdict) &&
+      /refereed bound is changed/i.test(IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34210_NUMERATOR_APPROACH_RATE_TO_UNITY.verdict),
   },
 ];

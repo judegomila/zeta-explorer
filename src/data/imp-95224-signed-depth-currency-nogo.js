@@ -136,8 +136,7 @@
  * The numerics below CROSS-CHECK the theorem statements; the theorems
  * consume no numerics (SGN-X is exact rational arithmetic, SGN-V exact
  * algebra, SGN-SAT exact fences plus symmetry). Import-light (no zeros
- * bundle, no sibling imports). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bundle, no sibling imports). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ── baked literals (recomputed by the assertions) ────────────────────────────
@@ -223,7 +222,7 @@ export const IMP95224_SIGNED_DEPTH_CURRENCY_NOGO = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED (margin-sizing per imp-95222); (2) amplitude sign/modulus certificate RE-SCOPED BY REFUTATION, not discharged: the imp-95223 both-sides-open question is ANSWERED -- R <= e^(-y_min) is FALSE for signed multi-rate families (exact rational witness at N = 2), and COROLLARY DC-NOGO eliminates every depth-only signed bound, so the obligation now reads price the signed width-law packets in count/weight or per-window modulus/phase currency, with the imp-95219 octave-Szasz-weight pricing (positive cone) the designated port candidate; (3) envelope-shape port and the seam-convention to chain-gate (gammaSL-form) map UNCHANGED; (4) paper constants per window UNCHANGED. Leg (alpha) unchanged.",
   verdict:
-    "RIGOROUS step (an honest NEGATIVE with an exact positive core): THEOREM SGN-X closes the question imp-95223 left open on both sides -- the signed multi-rate seam bound R <= e^(-y_min) is REFUTED by a two-packet family whose every quantity is a ratio of small integers (W = 3/8, T = 1, bound = 1/4, factor 3/2). PROP SGN-V pins the entire violation family in closed form: silver-ratio deep threshold b/a < 3 + 2 sqrt(2), explicit onset depth, and the coalescence law V -> (1 + y_min^2)/2 showing quadratic-in-depth breakdown of the positive-cone bound at N = 2. THEOREM SGN-SAT proves the breakdown is total: signed co-centered families reach R -> 1/2 at every FIXED depth (exact elementary fences), so COROLLARY DC-NOGO: no depth-decaying signed certificate of ANY form exists -- depth currency is dead for signed amplitudes, and the only surviving seam-currency route is count/weight (or modulus/phase) pricing. HONEST: obligation (2) is re-scoped, NOT discharged; a count/weight-priced signed bound remains OPEN on both sides; nothing touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (an honest NEGATIVE with an exact positive core): THEOREM SGN-X closes the question imp-95223 left open on both sides -- the signed multi-rate seam bound R <= e^(-y_min) is REFUTED by a two-packet family whose every quantity is a ratio of small integers (W = 3/8, T = 1, bound = 1/4, factor 3/2). PROP SGN-V pins the entire violation family in closed form: silver-ratio deep threshold b/a < 3 + 2 sqrt(2), explicit onset depth, and the coalescence law V -> (1 + y_min^2)/2 showing quadratic-in-depth breakdown of the positive-cone bound at N = 2. THEOREM SGN-SAT proves the breakdown is total: signed co-centered families reach R -> 1/2 at every FIXED depth (exact elementary fences), so COROLLARY DC-NOGO: no depth-decaying signed certificate of ANY form exists -- depth currency is dead for signed amplitudes, and the only surviving seam-currency route is count/weight (or modulus/phase) pricing. HONEST: obligation (2) is re-scoped, NOT discharged; a count/weight-priced signed bound remains OPEN on both sides; nothing touches any Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "THEOREM SGN-X is exact rational arithmetic (six Gram entries, all rational at u = ln 2). PROP SGN-V is exact algebra: T and V(u) in closed form, monotonicity from dPhi/dq = 8ab(q - 1)/(a+b)^2 <= 0, threshold from the factorization 2(a-b)^2 - (a+b)^2 = a^2 - 6ab + b^2, coalescence from the exact identity (a+b)^2 Phi = (a-b)^2 + 4ab(1-q)^2. THEOREM SGN-SAT: symmetry upper half; lower half from two one-line fences (1 - e^(-x) <= x on the head, 1 - e^(-t/K) >= 1 - 1/e and e^(-2t) >= e^(-4K) on (K, 2K)). All numerics below are cross-checks; the theorems consume none of them.",
 };
@@ -429,7 +428,7 @@ export const IMP95224_SIGNED_ASSERTIONS = [
         IMP95224_SIGNED_DEPTH_CURRENCY_NOGO.corollaryDCNOGO,
       ) &&
       /NO QED/.test(IMP95224_SIGNED_DEPTH_CURRENCY_NOGO.verdict) &&
-      /remains SOTA/.test(IMP95224_SIGNED_DEPTH_CURRENCY_NOGO.verdict),
+      /refereed bound is changed/i.test(IMP95224_SIGNED_DEPTH_CURRENCY_NOGO.verdict),
   },
 ];
 

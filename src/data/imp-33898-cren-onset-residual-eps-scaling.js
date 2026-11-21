@@ -61,7 +61,7 @@
  * uniform bound imp-33766 needs is the ANALYTIC tracking of C_ren through the fold-modulus back-conversion,
  * not a scaled finite-N onset offset, and it says nothing about the coupled H3 curvature rung (N-exponent 5/4,
  * imp-33786) that dominates and jointly governs the discharge. G6a_shock_lipschitz STAYS OPEN. No positivity;
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33863-cren-onset-quadrature-convergence (found the panel-invariant ~2.3e-6 residual, never scaled it)
  * @see imp-33853-cren-gap-coefficient-closed-form (derived the 3/2 exponent and 4/3 leading coefficient)
@@ -242,7 +242,7 @@ export const IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING = {
     'C_ren through the fold-modulus back-conversion, not a scaled finite-N onset offset, and it says nothing ' +
     'about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) that dominates and jointly governs the ' +
     'discharge. No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING_ASSERTIONS = [
@@ -283,15 +283,15 @@ export const IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33898-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.isRigorous === false &&
       IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.dischargesH4 === false &&
       /NO QED/.test(IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.verdict) &&
       /STAYS OPEN/.test(IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33898_CREN_ONSET_RESIDUAL_EPS_SCALING.verdict,
       ),

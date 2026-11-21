@@ -67,8 +67,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the E_trunc route is GUE-conditional-free but the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (ladder 1e6..1e15; head reproduced here)
  * @see imp-33602-etrunc-ecoll-component-ladder (separated ladder 1e6..1e12)
@@ -227,7 +226,7 @@ export const IMP33644_ETRUNC_ECOLL_LADDER_1E18_FARTAIL = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the E_trunc route is ' +
     'GUE-conditional-free but the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-33620 (separated E_trunc/E_coll ladder 1e6..1e15, extended here); imp-33602 (ladder ' +
     '1e6..1e12); imp-33582 (sigma<0.1 at N~3.21e11); imp-3406 (interior MAX, component model ' +
@@ -286,13 +285,13 @@ export const IMP33644_ETRUNC_ECOLL_LADDER_1E18_FARTAIL_ASSERTIONS = [
       Math.abs(RATIO_AT_1E18 / RATIO_AT_1E15 - Math.pow(1 / Math.sqrt(10), 3)) < 0.01,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33644-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33644_ETRUNC_ECOLL_LADDER_1E18_FARTAIL.isRigorous === false &&
       /NO QED/.test(IMP33644_ETRUNC_ECOLL_LADDER_1E18_FARTAIL.verdict) &&
-      /remains SOTA/.test(IMP33644_ETRUNC_ECOLL_LADDER_1E18_FARTAIL.verdict),
+      /refereed bound is changed/i.test(IMP33644_ETRUNC_ECOLL_LADDER_1E18_FARTAIL.verdict),
   },
 ];
 

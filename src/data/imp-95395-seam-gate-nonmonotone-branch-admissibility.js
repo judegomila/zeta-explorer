@@ -12,7 +12,7 @@
  * PHASE-CERT bound e^(-y_min)/(2 theta) on the restricted fraction LamBar
  * climbs to and past 1/2 (up to ~2.7e3 for SGN-SAT phi_3). This module
  * assesses admissibility and soundness in that regime. Changes NO bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  *
  * WHY VALIDITY NEEDS R <= 1/sqrt2 (the mechanism, not just monotonicity).
  * The gate feed is g = gFromLam(LamBar) = 2 sqrt(LamBar (1 - LamBar)), a
@@ -76,7 +76,7 @@
  * under-estimate (invalid upper bound / undefined for R > 1) past 1/sqrt2
  * and the max-branch clamp g = 1 is required and sufficient there, at zero
  * real cost because that regime is exactly imp-95273 vacuity. Changes NO
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95276-seam-to-chain-gate-map.js (source: the map, M1/M2, multi-block caveat)
  * @see imp-95273-theta-vacuity-distribution.js (source: PHASE-CERT vacuity corner, bound >= 1/2)
@@ -143,7 +143,7 @@ export const IMP95395_SEAM_GATE_NONMONOTONE_BRANCH = {
   refines:
     'sharpens the imp-95276 multi-block caveat (still valid gate value / not orientation-preserving) to: the NAIVE map is an under-estimate (invalid upper bound; undefined for R > 1) past 1/sqrt2, and the clamp g = 1 is mandatory and sufficient there.',
   honest:
-    'ASSESSMENT ONLY -- no LamBar re-bounded, no packet transcribed, no certificate instantiated. Changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'ASSESSMENT ONLY -- no LamBar re-bounded, no packet transcribed, no certificate instantiated. Changes NO bound; NO QED; no refereed bound is changed.',
   fns: { gammaSL, gFromLam, gFromR, gValid },
 };
 
@@ -218,12 +218,12 @@ export const IMP95395_ASSERTIONS = [
   },
   {
     id: 'imp95395-assessment-only-honest',
-    description: 'explicitly ASSESSMENT ONLY, changes no bound, NO QED, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly ASSESSMENT ONLY, changes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       /ASSESSMENT ONLY/.test(IMP95395_SEAM_GATE_NONMONOTONE_BRANCH.honest) &&
       /Changes NO bound/.test(IMP95395_SEAM_GATE_NONMONOTONE_BRANCH.honest) &&
       /NO QED/.test(IMP95395_SEAM_GATE_NONMONOTONE_BRANCH.honest) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP95395_SEAM_GATE_NONMONOTONE_BRANCH.honest),
+      /refereed bound is changed/i.test(IMP95395_SEAM_GATE_NONMONOTONE_BRANCH.honest),
   },
 ];
 

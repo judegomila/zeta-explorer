@@ -59,7 +59,7 @@
  * The imp-97291 conclusion (worst composite ratio APPROACHES 1 along the close-prime semiprime family)
  * is INDEPENDENTLY CONFIRMED by the direct exact O(b) coprime-sum evaluator inside the FP-trustworthy
  * window, and the Gasymp fast evaluator is validated to <6e-7 in ratio for b <~ 1e6. Verification only;
- * no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (the wide-range Gasymp measurement being verified)
  * @see imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js (leader+correction decomposition; parity sign law)
@@ -121,12 +121,12 @@ export const IMP97315_VERDICT = Object.freeze({
     'evaluator is validated to <6e-7 in ratio for b <~ 1e6 (matching the imp-97291 claim against the O(b) ' +
     'ground truth). HONEST refinement: past ~1e6 the direct sum also loses precision, so exact and fast ' +
     'diverge to ~1e-4 by b ~ 1e8 and neither is 6-decimal-trustworthy there -- but the monotone climb of ' +
-    'r_exact itself survives. Verification only; no bound on Lambda moves; kappa_arith unchanged; PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'r_exact itself survives. Verification only; no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97315_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Direct exact O(b) coprime-sum cross-check of imp-97291: ' +
+  'RH open; no refereed bound is changed; NO QED. Direct exact O(b) coprime-sum cross-check of imp-97291: ' +
   'the ratio r(b)=|E1(b)|/(b/4) climbs monotonically toward 1 on the close-prime semiprime ladder in the ' +
   'ground-truth evaluator (0.9335 at 71*73 -> 0.9991 at 9973*10007), so the ratio->1 trend is NOT a ' +
   'Gasymp artifact; the fast evaluator is validated to <6e-7 for b <~ 1e6. Verification only; no bound moved.';
@@ -183,7 +183,7 @@ const IMP97315_ASSERTIONS = [
       IMP97315_VERDICT.ratioTrendIsEvaluatorArtifact === false &&
       IMP97315_VERDICT.fpTrustDegradesPast1e7 === true &&
       /NO QED/.test(IMP97315_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97315_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97315_HONEST_BANNER) &&
       /RH open/.test(IMP97315_HONEST_BANNER),
     why: 'verification only -- the direct exact evaluator confirms the ratio->1 trend and validates the Gasymp evaluator below 1e6; no rigorous ceiling posted, no bound moved, no QED.',
   },

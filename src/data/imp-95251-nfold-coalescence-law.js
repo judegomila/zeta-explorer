@@ -143,7 +143,7 @@
  * the m-uniform block Riesz bound (imp-95252), signed WEIGHT port,
  * off-lattice rates, modulus/phase currency, and the N >= 3 confluent
  * DOMINANCE conjecture stay OPEN. No bound of the Lambda program
- * changed. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changed. NO QED. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -203,7 +203,7 @@ export const IMP95251_NFOLD_COALESCENCE_LAW = {
     "THEOREM COAL-N are elementary and self-contained given imp-95226 " +
     "NP-CERT; slack against the exact confluent value is measured and " +
     "recorded, dominance is NOT claimed. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "program; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -546,7 +546,7 @@ export const IMP95251_NFOLD_COALESCENCE_ASSERTIONS = [
         IMP95251_NFOLD_COALESCENCE_LAW.subGap,
       ) &&
       /NO QED/.test(IMP95251_NFOLD_COALESCENCE_LAW.verdict) &&
-      /remains SOTA/.test(IMP95251_NFOLD_COALESCENCE_LAW.verdict),
+      /refereed bound is changed/i.test(IMP95251_NFOLD_COALESCENCE_LAW.verdict),
   },
 ];
 

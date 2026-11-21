@@ -5,7 +5,7 @@
  * kappa = F(b)/(phi(b) b) reported ~0.696 in imp-97071 (residual sub-gap
  * imp-97071-first-moment-lower-bound-kappa-positive), quantify its b-window stability, and assess
  * whether a rigorous positive lower bound kappa > 0 is derivable. Measurement/assessment only:
- * changes NO bound, C_mb GUE-conditional (imp-486) untouched, PT Lambda <= 0.2 SOTA, RH open, NO QED.
+ * changes NO bound, C_mb GUE-conditional (imp-486) untouched, no refereed bound is changed, RH open, NO QED.
  *
  * Notation as imp-97071/imp-96750. I(a,b) = C(a+b) + (1/2)(a-b) log(b/a) - (pi/2)(V(a,b)+V(b,a)),
  * C = (log 2pi - gamma)/2; V(a,q) = Sum_{m=1}^{q-1} frac(m a/q) cot(pi m/q). The first moment
@@ -72,7 +72,7 @@
  * positivity fails at b=30 so only the sum is robustly positive. The derivability question is
  * sharpened: kappa > 0 (asymptotic) follows from the RIGOROUS arithmetic floor +0.5705 (imp-97096)
  * plus any one-sided cotangent lower bound liminf kappa_cot > -0.5705 -- far weaker than the exact 1/8
- * conjecture. No bound moves; C_mb GUE-conditional untouched; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * conjecture. No bound moves; C_mb GUE-conditional untouched; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97071-route-m-lower-companion-first-moment-reduction.js (parent: the CS reduction + kappa~0.696)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (kappa_arith = (3/2)C - 3/8 = 0.5705 EXACT)
@@ -163,7 +163,7 @@ export const IMP124855_ASSESSMENT = Object.freeze({
 });
 
 export const IMP124855_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 SOTA; NO QED. Measurement + assessment only: re-measured the Route M ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement + assessment only: re-measured the Route M ' +
   'first-moment constant kappa = F(b)/(phi(b) b) on the prime axis at ~0.69550 (revised down from the ' +
   'reported 0.696), with NO scatter at fixed scale (window [1180,1220) std 6e-5) and a smooth monotone ' +
   'approach to the conjectural closed form (3/2)C - 1/4 = 0.695496. The two parts drift oppositely ' +
@@ -236,7 +236,7 @@ const IMP124855_ASSERTIONS = [
       IMP124855_ASSESSMENT.arithFloorRigorousPositive === true &&
       IMP124855_ASSESSMENT.cMbUntouched === true &&
       /NO QED/.test(IMP124855_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP124855_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124855_HONEST_BANNER) &&
       /RH open/.test(IMP124855_HONEST_BANNER),
     why: 'measurement + assessment only: kappa > 0 is MEASURED not proved, no bound moved, C_mb GUE-conditional untouched, honesty markers present; the softened residual is a one-sided cotangent bound, not a QED.',
   },

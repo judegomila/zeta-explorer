@@ -50,7 +50,7 @@
  * the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the 3-point fit is descriptive, not predictive; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33851-hump-envelope-symmetry-vs-k (skew ladder + head/tail fractions, reused here)
  * @see imp-33809-saturation-curvature-hump-vs-k (per-k hump amplitudes)
@@ -188,7 +188,7 @@ export const IMP34527_HUMP_SKEW_GROWTH_LAW_VS_DECAY_ASYMMETRY = {
     '(hence imp-33809) amplitudes verbatim; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the 3-point fit is descriptive; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33851 (skew ladder + head/tail fractions, reused here); imp-33809 (per-k hump amplitudes); ' +
     'imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9); imp-3463 (far-tail sqrt(1/N) form the tail ' +
@@ -244,13 +244,13 @@ export const IMP34527_HUMP_SKEW_GROWTH_LAW_VS_DECAY_ASYMMETRY_ASSERTIONS = [
       Math.abs(DECAY_RATIO - 2.1017) < 5e-3,
   },
   {
-    // Honesty gate: measurement/fit only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34527-honesty-gate-no-qed',
-    description: 'Measurement/fit only: isRigorous false, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement/fit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34527_HUMP_SKEW_GROWTH_LAW_VS_DECAY_ASYMMETRY.isRigorous === false &&
       /NO QED/.test(IMP34527_HUMP_SKEW_GROWTH_LAW_VS_DECAY_ASYMMETRY.verdict) &&
-      /remains SOTA/.test(IMP34527_HUMP_SKEW_GROWTH_LAW_VS_DECAY_ASYMMETRY.verdict),
+      /refereed bound is changed/i.test(IMP34527_HUMP_SKEW_GROWTH_LAW_VS_DECAY_ASYMMETRY.verdict),
   },
 ];
 

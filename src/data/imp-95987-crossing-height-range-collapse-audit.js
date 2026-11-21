@@ -40,14 +40,13 @@
  *   WHAT THIS IS AND IS NOT
  *   -----------------------
  *   An audit record. It establishes nothing new, instantiates no interval, closes no sub-gap,
- *   and moves no bound. imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   and moves no bound. imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95940-arithmetic-intercept-a0-obstruction (source: crossing range, sensitivity)
  * @see imp-95971-crossing-height-map-viz-data (range presented as a curve)
  * @see imp-95964-fujii-varS-constant-locate-obstruction (a_0 not pinnable to O(0.01))
  *
- * Ticket: imp-95987 (accuracy, medium). Audit only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+ * Ticket: imp-95987 (accuracy, medium). Audit only; changes no bound; NO QED; no refereed bound is changed.
  */
 
 const CONSUMERS_AUDITED = Object.freeze([
@@ -121,7 +120,7 @@ export const IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT = Object.freeze({
     '(a_0, hence b, cannot be pinned to O(0.01) while the Var S(T) boundary constant K is ' +
     'unresolved -- imp-95964). No consumer reports a single collapsed point value. The glossary ' +
     'headword imp-95974 surfaces no T_x value at all. Audit only; establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95940 (crossing range [~5.8e17, ~1.36e28], d lnT_x / d a_0 ~ -78); imp-95964 (b, hence ' +
     'a_0, not pinnable to O(0.01), boundary constant K unresolved); imp-95921 / imp-95888 / ' +
@@ -144,11 +143,11 @@ export const IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp95987-honesty-gate-no-qed',
-    why: 'Audit only: no bound claimed moved, NO QED, PT SOTA line present, source ticket recorded.',
+    why: 'Audit only: no bound claimed moved, NO QED, no-refereed-bound-change line present, source ticket recorded.',
     holds: () =>
       IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT.anyBoundMoved === false &&
       /NO QED/.test(IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT.verdict) &&
       /imp-95940/.test(IMP95987_CROSSING_HEIGHT_RANGE_COLLAPSE_AUDIT.audits),
   },
 ];

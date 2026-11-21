@@ -73,7 +73,7 @@
  * two constants makes the ~0.95 conditioning burden disappear -- it is intrinsic to
  * the dominant GUE-conditional E_coll term (imp-486). Measurement/sensitivity only;
  * C_mb/C_C stay GUE-conditional (imp-486); no bound changes, no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96831-sigma-peak-share-cc-sensitivity (the C_C single-lever partial +0.048)
  * @see imp-96794-etrunc-reduction-peak-share-leverage (the E_trunc single-lever partial -0.019)
@@ -256,7 +256,7 @@ export const IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY = {
     'two constants makes the ~0.95 conditioning burden disappear -- it is intrinsic to the ' +
     'dominant GUE-conditional E_coll term (imp-486). Measurement/sensitivity only; ' +
     'C_mb/C_C stay GUE-conditional (imp-486); no bound changes, no positivity, no bridge ' +
-    'closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'closure, no RH claim, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96831 (C_C single-lever partial +0.048); imp-96794 (E_trunc single-lever partial ' +
@@ -313,14 +313,14 @@ export const IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY_ASSERTIONS = 
     holds: () => bandMin > 0.84,
   },
   {
-    // Honesty gate: measurement/assessment only, additive verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, additive verdict, no QED, no refereed bound is changed.
     id: 'imp96851-honesty-gate-no-qed',
-    description: 'Assessment only: levers-combine-additively verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: levers-combine-additively verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY.isRigorous === false &&
       /COMBINE ESSENTIALLY ADDITIVELY/.test(IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96851_SIGMA_PEAK_SHARE_CC_ETRUNC_JOINT_SENSITIVITY.verdict),
   },
 ];
 

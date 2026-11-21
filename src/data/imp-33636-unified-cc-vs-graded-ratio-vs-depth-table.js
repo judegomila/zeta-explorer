@@ -55,8 +55,7 @@
  *   ULP band is a coarse-grid artifact that FAILS at deeper rungs n &gt;= 510 (all six rungs tabulated
  *   here sit below that band-crossing rung, so the comparison stays well-posed). Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33560-deep-tail-graded-vs-cc-cross-solver-node-budget.js (n in {350,375,400} source table)
  *   @see imp-33584-deeper-tail-cc-vs-graded-ratio-4x-crossing.js (n in {425,450,475} source table)
@@ -115,7 +114,7 @@ const verdict =
       'EDGE-imp-33560/imp-33584-EACH-ARGUED-FOR-HOLDS-AS-ONE-COHERENT-MONOTONE-CURVE,-NOT-JUST-TWO-' +
       'SEPARATELY-PLAUSIBLE-THREE-POINT-FRAGMENTS.-TABULATION-CONSOLIDATION-ONLY;-NO-LITERAL-PATCHED;-' +
       'imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33560/imp-33584-INTACT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33636_UNIFIED_CC_VS_GRADED_RATIO_VS_DEPTH_TABLE = Object.freeze({
@@ -134,7 +133,7 @@ export const IMP33636_UNIFIED_CC_VS_GRADED_RATIO_VS_DEPTH_TABLE = Object.freeze(
     'full ladder (~1.28x, ~1.28x, ~2.56x, ~2.56x, ~2.56x, ~3.85x) that never reaches the 4x node-' +
     'competitiveness bar. VERDICT: UNIFIED-RATIO-IS-MONOTONE-NON-DECREASING-AND-STAYS-BELOW-4x. ' +
     'TABULATION CONSOLIDATION ONLY -- no quadrature re-derived, no literal patched in either source ' +
-    'module; imp-3066 untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'module; imp-3066 untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     inputs: 'the frozen measured.rungTable array exported by imp-33560 and by imp-33584, each already self-computed and assertion-locked in its own module',
@@ -193,7 +192,7 @@ export const IMP33636_UNIFIED_CC_VS_GRADED_RATIO_VS_DEPTH_TABLE = Object.freeze(
       'Inherited verbatim from imp-33560/imp-33584: the CC min-node budgets are single lattice hits on ' +
       'a jittery arithmetic floor; the robust reading is the order of the node budgets and the ratio ' +
       'trend (monotone, < 4x), not the exact node counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -228,7 +227,7 @@ export const IMP33636_UNIFIED_CC_VS_GRADED_RATIO_VS_DEPTH_TABLE_ASSERTIONS = [
   },
   {
     id: 'imp33636-honest-diagnostic-not-a-new-measurement',
-    why: 'Mandatory honesty: this is a tabulation consolidation of two existing measurements, not a new bound, not a re-derivation, source modules intact, imp-3066 untouched, PT 0.2 SOTA.',
+    why: 'Mandatory honesty: this is a tabulation consolidation of two existing measurements, not a new bound, not a re-derivation, source modules intact, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33636_UNIFIED_CC_VS_GRADED_RATIO_VS_DEPTH_TABLE.honestCaveat;
       return (
@@ -241,7 +240,7 @@ export const IMP33636_UNIFIED_CC_VS_GRADED_RATIO_VS_DEPTH_TABLE_ASSERTIONS = [
         c.leavesSourceModulesIntact === true &&
         c.isTabulationConsolidationOnly === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

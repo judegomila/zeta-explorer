@@ -75,7 +75,7 @@
  *   SUFFICIENT and the absolute-measure degree-d faces carry no feasibility
  *   comparison. The operator-level K_a >= 0 sign-positivity (off-diagonal
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3488-degree2-miss-factor-closed-form.js (the d = 2 special case)
  *   @see imp-3510-degree3-miss-factor-closed-form.js (the d = 3 special case)
@@ -344,7 +344,7 @@ export const IMP3524_GENERAL_DEGREE_D_MISS_FACTOR = Object.freeze({
     '(r_k - 1/k^d)/k (< 1e-3, reconciled to r_k to < 1e-12), the over-prediction k/r_k matches k^(d+1) ' +
     'and the fitted exponent matches d to the O(a^2) tail. DERIVATION/CERTIFICATION, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; the absolute-measure degree-d faces carry no feasibility ratio; ' +
-    'operator positivity (imp-3066) untouched; no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   derivation: Object.freeze({
     degreeMass: 'B_d(a) = int W_d(a tau) A(tau) d(tau) = sum_{m>=d, m==d(2)} a^m/m! M_m (imp-3501 R_d)',
@@ -413,7 +413,7 @@ export const IMP3524_GENERAL_DEGREE_D_MISS_FACTOR = Object.freeze({
       'feasibility comparison. The operator-level K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel ' +
       'step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -473,7 +473,7 @@ export const IMP3524_GENERAL_DEGREE_D_MISS_FACTOR_ASSERTIONS = [
   {
     id: 'imp3524-honest-derivation-not-a-verdict',
     why: 'Mandatory honesty: derivation/certification only, mass-feasibility necessary-but-not-sufficient ' +
-         '(no degree-d feasibility ratio), operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(no degree-d feasibility ratio), operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3524_GENERAL_DEGREE_D_MISS_FACTOR.honestCaveat;
       return (
@@ -481,7 +481,7 @@ export const IMP3524_GENERAL_DEGREE_D_MISS_FACTOR_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isDerivationAndCertification === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

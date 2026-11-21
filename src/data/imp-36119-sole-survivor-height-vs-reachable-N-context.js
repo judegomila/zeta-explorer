@@ -37,8 +37,7 @@
  * Assessment only; reuses the pinned imp-35971 sole-survivor literal and the imp-35812 retained-term
  * anchor unchanged; derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631)
- * and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35971-etrunc-sole-survivor-height (the sole-survivor height N* ~ 4.7214e13 this contextualizes)
  * @see imp-36046-e-share-tail-landmarks-viz-data (the tail viz that never places N* beside reachable scales)
@@ -51,7 +50,7 @@
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any assessment here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any assessment here)
 
 // Pinned landmarks (nothing re-derived; literals reused verbatim from the cited tickets).
 const N_STAR = 4.7214e13; // imp-35971 E_trunc sole-survivor height
@@ -128,7 +127,7 @@ export const IMP36119_SOLE_SURVIVOR_HEIGHT_VS_REACHABLE_N_CONTEXT = {
     'imp-35812 literals unchanged; derives no remainder; discharges nothing; changes no bound; establishes ' +
     'no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) ' +
     'and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35971 (sole-survivor height N* ~ 4.7214e13 this contextualizes); imp-36046 (the tail viz that ' +
     'never placed N* beside reachable scales); imp-35812 / imp-35674 Part D (retained-term anchor N ~ ' +
@@ -181,7 +180,7 @@ export const IMP36119_SOLE_SURVIVOR_HEIGHT_VS_REACHABLE_N_CONTEXT_ASSERTIONS = [
   },
   {
     // (5) honesty gate: assessment only, conditional, no bound moves, not a reachable height,
-    //     imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    //     imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36119-assessment-only-no-qed',
     description: 'assessment only: not rigorous/unconditional, not a reachable height, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -194,7 +193,7 @@ export const IMP36119_SOLE_SURVIVOR_HEIGHT_VS_REACHABLE_N_CONTEXT_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

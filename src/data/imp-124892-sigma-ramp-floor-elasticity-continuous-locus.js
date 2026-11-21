@@ -54,7 +54,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124848-sigma-interior-peak-floor-elasticity-multifloor-fit (peak-locus p_peak ~ -1.412; the softer landmark)
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (far-tail knee p_knee ~ -2.106; the steeper landmark)
@@ -248,7 +248,7 @@ export const IMP124892_SIGMA_RAMP_FLOOR_ELASTICITY_CONTINUOUS_LOCUS = {
     'between-construction gap, not two ends of one continuous curve. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124848 (interior-peak floor-elasticity p_peak ~ -1.412, argmax locus); imp-124772 (far-tail ' +
     'knee p_knee ~ -2.106, downslope-crossing locus); imp-33708 (0.5x..5x floor ladder + downslope ' +
@@ -314,13 +314,13 @@ export const IMP124892_SIGMA_RAMP_FLOOR_ELASTICITY_CONTINUOUS_LOCUS_ASSERTIONS =
     holds: () => MIN_SIGMA_MAX < PEAK_SIGMA - 0.02 && MIN_SIGMA_MAX < 0.92 && PEAK_SIGMA > 0.94,
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp124892-honesty-gate-no-qed',
-    description: 'Measurement only: continuous locus, two-different-loci verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: continuous locus, two-different-loci verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP124892_SIGMA_RAMP_FLOOR_ELASTICITY_CONTINUOUS_LOCUS.isRigorous === false &&
       /NO QED/.test(IMP124892_SIGMA_RAMP_FLOOR_ELASTICITY_CONTINUOUS_LOCUS.verdict) &&
-      /remains SOTA/.test(IMP124892_SIGMA_RAMP_FLOOR_ELASTICITY_CONTINUOUS_LOCUS.verdict),
+      /refereed bound is changed/i.test(IMP124892_SIGMA_RAMP_FLOOR_ELASTICITY_CONTINUOUS_LOCUS.verdict),
   },
 ];
 

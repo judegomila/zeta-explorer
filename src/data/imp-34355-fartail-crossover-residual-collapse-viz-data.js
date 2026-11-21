@@ -24,7 +24,7 @@
  *
  *   Ticket: imp-34355 (ux, low). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- two-landmark comparison: residual and E_flow/E_trunc both drop in lockstep by ~54x --

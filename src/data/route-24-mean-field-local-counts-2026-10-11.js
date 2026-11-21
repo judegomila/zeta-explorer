@@ -30,7 +30,7 @@
  * argument-control information in general (several-width kernel dominations are not covered). Frontier for comparison: collect6 route P
  * alone 0.145535458600488, joint 0.145276368594868 (round-7 certified 0.145694083872924).
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_24_ASSERTIONS recompute live: N = ⌊√(X/4π)⌋ and L/4,
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_24_ASSERTIONS recompute live: N = ⌊√(X/4π)⌋ and L/4,
  * the de Bruijn ceilings, p_req, the B2 envelope (η-optimised p(Y), Simpson descent times, Λ_inf at three heights, the η ≤ 1 time), the q
  * needed to close the lane and its binding height, and the sign pattern of the stored Arb R values.
  */
@@ -80,7 +80,7 @@ export const ROUTE_24 = Object.freeze({
     + '0.13720 (Arb-confirmed on a grid as a statement about the method). Local counts from argument control at height η are Poisson-smoothed '
     + 'counts capped by the mean L/4; under the A4/B2 single-width lemma that caps the channel at Λ ≈ 0.148 at the current seam (a ceiling of the '
     + 'lemma, not of argument control in general; it falls below 0.145 at binding height ≈ 1.75e13). Within P15\'s range η ≤ 1: Λ = 0.5 (no gain); '
-    + 'the formal η ≤ 4 extension reproduces mirror-descent C3 (≈ 0.19). PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'the formal η ≤ 4 extension reproduces mirror-descent C3 (≈ 0.19). No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_24;
@@ -141,7 +141,7 @@ export const ROUTE_24_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r24-honest-scope',
-    holds: () => R.status === 'done' && /not of argument control in general/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /not of argument control in general/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /no bound moves/.test(R.verdict) && R.refereeKilled.length === 7,
     why: 'Ceiling scoped to the B2 lemma at the current seam; method statement not an H_t theorem; no Λ change; no QED.',
   },

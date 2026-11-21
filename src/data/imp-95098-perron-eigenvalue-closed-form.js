@@ -73,7 +73,7 @@
  * < 1e-18 relative here). (3) This is an anchor for lambda_max, not a new
  * certificate: the Lemma SW upper bound Lw is what the chain uses, and it is
  * unchanged. Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * The numerics below CROSS-CHECK the derivation; they are not the claim.
  * Import-light (no heavy bundle).
@@ -269,7 +269,7 @@ export const IMP95098_PERRON_EIGENVALUE_CLOSED_FORM = {
     "The 3x3 characteristic polynomial and its trigonometric largest root are elementary and exact; the reduction to blocks {0,2,4} is a MEASURED machine-precision truncation of the section eigenvalue (largest root vs 61-block power iterate agree to ~7e-21), not a proof that the infinite-kernel eigenvalue equals it. The partial-fraction anchor a+(c+d)^2/(2a) is standard non-degenerate Rayleigh-Schroedinger second order with the single pole at E_4=0, verified against the exact cubic root to 2.9e-18. Everything is evaluated at the reference model point and inherits the ~1e-8 float floor of the underlying Lemma PF pair values. The numerics cross-check the derivation; they are not the claim.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT (imp-95098): the imp-95008 Lemma SW aggregation constant lambda_max, previously only a numerical Rayleigh <= Lw sandwich (width 2.3e-16), is given a CLOSED FORM at the model point - the largest root of the depressed cubic x^3 - (a^2+c^2+d^2)x - 2acd of the leading 3-block kernel M3 on even blocks {0,2,4}, reproducing the baked Lw literal 3.9197935113802585e-5 bit-identically (diff 0) and the Rayleigh bound to ~7e-21. Equivalent partial-fraction anchor lambda_max = a + (c+d)^2/(2a) (single resolvent pole at the isolated block-4 level E_4=0) matches to 2.9e-18 and identifies the 1.49e-11 Perron-over-bond excess as exactly the second-order block-4 coupling. Model point only; inherits the ~1e-8 Lemma PF float floor; anchors an existing constant, changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (imp-95098): the imp-95008 Lemma SW aggregation constant lambda_max, previously only a numerical Rayleigh <= Lw sandwich (width 2.3e-16), is given a CLOSED FORM at the model point - the largest root of the depressed cubic x^3 - (a^2+c^2+d^2)x - 2acd of the leading 3-block kernel M3 on even blocks {0,2,4}, reproducing the baked Lw literal 3.9197935113802585e-5 bit-identically (diff 0) and the Rayleigh bound to ~7e-21. Equivalent partial-fraction anchor lambda_max = a + (c+d)^2/(2a) (single resolvent pole at the isolated block-4 level E_4=0) matches to 2.9e-18 and identifies the 1.49e-11 Perron-over-bond excess as exactly the second-order block-4 coupling. Model point only; inherits the ~1e-8 Lemma PF float floor; anchors an existing constant, changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -337,11 +337,11 @@ export const IMP95098_PECF_ASSERTIONS = [
   {
     id: "imp95098-pecf-honesty-gate",
     description:
-      "verdict anchors an existing constant with floors/ceilings untouched, is scoped to the model point, inherits the ~1e-8 float floor, promotes no bound, NO QED, PT stays SOTA",
+      "verdict anchors an existing constant with floors/ceilings untouched, is scoped to the model point, inherits the ~1e-8 float floor, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.promotesBound === false &&
       /NO QED/.test(IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.verdict) &&
+      /refereed bound is changed/i.test(IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.verdict) &&
       /Model point only/.test(IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.verdict) &&
       /changes no bound/.test(IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.verdict) &&
       /~1e-8/.test(IMP95098_PERRON_EIGENVALUE_CLOSED_FORM.scope) &&

@@ -66,7 +66,7 @@
  * is a multi-zero PNT/Mertens (specifically sum-over-primes Mertens-error) fingerprint. HONEST nuance: the
  * correlation saturates at MODERATE strength (~0.75, not the imp-97680 ~0.993), leaving a named sig-fig /
  * higher-zero sub-gap. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no
- * bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97780-route-m-decay-exponent-reconciliation.js (oscillation attributed to PNT/Mertens error in prose, untested)
  * @see imp-97680-residual-exponent-vs-mertens-delta-phaselock.js (phase-lock vs empirical Mertens delta, 5 dps=30 heights, r~0.993)
@@ -224,11 +224,11 @@ export const IMP97798_VERDICT = Object.freeze({
     'unexplained -- a named sub-gap IMP97798_PNT_MERTENS_CORRELATION_CEILING_SIGFIG_LIMITED (baked ~10-sig-fig ' +
     'residuals / higher zeros / crude envelope). The evidence is suggestive, not conclusive. MCM stays ' +
     'refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97798_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Testing the imp-97780 attribution of the dps=35 residual ' +
+  'RH open; no refereed bound is changed; NO QED. Testing the imp-97780 attribution of the dps=35 residual ' +
   'oscillation to a PNT/Mertens error: a zero-parameter Riemann-zero explicit-formula proxy correlates with ' +
   'the detrended oscillation and the correlation RISES monotonically as true zeros are added (psi 0.318 -> ' +
   '0.562, Mertens 0.487 -> 0.749), the 5-zero Mertens-error shape (|r| ~ 0.75) beating any single tuned tone ' +
@@ -293,7 +293,7 @@ const IMP97798_ASSERTIONS = [
       IMP97798_VERDICT.anyBoundMoved === false &&
       IMP97798_VERDICT.qed === false &&
       /NO QED/.test(IMP97798_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97798_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97798_HONEST_BANNER) &&
       /RH open/.test(IMP97798_HONEST_BANNER),
     why: 'measurement only -- the imp-97780 PNT/Mertens attribution is tested and moderately supported (multi-zero fit, |r| ~ 0.75), not conclusive; MCM refuted from omega=11; no bound moved, no QED.',
   },

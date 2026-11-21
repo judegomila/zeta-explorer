@@ -88,7 +88,7 @@
  *           despite divergent level-1 mass A_1(b_k) -> infinity; and
  *       (b) rigorously bound |Integral_0^inf g(t)(e^t M(t)-1) dt| <= L (evaluate the constant),
  *       thereby certifying sup_b |R(b)| <= L uniformly in omega. OPEN. No bound on Lambda moves;
- *       PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *       no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97289-route-m-arith-tail-o1-proof.js (the reduction this assesses: IMP97289_TAIL_O1_SUBGAP)
  * @see imp-97266-route-m-arith-tail-o1-measurement.js (the measured O(1) plateau)
@@ -251,11 +251,11 @@ export const IMP97309_VERDICT = Object.freeze({
     'sign law R(b) = -mu(b)|R(b)| and the monotone approach of |R(b)| to a plateau. RESULT 5 conjectures ' +
     'the plateau L equals |Integral g(t)(e^t M(t)-1) dt| with M the Moebius series (M(t) -> -2 as t -> 0+), ' +
     'tying L to the Abel limit of the Moebius series -- but the interchange and the constant evaluation are ' +
-    'open (IMP97309_CANCELLATION_SUBGAP). No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'open (IMP97309_CANCELLATION_SUBGAP). No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97309_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97289 tail cancellation subgap ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97289 tail cancellation subgap ' +
   'is ASSESSED, not certified. Exact identity R(b) = mu(b) Sum_{e|b,e>=2} mu(e) J(e-1); the divergence is ' +
   'localized to the single-prime level A_1 ~ (1/12) log log b -> infinity (so no per-level/triangle bound ' +
   'closes it); the pointwise route sup_t |S_b(t)| <= C is refuted (that sup grows with omega); the plateau ' +
@@ -326,7 +326,7 @@ const IMP97309_ASSERTIONS = [
       IMP97309_VERDICT.residualSubgap === 'IMP97309_CANCELLATION_SUBGAP' &&
       /IMP97289_TAIL_O1_SUBGAP/.test(IMP97309_CANCELLATION_SUBGAP.refinesSubgap) &&
       /NO QED/.test(IMP97309_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97309_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97309_HONEST_BANNER) &&
       /RH open/.test(IMP97309_HONEST_BANNER),
     why: 'honest partial: assessed the subgap (exact identity + divergence localization + refuted pointwise route + conjectured Moebius-series closed form) without closing it -- no full O(1) bound, no bound moved, no rigorous ceiling, no QED.',
   },

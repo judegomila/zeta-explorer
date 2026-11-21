@@ -95,7 +95,7 @@
  * non-monotonicity precision does not fix and is contingent on the open I-b direction. The status-4 cliff
  * is NOT a pure double-precision-conditioning artifact removable by scaling; at the frontier the binding
  * floor is the between-grid guard. The assessment establishes NO positivity theorem and moves NO bound;
- * certified reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * certified reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * HONEST RESIDUAL -- SUB-GAP IMP97077_EXTENDED_PRECISION_GUARD_STABLE_CUTTING_PLANE_UNTESTED. The
  * refutation covers the three named reformulations as attempted. The single untried-to-completion

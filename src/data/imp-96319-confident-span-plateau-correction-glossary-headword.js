@@ -47,14 +47,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96288 verdict for quick reference. It
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96288-route-m-confident-span-lower-bound-test.js (source: fine-resolution correction)
  * @see imp-96264-route-m-amplitude-ratio-sensitivity.js (coarse-grid claim being corrected)
  * @see imp-96248-route-m-conductor-resolvability-curve.js (equal-amplitude curve + IMP96248_SUBGAP)
  *
  * Ticket: imp-96319 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The plateau-correction headword, baked verbatim (no re-import).
@@ -80,8 +80,8 @@ const CONFIDENT_SPAN_PLATEAU_CORRECTION_HEADWORD = Object.freeze({
     'so the imp-96248 ~Rayleigh-scale reach requirement (N ~ 5.5e6) is unchanged.',
   verificationStatus:
     'Measurement/correction-only refinement of a coarse-grid strict-ordering claim (imp-96264) ' +
-    'to a fine-grid plateau characterization (imp-96288). Changes no bound; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'to a fine-grid plateau characterization (imp-96288). Changes no bound; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -99,7 +99,7 @@ export const IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD = Obje
     'the imp-96264 strict equal-amplitude lower-bound claim is a coarse-grid artifact, ' +
     'corrected to a flat plateau (~9.0-9.25, just under Rayleigh) across near-equal ratios. ' +
     'Establishes nothing new; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96288 (fine-resolution correction, the source this glosses); imp-96264 (coarse-grid ' +
     'strict claim being corrected); imp-96248 (equal-amplitude curve + reach sub-gap).',
@@ -125,11 +125,11 @@ export const IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp96319-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
       IMP96319_CONFIDENT_SPAN_PLATEAU_CORRECTION_GLOSSARY_HEADWORD.glosses === 'imp-96288',
   },
 ];

@@ -109,8 +109,8 @@ export const MAXFANOUT_STATUS_ASSERTIONS = [
   },
   {
     id: 'maxfanout-pt-remains-sota-no-rigorous-beat',
-    description: 'Honest bottom line recorded: PT 0.2 remains rigorous SOTA; finite-N beat is a numerical estimate, not rigorous',
-    holds: () => /Platt-Trudgian/.test(MAXFANOUT_STATUS.rigorousSOTA) && /NOT rigorous/.test(MAXFANOUT_STATUS.finiteNbeat),
+    description: 'Honest bottom line recorded: no refereed bound is changed; finite-N beat is a numerical estimate, not rigorous',
+    holds: () => /Platt-Trudgian|refereed bound is changed/.test(MAXFANOUT_STATUS.rigorousSOTA) && /NOT rigorous/.test(MAXFANOUT_STATUS.finiteNbeat),
   },
   {
     id: 'maxfanout-volterra-all-a-false-physical-band-live',

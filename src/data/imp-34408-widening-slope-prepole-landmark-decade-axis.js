@@ -51,7 +51,7 @@
  * changes no bound, and re-derives L2 exactly as imp-34327 did. The component model is NOT a rigorous
  * asymptotic. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643)
  * is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-34330-widening-residual-prepole-reversal (L1: residual sign-change k~17.80, k_best)
  * @see imp-34327-widening-slope-minus-one-crossing-location (L2: mapped -1 crossing k*~20.479, u*~45.658)
@@ -146,7 +146,7 @@ export const IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS = {
     'exactly -1 only ~0.8 decades before it. Tabulation/cross-check within the inherited ' +
     'imp-3220/imp-3406/imp-33810/imp-34246 component model, NOT a rigorous asymptotic; L1/L2/L3 UNTOUCHED; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 const IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS_ASSERTIONS = [
@@ -204,13 +204,13 @@ const IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS_ASSERTIONS = [
       IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.uMapNearAffineOverWindow === true,
   },
   {
-    // Honesty gate: tabulation only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: tabulation only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34408-honesty-gate-no-qed',
-    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, C_mb per imp-486 untouched, PT SOTA',
+    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, C_mb per imp-486 untouched, no refereed bound is changed',
     holds: () =>
       IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.isRigorous === false &&
       /NO QED/.test(IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.verdict) &&
-      /remains SOTA/.test(IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.verdict) &&
+      /refereed bound is changed/i.test(IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.verdict) &&
       /C_mb GUE-conditional per imp-486 UNTOUCHED/.test(IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34408_WIDENING_SLOPE_PREPOLE_LANDMARK_DECADE_AXIS.verdict),
   },

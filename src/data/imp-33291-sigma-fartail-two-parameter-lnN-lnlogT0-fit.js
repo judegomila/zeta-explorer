@@ -61,7 +61,7 @@
  *
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (single-regressor p_eff -> 1/2, the fit extended here)
  * @see imp-33255-sigma-postpeak-regime-effective-exponent (crossover-anchored single exponent, window-dependent)
@@ -230,7 +230,7 @@ export const IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT = {
     'folded into residual drift; the ~0.994-0.9997 ln N / ln(log T0) collinearity explains why ' +
     'the single fit could hide it. This further localises the imp-3529 residual drift. The C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33274 (single-regressor p_eff -> 1/2, the fit extended here); imp-33255 ' +
     '(crossover-anchored single exponent, window-dependent); imp-3529 (LOCAL pointwise exponent ' +
@@ -282,15 +282,15 @@ export const IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT_ASSERTIONS = [
     holds: () => TWO_PARAM_LADDER.every((r) => r.collinearity > 0.99 && r.collinearity < 1),
   },
   {
-    // Honesty gate: measurement/fit only, analytic pair is (-1/2, +1/2), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, analytic pair is (-1/2, +1/2), no QED, no refereed bound is changed.
     id: 'imp33291-honesty-gate-no-qed',
-    description: 'Measurement only: analytic pair (-1/2, +1/2), no QED, PT stays SOTA',
+    description: 'Measurement only: analytic pair (-1/2, +1/2), no QED, no refereed bound is changed',
     holds: () =>
       IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT.isRigorous === false &&
       IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT.analyticPair.b1_lnN === -0.5 &&
       IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT.analyticPair.b2_lnLogT0 === 0.5 &&
       /NO QED/.test(IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT.verdict) &&
-      /remains SOTA/.test(IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT.verdict),
+      /refereed bound is changed/i.test(IMP33291_SIGMA_FARTAIL_TWO_PARAMETER_LNN_LNLOGT0_FIT.verdict),
   },
 ];
 

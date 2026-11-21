@@ -65,7 +65,7 @@
  *
  *   STATUS: a grouping/index note over three already-completed tickets, not a new derivation. No bound
  *   changes: kappa_arith=0.5705 remains the proved arithmetic-leaf constant, the E0 remainder is now proved
- *   uniform (no 2^omega); PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   uniform (no 2^omega); no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith derivation, prior to cohort)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (explicit but 2^omega(b)-dependent remainder)
@@ -75,7 +75,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97239 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const GAMMA = 0.5772156649015329;
@@ -141,7 +141,7 @@ export const IMP97239_ROUTE_M_ARITH_REMAINDER_UNIFORMITY_COHORT_INDEX = Object.f
     'only the (already-known-loose) E1 constant and an O(log log b)->O(1) tail sharpening open. Together ' +
     'these three form the UNIFORMITY-FOR-THE-BINDING-TERM family: a scout stopping after the first two ' +
     'would misjudge 2^omega(b) as forced; the cohort corrects that. Establishes nothing new; moves no ' +
-    'bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97133 (explicit 2^omega(b) remainder); imp-97158 (sharpness measurement, primes-only saturation); ' +
     'imp-97202 (uniform E0 remainder, 2^omega(b) removed, NO to forced-necessity).',
@@ -190,10 +190,10 @@ export const IMP97239_ROUTE_M_ARITH_REMAINDER_UNIFORMITY_COHORT_INDEX_ASSERTIONS
   },
   {
     id: 'imp97239-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97239_ROUTE_M_ARITH_REMAINDER_UNIFORMITY_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97239_ROUTE_M_ARITH_REMAINDER_UNIFORMITY_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97239_ROUTE_M_ARITH_REMAINDER_UNIFORMITY_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97239_ROUTE_M_ARITH_REMAINDER_UNIFORMITY_COHORT_INDEX.verdict),
   },
 ];

@@ -8,7 +8,7 @@
  * on. The attempt does NOT certify M2w; instead it writes the transfer as an EXACT character-detection
  * identity (the Kloosterman-type object the ledger asked for) and measures its two pieces, sharpening the
  * obstruction from "absorb a bounded ~1.25 oversampling" to "EVALUATE a Theta(1) off-diagonal twisted
- * second moment". No bound moves; OVR ~1.25 stays measured; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * second moment". No bound moves; OVR ~1.25 stays measured; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97203/imp-97225/imp-97210. c_0(h/a) = Sum_{n=1}^{a-1} (n/a) cot(pi n h/a) is the
  * Vasyunin/Bettin-Conrey cotangent sum; h_a = b-inverse mod a (so b h_a == 1 mod a). The transfer input:
@@ -82,7 +82,7 @@
  * DIAG (the off-diagonal carries ~half of M2w, net positive, stable), and (iii) sharpens the obstruction:
  * the transfer is an EVALUATION of a co-leading off-diagonal twisted second moment, NOT a Weil-bound that
  * discards it. M2w ~ 0.16 and OVR ~1.25 stay MEASURED. No bound on Lambda moves; T ~ 2.594e7 trace anchor;
- * compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * compute (N ~ 9916) binds first. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97203-route-m-cotangent-absvalue-first-moment-cauchy-schwarz.js (parent: c_1 <= sqrt(M2w); the sub-gap)
  * @see imp-97225-route-m-inverse-oversampling-ratio-ladder.js (sibling: OVR ~1.25 single-modulus ladder)
@@ -200,8 +200,8 @@ export const IMP97267_VERDICT = Object.freeze({
     'imaginary part ~1e-13). MEASURED, OFFDIAG ~ DIAG (off-diagonal ~half of M2w, net positive, stable to ' +
     'b=401), so a Weil/Kloosterman BOUND on |T_a(m)| cannot certify M2w -- it discards a co-leading term. ' +
     'The transfer is an EVALUATION of the net off-diagonal, not a bound. M2w ~ 0.16 and OVR ~1.25 stay ' +
-    'MEASURED. No bound on Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'MEASURED. No bound on Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97267_SUBGAP = Object.freeze({
@@ -218,7 +218,7 @@ export const IMP97267_SUBGAP = Object.freeze({
 });
 
 export const IMP97267_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Attempt + partial only: the inverse-map ' +
+  'RH open; no refereed bound is changed; NO QED. Attempt + partial only: the inverse-map ' +
   '(Kloosterman-type) transfer is NOT completed. It is written as an EXACT character-detection identity ' +
   'M2w*Sum_a a = DIAG + OFFDIAG (diagonal = phi-weighted full-residue second moment, off-diagonal = real ' +
   'twisted-moment defect). MEASURED, the off-diagonal OFFDIAG ~ DIAG carries ~half of M2w (net positive, ' +
@@ -291,7 +291,7 @@ const IMP97267_ASSERTIONS = [
       /offdiagonal-twisted-moment-evaluation/.test(IMP97267_SUBGAP.id) &&
       /EVALUATE/.test(IMP97267_SUBGAP.statement) &&
       /NO QED/.test(IMP97267_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97267_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97267_HONEST_BANNER) &&
       /RH open/.test(IMP97267_HONEST_BANNER),
     why: 'attempt + partial: the transfer is not completed; it is reduced to an exact detection identity whose off-diagonal is co-leading and must be evaluated -- no bound moved, no rigorous M2w, honesty markers and the named residual sub-gap present.',
   },

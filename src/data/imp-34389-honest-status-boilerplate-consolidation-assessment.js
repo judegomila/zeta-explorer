@@ -18,12 +18,12 @@
  * "verbatim" premise:
  *   imp-34309: "...the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  *     establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *     Platt-Trudgian Lambda <= 0.2 remains SOTA."
+ *     No refereed bound is changed."
  *   imp-34310: "...changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- *     K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA."
+ *     K_a>=0 untouched; NO QED; no refereed bound is changed."
  *   imp-34311: "...changes no bound; establishes no operator positivity; C_mb GUE-conditional per
- *     imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- *     Lambda <= 0.2 remains SOTA."
+ *     imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed
+ *     ."
  * -- clause order, capitalization, and operator spacing all differ.
  *
  * Several modules (e.g. imp-34309, line ~375) back their own disclaimer with an executable
@@ -42,8 +42,7 @@
  * leaving each module's own untouched-invariant clauses bespoke.
  *
  * This is a read-only assessment: it changes no bound, establishes no operator positivity,
- * imp-3066 K_a >= 0 stays untouched, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * imp-3066 K_a >= 0 stays untouched, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34309-combined-grid-loo-linear-flip-robustness.js
  * @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js
@@ -56,21 +55,21 @@ const NAMED_TICKET_SNIPPETS = Object.freeze([
     ticket: 'imp-34309',
     trailer:
       'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-      'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
   }),
   Object.freeze({
     ticket: 'imp-34310',
     trailer:
       'changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; ' +
-      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
   }),
   Object.freeze({
     ticket: 'imp-34311',
     trailer:
       'changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-      'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
   }),
 ]);
 
@@ -100,14 +99,14 @@ export const IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT = Objec
     'differs by module (some carry extra untouched-invariants a generic snippet would either drop ' +
     'or over-apply). A shared snippet, if introduced, should cover only the invariant tail for NEW ' +
     'modules going forward; existing modules are left untouched. No bound changed; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous ' +
-    'SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 
   honest:
     'ASSESSMENT-ONLY -- reports the variant survey found by grepping src/data and src/pages; ' +
     'does not modify any existing module or page. Recommends against retroactive consolidation; ' +
-    'does not itself introduce a shared snippet. Platt-Trudgian Lambda <= 0.2 stays the rigorous ' +
-    'SOTA.',
+    'does not itself introduce a shared snippet. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT_ASSERTIONS = [
@@ -133,13 +132,13 @@ export const IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT_ASSERTI
     description: 'the verdict explicitly recommends against retroactive consolidation and stays honest',
     holds: () => /NOT-RECOMMENDED/.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.verdict)
       && /NO QED/.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.verdict),
+      && /refereed bound is changed/i.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.verdict),
   },
   {
     id: 'imp-34389-assessment-only-honest',
     description: 'the honest field marks this as assessment-only, no existing module modified',
     holds: () => /ASSESSMENT-ONLY/.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.honest),
+      && /refereed bound is changed/i.test(IMP34389_HONEST_STATUS_BOILERPLATE_CONSOLIDATION_ASSESSMENT.honest),
   },
 ];
 

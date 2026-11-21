@@ -52,7 +52,7 @@
  * verbatim; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34528-tailside-hump-decay-vs-sqrt-n-fartail (resSqrt10 gap + halving observation; fit here)
  * @see imp-33809-saturation-curvature-hump-vs-k (per-k hump amplitudes reused verbatim)
@@ -206,8 +206,8 @@ export const IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE = {
     'Recomputes the imp-34528 resSqrt10 gap from the imp-33809 hump amplitudes verbatim; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34528 (resSqrt10 gap + halving observation; fit and extrapolated here); imp-33809 (per-k ' +
     'hump amplitudes reused verbatim); imp-3444 (crossover N* ~ 3.280294e9; decade anchoring); ' +
@@ -263,15 +263,15 @@ export const IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE_ASSERTIONS = [
       K_STAR - CROSSOVER_K > 6,
   },
   {
-    // Honesty gate: fit only, four points, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: fit only, four points, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34547-honesty-gate-no-qed',
-    description: 'Fit only: sampleSize 4, isRigorous false, crossover k = 9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Fit only: sampleSize 4, isRigorous false, crossover k = 9, no QED, no refereed bound is changed',
     holds: () =>
       IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE.sampleSize === 4 &&
       IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE.isRigorous === false &&
       IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE.verdict) &&
-      /remains SOTA/.test(IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE.verdict),
+      /refereed bound is changed/i.test(IMP34547_RESSQRT10_GEOMETRIC_FIT_099_RATE_DECADE.verdict),
   },
 ];
 

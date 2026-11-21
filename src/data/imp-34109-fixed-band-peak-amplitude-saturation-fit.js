@@ -71,8 +71,7 @@
  * extends are untouched). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the OLS surrogate, the bounded-ceiling fit, and the growth-form classification are
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (refines this module's F1 increment
  *   minimum to sub-window resolution on a halved 0.25 kEnd grid)
@@ -351,8 +350,8 @@ export const IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT = {
     'untouched. The OLS surrogate, the bounded-ceiling fit, and the growth-form classification are ' +
     'descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34040 (the kEnd = 14..17 saturation-onset sweep this continues one decade; machinery reused ' +
     'verbatim); imp-34047 (the argmax-creep law; F3 is an independent argmax observation); imp-34108 (the ' +
@@ -422,15 +421,15 @@ export const IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, saturation onset CORRECTED (not a plateau), isRigorous false,
-    // imp-34040 within-window untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched.
+    // imp-34040 within-window untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched.
     id: 'imp34109-honesty-gate-no-qed',
-    description: 'Measurement only: keepsClimbing, isRigorous false, imp-34040 within-window untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: keepsClimbing, isRigorous false, imp-34040 within-window untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.keepsClimbing === true &&
       IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.verdict) &&
       /NO QED/.test(IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.verdict) &&
-      /remains SOTA/.test(IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.verdict),
   },

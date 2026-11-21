@@ -73,7 +73,7 @@ export const IMP35934_KAPPA_SWEEP_VIZ_DATA = {
     'measurement; adds no new derivation and changes no bound. Measurement only; certifies no W1 ' +
     'bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no ' +
     'positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A). NO QED. ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35934_VIZ_ASSERTIONS = [
@@ -109,12 +109,12 @@ export const IMP35934_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35934-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, SOTA',
+    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35934_KAPPA_SWEEP_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP35934_KAPPA_SWEEP_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35934_KAPPA_SWEEP_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35934_KAPPA_SWEEP_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35934_KAPPA_SWEEP_VIZ_DATA.honest),
   },
 ];
 

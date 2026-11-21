@@ -30,7 +30,7 @@
  * and compares them; it re-runs no kernel and changes NO bound. It does NOT discharge the GUE conditional
  * (C_mb GUE-conditional per imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34994-cmb-exponent-bootstrap-jackknife (the widened bootstrap 95% percentile CI ~[1.5475,1.5521])
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the F2 local log-log slope band [1.528,1.562])
@@ -131,14 +131,14 @@ export const IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND = {
     'verbatim; it re-runs no kernel and changes NO bound; does NOT discharge the GUE conditional (C_mb ' +
     'GUE-conditional per imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-35115: the imp-34994 exponent CI [1.5475, 1.5521] is nested strictly inside the imp-34950 ' +
     'local-slope band [1.528, 1.562] (compatible with one power law) yet the slope endpoints sit ~2.2-4.2 ' +
     'CI-widths outside the CI (drift is real, not sampling noise). What stays OPEN (deferred, changes no ' +
     'bound): whether the local-slope band itself is surrogate-independent or drifts with the imp-3220/imp-3406 ' +
     'extrapolation; and a derivation PINNING C_mb below the GUE bound of 1 (imp-486) would fix the physical ' +
-    's* via C_mb^p. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    's* via C_mb^p. NO QED; no refereed bound is changed.',
   citation:
     'imp-34994 (the widened bootstrap 95% percentile CI reconciled here); imp-34950 (the F2 local log-log ' +
     'slope band); imp-34925 (the power-law form and point exponent p ~ 1.549); imp-3463 (far-tail exponent ' +
@@ -173,16 +173,16 @@ export const IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND_ASSERTIONS = [
       HI_ENDPOINT_CIWIDTHS > 1,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp35115-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.isRigorous === false &&
       IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.farTailExponent === 0.5 &&
       typeof IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.subGap === 'string' &&
       /imp-486/.test(IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.subGap) &&
       /NO QED/.test(IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.verdict) &&
-      /remains SOTA/.test(IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.verdict),
+      /refereed bound is changed/i.test(IMP35115_EXPONENT_CI_VS_LOCAL_SLOPE_BAND.verdict),
   },
 ];
 

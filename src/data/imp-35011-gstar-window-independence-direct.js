@@ -40,7 +40,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34956-pinned-product-window-sensitivity (asserted W0 window-independence; this module verifies it directly)
  * @see imp-34924-eflow-pinned-product-derivation (derived P = g* r0 with r0 read at the fixed nominal window)
@@ -249,7 +249,7 @@ export const IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT = {
     'residual (measured at fixed X_CROSS). The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'DIRECTLY verifies imp-34956 W0: g* recomputed at a 21-point X_CROSS grid across [1e9,1e11] is ' +
     'bit-identical (max relative variation = 0) while r0 swings ~52.8x, so P = g* r0 is exactly proportional ' +
@@ -301,15 +301,15 @@ export const IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35011-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT.isRigorous === false &&
       IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT.farTailExponent === 0.5 &&
       typeof IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT.subGap === 'string' &&
       /NO QED/.test(IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT.verdict) &&
-      /remains SOTA/.test(IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT.verdict),
+      /refereed bound is changed/i.test(IMP35011_GSTAR_WINDOW_INDEPENDENCE_DIRECT.verdict),
   },
 ];
 

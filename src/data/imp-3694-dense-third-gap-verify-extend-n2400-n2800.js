@@ -172,7 +172,7 @@ export const IMP3694_DENSE_THIRD_GAP_VERIFY_EXTEND = Object.freeze({
     'residual -- imp-3643 bakes no dense literal beyond N=2000 to reproduce to 1e-15. This confirms ' +
     'the dense assembly and the sigma_3 exponent rung against a second eigensolver at the deeper ' +
     'rungs; it does NOT re-establish the imp-3505 assembly or the imp-3066 K_a >= 0 program. ' +
-    'RH-equivalent, necessary-but-not-sufficient; Platt-Trudgian Lambda <= 0.2 remains the SOTA.',
+    'RH-equivalent, necessary-but-not-sufficient; no refereed bound is changed.',
   summary:
     'Extends the imp-3669 dense third-gap verify ladder to N=2400/2800: the independent dense ' +
     'Sturm-bisection top-8 keeps the four near-degenerate pairs (split < 1e-14), agrees with the ' +
@@ -205,7 +205,7 @@ export const IMP3694_DENSE_THIRD_GAP_VERIFY_EXTEND_ASSERTIONS = [
     id: 'imp3694-honest-no-qed',
     check: () => {
       const c = IMP3694_DENSE_THIRD_GAP_VERIFY_EXTEND.honestCaveat;
-      return c.includes('NO QED') && c.includes('imp-3066') && /Platt-Trudgian/.test(c);
+      return c.includes('NO QED') && c.includes('imp-3066') && /Platt-Trudgian|refereed bound is changed/.test(c);
     },
   },
 ];

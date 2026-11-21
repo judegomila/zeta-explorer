@@ -63,7 +63,7 @@
  * mapping from m_prime back to C_ren off-axis, and an off-axis finite-window onset is NOT the uniform
  * ANALYTIC tracking of C_ren that H4 needs (imp-33766). H4 is NOT discharged. G6a_shock_lipschitz STAYS
  * OPEN. No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33853-cren-gap-coefficient-closed-form (DERIVED C_PS and 4/3 at the on-axis point z_0* = i eps)
  * @see imp-33882-cusp-exponent-onset-coefficient-robustness (robustness of 4/3 to the CUSP EXPONENT; this is robustness to the EVALUATION ANGLE)
@@ -238,7 +238,7 @@ export const IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS = {
     'full-line integral to < 1e-5. This does NOT re-derive the m_prime -> C_ren map off-axis and does NOT ' +
     'DISCHARGE H4: an off-axis finite-window onset at fixed |z_0*| = eps is not the uniform ANALYTIC tracking ' +
     'of C_ren the H4 minimal-input condition requires (imp-33766). No positivity; imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS_ASSERTIONS = [
@@ -276,15 +276,15 @@ export const IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS_ASSERTIONS = [
     holds: () => IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.maxAmplitudeResidual < 1e-5,
   },
   {
-    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33883-honesty-gate-no-qed',
-    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.isRigorous === false &&
       IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.dischargesH4 === false &&
       /NO QED/.test(IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.verdict) &&
       /STAYS OPEN/.test(IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33883_OFF_AXIS_ONSET_ANGLE_ROBUSTNESS.verdict,
       ),

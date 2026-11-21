@@ -68,8 +68,7 @@
  *        exactly 0 on the crossover -- so imp-3580 is robust to the frozen-constant assumption.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3580-sigma-crossover-floor-invariance (frozen-Gronwall floor grid this module re-solves)
  * @see imp-3599-flow-gap-nextorder-correction (exact gap identity for the same crossings)
@@ -238,7 +237,7 @@ export const IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE = {
     'frozen-constant artifact: the x(N_x)=1 invariance is definitional and the ~0.996 band is ' +
     'Gronwall-insensitive. Measurement/certification only; no positivity, no bridge closure, no RH ' +
     'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3580 (frozen-Gronwall floor-invariance, ratio 0.996019, N_x 3.280294e9); imp-3599 (exact ' +
     'gap identity); imp-2644 (A1 trap |t_c| <= g_min^2/6 = 2.37e-4, C_G in [1,2]); imp-2635 (A1 ' +
@@ -284,13 +283,13 @@ export const IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE_ASSERTIONS = [
     holds: () => MAX_RATIO_SWING < 1e-5 && MAX_NHALF_REL_SWING < 1e-4,
   },
   {
-    // Honesty gate: measurement/certification only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/certification only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3604-honesty-gate-no-qed',
-    description: 'Measurement/certification only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/certification only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE.isRigorous === false &&
       /NO QED/.test(IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE.verdict) &&
+      /refereed bound is changed/i.test(IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3604_SIGMA_CROSSOVER_FLOW_FACTOR_INVARIANCE.verdict),
   },
 ];

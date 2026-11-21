@@ -21,7 +21,7 @@
  * them. Regression-guard only; recomputes an established assessment identity;
  * changes no bound; establishes no operator positivity; C_mb GUE-conditional
  * (imp-486) UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH
- * verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-35654-ported-barrier-far-tail-mixed-conditionality (source module pinned here)
  * @see imp-35686-postport-share-literal-guard (sibling LITERAL guard; this pins the IDENTITY)

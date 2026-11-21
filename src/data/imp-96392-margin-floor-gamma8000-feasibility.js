@@ -68,7 +68,7 @@
  * UNCHANGED. The binding measured envelope rho_min=0.3791 at gamma_4000 stays strictly
  * positive, so the on-line margin SIGN survives; the genuine uniform-in-T off-line LP
  * (Weil-positivity strength) stays inaccessible. NO fabricated rho values; changes NO
- * Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * Lambda bound; NO QED; no refereed bound is changed; RH open.
  *
  * GRADE: documentation/measurement/feasibility only. Import-light (columns baked from
  * imp-96224/imp-96367, recompute-and-check, no heavy bundle).
@@ -236,14 +236,14 @@ export const IMP_96392_GAMMA8000_FEASIBILITY = {
     + 'recompute-and-check; the SE half of the projection is MEASURED (no fabricated rho), the '
     + 'intercept half is deferred to the fresh-height LP pipeline; the binding envelope stays '
     + 'strictly positive (0.3791 at gamma_4000) so the margin SIGN survives; the genuine uniform-in-T '
-    + 'off-line obstruction stays inaccessible; changes no Lambda bound; Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA; RH open; NO QED',
+    + 'off-line obstruction stays inaccessible; changes no Lambda bound; no refereed bound is changed'
+    + '; RH open; NO QED',
   closesTickets: ['imp-96392'],
 };
 
 // -- honest-status banner (imp-96337 convention: plain-string, machine-readable) -----
 export const IMP_96392_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The intercept STANDARD ERROR does NOT '
+  'RH open; no refereed bound is changed; NO QED. The intercept STANDARD ERROR does NOT '
   + 'collapse under a gamma_8000 census extension: even the leverage-optimal placement of new '
   + 'anchors tightens it by at most ~18% (0.013868 -> ~0.0113), a realistic spread by only ~14% '
   + '(-> ~0.0120) -- it stays near 0.012-0.014. The intercept NUMERATOR (does it keep '

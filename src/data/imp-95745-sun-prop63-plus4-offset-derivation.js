@@ -71,7 +71,7 @@
  * REMAINING SUB-GAP: interval certification of c_odd(1/19) via the (6.26) certificate at m=19.
  *
  * Catalan G irrationality OPEN; Sun preprint single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  */
 
 // Universal, m-free telescoping identities (verified in tmp/imp-95745-verify.mjs):
@@ -112,7 +112,7 @@ export const SUN_PROP63_PLUS4_OFFSET_DERIVATION = Object.freeze({
     + '(-5/2) = 4 = 5/2 + (3/2) INT_0^1 zeta(2,1+v) dv, PURE RATIONAL, m-FREE (m lives only in the '
     + 'untouched Q_0 zeta(3) sector). Reconstructs certified c_odd(1/20) to 3.5e-13; c_odd(1/19) = '
     + '0.006954762801 now offset-CERTAIN (still not interval-certified). G irrationality OPEN; Sun '
-    + 'unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'tmp/sun-catalan/paper.txt Section 6, Proposition 6.3, eqs (6.11)-(6.23)',
   builtOn:
@@ -164,7 +164,7 @@ export const SUN_PROP63_PLUS4_OFFSET_DERIVATION = Object.freeze({
     + '(reproduced by imp-95720), (iii) the m-free identity INT_0^1 zeta(2,1+v) dv = 1. NOT a '
     + 'from-scratch re-derivation of Prop 6.3. REMAINING SUB-GAP: interval certification of '
     + 'c_odd(1/19) via the (6.26) B24 Euler-Maclaurin certificate at m=19. Catalan G irrationality '
-    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUN_PROP63_PLUS4_OFFSET_DERIVATION_ASSERTIONS = Object.freeze([
@@ -218,7 +218,7 @@ export const SUN_PROP63_PLUS4_OFFSET_DERIVATION_ASSERTIONS = Object.freeze([
     holds: () =>
       SUN_PROP63_PLUS4_OFFSET_DERIVATION.secondAnchorUpgrade.intervalCertified === false
       && /REMAINING SUB-GAP/.test(SUN_PROP63_PLUS4_OFFSET_DERIVATION.caveats)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_PROP63_PLUS4_OFFSET_DERIVATION.status)
+      && /refereed bound is changed/i.test(SUN_PROP63_PLUS4_OFFSET_DERIVATION.status)
       && /NO QED/.test(SUN_PROP63_PLUS4_OFFSET_DERIVATION.status),
   },
 ]);

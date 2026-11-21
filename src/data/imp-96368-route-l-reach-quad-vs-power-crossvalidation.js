@@ -53,8 +53,8 @@
  * b_det (and hence its 0.02295 detector-vs-Christoffel exponent gap) to a window-chord artifact.
  * Both share the SAME open sub-gap: only real detector rows past k = 20 / gamma_5 = 77.14 can decide
  * fixed-exponent (power) vs running-exponent (quadratic). Accuracy cross-check on baked literals only;
- * changes NO bound; verified-zero route stays cheaper; RH open; Platt-Trudgian Lambda <= 0.2 stays
- * SOTA; NO QED.
+ * changes NO bound; verified-zero route stays cheaper; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * Reproduce: tmp/imp-96368-scratch.mjs (pure-JS: both laws, running exponent, crossover, ratio ladder).
  *
@@ -125,6 +125,6 @@ export const IMP96368_VERDICT =
   + 'b_det (and its 0.02295 detector-vs-Christoffel exponent gap) is only a window-averaged chord slope. '
   + 'Both siblings share the SAME open sub-gap: only real detector rows past k = 20 / gamma_5 = 77.14 can '
   + 'decide fixed-exponent vs running-exponent reach. Accuracy cross-check on baked literals only; '
-  + 'changes NO bound; verified-zero route stays cheaper; RH open; Lambda <= 0.2 SOTA; NO QED.';
+  + 'changes NO bound; verified-zero route stays cheaper; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96368_SCRIPTS = Object.freeze(['tmp/imp-96368-scratch.mjs']);

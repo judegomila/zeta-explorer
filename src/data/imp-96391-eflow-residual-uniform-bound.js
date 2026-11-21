@@ -51,8 +51,7 @@
  * fact about the inherited component functions; the component model is the imp-3220/imp-3406/imp-33723
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays GUE-conditional
  * and UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual (residual identity R = -sigma_full*E_flow/(E_trunc+E_coll))
  * @see imp-96286-eflow-peak-location-error-order (peak-recovery Taylor-order decomposition)
@@ -200,7 +199,7 @@ export const IMP96391_EFLOW_RESIDUAL_UNIFORM_BOUND = {
     'the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96266 (residual identity R = -sigma_full*E_flow/(E_trunc+E_coll)); imp-96286 (peak-recovery ' +
     'Taylor order); imp-96290 (Step-4 E(N) bridge inventory); imp-3220 (interior peak sigma_max ~ ' +
@@ -247,13 +246,13 @@ export const IMP96391_EFLOW_RESIDUAL_UNIFORM_BOUND_ASSERTIONS = [
     holds: () => E_N_1E14 >= E_TRUNC_PT && E_N_1E14 > 0,
   },
   {
-    // Honesty gate: within-model only, no QED, PT stays SOTA.
+    // Honesty gate: within-model only, no QED, no refereed bound is changed.
     id: 'imp96391-honesty-gate-no-qed',
-    description: 'Within-model only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Within-model only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96391_EFLOW_RESIDUAL_UNIFORM_BOUND.isRigorous === false &&
       /NO QED/.test(IMP96391_EFLOW_RESIDUAL_UNIFORM_BOUND.verdict) &&
-      /remains SOTA/.test(IMP96391_EFLOW_RESIDUAL_UNIFORM_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP96391_EFLOW_RESIDUAL_UNIFORM_BOUND.verdict),
   },
 ];
 

@@ -9,8 +9,8 @@
  * the true maximizer EXCLUDES small primes, and the sup over squarefree b is +infinity. This does NOT move any
  * bound and does NOT break the sharp measured ceiling |E1(b)| <= (1/4) b (imp-97208 / imp-97265): the unbounded
  * (b/12) Qlog piece of CK is CANCELLED by the coupled C_sum moment series, so the sharp O(b) survives while the
- * imp-97288 constituent-by-constituent route to a no-log uniform constant is shown to be a DEAD END. PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * imp-97288 constituent-by-constituent route to a no-log uniform constant is shown to be a DEAD END. No refereed bound is changed
+ * ; RH open; NO QED.
  *
  *   Notation as imp-97288 / imp-97265: for squarefree b with prime set S,
  *       |Qlog(b)| = P(b) * T(b),   P(b) = prod_{p|b}(1 - 1/p),   T(b) = Sum_{p|b} (log p)/(p-1).
@@ -74,7 +74,7 @@
  * imp-97288 route (bound Qlog by a constant to get a no-log uniform E1 constant) is a DEAD END; the correct
  * precise obstruction is the Qlog <-> C_sum Moebius-moment CANCELLATION inside CK, not a Mertens cap on Qlog.
  * The sharp |E1| <= (1/4) b (imp-97208 / imp-97265 close-factor family) is unaffected. kappa_arith unchanged;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED. Do NOT re-attempt a constant cap on Qlog.
+ * no refereed bound is changed; RH open; NO QED. Do NOT re-attempt a constant cap on Qlog.
  *
  * @see imp-97288-route-m-e1-explicit-uniform-constant.js (the CK closed form + the conjectured Qlog <= e^{-gamma} cap refuted here)
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (the sharp 1/4 ceiling, unaffected)
@@ -145,7 +145,7 @@ export const IMP97394_VERDICT = Object.freeze({
     'is UNAFFECTED: (b/12) Qlog is cancelled by the coupled C_sum moment series inside CK (E1/b stays tiny even ' +
     'where Qlog > e^{-gamma}), so the correct precise obstruction is the Qlog<->C_sum cancellation, not a cap ' +
     'on Qlog -- the imp-97288 constituent-by-constituent route is a dead end. kappa_arith unchanged; no bound ' +
-    'on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED. Do NOT re-attempt a constant cap on Qlog.',
+    'on Lambda moves; no refereed bound is changed; RH open; NO QED. Do NOT re-attempt a constant cap on Qlog.',
 });
 
 export const IMP97394_SUBGAP = Object.freeze({
@@ -160,7 +160,7 @@ export const IMP97394_SUBGAP = Object.freeze({
 });
 
 export const IMP97394_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial (a REFUTATION): the imp-97288 conjectural ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial (a REFUTATION): the imp-97288 conjectural ' +
   'cap Qlog(b) <= e^{-gamma} = 0.56146 is FALSE -- squarefree b = 5*7*11*13*17*19 = 1616615 gives |Qlog| = ' +
   '0.780 > 0.561, and via the new increment lemma f(Su{p})-f(S) = (P_S/p)(log p - T_S) the maximizer drops ' +
   'small primes, giving |Qlog(b_[L,X])| -> log L and sup = +infinity (no uniform constant cap). The imp-97288 ' +
@@ -224,7 +224,7 @@ const IMP97394_ASSERTIONS = [
       /cap-refuted/.test(IMP97394_SUBGAP.id) &&
       /imp-97288/.test(IMP97394_SUBGAP.refutes) &&
       /NO QED/.test(IMP97394_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97394_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97394_HONEST_BANNER) &&
       /RH open/.test(IMP97394_HONEST_BANNER),
     why: 'honest partial -- a refutation: the cap is false, no uniform constant cap exists, the sharp 1/4 ceiling is unaffected, the imp-97288 constituent route is a dead end; no bound moved, no rigorous ceiling posted, no QED.',
   },

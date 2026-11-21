@@ -64,7 +64,7 @@
  *   magnitude used inside a mass-feasibility diagnostic; it establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-3665-a-weight-superexp-decay-crosscheck.js (the log-domain evaluation under guard)
  *   @see imp-3690-a-weight-superexp-subleading-correction.js (subleading structure of -ln A)
@@ -333,7 +333,7 @@ export const IMP3709_A_WEIGHT_LOGDOMAIN_INDEPENDENT_REPRODUCTION = Object.freeze
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -390,7 +390,7 @@ export const IMP3709_A_WEIGHT_LOGDOMAIN_INDEPENDENT_REPRODUCTION_ASSERTIONS = [
   {
     id: 'imp3709-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/cross-check only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3709_A_WEIGHT_LOGDOMAIN_INDEPENDENT_REPRODUCTION.honestCaveat;
       return (
@@ -398,7 +398,7 @@ export const IMP3709_A_WEIGHT_LOGDOMAIN_INDEPENDENT_REPRODUCTION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

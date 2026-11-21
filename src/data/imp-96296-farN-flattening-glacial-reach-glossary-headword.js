@@ -37,7 +37,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96250 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96250-ushape-location-ratio-farN-asymptote (source: the far-N asymptote and rate this glosses)
  * @see imp-96244-ushape-slope-asymptote-derivation (the a -> 1/2-1/(2 ln N), b -> 1/2-5/(2 ln N) slope tails)
@@ -45,7 +45,7 @@
  * @see imp-486 (C_mb GUE-conditional, UNTOUCHED)
  *
  * Ticket: imp-96296 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The glacial-flattening headword, baked verbatim (no re-import).
@@ -70,7 +70,7 @@ const FARN_FLATTENING_GLACIAL_REACH_HEADWORD = Object.freeze({
     'Derived asymptotic rate, conditional only through the a-branch GUE collision-term ' +
     'shape (imp-486, UNTOUCHED). Confirms the imp-96187 verdict that the 0.577 proximity ' +
     'at N_flow is a finite-height artifact, not a limit constant reached in practice. ' +
-    'Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD = Object.freeze({
@@ -89,7 +89,7 @@ export const IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD = Object.f
     'approach is logarithmic and glacial -- within 1% of 1 only at log10 N ~ 174, within ' +
     '0.1% at ~1737 -- so it has NO reach at physical heights (at N_flow ~ 1.6e6 the ratio ' +
     'is still ~ 0.577). Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96250 (the far-N asymptote and rate this glosses); imp-96244 (the slope tails ' +
     'the asymptote is derived from); imp-96187 (the 0.577 finite-height reading and its ' +
@@ -116,11 +116,11 @@ export const IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96296-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD.verdict) &&
       IMP96296_FARN_FLATTENING_GLACIAL_REACH_GLOSSARY_HEADWORD.glosses === 'imp-96250',
   },
 ];

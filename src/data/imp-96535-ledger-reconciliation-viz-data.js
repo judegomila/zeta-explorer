@@ -15,7 +15,7 @@
  * The only new step here is picking a display nW/z per row (the shared value
  * when a height is in both ledgers) and assigning a membership category.
  * Changes no bound; establishes no operator positivity; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-96512-excursion-significance-ledger-reconciliation.js (the source object this reshapes)
  * @see imp-96493-excursion-2sigma-interior-scan.js

@@ -46,7 +46,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Pinning + box-min re-evaluation on the inherited imp-3220/imp-3406
  * model, NOT a rigorous asymptotic. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * SUPERSEDED (honest-status note, updated imp-95757): the chain has moved twice since imp-95733 last
  *   updated this note. imp-95705 MEASURED the integrated direction-flip reach directly and found 1.914x
@@ -188,8 +188,8 @@ export const IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING = {
     'closes only for a DOWNWARD cf* ~ 0.839 that lies outside the honest band, imp-95674 K1). The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95674 (assembled the C_F provenance band; left CF_BAND_HI as an unpinned 1.2-1.4x range); ' +
     'imp-95660 (exact box-min gap model; cf* ~ 0.839; d(minGap)/d(cf) ~ -0.029); imp-95617 (nominal ' +
@@ -261,13 +261,13 @@ export const IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING_ASSERTIONS = [
       IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.cfBandHiPinned === CF_BAND_HI_PINNED,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95691-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.isRigorous === false &&
       /NO QED/.test(IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.verdict) &&
-      /remains SOTA/.test(IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.verdict),
+      /refereed bound is changed/i.test(IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.verdict),
   },
 ];
 

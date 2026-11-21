@@ -53,8 +53,7 @@
  * of the imp-33961 onset expansion; it does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent
  * and a joint finite-window onset at fixed |z_0| = eps is NOT the uniform ANALYTIC tracking of C_ren that
  * H4 needs (imp-33766). H4 is NOT discharged; G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066
- * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA.
+ * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33961-joint-onset-convergence-rate (measured the eps^2 term; listed the eps^4 coefficient)
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (the joint onset residual map)
@@ -281,7 +280,7 @@ export const IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT = {
     'It does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT DISCHARGE H4: a ' +
     'joint finite-window onset at fixed |z_0| = eps is not the uniform ANALYTIC tracking of C_ren the H4 ' +
     'minimal-input condition requires (imp-33766). No positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT_ASSERTIONS = [
@@ -327,16 +326,16 @@ export const IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT_ASSERTIONS = [
       IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.anchorReproduces20Over11 === true,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34002-honesty-gate-no-qed',
     description:
-      'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+      'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.isRigorous === false &&
       IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.dischargesH4 === false &&
       /NO QED/.test(IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.verdict) &&
       /STAYS OPEN/.test(IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP34002_EPS4_SUBSUBLEADING_ONSET_COEFFICIENT.verdict,
       ),

@@ -57,8 +57,7 @@
  * only (delta >= ln 2, where cond(Gtilde) ~ 1/A_opt stays well inside
  * double precision; the delta = ln 1.3 float trap of imp-95419, A_opt ~
  * 4.4e-15, is outside a plain double LU route and is NOT retested here).
- * Changes no bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Changes no bound of the Lambda program; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -100,7 +99,7 @@ export const IMP95450_SEP_OPT_LAMBDA_MIN_CROSS_VALIDATION = {
     "dips below A_opt(delta). Cross-validation only; numerically clean " +
     "deltas (>= ln 2); introduces no bound and no theorem; the delta = " +
     "ln 1.3 float trap is not retested. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -316,14 +315,14 @@ export const IMP95450_CROSS_VALIDATION_ASSERTIONS = [
     description:
       "the verdict carries the honest scope: cross-validation only, " +
       "independent eigensolver, numerically clean deltas only, no bound, " +
-      "no theorem, no QED, SOTA unchanged",
+      "no theorem, no QED, no refereed bound is changed",
     holds: () =>
       /CROSS-VALIDATION ONLY|CROSS-VALIDATION CONFIRMS/.test(REF.verdict) &&
       /independent/.test(REF.verdict) &&
       /clean/.test(REF.verdict) &&
       /no bound and no theorem|introduces no bound/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

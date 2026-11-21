@@ -22,7 +22,7 @@
  * MEASURED: binding/sensitivity analyses, float-clone scenarios, height-feasibility scans, the v4c probe.
  * HEURISTIC: the r2-structured-floor port to the re-tuned heights (−1.85e-4 to −4.5e-4 in the float clone, not certified).
  *
- * PT Lambda <= 0.2 stands (accepted, peer-reviewed); RH is open; NO QED. Import-free. QRH_PATH_PUSH_ASSERTIONS recompute the
+ * No refereed bound is changed (accepted, peer-reviewed); RH is open; NO QED. Import-free. QRH_PATH_PUSH_ASSERTIONS recompute the
  * ladder, its sum, the 15-digit decimals, the strict-entry margin, the substep provenance partition and the G0 grade tables
  * in exact rationals / plain JS.
  */
@@ -52,7 +52,7 @@ export const QRH_PATH_PUSH = Object.freeze({
     + '7/8 path gives the certified conditional value Λ ≤ 116091488672439/10^15 = 0.116091488672439 (was 0.117708313410954; −1.616824738515e-3). '
     + 'Most of the gain (−1.201e-3, 74%) comes from Track-A floors at lowered heights in cells 0–250 with the route-3 λ<2 kernels at r = 3/5 applied there. '
     + 'Two internal G0 review passes (part A: AF §§2–5, Lemma 2, Lemma 3, Theorem 4/4′; part B: AF §§6–12, Part II) find no ERROR; their GAPs are expository and the fixes are written. '
-    + 'This is a conditional value, not a bound. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'This is a conditional value, not a bound. No refereed bound is changed; RH is open; NO QED.',
 
   values: Object.freeze({
     baseline: V('58854156705477/500000000000000', '0.117708313410954', 'CONDITIONAL (003, G0, PT, route-P ledger); reproduced exactly by the extended consumer (60,267 steps, 0 failures)', 'published route-P 7/8 single band, q0 = 9/16 + 2e-6'),
@@ -235,7 +235,7 @@ export const QRH_PATH_PUSH = Object.freeze({
   verdict: 'Conditional on the 003 half-plane (Lean-checked locally, not peer-reviewed), on G0 (two internal review passes: no ERROR, expository GAPs with written fixes; no external reader), on PT\'s RH verification and on the route-P ledger, '
     + 'the re-tuned route-P single-band 7/8 path gives the certified conditional value 116091488672439/10^15 = 0.116091488672439 (−1.616824738515e-3 against 0.117708313410954; '
     + '0.002414222250262 below Raymond\'s chain with the same start). Adversarial internal referee: not refuted, minor; corrections R1–R5 applied. '
-    + 'This is a conditional value, not a bound. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'This is a conditional value, not a bound. No refereed bound is changed; RH is open; NO QED.',
 });
 
 const C = QRH_PATH_PUSH;
@@ -327,11 +327,11 @@ export const QRH_PATH_PUSH_ASSERTIONS = Object.freeze([
   },
   {
     id: 'qrh-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /not a bound/.test(C.verdict) && /not peer-reviewed/.test(C.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(C.headline) && /NO QED/.test(C.headline)
+    holds: () => /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /not a bound/.test(C.verdict) && /not peer-reviewed/.test(C.verdict)
+      && /refereed bound is changed/i.test(C.headline) && /NO QED/.test(C.headline)
       && Object.values(C.values).every((x) => /CONDITIONAL/.test(x.grade)) && C.refereeCorrections.length === 5
       && /first-order estimate/.test(C.refereeCorrections[1]) && /not an upper bound/.test(C.refereeCorrections[1]) && /not an input/.test(C.refereeCorrections[2]),
-    why: 'Every Λ value is CONDITIONAL; verdict and headline say not a bound, PT stands, no QED; referee corrections R1–R5 recorded (R2: first-order estimate, not a bound; R3: H2 not an input).',
+    why: 'Every Λ value is CONDITIONAL; verdict and headline say not a bound, no refereed bound is changed, no QED; referee corrections R1–R5 recorded (R2: first-order estimate, not a bound; R3: H2 not an input).',
   },
 ]);
 

@@ -62,7 +62,7 @@
  *
  *   Measurement only; pins NO coefficient value for g(b), B* or the analytic curvature; no bound
  *   moves; the only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916,
- *   imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open;
+ *   imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed; RH open;
  *   NO QED.
  *
  *   SUB-GAP (below): imp-97441-crossover-fraction-tolerance-band -- x*(eps) is tabulated and
@@ -190,7 +190,7 @@ export const IMP97441_VERDICT = Object.freeze({
     'bulk a ~ b where r ~ kappa x^2 is invalid and the I(a,b)=I(b,a) symmetry peak takes over), so ' +
     'kappa_eff is NOT tolerance-uniform (0.061..0.122). Measurement only; no coefficient pinned; the ' +
     'rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first by >2600x; no operator ' +
-    'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97441_SUBGAP = Object.freeze({
@@ -209,7 +209,7 @@ export const IMP97441_SUBGAP = Object.freeze({
 });
 
 export const IMP97441_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the crossover fraction ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the crossover fraction ' +
   'x*(eps) = A(b)/b is tabulated at eps in {0.5%,1%,2%,5%} on the b-ladder {1000..16000}, ' +
   'b-independent to 3-4 digits at 0.5%/2%/5% (0.09988 / 0.33131 / 0.94481, ladder spread < 1e-3) and ' +
   'BIMODAL at 1% (0.199 for b <= 2000, 0.1665 for b >= 4000; two deviation crests straddle 1%). The ' +
@@ -303,7 +303,7 @@ const IMP97441_ASSERTIONS = [
       IMP97441_VERDICT.interceptConstituentBStarPinned === false &&
       IMP97441_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97441_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97441_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97441_HONEST_BANNER) &&
       /RH open/.test(IMP97441_HONEST_BANNER) &&
       /crossover-fraction-tolerance-band/.test(IMP97441_SUBGAP.id),
   },

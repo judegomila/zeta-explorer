@@ -50,16 +50,16 @@
  * Measurement only, on the SAME imp-35811 sig-digit recovery scale (accumulator K, g = 3).
  * It evaluates no true H_0(x) at high precision (no high-precision cos / quadrature),
  * extends no evaluator, certifies no value at any height, and changes no bound. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35811-exact-debruijn-arbitrary-precision-digit-table (the measured D*(x) ladder this decomposes)
  * @see imp-35759-exact-debruijn-precision-digit-cost-scope (the OOM slope pi/(8 ln10))
  * @see imp-35781-exact-debruijn-empirical-x-ceiling-scope (the accumulator scale K ~ 6.214e-2)
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Operative constants (import-light; matching imp-35811 / imp-35759 / imp-35781) --
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const DIGITS_PER_X = Math.PI / (8 * Math.LN10); // ~0.170547 decimal digits per unit x (imp-35759)
 const K_ACC = 6.214e-2; // O(1) integrand accumulator scale sum|w_i| (imp-35781 measured)
 const G_TARGET = 3; // g: signal recovered to 3 significant figures
@@ -223,10 +223,10 @@ export const IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION = {
     'offset, not a drifting term (the largest residual, +2.26 at x=104, is pure integer-ceiling on a short reach). ' +
     'This upgrades imp-35811, which asserted the ~+2 guard but never tabulated its x-dependence or split out the ' +
     'free digit. Measurement only; reuses the imp-35811 recovery; extends no evaluator; evaluates no true H_0 at ' +
-    'high precision; certifies no value; changes no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'high precision; certifies no value; changes no bound. NO QED. No refereed bound is changed.',
   citation:
     'imp-35811 (measured D*(x) ladder, asserted ~+2 guard, no x-dependence/split); imp-35759 (OOM slope pi/(8 ln10)); ' +
-    'imp-35781 (accumulator scale K ~ 6.214e-2); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'imp-35781 (accumulator scale K ~ 6.214e-2); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION_ASSERTIONS = [
@@ -269,15 +269,15 @@ export const IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION_ASSERTIONS = [
       RESIDUAL_SPREAD < 2,
   },
   {
-    // Honesty gate: measurement only; reuses imp-35811 recovery; no evaluator extension; NO QED; PT SOTA.
+    // Honesty gate: measurement only; reuses imp-35811 recovery; no evaluator extension; NO QED; no refereed bound is changed.
     id: 'imp35850-honesty-gate-no-qed',
-    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION.verdict) &&
       /NO QED/.test(IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP35850_DEBRUIJN_DIGIT_GUARD_OFFSET_DECOMPOSITION.verdict),
   },
 ];
 

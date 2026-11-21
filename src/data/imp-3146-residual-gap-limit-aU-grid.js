@@ -58,8 +58,8 @@
  *   measured limit, its grid map, and the golden-ratio maximizer carry NO RH verdict -- a
  *   strictly-positive surviving residual gap neither claims the cover holds nor that it
  *   fails. MEASURE ONLY on a representative truncation; no positivity attempted; not a
- *   proof or a reduction; bare-V pilot (imp-1240) NOT re-run. Platt-Trudgian Lambda &lt;= 0.2
- *   REMAINS the rigorous SOTA. No false QED.
+ *   proof or a reduction; bare-V pilot (imp-1240) NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3125-orthogonalized-residual-gap-degree-sweep.js (imp-3125: the DEG sweep at the headline cell)
  *   @see imp-3102-orthogonalized-gap-aU-grid.js (imp-3102: R_orth depends only on s = a*U)
@@ -397,7 +397,7 @@ export const IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID = Object.freeze({
       'section-26 Gram, so a strictly-positive surviving residual gap neither claims the cover holds nor that it ' +
       'fails. Only the existence, shape, and golden-ratio maximizer of the limit curve are asserted.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -463,7 +463,7 @@ export const IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID_ASSERTIONS = [
   {
     id: 'imp3146-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: REPRESENTATIVE diagnostic map, the limit map carries no RH verdict, positivity not ' +
-         'attempted, not a proof or a reduction, bare pilot not re-run, and PT 0.2 stays SOTA. If any flip the ' +
+         'attempted, not a proof or a reduction, bare pilot not re-run, and no refereed bound is changed. If any flip the ' +
          'module is over-claiming.',
     holds: () => {
       const c = IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID.honestCaveat;
@@ -474,7 +474,7 @@ export const IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

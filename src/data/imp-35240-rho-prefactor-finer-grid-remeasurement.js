@@ -58,7 +58,7 @@
  * INDEPENDENTLY confirming the imp-35216 closed form and refuting 2/5. It does NOT certify a uniform
  * modulus, does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound.
  * G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb
- * remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35216-rho-prefactor-closed-form-assessment (derived K = 8 sqrt(2)/(9 pi), asserted vs 2/5)
  * @see imp-35193-rho-convergence-rate-modulus-measurement (measured theta ~ 3/2, K ~ 0.400, floored at N = 1e7)
@@ -225,7 +225,7 @@ export const IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT = {
     'resolving the ~3.5e-4 gap the imp-35193 ladder (floored at N = 1e7) could not. It does NOT certify a ' +
     'uniform modulus, does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound. ' +
     'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35240_RHO_PREFACTOR_FINER_GRID_ASSERTIONS = [
@@ -265,16 +265,16 @@ export const IMP35240_RHO_PREFACTOR_FINER_GRID_ASSERTIONS = [
     holds: () => BEST.eps < 1e-4 && BEST.N > 1e12,
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35240-honesty-gate-no-qed',
     description:
-      'Measurement only: prefactor confirmed but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: prefactor confirmed but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.isRigorous === false &&
       IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.verdict) &&
       /STAYS OPEN/.test(IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35240_RHO_PREFACTOR_FINER_GRID_REMEASUREMENT.verdict,
       ),

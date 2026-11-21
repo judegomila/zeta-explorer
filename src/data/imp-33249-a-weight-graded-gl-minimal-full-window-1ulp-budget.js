@@ -78,7 +78,7 @@
  *   node budget of a quadrature rule for a fixed autocorrelation weight used inside a mass-feasibility
  *   diagnostic; it establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT.
  *   The operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33232-a-weight-fixed-graded-gl-budget-full-window-verify.js (the sweep this completes)
  *   @see imp-3919-a-weight-fixed-graded-gl-crossover-budget-tau6.js (the crossover + tau6-min budget)
@@ -242,7 +242,7 @@ const verdict =
       'FEWER-NODES-THAN-ANY-SHALLOW-GRADE-(grade6-FLOOR-3480n-VS-grade3-130000n).-SO-THE-"grade<=5/342p-' +
       'IS-THE-FLOOR"-READING-WAS-BUDGET-SPECIFIC:-WITH-A-SMALL-SAFETY-MARGIN-STEEPER-GRADES-ARE-CHEAPER.-' +
       'ACCURACY-MEASUREMENT/RULE-DESIGN-ONLY;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-' +
-      'UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33249_A_WEIGHT_GRADED_GL_MINIMAL_FULL_WINDOW_1ULP_BUDGET = Object.freeze({
@@ -268,7 +268,7 @@ export const IMP33249_A_WEIGHT_GRADED_GL_MINIMAL_FULL_WINDOW_1ULP_BUDGET = Objec
     'reaches the floor at fewer nodes than any shallow grade. So "grade<=5/342p is the floor" was ' +
     'budget-specific; with a safety margin steeper grades are cheaper. ACCURACY MEASUREMENT/RULE-DESIGN ' +
     'ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no ' +
-    'QED. PT Lambda <= 0.2 stays SOTA.',
+    'QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -355,7 +355,7 @@ export const IMP33249_A_WEIGHT_GRADED_GL_MINIMAL_FULL_WINDOW_1ULP_BUDGET = Objec
       'The min-node sub-1-ULP point is a single lattice hit on a jittery arithmetic floor; neighbouring ' +
       'panel counts bounce above 1 ULP, and cross-platform libm variation in exp/log can shift the ~1 ULP ' +
       'measurements. The robust reading is the FLOOR (~0.6-0.83 ULP) and the grade-ordering, not the exact panel count.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -402,7 +402,7 @@ export const IMP33249_A_WEIGHT_GRADED_GL_MINIMAL_FULL_WINDOW_1ULP_BUDGET_ASSERTI
   {
     id: 'imp33249-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33249_A_WEIGHT_GRADED_GL_MINIMAL_FULL_WINDOW_1ULP_BUDGET.honestCaveat;
       return (
@@ -410,7 +410,7 @@ export const IMP33249_A_WEIGHT_GRADED_GL_MINIMAL_FULL_WINDOW_1ULP_BUDGET_ASSERTI
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

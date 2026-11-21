@@ -52,7 +52,7 @@
  * C_H must not be conflated -- exactly as the SHARE-vs-budget roles were in imp-3324.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3324-sigma-CH-sensitivity (C_H load-bearing for E_coll, not the share)
  * @see imp-3220-en-bridge-fidelity-frontier (the E(N) sub-term formulas reused here)
@@ -68,7 +68,7 @@ const N_STAR = 1e6; // the imp-3220 widest-gap assembly ceiling (the ticket targ
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631/imp-3220)
 const TC_A1_TRAP = 2.37e-4;
 const GRONWALL = Math.exp(1.0 * TC_A1_TRAP); // matches imp-3220/imp-3324 exactly
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 rigorous SOTA Lambda upper bound
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound
 
 // C_H anchors: 1/8 is the imp-2642 leading-order quadratic-tangency coefficient
 // (the ansatz); 0.127 is the imp-2643 audited-loosened effective coefficient.
@@ -189,7 +189,7 @@ export const IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN = {
     'hypothetical genuine 1.7x E_coll (C_H ~ 0.2125) would give L_pt ~ 0.1217 < 0.2. ' +
     'Consistent with imp-3324: C_H drives the ABSOLUTE budget but the finite-height ' +
     'margin is robust. No positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3324 (C_H load-bearing for E_coll, not the share); imp-3220 (E(N) sub-term ' +
     'formulas); imp-452 (lambda-N1e6-final-assembly L_pt ~ 0.121); imp-447/imp-459 ' +
@@ -252,12 +252,12 @@ export const IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN_ASSERTIONS = [
   {
     // Honesty gate: assessment only, corrects the premise, keeps PT SOTA, no QED.
     id: 'imp3387-honesty-gate-no-qed',
-    description: 'Assessment only: premise correction, margin-not-eroded verdict, no QED, PT SOTA',
+    description: 'Assessment only: premise correction, margin-not-eroded verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN.isRigorous === false &&
       /NOT 1\.7x/.test(IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN.absoluteBudget.note) &&
       /NO QED/.test(IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN.verdict) &&
-      /remains SOTA/.test(IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN.verdict),
+      /refereed bound is changed/i.test(IMP3387_CH_AUDITED_ABSOLUTE_EN_MARGIN.verdict),
   },
 ];
 

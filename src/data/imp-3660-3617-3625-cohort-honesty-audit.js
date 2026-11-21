@@ -15,7 +15,7 @@
  * files for an explicit "no QED" / "NO RH verdict" statement, the RH-equivalent
  * necessary-but-not-sufficient caveat, the imp-3066 off-diagonal endpoint-Hankel
  * K_a &gt;= 0 positivity UNTOUCHED note, and the Platt-Trudgian Lambda &lt;= 0.2
- * rigorous-SOTA citation. Also consult the imp-3659 cohort-module-surfacing-
+ * rigorous-no-refereed-bound-change citation. Also consult the imp-3659 cohort-module-surfacing-
  * audit (2026-07-03), which established that four of the nine already have a
  * routed viz page (imp-3617/3619/3620/3622) -- those four page files were
  * additionally grepped for the same honesty markers, since a page is the
@@ -43,7 +43,7 @@
  *
  * RECOMMENDATION. No repair needed for this cohort. This module fabricates
  * no pages and asserts no new bound; it only records the audit outcome. No
- * QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-3637, imp-3616, imp-3594, imp-3499 (the prior honesty audits in this series)
  * @see imp-3659 (the surfacing audit that identified the four routed viz-page consumers)
@@ -55,7 +55,7 @@ export const IMP_3660_3617_3625_COHORT_HONESTY_AUDIT = {
   method:
     'Grep each cohort module (and its routed viz page, if any, per the imp-3659 surfacing audit) for ' +
     'an explicit no-QED / no-RH-verdict statement, the RH-equivalent necessary-but-not-sufficient ' +
-    'caveat, the imp-3066 UNTOUCHED note, and the Platt-Trudgian Lambda <= 0.2 SOTA citation.',
+    'caveat, the imp-3066 UNTOUCHED note, and the no-refereed-bound-change citation.',
   modulesAudited: [
     { file: 'imp-3617-flow-gap-thirdorder-expansion.js', drift: false, page: 'Imp3655FlowGapResidualLadderViz.jsx' },
     { file: 'imp-3618-remainder-tail-exponent-ladder-n78.js', drift: false, page: null },
@@ -80,7 +80,7 @@ export const IMP_3660_3617_3625_COHORT_HONESTY_AUDIT = {
     'necessary-but-not-sufficient, the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED note, ' +
     'and Platt-Trudgian Lambda <= 0.2 as the rigorous SOTA, with no QED.',
   honestNote:
-    'Read-only audit; no pages or bounds fabricated. No QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages or bounds fabricated. No QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -113,9 +113,9 @@ const IMP_3660_ASSERTIONS = [
   {
     id: 'imp3660-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3660_3617_3625_COHORT_HONESTY_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3660_3617_3625_COHORT_HONESTY_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3660_3617_3625_COHORT_HONESTY_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

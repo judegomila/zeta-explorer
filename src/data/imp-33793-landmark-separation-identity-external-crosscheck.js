@@ -62,8 +62,7 @@
  * VERIFICATION / MEASUREMENT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642) is UNTOUCHED; no
- * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33767-sigma-inflection-offset-reconciliation (F2 identity, internal same-module recompute)
  * @see imp-33721-sigma-ramp-inflection-subdecade (fine knee inflectionLog10Nstar ~ 9.5285)
@@ -155,8 +154,8 @@ export const IMP33793_LANDMARK_SEPARATION_IDENTITY_EXTERNAL_CROSSCHECK = {
     'error that cancelled on both sides is ruled out. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33767 (F2 identity, internal same-module recompute); imp-33721 (fine knee log10 9.5285); ' +
     'imp-33723 (N_cross closed form 3.280294e9, N_half 3.267235e9); imp-33729 (knee-vs-crossover ' +

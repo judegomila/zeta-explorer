@@ -44,7 +44,7 @@
  * confirm the geometric-decrement decay and tighten L below its 0.578521 estimate. The Rayleigh floor is
  * an UPPER bound on the true lambda_min; establishes NO operator positivity; does NOT settle
  * IMP96749_UNIFORM_N_GAP_UNSETTLED; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96807-krein-floor-decrement-decay-extrapolation.js (fixed-T=800 fit; SUB-GAP source)
  * @see imp-96806-krein-tconv-plateau-2a-ln3.js (t-converged plateau ~0.579; T=4800 N-ladder, source data)

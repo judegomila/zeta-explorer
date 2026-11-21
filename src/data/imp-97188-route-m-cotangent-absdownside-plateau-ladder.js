@@ -7,7 +7,7 @@
  * BEYOND the imp-97116/imp-97168 measured range (which stopped at b=601 and was still rising: 0.113 at
  * b=31 -> 0.143 at b=601). The open question the ticket poses: does A(b)/(phi(b) b) PLATEAU comfortably
  * below kappa_arith = (3/2)C - 3/8 = 0.5704960511308594 (preserving the ~4x margin imp-97168 relies on),
- * or does it keep rising toward kappa_arith as b grows? No bound is moved; PT Lambda <= 0.2 remains SOTA;
+ * or does it keep rising toward kappa_arith as b grows? No bound is moved; no refereed bound is changed;
  * RH open; NO QED.
  *
  * WHY IT MATTERS. imp-97168 shows the Route M lower-companion needs only kappa > 0, and derives kappa > 0
@@ -116,11 +116,11 @@ export const IMP97188_VERDICT = Object.freeze({
     'The earlier "still rising" reading was the transient approach to this plateau; it does NOT drift toward ' +
     'kappa_arith, so the ~4x margin imp-97168 relies on is PRESERVED at scale. This is measurement only: the ' +
     'explicit c in A(b) <= c phi(b) b stays MEASURED not proved (imp-97116 small-inverse-frequency sub-gap ' +
-    'open). No bound on Lambda moves; T ~ 2.594e7 anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'open). No bound on Lambda moves; T ~ 2.594e7 anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97188_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement extension: the imp-97116 cotangent ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement extension: the imp-97116 cotangent ' +
   'abs-value downside A(b)/(phi(b) b) PLATEAUS at ~0.147-0.148 for primes to b=16001 and primorials to ' +
   'b=30030 -- it does NOT approach kappa_arith = 0.5705 (margin pinned in [3.85, 3.97]), so the ~4x ' +
   'margin imp-97168 relies on holds at scale. The explicit constant stays MEASURED not proved; the ' +
@@ -176,7 +176,7 @@ const IMP97188_ASSERTIONS = [
       IMP97188_VERDICT.postsRigorousCeiling === false &&
       IMP97188_VERDICT.qed === false &&
       /NO QED/.test(IMP97188_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97188_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97188_HONEST_BANNER) &&
       /RH open/.test(IMP97188_HONEST_BANNER),
     why: 'measurement only: the plateau supports the imp-97168 ~4x margin but the explicit constant stays measured not proved -- no bound moved, no rigorous ceiling, no QED.',
   },

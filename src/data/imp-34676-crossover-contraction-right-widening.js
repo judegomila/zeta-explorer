@@ -68,7 +68,7 @@
  * crossover, NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0
  * untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34650-crossover-banach-contraction-certificate (the L-contraction certificate on I = [1e9, 1e10] this widens rightward)
  * @see imp-34675-crossover-contraction-left-edge (closed-form LEFT edge N_star; the sole binding constraint)
@@ -193,7 +193,7 @@ export const IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING = {
     'g(N) < N above N_cross is sampled. This measures the scope of a property of the inherited imp-3220/imp-3406 ' +
     'surrogate crossover map, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34650 (Banach contraction certificate on I = [1e9, 1e10]); imp-34675 (closed-form left edge ' +
     'N_star = K(1 - 1/W(K)) ~ 1.475e8, the sole binding constraint); imp-33723 (closed-form crossover ' +
@@ -236,14 +236,14 @@ export const IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING_ASSERTIONS = [
       rightWideningTable[0].a_priori_k5_rel_from_far_seed_b < 1e-3,
   },
   {
-    // Honesty gate: measurement of a surrogate property, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: measurement of a surrogate property, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34676-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, named sub-gap, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, named sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING.isRigorous === false &&
       /imp-34676a/.test(IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING.subGap) &&
       /NO QED/.test(IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING.verdict) &&
-      /remains SOTA/.test(IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING.verdict),
+      /refereed bound is changed/i.test(IMP34676_CROSSOVER_CONTRACTION_RIGHT_WIDENING.verdict),
   },
 ];
 

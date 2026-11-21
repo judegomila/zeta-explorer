@@ -61,7 +61,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 double surrogate; the surrogate-vs-true fidelity half
  * (imp-35337a) stays OPEN and is not touched. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35575-sigma-peak-quartic-coefficient (even quartic c4 = -2.654580e-5, one order below, negligible)
  * @see imp-35451-sigma-peak-arm-asymmetry (cubic c3 = -2.623677e-4 and A_skew ~ 11.02, extended here)
@@ -273,7 +273,7 @@ export const IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT = {
     'imp-3220/imp-3406 surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), ' +
     'the E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; the surrogate-vs-true ' +
     'fidelity half (imp-35337a) stays OPEN; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35575 (even quartic c4 ~ -2.654580e-5, one order below, negligible); imp-35451 (cubic c3 ~ ' +
     '-2.623677e-4 and A_skew ~ 11.02, extended here); imp-35450 (direct quadratic curvature k ~ 6.43191e-3); ' +
@@ -344,13 +344,13 @@ export const IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT_ASSERTIONS = [
     holds: () => C5_OVER_C3 > 0 && C5_OVER_C3 < 2e-2,
   },
   {
-    // Honesty gate: measurement only, not rigorous, no QED, PT SOTA, sub-gap imp-35337a named.
+    // Honesty gate: measurement only, not rigorous, no QED, no refereed bound is changed, sub-gap imp-35337a named.
     id: 'imp35658-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-35337a stays OPEN',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT.isRigorous === false &&
       /NO QED/.test(IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT.verdict) &&
-      /remains SOTA/.test(IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT.verdict) &&
       /imp-35337a/.test(IMP35658_SIGMA_PEAK_QUINTIC_COEFFICIENT.residual_sub_gap),
   },
 ];

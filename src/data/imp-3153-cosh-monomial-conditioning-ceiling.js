@@ -48,7 +48,7 @@
  *   attempts no positivity, is not a proof or a reduction, and does not re-run the bare-V
  *   pilot. The exact boundary DEG is quadrature- and machine-precision-dependent (NQ panels,
  *   IEEE double), reported as the boundary for THIS standard setup, not a universal constant.
- *   Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   No refereed bound is changed. No false QED.
  *
  *   @see imp-3125-orthogonalized-residual-gap-degree-sweep.js (the gap sweep whose DEG <= 10 caveat this quantifies)
  *   @see imp-3104-orthogonalized-opnorm-degree-sweep.js (the ||R_orth|| -> tanh(a*U) ceiling)
@@ -350,7 +350,7 @@ export const IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING = Object.freeze({
       'and IEEE double precision; it is the boundary for THIS standard imp-3125 setup, not a universal ' +
       'constant. A higher-precision or better-conditioned basis would push it out.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -429,7 +429,7 @@ export const IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING_ASSERTIONS = [
     id: 'imp3153-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: NUMERICAL-CONDITIONING diagnostic, the boundary carries no RH verdict and is ' +
          'setup-dependent, positivity not attempted, not a proof or a reduction, bare pilot not re-run, and ' +
-         'PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING.honestCaveat;
       return (
@@ -439,7 +439,7 @@ export const IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

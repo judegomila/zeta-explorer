@@ -14,7 +14,7 @@
  * computes T(N) by direct coprime double summation with the EXACT Vasyunin cotangent
  * kernel and reports the observed growth.
  *
- * No bound is proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound is proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE KERNEL. I(a,b) is the exact Vasyunin integral I(h,k) = Int_0^inf {hv}{kv} dv/v^2
@@ -68,7 +68,7 @@
  * cotangent-sum second moment behaves like c log N here, not c (log N)^2.
  *
  * Measurement/fit only; proves no growth law and no bound; the exponent is empirical over a
- * finite ladder. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * finite ladder. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96688-route-m-frobenius-g-factorization-assessment.js (the exact T(N) factorization)
  * @see imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js (Finding 3 target)
@@ -156,7 +156,7 @@ export const IMP96828_HONEST_BANNER =
   'LINEARLY in log N (~3.542 log N, effective exponent ~1.06), NOT as the conjectured ' +
   '(log N)^2. The well-posed imp-96795 target is NOT confirmed here; if a quadratic law ' +
   'holds asymptotically it is dominated by a large linear-in-log term past the measured reach. ' +
-  'No growth law is proved. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'No growth law is proved. No refereed bound is changed; RH open; NO QED.';
 
 export const IMP96828_SUBGAP = Object.freeze({
   id: 'imp-96828-coprime-core-second-moment-linear-in-log-not-quadratic',
@@ -221,7 +221,7 @@ const IMP96828_ASSERTIONS = [
       IMP96828_VERDICT.linearInLogFitsBest === true &&
       IMP96828_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96828_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96828_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96828_HONEST_BANNER) &&
       /RH open/.test(IMP96828_HONEST_BANNER) &&
       /linear-in-log-not-quadratic/.test(IMP96828_SUBGAP.id),
     why: 'measurement only: no bound moved, no quadratic law claimed, the finite-N caveat and honesty markers are present, and the sharpened sub-gap is recorded.',

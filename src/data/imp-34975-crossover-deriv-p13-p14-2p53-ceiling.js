@@ -58,7 +58,7 @@
  * surrogate crossover-map derivative SIGNS and the arithmetic-exactness bookkeeping. Establishes NO
  * RH-level result, NO operator positivity, and changes NO bound. The C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. No RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34957-crossover-deriv-p11-p12-extension (the P_11/P_12 extension being extended)
  * @see imp-34922-crossover-deriv-p9-p10-extension (the P_9/P_10 extension + boundary-projection)
@@ -316,7 +316,7 @@ export const IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING = {
     'the INHERITED imp-3220/imp-3406 surrogate-map derivative signs and the arithmetic-exactness ' +
     'bookkeeping ONLY: the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), ' +
     'and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; changes no bound; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34957 (P_11/P_12 extension; flagged the ~1.66e11 << 2^53 gap but never located the ceiling); ' +
     'imp-34922 (P_9/P_10 extension + boundary-projection derivation); imp-34905 (P_7/P_8 independent ' +
@@ -377,15 +377,15 @@ export const IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING_ASSERTIONS = [
       IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING.extensionVerificationPasses,
   },
   {
-    // Honesty gate: surrogate-map verification, changes no bound, no QED, PT stays SOTA.
+    // Honesty gate: surrogate-map verification, changes no bound, no QED, no refereed bound is changed.
     id: 'imp34975-honesty-gate-no-qed',
     description:
       'verification scope is the surrogate-map derivative signs and arithmetic-exactness bookkeeping ' +
-      'only: changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'only: changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING.changesBound === false &&
       /NO QED/.test(IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING.verdict) &&
-      /remains SOTA/.test(IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING.verdict) &&
+      /refereed bound is changed/i.test(IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING.verdict) &&
       /surrogate/.test(IMP34975_CROSSOVER_DERIV_P13_P14_2P53_CEILING.rigorousScope),
   },
 ];

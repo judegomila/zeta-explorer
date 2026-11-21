@@ -12,7 +12,7 @@
  *
  *   Emphasise: NO Lambda bound and no kappa_arith value ever depended on the ceiling -- it was an
  *   EXPLORATORY Route-M sub-claim. Nothing in the verified ledger moves. Documentation only.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js (source refutation + exported verdict)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (asserted the ceiling survives via primorial premise)
@@ -22,7 +22,7 @@
  *   downstream witness/harmlessness result into one up-to-date banner; cite imp-97544 going forward)
  *
  * Ticket: imp-97509 (content, sonnet-4-6, sonnet). Honest-status correction note only; no bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97481_VERDICT } from './imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js';

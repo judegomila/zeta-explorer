@@ -45,8 +45,8 @@
 // SCOPE: MEASUREMENT / DERIVATION ONLY, inverting the imp-2322 audit power law.
 // No zero is verified, no new T_PT is claimed, the rigorous bound stays
 // E_trunc = 3.06e-5, and C_mb stays GUE-conditional per imp-486. Changes no
-// bound. No positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian
-// Lambda <= 0.2 remains SOTA; RH remains OPEN.
+// bound. No positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed
+// ; RH remains OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes
 // inside single-quoted strings; no star-slash in any comment.
@@ -151,7 +151,7 @@ export const IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS = {
     'floor drop, ~316x per decade), floor-independent. No zero is verified, no ' +
     'new T_PT is claimed, the rigorous bound stays E_trunc = 3.06e-5, and C_mb ' +
     'stays GUE-conditional per imp-486. Changes no bound; no bridge closure, no ' +
-    'RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH OPEN.',
+    'RH claim, NO QED. No refereed bound is changed; RH OPEN.',
   citation:
     'imp-2322 (forward E_trunc(T_PT) power law, elasticity -0.4, load-bearing ' +
     'height 3e12); imp-96166 (frozen E_trunc floor / Step-4 shortfall); imp-486 ' +
@@ -214,14 +214,14 @@ export const IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, names the E_trunc floor, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, names the E_trunc floor, no QED, no refereed bound is changed.
     id: 'imp96185-honesty-gate-no-qed',
-    description: 'Measurement only: inverts E_trunc floor, no QED, PT stays SOTA',
+    description: 'Measurement only: inverts E_trunc floor, no QED, no refereed bound is changed',
     holds: () =>
       IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS.isRigorous === false &&
       /E_trunc/.test(IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS.functionalForm) &&
       /NO QED/.test(IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS.verdict) &&
-      /remains SOTA/.test(IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS.verdict),
+      /refereed bound is changed/i.test(IMP96185_ETRUNC_FLOOR_INVERSE_HEIGHT_THRESHOLDS.verdict),
   },
 ];
 

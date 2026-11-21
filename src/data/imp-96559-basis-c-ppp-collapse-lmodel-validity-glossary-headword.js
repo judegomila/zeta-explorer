@@ -40,7 +40,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96486 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96486-basis-c-ppp-collapse-transition (source: maps the ppp collapse and the
  *   L-linear model's validity boundary this glosses)
@@ -49,7 +49,7 @@
  *   ppp ~ 3 that imp-96486 later localized as the truncation-regime endpoint)
  *
  * Ticket: imp-96559 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The ppp-collapse / L-linear-model-validity headword, baked verbatim (no re-import).
@@ -75,7 +75,7 @@ const BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_HEADWORD = Object.freeze({
   verificationStatus:
     'Mapped double-precision quadrature-regime transition (imp-96486), reproduced live ' +
     'at two mid rungs (L=1e5, 1e6) at import. Confirms and localizes the imp-96448 ' +
-    'anchor-floor verdict. Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor-floor verdict. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,7 +95,7 @@ export const IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD = O
     'collapses toward 3 and the floor is truncation-set, departing the model by up to ' +
     '573x at the PT anchor L = 5.9e6 (real floor ~2.84e-5 vs model ~4.96e-8). ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96486 (the ppp-collapse map and the model-validity boundary this glosses); ' +
     'imp-96430 (the L-linear floor model itself); imp-96448 (the anchor floor ~2.84e-5 ' +
@@ -122,11 +122,11 @@ export const IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD_ASS
   },
   {
     id: 'imp96559-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96559_BASIS_C_PPP_COLLAPSE_LMODEL_VALIDITY_GLOSSARY_HEADWORD.glosses === 'imp-96486',
   },
 ];

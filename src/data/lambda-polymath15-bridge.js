@@ -62,8 +62,8 @@
  *   structural lim-sup |t_c(N)| = 0 (imp-341 / route B). E(N) → 0 itself is
  *   GATED on the N-uniform leading constant C_★, dominated by the RH-HARD C_H
  *   (imp-2640 Gronwall discharge NEGATIVE; ch-wall-frontier-verdict-2026-06-26
- *   RH-HARD-CONFIRMED), so it is NOT unconditional. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA. The limsup=0 wording is left intact; only the
+ *   RH-HARD-CONFIRMED), so it is NOT unconditional. No refereed bound is changed
+ *   . The limsup=0 wording is left intact; only the
  *   E(N) → 0 unconditional wording is restated. Sibling fix: imp-366
  *   polymath15-lemma52-shock-holder.js (commit 23565975).
  *
@@ -607,7 +607,7 @@ export const LAMBDA_POLYMATH15_BRIDGE = {
       'Full E(N) = O((log N / N)^{1/2}): this RATE is unconditional, but E(N) → 0 is ' +
       'GATED on the N-uniform leading constant C_★ (RH-hard C_H; imp-2640 NEGATIVE, ' +
       'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED), NOT unconditional ' +
-      '(CORRECTED imp-3321). Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      '(CORRECTED imp-3321). No refereed bound is changed.',
     whatIsRigorous: [
       'The decomposition E(N) = E_trunc + E_flow + E_coll.',
       'E_trunc(N) ≤ C_T · T_0(N)^(−kappa_T) · log T_0(N) with kappa_T > 0 ' +

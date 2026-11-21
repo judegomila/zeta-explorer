@@ -36,7 +36,7 @@
  *   Ticket: imp-35591 (accuracy, medium). Verification-tooling only; recomputes the same
  *   already-established measurement figures; adds no new Lambda bound; imp-35337a stays OPEN;
  *   C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) UNTOUCHED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   No refereed bound is changed. NO QED.
  */
 
 import { IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING } from './imp-35574-peak-location-height-map-damping.js';
@@ -191,13 +191,13 @@ export const IMP35591_PEAK_DAMPING_LITERALS_ASSERTIONS = [
       IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.dampingComparison.peak_is_damped === false,
   },
   {
-    // (4) honesty gate: measurement only, no QED, PT stays SOTA.
+    // (4) honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35591-honesty-gate-no-qed',
-    description: 'Measurement only: source isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: source isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.isRigorous === false &&
       /NO QED/.test(IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.verdict) &&
-      /remains SOTA/.test(IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.verdict),
+      /refereed bound is changed/i.test(IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.verdict),
   },
 ];
 

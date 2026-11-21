@@ -60,7 +60,7 @@ export const IMP35857_HONESTY_GATE_AUDIT_DUPLICATE = {
     'AUDIT ONLY. No new audit module added -- imp-35856 already supplies the full extension ' +
     'imp-35857 requested. This module records the duplicate-ticket finding and pins a ' +
     'permanent regression guard confirming the citation stays consistent. Changes no bound; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35857_HONESTY_GATE_AUDIT_DUPLICATE_ASSERTIONS = [
@@ -85,11 +85,11 @@ export const IMP35857_HONESTY_GATE_AUDIT_DUPLICATE_ASSERTIONS = [
   },
   {
     id: 'imp35857-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35857_HONESTY_GATE_AUDIT_DUPLICATE.isRigorous === false &&
       /NO QED/.test(IMP35857_HONESTY_GATE_AUDIT_DUPLICATE.verdict) &&
-      /remains SOTA/.test(IMP35857_HONESTY_GATE_AUDIT_DUPLICATE.verdict),
+      /refereed bound is changed/i.test(IMP35857_HONESTY_GATE_AUDIT_DUPLICATE.verdict),
   },
 ];
 

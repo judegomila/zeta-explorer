@@ -7,7 +7,7 @@
  * and SIZE the o(phi(b) b) error term coming from the L0 = Sum_{a in R_b} log a and
  * L1 = Sum_{a in R_b} a log a Moebius/Euler-Maclaurin remainders. This is an accuracy check that
  * certifies the imp-97096 derivation numerically and quantifies how fast the exact coefficient is
- * approached. No bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * approached. No bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97096: R_b = {a : 1 <= a <= b-1, (a,b)=1}, A(a,b) = C(a+b) + (1/2)(a-b) log(b/a),
  * C = (log 2pi - gamma)/2, F_arith(b) = Sum_{a in R_b} A(a,b) (the a>=1 clean-asymptotic reading).
@@ -53,7 +53,7 @@
  * and orders faster on smooth/primorial moduli, so the o(phi(b) b) error term is of size O(phi(b) log b),
  * the expected rate. This is a measurement only; it does NOT supply the explicit uniform remainder bound
  * (the imp-97096 sub-gap), which stays open because the rate is modulus-dependent (2^omega(b)). No bound
- * moved; T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * moved; T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (the exact kappa_arith + explicit-remainder sub-gap)
  * @see imp-97071-route-m-lower-companion-first-moment-reduction.js (the parent CS first-moment reduction)
@@ -137,11 +137,11 @@ export const IMP97122_VERDICT = Object.freeze({
     'one log factor above O(phi(b)) and NOT O(1/b). The dominant piece is the L0 Euler-Maclaurin ' +
     'remainder R0(b) = O(log b / b); R1(b) is O(1/b). Measurement only: no explicit uniform remainder ' +
     'bound is supplied (rate is modulus-dependent via 2^omega(b)), so the imp-97096 sub-gap stays open. ' +
-    'No bound moved; T ~ 2.594e7 anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No bound moved; T ~ 2.594e7 anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97122_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the Route M arithmetic first-moment ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the Route M arithmetic first-moment ' +
   'ratio F_arith(b)/(phi(b) b) converges to the exact kappa_arith = (3/2) C - 3/8 = 0.5704960511... at ' +
   'rate O(log b / b) (r(b)*b = 0.248 log b + 0.100) on general moduli and orders faster on smooth/primorial ' +
   'moduli, so the o(phi(b) b) error term is O(phi(b) log b). This certifies the imp-97096 derivation ' +
@@ -207,7 +207,7 @@ const IMP97122_ASSERTIONS = [
       IMP97122_VERDICT.qed === false &&
       IMP97122_VERDICT.kappaArithConfirmed === true &&
       /NO QED/.test(IMP97122_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97122_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97122_HONEST_BANNER) &&
       /RH open/.test(IMP97122_HONEST_BANNER),
     why: 'measurement only: the rate is quantified (O(log b / b), coeff ~1/4) but no uniform remainder bound is supplied and no bound moved -- honesty markers present, no QED.',
   },

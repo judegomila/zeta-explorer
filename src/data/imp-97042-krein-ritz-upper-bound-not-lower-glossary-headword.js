@@ -47,7 +47,7 @@
  *
  *   STATUS: a terminology/scope caveat consolidating three existing findings, not a new
  *   computation or a re-derivation. No bound is moved, no operator positivity is newly
- *   claimed or newly refuted. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   claimed or newly refuted. NO QED. No refereed bound is changed.
  *
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (Rayleigh floor UPPER bound caveat,
  *   Bessel onset-mass context)
@@ -59,7 +59,7 @@
  *   certificate that DOES certify positivity, 2a <= 0.9)
  *
  * Ticket: imp-97042 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The Ritz/Rayleigh-upper-bound-not-lower headword, baked verbatim (no re-import).
@@ -96,8 +96,8 @@ const KREIN_RITZ_UPPER_BOUND_NOT_LOWER_HEADWORD = Object.freeze({
     'Consolidates the caveat already present verbatim in imp-96934, imp-96938, and ' +
     'imp-97012 into one glossary entry; adds no new computation. Establishes nothing new; ' +
     'moves no bound; the only route that DOES certify positivity remains the separate ' +
-    'interval-rigorous Toeplitz/Krein LP certificate (2a <= 0.9). PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'interval-rigorous Toeplitz/Krein LP certificate (2a <= 0.9). No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD = Object.freeze({
@@ -121,7 +121,7 @@ export const IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD = Objec
     'differs, and margin size is not itself a certificate. Certifying positivity needs a ' +
     'genuine lower-bound method (Temple/Kato-Temple, de Branges coercivity, or the separate ' +
     'interval-rigorous Toeplitz/Krein LP certificate). Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96934 (Bessel onset-mass tail residual, Rayleigh floor UPPER bound caveat); ' +
     'imp-96938 (drift-direction calibration against the certified 2a=0.96 endpoint); ' +
@@ -148,11 +148,11 @@ export const IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp97042-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD.verdict) &&
       IMP97042_KREIN_RITZ_UPPER_BOUND_NOT_LOWER_GLOSSARY_HEADWORD.glosses ===
         'imp-96934,imp-96938,imp-97012',
   },

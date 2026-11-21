@@ -35,15 +35,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95642 genuine-floor decision and the block-vs-scalar
  *   figures for quick reference. It establishes nothing, instantiates no interval, closes no sub-gap,
- *   moves no bound. imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   moves no bound. imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95642-twin-pair-symbol-offlattice-obstruction (source: the genuine-floor obstruction and witness this glosses)
  * @see imp-95419-separated-class-optimal-riesz-floor (THEOREM SEP-OPT, scalar class floor)
  * @see imp-95609-seam-gram-onset-ladder-table (the open 4.611560 residual this settles)
  *
  * Ticket: imp-95665 (content, low). Documentation only; establishes nothing; residual gap stays a
- * GENUINE FLOOR per imp-95642; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GENUINE FLOOR per imp-95642; NO QED; no refereed bound is changed.
  */
 
 // The block-vs-scalar genuine-floor headword, baked verbatim (no re-import).
@@ -93,7 +92,7 @@ export const IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
     'single-scale delta-separated class does not guarantee, so any class-uniform block constant ' +
     'collapses to the scalar A_opt(delta) via THEOREM SEP-OPT, making the 4.611560 residual gap ' +
     'GENUINE rather than un-ported slack. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95642 (genuine-floor obstruction and two-endpoint numerical witness); imp-95419 (THEOREM ' +
     'SEP-OPT, scalar class-optimal floor); imp-95609 (the 4.611560 onset residual this settles); ' +
@@ -119,11 +118,11 @@ export const IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95665-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, residual stays a GENUINE FLOOR, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, residual stays a GENUINE FLOOR, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       /GENUINE/.test(IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-95642' &&
       IMP95665_GENUINE_FLOOR_GLOSSARY_HEADWORD.scopes === 'imp-95419',

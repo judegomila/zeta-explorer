@@ -51,7 +51,7 @@
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. This is a limit
  *   of a diagnostic quantity, not a theorem about zeros: no RH verdict, no QED. The leading
  *   Watson term is derived in closed form; the full all-orders bound on the O(e^{-4 tau}) tail is
- *   NOT claimed rigorously (sg-3844-watson-tail). Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   NOT claimed rigorously (sg-3844-watson-tail). No refereed bound is changed.
  *
  *   @see imp-3730-a-weight-correction-limit.js (numerically extrapolated c_inf ~ 0.354291; source)
  *   @see imp-3716-a-weight-ratio-crossing-nonexistence.js (named the original sub-gap)
@@ -180,7 +180,7 @@ export const IMP3844_A_WEIGHT_CORRECTION_LIMIT_CLOSED_FORM = Object.freeze({
     'the empirical "step-ratio -> e^{-1}" is now explained exactly (e^{-2*0.5}=e^{-1}). ANALYTIC ' +
     'ASYMPTOTICS + numerical cross-check, RH-EQUIVALENT, necessary-but-not-sufficient; the ' +
     'all-orders O(e^{-4 tau}) tail bound is left as sg-3844-watson-tail; operator positivity ' +
-    '(imp-3066) untouched; no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   derivation: Object.freeze({
     integrand: 'Phi(u) = e^{-pi e^{4u}} acc(u), acc(u) = sum_n (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) e^{-pi(n^2-1)e^{4u}}',
@@ -247,7 +247,7 @@ export const IMP3844_A_WEIGHT_CORRECTION_LIMIT_CLOSED_FORM = Object.freeze({
       'all-orders remainder bound on the O(e^{-4 tau}) tail (uniformity of the Watson expansion, ' +
       'and the exponentially small n>=2 contribution) is characterized, not certified. This is a ' +
       'derivation of a diagnostic limit, not a theorem about zeros.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -287,7 +287,7 @@ export const IMP3844_A_WEIGHT_CORRECTION_LIMIT_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3844-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: analytic asymptotics only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, residual Watson-tail sub-gap named, PT 0.2 SOTA.',
+         'operator positivity (imp-3066) untouched, residual Watson-tail sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP3844_A_WEIGHT_CORRECTION_LIMIT_CLOSED_FORM.honestCaveat;
       return (
@@ -296,7 +296,7 @@ export const IMP3844_A_WEIGHT_CORRECTION_LIMIT_CLOSED_FORM_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         /sg-3844-watson-tail/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

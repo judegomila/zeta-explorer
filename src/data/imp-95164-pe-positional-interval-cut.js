@@ -112,7 +112,7 @@
  * [4, 8], u2 = 16 midpoints): NO chart-wide floor moves, class sandwich
  * [0.2320723, 0.24502], unconditional window [0.240015, 0.24502], and
  * the k <= 4 ladder floor 47/200 carried UNCHANGED. Changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~2 s.
  */
@@ -462,7 +462,7 @@ export const IMP95164_PE_POSITIONAL_INTERVAL_CUT = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

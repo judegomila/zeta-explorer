@@ -55,8 +55,7 @@
  * anchor; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/
  * imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional
- * (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35764-collision-scale-pt-anchor-prefactor-propagation (PT-anchor propagation; this module extends beyond it)
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (the dG differencing artifact past N ~ 1e18 that this channel does NOT share)
@@ -71,7 +70,7 @@
 import { IMP35764_COLLISION_SCALE_PT_ANCHOR_PREFACTOR_PROPAGATION } from './imp-35764-collision-scale-pt-anchor-prefactor-propagation.js';
 import { zeroCountAtHeight } from './lambda-rh-height-mapping.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // Short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752
@@ -212,7 +211,7 @@ export const IMP35814_COLLISION_SCALE_SLOPE_STABILITY_BEYOND_PT_ANCHOR = {
     'Measurement only; extends the imp-35764/imp-35696 propagation; derives no remainder; discharges nothing; ' +
     'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35764 (PT-anchor propagation; this module extends beyond it); imp-35766 (the dG differencing artifact ' +
     'past N ~ 1e18 that this channel does NOT share); imp-35696 (cube-root prefactor ((pi^2/3)/C_C)^{1/3} ~ ' +
@@ -275,7 +274,7 @@ export const IMP35814_COLLISION_SCALE_SLOPE_STABILITY_BEYOND_PT_ANCHOR_ASSERTION
     },
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35814-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -288,7 +287,7 @@ export const IMP35814_COLLISION_SCALE_SLOPE_STABILITY_BEYOND_PT_ANCHOR_ASSERTION
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

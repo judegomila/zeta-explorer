@@ -66,7 +66,7 @@
  *   ratio 1.23 and magnitude 0.876 at opposite ends of the weight axis, so the exact
  *   recipe needs a magnitude degree of freedom (a two-scale / mixture core) that a
  *   single scalar-weighted kernel lacks. RH-equivalent residual untouched; no
- *   positivity, no reduction; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   positivity, no reduction; no refereed bound is changed.
  *
  *   @see imp-3385-mupass-smooth-core-family-search.js (the smooth-family search this extends; ported evaluator)
  *   @see imp-3310-mupass-passive-core-assembly-recipe.js (the evaluator + the additive-Fejer verdict)
@@ -389,7 +389,7 @@ export const IMP3427_MUPASS_SHARP_CORE_FAMILY_SEARCH = Object.freeze({
     'the absolute pair 0.876/0.711 -- sharpening the residual to a magnitude/contrast ' +
     'DECOUPLING sub-gap (a single scalar-weighted Schur core delivers ratio 1.23 and ' +
     'magnitude 0.876 at opposite ends of the weight axis). Measurement only, RH-equivalent, ' +
-    'no positivity, no reduction, NO QED. PT Lambda <= 0.2 remains SOTA.',
+    'no positivity, no reduction, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -468,7 +468,7 @@ export const IMP3427_MUPASS_SHARP_CORE_FAMILY_SEARCH = Object.freeze({
       'Reaching the verdict lag-contrast RATIO with a compactly-supported Wendland core and bounding where it lives ' +
       'does NOT construct the exact passive-core assembly (the absolute 0.876/0.711 pair is not reproduced) nor ' +
       'attempt the K_a >= 0 positivity, which remains the RH-equivalent imp-3066 obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -542,7 +542,7 @@ export const IMP3427_MUPASS_SHARP_CORE_FAMILY_SEARCH_ASSERTIONS = [
   {
     id: 'imp3427-honest-no-qed-no-reproduction',
     why: 'Mandatory honesty: the contrast ratio reached but the absolute 0.876/0.711 recipe NOT reproduced (still ' +
-         'out-of-repo); MEASUREMENT only, RH-equivalent, positivity not attempted, imp-3066 untouched, PT 0.2 SOTA.',
+         'out-of-repo); MEASUREMENT only, RH-equivalent, positivity not attempted, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3427_MUPASS_SHARP_CORE_FAMILY_SEARCH.honestCaveat;
       return (
@@ -555,7 +555,7 @@ export const IMP3427_MUPASS_SHARP_CORE_FAMILY_SEARCH_ASSERTIONS = [
         c.reproducesVerdictScalarValues === false &&
         c.coreAssemblyRecipeStillOutOfRepo === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

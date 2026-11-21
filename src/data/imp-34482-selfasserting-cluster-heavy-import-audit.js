@@ -45,7 +45,7 @@ export const SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT = {
   allLogIdsDistinct: UNIQUE_LOG_IDS.size === COHORT.length,
   heavyImportGapsFound: COHORT.filter((m) => m.heavyZerosImportFound).map((m) => m.ticket),
   heavyBundleFile: 'src/data/zeros-to-1e6.js',
-  honest: 'AUDIT-ONLY -- confirms all 4 named cohort modules (imp-34408/34412/34428/34441) are correctly registered in improvements.js with distinct log ids and correct file references, are present in run-assertions.mjs DATA_MODULES, and that none imports the heavy zeros bundle directly or transitively. No registration or import fix was made because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+  honest: 'AUDIT-ONLY -- confirms all 4 named cohort modules (imp-34408/34412/34428/34441) are correctly registered in improvements.js with distinct log ids and correct file references, are present in run-assertions.mjs DATA_MODULES, and that none imports the heavy zeros bundle directly or transitively. No registration or import fix was made because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
@@ -73,10 +73,10 @@ export const SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34482-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no fix applied, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no fix applied, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT.honest)
       && /No registration or import fix was made because none was missing/.test(SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(SELFASSERTING_CLUSTER_HEAVY_IMPORT_AUDIT.honest),
   },
 ];
 

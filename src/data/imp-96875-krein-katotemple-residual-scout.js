@@ -51,8 +51,8 @@
  * with a positive provisional seed; a positive floor requires a bounded (resolvent / shift-invert)
  * reformulation, i.e. Route C-direct and Route B share the same unbounded-operator wall. Scouting /
  * measurement only; provisional beta is NOT a certified lower bound (Ritz gives UPPER bounds);
- * interval-rigorous certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; NO QED.
+ * interval-rigorous certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * @see imp-96846-krein-uniform-N-lower-bound-routes-assessment.js (Route C most tractable; SUB-GAP IMP96846_COMPLEMENTARY_NEEDS_LAMBDA2_LOWER_BOUND)
  * @see imp-96865-krein-katotemple-lambda2-lowerbound-obstruction.js (CERTIFIED beta seed obstructed: Loewner/Weyl force beta<0; complementary to this residual scout)

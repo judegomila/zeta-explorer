@@ -58,8 +58,7 @@
  * MEASUREMENT ONLY. Conditional-share landmark diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35121-ecoll-etrunc-eflow-decomposition-viz-data (lists the three landmarks side by side)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (source parts(N) model; N_half<N_cross offset = E_flow)
@@ -267,8 +266,8 @@ export const IMP35157_LANDMARK_CLUSTER_WIDTH_STABILITY = {
     '-- it neither tightens nor spreads -- so the triple is NOT a grid-resolution coincidence. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35121 (three-landmark decomposition viz-data); imp-33601 (parts(N) model; N_half<N_cross ' +
     'offset = E_flow surplus); imp-33723 (closed-form N_cross); imp-33721 (N_star ramp inflection ' +
@@ -318,13 +317,13 @@ export const IMP35157_LANDMARK_CLUSTER_WIDTH_STABILITY_ASSERTIONS = [
       (CLUSTER_WIDTH_MAX - CLUSTER_WIDTH_MIN) / CLUSTER_WIDTH < 0.1,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35157-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35157_LANDMARK_CLUSTER_WIDTH_STABILITY.isRigorous === false &&
       /NO QED/.test(IMP35157_LANDMARK_CLUSTER_WIDTH_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP35157_LANDMARK_CLUSTER_WIDTH_STABILITY.verdict),
+      /refereed bound is changed/i.test(IMP35157_LANDMARK_CLUSTER_WIDTH_STABILITY.verdict),
   },
 ];
 

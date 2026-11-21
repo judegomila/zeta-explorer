@@ -45,8 +45,7 @@
  * height; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/
  * imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional
- * (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35724-collision-scale-landmark-prefactor-propagation (peak + crossover landmarks; this module adds the PT anchor)
  * @see imp-35696-collision-exponent-consistency-check (cube-root prefactor ((pi^2/3)/C_C)^{1/3} ~ 2.047, exponent -1/3)
@@ -62,7 +61,7 @@ import { IMP35724_COLLISION_SCALE_LANDMARK_PREFACTOR_PROPAGATION } from './imp-3
 import { IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION } from './imp-35304-ecoll-exponent-residual-crossover-anchor-crossvalidation.js';
 import { zeroCountAtHeight } from './lambda-rh-height-mapping.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // Short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752
@@ -177,7 +176,7 @@ export const IMP35764_COLLISION_SCALE_PT_ANCHOR_PREFACTOR_PROPAGATION = {
     'height. Measurement only; propagates the imp-35696 prefactor onto the PT anchor; derives no remainder; ' +
     'discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
-    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35724 (peak + crossover landmark propagation; this module adds the PT anchor); imp-35696 (cube-root ' +
     'prefactor ((pi^2/3)/C_C)^{1/3} ~ 2.047, exponent -1/3); imp-35680 (amplitude mismatch (pi^2/3)/C_C ~ ' +
@@ -264,7 +263,7 @@ export const IMP35764_COLLISION_SCALE_PT_ANCHOR_PREFACTOR_PROPAGATION_ASSERTIONS
     },
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35764-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -277,7 +276,7 @@ export const IMP35764_COLLISION_SCALE_PT_ANCHOR_PREFACTOR_PROPAGATION_ASSERTIONS
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

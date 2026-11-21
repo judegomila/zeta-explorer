@@ -10,7 +10,7 @@
  *
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96713 (N=12000-updated)
  * exports; only the bar-segment reshaping is new. Changes no bound, establishes no operator
- * positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * positivity, no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js (source of the ceilings, ratios, gap-fraction)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (the original decomposition, audited by imp-96713)
@@ -102,7 +102,7 @@ const IMP96741_ASSERTIONS = [
     id: 'imp96741-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96741_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96741_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96741_HONEST_BANNER) &&
       /NO QED/.test(IMP96741_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

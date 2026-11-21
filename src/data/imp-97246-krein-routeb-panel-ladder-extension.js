@@ -40,8 +40,8 @@
  * NOT a certified interval spherical-Bessel enclosure; the Aitken h->0 value is a numerical extrapolation, not
  * a bound. The [Tfar, oo) far tail (Route C) is out of scope. Rayleigh floors stay UPPER bounds on true
  * lambda_min; establishes NO operator positivity; IMP96888_RAYLEIGH_TAIL_MAJORANT /
- * IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- * Lambda <= 0.2 SOTA; RH open; NO QED.
+ * IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * THE RESIDUAL (named). SUB-GAP IMP97184_INTERVAL_BESSEL_ENCLOSURE (refines IMP97100_PHASE_CANCELLATION_TRIAL)
  * is UNCHANGED: the remaining step to a rigorous majorant is replacing the sampled per-panel supremum with a

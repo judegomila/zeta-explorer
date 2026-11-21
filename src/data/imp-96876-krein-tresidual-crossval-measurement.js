@@ -45,7 +45,7 @@
  * cross-validation only: the TRACE value is a QUADRATURE evaluation, NOT the rigorous interval majorant
  * (IMP96848_TAILTRACE_MAJORANT stays open); Rayleigh floors are UPPER bounds on the true lambda_min;
  * establishes NO operator positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach
- * stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (GEOM/EXP envelope; enclosure [0.579666,0.581292])
  * @see imp-96848-krein-tresidual-rigorous-tailtrace-bound.js (closed-form TRACE bound; IMP96848_TAILTRACE_MAJORANT)

@@ -65,7 +65,7 @@
  * illustrative imp-95255 values; theta is homogeneous of degree 0 in amplitudes
  * (imp-95139 scope) but does depend on the geometry, so the numeric theta
  * values are (c, v)-specific while the dichotomy (=1 vs <1) is not. (d) NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Import-light (no zeros bundle, no
+ * no refereed bound is changed. Import-light (no zeros bundle, no
  * sibling imports).
  */
 
@@ -178,7 +178,7 @@ export const IMP95385_THETA_DICHOTOMY_CROSSVAL = {
     signedTheta: SIGNED_THETA,
   },
   verdict:
-    "CROSS-VALIDATION (honest): the imp-95255 theta dichotomy is confirmed by an independent, largely quadrature-free computation. On the fixed-amplitude family the paper actually specifies (positive cone) theta = 1 is machine-EXACT (structural f = g), stronger than the reported 1e-9; theta < 1 is reachable only by injecting per-window signs the geometry+modulus transcription drops. theta is confirmed as an amplitude-SIGN functional, not a quadrature artifact. Nothing derives or moves a bound; the phase content of PHASE-CERT stays BLOCKED at the transcription (obligation (3), STILL OPEN); NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "CROSS-VALIDATION (honest): the imp-95255 theta dichotomy is confirmed by an independent, largely quadrature-free computation. On the fixed-amplitude family the paper actually specifies (positive cone) theta = 1 is machine-EXACT (structural f = g), stronger than the reported 1e-9; theta < 1 is reachable only by injecting per-window signs the geometry+modulus transcription drops. theta is confirmed as an amplitude-SIGN functional, not a quadrature artifact. Nothing derives or moves a bound; the phase content of PHASE-CERT stays BLOCKED at the transcription (obligation (3), STILL OPEN); NO QED; no refereed bound is changed.",
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This module supplies no seam signs; it only confirms theta responds to signs. Obligation (3) (envelope-shape / gammaSL map, incl per-window SIGN data) UNCHANGED and OPEN.",
   rigorScope:
@@ -266,7 +266,7 @@ export const IMP95385_CROSSVAL_ASSERTIONS = [
       /amplitude-SIGN functional/.test(IMP95385_THETA_DICHOTOMY_CROSSVAL.verdict) &&
       /STILL OPEN/.test(IMP95385_THETA_DICHOTOMY_CROSSVAL.subGap) &&
       /NO QED/.test(IMP95385_THETA_DICHOTOMY_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP95385_THETA_DICHOTOMY_CROSSVAL.verdict),
+      /refereed bound is changed/i.test(IMP95385_THETA_DICHOTOMY_CROSSVAL.verdict),
   },
 ];
 

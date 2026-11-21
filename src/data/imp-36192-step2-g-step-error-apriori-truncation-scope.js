@@ -21,7 +21,7 @@
  * SCOPING / ASSESSMENT ONLY. Certifies nothing; bounds no truncation error;
  * integrates no flow; verifies no inequality; changes no bound; establishes no
  * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE OBJECT TO BE BOUNDED
  * -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36120 / imp-36077) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 ordinate count anchor at T_PT
 
@@ -217,8 +217,8 @@ export const IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE = {
     'collision boundary layer unless dt shrinks faster than delta^{9/5}. Certifies nothing; bounds no ' +
     'truncation error; integrates no flow; verifies no inequality; changes no bound; establishes no ' +
     'positivity; discharging all three Step-2 obligations feeds the E(N) bridge constants (Step 4), not the ' +
-    'headline inequality; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'headline inequality; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'lambda-roadmap.js Step-2 rigorousUpgradeGap G-step-error (imp-35058); imp-36077 (gap dt/N scaling, ' +
     'quantization-dominated/non-monotone, GAP-36077-common-mode-uncertified); imp-2466 (DP5 cross-integrator); ' +
@@ -276,16 +276,16 @@ export const IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: scoping only; distinct-from-two-method-gap; no bound moved; no QED; PT SOTA.
+    // Honesty gate: scoping only; distinct-from-two-method-gap; no bound moved; no QED; no refereed bound is changed.
     id: 'imp36192-honesty-gate',
-    description: 'Scoping only; distinct from two-method gap; changes no bound; no QED; PT SOTA',
+    description: 'Scoping only; distinct from two-method gap; changes no bound; no QED; no refereed bound is changed',
     holds: () =>
       IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /common-mode/.test(IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE.whyTwoMethodGapIsNotABound.commonModeCancels) &&
       /changes NO Lambda bound/.test(IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE.conclusion.noBoundMovesOnItsOwn) &&
       /NO QED/.test(IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE.verdict),
   },
 ];
 

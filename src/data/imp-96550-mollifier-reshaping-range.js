@@ -53,7 +53,7 @@
  * identity for this Gronwall term. Conditional-share diagnostic, NOT an RH bound. imp-96409 is UNTOUCHED;
  * the imp-398 C_F is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96409-eflow-domination-required-factor (kappa_min ~5.30/6.26 carried as literals below)
  * @see imp-398 (C_F = (log(T0/2pi)+1)/(2pi) pinned from the RvM density integral)
@@ -130,7 +130,7 @@ export const IMP96550_MOLLIFIER_RESHAPING_RANGE = {
     'imp-96409 UNTOUCHED; the imp-398 C_F UNTOUCHED; the C_mb GUE-conditional per imp-486 stays ' +
     'GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96409 (kappa_min ~5.30/6.26 required parity factor); imp-398 (C_F pinned from the RvM density ' +
     'integral); imp-1336 (Conrey 1989 theta up to 4/7); BCHB 1985 (mollified second moment ~ (1+theta) log T).',
@@ -164,13 +164,13 @@ export const IMP96550_MOLLIFIER_RESHAPING_RANGE_ASSERTIONS = [
       margins.in_regime_vs_rigorous > 3,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, imp-96409 label intact.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, imp-96409 label intact.
     id: 'imp96550-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96550_MOLLIFIER_RESHAPING_RANGE.isRigorous === false &&
       /NO QED/.test(IMP96550_MOLLIFIER_RESHAPING_RANGE.verdict) &&
-      /remains SOTA/.test(IMP96550_MOLLIFIER_RESHAPING_RANGE.verdict),
+      /refereed bound is changed/i.test(IMP96550_MOLLIFIER_RESHAPING_RANGE.verdict),
   },
 ];
 

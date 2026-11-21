@@ -55,8 +55,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp sign change is
  * a feature of that surrogate denominator, NOT a statement about zeros; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * the imp-33843 log-linear form verdict is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * the imp-33843 log-linear form verdict is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34288-trough-peak-ratio-ceiling-extension (the ~0.907 max, w ~ 9.25 migration, kEnd = 20 stop)
  * @see imp-34085-trough-peak-ratio-convergence (the |trough|/|peak| ratio sequence and machinery reused)
@@ -315,7 +314,7 @@ export const IMP34369_PEAK_RELOCATION_REGIME_WIDTH = {
     'extrapolation, NOT a rigorous asymptotic; the residExp sign change is a surrogate-denominator ' +
     'feature, NOT a statement about zeros; the imp-33843 log-linear form verdict is untouched; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34288 (the ~0.907 max, w ~ 9.25 migration, kEnd = 20 stop, refined here); imp-34085 (the ' +
     '|trough|/|peak| ratio sequence and machinery reused); imp-33843 (the log-linear OLS re-run); ' +
@@ -379,14 +378,14 @@ export const IMP34369_PEAK_RELOCATION_REGIME_WIDTH_ASSERTIONS = [
       SURROGATE_DISSOLVES_AT_WALL === true,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, ratio does not restabilize, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, ratio does not restabilize, no QED, no refereed bound is changed.
     id: 'imp34369-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, ratioRestabilizes false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'measurement only: isRigorous false, ratioRestabilizes false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34369_PEAK_RELOCATION_REGIME_WIDTH.isRigorous === false &&
       IMP34369_PEAK_RELOCATION_REGIME_WIDTH.ratioRestabilizes === false &&
       /NO QED/.test(IMP34369_PEAK_RELOCATION_REGIME_WIDTH.verdict) &&
-      /remains SOTA/.test(IMP34369_PEAK_RELOCATION_REGIME_WIDTH.verdict) &&
+      /refereed bound is changed/i.test(IMP34369_PEAK_RELOCATION_REGIME_WIDTH.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34369_PEAK_RELOCATION_REGIME_WIDTH.verdict),
   },
 ];

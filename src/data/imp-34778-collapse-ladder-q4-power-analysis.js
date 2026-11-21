@@ -51,7 +51,7 @@
  *   Measurement only on the inherited imp-3220/imp-3406 surrogate (q1..q4 are inherited central differences,
  *   not fresh closed forms); the -2 asymptote and C_C = (1/8)sqrt(3pi) (imp-2714, C_H = 1/8) ansatz untouched;
  *   C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- *   operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34751-collapse-ladder-mean-zero-statistical-test.js (F3: the wide q4 CI ~[-0.048,+0.187] this powers)
  *   @see imp-34771-collapse-ladder-q5-channel-extension.js (the q5 extension of the same ensemble machinery)

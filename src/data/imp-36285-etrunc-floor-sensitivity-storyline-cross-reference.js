@@ -41,7 +41,7 @@
  *   @see src/data/imp-35968-e-trunc-coll-crossover-location.js (the sigma=1/2 crossover landmark N_cross ~ 3.28e9 this note re-frames)
  *
  *   Ticket: imp-36285 (content, low). Note only; imports source verdicts verbatim; changes
- *   no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound; NO QED; no refereed bound is changed.
  */
 
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from './imp-3443-nmax-etrunc-sensitivity.js';
@@ -130,7 +130,7 @@ export const IMP36285_ETRUNC_FLOOR_SENSITIVITY_STORYLINE_CROSS_REFERENCE = Objec
       'Read-only cross-reference narrative assembling the imp-3443 and imp-36139 verdicts into one storyline ' +
       'plus an explicit derived-vs-open list. Imports each stage verbatim; derives nothing new; respects the ' +
       'imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -175,7 +175,7 @@ export const IMP36285_ETRUNC_FLOOR_SENSITIVITY_STORYLINE_CROSS_REFERENCE_ASSERTI
   },
   {
     id: 'imp36285-honest-no-closure-no-qed',
-    why: 'Mandatory honesty: an ASSEMBLY note that closes NOTHING, derives nothing new, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+    why: 'Mandatory honesty: an ASSEMBLY note that closes NOTHING, derives nothing new, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36285_ETRUNC_FLOOR_SENSITIVITY_STORYLINE_CROSS_REFERENCE.honestCaveat;
       return (
@@ -184,7 +184,7 @@ export const IMP36285_ETRUNC_FLOOR_SENSITIVITY_STORYLINE_CROSS_REFERENCE_ASSERTI
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

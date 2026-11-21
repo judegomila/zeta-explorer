@@ -14,8 +14,8 @@
  * PRESENTATION ONLY. Every number here is reused verbatim from the imp-96712
  * and imp-96711 exports; only the flat chart-ready reshape (log10 axes,
  * geometric-midpoint L, point grouping) is new. Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96712-basis-c-accelerating-exponent-model.js (source: local-exponent trajectory + bracket)
  * @see imp-96711-basis-c-corroboration-reach-cross-tab.js (source: exponent -> L* single-crossover reach)
@@ -122,7 +122,7 @@ const IMP96782_ASSERTIONS = [
     id: 'imp96782-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96782_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96782_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96782_HONEST_BANNER) &&
       /NO QED/.test(IMP96782_HONEST_BANNER),
     why: 'every Route I / basis-C corroboration-reach viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

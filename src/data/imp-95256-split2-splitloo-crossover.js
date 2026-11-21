@@ -5,8 +5,7 @@
  * dominates" claim, which was asserted from a SINGLE configuration
  * ({1,1.1} u {2,2.2} at x = 6: SPLIT-LOO 1.4423 vs SPLIT-2 2.8625), on a
  * two-parameter surface with an exact analytic crossover locus.
- * Measurement only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Measurement only; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECTS (imp-95226 / imp-95250 normalization). Two disjoint blocks of
  * exponential rates V_1, V_2 in L2(0, inf), Cauchy Gram
@@ -127,14 +126,14 @@ export const IMP95256_SPLIT2_SPLITLOO_CROSSOVER = {
     "the criterion is an algebraic identity of the two closed forms, not a " +
     "new bound; m = 2 only (recursive-peel vs additive multi-block is a " +
     "separate axis); model family only; changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "no refereed bound is changed",
   verdict:
     "MEASUREMENT: the imp-95250 'neither dominates' claim is grounded on a " +
     "two-parameter (scale-separation x depth) surface with the exact " +
     "crossover locus g = sigma; both regions are realizable (SPLIT-LOO on " +
     "the whole nearby twin-lattice family incl. the anchor, SPLIT-2 at " +
     "small depth + wide separation). Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -452,12 +451,12 @@ export const IMP95256_ASSERTIONS = [
     id: "imp95256-verdict-honesty",
     description:
       "verdict and scope carry the honest labels: MEASUREMENT, criterion is " +
-      "an algebraic identity not a new bound, no bound change, no QED, PT SOTA",
+      "an algebraic identity not a new bound, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95256_SPLIT2_SPLITLOO_CROSSOVER.verdict) &&
       /Changes no bound/.test(IMP95256_SPLIT2_SPLITLOO_CROSSOVER.verdict) &&
       /NO QED/.test(IMP95256_SPLIT2_SPLITLOO_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP95256_SPLIT2_SPLITLOO_CROSSOVER.verdict) &&
+      /refereed bound is changed/i.test(IMP95256_SPLIT2_SPLITLOO_CROSSOVER.verdict) &&
       /algebraic identity/.test(
         IMP95256_SPLIT2_SPLITLOO_CROSSOVER.honestScope,
       ),

@@ -14,8 +14,8 @@
  * into ONE object -- the C_H / G6a Holder-1/2 shock modulus -- which is RH-hard
  * at the modulus (the obvious Gronwall approach is refuted, imp-2640). Everything
  * else is rigorous-but-sharpens-the-wrong-term, a faithful RH reformulation, or
- * dead/refuted/non-binding. PLATT-TRUDGIAN Lambda <= 0.2 remains the rigorous
- * SOTA; the project did not produce it.
+ * dead/refuted/non-binding. No refereed bound is changed
+ * ; the project did not produce it.
  *
  * STATUS LEGEND:
  *   RIGOROUS-SOTA  - unconditionally established (the floor we stand on)
@@ -166,7 +166,7 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
   },
   {
     id: 'route-map-no-shortcut-pt-sota',
-    description: 'No shortcut below RH; PT 0.2 remains SOTA (recorded in the next-move discipline)',
+    description: 'No shortcut below RH; no refereed bound is changed (recorded in the next-move discipline)',
     holds: () => /CONDITIONAL rigorous beat/.test(FULL_ROUTE_MAP_NEXT_MOVE.primary) && /non-binding/.test(FULL_ROUTE_MAP_NEXT_MOVE.doNotInvest),
   },
   {

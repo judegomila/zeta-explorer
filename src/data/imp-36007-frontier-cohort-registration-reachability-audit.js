@@ -31,7 +31,7 @@
  *
  * SCOPE. Read-only audit; no source module changed, no wiring fix needed.
  * Changes no bound; establishes no operator positivity; no RH verdict;
- * NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35941-numerical-cohort-registration-reachability-audit.js (method precedent, prior cohort)
  * @see imp-35982 (imp-3588x/3589x reachability audit, does not cover this cohort)
@@ -136,7 +136,7 @@ export const IMP36007_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT = {
     'closure by hand for seven cohort modules. Result: zero orphans, zero ' +
     'viz-status mismatches, zero heavy-bundle imports. Changes no bound; ' +
     'establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35946, imp-35947, imp-35948, imp-35949, imp-35950, imp-35951, ' +
     'imp-35956 (audited modules); imp-35590/imp-35838/imp-35858/imp-35941 ' +
@@ -179,11 +179,11 @@ export const IMP36007_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS
   },
   {
     id: 'imp36007-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36007_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36007_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36007_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36007_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

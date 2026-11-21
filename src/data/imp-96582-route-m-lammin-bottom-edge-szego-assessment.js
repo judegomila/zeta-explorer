@@ -92,8 +92,8 @@
  * structural lower estimate is available. The bottom/top asymmetry: the top edge
  * DIVERGES (unbounded symbol) and the bottom COLLAPSES to 0 (0 in the limiting
  * spectrum), but both share the same wrong-group obstruction and both reduce to a
- * RATE, not an edge constant. Changes no bound; no operator positivity; PT Lambda
- * <= 0.2 SOTA; RH open; NO QED.
+ * RATE, not an edge constant. Changes no bound; no operator positivity; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js (names the sub-gap this assesses)
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (the TOP-edge analog)
@@ -249,7 +249,7 @@ export const IMP96582_VERDICT = Object.freeze({
     'estimate is available. The bottom/top asymmetry: top DIVERGES (unbounded symbol), bottom ' +
     'COLLAPSES to 0 (0 in the limiting spectrum), but both share the wrong-group obstruction and ' +
     'both reduce to a RATE, not an edge constant. Changes no bound; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96582_SUBGAP = Object.freeze({
@@ -265,7 +265,7 @@ export const IMP96582_SUBGAP = Object.freeze({
 });
 
 export const IMP96582_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the bottom-edge analysis is ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the bottom-edge analysis is ' +
   'pure re-analysis of the imp-96428 measured lam_min ladder (A=0.8187, p=1.9179, R^2=0.99998); ' +
   'the Szego assessment is structural (multiplicative not additive-Toeplitz; edge VALUE 0; rate ' +
   'not distribution). No Gram was rebuilt, no bound is claimed moved and no operator positivity ' +
@@ -315,7 +315,7 @@ const IMP96582_ASSERTIONS = [
       IMP96582_VERDICT.anyBoundMoved === false &&
       IMP96582_VERDICT.rigorousLowerEstimateExists === false &&
       /NO QED/.test(IMP96582_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96582_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96582_HONEST_BANNER) &&
       /RH open/.test(IMP96582_HONEST_BANNER) &&
       /edge-scaling-lower-bound/.test(IMP96582_SUBGAP.id),
     why: 'assessment only: no bound moved, no rigorous lower estimate claimed, the honesty markers and the (unchanged) edge-scaling lower-bound sub-gap are present.',

@@ -5,7 +5,7 @@
  * lower-bounding the worst-of-400 off-lattice seam pencil floor -- extended
  * beyond the tabulated octave counts m = 4..12 to fit its decay law and
  * characterize the single-pattern collapse mechanism. MEASUREMENT ONLY;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  *
  * BACKGROUND. imp-95430 Finding 2 tabulated delta*(m) as monotone decreasing
  * 19.97 / 11.68 / 5.20 / 3.82 / 3.10 percent at m = 4, 6, 8, 10, 12 (rho = 2,
@@ -73,7 +73,7 @@
  * imp-95429). (e) Supplies NO off-lattice floor THEOREM (that is the
  * ~52x-looser imp-95335 Ingham route); changes NO Lambda bound; gammaSL
  * obligation (3), signed WEIGHT / modulus-phase legs and the imp-95212
- * envelope port all remain OPEN. NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * envelope port all remain OPEN. NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -157,7 +157,7 @@ export const IMP95487_BREACH_THRESHOLD_MSCALING = {
     "migrates, does not track one configuration): the collapse is the " +
     "imp-95430 Finding 4 COLLECTIVE mechanism amplified by the 2(m-1) internal " +
     "boundaries, giving a per-boundary headroom budget ~1/m. Changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -429,13 +429,13 @@ export const IMP95487_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT, vanishes " +
       "(not levels off), worst-of-T not an infimum, no off-lattice floor " +
-      "theorem, changes no bound, open legs named, NO QED, PT SOTA",
+      "theorem, changes no bound, open legs named, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /VANISHES/.test(REC.verdict) &&
       /Changes no\s+bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /NOT an infimum/.test(REC.honestScope) &&
       /remain OPEN/.test(REC.honestScope) &&
       /NO off-lattice floor theorem/i.test(REC.honestScope),

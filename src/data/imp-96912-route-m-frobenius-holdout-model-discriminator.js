@@ -61,7 +61,7 @@
  * 6.834107) and must NOT be trusted. The direct extension needs an offline native run or an
  * O(N^2 logN) Vasyunin-reciprocity V-table; until then the holdout above is the available
  * discriminator. No bound moves; trace ceiling T ~ 2.594e7 and the T<F<M ordering unaffected;
- * PT Lambda <= 0.2 stays SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * HONEST-STATUS UPDATE (imp-97078, later ticket): the "O(N^3), CPU-starved, needs an offline
  * native run" framing above is now dated. imp-97078 assessed the O(N^2 logN) Vasyunin-reciprocity

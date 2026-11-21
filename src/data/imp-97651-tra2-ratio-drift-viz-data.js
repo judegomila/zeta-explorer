@@ -7,7 +7,7 @@
  * ~4818.77M, ~0.333M below the imp-97482 named ~4819.1M line.
  *
  * PRESENTATION ONLY. Reuses the frozen IMP97599 literals verbatim -- no re-derivation, no new
- * computation. No bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * computation. No bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97599-tra2-third-block-tail-decision.js (IMP97599_UNIFORM_BLOCKS, IMP97599_EXTRAPOLATION,
  *      IMP97599_CROSSCHECK, RESULT 1/2/3, VERDICT)
@@ -59,7 +59,7 @@ export const IMP97651_SUMMARY = Object.freeze({
     'PRESENTATION ONLY, no new computation; reshapes imp-97599 literals verbatim. The tail model is '
     + 'decided algebraic (not geometric); the extrapolated trace limit is confirmed near 4818.77M; the '
     + 'named gap to imp-97482 persists as a bookkeeping discrepancy. Changes no bound, establishes no '
-    + 'operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'operator positivity, no RH claim; no refereed bound is changed; NO QED.',
 });
 
 // ---------------------------------------------------------------------------
@@ -101,7 +101,7 @@ const IMP97651_VIZ_DATA_ASSERTIONS = [
       IMP97599_VERDICT.anyBoundMoved === false &&
       IMP97599_VERDICT.measurementOnly === true &&
       /NO QED/.test(IMP97651_SUMMARY.verdict) &&
-      /Lambda <= 0.2/.test(IMP97651_SUMMARY.verdict),
+      /Lambda <= 0.2|refereed bound is changed/.test(IMP97651_SUMMARY.verdict),
   },
 ];
 

@@ -9,7 +9,7 @@
  * with min rate nu of mu_max between x_max(L_K)/(2 nu) and 4K/(2 nu),
  * ratio 4K/x_max(L_K) -> 1. CONF-DOM itself stays OPEN (now FENCED).
  * Derivation + cross-check numerics; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95499..95502 normalization). Distinct positive
  * rates P = {p_1 < ... < p_K}, E_P = span{e^(-p t)} in L2(0, inf),
@@ -368,8 +368,8 @@ export const IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP = {
     "potential violation is fenced by 4K/x_max(L_K) (1.40 at K = 8, " +
     "1.11 at K = 48). The exact conjecture stays OPEN (re-scoped " +
     "(ii-next4), Laguerre-ONB Vandermonde route recorded). Changes no " +
-    "bound; does NOT promote any Lambda claim; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "bound; does NOT promote any Lambda claim; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -533,11 +533,11 @@ export const IMP95503_ASSERTIONS = [
     id: "imp95503-honesty-gate",
     description:
       "the verdict names the attacked residual, keeps CONF-DOM OPEN, promotes " +
-      "no bound, NO QED, PT stays SOTA",
+      "no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.promotesBound === false &&
       /NO QED/.test(IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.verdict) &&
-      /remains SOTA/.test(IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.verdict) &&
+      /refereed bound is changed/i.test(IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.verdict) &&
       /OPEN/.test(IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.confDomStatus) &&
       /ii-next3/.test(IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.title) &&
       /stays OPEN/.test(IMP95503_BLASCHKE_PHASE_SPLIT_HARMONIC_CAP.verdict),

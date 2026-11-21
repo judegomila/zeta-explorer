@@ -58,7 +58,7 @@
  * imp-95858-intermediate-delta-dd-eigensolve-crossing. Measurement / cross-validation
  * of an established scaling law; model seam family only (the imp-95212 envelope port,
  * signed WEIGHT and modulus/phase legs stay OPEN); changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176
+ * program; NO QED; no refereed bound is changed; Sun arXiv:2609.04176
  * unrefereed.
  *
  * @see imp-95840-dd-corrected-crossing-reach (the quadratic R*(delta) cross-validated here)
@@ -141,8 +141,8 @@ export const IMP95858_DD_CROSSING_REACH_LOO_CV = {
     "small a3 signal is real needs a genuine DD shift-invert crossing at an intermediate delta (ln1.3 or " +
     "ln1.4), new named sub-gap imp-95858-intermediate-delta-dd-eigensolve-crossing. Measurement / " +
     "cross-validation of an established scaling law; model seam family only (imp-95212 envelope port, " +
-    "signed WEIGHT and modulus/phase legs stay OPEN); changes no bound; NO QED; Platt-Trudgian Lambda " +
-    "<= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.",
+    "signed WEIGHT and modulus/phase legs stay OPEN); changes no bound; NO QED; no refereed bound is changed" +
+    "; Sun arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95858"],
 };
 
@@ -273,7 +273,7 @@ export const IMP95858_ASSERTIONS = [
     holds: () =>
       REF.boundChange === false &&
       REF.qed === false &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.subGap === "imp-95858-intermediate-delta-dd-eigensolve-crossing" &&
       REF.closesTickets.includes("imp-95858"),
   },

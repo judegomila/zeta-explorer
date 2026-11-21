@@ -60,7 +60,7 @@
  * This is consistent with the flow-blindness no-go rather than against it: the no-go says a
  * SOFT flow cannot give RH and genuine arithmetic input is required; route B locates exactly
  * where that arithmetic input must enter (the regularized curvature sign) and shows the naive
- * arithmetic surrogate is insufficient. NO bound; NO QED; RH open; PT Lambda<=0.2 SOTA.
+ * arithmetic surrogate is insufficient. NO bound; NO QED; RH open; no refereed bound is changed.
  */
 
 // --- low nontrivial zeta zeros (imaginary parts, on sigma=1/2) ---
@@ -144,7 +144,7 @@ export const ROUTE_B_HELLMANN_FEYNMAN = Object.freeze({
     + 'whose raw prime truncation DIVERGES and whose sign FLIPS with the cutoff; deciding it needs the '
     + 'analytically-continued -zeta’/zeta (Coulomb-regularized), re-importing the transcendental input.',
   verdict: 'FIXED-POINT-YES / STABILITY-OPEN',
-  note: 'Derivation + measurement only; no bound; RH open; PT Lambda<=0.2 SOTA; NO QED.',
+  note: 'Derivation + measurement only; no bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const ROUTE_B_HELLMANN_FEYNMAN_ASSERTIONS = Object.freeze([

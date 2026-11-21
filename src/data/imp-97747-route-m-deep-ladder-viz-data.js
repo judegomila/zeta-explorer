@@ -58,7 +58,7 @@ export const IMP97747_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every ladder value, rise index, and slope estimate is reused verbatim ' +
     'from imp-97722 (an independent cross-check, not a new computation). MCM stays refuted from ' +
-    'omega=11; no bound moved; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'omega=11; no bound moved; no refereed bound is changed; RH open; NO QED.',
   banner: IMP97722_HONEST_BANNER,
 });
 

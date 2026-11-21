@@ -16,14 +16,14 @@
  * WHAT REMAINS OPEN. The sign S(b) < 0 itself stays MEASURED (S/(phi(b) b) -> -0.0795), not proved.
  * The irreducible input is unchanged: a SIGNED shifted-divisor estimate over the GROWING shift range
  * r up to ~a/2 (imp-97287 sub-gap, the direct-line twin of the imp-97181 odd inverse-map bias), not a
- * fixed band. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * fixed band. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97314-route-m-cotangent-smallr-family-dominance-obstruction.js (source of every verdict flag below)
  * @see imp-97287-route-m-cotangent-signed-half-residue-resonance-decomposition.js (exact decomposition; small-shift negativity)
  * @see imp-97226-route-m-cotangent-cancellation-ratio-ladder.js (S/(phi b b) -> -0.0795 measured)
  *
  * Ticket: imp-97339 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97314_DEFAULT, { IMP97314_VERDICT, IMP97314_MEASURED } from './imp-97314-route-m-cotangent-smallr-family-dominance-obstruction.js';
@@ -50,8 +50,8 @@ export const IMP97339_HONEST_BANNER =
   'o(b^2) = o(|S(b)|) and its share -> 0 -- no finite band can settle the sign. This sharpens the ' +
   'imp-97287 measured share decrease into a rigorous growth-order obstruction. The sign S(b) < 0 ' +
   'stays MEASURED, not proved; the irreducible input remains a signed shifted-divisor estimate over ' +
-  'the GROWING shift range, not a fixed band. No bound on Lambda moves; PT Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'the GROWING shift range, not a fixed band. No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97339_ASSERTIONS = [
@@ -77,9 +77,9 @@ const IMP97339_ASSERTIONS = [
       IMP97339_STATUS.rhResolved === false &&
       IMP97339_STATUS.qed === false &&
       /NO QED/.test(IMP97339_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97339_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97339_HONEST_BANNER) &&
       /RH open/.test(IMP97339_HONEST_BANNER),
-    why: 'documentation only: strategy refutation recorded, sign itself left unproved, no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: strategy refutation recorded, sign itself left unproved, no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

@@ -50,7 +50,7 @@
  * MEASUREMENT ONLY. This tabulates the imp-33706 tower exponents; it establishes no bound, no
  * operator positivity, discharges no obligation. The open-residual tower H3 (curvature) and H4
  * (strip-height uniformity) stay OPEN, G6a_shock_lipschitz stays OPEN; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33706-selection-catalogue-count-scoping (the analytic tower exponents 1/4, 3/4, 5/4 this MEASURES)
  * @see imp-33645-h3-curvature-divergence-scoping (H3 curvature member, eps^{-5/2}, N-exponent 5/4)
@@ -191,7 +191,7 @@ export const IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT = {
     '(~3.16x per decade). MEASUREMENT ONLY: establishes no bound, no operator positivity, discharges ' +
     'no obligation; the H3 curvature and H4 strip-height-uniformity residuals stay OPEN, ' +
     'G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33706-selection-catalogue-count-scoping (the analytic tower exponents 1/4, 3/4, 5/4 measured here); ' +
     'imp-33645-h3-curvature-divergence-scoping (H3 curvature, eps^{-5/2}, N-exponent 5/4); ' +
@@ -240,14 +240,14 @@ export const IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT_ASSERTIONS = [
       Math.abs(H3_SEL_SEPARATION_EXPONENT - 1.0) < 1e-10,
   },
   {
-    // Honesty gate: measurement only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33746-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT.isRigorous === false &&
       /NO QED/.test(IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT.verdict) &&
       /stays OPEN/.test(IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33746_GOVERNING_EXPONENT_N_LADDER_MEASUREMENT.verdict),
   },
 ];

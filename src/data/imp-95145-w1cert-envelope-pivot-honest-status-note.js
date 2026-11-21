@@ -8,7 +8,7 @@
  * imp-95210 in full.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@ export const IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE = {
     'HONEST-STATUS NOTE (documentation, not a new claim). The imp-95210 envelope pivot is REFUTED at both ' +
     'the slack and the scale/rigor level; the only live path to a window-1 certificate is the imp-95213 ' +
     'tier-P/B/S batching, already built and slice-certified. Ports nothing; measures nothing new; changes ' +
-    'no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95210-window1-pilot-certificate (envelope pivot refutation, RESIDUAL_OPTIONS); ' +
     'imp-95213-tier-certifier-build (the tier-P/B/S live path, built + validated + priced).',
@@ -115,13 +115,13 @@ export const IMP95145_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95145-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE.verdict) &&
       /not a new claim/.test(IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE.verdict) &&
       /NO QED/.test(IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE.verdict) &&
-      /remains SOTA/.test(IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE.verdict),
+      /refereed bound is changed/i.test(IMP95145_W1CERT_ENVELOPE_PIVOT_HONEST_STATUS_NOTE.verdict),
   },
 ];
 

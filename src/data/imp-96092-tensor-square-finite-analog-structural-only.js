@@ -75,7 +75,7 @@
  * order = m => excess = m/2 scaling for m > 2 is the structural expectation from
  * the m-fold self-convolution (cited from Kurokawa-Koyama at m = 2, not
  * re-derived for m > 2). Assessment only; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Route J stays NOT-A-LEVER.
+ * no refereed bound is changed; Route J stays NOT-A-LEVER.
  *
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (ROUTE_J engine iii; RES-96072 named residual)
  */
@@ -117,7 +117,7 @@ export const IMP96092_TENSOR_SQUARE_FINITE_ANALOG = {
     },
   ],
   verdict:
-    'STRUCTURAL-ONLY. The two natural computable finite analogs bifurcate and NEITHER is a partial: (A) the faithful F_q self-product is where the bootstrap works but carries the fixed-and-divided excess 1/(2m) -> 0, NOT the Z scaling excess +m/2, so it does not model the obstruction and is exactly the analog whose transfer to Z fails; (B) a finite Z-truncation destroys the pole and the zero-free half-plane the trick consumes. The number that must move, excessOverTarget, is pinned at 1 for the Z model at EVERY m regardless of model size -- the gap is categorical (missing finite-rank H^1, Z-valued Frobenius, the self-product Spec Z x_{F1} Spec Z), not a resolution scale. RES-96072 is CONFIRMED a structural wall with no computable finite lever. Sub-gap SG-96092-finite-analog: an exotic F_1-geometry self-product (Route H) is not ruled out here. Assessment only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Route J stays NOT-A-LEVER.',
+    'STRUCTURAL-ONLY. The two natural computable finite analogs bifurcate and NEITHER is a partial: (A) the faithful F_q self-product is where the bootstrap works but carries the fixed-and-divided excess 1/(2m) -> 0, NOT the Z scaling excess +m/2, so it does not model the obstruction and is exactly the analog whose transfer to Z fails; (B) a finite Z-truncation destroys the pole and the zero-free half-plane the trick consumes. The number that must move, excessOverTarget, is pinned at 1 for the Z model at EVERY m regardless of model size -- the gap is categorical (missing finite-rank H^1, Z-valued Frobenius, the self-product Spec Z x_{F1} Spec Z), not a resolution scale. RES-96072 is CONFIRMED a structural wall with no computable finite lever. Sub-gap SG-96092-finite-analog: an exotic F_1-geometry self-product (Route H) is not ruled out here. Assessment only; changes no bound; RH open; NO QED; no refereed bound is changed; Route J stays NOT-A-LEVER.',
 };
 
 // --- self-executing internal-consistency assertions (pure closed-form arithmetic) ---
@@ -144,7 +144,7 @@ export const IMP96092_TENSOR_SQUARE_FINITE_ANALOG = {
   // honesty gates
   const v = IMP96092_TENSOR_SQUARE_FINITE_ANALOG.verdict;
   if (!/NO QED/.test(v)) throw new Error('imp-96092: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(v)) throw new Error('imp-96092: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(v)) throw new Error('imp-96092: verdict dropped the no-refereed-bound-change banner');
   if (!/SG-96092-finite-analog/.test(v)) throw new Error('imp-96092: verdict dropped the named sub-gap');
 })();
 

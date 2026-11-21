@@ -63,7 +63,7 @@
  * DERIVATION ONLY. Changes no bound; establishes no operator positivity; the collision
  * share stays GUE-conditional (imp-486, UNTOUCHED); the C_C 1/8 ansatz (imp-2642/2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; no zero verified; no RH verdict; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-96228-ushape-slope-drift-beyond-nflow (measured the (1/2,1/2,1) drift, flagged as diagnostic)
  * @see imp-96210-ushape-peak-slope-drift-location-law (measured a,b across [N_peak, N_flow])
@@ -216,8 +216,8 @@ export const IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION = {
     '(perturbing C_C by 7.3x shifts the slopes by ~1e-10); the limit is conditional ONLY through the ' +
     'GUE-conditional N^{-1/2} collision-term shape (imp-486, UNTOUCHED); the C_C 1/8 ansatz ' +
     '(imp-2642/2643) is UNTOUCHED and NOT needed; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no zero verified; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no zero verified; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96228 (measured the (1/2,1/2,1) drift, flagged as diagnostic); imp-96210 (measured a,b on ' +
     '[N_peak,N_flow]); imp-96187 (location law); imp-486 (C_mb GUE-conditional); imp-2642/imp-2643 ' +
@@ -255,14 +255,14 @@ export const IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION_ASSERTIONS = [
       LOG10N_THRESHOLD > 11 && LOG10N_THRESHOLD < 12 && INC_AT_12 > 0 && INC_AT_12 < 5e-3,
   },
   {
-    // Honesty gate: GUE-conditional derivation, no QED, PT stays SOTA.
+    // Honesty gate: GUE-conditional derivation, no QED, no refereed bound is changed.
     id: 'imp96244-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, C_C ansatz untouched, PT Lambda<=0.2 stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, C_C ansatz untouched, no refereed bound is changed',
     holds: () =>
       IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION.verdict) &&
       /UNTOUCHED/.test(IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP96244_USHAPE_SLOPE_ASYMPTOTE_DERIVATION.verdict),
   },
 ];
 

@@ -18,7 +18,7 @@
  * 14.242145 -> 13.297836, r = 1.3: 14.016839 -> 13.071303, r = 1.05:
  * 13.764502 -> 12.817538 (a ~0.94 onset drop, versus ~0.06 for each of
  * the two preceding trace-currency legs). Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 / imp-95328 / imp-95329 normalization,
  * verbatim). a = ln rho in (0, 6], b = ln r in (0, a), tau = b / a,
@@ -238,8 +238,8 @@ export const IMP95330_CHART_REFINED_PENCIL_FLOOR = {
     "every-octave onsets 14.242145 -> 13.297836 (m-and-r-uniform), " +
     "14.016839 -> 13.071303 (r = 1.3), 13.764502 -> 12.817538 " +
     "(r = 1.05). The det/tr and pair-truncation legs remain OPEN and " +
-    "bind at large rho. Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "bind at large rho. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -747,14 +747,14 @@ export const IMP95330_ASSERTIONS = [
       "the verdict and scope carry the honest labels: RIGOROUS lemma " +
       "and theorem, chart leg EXECUTED with the det/tr and truncation " +
       "legs stated OPEN, floor-only looseness recorded per rho, no " +
-      "bound change, no QED, PT SOTA",
+      "bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(REC.verdict) &&
       /EXECUTED/.test(REC.verdict) &&
       /remain OPEN/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /floor only/i.test(REC.honestScope) &&
       /named residual/.test(REC.honestScope) &&
       /model family only/.test(REC.honestScope),

@@ -60,7 +60,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34821-sigma-knee-fifth-order-v-expansion (fifth order delta_5 and the deferred beyond-fifth turn-up this tests)
  * @see imp-34797-sigma-knee-fourth-order-v-expansion (fourth order delta_4)
@@ -292,7 +292,7 @@ export const IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION = {
     'imp-34821 Richardson sub-gap), which changes no bound. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'EXTENDS imp-34821s deferred beyond-fifth turn-up test: delta_6 ~ +2.02e-15 keeps the ladder decreasing ' +
     '(r6/5 ~ 5.32e-4 < r5/4) and the first apparent rise (r7/6 ~ 1.60e-1) is a step-unstable FD-noise artifact ' +
@@ -372,15 +372,15 @@ export const IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION_ASSERTIONS = [
     holds: () => LOG10_N_CROSS > 9.5158 && LOG10_N_CROSS < 9.5161,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34836-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION.isRigorous === false &&
       IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION.farTailExponent === 0.5 &&
       typeof IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION.subGap === 'string' &&
       /NO QED/.test(IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION.verdict) &&
-      /remains SOTA/.test(IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION.verdict),
+      /refereed bound is changed/i.test(IMP34836_SIGMA_KNEE_SIXTH_SEVENTH_ORDER_V_EXPANSION.verdict),
   },
 ];
 

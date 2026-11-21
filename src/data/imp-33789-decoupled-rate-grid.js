@@ -55,8 +55,8 @@
  *   contour carries NO RH verdict; it merely quantifies how far the inadmissible pass/shear
  *   decoupling lever must reach to push ||R|| through unity. K_a >= 0 was NOT attempted;
  *   imp-3066 / imp-33704 / imp-33725 / imp-33765 / G7 remain UNTOUCHED as proofs; positivity
- *   was not attempted; this is not a proof or a reduction; Platt-Trudgian Lambda &lt;= 0.2
- *   REMAINS the rigorous SOTA. No false QED.
+ *   was not attempted; this is not a proof or a reduction; no refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: the orthogonal-lever probe)
  *   @see imp-33725-g7-obstruction-a-scaling.js (imp-33725: the a-scaling one-dimensionality)
@@ -232,7 +232,7 @@ export const IMP33789_DECOUPLED_RATE_GRID = Object.freeze({
     'ratio s_b*/s_a is ALWAYS > 1 (the inadmissible decoupling must push the pass rate above the ' +
     'shear rate to soften ||R|| below unity) and SHRINKS monotonically as the shear stiffens: ' +
     '2.526 (s_a=1) -> 1.592 (s_a=3) -> 1.216 (s_a=8), approaching but never reaching parity. ' +
-    'Diagnostic device (breaks the exponential shear, per imp-33765); no RH verdict; PT 0.2 SOTA.',
+    'Diagnostic device (breaks the exponential shear, per imp-33765); no RH verdict; no refereed bound is changed.',
 
   construction: Object.freeze({
     degree: DEG,
@@ -281,7 +281,7 @@ export const IMP33789_DECOUPLED_RATE_GRID = Object.freeze({
     didNotAttemptKaNonnegativity: true,
     didNotAttemptPositivity: true,
     carriesNoRHVerdict: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
   }),
 });
 
@@ -337,7 +337,7 @@ export const IMP33789_DECOUPLED_RATE_GRID_ASSERTIONS = [
     why: 'Mandatory honesty: this is a REPRESENTATIVE measurement / diagnostic, the decoupled probe ' +
          'is a diagnostic device (not an admissible imp-3066 modification), ||R|| carries no RH ' +
          'verdict, imp-3066 / imp-33725 / imp-33765 / G7 are untouched, K_a >= 0 and positivity were ' +
-         'not attempted, it is not a proof or a reduction, and PT 0.2 stays SOTA.',
+         'not attempted, it is not a proof or a reduction, and no refereed bound is changed.',
     holds: () => {
       const c = IMP33789_DECOUPLED_RATE_GRID.honestCaveat;
       return (
@@ -352,7 +352,7 @@ export const IMP33789_DECOUPLED_RATE_GRID_ASSERTIONS = [
         c.didNotAttemptKaNonnegativity === true &&
         c.didNotAttemptPositivity === true &&
         c.carriesNoRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

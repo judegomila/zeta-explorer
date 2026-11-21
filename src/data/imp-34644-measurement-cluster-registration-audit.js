@@ -52,7 +52,7 @@ export const MEASUREMENT_CLUSTER_REGISTRATION_AUDIT = {
   statusGapsFound: CLUSTER.filter((m) => m.queueStatus !== 'completed').map((m) => m.ticket),
   registrationGapsFound: CLUSTER.filter((m) => !m.hasExactlyOneRegistration).map((m) => m.ticket),
   missingFilesFound: CLUSTER.filter((m) => !m.filesExist).map((m) => m.ticket),
-  honest: 'AUDIT: confirms all 8 imp-34606..imp-34613 tickets are status:completed in improvement-queue.js, each has exactly one improvements.js registration with a distinct log id, and every files[] entry referenced by those registrations exists on disk. No gap found (unlike the imp-34624 precedent and the imp-34643 sibling audit, which each found run-assertions.mjs wiring gaps). No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  honest: 'AUDIT: confirms all 8 imp-34606..imp-34613 tickets are status:completed in improvement-queue.js, each has exactly one improvements.js registration with a distinct log id, and every files[] entry referenced by those registrations exists on disk. No gap found (unlike the imp-34624 precedent and the imp-34643 sibling audit, which each found run-assertions.mjs wiring gaps). No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const MEASUREMENT_CLUSTER_REGISTRATION_AUDIT_ASSERTIONS = [
@@ -85,9 +85,9 @@ export const MEASUREMENT_CLUSTER_REGISTRATION_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34644-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(MEASUREMENT_CLUSTER_REGISTRATION_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(MEASUREMENT_CLUSTER_REGISTRATION_AUDIT.honest),
+      && /refereed bound is changed/i.test(MEASUREMENT_CLUSTER_REGISTRATION_AUDIT.honest),
   },
 ];
 

@@ -16,8 +16,7 @@
  * SCOPING / ASSESSMENT ONLY. Certifies nothing; bounds no truncation error;
  * integrates no flow; verifies no inequality; discharges no obligation; changes no
  * bound; establishes no positivity; C_mb GUE-conditional (imp-486) untouched;
- * respects imp-2519 no-overclaim guard; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * respects imp-2519 no-overclaim guard; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE TWO COINCIDENT OBLIGATIONS DO LOCALIZE AT THE imp-362 WITNESS N
  * -----------------------------------------------------------------------------
@@ -86,7 +85,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36192 / imp-36193) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 ordinate count anchor at T_PT (target N-uniform scale)
 
@@ -199,7 +198,7 @@ export const IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE = {
     'witness N but STILL front-vacuous as delta -> 0 at t_c and NOT N-uniform. Certifies nothing; bounds no ' +
     'truncation error; integrates no flow; verifies no inequality; discharges no obligation; changes no ' +
     'bound; establishes no positivity; C_mb GUE-conditional (imp-486) untouched; respects imp-2519; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36192 (parent five-ingredient I1-I5 G-step-error scope); imp-36193 (companion G-interval-enclosure ' +
     'N-uniform lift); lambda-roadmap.js Step-2 rigorousUpgradeGap (G-step-error / G-gronwall / ' +
@@ -258,9 +257,9 @@ export const IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE_ASSERTIONS = [
   },
   {
     // Honesty gate: scoping only; discharges no obligation; front-vacuous / not-N-uniform stated;
-    // no bound moved; no QED; PT SOTA.
+    // no bound moved; no QED; no refereed bound is changed.
     id: 'imp36213-honesty-gate',
-    description: 'Scoping only; discharges no obligation; still front-vacuous / not N-uniform; no QED; PT SOTA',
+    description: 'Scoping only; discharges no obligation; still front-vacuous / not N-uniform; no QED; no refereed bound is changed',
     holds: () =>
       IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -268,7 +267,7 @@ export const IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE_ASSERTIONS = [
       /NOT N-uniform/.test(IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE.conclusion.finiteButNotUniformAndFrontVacuous) &&
       /changes NO Lambda bound/.test(IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE.conclusion.noBoundMovesOnItsOwn) &&
       /NO QED/.test(IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36213_STEP2_G_STEP_ERROR_LOCALIZED_WITNESS_SCOPE.verdict),
   },
 ];
 

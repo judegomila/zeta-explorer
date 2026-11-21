@@ -15,7 +15,7 @@
  *
  *   Ticket: imp-35665 (ux, medium). Presentation only of an already-established assessment; adds no
  *   new Lambda bound. Discharges nothing; imp-35556a/imp-35337a stay OPEN. C_mb GUE-conditional per
- *   imp-486 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-486 UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 import { IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY } from './imp-35556-gtrue-ecoll-dimensional-comparability.js';

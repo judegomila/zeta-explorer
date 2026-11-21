@@ -79,7 +79,7 @@
  *   growing in N)
  *
  * Ticket: imp-95320 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95285).
@@ -134,8 +134,8 @@ export const IMP95320_LAG_ENV_CONCEPT_NOTE = Object.freeze({
     'e^(-y/2), why that collapse is conditional on y >= Y0 (vacuous ' +
     'below it), and why the threshold turns out not to be the binding ' +
     'slack at the fed certificates own crossing points. Establishes ' +
-    'nothing new; fires no certificate; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95285-n-per-octave-split-instantiation.js (LEMMA LAG-ENV, ' +
     'Y0(N, R) threshold, COROLLARY EV-OCT-N-UNIF); ' +
@@ -255,11 +255,10 @@ export const IMP95320_LAG_ENV_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95320-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95320_LAG_ENV_CONCEPT_NOTE.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP95320_LAG_ENV_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95320_LAG_ENV_CONCEPT_NOTE.verdict) &&
       IMP95320_LAG_ENV_CONCEPT_NOTE.glosses === 'imp-95285' &&
       IMP95320_LAG_ENV_CONCEPT_NOTE.scopes ===
         'LEMMA LAG-ENV: L_k(-z) <= e^(2 sqrt(kz)); threshold Y0(N, R) for ' +

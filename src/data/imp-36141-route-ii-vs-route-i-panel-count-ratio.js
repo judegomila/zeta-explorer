@@ -21,7 +21,7 @@
  *   (~0.9742, -2.58% width), turning the imp-36054 word "marginal" into a figure.
  *
  *   Ticket: imp-36141 (numerical, medium). Measurement only; certifies no cap; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-35988-i2-derivative-cap-route-comparison.js (source of the frequency-floor numbers)
  *   @see imp-36054-route-i-tighter-than-route-ii-honest-status.js (the qualitative verdict quantified here)
@@ -84,7 +84,7 @@ export const IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO = Object.freeze({
     certifiesI2Cap: false,
     changesAnyBound: false,
     ratioIsFrequencyFloorLowerBound: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -93,7 +93,7 @@ export const IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO = Object.freeze({
     '(+2.65% panels), equivalently a panel-width ratio L_II/L_I ~ 0.9742 (~2.58% narrower panels), ' +
     'is an EXACT lower bound on the full ratio (the two remaining same-signed axes push it higher but ' +
     'keep it within a few percent). Measurement only; certifies no cap; changes no bound; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
 });
 
 export const IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO_ASSERTIONS = [
@@ -145,11 +145,11 @@ export const IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO_ASSERTIONS = [
       IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO.honestCaveat.certifiesDerivativeBoundB === false &&
       IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO.honestCaveat.certifiesI2Cap === false &&
       IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO.honestCaveat.sota),
   },
   {
     id: 'imp36141-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36141_ROUTE_II_VS_ROUTE_I_PANEL_COUNT_RATIO.verdict),
   },
 ];

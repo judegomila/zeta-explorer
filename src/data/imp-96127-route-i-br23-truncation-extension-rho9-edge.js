@@ -3,7 +3,7 @@
  * decide whether the flagged rho = 9 edge OVERSHOOT of the Route I Sonine-excess out-fraction
  * (f_out(9) = 0.8923 at L = 20 vs 1 - 1/rho = 0.8889, i.e. ABOVE the law) is a real feature or a
  * truncation artifact. Directly addresses SG-96126-truncation-window (imp-96126: "needs br23 pushed
- * past L = 20, imp-96127 territory"). Measurement only. RH open; PT Lambda <= 0.2 stands; NO QED.
+ * past L = 20, imp-96127 territory"). Measurement only. RH open; no refereed bound is changed; NO QED.
  *
  * SETUP. imp-96110 measures the incremental out-fraction f_out(rho; Jlo, Jhi) = (delta^out_23
  *  increment)/(delta_S23 increment) across a dyadic eps-window eps = 2^{-J} approaching each S-unit
@@ -49,7 +49,7 @@
  *  the deepest clean window (Jhi = 28), consistent with imp-96126's bracket accuracy; corr23 continuity
  *  is still assumed by analogy with p = 2 (imp-96125 reduced but did not fully discharge it); the p = 2
  *  control is unchanged (br2 does not depend on L). Nothing here moves a Lambda bound or verified
- *  height. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  height. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light (reuses the imp-96110 br23 / delta exports only; no zeros bundle). Assertions recompute
  * the pinned-window overshoot at L = 20 and the safe-window from-below approach at L = 32 (~0.5 s).
@@ -91,7 +91,7 @@ export const IMP_96127_BR23_TRUNCATION_EXTENSION = Object.freeze({
     'src/data/imp-96110-route-i-p3-cusp-allocation-fixed-fraction-assessment.js (br23 at L = 20; rho = 9 edge overshoot flagged)',
     'src/data/imp-96126-route-i-fout-richardson-extrapolation-limit.js (SG-96126-truncation-window: needs br23 past L = 20)',
   ],
-  status: 'MEASURED — the imp-96110 rho = 9 overshoot (f_out = 0.8923 > 1 - 1/9 = 0.8889 at L = 20) is a TRUNCATION-EDGE ARTIFACT, not a real breach. (a) Pinning the outer eps to 4x the truncation floor (Jhi = L - 2) REPRODUCES and GROWS the overshoot at every L (0.89226 / 0.89666 / 0.89818 / 0.89968 at L = 20 / 24 / 28 / 30) -- the overshoot tracks the protocol, not the cusp. (b) Keeping the window >= 16x above a deeper floor (L = 32, window (j, j+4), Jhi <= 28) puts rho = 9 -- and rho = 8/3, 16/9, 6, 3 -- strictly BELOW 1 - 1/rho with a deficit that shrinks MONOTONICALLY as eps -> 0 (rho = 9: 3.64e-2 -> 8.56e-3). So the imp-96110 law f_out(rho) -> 1 - 1/rho from below holds uniformly across the {oo,2,3} S-units and the rho = 9 honest-limit caveat is removed. The slow log^2-cusp rate (no rigorous extrapolated limit) is the unchanged SG-96126-truncation-window residual. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'MEASURED — the imp-96110 rho = 9 overshoot (f_out = 0.8923 > 1 - 1/9 = 0.8889 at L = 20) is a TRUNCATION-EDGE ARTIFACT, not a real breach. (a) Pinning the outer eps to 4x the truncation floor (Jhi = L - 2) REPRODUCES and GROWS the overshoot at every L (0.89226 / 0.89666 / 0.89818 / 0.89968 at L = 20 / 24 / 28 / 30) -- the overshoot tracks the protocol, not the cusp. (b) Keeping the window >= 16x above a deeper floor (L = 32, window (j, j+4), Jhi <= 28) puts rho = 9 -- and rho = 8/3, 16/9, 6, 3 -- strictly BELOW 1 - 1/rho with a deficit that shrinks MONOTONICALLY as eps -> 0 (rho = 9: 3.64e-2 -> 8.56e-3). So the imp-96110 law f_out(rho) -> 1 - 1/rho from below holds uniformly across the {oo,2,3} S-units and the rho = 9 honest-limit caveat is removed. The slow log^2-cusp rate (no rigorous extrapolated limit) is the unchanged SG-96126-truncation-window residual. RH open; no refereed bound is changed; NO QED',
   finding: 'pinned-window control (Jhi = L - 2) reproduces the overshoot at all L -> artifact; safe-window probe (L = 32, Jhi <= 28) gives strictly-from-below, monotonically-shrinking deficits at every S-unit including rho = 9',
   resolvesSubGap: 'SG-96126-truncation-window (br23 pushed past L = 20): the rho = 9 edge is a truncation-window artifact; 1 - 1/rho confirmed from below there, matching the other units. The deeper log^2-cusp rigorous-limit sub-gap remains open',
   honestLimits: 'measurement only; monotone from-below trend at finite L, finite eps, NOT a rigorous limit (the slow log^2-cusp convergence is the unchanged imp-96126 residual; deficits stay O(10^-2) at the deepest clean L = 32 window); corr23 continuity still assumed by analogy with p = 2 (imp-96125 reduced, not discharged); p = 2 control unchanged (L-independent); nothing moves a Lambda bound or verified height; RH open; NO QED',

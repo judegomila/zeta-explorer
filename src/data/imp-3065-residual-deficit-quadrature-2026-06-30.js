@@ -50,8 +50,8 @@
  *   by an independent rule over a wider grid. The OPERATOR step (the off-diagonal
  *   endpoint-Hankel R = Gpass^{-1/2} Gshear Gpass^{-1/2} contraction, the RH-hard
  *   content) is explicitly OUT OF SCOPE and untouched. STRUCTURAL / DIAGNOSTIC,
- *   RH-EQUIVALENT, NOT a reduction, NOT a proof. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA. No false QED.
+ *   RH-EQUIVALENT, NOT a reduction, NOT a proof. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3007-mupass-overflow-cover.js (the closed-form cover + midpoint tripwire)
  *   @see imp-2686-mupass-construction.js (the cosh-completion + pointwise margin)
@@ -180,7 +180,7 @@ export const IMP3065_RESIDUAL_DEFICIT_QUADRATURE = Object.freeze({
     rhEquivalent: true,
     isStructuralDiagnostic: true,
     scalarCoverOnly: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -229,7 +229,7 @@ export const IMP3065_RESIDUAL_DEFICIT_QUADRATURE_ASSERTIONS = [
   {
     id: 'imp3065-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: this is a SCALAR cross-check, RH-EQUIVALENT, structural/diagnostic, ' +
-         'not a proof, not a reduction below RH, the operator step stays open, and PT 0.2 stays SOTA.',
+         'not a proof, not a reduction below RH, the operator step stays open, and no refereed bound is changed.',
     holds: () => {
       const c = IMP3065_RESIDUAL_DEFICIT_QUADRATURE.honestCaveat;
       return (
@@ -239,7 +239,7 @@ export const IMP3065_RESIDUAL_DEFICIT_QUADRATURE_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.scalarCoverOnly === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         IMP3065_RESIDUAL_DEFICIT_QUADRATURE.remainingGap.operatorStepOpen === true
       );
     },

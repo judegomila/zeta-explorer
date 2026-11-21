@@ -36,7 +36,7 @@
  * results into one comparison object; introduces no new cited input and no
  * new bound. Model seam family only; the imp-95212 envelope port, signed
  * WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (predicted + dual columns)
  * @see imp-95727-szego-coefficient-eigensolver-crosscheck (float64 column, delta=1,ln2)
@@ -116,7 +116,7 @@ export const IMP95773_SZEGO_COEFFICIENT_CROSSVAL_TABLE = Object.freeze({
     'results into one comparison object; introduces no new cited input and no new ' +
     'bound. Model seam family only; the imp-95212 envelope port, signed WEIGHT, and ' +
     'modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   boundChange: false,
   qed: false,
   closesTickets: ['imp-95773'],
@@ -185,7 +185,7 @@ export const IMP95773_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: 'imp95773-closes-self',

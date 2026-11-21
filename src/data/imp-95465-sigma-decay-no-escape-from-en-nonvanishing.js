@@ -64,7 +64,7 @@
  * ASSESSMENT ONLY (structural over the inherited surrogate model, which is NOT a
  * rigorous asymptotic). Changes no bound; establishes no operator positivity; the
  * C_mb / C_H GUE-conditional inputs are UNTOUCHED; imp-3066 K_a >= 0 untouched; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma peak ~9.22e5, decay-to-0)
  * @see imp-95448-ra-ladder-input-data-audit (R_A ladder INERT while imp-2621/imp-35164 stand)
@@ -170,7 +170,7 @@ export const IMP95465_SIGMA_DECAY_NO_ESCAPE = {
     'neither reachable via the height/collapse channel sigma measures. imp-2621 stays refuted, ' +
     'imp-35164 stands, the R_A ladder stays INERT (imp-95448); changes no bound; establishes no ' +
     'operator positivity; the C_mb / C_H GUE-conditional inputs are UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (sigma post-peak decay-to-0); imp-35164 (E(N) floors at E_trunc, does not ' +
     'vanish); imp-2621 (refuted amplified M_infty rate); imp-95448 (R_A ladder INERT); ' +
@@ -222,14 +222,14 @@ export const IMP95465_SIGMA_DECAY_NO_ESCAPE_ASSERTIONS = [
       /imp-35164 stands/.test(IMP95465_SIGMA_DECAY_NO_ESCAPE.verdict),
   },
   {
-    // Honesty gate: assessment only (not rigorous), imp-2621 stays refuted, no QED, PT SOTA.
+    // Honesty gate: assessment only (not rigorous), imp-2621 stays refuted, no QED, no refereed bound is changed.
     id: 'imp95465-honesty-gate-no-qed',
-    description: 'assessment only: not rigorous, imp-2621 refuted, no QED, PT stays SOTA',
+    description: 'assessment only: not rigorous, imp-2621 refuted, no QED, no refereed bound is changed',
     holds: () =>
       IMP95465_SIGMA_DECAY_NO_ESCAPE.isRigorous === false &&
       /REFUTED/.test(IMP95465_SIGMA_DECAY_NO_ESCAPE.verdict) &&
       /NO QED/.test(IMP95465_SIGMA_DECAY_NO_ESCAPE.verdict) &&
-      /remains SOTA/.test(IMP95465_SIGMA_DECAY_NO_ESCAPE.verdict),
+      /refereed bound is changed/i.test(IMP95465_SIGMA_DECAY_NO_ESCAPE.verdict),
   },
 ];
 

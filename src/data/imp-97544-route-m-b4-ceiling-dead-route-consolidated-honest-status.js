@@ -37,7 +37,7 @@
  * @see project_route_m_lower_companion_first_moment.md (memory: the still-live Route-M program)
  *
  * Ticket: imp-97544 (content, medium, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import { IMP97481_VERDICT, IMP97481_SUBGAP } from './imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js';
@@ -65,7 +65,7 @@ export const IMP97544_STATUS = Object.freeze({
 });
 
 export const IMP97544_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. CONSOLIDATED status: the Route-M b/4-ceiling ' +
+  'RH open; no refereed bound is changed; NO QED. CONSOLIDATED status: the Route-M b/4-ceiling ' +
   '(|E1(b)| <= b/4 for squarefree b) is a DEAD ROUTE -- refuted (imp-97481), with explicit ' +
   'witnesses at P0=379 (~32M digits, imp-97496), the rigorized P0=101 crossing (~1.19B digits, ' +
   'imp-97515), and the size-optimal interior witness at P0~1409 (~17.82M digits, imp-97500). The ' +
@@ -102,9 +102,9 @@ const IMP97544_ASSERTIONS = [
       IMP97544_STATUS.qed === false &&
       /DEAD ROUTE/.test(IMP97544_HONEST_BANNER) &&
       /NO QED/.test(IMP97544_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97544_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97544_HONEST_BANNER) &&
       /RH open/.test(IMP97544_HONEST_BANNER),
-    why: 'documentation only: ceiling refuted, lower edge fails, E1 not binding, kappa_arith unchanged, no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: ceiling refuted, lower edge fails, E1 not binding, kappa_arith unchanged, no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

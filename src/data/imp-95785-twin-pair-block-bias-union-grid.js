@@ -5,8 +5,7 @@
  * disagree on any shared cell.
  *
  * GRADE: measurement / tabulation only. Imports no heavy bundle; no imports at
- * all. Changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * all. Changes NO Lambda bound; NO QED; no refereed bound is changed.
  *
  * WHAT THE TWO SOURCES COVER. Both grids tabulate the SAME quantity -- the
  * finite-80 twin-pair block floor over-estimating its infinite-lattice infimum,
@@ -74,7 +73,7 @@
  * dual-reproduction and monotone stitching, NOT a repeated measurement of one
  * cell by two methods. (c) Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the delta = ln1.5 rho-sweep bias column)
  * @see imp-95762-twin-pair-block-floor-finite80-dd-eigensolver (the delta in {ln1.2, ln1.3} deep-cell biasPct)
@@ -152,7 +151,7 @@ export const IMP95785_TWIN_PAIR_BLOCK_BIAS_UNION_GRID = {
     "Tabulation / consistency-check of an established interior mechanism; no new " +
     "cited input. Model seam family only; imp-95212 envelope port, signed WEIGHT, " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95785"],
 };
 
@@ -309,7 +308,7 @@ export const IMP95785_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /UNION biasPct COLUMN ASSEMBLED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95785-closes-self",

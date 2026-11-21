@@ -58,7 +58,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33905-hump-argmax-grid-vs-continuum-reconciliation (R3 "one broad quadratic maximum" error-barred here)
  * @see imp-33878-hump-argmax-grid-refinement (the resid_exp(k) model + central-difference resid'' reused/confirmed)
@@ -262,7 +262,7 @@ export const IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33905 (R3 "one broad quadratic maximum" error-barred here); imp-33878 (resid_exp(k) model + ' +
     'central-difference resid double-prime reused and confirmed); imp-33809 (the M3 saturation-curvature ' +
@@ -309,14 +309,14 @@ export const IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR_ASSERTIONS = [
       Math.abs(PREDICTED_DROP_PCT_AT_QD - 0.141) < 0.02,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp33948-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-33905 R3, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-33905 R3, no QED, no refereed bound is changed',
     holds: () =>
       IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR.isRigorous === false &&
       /refines, does not overturn, imp-33905 R3/.test(IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR.verdict) &&
       /NO QED/.test(IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR.verdict) &&
-      /remains SOTA/.test(IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR.verdict),
+      /refereed bound is changed/i.test(IMP33948_HUMP_APEX_CURVATURE_ERROR_BAR.verdict),
   },
 ];
 

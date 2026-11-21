@@ -97,8 +97,7 @@
  * depth-only leg stays dead (imp-95224 DC-NOGO). The width-law paper
  * packets (N ~ pD at x = Theta(1)) remain uncertified. Sub-gap imp-95212
  * -subgap-fresnel-airy-envelope-port STILL OPEN; obligation (2) weight
- * leg OPEN; no Lambda bound changes; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * leg OPEN; no Lambda bound changes; NO QED; no refereed bound is changed.
  *
  * NUMERICAL RELIABILITY. All probes use shallow, well-separated,
  * well-conditioned configs (within-octave relative spacing >= 0.13, far
@@ -210,7 +209,7 @@ export const IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation (2) currency ledger: depth leg DEAD (imp-95224 DC-NOGO); COUNT leg DELIVERED and TERMINAL (imp-95225 SGN-C, imp-95226 SGN-NP); WEIGHT leg OPEN -- this module scopes it: WP-A refuted (undershoots), WP-B valid but vacuous, tapered-split weight-discounted per-factor bound OPEN; modulus/phase leg OPEN. The width-law paper packets stay uncertified.",
   verdict:
-    "ASSESSMENT (no bound derived): the signed weight port needs a NEW cross-octave composition, confirmed constructively. The naive positive-cone TVC port UNDERSHOOTS the signed operator constant (not an upper bound; long-range Cauchy coupling), and the valid coupling-aware H-inf product composition is VACUOUS under the natural pin-to-1 normalization (per-factor sup-norms blow up by orders of magnitude). The surviving lever is a tapered inner-function split whose per-factor sup-norm is discounted by the octave weight 2^(-j); no such weight-priced bound is currently known. Motivation is real -- the count leg over-prices octave-spread families by ~666000x and goes vacuous. Sub-gap STILL OPEN; obligation (2) weight leg OPEN; count leg unchanged and terminal; no Lambda bound changes; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (no bound derived): the signed weight port needs a NEW cross-octave composition, confirmed constructively. The naive positive-cone TVC port UNDERSHOOTS the signed operator constant (not an upper bound; long-range Cauchy coupling), and the valid coupling-aware H-inf product composition is VACUOUS under the natural pin-to-1 normalization (per-factor sup-norms blow up by orders of magnitude). The surviving lever is a tapered inner-function split whose per-factor sup-norm is discounted by the octave weight 2^(-j); no such weight-priced bound is currently known. Motivation is real -- the count leg over-prices octave-spread families by ~666000x and goes vacuous. Sub-gap STILL OPEN; obligation (2) weight leg OPEN; count leg unchanged and terminal; no Lambda bound changes; NO QED; no refereed bound is changed.",
   constants: {
     countB2N3X6: COUNT_B2_N3_X6,
     lambdaUnion111: LAMBDA_UNION_111,
@@ -296,7 +295,7 @@ export const IMP95133_SIGNED_WEIGHT_COMPOSITION_ASSERTIONS = [
   {
     id: "imp95133-verdict-honesty",
     description:
-      "the verdict carries the honest scope: no bound derived, WP-A refuted and WP-B vacuous, the tapered-split weight-discounted per-factor bound recorded OPEN, sub-gap STILL OPEN, count leg terminal and unchanged, no QED, SOTA preserved",
+      "the verdict carries the honest scope: no bound derived, WP-A refuted and WP-B vacuous, the tapered-split weight-discounted per-factor bound recorded OPEN, sub-gap STILL OPEN, count leg terminal and unchanged, no QED, no refereed bound is changed",
     holds: () =>
       /no bound derived/.test(
         IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING.verdict,
@@ -306,7 +305,7 @@ export const IMP95133_SIGNED_WEIGHT_COMPOSITION_ASSERTIONS = [
       /STILL OPEN/.test(IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING.subGap) &&
       /WEIGHT leg OPEN/.test(IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING.subGap) &&
       /NO QED/.test(IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING.verdict) &&
-      /remains SOTA/.test(IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING.verdict),
+      /refereed bound is changed/i.test(IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING.verdict),
   },
 ];
 

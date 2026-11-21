@@ -67,7 +67,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35534-eflow-fartail-remnant-sub1e5-crossing (the two-span note this fits, crossing 10^410.05)
  * @see imp-35473-eflow-fartail-remnant-sub1e4-crossing (the sub-1e-4 crossing 1.546e109)
@@ -230,7 +230,7 @@ export const IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT = {
     'inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness ' +
     '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent ' +
     '1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35534 (two-span note, fit here; sub-1e-5 crossing 10^410.05); imp-35473 (sub-1e-4 ' +
     'crossing 1.546e109); imp-35413 (sub-1e-3 crossing 4.17e25); imp-35552 (remnant ~ ' +
@@ -296,13 +296,13 @@ export const IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT_ASSERTIONS = 
     holds: () => SPAN_34 < SPAN_45 && SPAN_45 < SPAN_56_DIRECT,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35553-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT.isRigorous === false &&
       /NO QED/.test(IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT.verdict) &&
-      /remains SOTA/.test(IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT.verdict),
+      /refereed bound is changed/i.test(IMP35553_EFLOW_FARTAIL_REMNANT_DECADE_SPAN_GROWTH_FIT.verdict),
   },
 ];
 

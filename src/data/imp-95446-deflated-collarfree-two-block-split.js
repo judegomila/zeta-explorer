@@ -14,7 +14,7 @@
  * collar-free deflation SPLIT-DEFL, which escapes the triple by pricing
  * the deflated subspace directly -- exactly the "genuinely non-diagonal
  * bound" the sibling names as the surviving need. Changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95249 normalization). Disjoint finite rate sets
  * V1, V2 of positive reals, E_V = span{e^(-nu t)} in L2(0, inf), Cauchy
@@ -216,7 +216,7 @@ export const IMP95446_DEFLATED_COLLARFREE_TWO_BLOCK_SPLIT = {
     "imp-95378 nearby-cluster collar wedge is CLOSED at the two-block " +
     "level (measured MIN/exact 5.57e10 vs SPLIT-DEFL/exact 1.0003 at gap " +
     "1e-3); the multi-block composition residual stays OPEN. Changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -596,7 +596,7 @@ export const IMP95446_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: RIGOROUS theorems, " +
       "wedge closed at the TWO-BLOCK level only, multi-block residual " +
-      "OPEN, no bound change, no QED, PT SOTA",
+      "OPEN, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(IMP95446_DEFLATED_COLLARFREE_TWO_BLOCK_SPLIT.verdict) &&
       /two-block level/.test(
@@ -607,7 +607,7 @@ export const IMP95446_ASSERTIONS = [
         IMP95446_DEFLATED_COLLARFREE_TWO_BLOCK_SPLIT.verdict,
       ) &&
       /NO QED/.test(IMP95446_DEFLATED_COLLARFREE_TWO_BLOCK_SPLIT.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95446_DEFLATED_COLLARFREE_TWO_BLOCK_SPLIT.verdict,
       ) &&
       /NAMED RESIDUAL/.test(

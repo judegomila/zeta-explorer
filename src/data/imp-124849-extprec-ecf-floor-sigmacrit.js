@@ -59,7 +59,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only symbolically as differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124810-bisection-tol-roundoff-floor-sweep (the R_inf~4.46e-13 / sigma_crit~0.013 dp pin re-measured here)
  * @see imp-124808-extprec-pairratio-two-axis (the mpmath dps/eps two-axis method mirrored)
@@ -152,7 +152,7 @@ export const IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT = {
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned ' +
     'E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed only symbolically as differentiation ' +
     'axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-124810 (the R_inf~4.46e-13 / sigma_crit~0.013 double-precision pin re-measured here at extended precision); ' +
     'imp-124808 (the mpmath dps/eps two-axis method mirrored); imp-124769 (the E_CF round-off crossover model); ' +
@@ -209,13 +209,13 @@ export const IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT_ASSERTIONS = [
       Math.abs(EXTPREC_FLOOR.sigma_crit - L5_SIGMA) < 1e-3,
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp124849-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/sensitivity only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT.isRigorous === false &&
       /NO QED/.test(IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT.verdict) &&
-      /remains SOTA/.test(IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT.verdict),
+      /refereed bound is changed/i.test(IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT.verdict),
   },
 ];
 

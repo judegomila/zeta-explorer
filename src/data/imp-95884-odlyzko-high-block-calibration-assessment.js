@@ -70,7 +70,7 @@
  * multi-decade extrapolation that also risks breaking the upper-envelope property. So
  * Odlyzko high blocks CONFIRM the falling trend but CANNOT tighten r_cap(3e12). Assessment
  * only; changes no bound; NO QED; the zero-side route stays PCC / GRH-gated;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The r_cap closed forms and the six
  * imp-95710 / imp-95562 measured sd(C - E) literals are recomputed here exactly as
@@ -196,7 +196,7 @@ export const IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT = {
     'unwarranted multi-decade extrapolation that also risks breaking the upper-envelope property. ' +
     'High blocks therefore CONFIRM the falling trend (r toward 0, not toward the naive-GUE r = 1) ' +
     'but CANNOT tighten r_cap(3e12). Changes no bound; NO QED; the zero-side route stays ' +
-    'PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95722 (r_cap envelope, C0 finite-height offset, r_cap(3e12) ~ 0.26); imp-95863 (flagged ' +
     'the high-block overshoot; r_cap the only in-repo lever to 3e12); imp-95710 / imp-95562 ' +
@@ -235,13 +235,13 @@ export const IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT = {
     throw new Error('imp-95884: Selberg shape move over the overshoot must be small (~19.5 pct)');
   if (!approx(selbergShapeMove.overshootDecades3e12to1e23, 10.52, 5e-2))
     throw new Error('imp-95884: 3e12->1e23 overshoot must be ~10.52 decades');
-  // honesty gates: assessment only, no QED, PT stays SOTA.
+  // honesty gates: assessment only, no QED, no refereed bound is changed.
   if (IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT.isRigorous !== false)
     throw new Error('imp-95884: isRigorous must be false');
   if (!/NO QED/.test(IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT.verdict))
     throw new Error('imp-95884: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT.verdict))
-    throw new Error('imp-95884: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT.verdict))
+    throw new Error('imp-95884: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95884_ODLYZKO_HIGH_BLOCK_CALIBRATION_ASSESSMENT;

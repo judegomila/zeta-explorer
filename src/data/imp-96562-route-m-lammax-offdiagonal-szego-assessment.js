@@ -80,7 +80,7 @@
  * frozen at I(1,1)), so what is open is specifically the leading log-coefficient of the
  * top eigenvalue of the multiplicative Vasyunin operator -- a multiplicative-Toeplitz
  * spectral-EDGE growth rate with no available Szego analog, not a generic off-diagonal
- * asymptotic. Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open.
+ * asymptotic. Changes no bound; no operator positivity; no refereed bound is changed; RH open.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (names the sub-gap this assesses)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (the measured lam_max / trace ladder)
@@ -206,7 +206,7 @@ export const IMP96562_VERDICT = Object.freeze({
     'the imp-96548 sub-gap: the entire coefficient lives in the off-diagonal mass (diagonal ' +
     'ceiling frozen at I(1,1)), so the open piece is specifically the spectral-edge growth ' +
     'rate of the multiplicative Vasyunin operator, with no available Szego analog. Changes no ' +
-    'bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96562_SUBGAP = Object.freeze({
@@ -221,7 +221,7 @@ export const IMP96562_SUBGAP = Object.freeze({
 });
 
 export const IMP96562_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the off-diagonal split is ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the off-diagonal split is ' +
   'pure re-analysis of the imp-96443 lam_max / trace ladder (diag(G) ceiling = G_11 = I(1,1)); ' +
   'the Szego assessment is structural (multiplicative not additive-Toeplitz; log-divergent ' +
   'edge). No bound is claimed moved and no operator positivity is established.';
@@ -269,7 +269,7 @@ const IMP96562_ASSERTIONS = [
       IMP96562_VERDICT.anyBoundMoved === false &&
       IMP96562_VERDICT.offDiagCarriesEntireSlope === true &&
       /NO QED/.test(IMP96562_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96562_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96562_HONEST_BANNER) &&
       /RH open/.test(IMP96562_HONEST_BANNER) &&
       /multiplicative-edge-growth-rate/.test(IMP96562_SUBGAP.id),
     why: 'assessment only: no bound moved, the off-diagonal localization is recorded, the honesty markers and the sharpened multiplicative-edge sub-gap are present.',

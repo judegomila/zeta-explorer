@@ -628,7 +628,7 @@ export const DYSON_BURGERS_SHOCK = {
     'The per-N bound is therefore CONDITIONAL. Route A (imp-336 monotonicity) ' +
     'remains blocked by G1-sub-extremal. Candidate (i) (imp-337) remains ' +
     'modulo G3_density / G4_argmin_drift. No Λ bound, no RH claim, NO QED; ' +
-    'Platt-Trudgian Λ ≤ 0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
   openWork: [
     'Obtain a tight per-N explicit upper bound on |t_c(N)|: the 2π / log²(γ_N / 2π) ' +
       'surrogate is a loose envelope; closing this requires imp-336 drift-sign ' +

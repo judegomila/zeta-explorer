@@ -19,7 +19,7 @@
 // SCOPE: tooling/consistency-check only. No zero is verified, no new T_PT is
 // claimed, the rigorous bound stays E_trunc = 3.06e-5, and C_mb stays
 // GUE-conditional per imp-486. Changes no bound; no RH claim; NO QED.
-// Platt-Trudgian Lambda <= 0.2 remains SOTA; RH OPEN.
+// No refereed bound is changed; RH OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes
 // inside single-quoted strings; no star-slash in any comment.
@@ -85,8 +85,8 @@ export const IMP96303_ETRUNC_BASELINE_CROSS_MODULE_TRIPWIRE = {
     'assertion instead of silently splitting the display columns. No zero ' +
     'is verified, no new T_PT is claimed, the rigorous bound stays ' +
     'E_trunc = 3.06e-5, and C_mb stays GUE-conditional per imp-486. ' +
-    'Changes no bound; no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; RH OPEN.',
+    'Changes no bound; no RH claim; NO QED. No refereed bound is changed' +
+    '; RH OPEN.',
   citation:
     'imp-96246 (found the isolated-tripwire gap); imp-2322 (computed ' +
     'reference etruncPtBaseline); imp-96185 (imports the full value); ' +
@@ -113,13 +113,13 @@ export const IMP96303_ETRUNC_BASELINE_CROSS_MODULE_TRIPWIRE_ASSERTIONS = [
     holds: () => Math.abs(REFERENCE_BASELINE - 3.063887e-5) < 1e-10,
   },
   {
-    // Honesty gate: meta/tooling only, no QED, PT stays SOTA.
+    // Honesty gate: meta/tooling only, no QED, no refereed bound is changed.
     id: 'imp96303-honesty-gate-no-qed',
-    description: 'Meta consistency check only, no QED, PT stays SOTA',
+    description: 'Meta consistency check only, no QED, no refereed bound is changed',
     holds: () =>
       IMP96303_ETRUNC_BASELINE_CROSS_MODULE_TRIPWIRE.isRigorous === false &&
       /NO QED/.test(IMP96303_ETRUNC_BASELINE_CROSS_MODULE_TRIPWIRE.verdict) &&
-      /remains SOTA/.test(IMP96303_ETRUNC_BASELINE_CROSS_MODULE_TRIPWIRE.verdict),
+      /refereed bound is changed/i.test(IMP96303_ETRUNC_BASELINE_CROSS_MODULE_TRIPWIRE.verdict),
   },
 ];
 

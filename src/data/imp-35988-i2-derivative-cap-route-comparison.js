@@ -19,7 +19,7 @@
  *
  * ASSESSMENT / DERIVATION-OF-ORDERING ONLY. Certifies no cap; instantiates no enclosure;
  * evaluates no H_t or H_t prime; budgets no C_t prime; fixes no Cauchy radius r; changes no
- * bound; imp-35337a OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; imp-35337a OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE COMPARISON (three structural sources of Route-II slack, all in the SAME direction)
  * -----------------------------------------------------------------------------
@@ -77,7 +77,7 @@
  * fixes no Cauchy radius r, Delta, or h; lower-bounds no delta; establishes no positivity;
  * certifies no non-vanishing; I2 remains GREENFIELD downstream of W1; changes no bound;
  * imp-35337a OPEN; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35832-i2-derivative-bound-from-i1-enclosure-scope (named the two routes, OOM-consistent only)
  * @see imp-35845-d2-differentiated-truncation-cap-amplification (route I sharp constant A_amp = log N = w - (1/2)log2)
@@ -89,7 +89,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35832 / imp-35845 / imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this comparison
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this comparison
 const TWO_PI = 2 * Math.PI;
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777).
@@ -186,7 +186,7 @@ export const IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON = {
     'Certifies no cap; instantiates no enclosure (I1); evaluates no H_t or H_t prime; budgets no C_t prime; ' +
     'produces no numeric B; fixes no Cauchy radius r; lower-bounds no delta; establishes no positivity; ' +
     'certifies no non-vanishing; I2 remains GREENFIELD downstream of W1; changes no bound; imp-35337a OPEN; ' +
-    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35832 (named the two routes, OOM-consistent only); imp-35845 (route I sharp constant A_amp = log N = ' +
     'w - (1/2)log2 ~ 13.10); imp-35777 (I2 cap L_panel . (B/delta) < pi, B = sup|H_t prime|); imp-35725 ' +
@@ -237,16 +237,16 @@ export const IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON_ASSERTIONS = [
       /MARGINAL/.test(IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.panelCost),
   },
   {
-    // Honesty gate: assessment only, no cap, no enclosure, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: assessment only, no cap, no enclosure, no QED, no refereed bound is changed.
     id: 'imp35988-honesty-gate-no-qed',
-    description: 'Assessment only; certifies no cap; instantiates no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Assessment only; certifies no cap; instantiates no enclosure; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no cap/i.test(IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.verdict) &&
       /instantiates no enclosure/.test(IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.verdict) &&
       /NO QED/.test(IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.verdict) &&
-      /remains SOTA/.test(IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.verdict),
+      /refereed bound is changed/i.test(IMP35988_I2_DERIVATIVE_CAP_ROUTE_COMPARISON.verdict),
   },
   {
     // Honesty gate: verdict names Route I as tighter and keeps the greenfield/imp-35337a-open caveats.

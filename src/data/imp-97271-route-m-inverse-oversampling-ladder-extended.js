@@ -5,7 +5,7 @@
  * magnitude past b=4001 (to b=64001) to test whether the oversampling factor OVR(b) has genuinely
  * plateaued (not slowly climbing), to locate the sqrt(M2w) and M2w asymptotes, and to size the margin
  * of M2w to the sqrt-target-derived ceiling M2w < kappa_arith^2 = 0.32546. Measurement only; OVR ~1.25
- * and M2w stay measured; no rigorous ceiling produced; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * and M2w stay measured; no rigorous ceiling produced; no bound moved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97225 / imp-97203).
@@ -51,7 +51,7 @@
  * transfer target is a bounded ~1.25 constant with ample CS headroom at every measured scale to b=64001.
  * STAYS OPEN: the transfer itself (a Kloosterman-type inverse-map equidistribution of the full-residue
  * Bettin-Conrey second moment) is still not proved -- OVR ~1.25 and M2w ~0.174 stay MEASURED, not certified.
- * No rigorous ceiling on M2w or c_1 is produced. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No rigorous ceiling on M2w or c_1 is produced. No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97225-route-m-inverse-oversampling-ratio-ladder.js (parent: OVR ~1.25 to b=4001)
  * @see imp-97203-route-m-cotangent-absvalue-first-moment-cauchy-schwarz.js (grandparent: c_1 <= sqrt(M2w))
@@ -150,11 +150,11 @@ export const IMP97271_VERDICT = Object.freeze({
     'ceiling kappa_arith^2 = 0.32546. c_1 stays flat at ~0.294. So the residual ' +
     'second-moment-inverse-equidistribution transfer has a bounded ~1.25 constant target with ample CS ' +
     'headroom at every measured scale to b=64001. The transfer itself stays unproved; OVR ~1.25 and ' +
-    'M2w ~0.174 are MEASURED, not certified. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'M2w ~0.174 are MEASURED, not certified. No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97271_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: extending the imp-97225 inverse-line ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: extending the imp-97225 inverse-line ' +
   'ladder past b=4001 to b=64001 confirms OVR(b) = M2w / E_h[(c_0/a)^2] has genuinely plateaued at ~1.254 ' +
   '(no climb over the extra decade), sqrt(M2w) ~0.417 stays ~1.37x below kappa_arith = 0.5705, and M2w ~0.174 ' +
   'holds ~1.87x below the sqrt-target-derived ceiling kappa_arith^2 = 0.32546. The equidistribution transfer ' +
@@ -211,7 +211,7 @@ const IMP97271_ASSERTIONS = [
       IMP97271_VERDICT.qed === false &&
       IMP97271_MEASURED.drifts === false &&
       /NO QED/.test(IMP97271_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97271_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97271_HONEST_BANNER) &&
       /RH open/.test(IMP97271_HONEST_BANNER),
     why: 'measurement only: OVR plateaued ~1.25 with no climb over the extra decade and M2w below the sqrt-target ceiling throughout; the transfer stays unproved, no bound moved, honesty markers present.',
   },

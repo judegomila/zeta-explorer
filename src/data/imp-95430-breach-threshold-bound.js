@@ -5,7 +5,7 @@
  * as a function of the octave count m and the lattice ratio rho, plus a
  * characterization of the near-collision mechanism that drives the collapse
  * past it. MEASUREMENT / DERIVATION ONLY; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * BACKGROUND. imp-95374 Finding 3 measured, with a per-delta re-seeded
  * worst-of-400 over five discrete jitter magnitudes delta in {2^-6..2^-2},
@@ -99,7 +99,7 @@
  * separately by imp-95429). (e) Supplies NO off-lattice floor THEOREM (that is
  * the ~52x-looser imp-95335 Ingham route); changes NO Lambda bound; gammaSL
  * obligation (3), signed WEIGHT / modulus-phase legs and the imp-95212
- * envelope port all remain OPEN. NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * envelope port all remain OPEN. NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -190,7 +190,7 @@ export const IMP95430_BREACH_THRESHOLD_BOUND = {
     "configuration, not a single pinned pair; an ISOLATED cross-block " +
     "near-collision floor closes QUADRATICALLY (floor ~ 5.63e-9 g^2, critical " +
     "gap g* ~ 0.231), qualifying the imp-95374 linear-collapse phrasing. " +
-    "Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -524,12 +524,12 @@ export const IMP95430_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT/DERIVATION, " +
       "no off-lattice floor theorem, changes no bound, open legs named, no " +
-      "QED, PT SOTA",
+      "QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT\/DERIVATION/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /NOT an infimum/.test(REC.honestScope) &&
       /remain OPEN/.test(REC.honestScope) &&
       /NO off-lattice floor theorem/i.test(REC.honestScope),

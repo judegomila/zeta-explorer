@@ -43,7 +43,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * NAMED RESIDUAL SUB-GAP (imp-35413a) (formalized per imp-35834, from the imp-35466 scope note)
  * -----------------------------------------------------------------------------------------
@@ -188,7 +188,7 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING = {
     'surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35371 (deep extension, endpoint N = 1e24, continued here); imp-35280 (four-rung ' +
     'fd-vs-analytic remnant origin); imp-35198 (analytic -1 + 3/log N); imp-35135 (far-tail ' +
@@ -252,13 +252,13 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING_ASSERTIONS = [
     holds: () => Math.abs(CROSSING_REMNANT_TIMES_LOGN - 0.059) < 5e-3,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35413-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.verdict),
   },
   {
     // imp-35466 audit: imp-35337a is scoped to the sigma(N) landmarks (imp-35411/imp-35417),

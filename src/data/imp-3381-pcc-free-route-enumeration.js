@@ -11,8 +11,8 @@
  * catalogues, for each candidate closure route tracked in src/data, (a) its
  * current RH-equivalence status, (b) whether the block is a Montgomery pair-
  * correlation-conjecture (PCC) wall or is PCC-FREE, and (c) the NAMED artifact
- * that establishes the status. Platt-Trudgian Lambda <= 0.2 remains the rigorous
- * SOTA; nothing here changes it and imp-3066 stays the lone operator obstruction.
+ * that establishes the status. No refereed bound is changed
+ * ; nothing here changes it and imp-3066 stays the lone operator obstruction.
  *
  * TWO ORTHOGONAL AXES (kept separate on purpose):
  *   - rhEquiv: has the route ALREADY been shown information-preservingly
@@ -48,7 +48,7 @@ export const IMP3381_PCC_FREE_ROUTE_ENUMERATION = {
   ticket: 'imp-3381',
   date: '2026-07-02',
   scope: 'ASSESSMENT / SCOPING ONLY -- no positivity, no reduction, NO QED',
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; imp-3066 remains the lone operator obstruction',
+  sota: 'No refereed bound is changed; imp-3066 remains the lone operator obstruction',
   driver:
     'section26-mupass-operator-verdict-2026-06-30 nextMove: "do NOT re-attack mu^pass (both options closed); redirect to PCC-free routes not yet shown RH-equivalent". This module enumerates that target set.',
 
@@ -149,7 +149,7 @@ export const IMP3381_PCC_FREE_ROUTE_ENUMERATION = {
   ],
 
   headlineFinding:
-    'Among the closure routes named in the ticket the target set {pccFree AND NOT yet shown RH-equivalent} is EMPTY: twin-ladder A/B/C/D, Volterra, normalized-R/mu^pass and imp-3066 are all already RH-equivalent (Theorem 16.1 + section26 verdicts), and the sole non-reformulation route -- ESY/Selberg-trace -- is blocked by the Montgomery-PCC wall (not PCC-free). Read literally against the closure family, the mupass nextMove points OUT of that family: the surviving PCC-free non-RH-equivalent opportunities (C_H shock modulus, winding-under-heat-flow) are Lambda-upper / flow objects, not K_a-positivity closure routes. No shortcut below RH inside the closure family; PT Lambda <= 0.2 remains SOTA.',
+    'Among the closure routes named in the ticket the target set {pccFree AND NOT yet shown RH-equivalent} is EMPTY: twin-ladder A/B/C/D, Volterra, normalized-R/mu^pass and imp-3066 are all already RH-equivalent (Theorem 16.1 + section26 verdicts), and the sole non-reformulation route -- ESY/Selberg-trace -- is blocked by the Montgomery-PCC wall (not PCC-free). Read literally against the closure family, the mupass nextMove points OUT of that family: the surviving PCC-free non-RH-equivalent opportunities (C_H shock modulus, winding-under-heat-flow) are Lambda-upper / flow objects, not K_a-positivity closure routes. No shortcut below RH inside the closure family; no refereed bound is changed.',
 };
 
 // ── Build-time tripwires ─────────────────────────────────────────────────────
@@ -206,11 +206,11 @@ export const IMP3381_PCC_FREE_ROUTE_ENUMERATION_ASSERTIONS = [
   },
   {
     id: 'imp3381-scope-is-assessment-only-no-qed',
-    description: 'Scope stays ASSESSMENT / SCOPING ONLY with no QED, and PT 0.2 remains SOTA',
+    description: 'Scope stays ASSESSMENT / SCOPING ONLY with no QED, and no refereed bound is changed',
     holds: () =>
       /ASSESSMENT/.test(IMP3381_PCC_FREE_ROUTE_ENUMERATION.scope) &&
       /NO QED/.test(IMP3381_PCC_FREE_ROUTE_ENUMERATION.scope) &&
-      /Platt-Trudgian Lambda <= 0.2 remains/.test(IMP3381_PCC_FREE_ROUTE_ENUMERATION.sota),
+      /refereed bound is changed/i.test(IMP3381_PCC_FREE_ROUTE_ENUMERATION.sota),
   },
 ];
 

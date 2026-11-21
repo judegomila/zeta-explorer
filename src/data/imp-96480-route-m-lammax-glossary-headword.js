@@ -41,14 +41,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96443 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no bound. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-96443-route-m-vasyunin-lammax-measured (source: the measurement this glosses)
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling (the three-proxy bracket this collapses)
  * @see imp-96352-route-m-vasyunin-solve-cost-model (the N^3 wall-clock compute ceiling ~9916)
  *
  * Ticket: imp-96480 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The measured-lam_max headword, baked verbatim (no re-import).
@@ -81,7 +81,7 @@ const ROUTE_M_LAMMAX_HEADWORD = Object.freeze({
     'Measurement (power-iteration eigenvalue, cross-checked against eigvalsh to ~1e-14) ' +
     'plus a re-derivation of the conditioning ceiling from that measurement, not a ' +
     'rigorous asymptotic proof of the log-growth coefficients. Changes no bound; ' +
-    'establishes no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD = Object.freeze({
@@ -101,7 +101,7 @@ export const IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD = Object.freeze({
     'imp-96428-lammax-unrecorded sub-gap. Compute (N ~ 9916, imp-96352) still binds ' +
     'first by ~4100x, so the imp-96428 conclusion is unchanged and sharpened. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96443 (the measurement and finding this glosses); imp-96428 (the three-proxy ' +
     'bracket collapsed here); imp-96352 (the N ~ 9916 wall-clock compute ceiling).',
@@ -128,11 +128,11 @@ export const IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96480-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD.verdict) &&
       IMP96480_ROUTE_M_LAMMAX_GLOSSARY_HEADWORD.glosses === 'imp-96443',
   },
 ];

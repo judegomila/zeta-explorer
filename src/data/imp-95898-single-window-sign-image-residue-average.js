@@ -85,7 +85,7 @@
  * theta is precisely the kernel-weighted residue bias against uniform (the
  * imp-95212 port), a strictly smaller, fully named obstruction than the
  * imp-95397 open n-sum. Nothing derives or moves a bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * HONEST LIMITS. (a) ASSESSMENT / DERIVATION only. (b) a_h(n) = -(1/p) e(hn/p),
  * the orthogonality average, and the closed form for <theta_C> are EXACT (the
@@ -200,7 +200,7 @@ export const IMP95898_SINGLE_WINDOW_SIGN_IMAGE = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. The single-window sign image is fixed EXACTLY at the residue mean <theta_C> = (p tr(G) - S)/((p-1) S); the gap to the physical per-window theta is precisely the kernel-weighted residue bias against uniform (sum_n Lambda(n) K_k(n) folded through the additive characters), i.e. the imp-95212 Fresnel-Airy envelope port. Evaluating that bias sign/magnitude is the surviving obligation.",
   verdict:
-    "ASSESSMENT / DERIVATION (honest PARTIAL): the sign-specification leg IS transcribable at a single seam window as far as the residue mean -- the determined complex object theta_C has an EXACT n-uniform image <theta_C> = (p tr(G) - S)/((p-1) S) in (0,1), strictly nontrivial (0.0627 at p=5, deepening with p), giving obligation-(2) theta a determined image the fixed-amplitude family hid. The gap to the physical per-window theta is precisely the kernel-weighted residue bias against uniform -- sum_n Lambda(n) K_k(n) against the additive characters, the imp-95212 Fresnel-Airy port -- a strictly smaller, fully named obstruction than the imp-95397 open n-sum. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT / DERIVATION (honest PARTIAL): the sign-specification leg IS transcribable at a single seam window as far as the residue mean -- the determined complex object theta_C has an EXACT n-uniform image <theta_C> = (p tr(G) - S)/((p-1) S) in (0,1), strictly nontrivial (0.0627 at p=5, deepening with p), giving obligation-(2) theta a determined image the fixed-amplitude family hid. The gap to the physical per-window theta is precisely the kernel-weighted residue bias against uniform -- sum_n Lambda(n) K_k(n) against the additive characters, the imp-95212 Fresnel-Airy port -- a strictly smaller, fully named obstruction than the imp-95397 open n-sum. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "a_h(n) = -(1/p) e(hn/p), the orthogonality average avg_n cos(2 pi D n/p) = 1 (D=0) / -1/(p-1) (D not = 0 mod p), and the closed form <theta_C> = (p tr(G) - S)/((p-1) S) are EXACT (the closed form reproduces the direct coprime-residue n-loop average to 1e-16). The residue mean is NOT the physical theta: it drops the Lambda(n) K_k(n) weight, whose deviation from uniform is the named obstruction. The kernel K_k and von Mangoldt weighting are NOT evaluated here. Changes no bound; NO QED.",
 };
@@ -288,14 +288,14 @@ export const IMP95898_ASSERTIONS = [
   {
     id: "imp95898-verdict-honesty",
     description:
-      "the verdict carries the honest scope: an EXACT nontrivial residue-mean image (partial), the obstruction SHARPENED to the kernel-weighted residue bias (imp-95212 port), sub-gap STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: an EXACT nontrivial residue-mean image (partial), the obstruction SHARPENED to the kernel-weighted residue bias (imp-95212 port), sub-gap STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /honest PARTIAL/.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.verdict) &&
       /EXACT n-uniform image/.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.verdict) &&
       /kernel-weighted residue bias/.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.verdict) &&
       /STILL OPEN/.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.subGap) &&
       /NO QED/.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.verdict) &&
-      /remains SOTA/.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.verdict),
+      /refereed bound is changed/i.test(IMP95898_SINGLE_WINDOW_SIGN_IMAGE.verdict),
   },
 ];
 

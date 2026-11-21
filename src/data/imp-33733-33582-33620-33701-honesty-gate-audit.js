@@ -32,7 +32,7 @@
  * imp-33701 specifically.
  *
  * This is a read-only audit: it changes no bound, establishes no operator positivity, imp-3066
- * K_a >= 0 stays untouched, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 stays untouched, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33719 (the provenance/banner roll-up precedent this audit mirrors), imp-33763, imp-33807
  */
@@ -75,7 +75,7 @@ export const IMP_33733_HONESTY_GATE_AUDIT = {
     'follow-on tripwire-addition ticket is queued for this specific cohort.',
   honestNote:
     'Read-only audit; no new bound claimed by this module itself. imp-3066 K_a >= 0 positivity ' +
-    'untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -110,11 +110,11 @@ const IMP_33733_ASSERTIONS = [
   {
     id: 'imp33733-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33733_HONESTY_GATE_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33733_HONESTY_GATE_AUDIT.honestNote) &&
       /No QED/i.test(IMP_33733_HONESTY_GATE_AUDIT.honestNote) &&
       /imp-3066/.test(IMP_33733_HONESTY_GATE_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

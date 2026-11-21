@@ -43,7 +43,7 @@
  * the GUE conditional (C_mb GUE-conditional per imp-486). The component model is the inherited imp-3220/
  * imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the ~12% deficit + kernels reused verbatim)
  * @see imp-34925-eflow-crossing-strength-cmb-functional-form (the power-law form s* = K C_mb^p)
@@ -269,7 +269,7 @@ export const IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITIO
     'no bound and does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486). The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34992: the imp-34950 F3 ~12% exponent-transmission deficit is FULLY accounted for by the ' +
     'log-odds-derivative s*-sensitivity. The exact chain-rule identity p = q_eff*T_full + D_Pi closes to ' +
@@ -330,16 +330,16 @@ export const IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITIO
       P_NAIVE < 1.9,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp34992-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.isRigorous === false &&
       IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.farTailExponent === 0.5 &&
       typeof IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.subGap === 'string' &&
       /imp-486/.test(IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.subGap) &&
       /NO QED/.test(IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP34992_EFLOW_TRANSMISSION_DEFICIT_LOGODDS_DERIVATIVE_DECOMPOSITION.verdict),
   },
 ];
 

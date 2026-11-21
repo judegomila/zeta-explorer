@@ -66,7 +66,7 @@
  * imp-34714a stays OPEN; this instantiates NO certified interval, ports NO operator, and does NOT discharge
  * the F(m) = 0 residual-at-root artifact. Explaining the 2x is NECESSARY narrative, never SUFFICIENT for a
  * certificate. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36175-krawczyk-residual-2x-ratio-opdag-derivation (op-DAG ULP count + numerical sweep; dominant-node route)
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (MEASURED the a-independent exact-2)
@@ -223,7 +223,7 @@ export const IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY = {
     'is instantiated, the F(m) = 0 artifact is not discharged, explaining the 2x is NECESSARY but not ' +
     'SUFFICIENT. Reuses the imp-36175/imp-36017 op-DAG (L, G, F) and per-node ULP-count model; C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36017 (MEASURED the a-independent exact-2 surrogate/layer ratio); imp-36175 (op-DAG ULP count + ' +
     'numerical sweep; dominant-subtraction-node route); imp-36166 (storyline restating the 2x without a ' +
@@ -261,15 +261,15 @@ export const IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY_ASSERTIONS = 
     holds: () => SHAVE_IS_THE_ONLY_BREAKER === true,
   },
   {
-    // Honesty gate: algebra / derivation, not rigorous, sub-gaps open, both are MODELS, no QED, PT SOTA.
+    // Honesty gate: algebra / derivation, not rigorous, sub-gaps open, both are MODELS, no QED, no refereed bound is changed.
     id: 'imp36199-honesty-gate-no-qed',
-    description: 'closed form: isRigorous false, imp-34714a/imp-34687a open, MODELS not certificate, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'closed form: isRigorous false, imp-34714a/imp-34687a open, MODELS not certificate, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY.verdict) &&
       /NO QED/.test(IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY.verdict) &&
-      /remains SOTA/.test(IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY.verdict),
+      /refereed bound is changed/i.test(IMP36199_KRAWCZYK_RESIDUAL_2X_CLOSED_FORM_HOMOGENEITY.verdict),
   },
 ];
 

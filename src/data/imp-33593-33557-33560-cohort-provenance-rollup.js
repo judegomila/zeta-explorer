@@ -6,7 +6,7 @@
  * ceiling recompute under ~106-bit double-double, and a deep-tail CROSS-SOLVER baseline-relative
  * check) by EVIDENCE CLASS, mirroring the imp-33719 imp-33679/33682 rollup pattern and confirming
  * each module carries the mandatory honest banner: no-QED, the imp-3066 K_a >= 0 operator-positivity
- * invariant untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.
+ * invariant untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was read
  * and classified into the evidence class it earns on its own terms:
@@ -24,7 +24,7 @@
  *     graded-vs-uniform saving is an intrinsic graded advantage or an artifact of the weak uniform
  *     baseline.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA); shared-caveat coverage (NPHI=10 Phi-series
+ * untouched, no refereed bound is changed); shared-caveat coverage (NPHI=10 Phi-series
  * truncation, the imp-33249/imp-33537 latticeJitterCaveat lineage) and glossary/viz-page coverage
  * were cross-checked against src/data/glossary.js and src/pages. Import lines were grepped per the
  * imp-33695/imp-33720 heavy-import safety pattern (the 16.7MB zeros bundle hangs vite ssrLoadModule
@@ -76,7 +76,7 @@ export const IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP = {
     'classify by evidence class (graded-plateau band-crossing minimum-budget sweep / low-height ' +
     'envelope extension / reference-libm envelope ceiling recompute / deep-tail cross-solver ' +
     'baseline-relative check); grep for the mandatory honest-banner phrases (no QED, imp-3066 ' +
-    'K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) plus the explicit G6a/H2 bridge status ' +
+    'K_a >= 0 untouched, no refereed bound is changed) plus the explicit G6a/H2 bridge status ' +
     'and the shared-caveat phrases (NPHI=10, latticeJitterCaveat lineage); cross-check glossary.js ' +
     'and src/pages for dedicated coverage and import lines for heavy-import safety.',
   modules: [
@@ -155,7 +155,7 @@ export const IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all four cohort members. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -184,7 +184,7 @@ const IMP_33593_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 4,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33593-zero-bridge-touching-consistent-not-referenced',
@@ -239,11 +239,11 @@ const IMP_33593_ASSERTIONS = [
   {
     id: 'imp33593-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33593_33557_33560_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

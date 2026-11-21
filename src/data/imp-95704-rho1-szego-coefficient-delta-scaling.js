@@ -67,7 +67,7 @@
  * against the exact dual ratio on the grid (agreement to < 1e-5 for delta <= 1).
  * (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95689-rho1-szego-dual-convergence-rate (C at delta = ln 1.3)
  * @see imp-95419-separated-class-optimal-riesz-floor (A_opt = symbol infimum)
@@ -123,7 +123,7 @@ export const IMP95704_RHO1_SZEGO_COEFFICIENT_DELTA_SCALING = {
     "sharp inside the imp-95693 rho-sweep regime. Tabulation of an established " +
     "endpoint coefficient; no new cited input. Model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no " +
-    "bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95704"],
 };
 
@@ -250,7 +250,7 @@ export const IMP95704_ASSERTIONS = [
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
       /pi\^2 \/ \(2 delta\^2\)/.test(REF.scalingLaw) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95704-closes-self",

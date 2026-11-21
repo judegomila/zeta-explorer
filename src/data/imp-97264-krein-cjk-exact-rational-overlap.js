@@ -52,7 +52,7 @@
  * rational profiles"), and together with imp-97263 it shows IMP97015_ARB_INTERVAL_BESSEL is NOT actually
  * required for this annihilating-trial certificate -- but this leaf produces no numeric v0, no interval majorant,
  * and moves no bound. Rayleigh floors stay UPPER bounds; establishes no operator positivity; interval-rigorous
- * reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97164-krein-v0-overlap-inversion-interval-obstruction.js (Obstruction B: c_{jk} reported blocked on interval Bessel)
  * @see imp-97263-krein-analytic-bessel-z4-remainder-majorant.js (Obstruction A discharged analytically, sibling)

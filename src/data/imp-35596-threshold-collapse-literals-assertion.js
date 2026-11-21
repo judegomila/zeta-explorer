@@ -44,7 +44,7 @@
  *   Ticket: imp-35596 (accuracy, medium). Verification-tooling only; recomputes the same
  *   already-established scoping figures; adds no new Lambda bound; discharges nothing; e^200 STANDS
  *   on the natural leading rate; imp-35337a stays OPEN; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643)
- *   and C_mb GUE-conditional (imp-486) UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   and C_mb GUE-conditional (imp-486) UNTOUCHED. No refereed bound is changed. NO QED.
  */
 
 import { IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE } from './imp-35571-route-i-subleading-rate-scope.js';
@@ -209,14 +209,14 @@ export const IMP35596_THRESHOLD_COLLAPSE_LITERALS_ASSERTIONS = [
     id: 'imp35596-honesty-gate-no-qed',
     description:
       'Scoping only: source isRigorous/isUnconditional false, no subleading rate proved for zeta, ' +
-      'imp-486 conditional, NO QED, Platt-Trudgian stays SOTA',
+      'imp-486 conditional, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.isRigorous === false &&
       IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.isUnconditional === false &&
       IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.provedStatus.anySubleadingRateProvedForZeta === false &&
       /imp-486/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.citation) &&
       /NO QED/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.verdict),
   },
 ];
 

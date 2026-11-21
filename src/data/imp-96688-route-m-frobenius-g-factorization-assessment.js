@@ -84,7 +84,7 @@
  * cotangent-sum moment problem the literature supplies only for a fixed denominator, not
  * uniformly in two free coupled arguments. The imp-96684 ~3.76e7 ceiling therefore stays
  * fit-extrapolated; the sub-gap is now sharper and well-posed, not closed. No bound moved;
- * no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96684-route-m-frobenius-majorant-high-n-rungs.js (the fit-extrapolated ceiling / sub-gap this reduces)
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (original two-moment majorant / sub-gap origin)
@@ -166,7 +166,7 @@ export const IMP96688_VERDICT = Object.freeze({
     'cotangent sums over coprime pairs against 1/(a^2 b^2) -- a Bettin-Conrey moment problem ' +
     'the literature supplies only for a fixed denominator, not uniformly in two free coupled ' +
     'arguments. The ~3.76e7 ceiling stays fit-extrapolated; the sub-gap is sharper and ' +
-    'well-posed, not closed. No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'well-posed, not closed. No bound moved; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -183,7 +183,7 @@ export const IMP96688_SUBGAP = Object.freeze({
 });
 
 export const IMP96688_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the g-factorization is an ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the g-factorization is an ' +
   'EXACT identity (elementary algebra + Fubini, verified to machine precision against the ' +
   'direct double sum on a self-built Vasyunin table); the reduction to the coprime-core ' +
   'Vasyunin second moment and the Bettin-Conrey obstruction are structural. No bound is ' +
@@ -296,7 +296,7 @@ const IMP96688_ASSERTIONS = [
       IMP96688_VERDICT.gcdFactorsOutExactly === true &&
       IMP96688_VERDICT.rigorousAsymptoticEstablished === false &&
       /NO QED/.test(IMP96688_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96688_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96688_HONEST_BANNER) &&
       /RH open/.test(IMP96688_HONEST_BANNER) &&
       /needs-uniform-cotangent-second-moment/.test(IMP96688_SUBGAP.id),
     why: 'assessment only: no bound moved, the exact factorization is recorded, no rigorous asymptotic is claimed, and the honesty markers plus the sharpened sub-gap are present.',

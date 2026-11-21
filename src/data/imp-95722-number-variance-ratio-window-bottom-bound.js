@@ -53,8 +53,8 @@
  * envelope with r_cap(3.0e12) ~ 0.26 < 1. The mean-square/GUE envelope stays
  * conservative at the imp-95519 window bottom -- provably, and increasingly so. What
  * remains open is the exact VALUE of r at 3e12 (the O(1)/windowing slack), not whether
- * the conservatism survives. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * the conservatism survives. Changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the
  * same measured literals imp-95710 baked (from imp-95562 over the verified ordinates);
@@ -158,7 +158,7 @@ export const IMP95722_NUMBER_VARIANCE_RATIO_WINDOW_BOTTOM_BOUND = {
   subGapResolved:
     'WINDOW REACH (imp-95710): resolved on the conservatism SIDE. r(T) <= r_cap(T), a derived monotonically decreasing envelope with r_cap(3.0e12) ~ 0.26 < 1, so the GUE/mean-square envelope provably stays conservative at the window bottom (and strengthens). What stays OPEN is the exact VALUE of r at 3e12 -- the O(1) offset C0 and the identification of the imp-95562 windowed sd(C - E) with Sigma_S^2 carry finite-height slack, so r(3e12) lies in (0, 0.26], neither confirming nor needing the unwarranted log-linear forecast r -> 0.04.',
   verdict:
-    'DERIVED bound replacing the imp-95710 noise-dominated six-point log-linear extrapolation. The pointwise counting-fluctuation variance grows at most like (1/2pi^2) log log(T/2pi) (Selberg, UNCONDITIONAL; the shortest-prime arithmetic term saturates the number variance), while the GUE mean-square envelope Sigma^2(L(T)) grows like (1/2pi^2) log T, so the ratio r(T) is bounded above by an explicit envelope r_cap(T) that is monotonically decreasing across [1e4, 3e12] with r_cap(3.0e12) ~ 0.26 < 1. Hence the conservatism (r < 1) is PROVABLY RETAINED at the imp-95519 window bottom and in fact strengthens; the log-linear forecast r -> 0.04 is neither confirmed nor needed. The leading log log T cap is unconditional; the detailed Berry/Montgomery saturation shape is PCC/GRH-gated and the O(1) offset carries finite-height slack, so this bounds the TREND not the sharp value. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'DERIVED bound replacing the imp-95710 noise-dominated six-point log-linear extrapolation. The pointwise counting-fluctuation variance grows at most like (1/2pi^2) log log(T/2pi) (Selberg, UNCONDITIONAL; the shortest-prime arithmetic term saturates the number variance), while the GUE mean-square envelope Sigma^2(L(T)) grows like (1/2pi^2) log T, so the ratio r(T) is bounded above by an explicit envelope r_cap(T) that is monotonically decreasing across [1e4, 3e12] with r_cap(3.0e12) ~ 0.26 < 1. Hence the conservatism (r < 1) is PROVABLY RETAINED at the imp-95519 window bottom and in fact strengthens; the log-linear forecast r -> 0.04 is neither confirmed nor needed. The leading log log T cap is unconditional; the detailed Berry/Montgomery saturation shape is PCC/GRH-gated and the O(1) offset carries finite-height slack, so this bounds the TREND not the sharp value. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -188,8 +188,8 @@ export const IMP95722_NUMBER_VARIANCE_RATIO_WINDOW_BOTTOM_BOUND = {
   // honesty gates
   if (!/NO QED/.test(IMP95722_NUMBER_VARIANCE_RATIO_WINDOW_BOTTOM_BOUND.verdict))
     throw new Error('imp-95722: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95722_NUMBER_VARIANCE_RATIO_WINDOW_BOTTOM_BOUND.verdict))
-    throw new Error('imp-95722: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95722_NUMBER_VARIANCE_RATIO_WINDOW_BOTTOM_BOUND.verdict))
+    throw new Error('imp-95722: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95722_NUMBER_VARIANCE_RATIO_WINDOW_BOTTOM_BOUND;

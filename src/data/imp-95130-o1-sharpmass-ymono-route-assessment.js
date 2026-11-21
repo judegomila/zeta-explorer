@@ -80,7 +80,7 @@
  *
  * This module CHANGES NO BOUND. 0.17759432 remains a package VALUE, not a bound;
  * O1-O6 stay OPEN; the sub-gap imp-95130-subgap-gN-monotone-sign is carried OPEN.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * No refereed bound is changed. NO QED.
  *
  * @see imp-95208-ythaw-package-stage12.js (the package; STAGE1.S0, STAGE2 sweep, refereeRecord.o1Restated)
  * @see imp-95212-ythaw-o5-o3.js (siblings O5/O3; O4 is imp-95131, O6 is imp-95132)
@@ -188,7 +188,7 @@ export const IMP_95130_O1_SHARPMASS_YMONO_ROUTE_ASSESSMENT = Object.freeze({
   scope:
     'Route assessment only. NO route is executed and NO certificate is produced here; the sub-gap ' +
     'imp-95130-subgap-gN-monotone-sign is carried OPEN. 0.17759432 stays a package VALUE (not a bound); ' +
-    'O1-O6 remain OPEN; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
+    'O1-O6 remain OPEN; no refereed bound is changed; NO QED.',
 });
 
 // ── imp-95227: does O1 close by O3-style inclusion-isotonicity, or does it ───

@@ -103,7 +103,7 @@ const IMP124856_VIZ_DATA_ASSERTIONS = [
     holds: () =>
       IMP124856_SUMMARY.spacingRatioLimit === 10 &&
       /NO QED/.test(IMP124856_SUMMARY.verdict) &&
-      /remains SOTA/.test(IMP124856_SUMMARY.verdict),
+      /refereed bound is changed/i.test(IMP124856_SUMMARY.verdict),
   },
 ];
 

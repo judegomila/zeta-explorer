@@ -3,7 +3,7 @@
  * (Theorem 4.5 / Lemma 4.4, Section 4.10 of the twin-ladder permutation paper).
  * HONEST STATUS: DESIGN ONLY (grade: contract/conditional-design). This module
  * derives no bound, runs no certificate, and closes no gap. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Per the no-gain rule and the
+ * No refereed bound is changed. Per the no-gain rule and the
  * flow-blindness no-go, nothing here moves the rigorous bound; the campaign
  * below can only reduce the CONDITIONAL frontier (0.1399 stays conditional
  * until BOTH new hypotheses carry sealed certificates).
@@ -346,7 +346,7 @@ export const IMP95201_CAMPAIGN = Object.freeze({
     'quantitative Lemma 4.4, independent slab provenance). Ranked first computation: the ' +
     'tail repricing probe T-P1, which tests failure criteria K1/K2 for under a core-day ' +
     'before any heavy spend. No certificate is run here; derives no bound; closes no ' +
-    'gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'gap; NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ────────────
@@ -423,7 +423,7 @@ export const IMP95201_CAMPAIGN_ASSERTIONS = [
   },
   {
     id: 'imp95201-campaign-hygiene',
-    description: 'every task is conditional-design with failure-criteria wiring; rank-1 first computation is the tail repricing probe T-P1; verdict carries NO QED and PT-SOTA; no rigorous-bound claim',
+    description: 'every task is conditional-design with failure-criteria wiring; rank-1 first computation is the tail repricing probe T-P1; verdict carries NO QED and no-refereed-bound-change; no rigorous-bound claim',
     holds: () =>
       CAMPAIGN_TASKS.length === 6 &&
       CAMPAIGN_TASKS.every((t) => t.grade === 'conditional-design' && t.tests.length > 0) &&
@@ -434,7 +434,7 @@ export const IMP95201_CAMPAIGN_ASSERTIONS = [
       IMP95201_CAMPAIGN.provesBound === false &&
       IMP95201_CAMPAIGN.movesRigorousBound === false &&
       /NO QED/.test(IMP95201_CAMPAIGN.verdict) &&
-      /remains SOTA/.test(IMP95201_CAMPAIGN.verdict),
+      /refereed bound is changed/i.test(IMP95201_CAMPAIGN.verdict),
   },
 ];
 

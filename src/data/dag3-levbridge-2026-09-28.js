@@ -49,7 +49,7 @@
  *  - AFE weight-balance sum Re[e^{iθ}V] ≈ Σ[Q(x_n)+Q(1−x_n)] n^{−1/2} cos(θ − t log n): holds only to O(t^{−1/4});
  *    measured absolute error 0.028–0.055 at t ~ 1e4.
  *
- * Verdict: no proportion statement, no Λ movement. RH open; PT Lambda <= 0.2 stands; the project's Λ ≤ 0.1758354 is an
+ * Verdict: no proportion statement, no Λ movement. RH open; no refereed bound is changed; the project's Λ ≤ 0.1758354 is an
  * unreviewed computer-assisted candidate; NO QED.
  * Scripts: tmp/dag3-levbridge-{conrey-c,mainterm,mt-convergence,ladder-vs-conrey,euler-asymptotics,direct,dictionary}.py
  * (+ .json/.log); referee: tmp/dag3-levbridge-ref0-{asym,finiteT,euler}.py, tmp/dag3-levbridge-ref1-{Rscan,fairness,conreyQ}.py.
@@ -101,7 +101,7 @@ export const DAG3_LEVBRIDGE = Object.freeze({
     + 'the length-truncated μ-mollifier with its twisted second moment is the only non-soft input and lies outside E_V (heuristic; '
     + 'consistent with NS-RIGID). Primorial (rung-truncated) Euler-product mollifiers are not a route (measured at fixed Q; conditional '
     + 'collapse). Bridge-phase multipliers are AM-GM-blind; the additive bridge piece is BCY’s ψ2 (+0.0017 asymptotically). RH open; '
-    + 'PT Lambda <= 0.2 stands. NO QED.',
+    + 'no refereed bound is changed. NO QED.',
   asymptotic: {
     levinson: { theta: 0.5, R: 1.286909, kappa: 0.34276162692910 },
     conreyHalf: { theta: 0.5, kappa: 0.365796, lit: 0.36581 },
@@ -251,7 +251,7 @@ export const DAG3_LEVBRIDGE_ASSERTIONS = Object.freeze([
   },
   {
     id: 'levbridge-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
+    holds: () => /refereed bound is changed/i.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
       && /not a proportion statement/.test(M.status) && /untested/.test(M.status) && M.tiers.certified.length === 0
       && /heuristic/.test(M.verdict),
     why: 'Referee corrections: proxy not a proportion statement; primorial scope; NS-RIGID placement heuristic; nothing certified.',

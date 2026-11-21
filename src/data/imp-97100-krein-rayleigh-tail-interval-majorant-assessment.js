@@ -75,7 +75,7 @@
  * evaluations imported verbatim; no interval majorant is produced or claimed; Rayleigh floors stay UPPER
  * bounds on the true lambda_min; establishes NO operator positivity; changes NO bound;
  * IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach
- * stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (min-max Rayleigh bound + T-ladder; source literals)
  * @see imp-96973-krein-tailtrace-vacuity-factorisation.js (three-factor vacuity factorisation; rung values)

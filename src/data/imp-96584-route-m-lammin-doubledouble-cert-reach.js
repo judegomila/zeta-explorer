@@ -71,7 +71,7 @@
  * Assessment / extrapolation only. Changes no bound; establishes no operator
  * positivity; makes no RH claim. The double-double reach is NOT claimed certified --
  * it is a re-solve of the imp-96563 crossover equation at the imp-96446 unit roundoff.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js (DP cert limit N ~ 1.08e5; the crossover this extends)
  * @see imp-96446-route-m-vasyunin-doubledouble-conditioning-reach.js (double-double eps; cond#-breakdown reach)
@@ -204,12 +204,12 @@ export const IMP96584_VERDICT = Object.freeze({
     'delta = g_{n+1} trace < lam_min is a factor ~(n+1) stricter than raw cond# < 1/u breakdown. ' +
     'The ceiling FIGURE stays fit-extrapolated for two reasons independent of precision: a ' +
     'double-double dense Cholesky at N ~ 2.6e7 is not compute-feasible (imp-96352), and ' +
-    'extrapolation is not proof. Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'extrapolation is not proof. Changes no bound; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP96584_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment / extrapolation only: this is a ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment / extrapolation only: this is a ' +
   're-solve of the imp-96563 crossover equation delta(N) = g_{n+1} I(1,1) H_N = A N^-p at the ' +
   'imp-96446 double-double unit roundoff (u -> 2^-106), reusing the imp-96428 lam_min power law ' +
   'and the imp-96548 conditioning ceiling verbatim. No Gram was rebuilt, no double-double ' +
@@ -260,7 +260,7 @@ const IMP96584_ASSERTIONS = [
     holds: () =>
       IMP96584_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96584_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96584_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96584_HONEST_BANNER) &&
       /RH open/.test(IMP96584_HONEST_BANNER),
     why: 'assessment only: no bound moved, no double-double Cholesky was run, and the honesty markers plus the narrowed residual are present.',
   },

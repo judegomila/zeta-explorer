@@ -19,7 +19,7 @@
  * only; recomputes an established reconciliation identity; changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional (imp-486) UNTOUCHED;
  * imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35679-postport-share-sum-unity-excess-reconciliation (source: reconciles the un-rounded partition)
  * @see imp-35704-postport-share-identity-guard (sibling ROUNDED-literal share IDENTITY guard; this pins UN-ROUNDED)

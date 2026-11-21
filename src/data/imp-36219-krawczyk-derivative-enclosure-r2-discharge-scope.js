@@ -12,7 +12,7 @@
  * SCOPING / ASSESSMENT ONLY. Instantiates no interval; constructs no derivative enclosure; certifies no
  * self-map; closes no sub-gap; imp-34687a stays UNIMPLEMENTED; imp-34714a stays OPEN. C_C = 1/8 ansatz
  * (imp-2642/2643) and C_mb GUE-conditional (imp-486) untouched; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE DERIVATIVE ENCLOSURE R2 HAS A DUAL ROLE
  * -----------------------------------------------------------------------------
@@ -77,7 +77,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 // -- Anchor + operative constants (import-light; matching imp-36154 / imp-36136) --------------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const TWO_PI = 2 * Math.PI;
 const C_C_PINNED = (1 / 8) * Math.sqrt(3 * Math.PI); // ~0.3837 ansatz (coefficient 1/8, imp-2642/2643/2714)
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631/imp-3406/imp-33582)
@@ -171,7 +171,7 @@ export const IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE = {
     'ASSESSMENT ONLY: instantiates no interval; constructs no derivative enclosure; certifies no ' +
     'self-map; closes no sub-gap; imp-34687a stays UNIMPLEMENTED; imp-34714a stays OPEN. C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) untouched; changes no bound; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-36154 (R1-R6 existence/uniqueness requirements; R2 un-built derivative; R5 UNIMPLEMENTED layer; ' +
     '(H1) margin F-prime ~ 0.9546); imp-36136 (residual-VALUE op-DAG R1; C6 operator interface); imp-34714 ' +
@@ -217,16 +217,16 @@ export const IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: scoping only; layer unimplemented; imp-34714a open; no QED; PT stays SOTA.
+    // Honesty gate: scoping only; layer unimplemented; imp-34714a open; no QED; no refereed bound is changed.
     id: 'imp36219-honesty-gate-no-qed',
-    description: 'scoping only; imp-34687a UNIMPLEMENTED; imp-34714a OPEN; no QED; PT SOTA',
+    description: 'scoping only; imp-34687a UNIMPLEMENTED; imp-34714a OPEN; no QED; no refereed bound is changed',
     holds: () =>
       IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /UNIMPLEMENTED/.test(IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE.conclusion.staysUnimplementedAndOpen) &&
       /imp-34714a stays OPEN/.test(IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE.conclusion.staysUnimplementedAndOpen) &&
       /NO QED/.test(IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE.verdict) &&
-      /remains SOTA/.test(IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE.verdict),
+      /refereed bound is changed/i.test(IMP36219_KRAWCZYK_DERIVATIVE_ENCLOSURE_R2_DISCHARGE.verdict),
   },
 ];
 

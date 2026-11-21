@@ -250,13 +250,13 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r1-excursion-cap',
       statement: 'Prove an absolute excursion cap Theta_exc < 1 (numerical evidence ~ 0.51) for the minimal-pair Theta process under the attractive CM flow, via a dynamic minimality-transfer argument: the family {-d,0,1,1+d} shows the rising pair loses minimality at the Theta ~ 0.5 tie. Static bounds are provably exhausted at Theta_b = (sqrt(73)-5)/8 (Theorem B is sharp).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual. R1-T4 (imp-2637) addresses that dynamical residual on the real-zero BASIN: CM-flow integration from an isolated minimal pair (rho = g/d_1 < 1, Theta(0) < 1/4 -- the measured regime) gives peak min-pair Theta = Theta(0) to machine precision (zero excursion), vs ~0.8 for a near-uniform-lattice control (rho ~ 1); the mechanism is Lemma R2-T -- the minimal pair has rho <= 1 and drho/ds < 0 strictly for rho < 1, so it isolates into the Theorem-A trap, while the lattice rho = 1 is the unstable repelling threshold and so is not reachable by flowing inward. Hence the excursion cap and the A1 hypothesis self-enforce on the isolated-pair basin; the residual is now exactly R2-T multi-body (the rho < 1 -> isolation sign law is closed in form only for the single nearest neighbour, scanned to inf ~0.943), so the cap is NOT yet unconditional over all configs. Lemma R1-FN (SG1C_R1_FINITE_N_CAP) now CLOSES THE STATIC HALF in sharp closed form: for the global minimal pair in ANY finite N-particle config, Theta <= 1 - 2/N, with the uniform minimal-spacing lattice the PROVEN UNIQUE maximiser (equality iff N even + balanced split); exact per-N max = [K_R/(K_R+1)+K_L/(K_L+1)]/2. Proof: scale g=1, all gaps >= 1, so the r-th environment particle per side has cumulative distance s_r >= r and T_r = 1/(s_r(s_r+1)) <= 1/(r(r+1)); the telescoping majorant sums to K_side/(K_side+1), and strict concavity of x/(x+1) forces the balanced split. This UPGRADES the R1-T2 obstruction from "the lattice is an example that reaches 1" to "the lattice is THE extremiser and 1 - 2/N is the exact static cap at each N", recovering R1-T (N=4 -> 1/2) and the R1-T2 ladder Theta_K = K/(K+1) as the equality case, and proving cleanly why no absolute (N-uniform) cap exists (sup_N(1-2/N) = 1). CONSEQUENCE: the excursion can approach 1 ONLY via N -> inf on a long near-uniform minimal lattice, so the ONLY remaining residual is the SAME dynamical-reachability question (R1-T4 / R2-T) -- ruling out that the CM flow drives generic finite data onto a long uniform minimal lattice (equivalently, that N-particle excursions saturate their 1 - 2/N ceiling). The static route is now fully accounted for; the open residual is purely dynamical and DETERMINISTIC (CM-flow dynamics, not RH-hard). PT Lambda <= 0.2 stays SOTA.',
+      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual. R1-T4 (imp-2637) addresses that dynamical residual on the real-zero BASIN: CM-flow integration from an isolated minimal pair (rho = g/d_1 < 1, Theta(0) < 1/4 -- the measured regime) gives peak min-pair Theta = Theta(0) to machine precision (zero excursion), vs ~0.8 for a near-uniform-lattice control (rho ~ 1); the mechanism is Lemma R2-T -- the minimal pair has rho <= 1 and drho/ds < 0 strictly for rho < 1, so it isolates into the Theorem-A trap, while the lattice rho = 1 is the unstable repelling threshold and so is not reachable by flowing inward. Hence the excursion cap and the A1 hypothesis self-enforce on the isolated-pair basin; the residual is now exactly R2-T multi-body (the rho < 1 -> isolation sign law is closed in form only for the single nearest neighbour, scanned to inf ~0.943), so the cap is NOT yet unconditional over all configs. Lemma R1-FN (SG1C_R1_FINITE_N_CAP) now CLOSES THE STATIC HALF in sharp closed form: for the global minimal pair in ANY finite N-particle config, Theta <= 1 - 2/N, with the uniform minimal-spacing lattice the PROVEN UNIQUE maximiser (equality iff N even + balanced split); exact per-N max = [K_R/(K_R+1)+K_L/(K_L+1)]/2. Proof: scale g=1, all gaps >= 1, so the r-th environment particle per side has cumulative distance s_r >= r and T_r = 1/(s_r(s_r+1)) <= 1/(r(r+1)); the telescoping majorant sums to K_side/(K_side+1), and strict concavity of x/(x+1) forces the balanced split. This UPGRADES the R1-T2 obstruction from "the lattice is an example that reaches 1" to "the lattice is THE extremiser and 1 - 2/N is the exact static cap at each N", recovering R1-T (N=4 -> 1/2) and the R1-T2 ladder Theta_K = K/(K+1) as the equality case, and proving cleanly why no absolute (N-uniform) cap exists (sup_N(1-2/N) = 1). CONSEQUENCE: the excursion can approach 1 ONLY via N -> inf on a long near-uniform minimal lattice, so the ONLY remaining residual is the SAME dynamical-reachability question (R1-T4 / R2-T) -- ruling out that the CM flow drives generic finite data onto a long uniform minimal lattice (equivalently, that N-particle excursions saturate their 1 - 2/N ceiling). The static route is now fully accounted for; the open residual is purely dynamical and DETERMINISTIC (CM-flow dynamics, not RH-hard). No refereed bound is changed.',
     },
     {
       id: 'sg1c-r2-isolation-persistence',
       statement: 'Theorem C (isolation g <= 0.72 d_1 gives trap at every level <= 1) is a static sign criterion; prove or refute that an initial isolation margin g <= c d_1 with c < 0.72 persists along the flow for some explicit c (only Theta <= 1/4 is known to self-enforce its own hypothesis).',
       status: 'closed',
-      progress: 'PARTIAL (Lemma R2-T, imp-2596): the isolation ratio rho = g/d_1 against the nearest environment particle obeys the EXACT single-neighbour identity d(rho)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)]; the bracket is strictly positive, so sign(d rho/ds) = sign(g - d_1) and the margin STRICTLY self-improves for every rho < 1 (threshold exactly 1). So g <= 0.72 d_1 is self-propagating against the nearest neighbour -- it tightens, not merely holds. An skeptical 3e6-config multi-body scan (up to 7 particles, both sides) puts the worsening-onset infimum at rho ~ 0.943 (only near a uniform lattice), 0.22 above c = 0.72. UPDATE (imp-3005, Lemma R2-T2): the symmetric single-shell 4-body case is now CLOSED IN FORM -- exact rate drho/ds = (1/d^2)[-4/rho + 4rho/(rho+1) + 2rho/(rho+2) + 4rho - 2] worsens only above the unique (0,1) root of rho^4+4rho^3+2rho^2-4rho-2, i.e. c* = sqrt(2+sqrt(3))-1 = (1+sqrt(3))/sqrt(2)-1 ~ 0.93185165 (u=rho^2+2rho => u^2-2u-2=0); within the symmetric K-shell family K=1 is the worst (onset rises with K). RESIDUAL (sharpened, still OPEN): the GLOBAL constant is not closed -- a 2e6-config minimal-pair scan finds asymmetric configs worsening marginally earlier (~0.927 < c*), so the open residual is now precisely an ASYMMETRIC multi-body bound below c*; only single-neighbour c = 1, the symmetric single-shell c* in closed form, and the unconditional Theta <= 1/4 trap are fully closed. UPDATE (imp-3021, SG1C_R2T2_ASYM_RESIDUAL): a STRUCTURED (non-random) search identifies the exact worst asymmetric STRUCTURE the random scan missed -- a one-sided minimal-spacing half-lattice (right neighbours spaced exactly the pair gap g, keeping the tracked pair globally minimal) PLUS a single isolated neighbour at d_1 on the other side; the lattice destabilises isolation against the lone far neighbour. The half-lattice worsening onset converges to ~0.90625 by 4 lattice particles (the m=1 case is exactly the symmetric two-neighbour config, recovering c*), and a deterministic tune of the first gap and spacing pushes the infimum to ~0.9016. This SHARPENS the open asymmetric lower bracket DOWN from the loose random-scan ~0.927 to ~0.902, bracketing the global multi-body constant in ~(0.90, 0.943). HONEST: this is a certified numerical infimum of a structured family, NOT a closed form for the global asymmetric constant and NOT a proof that nothing worsens still earlier -- the exact infimum and its closed form remain OPEN. The load-bearing consequence is unchanged: even ~0.902 sits far above the Theorem C basin constant 0.72 (margin ~0.18), so the basin-conditional C_Lip (imp-3006) never depended on the open global constant. UPDATE (imp-3170, SG1C_ASYM_ISOLATION_CLOSED_FORM): the asymmetric R->infinity worst-case class (one tight neighbour at d_1 on one side + an opposite uniform unit lattice) is now CLOSED IN FORM -- the exact rate is drho/ds(g) = psi(g+1) + gamma + 2g - 2/g - 1/(g+1), where the d_1 side telescopes to the algebraic 1/g - 2 while the opposite-lattice tail carries the irreducible digamma transcendental psi(g+1) + gamma = sum_{k>=1}[1/k - 1/(g+k)]; its unique (0,1) root is the asymmetric onset c_asym = 0.9027902227683418 (TRANSCENDENTAL, NOT algebraic). So the lower end of the asymmetric bracket previously logged only as a numerical scan is, for THIS class, a closed-form constant. The earlier imp-3045 numerical value 0.9032364 is shown to sit ABOVE the true continuous onset (drho/ds = +0.00242 > 0 there): that bisection locked onto a minimal-gap-selector index-flip discontinuity near g ~ 0.9029, not the smooth zero, so the genuine onset is strictly lower at c_asym. HONEST / STILL OPEN: c_asym closes the identified R->infinity opposite-lattice class onset ONLY; it is NOT proven to be the GLOBAL asymmetric infimum -- the imp-3021 structured half-lattice tune reaches ~0.9016 < c_asym, so the global multi-body constant remains OPEN and is now bracketed in ~(0.90, 0.9028). This subgap therefore stays status open globally; only the R->infinity class onset is now in closed (transcendental) form. Basin margin to 0.72 unchanged (c_asym - 0.72 = 0.1828); PT Lambda <= 0.2 stays SOTA. UPDATE (imp-3270, SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM): the imp-3194 sub-gap (sg1c-halflattice-lone-neighbour-limit) is CLOSED -- the L -> infinity lone-neighbour half-lattice onset, previously only Aitken-extrapolated to ~0.898021, is now the unique (0,1) root of the EXACT closed-form rate R(rho) = 4 + 4 rho - 4/rho - 4/(rho+1) - 2[psi(1+2/rho) - psi(1+1/rho)], i.e. c_half = 0.8980208880762339 (transcendental digamma-DIFFERENCE root: the opposite lattice at spacing rho and the lone-neighbour distance 1 are incommensurate scales, so the tail is psi(1+2/rho)-psi(1+1/rho) rather than the imp-3170 single psi(g+1)+gamma). Uniqueness is RIGOROUS (dR/drho > 2/rho^2 > 0 on (0,1] since the sole negative trigamma term is bounded by 2 trigamma(2) = pi^2/3 - 2 < 2), R(1) = 1 exactly at the uniform tie, and the O(1/L) finite-size corrections cancel exactly between the gap and d_1 sides -- PROVING the O(1/L^2) onset convergence imp-3194 could only measure (doubling ratio -> 4) and retro-certifying its Aitken value to ~1.1e-7. The tightest located ceiling on the OPEN global constant c_glob is therefore now a closed-form constant: located-onset chain c_half = 0.89802 < 0.9015828 (Config-B tune) < c_asym = 0.90279 < c* = 0.93185. HONEST: c_half closes THIS class (the imp-3201 structured floor, evidence-not-proof that nothing beats it) as a class infimum approached at L -> infinity, NOT the proven global infimum -- c_glob stays OPEN; basin margin c_half - 0.72 = 0.178 keeps the basin-conditional C_Lip independent of it; PT Lambda <= 0.2 stays SOTA. CLOSED (fable-frontier 2026-08-28, SG1C_CGLO_CLOSURE in sg1c-cglo-closure-2026-08-28.js): the global constant is now PROVEN equal to c_half = 0.8980208880762339 in closed form. The imp-3236 exact rate decomposition (right particles destabilise, kernel strictly decreasing, worst case = the dense one-sided half-lattice floor sequence r_k = 1+(k-1)rho) had already reduced every admissible config to the half-lattice majorant; the one missing step was that the majorant sum is EXACTLY summable -- partial fractions telescope to 2 - 2[psi(1+2/rho) - psi(1+1/rho)] -- so the universal supremum of d_1^2 drho/ds over ALL globally-minimal-pair configs IS the imp-3270 closed form R(rho), strictly increasing with unique root c_half. Hence every admissible config strictly self-improves for rho < c_half (through nearest-neighbour ties, by max-of-branches Dini), and finite-L half-lattices worsen at every rho > c_half (onsets descend at the proven O(1/L^2)), giving c_glob = c_half EXACTLY: the (0.86566, 0.89802] interval left by imp-3236 collapses to its upper endpoint. Isolation margins g <= c d_1 persist for every c < c_half while the pair stays globally minimal -- the Theorem C 0.72 margin (0.178) is now proven, not scanned. HONEST SCOPE: closes the isolation CONSTANT under the globally-minimal-pair hypothesis (the class c_glob was defined over); does NOT close R1 minimality-transfer, does NOT cover rho in (c_half, 1) where worsening genuinely occurs, C_Lip stays basin-conditional, and no Lambda bound moves: PT Lambda <= 0.2 stays SOTA.',
+      progress: 'PARTIAL (Lemma R2-T, imp-2596): the isolation ratio rho = g/d_1 against the nearest environment particle obeys the EXACT single-neighbour identity d(rho)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)]; the bracket is strictly positive, so sign(d rho/ds) = sign(g - d_1) and the margin STRICTLY self-improves for every rho < 1 (threshold exactly 1). So g <= 0.72 d_1 is self-propagating against the nearest neighbour -- it tightens, not merely holds. An skeptical 3e6-config multi-body scan (up to 7 particles, both sides) puts the worsening-onset infimum at rho ~ 0.943 (only near a uniform lattice), 0.22 above c = 0.72. UPDATE (imp-3005, Lemma R2-T2): the symmetric single-shell 4-body case is now CLOSED IN FORM -- exact rate drho/ds = (1/d^2)[-4/rho + 4rho/(rho+1) + 2rho/(rho+2) + 4rho - 2] worsens only above the unique (0,1) root of rho^4+4rho^3+2rho^2-4rho-2, i.e. c* = sqrt(2+sqrt(3))-1 = (1+sqrt(3))/sqrt(2)-1 ~ 0.93185165 (u=rho^2+2rho => u^2-2u-2=0); within the symmetric K-shell family K=1 is the worst (onset rises with K). RESIDUAL (sharpened, still OPEN): the GLOBAL constant is not closed -- a 2e6-config minimal-pair scan finds asymmetric configs worsening marginally earlier (~0.927 < c*), so the open residual is now precisely an ASYMMETRIC multi-body bound below c*; only single-neighbour c = 1, the symmetric single-shell c* in closed form, and the unconditional Theta <= 1/4 trap are fully closed. UPDATE (imp-3021, SG1C_R2T2_ASYM_RESIDUAL): a STRUCTURED (non-random) search identifies the exact worst asymmetric STRUCTURE the random scan missed -- a one-sided minimal-spacing half-lattice (right neighbours spaced exactly the pair gap g, keeping the tracked pair globally minimal) PLUS a single isolated neighbour at d_1 on the other side; the lattice destabilises isolation against the lone far neighbour. The half-lattice worsening onset converges to ~0.90625 by 4 lattice particles (the m=1 case is exactly the symmetric two-neighbour config, recovering c*), and a deterministic tune of the first gap and spacing pushes the infimum to ~0.9016. This SHARPENS the open asymmetric lower bracket DOWN from the loose random-scan ~0.927 to ~0.902, bracketing the global multi-body constant in ~(0.90, 0.943). HONEST: this is a certified numerical infimum of a structured family, NOT a closed form for the global asymmetric constant and NOT a proof that nothing worsens still earlier -- the exact infimum and its closed form remain OPEN. The load-bearing consequence is unchanged: even ~0.902 sits far above the Theorem C basin constant 0.72 (margin ~0.18), so the basin-conditional C_Lip (imp-3006) never depended on the open global constant. UPDATE (imp-3170, SG1C_ASYM_ISOLATION_CLOSED_FORM): the asymmetric R->infinity worst-case class (one tight neighbour at d_1 on one side + an opposite uniform unit lattice) is now CLOSED IN FORM -- the exact rate is drho/ds(g) = psi(g+1) + gamma + 2g - 2/g - 1/(g+1), where the d_1 side telescopes to the algebraic 1/g - 2 while the opposite-lattice tail carries the irreducible digamma transcendental psi(g+1) + gamma = sum_{k>=1}[1/k - 1/(g+k)]; its unique (0,1) root is the asymmetric onset c_asym = 0.9027902227683418 (TRANSCENDENTAL, NOT algebraic). So the lower end of the asymmetric bracket previously logged only as a numerical scan is, for THIS class, a closed-form constant. The earlier imp-3045 numerical value 0.9032364 is shown to sit ABOVE the true continuous onset (drho/ds = +0.00242 > 0 there): that bisection locked onto a minimal-gap-selector index-flip discontinuity near g ~ 0.9029, not the smooth zero, so the genuine onset is strictly lower at c_asym. HONEST / STILL OPEN: c_asym closes the identified R->infinity opposite-lattice class onset ONLY; it is NOT proven to be the GLOBAL asymmetric infimum -- the imp-3021 structured half-lattice tune reaches ~0.9016 < c_asym, so the global multi-body constant remains OPEN and is now bracketed in ~(0.90, 0.9028). This subgap therefore stays status open globally; only the R->infinity class onset is now in closed (transcendental) form. Basin margin to 0.72 unchanged (c_asym - 0.72 = 0.1828); no refereed bound is changed. UPDATE (imp-3270, SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM): the imp-3194 sub-gap (sg1c-halflattice-lone-neighbour-limit) is CLOSED -- the L -> infinity lone-neighbour half-lattice onset, previously only Aitken-extrapolated to ~0.898021, is now the unique (0,1) root of the EXACT closed-form rate R(rho) = 4 + 4 rho - 4/rho - 4/(rho+1) - 2[psi(1+2/rho) - psi(1+1/rho)], i.e. c_half = 0.8980208880762339 (transcendental digamma-DIFFERENCE root: the opposite lattice at spacing rho and the lone-neighbour distance 1 are incommensurate scales, so the tail is psi(1+2/rho)-psi(1+1/rho) rather than the imp-3170 single psi(g+1)+gamma). Uniqueness is RIGOROUS (dR/drho > 2/rho^2 > 0 on (0,1] since the sole negative trigamma term is bounded by 2 trigamma(2) = pi^2/3 - 2 < 2), R(1) = 1 exactly at the uniform tie, and the O(1/L) finite-size corrections cancel exactly between the gap and d_1 sides -- PROVING the O(1/L^2) onset convergence imp-3194 could only measure (doubling ratio -> 4) and retro-certifying its Aitken value to ~1.1e-7. The tightest located ceiling on the OPEN global constant c_glob is therefore now a closed-form constant: located-onset chain c_half = 0.89802 < 0.9015828 (Config-B tune) < c_asym = 0.90279 < c* = 0.93185. HONEST: c_half closes THIS class (the imp-3201 structured floor, evidence-not-proof that nothing beats it) as a class infimum approached at L -> infinity, NOT the proven global infimum -- c_glob stays OPEN; basin margin c_half - 0.72 = 0.178 keeps the basin-conditional C_Lip independent of it; no refereed bound is changed. CLOSED (fable-frontier 2026-08-28, SG1C_CGLO_CLOSURE in sg1c-cglo-closure-2026-08-28.js): the global constant is now PROVEN equal to c_half = 0.8980208880762339 in closed form. The imp-3236 exact rate decomposition (right particles destabilise, kernel strictly decreasing, worst case = the dense one-sided half-lattice floor sequence r_k = 1+(k-1)rho) had already reduced every admissible config to the half-lattice majorant; the one missing step was that the majorant sum is EXACTLY summable -- partial fractions telescope to 2 - 2[psi(1+2/rho) - psi(1+1/rho)] -- so the universal supremum of d_1^2 drho/ds over ALL globally-minimal-pair configs IS the imp-3270 closed form R(rho), strictly increasing with unique root c_half. Hence every admissible config strictly self-improves for rho < c_half (through nearest-neighbour ties, by max-of-branches Dini), and finite-L half-lattices worsen at every rho > c_half (onsets descend at the proven O(1/L^2)), giving c_glob = c_half EXACTLY: the (0.86566, 0.89802] interval left by imp-3236 collapses to its upper endpoint. Isolation margins g <= c d_1 persist for every c < c_half while the pair stays globally minimal -- the Theorem C 0.72 margin (0.178) is now proven, not scanned. HONEST SCOPE: closes the isolation CONSTANT under the globally-minimal-pair hypothesis (the class c_glob was defined over); does NOT close R1 minimality-transfer, does NOT cover rho in (c_half, 1) where worsening genuinely occurs, C_Lip stays basin-conditional, and no Lambda bound moves: no refereed bound is changed.',
     },
   ],
 };
@@ -623,7 +623,7 @@ export const SG1C_R2T2_KSHELL_GENERAL = (() => {
 // true t_c sits below boundE1, approaching the collision floor g^2/8 as Theta(0) ->
 // 0 (measured t_c/(g^2/8) ratios 1.095 / 1.048 / 1.024 -> 1); that residual gap has
 // no closed form (needs the trajectory), so boundE1 is the sharpest CLOSED-FORM
-// constant-rate bound. Bridge-fidelity target; no QED; PT Lambda <= 0.2 stays SOTA.
+// constant-rate bound. Bridge-fidelity target; no QED; no refereed bound is changed.
 export const SG1C_A1_VS_E1_SHARPER_BOUND = (() => {
   const realZeros = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros');
   const rows = realZeros.map((r) => {
@@ -670,7 +670,7 @@ export const SG1C_A1_VS_E1_SHARPER_BOUND = (() => {
       + '(Theta=1/4), where A1s cap is tight. A1 remains valid unconditionally; a fully-dynamic bound '
       + 'would be sharper still (true t_c -> g^2/8 floor as Theta(0)->0, measured ratios 1.095/1.048/'
       + '1.024) but has no closed form -- E1 is the sharpest closed-form constant-rate bound. '
-      + 'Bridge-fidelity target; no QED; PT Lambda <= 0.2 SOTA.',
+      + 'Bridge-fidelity target; no QED; no refereed bound is changed.',
   };
 })();
 
@@ -700,7 +700,7 @@ export const SG1C_A1_VS_E1_SHARPER_BOUND = (() => {
 // HONEST: 3-row power fit on 4-sig-fig data, extrapolated limit is the isolated-pair floor
 // ratio 1 (Theta(0)->0), NOT a closed form for the finite-rho residual (that needs the
 // trajectory, per the parent). Measure-only, no theorem/QED, no unconditional claim beyond the
-// tested rows; PT Lambda <= 0.2 stays SOTA.
+// tested rows; no refereed bound is changed.
 export const SG1C_R1T4_RATIO_CONVERGENCE = (() => {
   const realZeros = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros');
   // R1-T4 basin peak isolation ratios rho(0) = g/d_1 for the three real-zero rows,
@@ -764,7 +764,7 @@ export const SG1C_R1T4_RATIO_CONVERGENCE = (() => {
       + 'and t_c is the floor/E1 midpoint. The A1 fraction t_c/(g0^2/6) = 0.821/0.786/0.763 stays '
       + '< 1 with slack GROWING (0.179/0.214/0.237) as the pair isolates. HONEST: 3-row fit on '
       + '4-sig-fig data; the limit is the isolated-pair floor ratio 1, NOT a closed form for the '
-      + 'finite-rho residual (needs the trajectory). Measure-only, no QED; PT Lambda <= 0.2 SOTA.',
+      + 'finite-rho residual (needs the trajectory). Measure-only, no QED; no refereed bound is changed.',
   };
 })();
 
@@ -879,7 +879,7 @@ export const SG1C_R1T2_LATTICE_LADDER = (() => {
 // and the open residual is isolated cleanly to: rule out that the CM flow drives generic finite
 // data onto a long uniform minimal lattice (equivalently, that N-particle excursions saturate
 // their 1 - 2/N ceiling). HONEST: this is a static per-N cap, NOT the absolute cap R1 originally
-// hoped for (which R1-T2 already refuted) and NOT a dynamical bound; PT Lambda <= 0.2 stays SOTA.
+// hoped for (which R1-T2 already refuted) and NOT a dynamical bound; no refereed bound is changed.
 export const SG1C_R1_FINITE_N_CAP = (() => {
   const f = (K) => K / (K + 1);
   // exact per-N maximum from the balanced split (uniform minimal lattice)
@@ -982,7 +982,7 @@ export const SG1C_R1_FINITE_N_CAP = (() => {
       + 'the R1-T2 ladder Theta_K = K/(K+1) as its equality case. It also proves cleanly why no absolute '
       + '(N-uniform) cap Theta_exc < 1 exists (sup_N (1-2/N) = 1): the excursion can approach 1 ONLY via N -> inf '
       + 'on a long near-uniform minimal lattice, isolating the open residual to the dynamical-reachability '
-      + 'question (R1-T4 / R2-T). Static, not dynamical; PT Lambda <= 0.2 stays SOTA.',
+      + 'question (R1-T4 / R2-T). Static, not dynamical; no refereed bound is changed.',
   };
 })();
 
@@ -993,7 +993,7 @@ export const SG1C_R1_FINITE_N_CAP = (() => {
 // odd N: strictly below, |K_R-K_L| = 1), and numerically confirm strict concavity of x/(x+1)
 // (f-prime-prime(x) = -2/(x+1)^3 < 0) forces the balanced split as the UNIQUE majorant maximiser
 // and that no non-lattice minimal config exceeds Theta_max(N). Measure/verify only, no
-// unconditional-cap claim; the residual stays dynamical; PT Lambda <= 0.2 stays SOTA.
+// unconditional-cap claim; the residual stays dynamical; no refereed bound is changed.
 export const SG1C_R1_FINITE_N_CAP_TABLE = (() => {
   const f = (K) => K / (K + 1);
   const KR = (N) => Math.ceil((N - 2) / 2);
@@ -1082,7 +1082,7 @@ export const SG1C_R1_FINITE_N_CAP_TABLE = (() => {
       + 'x/(x+1) (second difference < 0) is confirmed and shown to force the balanced split as the '
       + 'UNIQUE exhaustive argmax of f(K_R)+f(K_L) at each N, and no random non-lattice minimal '
       + 'config exceeds Theta_max(N). Measure/verify only: no unconditional cap (sup_N (1-2/N) = 1), '
-      + 'the residual stays the dynamical-reachability question (R1-T4 / R2-T); PT Lambda <= 0.2 stays SOTA.',
+      + 'the residual stays the dynamical-reachability question (R1-T4 / R2-T); no refereed bound is changed.',
   };
 })();
 
@@ -1108,7 +1108,7 @@ export const SG1C_R1_FINITE_N_CAP_TABLE = (() => {
 // HONEST: this confirms numerically what the R1-FN majorant already proves for the FIXED-K
 // per-side value -- it does NOT change the sup_K K/(K+1) = 1 obstruction (the static peak
 // is still uncapped as K -> inf via a long uniform lattice), and the open residual stays
-// the DYNAMICAL reachability question (R1-T4 / R2-T). PT Lambda <= 0.2 stays SOTA.
+// the DYNAMICAL reachability question (R1-T4 / R2-T). No refereed bound is changed.
 export const SG1C_R1_WEIGHTED_LATTICE_OPTIMALITY = (() => {
   // symmetric weighted tie: central minimal pair at (0, 1), K neighbours per side at
   // cumulative distances built from per-side gap vectors (each gap >= 1 keeps the pair
@@ -1176,7 +1176,7 @@ export const SG1C_R1_WEIGHTED_LATTICE_OPTIMALITY = (() => {
       + 'in the cumulative distance s_r >= r, so E = sum T_r is maximised termwise at s_r = r (all gaps '
       + 'minimal), matching the R1-FN majorant. This does NOT relax the sup_K K/(K+1) = 1 obstruction (the '
       + 'static peak stays uncapped via K -> inf on a long uniform lattice); the residual is DYNAMICAL '
-      + '(R1-T4 / R2-T). PT Lambda <= 0.2 stays SOTA.',
+      + '(R1-T4 / R2-T). No refereed bound is changed.',
   };
 })();
 
@@ -1201,7 +1201,7 @@ export const SG1C_R1_WEIGHTED_LATTICE_OPTIMALITY = (() => {
 // load-bearing consequence is unchanged and re-certified: even this sharpened worst
 // asymmetric onset ~0.902 sits FAR above the Theorem C basin constant 0.72 (margin
 // ~0.18), so the basin-conditional C_Lip (imp-3006) never depended on the open global
-// constant. No global-W_1 beat; PT 0.2 stays SOTA.
+// constant. No global-W_1 beat; no refereed bound is changed.
 export const SG1C_R2T2_ASYM_RESIDUAL = (() => {
   const cStar = Math.sqrt(2 + Math.sqrt(3)) - 1; // 0.93185165... symmetric single-shell closed form
   // worst asymmetric family: left neighbour at -1 (d_1 = 1), right one-sided lattice
@@ -1293,7 +1293,7 @@ export const SG1C_R2T2_ASYM_RESIDUAL = (() => {
 // half-lattice onset ~0.8980 wants a closed form (the imp-3170 digamma route with the
 // opposite lattice at spacing rho rather than 1). Load-bearing margin unchanged: even
 // ~0.8980 sits ~0.178 above the Theorem C basin constant 0.72, so the basin-conditional
-// C_Lip (imp-3006) is unaffected; PT Lambda <= 0.2 stays SOTA.
+// C_Lip (imp-3006) is unaffected; no refereed bound is changed.
 export const SG1C_R2T2_HALFLATTICE_LSWEEP = (() => {
   const cStar = Math.sqrt(2 + Math.sqrt(3)) - 1; // 0.93185165... symmetric single-shell
   const cAsymClosedForm = 0.9027902227683418;    // imp-3170 opposite-UNIT-lattice transcendental
@@ -1417,7 +1417,7 @@ export const SG1C_R2T2_HALFLATTICE_LSWEEP = (() => {
 // the imp-3194 single-sided half-lattice is the structured floor among these richer
 // families; the GLOBAL asymmetric constant stays OPEN, bracketed ~(0.898, 0.943). Margin
 // to the Theorem C basin constant 0.72 is ~0.178, so the basin-conditional C_Lip
-// (imp-3006) is unaffected; PT Lambda <= 0.2 stays SOTA.
+// (imp-3006) is unaffected; no refereed bound is changed.
 export const SG1C_R2T2_RICHER_STRUCTURE_SEARCH = (() => {
   const L = 40; // right lattice length
   // build a richer config: optional left dressing lattice, lone left neighbour at -1,
@@ -1540,7 +1540,7 @@ export const SG1C_R2T2_RICHER_STRUCTURE_SEARCH = (() => {
       + 'the onset (extra left mass stabilises isolation). EVIDENCE (not proof) that the single-sided '
       + 'half-lattice is the structured floor; the GLOBAL asymmetric constant stays OPEN ~(0.898, 0.943). '
       + 'Margin to the Theorem C basin constant 0.72 stays ~0.178, so the basin-conditional C_Lip is '
-      + 'unaffected and PT Lambda <= 0.2 stays SOTA.',
+      + 'unaffected and no refereed bound is changed.',
   };
 })();
 
@@ -1560,7 +1560,7 @@ export const SG1C_R2T2_RICHER_STRUCTURE_SEARCH = (() => {
 // report the worst (largest) excursion across the whole grid and any window exceeding
 // Theta(0). HONEST: this strengthens the empirical basin self-enforcement over the
 // extended grid; it does NOT close the unconditional cap (the multi-body R2-T residual
-// stays open) -- PT Lambda <= 0.2 stays SOTA.
+// stays open) -- no refereed bound is changed.
 export const SG1C_R1T4_BASIN_GRID = (() => {
   // RK4 CM-flow peak min-pair Theta integrator (identical scheme to the parent assertion)
   const peak = (x0, maxSteps, floor) => {
@@ -1629,7 +1629,7 @@ export const SG1C_R1T4_BASIN_GRID = (() => {
       + 'to integrator tolerance (worst excursion ~0), so no window excursions toward the uncapped lattice; '
       + 'each near-uniform-lattice control (rho ~ 1) climbs to a high detectable peak, confirming the '
       + 'integrator registers a climb when one exists. Strengthens the empirical basin self-enforcement; '
-      + 'does NOT close the unconditional cap (multi-body R2-T residual stays open). PT Lambda <= 0.2 stays SOTA.',
+      + 'does NOT close the unconditional cap (multi-body R2-T residual stays open). No refereed bound is changed.',
   };
 })();
 
@@ -1655,7 +1655,7 @@ export const SG1C_R1T4_BASIN_GRID = (() => {
 // uniform regime when present. HONEST scope: this is a geometric MEASUREMENT on the real-zero
 // basin corroborating the R1-T4 mechanism (isolated pairs isolate further); it makes NO cap
 // claim and does NOT close the unconditional residual (the multi-body R2-T constant stays
-// open, so a non-generic near-uniform initial config is not covered). PT Lambda <= 0.2 stays SOTA.
+// open, so a non-generic near-uniform initial config is not covered). No refereed bound is changed.
 export const SG1C_R1_NEARUNIFORM_REACHABILITY = (() => {
   const gapsOf = (x) => { const g = []; for (let k = 0; k < x.length - 1; k++) g.push(x[k + 1] - x[k]); return g; };
   // contiguous run of gaps around the minimal pair all within (1+eps) of the minimal gap
@@ -1753,7 +1753,7 @@ export const SG1C_R1_NEARUNIFORM_REACHABILITY = (() => {
       + 'and uniformity ~1 (Theta ~ 0.73-0.83), confirming the metric fires when the uniform regime is '
       + 'present. Measure-only, no cap claim: this corroborates the R1-T4 isolation mechanism on the real-'
       + 'zero basin and does NOT close the unconditional residual (multi-body R2-T stays open, non-generic '
-      + 'near-uniform initial configs uncovered). PT Lambda <= 0.2 stays SOTA.',
+      + 'near-uniform initial configs uncovered). No refereed bound is changed.',
   };
 })();
 
@@ -1919,7 +1919,7 @@ export const SG1C_STATIC_CROSSING_CEILING = (() => {
 // crossing c_unit ~ 0.722 -- at the cap c = 0.72 the cover is Theta_max ~ 1.00498 >= 1
 // (a small +0.005 margin), so every level Theta* <= 1 is indeed covered there. This is
 // the STATIC isolation criterion only; persistence of the isolation g <= c d_1 itself
-// (residual R2) is out of scope and unaffected. No new bound; PT Lambda <= 0.2 stays SOTA.
+// (residual R2) is out of scope and unaffected. No new bound; no refereed bound is changed.
 export const SG1C_THETAMAX_ISOLATION_MAP = (() => {
   const thetaMax = (c) => 2 - (3 * c * c) / (1 + c) - c ** 4 / (1 + c) ** 2;
   const theoremCCap = 0.72;
@@ -1953,7 +1953,7 @@ export const SG1C_THETAMAX_ISOLATION_MAP = (() => {
       + '0.72208, just above the rounded Theorem C cap 0.72; so at the cap the cover is Theta_max ~ 1.005 '
       + '>= 1 (a +0.005 margin) and every level Theta* <= 1 is non-crossable while g <= 0.72 d_1 holds. '
       + '0.72 is thus a slightly conservative rounding of c_unit. STATIC isolation criterion only; '
-      + 'persistence of the isolation itself (residual R2) is out of scope. No new bound; PT Lambda <= 0.2 stays SOTA.',
+      + 'persistence of the isolation itself (residual R2) is out of scope. No new bound; no refereed bound is changed.',
   };
 })();
 
@@ -2028,7 +2028,7 @@ export const SG1C_A1_REALZERO_CEILING = (() => {
 // the Theta(0) -> 0 limit A1 overshoots the true t_c by the closed-form factor 4/3.
 // HONEST: measure only, on the frozen 2026-06-10 integrated t_c -- no new bound
 // claim; A1 stays valid unconditionally (slackFactor > 1 on every row confirms
-// t_c <= a1). PT Lambda <= 0.2 stays SOTA.
+// t_c <= a1). No refereed bound is changed.
 export const SG1C_A1_SLACK_DECOMPOSITION = (() => {
   const rows = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros').map((r) => {
     const a1 = (r.g0 * r.g0) / 6; // Corollary A1 ceiling
@@ -2787,7 +2787,7 @@ export const SG1C_THEOREMB_NENV_INVARIANCE = (() => {
       + 'below Theta_b. CONCLUSION: Theorem B and its capped-greedy saturating profile extend '
       + 'unchanged to all N > 4 -- Theta_b is sharp and N-independent, and the 4-particle family is '
       + 'already the worst case. Assessment only; no new closed-form claim beyond the established '
-      + 'N-invariance of the existing Theorem-B threshold. PT Lambda <= 0.2 stays SOTA.',
+      + 'N-invariance of the existing Theorem-B threshold. No refereed bound is changed.',
   };
 })();
 
@@ -2807,7 +2807,7 @@ export const SG1C_THEOREMB_NENV_INVARIANCE = (() => {
 // plus the 25 aggregate STRESS_TEST_ADDENDUM runs (per-row configs not stored;
 // their reported "all configs entering above ~0.51 still decreased" is consistent
 // with the band ceiling 0.5073 < 0.51). Bookkeeping/diagnostic; the optimistic
-// SG1c is already refuted on this band, no QED; PT Lambda <= 0.2 stays SOTA.
+// SG1c is already refuted on this band, no QED; no refereed bound is changed.
 export const SG1C_EMPIRICAL_TRAP_BAND_CLASSIFIER = (() => {
   const thetaA = 0.25; // Theorem A unconditional trap ceiling
   const thetaB = (Math.sqrt(73) - 5) / 8; // 0.443000... Theorem B minimal-gap threshold
@@ -2867,7 +2867,7 @@ export const SG1C_EMPIRICAL_TRAP_BAND_CLASSIFIER = (() => {
       + 'INDETERMINATE and defers to the R1-T dynamical seizing mechanism. The 25 aggregate stress '
       + 'runs (all configs entering above ~0.51 still decreased) are consistent with the band '
       + 'ceiling 0.5073 < 0.51. Bookkeeping/diagnostic; SG1c stays refuted on the band, no QED; '
-      + 'PT Lambda <= 0.2 stays SOTA.',
+      + 'no refereed bound is changed.',
   };
 })();
 
@@ -3027,7 +3027,7 @@ export const SG1C_R1T3_DENSE_B_SWEEP = (() => {
 // moves AWAY from 1), and integrate the scalar ODE from rho = 1 +/- delta to confirm the
 // perturbed lattice drifts AWAY from rho = 1. HONEST: this certifies the SINGLE-NEIGHBOUR
 // reduction only (the exact closed form R1-T4 cites); the multi-body R2-T residual stays
-// open and PT Lambda <= 0.2 stays SOTA.
+// open and no refereed bound is changed.
 export const SG1C_R1T4_RHO1_REPELLER = (() => {
   // dimensionless single-neighbour isolation rate (d_1 = 1, g = rho)
   const F = (rho) => (rho - 1) * (2 / (rho + 1) + 4 * (rho + 1) / rho);
@@ -3084,7 +3084,7 @@ export const SG1C_R1T4_RHO1_REPELLER = (() => {
       + 'isolation margin always flows AWAY from 1; a perturbed-lattice RK4 integration from rho = 1 +/- 1e-3 '
       + 'drifts away on both sides (collapsing toward 0 below, growing above). This confirms the near-uniform '
       + 'lattice rho = 1 is unreachable by an isolated pair flowing inward, as R1-T4 claims. Certifies the '
-      + 'single-neighbour reduction only; the multi-body R2-T residual stays open and PT Lambda <= 0.2 stays SOTA.',
+      + 'single-neighbour reduction only; the multi-body R2-T residual stays open and no refereed bound is changed.',
   };
 })();
 
@@ -3109,7 +3109,7 @@ export const SG1C_R1T4_RHO1_REPELLER = (() => {
 // whereas for every config with Theta(0) <= 1/4 -- including all measured real-zero rows
 // Theta(0) = 0.167/0.088/0.046 -- the Theorem A trap keeps Theta <= 1/4 and A1's strictly
 // tighter g_min(0)^2/6 stays in force. So Theorem B trades ceiling sharpness for a wider
-// trapping basin; it does NOT improve the A1 constant. ASSESS only, no QED; PT Lambda <= 0.2 stays SOTA.
+// trapping basin; it does NOT improve the A1 constant. ASSESS only, no QED; no refereed bound is changed.
 export const SG1C_B_VS_A1_CEILING = (() => {
   const thetaB = (Math.sqrt(73) - 5) / 8; // 0.443000... Theorem B sharp minimal-gap threshold
   // exact collision-ceiling denominator 8(1 - Theta*) from d(g^2)/ds = -8(1 - Theta)
@@ -3168,7 +3168,7 @@ export const SG1C_B_VS_A1_CEILING = (() => {
 // Theta*(0.72) = 1.00497 > 1, so the basin 0.72 secures non-crossability with ~0.005 of
 // slack to spare. Hence 0.72 is a safe rounded stand-in shared by both the isolation
 // criterion and C_Lip, NOT a full-precision identity; the sharp static isolation constant
-// is the quartic root 0.722084. Static-criterion assessment only; no QED; PT Lambda <= 0.2 SOTA.
+// is the quartic root 0.722084. Static-criterion assessment only; no QED; no refereed bound is changed.
 export const SG1C_THEOREMC_ISOLATION_ROOT = (() => {
   // static Theorem-C threshold as a function of the isolation ratio c = g/d_1
   const thetaStar = (c) => 2 - (3 * c * c) / (1 + c) - (c ** 4) / (1 + c) ** 2;

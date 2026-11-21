@@ -13,7 +13,7 @@
  *
  * DERIVATION / ASSESSMENT ONLY. Certifies no cap (I2); instantiates no enclosure (I1); evaluates
  * no H_t on any disk; fixes no operative radius; produces no numeric B; changes no bound;
- * imp-35337a OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE OPTIMIZATION
  * -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@
  * an upper model, not a measurement); fixes no operative radius, Delta, or h; lower-bounds no delta;
  * produces no numeric B; establishes no positivity; certifies no non-vanishing; I2 remains GREENFIELD
  * downstream of W1; changes no bound; imp-35337a OPEN; C_mb GUE-conditional (imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35988-i2-derivative-cap-route-comparison (compared the routes at the NAIVE r ~ 1/w only)
  * @see imp-35832-i2-derivative-bound-from-i1-enclosure-scope (named the Cauchy route; r ~ 1/w naive)
@@ -77,7 +77,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35988 / imp-35845 / imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 const TWO_PI = 2 * Math.PI;
 const E = Math.E; // ~2.71828 -- the M(r*) growth factor at the optimum
 
@@ -159,7 +159,7 @@ export const IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS = {
     'evaluates no H_t on any disk; measures no growth rate g; fixes no operative radius; produces no ' +
     'numeric B; lower-bounds no delta; establishes no positivity; certifies no non-vanishing; I2 ' +
     'remains GREENFIELD downstream of W1; changes no bound; imp-35337a OPEN; C_mb GUE-conditional ' +
-    '(imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35988 (compared the routes at the naive r ~ 1/w only, M-growth dropped); imp-35832 (named ' +
     'the Cauchy route, r ~ 1/w naive); imp-35845 (Route I sharp amp A_amp = log N = w - (1/2)log2); ' +
@@ -227,9 +227,9 @@ export const IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS_ASSERTIONS = [
       E * BREAKEVEN_GROWTH_RATE < WINDING_RATE + 1e-9,
   },
   {
-    // Honesty gate: derivation only, no cap, no enclosure, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: derivation only, no cap, no enclosure, no QED, no refereed bound is changed.
     id: 'imp36040-honesty-gate-no-qed',
-    description: 'Derivation only; certifies no cap; instantiates no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Derivation only; certifies no cap; instantiates no enclosure; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -237,7 +237,7 @@ export const IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS_ASSERTIONS = [
       /instantiates no enclosure/.test(IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS.verdict) &&
       /imp-35337a OPEN/.test(IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS.verdict) &&
       /NO QED/.test(IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS.verdict) &&
-      /remains SOTA/.test(IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS.verdict),
+      /refereed bound is changed/i.test(IMP36040_ROUTE_II_OPTIMAL_CAUCHY_RADIUS.verdict),
   },
 ];
 

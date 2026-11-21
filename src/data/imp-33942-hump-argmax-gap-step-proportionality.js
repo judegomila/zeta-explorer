@@ -58,7 +58,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33905-hump-argmax-grid-vs-continuum-reconciliation (R2 claims the gap is the step distance)
  * @see imp-33878-hump-argmax-grid-refinement (the grid ladder and continuum argmax k*, reused verbatim)
@@ -177,7 +177,7 @@ export const IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY = {
     'extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not ' +
     'derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33905 (R2 claims the gap is the step discretization distance and vanishes as the grid ' +
     'refines); imp-33878 (the grid-refinement ladder and continuum argmax k*~8.821092, reused ' +
@@ -209,14 +209,14 @@ export const IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY_ASSERTIONS = [
     holds: () => SAWTOOTH_MATCHES_ALL,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines R2 (bounded not proportional), no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines R2 (bounded not proportional), no QED, no refereed bound is changed.
     id: 'imp33942-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NOT proportional verdict, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, NOT proportional verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY.isRigorous === false &&
       /does NOT shrink PROPORTIONALLY/.test(IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY.verdict) &&
       /NO QED/.test(IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY.verdict) &&
-      /remains SOTA/.test(IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY.verdict),
+      /refereed bound is changed/i.test(IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY.verdict),
   },
 ];
 

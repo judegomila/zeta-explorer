@@ -43,7 +43,7 @@
  *   used inside a mass-feasibility diagnostic; it establishes NO operator positivity. Mass-feasibility
  *   is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (off-diagonal
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is inherited
- *   upstream. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   upstream. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33293-a-weight-graded-gl-1ulp-budget-tau910.js (the tau in {9,10} saturation this extends)
  *   @see imp-33277-a-weight-graded-gl-1ulp-budget-tau78.js (the tau in {7,8} widening transient)
@@ -269,7 +269,7 @@ const verdict =
       '1.000000000),-SO-THE-e^{4tau}-LOOSENING-BAR-KEEPS-BEING-CLEARED-BY-THE-FIXED-RESOLUTION-RULE;-' +
       '(3)-grade6-STAYS-CHEAPEST-(2430<7290<37870-NODES),-A-15%-NARROWER-RULE-FAILS-(~32-ULP)-AND-' +
       'SD-vs-DD-STAY-BIT-IDENTICAL-(0-ULP).-ACCURACY-MEASUREMENT/RULE-DESIGN-ONLY;-MASS-FEASIBILITY-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33313_A_WEIGHT_GRADED_GL_1ULP_BUDGET_TAU1112 = Object.freeze({
@@ -293,7 +293,7 @@ export const IMP33313_A_WEIGHT_GRADED_GL_1ULP_BUDGET_TAU1112 = Object.freeze({
     'mechanism holds deeper: -ln A(tau) = pi e^{4tau} to 9+ digits (peakRatio 1.000000000), grade6 ' +
     'stays cheapest, a 15%-narrower rule fails (~32 ULP) and SD-vs-DD stay bit-identical (0 ULP). ' +
     'ACCURACY MEASUREMENT/RULE-DESIGN ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -393,7 +393,7 @@ export const IMP33313_A_WEIGHT_GRADED_GL_1ULP_BUDGET_TAU1112 = Object.freeze({
       'measurements. The robust reading is the flat crossover tau*~6.95, the tau-invariant grade6/2430-node ' +
       'budget, the linear margin law (slope ~ -1), the -ln A = pi e^{4tau} peak collapse and the grade-ordering, ' +
       'not the exact panel counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -461,7 +461,7 @@ export const IMP33313_A_WEIGHT_GRADED_GL_1ULP_BUDGET_TAU1112_ASSERTIONS = [
   {
     id: 'imp33313-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33313_A_WEIGHT_GRADED_GL_1ULP_BUDGET_TAU1112.honestCaveat;
       return (
@@ -469,7 +469,7 @@ export const IMP33313_A_WEIGHT_GRADED_GL_1ULP_BUDGET_TAU1112_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

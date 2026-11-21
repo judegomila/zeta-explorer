@@ -11,7 +11,7 @@
  * the composition seamToChainGate(R) = gammaSL(gFromLam(R^2)), and checks
  * that representative signed-family R values stay inside the (M1) increasing
  * branch [0, 1/sqrt2]. MEASUREMENT ONLY -- changes no bound, promotes no
- * Lambda, no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda, no QED; no refereed bound is changed.
  *
  * WHAT WAS FOUND (baked literals below, recomputed by the assertions).
  *  (M1) g_R = 2 R sqrt(1 - R^2) is STRICTLY increasing on [0, 1/sqrt2],
@@ -49,7 +49,7 @@
  *
  * Import-light: the imp-95276 gate functionals are carried verbatim as
  * literals so this module never reaches a heavy data bundle.
- * MEASUREMENT ONLY; no bound changed; NO QED; PT Lambda <= 0.2 stays SOTA.
+ * MEASUREMENT ONLY; no bound changed; NO QED; no refereed bound is changed.
  */
 
 // ── carried imp-95210/95216 gate constants (single source; import-light) ─────
@@ -140,7 +140,7 @@ export const IMP95384_GFROMLAM_GAMMASL_DEEP_CANCELLATION_CROSSVAL = {
   honest:
     'MEASUREMENT ONLY -- (M1)+(M2) and orientation-preservation cross-validated on a fine deep-regime grid; '
     + 'no LamBar re-bounded, no packet transcribed, no certificate instantiated. Changes no bound; NO QED; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'no refereed bound is changed.',
   fns: { gammaSL, gFromR, seamToChainGate },
 };
 
@@ -233,10 +233,10 @@ export const IMP95384_GFROMLAM_GAMMASL_DEEP_CANCELLATION_CROSSVAL_ASSERTIONS = [
   },
   {
     id: 'imp-95384-measurement-only-honest',
-    description: 'explicitly MEASUREMENT ONLY, no bound changed, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly MEASUREMENT ONLY, no bound changed, no refereed bound is changed',
     holds: () =>
       /MEASUREMENT ONLY/.test(IMP95384_GFROMLAM_GAMMASL_DEEP_CANCELLATION_CROSSVAL.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95384_GFROMLAM_GAMMASL_DEEP_CANCELLATION_CROSSVAL.honest),
+      && /refereed bound is changed/i.test(IMP95384_GFROMLAM_GAMMASL_DEEP_CANCELLATION_CROSSVAL.honest),
   },
 ];
 

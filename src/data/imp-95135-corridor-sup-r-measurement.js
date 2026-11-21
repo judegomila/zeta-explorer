@@ -61,8 +61,7 @@
  * (imp-95212 obligation (2), still open). (c) Tolerance-defined onsets: R
  * approaches 1/2 but is never equal (strict symmetry ceiling), so N* depends
  * on the chosen tolerance; three tolerances are reported. (d) Model-family
- * measurement; no bound changes, no QED, Platt-Trudgian Lambda <= 0.2 stays
- * SOTA.
+ * measurement; no bound changes, no QED, no refereed bound is changed.
  *
  * Import-light (no zeros bundle, no sibling imports); self-executing
  * assertions recompute every baked number. Sub-gap
@@ -128,7 +127,7 @@ export const IMP95135_CORRIDOR_SUP_R_MEASUREMENT = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This is a measurement, not a certificate: obligation (2) (a signed certificate that bites in the corridor) is UNCHANGED. What the measurement records: the SGN-SAT saturation frontier 11.6893 x is loose (measured onset ~2.8 x at large x), so the RIGHT side of the corridor moves down; the certificate vacuity frontier 1.4427 x has a modest band above it before sup R reaches 1/2, so a sharper certificate could in principle gain there. The measured onsets are UPPER bounds on the true saturation onset (probed via one family), which only strengthens the right-side movement.",
   verdict:
-    "MEASUREMENT (no bound): sup R inside the imp-95225 corridor 1.4427 x < N < 11.6893 x, probed via the SGN-SAT achievability family phi_K whose limit is the co-centered ceiling 1/2. The saturation onset is measured far below the crude 11.6893 x sufficient frontier (N*(1e-3) = 6, 8, 10, 13, 15, 17 at x = 1..6, N*/x decreasing toward ~2.8), so the RIGHT frontier is the loose one and moves down by a factor ~3-4; the LEFT certificate-vacuity frontier 1.4427 x is comparatively tight, with only a modest band above it before R climbs to 1/2. The open band collapses from factor 8.1 to roughly factor 2. The quadrature reproduces the imp-95224 checkpoint 1/2 - 7.5585e-9 exactly. HONEST: onsets are tolerance-defined and are upper bounds on the true onset (single-family probe); the left frontier is a property of the SGN-C bound, and proving a certificate that bites above it stays open (imp-95212 obligation (2)); no bound changed, NO QED, Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (no bound): sup R inside the imp-95225 corridor 1.4427 x < N < 11.6893 x, probed via the SGN-SAT achievability family phi_K whose limit is the co-centered ceiling 1/2. The saturation onset is measured far below the crude 11.6893 x sufficient frontier (N*(1e-3) = 6, 8, 10, 13, 15, 17 at x = 1..6, N*/x decreasing toward ~2.8), so the RIGHT frontier is the loose one and moves down by a factor ~3-4; the LEFT certificate-vacuity frontier 1.4427 x is comparatively tight, with only a modest band above it before R climbs to 1/2. The open band collapses from factor 8.1 to roughly factor 2. The quadrature reproduces the imp-95224 checkpoint 1/2 - 7.5585e-9 exactly. HONEST: onsets are tolerance-defined and are upper bounds on the true onset (single-family probe); the left frontier is a property of the SGN-C bound, and proving a certificate that bites above it stays open (imp-95212 obligation (2)); no bound changed, NO QED, no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; import-light; THROW on violation) ─────────────
@@ -205,7 +204,7 @@ export const IMP95135_MEASUREMENT_ASSERTIONS = [
   {
     id: "imp95135-verdict-honesty",
     description:
-      "the verdict records measurement-only scope: sub-gap STILL OPEN, no bound changed, the onsets are upper bounds (single-family probe), the corridor narrows, NO QED, SOTA preserved",
+      "the verdict records measurement-only scope: sub-gap STILL OPEN, no bound changed, the onsets are upper bounds (single-family probe), the corridor narrows, NO QED, no refereed bound is changed",
     holds: () =>
       /STILL OPEN/.test(IMP95135_CORRIDOR_SUP_R_MEASUREMENT.subGap) &&
       /UPPER bounds/.test(IMP95135_CORRIDOR_SUP_R_MEASUREMENT.subGap) &&
@@ -216,7 +215,7 @@ export const IMP95135_MEASUREMENT_ASSERTIONS = [
         IMP95135_CORRIDOR_SUP_R_MEASUREMENT.verdict,
       ) &&
       /NO QED/.test(IMP95135_CORRIDOR_SUP_R_MEASUREMENT.verdict) &&
-      /remains SOTA/.test(IMP95135_CORRIDOR_SUP_R_MEASUREMENT.verdict),
+      /refereed bound is changed/i.test(IMP95135_CORRIDOR_SUP_R_MEASUREMENT.verdict),
   },
 ];
 

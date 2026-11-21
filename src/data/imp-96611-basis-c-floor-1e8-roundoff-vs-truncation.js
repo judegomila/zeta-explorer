@@ -73,7 +73,7 @@
  * the compensated truncation floor (~3e-5) stays ~530x below the 1e8 signal (1.587e-2), so the true
  * truncation-limited corroboration reach is far past 1e8, with arithmetic precision the operative wall.
  * Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96588-basis-c-floor-1e8-rung-powerlaw-bend (the naive bend / L* ~ 8e7 this corrects)
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (the two-rung p ~ 1.81 law this refutes as roundoff)
@@ -206,12 +206,12 @@ export const IMP96611_BASIS_C_FLOOR_1E8_ROUNDOFF_VS_TRUNCATION = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. Kahan compensation removes summation roundoff but not every rounding path (the ~3e8 sin node evaluations carry ~1 ulp each); the residual Kahan Var error 4.16e-3 at ppp = 3 is genuine Simpson truncation, and the ~3-4e-5 clean floors are themselves double-precision quadrature values, not arbitrary-precision truth. The flat clean-floor law rests on three ppp = 3 rungs; it refutes the imp-96568/imp-96588 upward laws but is not itself a proof of an asymptotic floor law. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The imp-96588 basis-C L = 1e8 floor bend is a CATASTROPHIC-CANCELLATION / SUMMATION ROUNDOFF ARTIFACT, not a converged truncation floor. Kahan-compensated summation and an independent cancellation-free variance both collapse the clean ppp = 3 floor from 2.7235e-2 to ~2.982e-5 (~913x), the upward bend (exponent 2.43-2.57) and the imp-96568 p ~ 1.81 law both vanish (compensated floor flat at ~3-4e-5, exponent ~ -0.10), and the ppp collapse 3 -> 2 reverses. L* ~ 8e7 is CORRECTED: it is a double-precision arithmetic reach set by the roundoff floor, not a Simpson-truncation reach; the compensated truncation floor (~3e-5) stays ~530x below the 1e8 signal (1.587e-2), so the true truncation-limited corroboration reach is far past 1e8, with arithmetic precision the operative wall. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96588 basis-C L = 1e8 floor bend is a CATASTROPHIC-CANCELLATION / SUMMATION ROUNDOFF ARTIFACT, not a converged truncation floor. Kahan-compensated summation and an independent cancellation-free variance both collapse the clean ppp = 3 floor from 2.7235e-2 to ~2.982e-5 (~913x), the upward bend (exponent 2.43-2.57) and the imp-96568 p ~ 1.81 law both vanish (compensated floor flat at ~3-4e-5, exponent ~ -0.10), and the ppp collapse 3 -> 2 reverses. L* ~ 8e7 is CORRECTED: it is a double-precision arithmetic reach set by the roundoff floor, not a Simpson-truncation reach; the compensated truncation floor (~3e-5) stays ~530x below the 1e8 signal (1.587e-2), so the true truncation-limited corroboration reach is far past 1e8, with arithmetic precision the operative wall. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96611_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros. The imp-96588 '
   + 'L = 1e8 floor bend is a summation / cancellation ROUNDOFF artifact: Kahan-compensated and '
   + 'cancellation-free arithmetic collapse the clean ppp = 3 floor from 2.72e-2 to 2.98e-5 (~913x), '
@@ -261,11 +261,11 @@ export const IMP96611_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96611_BASIS_C_FLOOR_1E8_ROUNDOFF_VS_TRUNCATION.verdict))
     throw new Error('imp-96611: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96611_BASIS_C_FLOOR_1E8_ROUNDOFF_VS_TRUNCATION.verdict))
-    throw new Error('imp-96611: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96611_BASIS_C_FLOOR_1E8_ROUNDOFF_VS_TRUNCATION.verdict))
+    throw new Error('imp-96611: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96588/.test(IMP96611_BASIS_C_FLOOR_1E8_ROUNDOFF_VS_TRUNCATION.question))
     throw new Error('imp-96611: question dropped the imp-96588 reference');
-  if (!(/RH open/.test(IMP96611_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96611_HONEST_BANNER) && /NO QED/.test(IMP96611_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96611_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96611_HONEST_BANNER) && /NO QED/.test(IMP96611_HONEST_BANNER)))
     throw new Error('imp-96611: IMP96611_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

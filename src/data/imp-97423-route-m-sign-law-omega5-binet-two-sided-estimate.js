@@ -8,7 +8,7 @@
  * where D_{p1}(e) = J(e - 1) - J(p1 e - 1) and J is the Binet function, and pinned the OBSTRUCTION as the
  * elementary toolkit giving only ONE-SIDED control of D (D > 0, D strictly decreasing): it cannot bound a
  * single D value from BELOW against a SUM of smaller-argument D values from above. This module derives the
- * missing two-sided estimate and applies it. RH open; NO QED; no bound on Lambda moves; PT Lambda <= 0.2 SOTA.
+ * missing two-sided estimate and applies it. RH open; NO QED; no bound on Lambda moves; no refereed bound is changed.
  *
  * -------------------------------------------------------------------------------
  * STEP 1 -- the rigorous two-sided Binet bracket (classical enveloping series).
@@ -199,11 +199,11 @@ export const IMP97423_VERDICT = Object.freeze({
     'per (p1,q1). The margin decays like (1-1/p1)/(12 q1)[1 - Sum 1/qj] -> 0+ with no positive floor, so a ' +
     'finite check cannot close all q1: the residual is a uniform-in-(p1,q1) tail lemma for the now-explicit ' +
     'O(1/q1^3) remainder. So the two-sided estimate is DERIVED and the one-sided obstruction is removed, but ' +
-    'the omega = 5 sign law is not yet proved. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'the omega = 5 sign law is not yet proved. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97423_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: derives the rigorous two-sided Binet ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: derives the rigorous two-sided Binet ' +
   'estimate (enveloping bracket 1/(12n) - 1/(360 n^3) < J(n) < 1/(12n) -> explicit Dlo,Dhi with D(e) = ' +
   '(1-1/p1)/(12 e) + O(1/e^2)) that imp-97396 named as missing, certifies the omega = 5 inequalities (A),(B) ' +
   'with strictly positive margin across the families, and reduces the q2,q3,q4 infinitude to a minimal ' +
@@ -277,7 +277,7 @@ const IMP97423_ASSERTIONS = [
       IMP97423_VERDICT.qed === false &&
       /IMP97333_SIGN_TAIL_SUBGAP/.test(IMP97423_VERDICT.residualSubgap) &&
       /NO QED/.test(IMP97423_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97423_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97423_HONEST_BANNER) &&
       /RH open/.test(IMP97423_HONEST_BANNER),
     why: 'honest partial: two-sided estimate derived and (A),(B) certified with margin plus q-direction reduced, but NOT proved for all omega = 5 -- no bound moved, no rigorous ceiling, no operator positivity, RH open, no QED.',
   },

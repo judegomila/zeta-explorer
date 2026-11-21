@@ -70,8 +70,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the E_trunc route is GUE-conditional-free but the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (RESOLVES the close-vs-floor question this
  *      module leaves open: the ~0.0152 residual above KEEPS CLOSING as ~1/(2 log T0), does NOT floor)
@@ -223,7 +222,7 @@ export const IMP33620_ETRUNC_ECOLL_LADDER_1E15_EXTENSION = {
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'E_trunc route is GUE-conditional-free but the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33602 (separated E_trunc/E_coll ladder 1e6..1e12, extended here); imp-33582 (sigma<0.1 at ' +
     'N~3.21e11); imp-33606 (landmark ansatz-sensitivity band); imp-3444 (E_coll=E_trunc crossover ' +
@@ -280,13 +279,13 @@ export const IMP33620_ETRUNC_ECOLL_LADDER_1E15_EXTENSION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33620-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33620_ETRUNC_ECOLL_LADDER_1E15_EXTENSION.isRigorous === false &&
       /NO QED/.test(IMP33620_ETRUNC_ECOLL_LADDER_1E15_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP33620_ETRUNC_ECOLL_LADDER_1E15_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP33620_ETRUNC_ECOLL_LADDER_1E15_EXTENSION.verdict),
   },
 ];
 

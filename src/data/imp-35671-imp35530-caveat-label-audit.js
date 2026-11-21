@@ -51,7 +51,7 @@
  *
  * SCOPE. Read-only audit; corrects nothing in improvement-queue.js; changes no
  * bound; establishes no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35530-crossover-gtrue-trend-extrapolation (ground-truth subGaps: imp-35530a extrapolation, imp-35530b units)
  * @see imp-35556-gtrue-ecoll-dimensional-comparability (raised the NOTE that the queue title mislabels the swap)
@@ -112,7 +112,7 @@ export const IMP35671_IMP35530_CAVEAT_LABEL_AUDIT = {
     'glossary.js, and the imp-35565/imp-35624/imp-35625 tickets) already carries the correct ' +
     'attribution. Per the imp-35186/imp-35589 convention this audit FLAGS the swapped ticket text ' +
     'without editing it. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35530 (ground-truth subGaps definition); imp-35556 (raised the NOTE); imp-35186 (audit method ' +
     'precedent); imp-35589 (audit-flags/no-edit convention).',
@@ -137,11 +137,11 @@ export const IMP35671_IMP35530_CAVEAT_LABEL_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35671-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35671_IMP35530_CAVEAT_LABEL_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35671_IMP35530_CAVEAT_LABEL_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35671_IMP35530_CAVEAT_LABEL_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35671_IMP35530_CAVEAT_LABEL_AUDIT.verdict),
   },
 ];
 

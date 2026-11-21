@@ -75,7 +75,7 @@
  *
  * DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. C_C is
  * GUE-conditional per imp-486; changes no bound; imp-3066 K_a>=0 untouched; no positivity, no
- * bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33315-sigma-fartail-law-vs-interior-max-reconciliation (the disjoint-regimes result, ~3.0e-2 overshoot)
  * @see imp-33291-sigma-fartail-two-parameter-lnN-lnlogT0-fit (the (-1/2, +1/2) joint power law)
@@ -266,7 +266,7 @@ export const IMP33533_SIGMA_TWO_REGIME_CROSSOVER_BLEND = {
     'the ~3.0e-2 far-tail overshoot by ~3.7 orders of magnitude (~3670x) while recovering the far-tail ' +
     'law to ~2e-9 past the crossover. Derivation/measurement only; conditional-share diagnostic, NOT an ' +
     'RH bound; C_C GUE-conditional per imp-486; changes no bound; imp-3066 K_a>=0 untouched; no ' +
-    'positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33315 (disjoint-regimes reconciliation, ~3.0e-2 overshoot); imp-33291 ((-1/2, +1/2) joint ' +
     'power law); imp-3406 (interior MAX N ~ 9.22e5, sigma_max ~ 0.9494); imp-3444 (E_coll = E_trunc ' +
@@ -323,13 +323,13 @@ export const IMP33533_SIGMA_TWO_REGIME_CROSSOVER_BLEND_ASSERTIONS = [
         Math.abs(sigmaBlend(N_MAX_FULL, 2.0) - SIGMA_MAX_FULL),
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33533-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33533_SIGMA_TWO_REGIME_CROSSOVER_BLEND.isRigorous === false &&
       /NO QED/.test(IMP33533_SIGMA_TWO_REGIME_CROSSOVER_BLEND.verdict) &&
-      /remains SOTA/.test(IMP33533_SIGMA_TWO_REGIME_CROSSOVER_BLEND.verdict),
+      /refereed bound is changed/i.test(IMP33533_SIGMA_TWO_REGIME_CROSSOVER_BLEND.verdict),
   },
 ];
 

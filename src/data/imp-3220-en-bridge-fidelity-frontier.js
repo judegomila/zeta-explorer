@@ -58,7 +58,7 @@
  * unconditional; closing the gap does NOT require touching them.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-2643-honest-assembled-EN (single-point E(N) capstone at N* = 1e4)
  * @see imp-2715-worst-case-EN-headroom-audit (single-point worst-case brackets)
@@ -71,7 +71,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP2643_HONEST_ASSEMBLED_EN } from './imp-2643-honest-assembled-EN.js';
 
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // E_trunc via the fixed-strip Platt-Trudgian route (imp-2631/imp-2715): tied to
 // the T_PT = 3e12 verification height, so it is N-INDEPENDENT across the assembly
@@ -180,7 +180,7 @@ export const IMP3220_EN_BRIDGE_FIDELITY_FRONTIER = {
     'therefore widest at the top of the range, and closing it requires discharging ' +
     'the sole GUE conditional C_H (C_mb, imp-486), not the already-unconditional ' +
     'E_flow / E_trunc. No positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-2643 (single-point E(N) capstone); imp-2715 (single-point worst-case); ' +
     'imp-2642 (C_H = 1/8 ansatz); imp-486 (C_mb GUE-conditional, no unconditional bound); ' +
@@ -242,12 +242,12 @@ export const IMP3220_EN_BRIDGE_FIDELITY_FRONTIER_ASSERTIONS = [
     // Honesty gate: assessment only, names the single blocking conditional C_H/C_mb,
     // keeps PT as SOTA, and makes no rigorous / RH claim.
     id: 'imp3220-honesty-gate-no-qed',
-    description: 'Assessment only: names the C_H/C_mb conditional, no QED, PT stays SOTA',
+    description: 'Assessment only: names the C_H/C_mb conditional, no QED, no refereed bound is changed',
     holds: () =>
       IMP3220_EN_BRIDGE_FIDELITY_FRONTIER.isRigorous === false &&
       /C_H/.test(IMP3220_EN_BRIDGE_FIDELITY_FRONTIER.unconditionalBridgeRequires) &&
       /NO QED/.test(IMP3220_EN_BRIDGE_FIDELITY_FRONTIER.verdict) &&
-      /remains SOTA/.test(IMP3220_EN_BRIDGE_FIDELITY_FRONTIER.verdict),
+      /refereed bound is changed/i.test(IMP3220_EN_BRIDGE_FIDELITY_FRONTIER.verdict),
   },
 ];
 

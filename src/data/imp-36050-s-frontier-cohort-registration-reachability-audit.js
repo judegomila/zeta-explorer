@@ -27,8 +27,7 @@
  * heavy zeros-to-1e6.js bundle.
  *
  * Read-only confirmation; no correction needed this run. Changes no bound; establishes no
- * operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- * rigorous SOTA.
+ * operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35905-frontier-measurement-cohort-import-guard (import-light guard method)
  * @see imp-35986-imp3588x89x-cohort-import-guard-audit (sibling audit, same combined method)
@@ -121,7 +120,7 @@ export const IMP36050_S_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT = {
     'scripts/run-assertions.mjs DATA_MODULES membership and a "zeros-to-1e6" import grep for ' +
     'all eight cohort files. Result: all eight directly registered, all eight import-light, ' +
     'zero new orphans. Changes no bound; establishes no operator positivity; no RH verdict; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35905/imp-35986 (import-light guard method); imp-36034 (registration/reachability ' +
     'method and prior imp-35969 orphan fix); verify-zeros-importers.mjs (imp-2880).',
@@ -167,11 +166,11 @@ export const IMP36050_S_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT_ASSERTIO
   },
   {
     id: 'imp36050-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36050_S_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36050_S_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36050_S_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36050_S_FRONTIER_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

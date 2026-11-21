@@ -69,7 +69,7 @@ export const IMP35864_DEBRUIJN_DIGIT_LADDER_VIZ_DATA = {
     'derivation and changes no bound. Measures ONLY the exp(-pi x/8) underflow-driven mantissa-digit ' +
     'requirement using the imp-35781-measured accumulator scale K; it does not evaluate the true H_0 ' +
     'at high precision, extend the evaluator, or certify any value at any height. NO QED. ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35864_VIZ_ASSERTIONS = [
@@ -121,11 +121,11 @@ export const IMP35864_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35864-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, no bound change, NO QED, SOTA',
+    description: 'honest status references measurement-only, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35864_DEBRUIJN_DIGIT_LADDER_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35864_DEBRUIJN_DIGIT_LADDER_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35864_DEBRUIJN_DIGIT_LADDER_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35864_DEBRUIJN_DIGIT_LADDER_VIZ_DATA.honest),
   },
 ];
 

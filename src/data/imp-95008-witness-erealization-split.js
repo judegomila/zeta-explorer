@@ -193,8 +193,7 @@
  *
  * The numerics below CROSS-CHECK the lemma statements; they are not the
  * claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -551,7 +550,7 @@ export const IMP95008_WITNESS_EREALIZATION_SPLIT = {
     "Lemmas ES and PB are unconditional bilinear algebra on the exact Theorem R Gram assembly (proofs in the header; PB is Cauchy-Schwarz on the parity sums). Theorem ER's factorization is an arithmetic telescoping identity; the statements that each factor is <= 1 are conditional exactly as the carried chain: attainment <= 1 via the per-pair envelope caps (Lemmas CC/RM/PF, conditional on MAJ(sigma, theta)), occupancy <= 1 via Lemma SW and the certified lambda_max sandwich, parity balance <= 1 unconditionally via Lemma PB. All measured literals are exact evaluations at the fifteenth-continuation baked witness, reproduced from scratch by the assertions with an independent quadrature cross-check. The attainment-occupancy tradeoff is observed, NOT proved - it is the named sub-gap. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step (twenty-third continuation): the E-realization split is completed BY PARITY CHANNEL, executing the twenty-second sub-gap and resolving the concurrent imp-95089 currency question. NEW Lemma ES (exact channel split E = X_par + X_env - N, unconditional) and NEW Lemma PB (parity-balance cap E <= 2 X_env, the witness-side dual of the ceiling parity AM-GM) decompose the surviving residual EXACTLY: r = 1.4032010197013394 = 1/(2 x 0.6014409758412518 x 0.6163838457278105 x 0.9611824921094692) = 1/(2 x attainment x occupancy x parity-balance), with the terminal 13-packet witness internals independently assembled (E = 0.00020231895346286606, a 1536x cancellation of X = 0.3108390660592303 against N = 0.31063674710576755; reproduces the imp-95089 coarse literals C_cross and S to 1 ulp). imp-95089-subgap-currency-reconciliation RESOLVED: 99.966 percent of C_cross is cross-parity coupling charged to cNear = 2, so the '~1095x mismatch' was a channel mislabeling - lambda_max M prices only X_env = 0.00010524481829607855, and there X_env/(Lw M) = 0.3707 is a genuine fraction. The parity-balance channel is near-exhausted (0.9612; defect ||U-V||^2 = 8.17e-6) and the per-witness bound r >= Lw M/(2 X_env) = 1.3487322530470818 shows parity rebalancing alone recovers at most 4.0 percent. The residual is pinned to two COUPLED channels: per-pair envelope attainment 0.6014 and occupancy 0.6164 (97.5 percent of the occupancy loss = the 36.75 percent odd-parity mass ballast that buys parity balance). No contradiction with the twenty-second routing verdict (its 0.087 percent was ceiling-side per-class slack; within the even class this witness is 0.9742-efficient). New sub-gap named: imp-95008-subgap-attainment-occupancy-tradeoff. Floors and ceilings untouched; changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (twenty-third continuation): the E-realization split is completed BY PARITY CHANNEL, executing the twenty-second sub-gap and resolving the concurrent imp-95089 currency question. NEW Lemma ES (exact channel split E = X_par + X_env - N, unconditional) and NEW Lemma PB (parity-balance cap E <= 2 X_env, the witness-side dual of the ceiling parity AM-GM) decompose the surviving residual EXACTLY: r = 1.4032010197013394 = 1/(2 x 0.6014409758412518 x 0.6163838457278105 x 0.9611824921094692) = 1/(2 x attainment x occupancy x parity-balance), with the terminal 13-packet witness internals independently assembled (E = 0.00020231895346286606, a 1536x cancellation of X = 0.3108390660592303 against N = 0.31063674710576755; reproduces the imp-95089 coarse literals C_cross and S to 1 ulp). imp-95089-subgap-currency-reconciliation RESOLVED: 99.966 percent of C_cross is cross-parity coupling charged to cNear = 2, so the '~1095x mismatch' was a channel mislabeling - lambda_max M prices only X_env = 0.00010524481829607855, and there X_env/(Lw M) = 0.3707 is a genuine fraction. The parity-balance channel is near-exhausted (0.9612; defect ||U-V||^2 = 8.17e-6) and the per-witness bound r >= Lw M/(2 X_env) = 1.3487322530470818 shows parity rebalancing alone recovers at most 4.0 percent. The residual is pinned to two COUPLED channels: per-pair envelope attainment 0.6014 and occupancy 0.6164 (97.5 percent of the occupancy loss = the 36.75 percent odd-parity mass ballast that buys parity balance). No contradiction with the twenty-second routing verdict (its 0.087 percent was ceiling-side per-class slack; within the even class this witness is 0.9742-efficient). New sub-gap named: imp-95008-subgap-attainment-occupancy-tradeoff. Floors and ceilings untouched; changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -759,12 +758,12 @@ export const IMP95008_ERS_ASSERTIONS = [
   {
     id: "imp95008-ers-honesty-gate",
     description:
-      "the verdict scopes the conditional cap directions, names the executed sub-gap and the new attainment-occupancy tradeoff sub-gap, records the cancellation depth and the routing reconciliation, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict scopes the conditional cap directions, names the executed sub-gap and the new attainment-occupancy tradeoff sub-gap, records the cancellation depth and the routing reconciliation, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_WITNESS_EREALIZATION_SPLIT.promotesBound === false &&
       IMP95008_WITNESS_EREALIZATION_SPLIT.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_WITNESS_EREALIZATION_SPLIT.verdict) &&
       /Floors and ceilings untouched/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.verdict) &&
       /attainment-occupancy-tradeoff/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.subGap) &&
       /NOT proved/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.rigorScope) &&

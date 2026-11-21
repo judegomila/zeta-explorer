@@ -67,7 +67,7 @@
  * carries no u_fit interval (crossing/shift-budget thread only) and is recorded as
  * N/A. Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95837-ln12-dd-extrapolation-grid (ln 1.2 5-point)
  * @see imp-95860-ln12-extended-grid-ufit-tightening (ln 1.2 8-point)
@@ -215,7 +215,7 @@ export const IMP95885_PER_DELTA_UFIT_COMPARISON_TABLE = {
     "Cross-validation only; no new cited input; no numeric interval value changed; " +
     "model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95885"],
 };
 
@@ -355,7 +355,7 @@ export const IMP95885_ASSERTIONS = [
       REF.qed === false &&
       REF.intervalUnchanged === true &&
       /CROSS-VALIDATED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95885"),
   },
 ];

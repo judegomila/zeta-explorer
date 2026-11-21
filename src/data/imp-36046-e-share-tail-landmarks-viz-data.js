@@ -16,7 +16,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-35971 literals (which in
  * turn reuse the imp-3406 / imp-33582 sub-terms and imp-35889 decomposition);
  * changes no bound; C_C GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35971-etrunc-sole-survivor-height.js (source: the three tail landmarks baked here)
  * @see imp-35977-e-share-stacked-bar-viz-data.js (the two-knee bars this extends down the tail)

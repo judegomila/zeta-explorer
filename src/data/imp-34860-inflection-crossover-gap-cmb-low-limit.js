@@ -57,7 +57,7 @@
  * crossover map, NOT a rigorous asymptotic. Treats C_mb as a free knob to probe the low-limit gap curvature;
  * does NOT tighten or discharge the GUE conditional (imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34844-inflection-crossover-gap-cmb-curvature (the dense-grid slope+curvature {1.00 ... 0.30}, ~58x)
  * @see imp-34838-cmb-zero-gap-precise-root-and-elasticity (the zero C_mb* ~ 0.5116, ~6.8x local steepening)
@@ -328,7 +328,7 @@ export const IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT = {
     'diverge. Low-limit diagnostic of an imp-34844 landmark; treats C_mb as a free knob; does NOT tighten or ' +
     'discharge the GUE conditional (imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the low-C_mb limit + curvature-peak questions imp-34844 left open (it stopped at C_mb = 0.30): the ' +
     'curvature SATURATES at a finite interior magnitude peak (C_mb ~ 0.184, ~9.34/unit^2) and reverses sign at ' +
@@ -392,16 +392,16 @@ export const IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT_ASSERTIONS = [
       FIRST_UNRESOLVABLE.N_cross < 5e7,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34860-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.isRigorous === false &&
       IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.farTailExponent === 0.5 &&
       typeof IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.subGap === 'string' &&
       /imp-486/.test(IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.subGap) &&
       /NO QED/.test(IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP34860_INFLECTION_CROSSOVER_GAP_CMB_LOW_LIMIT.verdict),
   },
 ];
 

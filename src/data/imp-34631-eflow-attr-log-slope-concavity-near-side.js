@@ -57,7 +57,7 @@
  *   component surrogate under the imp-34570 F3 E_N-flat regime, extended to the near-side domain;
  *   NOT a rigorous asymptotic of the true residual; establishes no operator positivity and no new
  *   bound; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34613-eflow-attr-log-slope-second-deriv-sign.js (the FAR-side concavity sign this extends)
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (the 8 near rungs, source of the baked literals)
@@ -180,8 +180,8 @@ export const IMP34631_EFLOW_ATTR_LOG_SLOPE_CONCAVITY_NEAR_SIDE = {
     'every u > 3 (equivalently the collapsed numerator -3(u^2-4u+6) < 0 for all real u), and the ' +
     'imp-34406 near rungs confirm the concave sign to ~2.6%. This is NOT a rigorous asymptotic of ' +
     'the true residual; establishes no operator positivity and no new bound; the C_mb GUE-conditional ' +
-    'per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34631_ASSERTIONS = [
@@ -221,13 +221,13 @@ export const IMP34631_ASSERTIONS = [
       IMP34631_MAX_REL_ERR < 0.05,
   },
   {
-    // Honesty gate: surrogate derivation only, isRigorous false, no QED, PT SOTA, C_mb/K_a untouched.
+    // Honesty gate: surrogate derivation only, isRigorous false, no QED, no refereed bound is changed, C_mb/K_a untouched.
     id: 'imp-34631-honesty-gate-no-qed',
-    description: 'Surrogate derivation only: isRigorous false, no QED, PT SOTA, C_mb/K_a untouched',
+    description: 'Surrogate derivation only: isRigorous false, no QED, no refereed bound is changed, C_mb/K_a untouched',
     holds: () =>
       IMP34631_EFLOW_ATTR_LOG_SLOPE_CONCAVITY_NEAR_SIDE.isRigorous === false &&
       /NO QED/.test(IMP34631_EFLOW_ATTR_LOG_SLOPE_CONCAVITY_NEAR_SIDE.honest) &&
-      /remains SOTA/.test(IMP34631_EFLOW_ATTR_LOG_SLOPE_CONCAVITY_NEAR_SIDE.honest) &&
+      /refereed bound is changed/i.test(IMP34631_EFLOW_ATTR_LOG_SLOPE_CONCAVITY_NEAR_SIDE.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34631_EFLOW_ATTR_LOG_SLOPE_CONCAVITY_NEAR_SIDE.honest),
   },
 ];

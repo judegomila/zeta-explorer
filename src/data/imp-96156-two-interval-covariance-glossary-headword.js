@@ -22,7 +22,7 @@
  *   the imp-95562 raw tiling's own adjacent-box correlation is a box-overlap artifact, not usable directly)
  *
  * Ticket: imp-96156 (content, low). Documentation only; establishes nothing; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The exact two-interval covariance headword, baked verbatim (no re-import).
@@ -67,7 +67,7 @@ export const IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD = Object.freeze(
     'result: rho_exact = -0.46398 at T = 1.5e5 (near GUE-rigidity -1/2), confirming the imp-96109 ' +
     'anti-correlation sign but correcting its magnitude by ~230x, raising n_eff from 291 to ~795, and ' +
     'sitting 1.04 rho-units on the safe side of the sign-forbidden rho_crit = 0.5744 flip threshold. ' +
-    'Establishes nothing; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96128 (exact GUE two-interval covariance and verdict); imp-96109 (superseded O(1/L) proxy); ' +
     'imp-96089 (the significant-dip verdict this strengthens); imp-95562 (the hard-box tiling); ' +
@@ -94,11 +94,11 @@ export const IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96156-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD.verdict) &&
       IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD.glosses === 'imp-96128' &&
       IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD.scopes === 'imp-96109',
   },

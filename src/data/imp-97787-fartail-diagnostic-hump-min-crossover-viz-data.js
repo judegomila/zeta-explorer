@@ -52,7 +52,7 @@ export const IMP97787_SUMMARY = Object.freeze({
     'of the imp-97723/imp-97759 closed form); the hump and minimum landmarks are reused verbatim ' +
     'from imp-97782/imp-97777, and the crossover landmark is reused verbatim from imp-97759 F1. ' +
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous ' +
-    'asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

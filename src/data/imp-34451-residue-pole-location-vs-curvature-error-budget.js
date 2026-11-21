@@ -55,7 +55,7 @@
  *   contribution is negligible and the imp-34310 / imp-34397 residue readings stand UNCHANGED at
  *   their reported precision. Surrogate diagnostic, finite-difference re-evaluation on the same
  *   baked rungs; NOT a rigorous asymptotic; changes no bound; C_mb GUE-conditional per imp-486
- *   UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (linear-secant residue at canonical k*)
  *   @see imp-34397-eflow-over-resid-residue-curvature-corrected.js (quadratic-slope curvature tightening)
@@ -153,7 +153,7 @@ export const IMP34451_RESIDUE_POLE_LOCATION_VS_CURVATURE_ERROR_BUDGET = {
   honest:
     'MEASUREMENT ONLY -- a re-evaluation of the imp-34310 / imp-34397 residue formula at a refined pole ' +
     'coordinate, no new data. Surrogate NOT rigorous; changes no bound; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34451_ASSERTIONS = [

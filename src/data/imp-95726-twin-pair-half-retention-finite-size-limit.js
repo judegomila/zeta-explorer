@@ -60,7 +60,7 @@
  *       already pin the infinite-lattice limit.
  *   (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  *       modulus/phase legs stay OPEN. Changes NO bound of the Lambda program;
- *       NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *       NO QED; no refereed bound is changed.
  *
  * @see imp-95703-twin-pair-half-retention-scale-derivation (the closed form verified here)
  * @see imp-95693-twin-pair-block-floor-second-delta (the tabulated finite-40 D_cross)
@@ -114,7 +114,7 @@ export const IMP95726_TWIN_PAIR_HALF_RETENTION_FINITE_SIZE_LIMIT = {
     "Exact-Jacobi ladder capped at nPairs = 160 (a dense low band makes Lanczos " +
     "under-converge at 640); the quadratic law and Richardson match already pin " +
     "the limit. Numerical witness on the imp-95659/imp-95693/imp-95703 model seam; " +
-    "changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "changes no bound; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95726"],
 };
 
@@ -243,7 +243,7 @@ export const IMP95726_ASSERTIONS = [
     holds: () =>
       REF.boundChange === false &&
       REF.qed === false &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95726-closes-self",

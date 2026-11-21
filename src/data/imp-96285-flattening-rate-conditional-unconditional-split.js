@@ -45,7 +45,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Changes no bound; establishes no
  * operator positivity; the collision share stays GUE-conditional (imp-486, UNTOUCHED); the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; no zero verified; no RH
- * verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-96250-ushape-location-ratio-farN-asymptote (derived 4 = 2(b_c-a_c), stated conditionality)
  * @see imp-96244-ushape-slope-asymptote-derivation (a -> 1/2 - 1/(2 ln N), b -> 1/2 - 5/(2 ln N))
@@ -145,7 +145,7 @@ export const IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT = {
     'GUE-conditional a_c < 5/2. Conditional ONLY through the a-branch GUE-conditional N^{-1/2} collision ' +
     'shape (imp-486, UNTOUCHED); the C_C 1/8 ansatz (imp-2642/imp-2643) cancels and is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no zero ' +
-    'verified; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verified; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-96250 (derived 4 = 2(b_c-a_c), stated the imp-486 conditionality of a_c); imp-96244 (slope ' +
     'tails a -> 1/2 - 1/(2 ln N), b -> 1/2 - 5/(2 ln N)); imp-96187 (location law (b/a)^(1/(a+b))); ' +
@@ -198,14 +198,14 @@ export const IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT_ASSERTIONS
       ),
   },
   {
-    // Honesty gate: GUE-conditional measurement, no QED, C_C ansatz untouched, PT stays SOTA.
+    // Honesty gate: GUE-conditional measurement, no QED, C_C ansatz untouched, no refereed bound is changed.
     id: 'imp96285-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, C_C ansatz untouched, PT Lambda<=0.2 stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, C_C ansatz untouched, no refereed bound is changed',
     holds: () =>
       IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT.isRigorous === false &&
       /NO QED/.test(IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT.verdict) &&
       /UNTOUCHED/.test(IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT.verdict),
+      /refereed bound is changed/i.test(IMP96285_FLATTENING_RATE_CONDITIONAL_UNCONDITIONAL_SPLIT.verdict),
   },
 ];
 

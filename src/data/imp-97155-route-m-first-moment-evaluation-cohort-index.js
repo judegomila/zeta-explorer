@@ -60,7 +60,7 @@
  *     a-mean-value modulo an unclosed positivity estimate.
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
- *   changes: kappa ~ 0.696 stays a measurement, not a certificate; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   changes: kappa ~ 0.696 stays a measurement, not a certificate; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith derivation)
  * @see imp-97097-route-m-cotangent-first-moment-reciprocity.js (cotangent reciprocity partial collapse)
@@ -69,7 +69,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97155 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const GAMMA = 0.5772156649015329;
@@ -138,8 +138,8 @@ export const IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX = Object.free
     'So the cohort as a whole is a FIRST-MOMENT-EVALUATION family: the arithmetic half is exact modulo an ' +
     'explicit-remainder sub-gap, the cotangent half is halved-by-an-exact-identity modulo an unclosed ' +
     'mean-value positivity estimate, and the measured total kappa ~ 0.696 stays a measurement, not a ' +
-    'certificate. Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'certificate. Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97096 (exact arithmetic-part coefficient); imp-97097 (cotangent reciprocity partial collapse); ' +
     'imp-97119 (boundary-term rigorous asymptotic); imp-97122 (arithmetic-part convergence rate).',
@@ -181,10 +181,10 @@ export const IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX_ASSERTIONS = 
   },
   {
     id: 'imp97155-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX.verdict),
   },
 ];

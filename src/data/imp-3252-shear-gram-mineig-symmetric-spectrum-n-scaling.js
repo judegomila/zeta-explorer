@@ -64,8 +64,8 @@
  *   the verdict: the ||R|| = 1.0000 partial-isometry tautology is not a
  *   fine-resolution artifact but an exact algebraic consequence of the hollow
  *   antisymmetry at every N, so the binding RH-equivalent K_a &gt;= 0 residual
- *   (the imp-3066 off-diagonal endpoint-Hankel step) is untouched. Platt-Trudgian
- *   Lambda &lt;= 0.2 stays SOTA. No QED.
+ *   (the imp-3066 off-diagonal endpoint-Hankel step) is untouched. No refereed bound is changed
+ *   . No QED.
  *
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict this tracks)
  *   @see imp-3215-mupass-capture-ratio-n-scaling.js (sibling N-scaling; same construction/ladder)
@@ -331,7 +331,7 @@ export const IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING = Object.fre
       'The exactness of min eig = -||Gshear|| at every N confirms the partial-isometry tautology is structural; ' +
       'the off-diagonal endpoint-Hankel operator magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -379,7 +379,7 @@ export const IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING_ASSERTIONS =
   {
     id: 'imp3252-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity not ' +
-         'attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING.honestCaveat;
       return (
@@ -387,7 +387,7 @@ export const IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING_ASSERTIONS =
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

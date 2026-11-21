@@ -50,7 +50,7 @@
  * percent cap-metric jitter band, jitter not anomaly. No new computation feeds any bound: the cap-independent
  * 1/(720 d^3) tail budget (< 5.69e-11) dwarfs any cap-to-infinity shift of the +7.520579e-5 omega=10 gap,
  * so the primorial p_10# stays the strict minimiser and the MCM onset stays exactly omega=11. MCM refuted;
- * b/4 ceiling untouched; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * b/4 ceiling untouched; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97783-mcm-cap-fullprec-exponent-set.js  (source full ladder + olsFull4 exponent set; RESULT 2 non-monotone threshold)
  * @see imp-97736-mcm-cap-jitter-dps36.js           (+/-~30 percent cap-metric jitter; RESULT 3)
@@ -139,7 +139,7 @@ export const IMP97801_HONEST_BANNER =
   'SNR=10 at every dps) can still carry a marginally steeper log-slope: level and slope live on different ' +
   'axes. No bound moves: the cap-independent 1/(720 d^3) tail budget (< 5.69e-11) dwarfs any cap-to-infinity ' +
   'shift of the +7.520579e-5 omega=10 gap, so the primorial p_10# stays the strict minimiser and the MCM ' +
-  'onset stays omega=11. MCM refuted; b/4 ceiling untouched. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'onset stays omega=11. MCM refuted; b/4 ceiling untouched. No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -184,7 +184,7 @@ const IMP97801_ASSERTIONS = [
       IMP97801_MCM_CAP_SNR_MONOTONICITY.anyBoundMoved === false &&
       IMP97801_MCM_CAP_SNR_MONOTONICITY.qed === false &&
       /NO QED/.test(IMP97801_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97801_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97801_HONEST_BANNER) &&
       /RH open/.test(IMP97801_HONEST_BANNER) &&
       /omega=11/.test(IMP97801_HONEST_BANNER),
     why: 'cross-validation only -- caps monotone in SNR at every rung and the SNR=30>SNR=10 exponent ordering is jitter; no bound moved; MCM stays refuted from omega=11; no QED.',

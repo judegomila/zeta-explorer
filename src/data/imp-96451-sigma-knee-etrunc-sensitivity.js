@@ -64,7 +64,7 @@
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; C_H isRigorousUpperBound stays false (imp-2642/imp-2701); changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -281,7 +281,7 @@ export const IMP96451_SIGMA_KNEE_ETRUNC_SENSITIVITY = Object.freeze({
     'longer resolved. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H isRigorousUpperBound stays false ' +
     '(imp-2642/imp-2701); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96427 (solver-path knee/crossover spread ~1e-13, same component model); imp-96351 (baseline knee ' +
     'at log10 N* ~ 9.529); imp-96388 (knee ~0.015 log10 above the E_coll = E_trunc crossover); imp-96404 ' +
@@ -332,11 +332,11 @@ const IMP96451_ASSERTIONS = [
   },
   {
     id: 'imp96451-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96451_SIGMA_KNEE_ETRUNC_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP96451_SIGMA_KNEE_ETRUNC_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96451_SIGMA_KNEE_ETRUNC_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96451_SIGMA_KNEE_ETRUNC_SENSITIVITY.verdict),
   },
 ];
 

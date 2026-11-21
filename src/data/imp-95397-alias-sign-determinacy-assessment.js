@@ -83,7 +83,7 @@
  * the full seam theta (which needs the explicit-formula n-sum over all windows,
  * left OPEN). (d) The kernel K_k and the von Mangoldt weighting are NOT
  * evaluated here; A_{k,h} is named, not computed. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) Ramanujan identity sum_{h=1}^{p-1}
  * e(hn/p) = -1 (p not | n) and = p-1 (p | n) verified for several (p, n).
@@ -193,7 +193,7 @@ export const IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This note re-localizes the theta residual precisely: eq (14) determines the per-alias coefficients a_h(n) = -(1/p) e(hn/p), so the OPEN ingredient is NOT a free sign vector (imp-95375) but the explicit-formula n-sum A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p) that converts the determined additive characters into the per-window real theta image. Evaluating that Ramanujan/Kloosterman-weighted sum's residual sign/magnitude is the surviving obligation (the same class of arithmetic input Section 4.5 estimates structurally).",
   verdict:
-    "ASSESSMENT (honest, resolves the ticket dichotomy to NEITHER pure horn): the paper alias signs are DETERMINED, not free -- eq (14) pins each per-alias coefficient at a_h(n) = -(1/p) e(hn/p) (modulus 1/p, phase the additive character e(hn/p), a p-th root of unity), so the imp-95375 free-real-sign picture is REFUTED. But the determination gives theta no point value: the coefficients are COMPLEX (real only at p = 2) so the correct object is the complex energy ratio theta_C (the imp-95375 quadratic form with cos(2 pi (h_m-h_l) n/p) for sigma_m sigma_l), and theta_C is n-DEPENDENT, so the per-window value requires the explicit-formula n-sum A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The imp-95375 residual therefore RELOCATES from 'recover a free sign vector' to 'evaluate the arithmetic n-sum of determined additive characters' -- the class of input Section 4.5 leaves structural. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (honest, resolves the ticket dichotomy to NEITHER pure horn): the paper alias signs are DETERMINED, not free -- eq (14) pins each per-alias coefficient at a_h(n) = -(1/p) e(hn/p) (modulus 1/p, phase the additive character e(hn/p), a p-th root of unity), so the imp-95375 free-real-sign picture is REFUTED. But the determination gives theta no point value: the coefficients are COMPLEX (real only at p = 2) so the correct object is the complex energy ratio theta_C (the imp-95375 quadratic form with cos(2 pi (h_m-h_l) n/p) for sigma_m sigma_l), and theta_C is n-DEPENDENT, so the per-window value requires the explicit-formula n-sum A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The imp-95375 residual therefore RELOCATES from 'recover a free sign vector' to 'evaluate the arithmetic n-sum of determined additive characters' -- the class of input Section 4.5 leaves structural. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "a_h(n) = -(1/p) e(hn/p) and sum_{h=1}^{p-1} e(hn/p) = -1 (p not | n) / p-1 (p | n) are EXACT readings of eq (14). theta_C is the EXACT complex energy ratio on the transcribed width-law geometry for a SINGLE window's aliases (closed-form Gram, no quadrature) -- it witnesses determinacy-given-n and n-dependence, it is NOT the full seam theta (needs the explicit-formula n-sum over all windows, OPEN). The kernel K_k and von Mangoldt weighting are NOT evaluated; A_{k,h} is named, not computed. p = 2 real-vs p >= 3 complex is exact.",
 };
@@ -318,13 +318,13 @@ export const IMP95397_ALIAS_SIGN_ASSERTIONS = [
   {
     id: "imp95397-verdict-honesty",
     description:
-      "the verdict carries the honest scope: signs DETERMINED (not free), residual RELOCATES to the arithmetic n-sum, sub-gap STILL OPEN, no bound moved, no QED, SOTA unchanged",
+      "the verdict carries the honest scope: signs DETERMINED (not free), residual RELOCATES to the arithmetic n-sum, sub-gap STILL OPEN, no bound moved, no QED, no refereed bound is changed",
     holds: () =>
       /DETERMINED, not free/.test(IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT.verdict) &&
       /RELOCATES/.test(IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT.verdict) &&
       /STILL OPEN/.test(IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT.subGap) &&
       /NO QED/.test(IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95397_ALIAS_SIGN_DETERMINACY_ASSESSMENT.verdict),
   },
 ];
 

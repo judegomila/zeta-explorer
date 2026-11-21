@@ -14,7 +14,7 @@
  * (bestRigorousFloor, bestMeasuredRealizableFloor, bestMeasuredUpperBracket,
  * the eight-ticket cohort); no re-derivation, no re-solve. Establishes no
  * operator positivity; changes no bound; interval-rigorous certified reach
- * stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js (source cohort index; all values reused verbatim)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (floor -3200.029)

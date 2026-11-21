@@ -194,7 +194,7 @@ export const IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION = Object.freeze({
     'P2(xi) = 0 is a TRANSCENDENTAL equation and xi* has no elementary closed form -- the obstruction is the ' +
     'transcendence of the dBN spectral inflection, not the lack of the ||Ttilde|| formula. C_inf ~ 0.1751 stays a ' +
     'DETERMINED number. Derivation/measurement only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone ' +
-    'obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -251,7 +251,7 @@ export const IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -284,7 +284,7 @@ export const IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION_ASSERTIONS = [
   {
     id: 'imp3470-honest-assessment-no-qed',
     why: 'Mandatory honesty: LOCATES xi* but does NOT close it (equation transcendental), value stays a number, ' +
-      'positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION.honestCaveat;
       return (
@@ -294,7 +294,7 @@ export const IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.locatesButDoesNotClose === 'string' &&
         typeof c.valueStaysTranscendental === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

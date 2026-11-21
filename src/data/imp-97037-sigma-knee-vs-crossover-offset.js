@@ -49,7 +49,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee N* ~ 3.38e9 vs the halving landmark)
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (whole-decade knee in [1e10,1e11])
@@ -203,7 +203,7 @@ export const IMP97037_SIGMA_KNEE_VS_CROSSOVER_OFFSET = {
     'the three landmarks are strictly ordered N_half < N_cross < N_knee. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33721 (sub-decade knee N* ~ 3.38e9 vs halving landmark); imp-33701 (whole-decade knee in ' +
     '[1e10,1e11]); imp-33723 (closed-form crossover N_cross ~ 3.280294e9); imp-3444 (E_coll = E_trunc ' +
@@ -243,13 +243,13 @@ export const IMP97037_SIGMA_KNEE_VS_CROSSOVER_OFFSET_ASSERTIONS = [
       N_CROSS < N_KNEE,
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp97037-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97037_SIGMA_KNEE_VS_CROSSOVER_OFFSET.isRigorous === false &&
       /NO QED/.test(IMP97037_SIGMA_KNEE_VS_CROSSOVER_OFFSET.verdict) &&
-      /remains SOTA/.test(IMP97037_SIGMA_KNEE_VS_CROSSOVER_OFFSET.verdict),
+      /refereed bound is changed/i.test(IMP97037_SIGMA_KNEE_VS_CROSSOVER_OFFSET.verdict),
   },
 ];
 

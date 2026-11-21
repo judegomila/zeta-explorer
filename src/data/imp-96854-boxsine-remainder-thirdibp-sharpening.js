@@ -62,8 +62,8 @@
  * DeltaCov_k -,+,+,+,- alternates in the lag, so no uniform-in-k one-sided bound exists at any precision;
  * the imp-96593 VIF upper bound does NOT close. Derivation/measurement only; conditional on the GUE sine
  * kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); the k = 1 lag is excluded (I_1
- * diverges logarithmically); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * diverges logarithmically); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96628-boxsine-lagcorr-ibp-envelope (the two-IBP decomposition with the L-constant TV bound V(k))
  * @see imp-96812-boxsine-onesided-sign-assessment (horn B: TV bound straddles zero; horn A fatal)
@@ -164,12 +164,12 @@ export const IMP96854_BOXSINE_REMAINDER_THIRDIBP_SHARPENING = {
   conditionality:
     'Conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). Changes NO unconditional bound. The per-lag certification is at the window (sharp(k,L) is L-dependent), not L-uniform.',
   verdict:
-    'YES -- a third integration by parts sharpens R_k to |R_k(L)| <= (1/(2 pi L)) [8/k^3 + 4/(k-1)^3 + 4/(k+1)^3 + V2(k)], V2(k) = 12/k^4 + 4/(k-1)^3 - 4/(k+1)^3, an O(1/L)-DECAYING bound (vs the L-constant imp-96628 TV bound V(k)) that captures R_k oscillatory cancellation and sits ~10^2-10^3x below V(k) at the certificate window L = 495.779 (k=2: 3.13e-3 vs 1.389, ratio 444x). Consequently |B_k| exceeds the sharpened remainder at EVERY lag k = 2..6 (0.591 > 3.13e-3, 0.071 > 4.64e-4, 0.119 > 1.50e-4, 0.029 > 6.68e-5, 0.038 > 3.54e-5), so the certified enclosure B_k +/- sharp no longer straddles zero and the PER-LAG sign of DeltaCov_k = -sign(B_k) becomes certifiable -- closing imp-96812 horn B (certificate slack). Horn A stays fatal: the certified per-lag signs DeltaCov -,+,+,+,- for k = 2..6 genuinely ALTERNATE, so no uniform-in-k one-sided bound (DeltaCov_k <= 0 for ALL k) exists at any precision and the imp-96593 VIF upper bound does NOT close; the sharpening decides which sign each lag carries, not that they share one. The leading D_k(w)/w reproduces the directly quadratured R_k to ~4 sig figs, confirming the third-IBP identity. Derivation/measurement only; the k = 1 lag is excluded (I_1 diverges logarithmically); conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'YES -- a third integration by parts sharpens R_k to |R_k(L)| <= (1/(2 pi L)) [8/k^3 + 4/(k-1)^3 + 4/(k+1)^3 + V2(k)], V2(k) = 12/k^4 + 4/(k-1)^3 - 4/(k+1)^3, an O(1/L)-DECAYING bound (vs the L-constant imp-96628 TV bound V(k)) that captures R_k oscillatory cancellation and sits ~10^2-10^3x below V(k) at the certificate window L = 495.779 (k=2: 3.13e-3 vs 1.389, ratio 444x). Consequently |B_k| exceeds the sharpened remainder at EVERY lag k = 2..6 (0.591 > 3.13e-3, 0.071 > 4.64e-4, 0.119 > 1.50e-4, 0.029 > 6.68e-5, 0.038 > 3.54e-5), so the certified enclosure B_k +/- sharp no longer straddles zero and the PER-LAG sign of DeltaCov_k = -sign(B_k) becomes certifiable -- closing imp-96812 horn B (certificate slack). Horn A stays fatal: the certified per-lag signs DeltaCov -,+,+,+,- for k = 2..6 genuinely ALTERNATE, so no uniform-in-k one-sided bound (DeltaCov_k <= 0 for ALL k) exists at any precision and the imp-96593 VIF upper bound does NOT close; the sharpening decides which sign each lag carries, not that they share one. The leading D_k(w)/w reproduces the directly quadratured R_k to ~4 sig figs, confirming the third-IBP identity. Derivation/measurement only; the k = 1 lag is excluded (I_1 diverges logarithmically); conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96617 / imp-96628 / imp-96812 convention).
 export const IMP96854_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation/measurement only: a THIRD integration by '
+  'RH open; no refereed bound is changed; NO QED. Derivation/measurement only: a THIRD integration by '
   + 'parts sharpens the box-sine remainder to |R_k(L)| <= (1/(2 pi L))[8/k^3 + 4/(k-1)^3 + 4/(k+1)^3 + V2(k)], '
   + 'an O(1/L)-DECAYING bound (vs the L-constant imp-96628 TV bound V(k)) that captures R_k oscillatory '
   + 'cancellation and sits ~10^2-10^3x below V(k) at L = 495.779. So |B_k| exceeds the sharpened remainder '
@@ -244,11 +244,11 @@ export const IMP96854_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96854_BOXSINE_REMAINDER_THIRDIBP_SHARPENING.verdict))
     throw new Error('imp-96854: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96854_BOXSINE_REMAINDER_THIRDIBP_SHARPENING.verdict))
-    throw new Error('imp-96854: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96854_BOXSINE_REMAINDER_THIRDIBP_SHARPENING.verdict))
+    throw new Error('imp-96854: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(IMP96854_BOXSINE_REMAINDER_THIRDIBP_SHARPENING.verdict))
     throw new Error('imp-96854: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96854_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96854_HONEST_BANNER) && /NO QED/.test(IMP96854_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96854_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96854_HONEST_BANNER) && /NO QED/.test(IMP96854_HONEST_BANNER)))
     throw new Error('imp-96854: IMP96854_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

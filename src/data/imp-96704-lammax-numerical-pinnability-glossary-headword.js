@@ -35,14 +35,14 @@
  *   STATUS: sharpens (does not close) the imp-96562 Szego-assessment sub-gap by recording
  *   that a numerical read-off is unavailable at accessible N even independent of whether a
  *   limiting constant exists in principle. Establishes no operator positivity, closes no
- *   analytic gap. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   analytic gap. NO QED. No refereed bound is changed.
  *
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (source: IMP96562_NUMERICAL_PINNABILITY this glosses)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (the measured lam_max / trace ladder, N=250..6000)
  * @see imp-96659-lammax-slope-saturation-glossary-headword.js (sibling headword on the rank-r onset shape)
  *
  * Ticket: imp-96704 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The numerical-pinnability headword, baked verbatim (no re-import).
@@ -71,8 +71,8 @@ const LAMMAX_NUMERICAL_PINNABILITY_HEADWORD = Object.freeze({
     'Sharpens (does not close) the imp-96562 Szego-assessment sub-gap: even setting ' +
     'aside whether a Szego/Grenander limiting constant exists in principle (Finding 2: ' +
     'no), the accessible N<=6000 ladder cannot numerically read one off either. ' +
-    'Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,7 +91,7 @@ export const IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD = Object.fr
     'lam_max/trace (0.6410 -> 0.5183, target 0.2799) both remain ~2x their asymptotic ' +
     'targets at N=6000, so no limiting constant is numerically pinnable from the ' +
     'current ladder. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96562 (the Szego assessment and Finding 3 this glosses); imp-96443 (the ' +
     'measured lam_max / trace ladder, N=250..6000); imp-96659 (sibling headword on ' +
@@ -120,11 +120,11 @@ export const IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp96704-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96704_LAMMAX_NUMERICAL_PINNABILITY_GLOSSARY_HEADWORD.glosses === 'imp-96562',
   },
 ];

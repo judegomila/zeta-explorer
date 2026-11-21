@@ -35,7 +35,7 @@
  *   c = -1 and the 1/L^2 coefficient -ln(2pi) via a differencing-free log-space path)
  *
  * Ticket: imp-97749 (content, medium, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The far-tail-diagnostic-is-the-RvM-slope headword, baked verbatim (no re-import).
@@ -63,8 +63,8 @@ const FARTAIL_DIAGNOSTIC_RVM_SLOPE_HEADWORD = Object.freeze({
     'central-difference floor (< 3e-6) on [1e18,1e300] and independently cross-validated by ' +
     'imp-97738 via a differencing-free closed-form path to full double precision. Conditional-' +
     'share diagnostic (sigma component model), NOT an RH bound; no operator positivity; naming / ' +
-    'glossary headword only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; NO QED.',
+    'glossary headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD = Object.freeze({
@@ -83,7 +83,7 @@ export const IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD = Object.fr
     'the imp-97702 far-tail diagnostic with the exact Riemann-von Mangoldt log-derivative slope ' +
     '1 - 1/log(T0/2pi), settling that it converges to EXACTLY 1 (reached only logarithmically, ' +
     'crossing 0.99 near 1e45) rather than floors at ~0.98, with next-order coefficient c -> -1 and ' +
-    '1/L^2 coefficient -ln(2pi). No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '1/L^2 coefficient -ln(2pi). No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97723 (the RvM-slope identity and two-term c-coefficient fit this glosses); imp-97702 ' +
     '(the diagnostic that left case-(i)-vs-case-(ii) open); imp-97738 (independent cross-' +
@@ -110,11 +110,11 @@ export const IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp97749-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97723.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97723.',
     holds: () =>
       IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD.verdict) &&
       IMP97749_FARTAIL_DIAGNOSTIC_RVM_SLOPE_GLOSSARY_HEADWORD.glosses === 'imp-97723',
   },
 ];

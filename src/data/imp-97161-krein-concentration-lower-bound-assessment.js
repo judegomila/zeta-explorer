@@ -14,7 +14,7 @@
  *
  *   Assessment / derivation attempt only. Produces NO coercivity constant and no operator positivity unless
  *   one is actually derived (it is NOT); changes no bound; interval-rigorous reach stays 2a<=0.96;
- *   Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * THE PRECISE EXTREMAL QUANTITY (what a lower bound must actually bound). Written on the g-side, the
  *   pole-free Weil form is a truncated convolution (Wiener-Hopf / Toeplitz) operator: for g in L^2(-a,a),

@@ -56,8 +56,8 @@
  *    backward-heat-flow vs the window-Dyson field). Until that lands, E_field is
  *    an ESTIMATE bounded by the certified W(eps') table, not a discharged constant.
  *  - E_trunc, E_flow constants (C_T = C_F = 1) stay ANSATZ (the imp-2598
- *    bottleneck), so E(N) < 0.2 is NOT a theorem. Platt-Trudgian Lambda <= 0.2
- *    REMAINS the rigorous SOTA. No committed Lambda value is changed.
+ *    bottleneck), so E(N) < 0.2 is NOT a theorem. No refereed bound is changed
+ *    . No committed Lambda value is changed.
  *  - The W_1-channel C_Lip impossibility verdicts (RH-HARD-CONFIRMED) are NOT
  *    overturned; the reroute lives in a DIFFERENT channel (field, not measure).
  *
@@ -119,8 +119,8 @@ export const BRACKET_FIELD_CHANNEL_REARCHITECTURE = {
     'Restatement only: the W_1 transfer leg is replaced by a ~1.8e5x tighter field-channel leg, '
     + 'so the model-to-true transfer is no longer a live obstruction to E(N) < 0.2 -- but the '
     + 'binding legs E_trunc, E_flow remain ansatz, so the sub-0.2 estimate is NOT promoted to a '
-    + 'theorem. The W_1-channel C_Lip verdicts stand. Platt-Trudgian Lambda <= 0.2 REMAINS the '
-    + 'rigorous SOTA. No committed Lambda value changed. NO false QED.',
+    + 'theorem. The W_1-channel C_Lip verdicts stand. No refereed bound is changed'
+    + '. No committed Lambda value changed. NO false QED.',
   changesLambdaValue: false,
   rigorousBeat: false,
 };
@@ -176,7 +176,7 @@ export const BRACKET_FIELD_CHANNEL_REARCHITECTURE_ASSERTIONS = [
         && b.rigorousBeat === false
         && b.closesSubGap === 'imp-3933-sub-bracket-rearchitecture'
         && b.conditionalOn.length === 2
-        && /Lambda <= 0.2 REMAINS the rigorous SOTA/.test(b.honest)
+        && /refereed bound is changed/i.test(b.honest)
         && /NO false QED/.test(b.honest);
     },
   },

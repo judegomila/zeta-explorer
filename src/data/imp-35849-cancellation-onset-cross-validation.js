@@ -48,7 +48,7 @@
  * imp-34996/imp-35810 machinery VERBATIM (identical K, delta, S_inf, aOf, measure). The imp-34714a machine
  * certificate REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35810-cancellation-onset-height (sustained-3-point envelope onset N ~ 6.31e18 at tol=1e-6)
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (B3 coarse-grid flag: spurious divergence near N~1e18)
@@ -222,7 +222,7 @@ export const IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION = {
     'F(m) = 0 remains a double-precision artifact. Cross-check only on the inherited imp-3220/imp-3406 surrogate; ' +
     'reuses the imp-35266/imp-35766/imp-34996/imp-35810 machinery (identical K, delta, S_inf, aOf, measure); the ' +
     'C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35810 (sustained-3-point envelope onset N ~ 6.31e18 at tol=1e-6); imp-35766 (B3 coarse-grid spurious ' +
     'divergence near N~1e18); imp-35848 (onset tol ladder); imp-35266 (2:1 split -dFP/dG ~ 2.00042); imp-34996 ' +
@@ -264,15 +264,15 @@ export const IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION_ASSERTIONS = [
       PT_BELOW_BOTH_ONSETS === true && Math.abs(N_PT - 1.2362e13) / 1.2362e13 < 1e-3,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35849-honesty-gate-no-qed',
-    description: 'cross-check: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'cross-check: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION.isRigorous === false &&
       /imp-34714a/.test(IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION.subGap) &&
       /REMAINS OPEN/.test(IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION.subGap) &&
       /NO QED/.test(IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35849_CANCELLATION_ONSET_CROSS_VALIDATION.verdict),
   },
 ];
 

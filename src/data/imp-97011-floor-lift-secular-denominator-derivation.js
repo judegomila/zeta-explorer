@@ -9,7 +9,7 @@
  *   supplies the missing MECHANISM -- the rank-1 secular denominator (eigenvalue level-repulsion /
  *   saturation) -- and anchors it exactly to the five baked imp-96995 rows. Derivation/measurement
  *   only; the Rayleigh floor is an UPPER bound; no operator positivity; interval-rigorous reach stays
- *   2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * THE STRUCTURAL PICTURE.
  *   The floor lift is a positive perturbation of the lowest eigenvalue of the low-frequency Gram A_lo

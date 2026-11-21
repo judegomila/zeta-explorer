@@ -65,7 +65,7 @@
  *   MEASUREMENT ONLY, at the RH-equivalent scale class; fifteen paired points is a SMALL sample so even
  *   the magnitude is not robust; jittery lattice floor; the NPHI = 10 truncation is inherited; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33662-inter-cluster-trough-floor-drift-n400-1200.js (the fifteen trough DEPTHS this correlates)
  *   @see imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200.js (the fifteen GAPS this correlates)
@@ -334,7 +334,7 @@ const verdict =
       'SAMPLING-WINDOW-ARTIFACT-(WIDER-GAP-=-MIN-OVER-MORE-RUNGS-=>-MECHANICALLY-LOWER),-SO-|r|~0.38-' +
       'OVER-READS-ANY-GENUINE-SPACING-VS-DEPTH-DRIVER.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-FIFTEEN-PAIRED-' +
       'POINTS-IS-A-SMALL-SAMPLE;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-' +
-      'imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33699_GAP_VS_TROUGH_DEPTH_CORRELATION = Object.freeze({
@@ -363,7 +363,7 @@ export const IMP33699_GAP_VS_TROUGH_DEPTH_CORRELATION = Object.freeze({
     'ULP trough) and is PARTLY a local-minimum sampling-window artifact (wider gap = min over more rungs). ' +
     'VERDICT: WIDER-GAP-WEAK-NEGATIVE-TROUGH-DEPTH-COUPLING. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; small sample; jittery lattice floor; operator positivity (imp-3066) ' +
-    'untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -487,7 +487,7 @@ export const IMP33699_GAP_VS_TROUGH_DEPTH_CORRELATION = Object.freeze({
       'trough depths, and hence the r / rho / R^2. The robust reading is the QUALITATIVE conclusion -- a weak-to-' +
       'moderate negative coupling, non-deterministic, distinct from the gap-vs-height independence -- not the ' +
       'exact coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -537,7 +537,7 @@ export const IMP33699_GAP_VS_TROUGH_DEPTH_CORRELATION_ASSERTIONS = [
   {
     id: 'imp33699-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33699_GAP_VS_TROUGH_DEPTH_CORRELATION.honestCaveat;
       return (
@@ -546,7 +546,7 @@ export const IMP33699_GAP_VS_TROUGH_DEPTH_CORRELATION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

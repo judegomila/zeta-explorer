@@ -70,7 +70,7 @@
  *   and its zeta(2) period term (STEP 2, the precise obstruction), and the naive numerical route is
  *   proven non-convergent (STEP 3), so no analytic constant is pinned. The rigorous anchor stays the
  *   trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator
- *   positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (carried forward, sharpened): imp-97578-psi-cusp-x2-from-integral-rep -- pinning kappa_smooth
  *   requires the O(x^2) term of the Bettin-Conrey psi_s(z) integral representation in the (s,z)-double
@@ -186,7 +186,7 @@ export const IMP97578_VERDICT = Object.freeze({
     'pinned; the coefficient is analytic-only and the closed form of psi is mandatory. This upgrades ' +
     'the imp-97563 sub-gap from "not computed here" to "provably not naive-numerically extractable." ' +
     'The rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97578_SUBGAP = Object.freeze({
@@ -201,7 +201,7 @@ export const IMP97578_SUBGAP = Object.freeze({
 });
 
 export const IMP97578_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation attempt + cross-check only: the reduction ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation attempt + cross-check only: the reduction ' +
   'to the Bettin-Conrey psi cusp O(x^2) coefficient is sound, but the closed form does NOT close from ' +
   'the elementary reciprocity cocycle -- it needs the full psi_s integral representation and its ' +
   'zeta(2) period term -- and the naive Gauss-Kuzmin numerical extraction is proven non-convergent ' +
@@ -277,7 +277,7 @@ const IMP97578_ASSERTIONS = [
       IMP97578_VERDICT.anyBoundMoved === false &&
       IMP97578_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97578_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97578_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97578_HONEST_BANNER) &&
       /RH open/.test(IMP97578_HONEST_BANNER) &&
       /integral-rep/.test(IMP97578_SUBGAP.id),
   },

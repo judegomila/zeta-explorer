@@ -29,7 +29,7 @@
  *   MEASUREMENT ONLY. Closes no gap, changes no bound, proves no constant. The
  *   conditional bound C_H <= 0.127 stays UNPROVEN; C_H isRigorousUpperBound
  *   remains false (imp-2642 / imp-2701); the imp-2640 Gronwall discharge of
- *   C_Lip stays NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains
+ *   C_Lip stays NEGATIVE. No refereed bound is changed. RH remains
  *   open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
@@ -200,7 +200,7 @@ export const IMP96406_ECOLL_ANCHOR_COUNT_MODEL_SENSITIVITY_N1E5 = {
     'Accuracy audit only: no gap closed, no bound changed, G6_polymath15_bridge ' +
     'not closed, conditional C_H <= 0.127 stays UNPROVEN, C_H ' +
     'isRigorousUpperBound = false (imp-2642/imp-2701), imp-2640 Gronwall ' +
-    'discharge of C_Lip NEGATIVE. Platt-Trudgian Lambda <= 0.2 SOTA. RH open. NO QED.',
+    'discharge of C_Lip NEGATIVE. No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96387-ecoll-anchor-count-model-sensitivity-n1e4.js (endpoint count ' +
     'paths + N=1e4/N=1e6 sensitivities); ' +

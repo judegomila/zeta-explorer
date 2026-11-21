@@ -66,8 +66,7 @@
  *   Ticket: imp-3505 (numerical, medium). Measurement/certification only; sweeps a
  *   solver budget and separates two error sources in the imp-3485 cross-check. Does
  *   NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0
- *   positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -398,7 +397,7 @@ export const IMP3505_POWER_ITERATION_BUDGET_CONVERGENCE_SWEEP = Object.freeze({
     'to 1e-9 needs ~6250 power steps against a CONVERGED reference; against the m=80 reference it NEVER reaches ' +
     '1e-9 (floors at 1.13e-6) because m=80 is itself 1.13e-6 short at N=800 and must be enriched to m>=120. ' +
     'Measurement/certification only; does NOT construct the missing magnitude and does NOT attempt the imp-3066 ' +
-    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -482,7 +481,7 @@ export const IMP3505_POWER_ITERATION_BUDGET_CONVERGENCE_SWEEP = Object.freeze({
       'This measures the numerator operator norm of the capture RATIO only; the imp-3066 off-diagonal ' +
       'endpoint-Hankel operator magnitude remains the lone obstruction, UNTOUCHED.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -534,7 +533,7 @@ export const IMP3505_POWER_ITERATION_BUDGET_CONVERGENCE_SWEEP_ASSERTIONS = [
   {
     id: 'imp3505-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- solver budget sweep and error-source separation, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3505_POWER_ITERATION_BUDGET_CONVERGENCE_SWEEP.honestCaveat;
       return (
@@ -544,7 +543,7 @@ export const IMP3505_POWER_ITERATION_BUDGET_CONVERGENCE_SWEEP_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresSolverBudgetNotConstructs === 'string' &&
         typeof c.agreementIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -15,7 +15,7 @@
  * ceiling table.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no RH claim; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (eight committed rungs)
  * @see imp-96684-route-m-frobenius-majorant-high-n-rungs.js (three new rungs + re-fit ceilings)
@@ -151,7 +151,7 @@ const IMP96701_ASSERTIONS = [
     id: 'imp96701-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96701_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96701_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96701_HONEST_BANNER) &&
       /NO QED/.test(IMP96701_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

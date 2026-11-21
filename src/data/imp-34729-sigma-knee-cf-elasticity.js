@@ -45,7 +45,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34710-sigma-exponent-knee-residual-decomposition (F1: ~99% of the residual is the dropped E_flow term)
  * @see imp-34694-sigma-exponent-knee-closed-form-location (the ~7.4e-3 dex knee gap)
@@ -180,7 +180,7 @@ export const IMP34729_SIGMA_KNEE_CF_ELASTICITY = {
     'mis-pinning. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the C_F-sensitivity question imp-34710 F1 opens: the knee location is robust to the E_flow ' +
     'prefactor (|dX*/dC_F| ~ 7e-3 dex per unit fractional C_F, so <=7e-4 dex under a +-10% C_F uncertainty). ' +
@@ -233,15 +233,15 @@ export const IMP34729_SIGMA_KNEE_CF_ELASTICITY_ASSERTIONS = [
       Math.abs(FULL_DROP_SHIFT) > 5 * Math.abs(SHIFT_M10),
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34729-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34729_SIGMA_KNEE_CF_ELASTICITY.isRigorous === false &&
       IMP34729_SIGMA_KNEE_CF_ELASTICITY.farTailExponent === 0.5 &&
       typeof IMP34729_SIGMA_KNEE_CF_ELASTICITY.subGap === 'string' &&
       /NO QED/.test(IMP34729_SIGMA_KNEE_CF_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP34729_SIGMA_KNEE_CF_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP34729_SIGMA_KNEE_CF_ELASTICITY.verdict),
   },
 ];
 

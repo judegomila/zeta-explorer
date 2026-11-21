@@ -19,7 +19,7 @@
  *
  * SCOPING / ASSESSMENT ONLY. Certifies nothing; constructs no interval; evaluates no sum;
  * verifies no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE KBN ACCUMULATOR (Neumaier variant), one running pair (s, c)
  * -----------------------------------------------------------------------------
@@ -83,7 +83,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35761 / imp-36062) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -198,7 +198,7 @@ export const IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE = {
     'orders below the O(1) barrier margin, so precision stays NON-binding; the obstruction is ' +
     'ENGINEERING. Constructs no interval; evaluates no sum; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36062 (KBN floor ~1.89e-20 vs classic Kahan ~2.31e-19 at N~488602, onset N~34000); imp-36023 ' +
     '(KBN=classic-Kahan at N<=1e4, ~10x tighter by N~488602); imp-35761 (O(N*eps) interval-width ceiling); ' +
@@ -247,16 +247,16 @@ export const IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE_ASSERTIONS = [
   },
   {
     // Honesty gate: scoping only; precision non-binding; obstruction MECHANICAL/engineering;
-    // greenfield; no QED; PT SOTA.
+    // greenfield; no QED; no refereed bound is changed.
     id: 'imp36120-honesty-gate',
-    description: 'Scoping only; precision non-binding; obstruction engineering; greenfield; no QED; PT SOTA',
+    description: 'Scoping only; precision non-binding; obstruction engineering; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /ENGINEERING/.test(IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE.conclusion.obstructionIsEngineering) &&
       /GREENFIELD/.test(IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36120_KBN_FLOOR_TO_INTERVAL_CERTIFICATE_SCOPE.verdict),
   },
 ];
 

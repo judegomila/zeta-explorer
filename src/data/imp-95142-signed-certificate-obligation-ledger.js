@@ -18,7 +18,7 @@
  * the residual as a block Riesz-basis statement, and >= 3 rates per
  * octave stays a separate open residual. The WEIGHT and MODULUS/PHASE
  * legs remain OPEN. No bound of the Lambda program changes here. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * Source: imp-95224 (COROLLARY DC-NOGO), imp-95225 (THEOREM SGN-C),
  * imp-95226 (LEMMA PICK-ID, THEOREM NP-CERT, THEOREM SGN-NP, THEOREM

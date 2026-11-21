@@ -40,7 +40,7 @@
  *   Slepian violated -- the earlier assessment imp-97502 confirms and extends)
  *
  * Ticket: imp-97523 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import { IMP97502_WELL, IMP97502_CONVERSION, IMP97502_VERDICT } from './imp-97502-krein-named-concentration-inequality-assessment.js';
@@ -70,7 +70,7 @@ const TWO_WALL_OBSTRUCTION_HEADWORD = Object.freeze({
     '(src/data/imp-97502-krein-named-concentration-inequality-assessment.js), which extends the ' +
     'imp-97161 Beurling-Selberg / flat-Slepian assessment to Donoho-Stark, Turan / Amrein-Berthier, ' +
     'Nazarov / Turan-Nazarov, and Paneah / Logvinenko-Sereda. Naming / glossary headword only; ' +
-    'supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'supplies no new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -88,8 +88,8 @@ export const IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97502 two-wall obstruction: ' +
     'WALL A (depth -4336.198 defeats any mass-fraction ceiling not below ~1.15e-4) and WALL B ' +
     '(named tools bound an indicator against Lebesgue measure, never the signed sigma_2 weight, ' +
-    'which vanishes at the well edges). No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'which vanishes at the well edges). No bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97502 (the tool-by-tool derivation of the two-wall obstruction); imp-97350 (the shared ' +
     'primitive both walls block); imp-97161 (the earlier Beurling-Selberg / flat-Slepian assessment ' +
@@ -129,11 +129,11 @@ export const IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97523-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97502.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97502.',
     holds: () =>
       IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
       IMP97523_TWO_WALL_OBSTRUCTION_GLOSSARY_HEADWORD.glosses === 'imp-97502',
   },
 ];

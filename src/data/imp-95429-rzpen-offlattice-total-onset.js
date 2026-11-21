@@ -10,7 +10,7 @@
  * jitter TOO -- coalLaw is evaluated at the actual perturbed octave base
  * rate nu_k instead of 2^k -- and measures the total onset shift, decomposed
  * against the isolated-floor and isolated-numerator shifts. MEASUREMENT
- * ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * ONLY; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT. The imp-95374 every-octave onset is bisected from
  *   Lambda <= [ sum_k coalLaw(nu_k x) ] / A = 1,
@@ -99,7 +99,7 @@
  * these depths), so only the m = 8 measured octave base rates carry the
  * numerator drift. (f) gammaSL obligation (3), signed WEIGHT / modulus-phase
  * legs and the imp-95212 envelope port all remain OPEN. NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -202,7 +202,7 @@ export const IMP95429_RZPEN_OFFLATTICE_TOTAL_ONSET = {
     "collapse the floor and inflate its own numerator together. The " +
     "numerator premium grows smoothly with no near-collision cliff, while " +
     "the floor collapse still dominates the +-25% tail. Changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -509,12 +509,12 @@ export const IMP95429_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT, no " +
       "off-lattice floor/onset theorem, changes no bound, open legs named, " +
-      "no QED, PT SOTA",
+      "no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement only/i.test(REC.honestScope) &&
       /remain OPEN/.test(REC.honestScope) &&
       /NO off-lattice floor or onset theorem/i.test(REC.honestScope),

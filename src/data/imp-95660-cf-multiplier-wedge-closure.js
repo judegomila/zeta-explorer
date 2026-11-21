@@ -47,7 +47,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Continuous-prefactor diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95639-eflow-zero-inversion-wedge (binary E_flow on/off toggle; this module makes it continuous)
  * @see imp-95617-transition-knee-ordering-joint-2d (the joint sweep WITH E_flow at cf=1)
@@ -235,7 +235,7 @@ export const IMP95660_CF_MULTIPLIER_WEDGE_CLOSURE = {
     'C_F direction, not just the on/off sense imp-95639 established. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95639 (binary E_flow on/off toggle, made continuous here); imp-95617 (joint 2-D sweep WITH ' +
     'E_flow at cf=1); imp-95598 (F2 named E_flow as the pure-A-scaling breaker); imp-34694 ' +
@@ -308,13 +308,13 @@ export const IMP95660_CF_MULTIPLIER_WEDGE_CLOSURE_ASSERTIONS = [
       MINGAP_SLOPE < 0,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95660-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95660_CF_MULTIPLIER_WEDGE_CLOSURE.isRigorous === false &&
       /NO QED/.test(IMP95660_CF_MULTIPLIER_WEDGE_CLOSURE.verdict) &&
-      /remains SOTA/.test(IMP95660_CF_MULTIPLIER_WEDGE_CLOSURE.verdict),
+      /refereed bound is changed/i.test(IMP95660_CF_MULTIPLIER_WEDGE_CLOSURE.verdict),
   },
 ];
 

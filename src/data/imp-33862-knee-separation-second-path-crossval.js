@@ -66,7 +66,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33771-inflection-closed-form-vs-d2-zero-crosscheck (the grid-path ~1.5% residual)
  * @see imp-33817-d2-knee-grid-resolution-floor (the ~7e-4 grid-resolution floor the residual clears)
@@ -333,7 +333,7 @@ export const IMP33862_KNEE_SEPARATION_SECOND_PATH_CROSSVAL = {
     'SUB-GAP-imp-33862-fullmodel-sigmoid-inflection. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33771 (grid-path ~1.5% closed-form-vs-knee residual); imp-33817 (~7e-4 grid-resolution ' +
     'floor); imp-33721 (grid sub-decade D2-zero locator, Path A); imp-33744 (closed form sigma_infl); ' +
@@ -389,13 +389,13 @@ export const IMP33862_KNEE_SEPARATION_SECOND_PATH_CROSSVAL_ASSERTIONS = [
       LOG10_SIG_FULL > LOG10_NSTAR_CONT,
   },
   {
-    // Honesty gate: measurement / cross-validation only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement / cross-validation only, no bound change, no QED, no refereed bound is changed.
     id: 'imp33862-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33862_KNEE_SEPARATION_SECOND_PATH_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP33862_KNEE_SEPARATION_SECOND_PATH_CROSSVAL.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP33862_KNEE_SEPARATION_SECOND_PATH_CROSSVAL.verdict),
+      /refereed bound is changed/i.test(IMP33862_KNEE_SEPARATION_SECOND_PATH_CROSSVAL.verdict),
   },
 ];
 

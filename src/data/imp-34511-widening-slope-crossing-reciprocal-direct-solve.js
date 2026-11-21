@@ -55,7 +55,7 @@
  * imp-3220/imp-3406/imp-33810 component model which is NOT a rigorous asymptotic; imp-34469/imp-34409/
  * imp-34327/imp-34246/imp-34188 are UNTOUCHED; C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34469-widening-slope-crossing-window-convergence (F4 diagnoses the exp surrogate as mis-specified; this module refits with the correct law)
  * @see imp-34409-widening-slope-crossing-kernel-frame (the k=12..18 exp fit whose +0.227 overshoot is corrected here)
@@ -210,7 +210,7 @@ export const IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE = {
     'component model, NOT a rigorous asymptotic; the reciprocal-in-u slope law is the inherited imp-34246/ ' +
     'imp-34327 descriptive correction curve; imp-34469/imp-34409/imp-34327/imp-34246/imp-34188 UNTOUCHED; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34469 (F4 diagnoses the exp surrogate as mis-specified vs the reciprocal-in-u law); imp-34409 (the ' +
     'k=12..18 exp fit whose +0.227 overshoot is corrected); imp-34327 (the mapped crossing 20.47903); ' +
@@ -259,13 +259,13 @@ const IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE_ASSERTIONS = [
   {
     // Honesty gate: measurement/surrogate-correction only, isRigorous false, no bound changed, NO QED.
     id: 'imp34511-honesty-gate-no-qed',
-    description: 'residualVanishesAtMappedCrossing + bandIsPureSurrogateMisSpecification true; isRigorous false, NO QED, K_a>=0 untouched, PT SOTA',
+    description: 'residualVanishesAtMappedCrossing + bandIsPureSurrogateMisSpecification true; isRigorous false, NO QED, K_a>=0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.residualVanishesAtMappedCrossing === true &&
       IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.bandIsPureSurrogateMisSpecification === true &&
       IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.isRigorous === false &&
       /NO QED/.test(IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.verdict) &&
-      /remains SOTA/.test(IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.verdict) &&
+      /refereed bound is changed/i.test(IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34511_WIDENING_SLOPE_CROSSING_RECIPROCAL_DIRECT_SOLVE.verdict),
   },
 ];

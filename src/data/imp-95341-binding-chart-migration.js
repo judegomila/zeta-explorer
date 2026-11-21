@@ -9,7 +9,7 @@
  * open leg (the {0, +-1} pair-identity truncation) should be
  * concentrated. Measurement only; recomputes ONLY quantities already
  * proven in imp-95330/95331/95332; changes NO bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95332 normalization, verbatim). a = ln rho in (0, 6],
  * b = ln r in (0, a), tau = b / a, K = 256 uniform charts I_k =
@@ -158,7 +158,7 @@ export const IMP95341_BINDING_CHART_MIGRATION = {
     "is at rho ~ 9.83. The pair-truncation sharpening should be " +
     "concentrated at that interior far-rho window. Recomputes only " +
     "imp-95330/95331/95332 quantities; changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   residualReconciliationSupersededByRzPen7Pen8:
     "RECONCILIATION (imp-95467): the actionableReading / verdict above " +
     "point at the imp-95332 open {0, +-1} pair-identity truncation as " +
@@ -377,7 +377,7 @@ export const IMP95341_ASSERTIONS = [
     description:
       "the verdict is measurement-only, names the r-invariance and " +
       "rho-migration findings, keeps the pair-truncation leg open, " +
-      "promotes no bound, NO QED, PT stays SOTA",
+      "promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /r-invariant/.test(REC.verdict) &&
@@ -385,7 +385,7 @@ export const IMP95341_ASSERTIONS = [
       /pair-truncation/.test(REC.verdict) &&
       /changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement only/.test(REC.honestScope) &&
       REC.rhoMigrationUniform.ledger[6].kBind === 114,
   },

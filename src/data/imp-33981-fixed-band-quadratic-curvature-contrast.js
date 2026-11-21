@@ -59,7 +59,7 @@
  * the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS
  * surrogate is descriptive, not derived; the imp-33843 log-linear-vs-power-law verdict is UNTOUCHED; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33940-interior-residual-boundary-stability (the fixed-band and penultimate peak series fit here)
  * @see imp-33980-penultimate-rung-growth-model-selection (log-vs-linear selection on the penultimate rung)
@@ -241,8 +241,8 @@ export const IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST = {
     'verdict are UNTOUCHED. The quadratic is descriptive, not derived; the OLS surrogate is descriptive, ' +
     'not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33940 (the fixed-band and penultimate peak series fit here); imp-33980 (log-vs-linear selection ' +
     'on the penultimate rung); imp-33917 (the endpoint boundary sweep these bands neighbour); imp-33843 ' +
@@ -288,14 +288,14 @@ export const IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST_ASSERTIONS = [
       Math.abs(CURVATURE_MAGNITUDE_RATIO_PEN_OVER_FB - 2.17) < 0.1,
   },
   {
-    // Honesty gate: curvature-fit verdict, isRigorous false, imp-33843 verdict untouched, no QED, PT SOTA.
+    // Honesty gate: curvature-fit verdict, isRigorous false, imp-33843 verdict untouched, no QED, no refereed bound is changed.
     id: 'imp33981-honesty-gate-no-qed',
-    description: 'Measurement only: curvatures opposite sign, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: curvatures opposite sign, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST.isRigorous === false &&
       IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST.curvaturesOppositeSign === true &&
       /NO QED/.test(IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST.verdict) &&
-      /remains SOTA/.test(IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST.verdict),
+      /refereed bound is changed/i.test(IMP33981_FIXED_BAND_QUADRATIC_CURVATURE_CONTRAST.verdict),
   },
 ];
 

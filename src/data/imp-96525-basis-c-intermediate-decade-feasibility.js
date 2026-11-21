@@ -64,7 +64,7 @@
  * floor/L drift across the accessible rungs -- rises only ~1.25x from L <= 160 to L > 160, inside the P25/P75
  * spread, so the accessible data is consistent with the L-linear line but cannot certify the 4+-decade
  * extrapolation. Feasibility / measurement only; theoretical GUE quantity, not real zeros; changes no bound;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96507-basis-c-floor-slope-dejitter (the de-jittered slope + projected crossover this feasibility-tests)
  * @see imp-96430-basis-c-corroboration-reach-crossover (the original jittery crossover band)
@@ -249,13 +249,13 @@ export const IMP96525_BASIS_C_INTERMEDIATE_DECADE_FEASIBILITY = {
     + 'one feasible proxy -- the floor/L drift across the accessible rungs -- rises only ~1.25x from L <= 160 to '
     + 'L > 160, inside the P25/P75 spread, so the accessible data is consistent with the L-linear line but '
     + 'cannot certify the 4+-decade extrapolation. Feasibility / measurement only; theoretical GUE quantity, '
-    + 'not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the '
+    + 'not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the '
     + 'zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96525_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility / measurement only: rho is the theoretical GUE '
+  'RH open; no refereed bound is changed; NO QED. Feasibility / measurement only: rho is the theoretical GUE '
   + 'two-interval correlation, not computed from real zeros. A direct basis-C floor at L ~ 1e8-1e9 is doubly '
   + 'infeasible (panel budget ~1.2e10-1.5e13, roundoff floor ~1.4e-11 swamps the ~1e-13 cancellation floor), so '
   + 'the imp-96507 crossover L* ~ 5.4e12 stays a projected reach; the only feasible proxy (in-sample floor/L '
@@ -289,11 +289,11 @@ export const IMP96525_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96525_BASIS_C_INTERMEDIATE_DECADE_FEASIBILITY.verdict))
     throw new Error('imp-96525: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96525_BASIS_C_INTERMEDIATE_DECADE_FEASIBILITY.verdict))
-    throw new Error('imp-96525: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96525_BASIS_C_INTERMEDIATE_DECADE_FEASIBILITY.verdict))
+    throw new Error('imp-96525: verdict dropped the no-refereed-bound-change banner');
   if (!/projected reach/.test(IMP96525_BASIS_C_INTERMEDIATE_DECADE_FEASIBILITY.verdict))
     throw new Error('imp-96525: verdict dropped the projected-reach conclusion');
-  if (!(/RH open/.test(IMP96525_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96525_HONEST_BANNER) && /NO QED/.test(IMP96525_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96525_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96525_HONEST_BANNER) && /NO QED/.test(IMP96525_HONEST_BANNER)))
     throw new Error('imp-96525: IMP96525_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

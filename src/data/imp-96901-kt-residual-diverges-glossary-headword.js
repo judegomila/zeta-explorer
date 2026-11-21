@@ -46,7 +46,7 @@
  *   STATUS: a numerical scout diagnosing why one specific attack (direct Kato-Temple)
  *   cannot in principle deliver a positive floor, and identifying the shared wall with
  *   Route B. Not a proof, not a new bound, not an operator-positivity result. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-96875-krein-katotemple-residual-scout.js (source measurement: the
  *   IMP96875_KT_RESIDUAL_DIVERGES sub-gap this glosses)
@@ -58,7 +58,7 @@
  *   resolvent-truncation (N,T) rate the bounded reformulation reduces to)
  *
  * Ticket: imp-96901 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The residual-diverges headword, baked verbatim (no re-import).
@@ -98,7 +98,7 @@ const KT_RESIDUAL_DIVERGES_HEADWORD = Object.freeze({
     'out-of-space residual at N=20..44 with nested 2N-dim evaluation spaces. Scouting / ' +
     'measurement only; the provisional beta is NOT a certified lower bound (Ritz gives ' +
     'UPPER bounds); interval-rigorous certificate reach stays 2a <= 0.96; establishes no ' +
-    'operator positivity; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'operator positivity; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD = Object.freeze({
@@ -121,8 +121,8 @@ export const IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD = Object.freeze({
     'unbounded T_a[sigma_2]. A positive floor needs a BOUNDED (shift-invert / resolvent) ' +
     'reformulation, which reduces to the open Route B resolvent-truncation (N,T) rate: ' +
     'Route C-direct and Route B share one unbounded-operator wall. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96875 (the scout and IMP96875_KT_RESIDUAL_DIVERGES sub-gap this glosses); ' +
     'imp-96865 (the complementary certified-beta-seed obstruction); imp-96827/96847/96848 ' +
@@ -150,11 +150,11 @@ export const IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96901-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD.verdict) &&
       IMP96901_KT_RESIDUAL_DIVERGES_GLOSSARY_HEADWORD.glosses === 'imp-96875',
   },
 ];

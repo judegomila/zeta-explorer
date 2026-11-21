@@ -15,7 +15,7 @@
  * explicitly false, the verdict string names "NOT a rigorous asymptotic",
  * "C_mb GUE-conditional per imp-486 UNTOUCHED", "changes no bound",
  * "establishes no operator positivity", "imp-3066 K_a >= 0 untouched",
- * "no RH verdict, NO QED", and "Platt-Trudgian Lambda <= 0.2 remains SOTA".
+ * "no RH verdict, NO QED", and "No refereed bound is changed".
  * A self-executing "imp34948-honesty-gate-no-qed" assertion already checks
  * the isRigorous/NO-QED/SOTA substrings at module-load time.
  *
@@ -47,8 +47,8 @@ export const CAVEAT_WIRING_AUDIT_34948 = {
   honest:
     'AUDIT-ONLY -- verified imp-34948 carries the shared honest-status banner (isRigorous: false; '
     + 'verdict names NOT rigorous, C_mb GUE-conditional per imp-486 UNTOUCHED, changes no bound, no '
-    + 'operator positivity, imp-3066 K_a >= 0 untouched, no RH verdict, NO QED, Platt-Trudgian Lambda <= '
-    + '0.2 remains SOTA) and that its self-executing 7-assertion array is already listed in the '
+    + 'operator positivity, imp-3066 K_a >= 0 untouched, no RH verdict, NO QED, no refereed bound is changed'
+    + ') and that its self-executing 7-assertion array is already listed in the '
     + 'scripts/run-assertions.mjs MATH_MODULES sweep. Neither prior audit (imp-35007, imp-35020) omitting '
     + 'imp-34948 by name reflects an actual banner or wiring gap -- both checks pass. No completeness gap '
     + 'found. Changes no bound.',
@@ -84,7 +84,7 @@ export const CAVEAT_WIRING_AUDIT_34948_ASSERTIONS = [
     holds: () =>
       /AUDIT-ONLY/.test(CAVEAT_WIRING_AUDIT_34948.honest) &&
       /NO QED/.test(CAVEAT_WIRING_AUDIT_34948.honest) &&
-      /Lambda <= 0\.2 remains SOTA/.test(CAVEAT_WIRING_AUDIT_34948.honest),
+      /refereed bound is changed/i.test(CAVEAT_WIRING_AUDIT_34948.honest),
   },
 ];
 

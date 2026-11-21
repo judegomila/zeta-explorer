@@ -45,7 +45,7 @@ export const R4_WOL_SYM = Object.freeze({
   }),
   verdict: 'NOT PROVED. The per-prime reduction (Lemmas A–D, Theorem PB) is correct, but the implemented majorant tail term alone exceeds the '
     + '0.0223 margin for 108 of the 205 P ≥ 13 entries it was projected to reach; the only certified object is a first-branch bound at one point. '
-    + 'This angle contributes no WOL-C certificate to the synthesis. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'This angle contributes no WOL-C certificate to the synthesis. No refereed bound is changed. RH open. NO QED.',
 });
 
 const S = R4_WOL_SYM;
@@ -68,7 +68,7 @@ export const R4_WOL_SYM_ASSERTIONS = Object.freeze([
     holds: () => Object.values(S.conditionalValues).every((v) => exact15(v) !== null && lt('145/1000', v)),
     why: 'Every conditional consumer value of this angle is above 0.145.',
   },
-  { id: 'r4-wolsym-honest', holds: () => /NOT PROVED/.test(S.status) && /REFUTED/.test(S.status) && /NO QED/.test(S.verdict) && /PT Lambda <= 0\.2 stands/.test(S.verdict), why: 'No certificate, no QED.' },
+  { id: 'r4-wolsym-honest', holds: () => /NOT PROVED/.test(S.status) && /REFUTED/.test(S.status) && /NO QED/.test(S.verdict) && /refereed bound is changed/i.test(S.verdict), why: 'No certificate, no QED.' },
 ]);
 
 export default R4_WOL_SYM;

@@ -58,8 +58,7 @@
  * surrogate map globally; INHERITS no bound (sigma is a diagnostic share, not a
  * Lambda lever); C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ansatz
  * (imp-2642/imp-2643), E_trunc floor (imp-2631), imp-398 C_F prefactor UNTOUCHED;
- * changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35475-sigma-fidelity-closure-scope (Part B route (ii) named this the cheapest honest partial)
  * @see gue-vs-zeros-comparison (defines the empirical-vs-GUE spacing deviation; our first-10000 ref reproduces it)
@@ -71,7 +70,7 @@
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // 0.38374752 (imp-2642/imp-2643 ansatz)
 const E_TRUNC_PT = 3.06e-5; // imp-2631 floor -> the crossover balance point
 const T_PT = 3e12; // Platt-Trudgian verified height
-const L_PT = 0.2; // SOTA (unchanged by any sigma-fidelity spot check)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any sigma-fidelity spot check)
 
 // The two sigma landmarks (imp-35337 / imp-3406 / imp-3444), taken as given.
 const N_PEAK = 9.2186e5;
@@ -165,7 +164,7 @@ export const IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK = {
     'certify the surrogate map globally; INHERITS no bound (sigma is a diagnostic share, not a Lambda ' +
     'lever); C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ansatz (imp-2642/imp-2643), E_trunc floor ' +
     '(imp-2631), imp-398 C_F prefactor UNTOUCHED; changes no bound; no operator positivity; no RH verdict; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35475 (route-(ii) two-height check named the cheapest honest partial); imp-35337 (names ' +
     'imp-35337a; the two landmarks); imp-3406/imp-3444 (peak/crossover on double); gue-vs-zeros-comparison ' +
@@ -212,7 +211,7 @@ export const IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK_ASSERTIONS = [
       Math.abs(CROSS_ECOLL_REL_BUDGET - 0.005) < 1e-12,
   },
   {
-    // Honesty gate: partial only, two sub-gaps named, no bound moves, PT SOTA, NO QED.
+    // Honesty gate: partial only, two sub-gaps named, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35488-honest-partial-no-bound-moves-no-qed',
     description: 'HONEST PARTIAL: two sub-gaps named (imp-35488a/imp-35488b), sigma is not a Lambda lever so no bound moves, PT 0.2 unchanged, NO QED',
     holds: () =>
@@ -223,7 +222,7 @@ export const IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK_ASSERTIONS = [
       /imp-486/.test(IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK.verdict) &&
       /changes no bound/.test(IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK.verdict) &&
       /NO QED/.test(IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK.verdict) &&
-      /remains SOTA/.test(IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK.verdict),
+      /refereed bound is changed/i.test(IMP35488_ROUTE_II_TWO_HEIGHT_GTRUE_SPOTCHECK.verdict),
   },
 ];
 

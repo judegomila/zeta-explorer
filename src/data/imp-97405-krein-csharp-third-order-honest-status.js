@@ -13,7 +13,7 @@
  * @see imp-97206-krein-csharp-coupled-nt-jointlimit.js (coupled N,T plateau, best upper bracket 0.581059)
  *
  * Ticket: imp-97405 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import {

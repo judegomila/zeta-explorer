@@ -53,8 +53,8 @@
  *    plateaus, not all ten -- see the named open sub-gap.
  *  - LEMMA-3854 CONFIRMED numerically on every sampled point; the (H/Dmin)^2
  *    sharp-constant story is imp-3854/imp-3870s and is NOT re-derived here.
- *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; Platt-Trudgian
- *    Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; no refereed bound is changed
+ *    ; NO QED.
  *
  * OPEN SUB-GAP
  * ------------
@@ -154,7 +154,7 @@ export const IMP_3874_DPSI_SENSITIVITY_VERIFICATION = Object.freeze({
       'the rigorous (8/smin^2) Psi ceiling -- a 2000x-34000x slack that matches ' +
       'imp-3870s finding that the global-smin constant is a valid-but-vacuous ' +
       'over-bound. Verification only; 7 of 10 plateaus left as a named open ' +
-      'sub-gap; Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 untouched; NO QED.',
+      'sub-gap; no refereed bound is changed; imp-3066 untouched; NO QED.',
   },
 
   openSubGap: {
@@ -179,7 +179,7 @@ export const IMP_3874_DPSI_SENSITIVITY_VERIFICATION = Object.freeze({
     verificationOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -287,8 +287,8 @@ export const IMP_3874_DPSI_SENSITIVITY_VERIFICATION_ASSERTIONS = [
     why:
       'Honesty guard: this numerically verifies an existing derived lemma. It ' +
       'must not assert a new Lambda bound or a QED, imp-3066 stays untouched, and ' +
-      'the 7-remaining-plateaus sub-gap stays named open; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'the 7-remaining-plateaus sub-gap stays named open; no refereed bound is changed' +
+      '.',
   },
 ];
 

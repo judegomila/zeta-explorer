@@ -68,7 +68,7 @@
  * term, not a further brute-force Gram extension, is the route to the deeper question.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (the N=6000 build + Q1 sub-gap)
  * @see imp-96203-route-m-vasyunin-subleading-spectrum.js (the Q2 band-uniqueness sub-gap)
@@ -172,7 +172,7 @@ export const IMP96325_SUBGAP = Object.freeze({
 });
 
 export const IMP96325_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m9-extend-n1e4.py (m9-out.json / m9.log); the N=250..2600 rows reproduce imp-96094/imp-96105 bit-for-bit and N=6000 reproduces IMP96105_EXT_ROWS; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m9-extend-n1e4.py (m9-out.json / m9.log); the N=250..2600 rows reproduce imp-96094/imp-96105 bit-for-bit and N=6000 reproduces IMP96105_EXT_ROWS; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -236,7 +236,7 @@ const IMP96325_ASSERTIONS = [
     id: 'imp96325-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96325_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96325_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96325_HONEST_BANNER) &&
       /NO QED/.test(IMP96325_HONEST_BANNER) &&
       typeof IMP96325_SUBGAP.statement === 'string' &&
       /beyond-1e4/.test(IMP96325_SUBGAP.id),

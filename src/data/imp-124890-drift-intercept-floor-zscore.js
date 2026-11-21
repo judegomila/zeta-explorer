@@ -53,7 +53,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only symbolically as differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124850-pairratio-drift-slope-fit (the OLS intercept R = 3.46e-12 +/- 1.30e-12 quantified here)
  * @see imp-124811-pairratio-reldiff-ecf-roundoff-law (the geomean round-off floor R ~ 2.34e-12)
@@ -239,7 +239,7 @@ export const IMP124890_DRIFT_INTERCEPT_FLOOR_ZSCORE = {
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed only symbolically as ' +
     'differentiation axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124850 (the OLS intercept R = 3.46e-12 +/- 1.30e-12 quantified here); imp-124811 (the geomean round-off ' +
     'floor R ~ 2.34e-12); imp-124808 (mpmath dps=100 proof that identity drift D = 0); imp-124873 (the ladder is ' +
@@ -288,13 +288,13 @@ export const IMP124890_DRIFT_INTERCEPT_FLOOR_ZSCORE_ASSERTIONS = [
     holds: () => Z_GEOMEAN < 0 && Z_MEDIAN < 0 && Z_L2 < 0,
   },
   {
-    // Honesty gate: accuracy/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124890-honesty-gate-no-qed',
-    description: 'Accuracy/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124890_DRIFT_INTERCEPT_FLOOR_ZSCORE.isRigorous === false &&
       /NO QED/.test(IMP124890_DRIFT_INTERCEPT_FLOOR_ZSCORE.verdict) &&
-      /remains SOTA/.test(IMP124890_DRIFT_INTERCEPT_FLOOR_ZSCORE.verdict),
+      /refereed bound is changed/i.test(IMP124890_DRIFT_INTERCEPT_FLOOR_ZSCORE.verdict),
   },
 ];
 

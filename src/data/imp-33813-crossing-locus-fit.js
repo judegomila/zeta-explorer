@@ -50,7 +50,7 @@
  *   admissible imp-3066 modification. The closed form carries NO RH verdict; it merely
  *   compresses the imp-33789 tabulation. K_a >= 0 and positivity were NOT attempted;
  *   imp-3066 / imp-33725 / imp-33765 / imp-33789 / G7 are UNTOUCHED; this is not a proof or a
- *   reduction; Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   reduction; no refereed bound is changed. No false QED.
  *
  *   @see imp-33789-decoupled-rate-grid.js (imp-33789: the tabulated crossing contour, fitted here)
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: the decoupling lever)
@@ -134,7 +134,7 @@ export const IMP33813_CROSSING_LOCUS_FIT = Object.freeze({
     'c ~ 1.7159 (max absolute residual ~ 0.190 at the s_a = 1 head, max relative ~ 7.5%); the ' +
     'gap saturates on the tail s_a >= 2 to c ~ 1.7539 with a ~7x tighter fit (max absolute ~ 0.026, ' +
     'max relative ~ 0.46%). Equivalently s_b*/s_a = 1 + c/s_a -> 1, so the additive law is the ' +
-    'natural explanation of the imp-33789 asymptotic-parity trend. Curve fit only; PT 0.2 SOTA.',
+    'natural explanation of the imp-33789 asymptotic-parity trend. Curve fit only; no refereed bound is changed.',
 
   closedForm: Object.freeze({
     additiveOffset: 's_b*(s_a) = s_a + c',
@@ -181,7 +181,7 @@ export const IMP33813_CROSSING_LOCUS_FIT = Object.freeze({
     didNotAttemptKaNonnegativity: true,
     didNotAttemptPositivity: true,
     carriesNoRHVerdict: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
   }),
 });
 
@@ -233,7 +233,7 @@ export const IMP33813_CROSSING_LOCUS_FIT_ASSERTIONS = [
     why: 'Mandatory honesty: this is a CURVE FIT of the decoupled diagnostic (which breaks the ' +
          'exponential shear, per imp-33765), not an admissible modification, carries no RH ' +
          'verdict, leaves imp-3066 / imp-33725 / imp-33765 / imp-33789 / G7 untouched, did not ' +
-         'attempt K_a >= 0 or positivity, is not a proof or a reduction, and PT 0.2 stays SOTA.',
+         'attempt K_a >= 0 or positivity, is not a proof or a reduction, and no refereed bound is changed.',
     holds: () => {
       const c = IMP33813_CROSSING_LOCUS_FIT.honestCaveat;
       return (
@@ -248,7 +248,7 @@ export const IMP33813_CROSSING_LOCUS_FIT_ASSERTIONS = [
         c.didNotAttemptKaNonnegativity === true &&
         c.didNotAttemptPositivity === true &&
         c.carriesNoRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

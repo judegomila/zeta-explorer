@@ -48,7 +48,7 @@
  *   interval-rigorous reach 2a <= 0.96)
  *
  * Ticket: imp-96984 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Ritz-vs-rigorous normalisation-mismatch headword, baked verbatim (no re-import).
@@ -83,7 +83,7 @@ const RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_HEADWORD = Object.freeze({
     'verbatim. Naming / bookkeeping headword only; resolves no new interval; establishes no ' +
     'operator or zero-side result; does not pin the exact Ritz-vs-rigorous gap; certificate ' +
     'interval-rigorous reach stays 2a<=0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD = Object.freeze({
@@ -103,7 +103,7 @@ export const IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD 
     'discretised estimators, not a certification failure -- both estimators place lambda_1 in ' +
     'the same order-10 positive band, ~22x the binding 2a=(ln3)/2 margin. No bound moved; the ' +
     'exact Ritz-vs-rigorous gap (which needs a matched-normalisation solve at a=0.48 in a single ' +
-    'common basis) remains open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'common basis) remains open; NO QED. No refereed bound is changed.',
   citation:
     'imp-96958 (the IMP96958_VERDICT.subGap field this glosses); imp-96938 (Ritz floor band at ' +
     '2a=0.96); rh-route-i-toeplitz-krein-certificate-2026-09-24 (rigorous flanking rungs).',
@@ -129,12 +129,12 @@ export const IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD_
   },
   {
     id: 'imp96984-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, exact gap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, exact gap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD.verdict) &&
       /remains open/.test(IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD.verdict) &&
       IMP96984_RITZ_VS_RIGOROUS_NORMALISATION_MISMATCH_GLOSSARY_HEADWORD.glosses === 'imp-96958',
   },

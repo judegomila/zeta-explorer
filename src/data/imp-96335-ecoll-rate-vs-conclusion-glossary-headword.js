@@ -36,7 +36,7 @@
  *   reference, so the open C_Lip conditional is never cited as if it also
  *   threatened the (unconditional) decay rate. It establishes nothing new
  *   and fits no new curve. Changes no bound of the Lambda program; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH remains OPEN. C_H
+ *   No refereed bound is changed; RH remains OPEN. C_H
  *   isRigorousUpperBound stays false (imp-2642/imp-2701); the imp-2640
  *   Gronwall discharge of C_Lip remains NEGATIVE.
  *
@@ -46,7 +46,7 @@
  * @see imp-2640 (negative Gronwall discharge of C_Lip)
  *
  * Ticket: imp-96335 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The rate-vs-conclusion-separation headword, baked verbatim (no re-import).
@@ -99,7 +99,7 @@ export const IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD = Object.freeze
     'cross-column ratio equals the C_H ratio exactly at every N. Only the ' +
     'linear prefactor and the value of the limit depend on C_H, hence on the ' +
     'unquantified C_Lip. Establishes nothing; fits no new curve; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96311 (E_coll rate-vs-conclusion C_H-independence tabulation, source ' +
     'VERDICT); imp-96290 (Step-4 bridge subconstant inventory, flagged the ' +
@@ -130,12 +130,12 @@ export const IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD_ASSERTIONS = [
   {
     id: 'imp96335-honesty-gate-no-qed',
     why:
-      'Documentation only: no bound claimed moved, no QED, PT SOTA line present, ' +
+      'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, ' +
       'correct glosses/scopes pointers.',
     holds: () =>
       IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD.verdict) &&
       IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD.glosses === 'imp-96311' &&
       IMP96335_ECOLL_RATE_VS_CONCLUSION_GLOSSARY_HEADWORD.scopes ===
         'imp-96290,imp-2641,imp-2640',

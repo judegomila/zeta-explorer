@@ -44,7 +44,7 @@
  *
  *   STATUS: a grouping/index note over three already-committed modules, not a new derivation. No
  *   bound changes; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066
- *   K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-124808-extprec-pairratio-two-axis.js (dps/eps two-axis split, floor = pure O(eps^4) stencil truncation)
  * @see imp-124810-bisection-tol-roundoff-floor-sweep.js (bisection TOL sweep, R_inf saturates ~4.46e-13)
@@ -54,7 +54,7 @@
  * @see imp-97846-kernel-fold-diag3-cohort-index.js (sibling cohort-index this mirrors)
  *
  * Ticket: imp-124863 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const AXIS_B_SLOPE = 4.0; // imp-124808: O(eps^4) log-log slope, dps-invariant floor
@@ -130,8 +130,8 @@ export const IMP124863_ECF_PRECISION_CLUSTER_COHORT_INDEX = Object.freeze({
     'bisection tolerance, and should not re-tabulate the |reldiff|-vs-|E_CF| law as open questions. ' +
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation; C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 ' +
-    'K_a >= 0 untouched; establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124808 (extended-precision dps/eps two-axis split); imp-124810 (bisection-tolerance ' +
     'round-off floor sweep); imp-124811 (|reldiff|-vs-|E_CF| invariant-product law); imp-124769/' +
@@ -171,11 +171,11 @@ export const IMP124863_ECF_PRECISION_CLUSTER_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp124863-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124863_ECF_PRECISION_CLUSTER_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP124863_ECF_PRECISION_CLUSTER_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP124863_ECF_PRECISION_CLUSTER_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP124863_ECF_PRECISION_CLUSTER_COHORT_INDEX.verdict),
   },
 ];
 

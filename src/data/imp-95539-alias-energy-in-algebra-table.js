@@ -6,7 +6,7 @@
  * numeric projection (build each Ramanujan-sum vector c_q over a full period
  * and project e_a onto S = span{c_q : q|P}) lives in
  * tmp/imp-95539-alias-energy-in-algebra-check.mjs, all rows matching 1/phi(q)
- * to < 1e-9. NOT a bound; PT Lambda<=0.2 stands; RH open; NO QED.
+ * to < 1e-9. NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * Theorem U (perm-arch-sieve-universality-no-go, line 44): a single alias
  * e_a(n) = e(a n / P) has energy fraction 1/phi(q) INSIDE the sieve algebra S,

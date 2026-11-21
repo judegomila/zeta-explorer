@@ -50,7 +50,7 @@
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the resid(k) surrogate is
  * descriptive, not derived; changes no bound; establishes no operator positivity; imp-3066
  * K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
- * (imp-2642/imp-2643) is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-2642/imp-2643) is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34003-f4-unity-crossing-locator (located k_peak = 8.8210916, resid_peak = 0.0653366)
  * @see imp-33878-hump-argmax-grid-refinement (the resid_exp(k) surrogate, reused verbatim)
@@ -284,7 +284,7 @@ export const IMP34062_M2_RESIDUAL_ATTENUATION_RATE = {
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the resid(k) surrogate ' +
     'is descriptive, not derived; changes no bound; establishes no operator positivity; imp-3066 ' +
     'K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
-    '(imp-2642/imp-2643) is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-2642/imp-2643) is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34003 (located k_peak = 8.8210916, resid_peak = 0.0653366, "attenuates rather than ' +
     'amplifies"); imp-33878 (the resid_exp(k) surrogate reused verbatim); imp-33810 (the ladder ' +
@@ -329,14 +329,14 @@ export const IMP34062_M2_RESIDUAL_ATTENUATION_RATE_ASSERTIONS = [
       EXP_IMPLIED_HALF_STEP < HALF_DK,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, sub-gap named, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34062-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, SUB-GAP named, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, SUB-GAP named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34062_M2_RESIDUAL_ATTENUATION_RATE.isRigorous === false &&
       /SUB-GAP/.test(IMP34062_M2_RESIDUAL_ATTENUATION_RATE.verdict) &&
       /NO QED/.test(IMP34062_M2_RESIDUAL_ATTENUATION_RATE.verdict) &&
-      /remains SOTA/.test(IMP34062_M2_RESIDUAL_ATTENUATION_RATE.verdict),
+      /refereed bound is changed/i.test(IMP34062_M2_RESIDUAL_ATTENUATION_RATE.verdict),
   },
 ];
 

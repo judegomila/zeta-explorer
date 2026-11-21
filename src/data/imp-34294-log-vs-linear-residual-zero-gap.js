@@ -55,7 +55,7 @@
  * sub-terms verbatim; the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the
  * crossing is descriptive within that model only; changes no bound; establishes no operator positivity;
  * distinct from the imp-34285 F4/C-term decomposition; C_mb GUE-conditional per imp-486 untouched; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34211-closedform-vs-bisection-kend-gap (the ~0.278 21.00/21.28 gap this attributes; k*_cf reused)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the surrogate whose LOG argument this probes)
@@ -279,7 +279,7 @@ export const IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP = {
     'transform artifact. Distinct from the imp-34285 F4/C-term decomposition. The inherited imp-3220/' +
     'imp-3406 component model is NOT a rigorous asymptotic; the crossing is descriptive within that model ' +
     'only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34211 (the ~0.278 21.00/21.28 gap attributed here; k*_cf reused); imp-34169 (the surrogate whose ' +
     'log argument this probes); imp-34150 (the raw-residual linear-space root 21.28094743); imp-34127 ' +
@@ -320,16 +320,16 @@ export const IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP_ASSERTIONS = [
       CLOSED_FORM_SPLIT < 0,
   },
   {
-    // Honesty gate: transform-attribution only, isRigorous false, no QED, PT SOTA, K_a & C_mb untouched.
+    // Honesty gate: transform-attribution only, isRigorous false, no QED, no refereed bound is changed, K_a & C_mb untouched.
     id: 'imp34294-honesty-gate-no-qed',
-    description: 'Measurement only: verdict true, isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched',
+    description: 'Measurement only: verdict true, isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched',
     holds: () =>
       IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdictLogTransformContributesNothing === true &&
       IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict) &&
       /EXACTLY 0/.test(IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict) &&
       /NO QED/.test(IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict) &&
-      /remains SOTA/.test(IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict) &&
+      /refereed bound is changed/i.test(IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict) &&
       /C_mb GUE-conditional per imp-486 (?:is )?untouched/i.test(
         IMP34294_LOG_VS_LINEAR_RESIDUAL_ZERO_GAP.verdict,

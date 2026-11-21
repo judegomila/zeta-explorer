@@ -87,7 +87,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate, the local
  * log-derivative, and the pole-proximity regression are descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * HONEST SUB-GAP SUB-GAP-imp-34287-asymptotic-class-undecidable: whether the TRUE fixed-band-peak growth is
  * sub-log, log, or super-log cannot be decided by this surrogate, because its domain terminates at the
@@ -386,7 +386,7 @@ export const IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION = {
     'surrogate, the local log-derivative, and the pole-proximity regression are descriptive, not derived; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34196 (the rising-increment re-acceleration this reconciles; machinery reused verbatim); imp-34109 ' +
     '(the F4 unbounded-log verdict); imp-34169 (the resid_exp pole k* ~ 21.28095 this attributes the ' +
@@ -452,9 +452,9 @@ export const IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION_ASSERT
   {
     // Honesty gate: measurement/reconciliation only, far-decelerates & reaccel-is-pole-transient &
     // asymptotic-class-undecidable, isRigorous false, imp-34196 not overturned, sub-gap flagged, no QED,
-    // PT SOTA, C_mb / imp-3066 untouched.
+    // no refereed bound is changed, C_mb / imp-3066 untouched.
     id: 'imp34287-honesty-gate-no-qed',
-    description: 'Measurement only: farDecelerates & reaccelIsPoleTransient & asymptoticClassUndecidable; isRigorous false; sub-gap flagged; imp-34196 not overturned; no QED; PT SOTA; C_mb / imp-3066 untouched',
+    description: 'Measurement only: farDecelerates & reaccelIsPoleTransient & asymptoticClassUndecidable; isRigorous false; sub-gap flagged; imp-34196 not overturned; no QED; no refereed bound is changed; C_mb / imp-3066 untouched',
     holds: () =>
       IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.farDecelerates === true &&
       IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.reaccelIsPoleTransient === true &&
@@ -464,7 +464,7 @@ export const IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION_ASSERT
       /SUB-GAP-imp-34287-asymptotic-class-undecidable/.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict) &&
       /is CORRECT and is not overturned/.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is\s+UNTOUCHED/i.test(IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.verdict),
   },

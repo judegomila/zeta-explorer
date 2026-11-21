@@ -16,7 +16,7 @@
  *
  *   Ticket: imp-35582 (ux, medium). Presentation only of an already-established
  *   data-unreachability scoping; adds no new Lambda bound, derives no remainder.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   No refereed bound is changed. NO QED.
  */
 
 import { IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE } from './imp-35537-r1t-reentry-band-closure-scope.js';

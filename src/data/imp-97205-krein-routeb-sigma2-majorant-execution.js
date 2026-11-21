@@ -46,7 +46,7 @@
  * produced or claimed; the Rayleigh value stays a QUADRATURE evaluation; Rayleigh floors stay UPPER bounds
  * on lambda_min; establishes NO operator positivity; IMP97100_PHASE_CANCELLATION_TRIAL and
  * IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach
- * stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (Route B assessment; the EASY/HARD split)
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (min-max Rayleigh bound; T-ladder; source literals)

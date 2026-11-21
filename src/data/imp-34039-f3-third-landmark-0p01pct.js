@@ -60,7 +60,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33988 (F3 first two landmarks recomputed three ways: E1 closed-form, E2 law-direct, E3 Newton)
  * @see imp-33816 (F3 landmarks 1e44 / 1e434; gap ~ 1/(2 log T0))
@@ -268,7 +268,7 @@ export const IMP34039_F3_THIRD_LANDMARK_0P01PCT = {
     'reproduce the imp-33988 44.167/436.059 marks to 3 decimals. No new mechanism. The component model ' +
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33988 (F3 first two landmarks three ways); imp-33816 (F3 landmarks 1e44/1e434, gap ~ 1/(2 log T0)); ' +
     'imp-33859 (log-space within-0.1% crossing 1e436.06); imp-33949 (log T0 * gap -> 1/2 from below); ' +
@@ -327,13 +327,13 @@ export const IMP34039_F3_THIRD_LANDMARK_0P01PCT_ASSERTIONS = [
       IMP34039_F3_THIRD_LANDMARK_0P01PCT.landmark.logT0_times_gap_at_crossing < 0.5,
   },
   {
-    // Honesty gate: measurement/cross-check only, no bound changed, no QED, PT SOTA.
+    // Honesty gate: measurement/cross-check only, no bound changed, no QED, no refereed bound is changed.
     id: 'imp34039-honesty-gate-no-qed',
-    description: 'Measurement/cross-check only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/cross-check only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34039_F3_THIRD_LANDMARK_0P01PCT.isRigorous === false &&
       /NO QED/.test(IMP34039_F3_THIRD_LANDMARK_0P01PCT.verdict) &&
-      /remains SOTA/.test(IMP34039_F3_THIRD_LANDMARK_0P01PCT.verdict),
+      /refereed bound is changed/i.test(IMP34039_F3_THIRD_LANDMARK_0P01PCT.verdict),
   },
 ];
 

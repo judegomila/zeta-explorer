@@ -55,7 +55,7 @@
  * an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation; the C_C = (1/8)
  * sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34775-iters-to-floor-log-law (parent: derives the closed-form log law over the sparse decade grid)
  * @see imp-34755-two-route-residual-across-N (grandparent: M2 reports the iters-to-floor ladder empirically)
@@ -210,7 +210,7 @@ export const IMP34798_ITERS_TO_FLOOR_LOG_LAW_HIGHER_N = {
     'precision, no interval enclosure (compare the imp-34693a sub-gap); the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and ' +
     'the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34775 (parent: derives the closed-form iters-to-floor log law over the sparse decade grid); ' +
     'imp-34755 (grandparent: M2 reports the iters-to-floor ladder empirically); imp-33723 (closed-form ' +
@@ -257,13 +257,13 @@ export const IMP34798_ITERS_TO_FLOOR_LOG_LAW_HIGHER_N_ASSERTIONS = [
       BAND_TAIL.points >= 31,
   },
   {
-    // Honesty gate: higher-N measurement of a surrogate count, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: higher-N measurement of a surrogate count, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34798-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34798_ITERS_TO_FLOOR_LOG_LAW_HIGHER_N.isRigorous === false &&
       /NO QED/.test(IMP34798_ITERS_TO_FLOOR_LOG_LAW_HIGHER_N.verdict) &&
-      /remains SOTA/.test(IMP34798_ITERS_TO_FLOOR_LOG_LAW_HIGHER_N.verdict),
+      /refereed bound is changed/i.test(IMP34798_ITERS_TO_FLOOR_LOG_LAW_HIGHER_N.verdict),
   },
 ];
 

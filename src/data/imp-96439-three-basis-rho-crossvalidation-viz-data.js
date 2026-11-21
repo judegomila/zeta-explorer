@@ -17,7 +17,7 @@
  * MEASUREMENT / PRESENTATION ONLY. rho is the theoretical GUE (sine-kernel, universality)
  * two-interval correlation for boxes of unfolded length L; these are theoretical envelope values
  * with no computed Riemann zeros behind them. Changes no bound; establishes no operator
- * positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96389-three-basis-rho-crossvalidation-table.js (the table this reshapes)
  *
@@ -57,7 +57,7 @@ export const IMP96439_LANDMARKS = Object.freeze({
 });
 
 export const IMP96439_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every rho, agreement and '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every rho, agreement and '
   + 'roundoff-floor reading is copied verbatim from the imp-96389 baked three-basis table; only '
   + 'the chart-axis reshaping (log10 L, log10 agreement) is computed here (no re-derivation, no '
   + 'new rho or floor measurement). rho is the theoretical GUE (sine-kernel, universality) '

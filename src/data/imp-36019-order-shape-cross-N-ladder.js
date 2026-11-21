@@ -20,8 +20,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; the C_mb
- * GUE-conditional constant (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional constant (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED super-additivity factor cross / (shapeOnly + orderOnly) across the ladder:
  *   N        kappa    shapeOnly    orderOnly    cross        crossOverSum  crossOverWorse
@@ -61,7 +60,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35973) ---------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -320,7 +319,7 @@ export const IMP36019_ORDER_SHAPE_CROSS_N_LADDER = {
     'certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
     'A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35973 (single-endpoint order-x-shape cross-term at N ~ 488602, ~13x super-additive); imp-35852 ' +
     '(worst term ORDER); imp-35893 (worst pairing-tree SHAPE); imp-35812 (fixed term family + N ladder ' +
@@ -393,7 +392,7 @@ export const IMP36019_ORDER_SHAPE_CROSS_N_LADDER_ASSERTIONS = [
   },
   {
     id: 'imp36019-honesty-gate',
-    description: 'Measurement only; super-additivity NOT N-stable; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; super-additivity NOT N-stable; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36019_ORDER_SHAPE_CROSS_N_LADDER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -403,7 +402,7 @@ export const IMP36019_ORDER_SHAPE_CROSS_N_LADDER_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36019_ORDER_SHAPE_CROSS_N_LADDER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36019_ORDER_SHAPE_CROSS_N_LADDER.verdict) &&
-      /remains SOTA/.test(IMP36019_ORDER_SHAPE_CROSS_N_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP36019_ORDER_SHAPE_CROSS_N_LADDER.verdict),
   },
 ];
 

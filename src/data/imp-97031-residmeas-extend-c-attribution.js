@@ -51,7 +51,7 @@
  * near-flat {88..124} plateau (tiny d(1/C) in the denominator) and collapses to ~1.03x over {124..160}
  * as the compensating lam_min(A_full)/scaleB drift becomes negligible (~2.6% of the move). Measurement
  * only; the floor is a Rayleigh UPPER bound; no operator positivity; interval-rigorous reach stays
- * 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ * 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97018-c-drift-vs-residmeas-gap.js (named the sub-gap imp-97018-residmeas-high-N-unmeasured this closes)
  * @see imp-96995-minimiser-coeff-spectrum-supercubic.js (the residMeas driver, extended here from {..124} to {..160})

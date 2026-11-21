@@ -16,7 +16,7 @@
  * @see imp-3696-matched-pair-krylov-depth-sweep-viz-data.js (sibling viz-data for the later imp-3663 matched-pair sweep)
  *
  * Ticket: imp-3677 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP3677_NAMED_ANCHORS = [

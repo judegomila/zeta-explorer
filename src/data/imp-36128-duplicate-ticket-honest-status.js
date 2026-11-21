@@ -22,8 +22,7 @@
  * records that gap as a known blind spot in the ticket-seeding duplicate check, distinct from
  * (and narrower than) a general fix.
  *
- * Meta finding only; no bound touched; no code path changed; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * Meta finding only; no bound touched; no code path changed; NO QED. No refereed bound is changed.
  *
  * @see imp-36108-preseed-vizdata-duplicate-guard (the already-completed implementation this ticket duplicates)
  * @see imp-36033 (originally proposed the guard without implementing it)
@@ -57,7 +56,7 @@ export const IMP36128_DUPLICATE_TICKET_HONEST_STATUS = {
     'AUDIT FINDING (not a measurement of a mathematical quantity). imp-36128 duplicates the ' +
     'already-completed imp-36108; no code change made here beyond recording the finding. ' +
     'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36108-preseed-vizdata-duplicate-guard (the completed implementation); ' +
     'imp-36033 (original proposal); scripts/seed-ticket.mjs checkVizDataDuplicate().',
@@ -82,11 +81,11 @@ export const IMP36128_DUPLICATE_TICKET_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp36128-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36128_DUPLICATE_TICKET_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP36128_DUPLICATE_TICKET_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP36128_DUPLICATE_TICKET_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP36128_DUPLICATE_TICKET_HONEST_STATUS.verdict),
   },
 ];
 

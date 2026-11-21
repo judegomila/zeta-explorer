@@ -49,7 +49,7 @@
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the component model is the inherited imp-3220/
  *   imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486
  *   is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34513-slowlog-drift-residual-crosscheck.js (F1 residual shrink "as curvature relaxes")
  *   @see imp-34486-slowlog-t0-drift-analytic-derivation.js (closed form x = -2 g/(1-g))
@@ -211,7 +211,7 @@ export const IMP34531_DRIFT_RESIDUAL_VS_SECOND_DERIV = Object.freeze({
     'C_H = 1/8) ansatz are UNTOUCHED; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34513 (F1 residual shrink "as curvature relaxes", verified here); imp-34486 (closed-form ' +
     'drift x = -2 g/(1-g)); imp-34446 (central-difference exponent measurement); imp-33620 ' +
@@ -245,9 +245,9 @@ const IMP34531_ASSERTIONS = [
     holds: () =>
       IMP34531_DRIFT_RESIDUAL_VS_SECOND_DERIV.isRigorous === false &&
       /NO QED/.test(IMP34531_DRIFT_RESIDUAL_VS_SECOND_DERIV.verdict) &&
-      /remains SOTA/.test(IMP34531_DRIFT_RESIDUAL_VS_SECOND_DERIV.verdict) &&
+      /refereed bound is changed/i.test(IMP34531_DRIFT_RESIDUAL_VS_SECOND_DERIV.verdict) &&
       /UNTOUCHED/.test(IMP34531_DRIFT_RESIDUAL_VS_SECOND_DERIV.verdict),
-    why: 'Honesty gate: verification only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: verification only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

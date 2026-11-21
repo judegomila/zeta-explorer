@@ -4,7 +4,7 @@
  * residual-STATISTICS diagnostics cohort (three-way decomposition on a lower ladder, exact runs-test
  * permutation p-value, AR(1) rho reconciliation, four-factor widening decay cross-check), mirroring the
  * imp-33804/imp-33824 rollup pattern and confirming each module carries the mandatory honest banner: no
- * QED, imp-3066 K_a >= 0 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.
+ * QED, imp-3066 K_a >= 0 untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/verdict block was read and
  * classified into the evidence class it earns on its own terms:
@@ -25,7 +25,7 @@
  *     E_flow factor F1 to machine precision but over-predicts the widening alone by ~19.9x, the gap being
  *     the F2*F3*F4 attribution attenuation dominated by the normaliser collapse F2.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA); glossary coverage was cross-checked against
+ * untouched, no refereed bound is changed); glossary coverage was cross-checked against
  * src/data/glossary.js and src/pages.
  *
  * RESULT (audited 2026-07-05). All four modules carry the full honest banner as a literal "NO QED" string
@@ -57,8 +57,8 @@ export const IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP = {
     'Read each of the four imp-33919/33920/33921/33922 module @fileoverview/verdict blocks; classify by ' +
     'evidence class (E_coll three-way decomposition on the lower ladder / exact runs-test permutation ' +
     'p-value / AR(1) rho reconciliation / four-factor widening decay cross-check); grep for the ' +
-    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 ' +
-    'SOTA); cross-check glossary.js and src/pages for dedicated coverage.',
+    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    '); cross-check glossary.js and src/pages for dedicated coverage.',
   sharedResidualSeries: 'imp-33858-widening-fit-residual-localization.js',
   sharedComponentModelProvenance: 'imp-3220 / imp-3406 (non-rigorous extrapolation base for all four modules)',
   modules: [
@@ -119,8 +119,8 @@ export const IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP = {
     'has a routed viz page yet.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. imp-3066 K_a >= 0 positivity untouched across all four cohort members; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA. No QED.',
+    'itself. imp-3066 K_a >= 0 positivity untouched across all four cohort members; no refereed bound is changed' +
+    '. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -151,7 +151,7 @@ const IMP_33978_ASSERTIONS = [
         (x) => x.noQED === true && /imp-3066/.test(x.untouchedInvariant) && x.plattTrudgianSOTA === true
       ) && IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 4,
     why: 'Every module in the cohort must state no-QED as a literal string, imp-3066 K_a >= 0 untouched, ' +
-      'and Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'and no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33978-three-glossary-zero-viz',
@@ -172,11 +172,11 @@ const IMP_33978_ASSERTIONS = [
   {
     id: 'imp33978-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33978_33919_33922_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

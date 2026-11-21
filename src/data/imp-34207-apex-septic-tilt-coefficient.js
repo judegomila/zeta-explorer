@@ -67,7 +67,7 @@
  * resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; confirms and refines, does not overturn, imp-34146; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34146-apex-quintic-tilt-coefficient (fit the quintic; named the residual odd septic term, fit here)
  * @see imp-34084-apex-cubic-tilt-coefficient (the negative cubic tilt d whose sign the septic matches)
@@ -346,8 +346,8 @@ export const IMP34207_APEX_SEPTIC_TILT_COEFFICIENT = {
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate ' +
     'resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34146 (fit the quintic, named the residual odd septic term fit here); imp-34084 (the negative ' +
     'cubic tilt d whose sign the septic matches); imp-34008 (W2 wing-asymmetry inference); imp-34064 ' +
@@ -407,14 +407,14 @@ export const IMP34207_APEX_SEPTIC_TILT_COEFFICIENT_ASSERTIONS = [
       Math.abs(SEPTIC_TOTAL_DISC - 0.6276) < 0.02,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34207-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-34146, no QED, imp-3066 untouched, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-34146, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34207_APEX_SEPTIC_TILT_COEFFICIENT.isRigorous === false &&
       /confirms and refines, does not overturn, imp-34146/.test(IMP34207_APEX_SEPTIC_TILT_COEFFICIENT.verdict) &&
       /NO QED/.test(IMP34207_APEX_SEPTIC_TILT_COEFFICIENT.verdict) &&
-      /remains SOTA/.test(IMP34207_APEX_SEPTIC_TILT_COEFFICIENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34207_APEX_SEPTIC_TILT_COEFFICIENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34207_APEX_SEPTIC_TILT_COEFFICIENT.verdict),
   },
 ];

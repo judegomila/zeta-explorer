@@ -53,8 +53,7 @@
  * RH bound. The component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED (the share stays
  * GUE-conditional); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident (derived P1/P2, flagged the 0.3pct residual)
  * @see imp-96162-sigma-ushape-peak-eflow-recovery (measured 0.5769 and the +0.466/-0.304 slopes)
@@ -232,7 +231,7 @@ export const IMP96210_USHAPE_PEAK_SLOPE_DRIFT_LOCATION_LAW = {
     'Component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96187 (derived P1/P2, attributed the 0.3pct residual to slope drift); imp-96162 (measured ' +
     '0.5769 and the +0.466/-0.304 slopes); imp-3220 (interior peak sigma_max ~ 0.9494 at N ~ 9.22e5); ' +
@@ -279,13 +278,13 @@ export const IMP96210_USHAPE_PEAK_SLOPE_DRIFT_LOCATION_LAW_ASSERTIONS = [
     holds: () => F1_REL_ERR < 1e-3 && Math.abs(SLOPE_RATIO - 1.5306) < 5e-3,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96210-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, PT Lambda<=0.2 stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96210_USHAPE_PEAK_SLOPE_DRIFT_LOCATION_LAW.isRigorous === false &&
       /NO QED/.test(IMP96210_USHAPE_PEAK_SLOPE_DRIFT_LOCATION_LAW.verdict) &&
-      /remains SOTA/.test(IMP96210_USHAPE_PEAK_SLOPE_DRIFT_LOCATION_LAW.verdict),
+      /refereed bound is changed/i.test(IMP96210_USHAPE_PEAK_SLOPE_DRIFT_LOCATION_LAW.verdict),
   },
 ];
 

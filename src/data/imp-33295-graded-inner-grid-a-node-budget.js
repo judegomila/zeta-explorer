@@ -77,7 +77,7 @@
  *   graded-is-cheaper ordering, not the exact 120-140 node counts. The NPHI = 10 Phi-series truncation is
  *   inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33275-richardson-saddle-a-rung-uniformity.js (the uniform Richardson ladder this beats on node budget)
  *   @see imp-33276-r40-cross-outer-invariance-all-inner-grids.js (the R_40 inner A(tau) grid that inherits the savings)
@@ -301,7 +301,7 @@ const verdict =
       'MILLIONS-OF-NODES-(THE-UNIFORM-ROUTE-NEEDS-THE-WHOLE-RICHARDSON-TABLEAU).-BOTH-imp-33275-(A_log)-AND-' +
       'imp-33276-(R_40)-ATTRIBUTE-THEIR-FLOOR/DRIFT-TO-THE-INNER-A(tau)-RESOLUTION,-SO-THE-SAVING-CARRIES-TO-THE-' +
       'SHARED-INNER-A(tau)-GRID.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33295_GRADED_INNER_GRID_A_NODE_BUDGET = Object.freeze({
@@ -333,7 +333,7 @@ export const IMP33295_GRADED_INNER_GRID_A_NODE_BUDGET = Object.freeze({
     'attribute their floor / ~1.21e-5 drift to the INNER A(tau) resolution, the saving carries to the shared ' +
     'inner A(tau) grid under the R_40 moment ladder. VERDICT: GRADED-CHEAPER. ACCURACY/RULE-DESIGN ' +
     'MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity ' +
-    '(imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -416,7 +416,7 @@ export const IMP33295_GRADED_INNER_GRID_A_NODE_BUDGET = Object.freeze({
       'The min-node graded budget is a single lattice hit on a jittery arithmetic floor; neighbouring panel counts ' +
       'bounce above the bar and cross-platform libm variation in exp/pow can shift the ~1 ULP measurements. The ' +
       'robust reading is the ~9.3x plateau-rule saving and the graded-is-cheaper ordering, not the exact node counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -460,7 +460,7 @@ export const IMP33295_GRADED_INNER_GRID_A_NODE_BUDGET_ASSERTIONS = [
   {
     id: 'imp33295-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33295_GRADED_INNER_GRID_A_NODE_BUDGET.honestCaveat;
       return (
@@ -469,7 +469,7 @@ export const IMP33295_GRADED_INNER_GRID_A_NODE_BUDGET_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

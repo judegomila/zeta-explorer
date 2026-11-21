@@ -15,7 +15,7 @@
  *
  * FINDING 1 -- BANNERS. All four carry the discharge-nothing (/discharges?
  * nothing|derives no remainder|ports? nothing/i) and no-QED/remains-SOTA
- * (/NO QED/, /remains SOTA/) markers. The GUE-conditional (imp-486) marker,
+ * (/NO QED/, /refereed bound is changed/i) markers. The GUE-conditional (imp-486) marker,
  * however, is present in only THREE of the four (imp-35538, imp-35571,
  * imp-35556); imp-35419 cites NO "imp-486" anywhere in the file. This is NOT a
  * missing banner: imp-35419's whole subject is S_barrier, a statement it
@@ -24,7 +24,7 @@
  * the GUE-conditional caveat imp-486 records. Citing imp-486 there would be
  * inapplicable, not more honest; the module's own explicit
  * deterministic-vs-GUE distinction is the correct (and more precise)
- * disclaimer for its content. So: 4/4 discharge + no-QED/SOTA banners, 3/4 +
+ * disclaimer for its content. So: 4/4 discharge + no-QED/no-refereed-bound-change banners, 3/4 +
  * 1 legitimate-exception on the GUE-conditional banner. No genuine omission.
  *
  * FINDING 2 -- REGISTRATION. Three of the four (imp-35538, imp-35571,
@@ -61,7 +61,7 @@ import { IMP35556_GTRUE_ECOLL_DIMENSIONAL_COMPARABILITY } from './imp-35556-gtru
 
 const DISCHARGE_RE = /discharges? nothing|derives no remainder|ports? nothing/i;
 const NO_QED_RE = /NO QED/;
-const REMAINS_SOTA_RE = /remains SOTA/;
+const REMAINS_SOTA_RE = /refereed bound is changed/i;
 const GUE_CONDITIONAL_RE = /imp-486/;
 
 const AUDITED_MODULES = [
@@ -114,7 +114,7 @@ export const IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC = {
   isRigorous: false,
   verdict:
     'AUDIT ONLY (not rigorous, not a measurement of a mathematical quantity). All four modules carry the ' +
-    'discharge-nothing and no-QED/remains-SOTA markers. The GUE-conditional (imp-486) marker is present in ' +
+    'discharge-nothing and no-QED/no-refereed-bound-change markers. The GUE-conditional (imp-486) marker is present in ' +
     'three of four (imp-35538, imp-35571, imp-35556); imp-35419 cites no imp-486 anywhere, but this is a ' +
     'legitimate content difference, not an omission: imp-35419 is explicitly about S_barrier, a ' +
     '"NO GUE, NO PCC" deterministic-barrier-conditional statement, a different conditionality class from the ' +
@@ -123,7 +123,7 @@ export const IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC = {
     'independently re-asserts the same no-bound-change / no-operator-positivity / no-RH-verdict disclaimer ' +
     'via its own honestCeiling field, so none is presented as a bound-changing result. No missing banner ' +
     'found; no overclaiming registration found; no source file required correction. Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35538, imp-35571, imp-35419, imp-35556 (the four audited modules); imp-35580, imp-35597, imp-35665 ' +
     '(the three registered viz pages citing them); imp-35186, imp-35327 (prior cross-reference audit method ' +
@@ -133,7 +133,7 @@ export const IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC = {
 export const IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC_ASSERTIONS = [
   {
     id: 'imp35670-all-four-banners-present',
-    description: 'every one of the four audited modules carries the discharge/no-QED/remains-SOTA banner, and the GUE-conditional marker matches its expected (content-dependent) presence',
+    description: 'every one of the four audited modules carries the discharge/no-QED/no-refereed-bound-change banner, and the GUE-conditional marker matches its expected (content-dependent) presence',
     holds: () =>
       IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC.allBannersPresent === true &&
       IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC.bannerCheck.length === 4 &&
@@ -156,11 +156,11 @@ export const IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC_ASSERTIONS = [
   },
   {
     id: 'imp35670-honesty-gate-no-qed',
-    description: 'audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC.isRigorous === false &&
       /NO QED/.test(IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC.verdict) &&
-      /remains SOTA/.test(IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC.verdict),
+      /refereed bound is changed/i.test(IMP35670_HONESTY_BANNER_AUDIT_ROUTE_I_ETRUNC.verdict),
   },
 ];
 

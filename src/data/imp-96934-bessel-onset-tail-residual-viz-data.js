@@ -55,7 +55,7 @@
  * component that a full model must fold in the sigma_2 ~ t^4 tail weighting and the minimiser's
  * high-k coefficient amplitudes, not just the bare Bessel onset. Measurement only; the floor is a
  * Rayleigh UPPER bound; no operator positivity; interval-rigorous certificate reach stays
- * 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96917-krein-tladder-plateau-viz-data.js (the beyond-T=3200 residual this explains)
  * @see imp-96928-krein-residual-vs-floor-uniform-N-extrap.js (the p~3.27 super-cubic residual growth)

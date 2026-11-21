@@ -41,7 +41,7 @@
  *   the deep-tail digit loss)
  *
  * Ticket: imp-124819 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The pair-ratio identity ladder headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -71,8 +71,8 @@ const PAIR_RATIO_IDENTITY_LADDER_HEADWORD = Object.freeze({
     '(src/data/imp-124770-pair-ratio-identity-landmark-ladder.js): measured 5-point E_CF/E_ET ' +
     'matches analytic E_flow/E_trunc to |reldiff| < 1e-3 at every landmark L2..L7, reproducing the ' +
     'imp-97665 L2/L3/L4 reldiffs 5.8e-12/4.8e-10/2.3e-8 verbatim. Naming / glossary headword only; ' +
-    'supplies no new bound; DIAG3 and the C_C 1/8 ansatz are untouched; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'supplies no new bound; DIAG3 and the C_C 1/8 ansatz are untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,8 +91,8 @@ export const IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD = Object.fre
     'imp-97665 exact pair-ratio identity E_CF/E_ET = E_flow/E_trunc holds at every rung of the ' +
     'landmark ladder L2..L7 (|reldiff| < 1e-3 throughout, 5.8e-12 -> 6.8e-4), with the deep-tail ' +
     'digit loss identified as |E_CF| round-off collapse (imp-124769), not identity deviation. No ' +
-    'bound moved; DIAG3 and all pinned surrogate constants untouched; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'bound moved; DIAG3 and all pinned surrogate constants untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124770 (the seven-decade pair-ratio identity ladder this glosses); imp-97665 (the exact ' +
     'pair-ratio identity derivation); imp-124769 (the |E_CF| round-off crossover explaining the ' +
@@ -120,11 +120,11 @@ export const IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp124819-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124770.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124770.',
     holds: () =>
       IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD.verdict) &&
       IMP124819_PAIR_RATIO_IDENTITY_LADDER_GLOSSARY_HEADWORD.glosses === 'imp-124770',
   },
 ];

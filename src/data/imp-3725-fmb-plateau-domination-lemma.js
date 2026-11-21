@@ -111,7 +111,7 @@
  *  - This firms the F_mb factor of the finite-N ESTIMATE chain only. It
  *    does NOT close cond-CH or the other conditional legs of
  *    bound-imp-1088-finite-1e6, and it does NOT beat Platt-Trudgian:
- *    Lambda <= 0.2 (PT 2021) REMAINS SOTA. NO QED.
+ *    no refereed bound is changed. NO QED.
  *
  * @see imp-3725 (this work)
  * @see imp-962  (plateau structure scan -- boundaries independently confirmed)
@@ -256,7 +256,7 @@ export const IMP_3725_FMB_PLATEAU_DOMINATION = Object.freeze({
     notRetired:
       'cond-CH and the other conditional legs of bound-imp-1088-finite-1e6; ' +
       'the sub-1e4 map-level anchor semantics; and nothing here touches ' +
-      'Platt-Trudgian: Lambda <= 0.2 stays SOTA. NO QED.',
+      'no refereed bound is changed. NO QED.',
   },
 
   openSubGap: {

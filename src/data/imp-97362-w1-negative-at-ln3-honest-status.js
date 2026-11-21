@@ -22,7 +22,7 @@
  *
  * WHAT REMAINS OPEN (unaffected by this closure): c_sharp itself -- bracketed from above only, no
  * proven lower bound (imp-97183/imp-97206, still descending). No bound on Lambda moves;
- * interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97336-w1-residual-sign-profile-near-ln3.js (source of every verdict flag below)
  * @see imp-97256-krein-fejer-riesz-margin-honest-status.js (residual (2), here closed)
@@ -30,7 +30,7 @@
  * @see imp-97183-csharp-extprec-ladder.js (c_sharp bracketed from above only -- the sole surviving open object)
  *
  * Ticket: imp-97362 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97336_DEFAULT, { IMP97336_BANNER } from './imp-97336-w1-residual-sign-profile-near-ln3.js';
@@ -62,7 +62,7 @@ export const IMP97362_HONEST_BANNER =
   'residual (2) was never a pointwise-symbol ambiguity -- it is (and always was) the truncated-' +
   'cancellation question, i.e. exactly c_sharp = lambda_min(P_a M_sigma2 P_a), the same object residual ' +
   '(1) already named. The two residuals merge into one surviving open object, bracketed from above only. ' +
-  'No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; ' +
+  'No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; ' +
   'RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -90,10 +90,10 @@ const IMP97362_ASSERTIONS = [
       IMP97362_STATUS.residualTwoWasSymbolAmbiguity === false &&
       IMP97362_STATUS.residualsMergeIntoSingleOpenObject === true &&
       /NO QED/.test(IMP97362_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97362_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97362_HONEST_BANNER) &&
       /RH open/.test(IMP97362_HONEST_BANNER) &&
       /negative/i.test(IMP97336_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open, residuals correctly merged.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open, residuals correctly merged.',
   },
 ];
 

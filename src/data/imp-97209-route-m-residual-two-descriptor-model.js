@@ -74,7 +74,7 @@
  * bound must control a full prime-power SMOOTHNESS dependence -- not only the smallest prime P-(b)
  * or the divisor count 2^omega, but also the multiplicity depth b/rad(b). Measurement only: no
  * uniform remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7
- * trace anchor unchanged; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97157-route-m-residual-vs-smallest-prime.js (Model A/B/C joint OLS; RESULT 3 the untabulated interaction)
  * @see imp-97140-route-m-fixed-omega-residual-cohorts.js (the smoothness reading)
@@ -187,12 +187,12 @@ export const IMP97209_VERDICT = Object.freeze({
     '+0.045, Omega(b) +0.036, log(P+) +0.028, log b +0.031). So an explicit uniform remainder bound ' +
     'must control a full prime-power SMOOTHNESS dependence (multiplicity depth b/rad(b)), not only ' +
     'the smallest prime or the divisor count 2^omega. Measurement only: no uniform remainder bound ' +
-    'is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 anchor; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 anchor; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97209_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: a two-descriptor model ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: a two-descriptor model ' +
   'log|r(b)| ~ omega + log(P-(b)) is predictive and non-overfit (in-sample R2 0.850, held-out ' +
   'b-range mean R2 0.821); an omega x log(P-) interaction adds only +0.010; but P- + omega do NOT ' +
   'saturate the variance -- a third multiplicity/smoothness descriptor (best log(b/rad(b)), +0.045) ' +
@@ -290,7 +290,7 @@ const IMP97209_ASSERTIONS = [
       IMP97209_VERDICT.suppliesUniformRemainderBound === false &&
       IMP97209_VERDICT.qed === false &&
       /NO QED/.test(IMP97209_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97209_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97209_HONEST_BANNER) &&
       /RH open/.test(IMP97209_HONEST_BANNER),
     why: 'measurement only: the two-descriptor model is fit and cross-validated but supplies no uniform remainder bound and moves no bound -- honesty markers present, no QED.',
   },

@@ -31,8 +31,8 @@
  * IBP-free finite-cosine-transform measurement of the edge amplitudes plus a direct sigma_2 quadrature:
  * the sign change is at Rc = 1/a and the far-field-optimum bias is -2.727e-5. Cross-validation only; the
  * three-IBP asymptotic (imp-97518) is corroborated, not replaced. The m=1/m=2 Krein enclosure stays
- * unusable at 2a = ln 3; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; no bound moves; RH open; NO QED.
+ * unusable at 2a = ln 3; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ * ; no bound moves; RH open; NO QED.
  *
  * @see imp-97580-krein-tail-bias-R-sweep-signchange.js (the relBias closed factor being cross-validated)
  * @see imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (the three-IBP g_pp, g_ppp closed forms)
@@ -40,7 +40,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2 = (t^2+1/4)^2 w_1; reach 2a <= 0.96)
  *
  * Ticket: imp-97605 (accuracy, medium, opus-4-8). Cross-validation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

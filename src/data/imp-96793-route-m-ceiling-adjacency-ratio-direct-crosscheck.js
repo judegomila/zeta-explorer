@@ -71,7 +71,7 @@
  * accounted for by the trace(1.26) > Frobenius(0.48) > measured(0.35) slope ordering, with
  * the larger slope gap giving the larger correction. The imp-96693 ratios are reproducible
  * and are NOT an artifact of the differing fit windows. Accuracy audit only; no bound moved;
- * no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP: this cross-check pins the adjacency ratios at N0=9000 (a directly
  * measured rung) and shows the fit-window inflation is a predictable slope effect, but it
@@ -185,11 +185,11 @@ export const IMP96793_VERDICT = Object.freeze({
     'trace-Frobenius slope gap (0.78) gives the larger F/T correction (+7.7 percent), the smaller ' +
     'Frobenius-measured gap (0.13) the smaller M/F correction (+3.1 percent). The ratios are ' +
     'reproducible and NOT an artifact of the differing fit windows. Accuracy audit only; no bound ' +
-    'moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96793_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: the cross-check reuses ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: the cross-check reuses ' +
   'the three directly-measured proxy values at N=9000 (imp-96684 / imp-96649) and the shared ' +
   'imp-96428 lam_min power law; every ratio is pure re-analysis. The flat-proxy ceiling estimate ' +
   'is NOT a rigorous ceiling -- only the trace ceiling 2.594e7 is a rigorous lower bound; F and M ' +
@@ -237,7 +237,7 @@ const IMP96793_ASSERTIONS = [
       IMP96793_VERDICT.anyBoundMoved === false &&
       IMP96793_VERDICT.isArtifactOfFitWindows === false &&
       /NO QED/.test(IMP96793_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96793_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96793_HONEST_BANNER) &&
       /RH open/.test(IMP96793_HONEST_BANNER),
     why: 'audit only: no bound moved, the ratios are found reproducible (not an artifact), and the honesty markers are present.',
   },

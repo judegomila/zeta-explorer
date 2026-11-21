@@ -13,7 +13,7 @@
  *
  *   Ticket: imp-96817 (ux, low). Presentation of an already-established measurement; adds no new
  *   Lambda bound. Route I interval-rigorous certificate reach stays 2a <= 0.96. RH-EQUIVALENT.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098

@@ -17,7 +17,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95250 COROLLARY EV-OCT
  * closed form verbatim; the certificate sits orders above the exact pencil
  * (imp-95250 HONEST LIMITS (a)); changes no bound; no operator positivity,
- * no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH claim; NO QED. No refereed bound is changed.
  *
  * @see imp-95250-leaveoneout-multiblock-split-certificate.js (source: COROLLARY EV-OCT, certCoalM)
  *

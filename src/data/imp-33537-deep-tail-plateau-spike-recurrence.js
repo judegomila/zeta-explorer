@@ -74,8 +74,7 @@
  *   reading is the QUALITATIVE recurrence-and-intensification of strict-bar exceedances with depth,
  *   not the exact per-rung ULP. The NPHI = 10 Phi-series truncation is inherited upstream.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
- *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33316-graded-plateau-deep-tail-node-budget.js (the coarse-grid deep-tail measurement this densifies)
  *   @see imp-33295-graded-inner-grid-a-node-budget.js (the conservative grade4/400p plateau rule carried unchanged)
@@ -329,7 +328,7 @@ const verdict =
       'GRID-ARTIFACT:-THE-PLATEAU-BAND-IS-A-DEPTH-GROWING-JITTER-ENVELOPE.-IT-DOES-NOT-OVERTURN-PLATEAU-HOLDS/' +
       'UNIFORM-FAILS-IN-RELATIVE-TERMS-(THE-UNIFORM-LADDER-SITS-AT-~1e5..1e6-ULP-THERE).-ACCURACY/RULE-DESIGN-' +
       'MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33537_DEEP_TAIL_PLATEAU_SPIKE_RECURRENCE = Object.freeze({
@@ -358,7 +357,7 @@ export const IMP33537_DEEP_TAIL_PLATEAU_SPIKE_RECURRENCE = Object.freeze({
     'artifact; the plateau band is a depth-growing jitter envelope. This does NOT overturn PLATEAU-HOLDS / ' +
     'UNIFORM-FAILS in relative terms (the uniform ladder sits at ~1e5..1e6 ULP there). ACCURACY/RULE-DESIGN ' +
     'MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) ' +
-    'untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -446,7 +445,7 @@ export const IMP33537_DEEP_TAIL_PLATEAU_SPIKE_RECURRENCE = Object.freeze({
       'per-rung ULP and the precise 64-ULP crossing rungs can shift under cross-platform libm exp/pow variation. The ' +
       'robust reading is the QUALITATIVE recurrence-and-intensification of strict-bar exceedances with depth, not the ' +
       'exact per-rung ULP.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -500,7 +499,7 @@ export const IMP33537_DEEP_TAIL_PLATEAU_SPIKE_RECURRENCE_ASSERTIONS = [
   {
     id: 'imp33537-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, corrects the imp-33316 ' +
-         'constant-band claim without overturning the relative headline, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'constant-band claim without overturning the relative headline, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33537_DEEP_TAIL_PLATEAU_SPIKE_RECURRENCE.honestCaveat;
       return (
@@ -509,7 +508,7 @@ export const IMP33537_DEEP_TAIL_PLATEAU_SPIKE_RECURRENCE_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

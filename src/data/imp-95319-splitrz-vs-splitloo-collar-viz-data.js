@@ -39,8 +39,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95249 / imp-95250 /
  * imp-95252 documented definitions verbatim; the observed 1/m asymptotic
  * decay of A_LOO(m) is a NUMERIC illustration, not a new proved rate; changes
- * no bound, no operator positivity, no RH claim; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no bound, no operator positivity, no RH claim; NO QED. No refereed bound is changed.
  *
  * @see imp-95250-leaveoneout-multiblock-split-certificate.js (source: LEMMA
  *   LOO, HONEST LIMITS (d) naming the linear-in-m constant)

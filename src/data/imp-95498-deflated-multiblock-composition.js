@@ -12,7 +12,7 @@
  * onsets sit at 27.04 / RZ-PEN-improved 12.8-16.0 in the closed-form
  * uniform currency -- a different, weaker-ingredient currency; see HONEST
  * LIMITS (e)). Derivation + measurement; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95249 / imp-95446 normalization). Pairwise
  * disjoint finite rate blocks V_1, ..., V_m of positive reals,
@@ -218,8 +218,8 @@ export const IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION = {
     "derivation + measurement; model family only; exact-ingredient currency " +
     "(numerically-solved 2x2 pencils with closed-form entries); float " +
     "evaluation self-detects near-coalescent breakdown via the proven " +
-    "LambdaPerp <= 1 cap; changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA",
+    "LambdaPerp <= 1 cap; changes no bound; NO QED; no refereed bound is changed" +
+    "",
   verdict:
     "DERIVATION + MEASUREMENT: the imp-95446 two-block deflation iterates " +
     "into an exact orthogonal m-block decomposition (THEOREM DEFL-ORTH-N), " +
@@ -231,7 +231,7 @@ export const IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION = {
     "exact-ingredient SPLIT-LOO 8.8747 at m = 6, and it stays within 2.5x " +
     "of exact where every collared certificate diverges. The closed-form " +
     "LambdaPerp majorant stays open. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -629,7 +629,7 @@ export const IMP95498_ASSERTIONS = [
     description:
       "verdict and scope carry the honest labels: DERIVATION + MEASUREMENT, " +
       "collar-free sandwich, LambdaPerp majorant stays open, no bound change, " +
-      "NO QED, PT SOTA",
+      "NO QED, no refereed bound is changed",
     holds: () =>
       /DERIVATION \+ MEASUREMENT/.test(
         IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION.verdict,
@@ -642,7 +642,7 @@ export const IMP95498_ASSERTIONS = [
       ) &&
       /Changes no bound/.test(IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION.verdict) &&
       /NO QED/.test(IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP95498_DEFLATED_MULTIBLOCK_COMPOSITION.verdict),
   },
 ];
 

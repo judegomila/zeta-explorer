@@ -58,7 +58,7 @@
  * lower and is not binding at L = 3e5. Whether the same holds at the PT anchor L = 5.9e6, where the
  * round-off floor is ~20x larger, stays open (sub-gap imp-96526-anchor-scheme). Cross-validation
  * numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96506-basis-c-truncation-branch-floor-law (fitted the branch to the Simpson h^4 order and
  *   ATTRIBUTED the departure to Simpson truncation but never tested another scheme -- this module does)
@@ -198,12 +198,12 @@ export const IMP96526_TRUNCATION_BRANCH_QUADRATURE_SCHEME_TEST = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and every floor is a double-precision quadrature/round-off artifact of this direct integral, not a property of the zeros. This settles the SCHEME question only at L=3e5; the anchor stays open (sub-gap imp-96526-anchor-scheme). Cross-validation numerics: it changes no bound, establishes no operator positivity, and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'At the cheapest truncation rung L=3e5 the imp-96506 ppp-truncation-branch floor is a composite-Simpson SCHEME ARTIFACT, not a fundamental cancellation limit: replacing Simpson (4th order, achievable floor 3.394e-8 = 13.5x the L-linear model) with a 6th-order Boole rule on the identical direct integral drops the achievable floor to 1.465e-10 -- 232x lower and ~17x BELOW the imp-96430 L-linear cancellation line itself -- so higher-order quadrature more than recovers the cancellation floor imp-96506 attributed to fundamental low-ppp truncation. The Boole U-minimum still regrows past ppp=24 (Var = L - 2*Int round-off), so a cancellation floor exists but sits ~200x lower and is not binding at L=3e5. Whether the same holds at the PT anchor L=5.9e6, where the round-off floor is ~20x larger, stays open (sub-gap imp-96526-anchor-scheme). Cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'At the cheapest truncation rung L=3e5 the imp-96506 ppp-truncation-branch floor is a composite-Simpson SCHEME ARTIFACT, not a fundamental cancellation limit: replacing Simpson (4th order, achievable floor 3.394e-8 = 13.5x the L-linear model) with a 6th-order Boole rule on the identical direct integral drops the achievable floor to 1.465e-10 -- 232x lower and ~17x BELOW the imp-96430 L-linear cancellation line itself -- so higher-order quadrature more than recovers the cancellation floor imp-96506 attributed to fundamental low-ppp truncation. The Boole U-minimum still regrows past ppp=24 (Var = L - 2*Int round-off), so a cancellation floor exists but sits ~200x lower and is not binding at L=3e5. Whether the same holds at the PT anchor L=5.9e6, where the round-off floor is ~20x larger, stays open (sub-gap imp-96526-anchor-scheme). Cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96526_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation numerics only: rho is the theoretical '
+  'RH open; no refereed bound is changed; NO QED. Cross-validation numerics only: rho is the theoretical '
   + 'GUE two-interval correlation, not computed from real zeros. The scheme test (Boole 6th order beats the '
   + 'L-linear line by ~17x, vs Simpson 13.5x above it) is settled only at L=3e5; the PT-anchor L=5.9e6 scheme '
   + 'question stays open (sub-gap imp-96526-anchor-scheme); changes no bound, establishes no operator positivity.';
@@ -245,11 +245,11 @@ export const IMP96526_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96526_TRUNCATION_BRANCH_QUADRATURE_SCHEME_TEST.verdict))
     throw new Error('imp-96526: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96526_TRUNCATION_BRANCH_QUADRATURE_SCHEME_TEST.verdict))
-    throw new Error('imp-96526: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96526_TRUNCATION_BRANCH_QUADRATURE_SCHEME_TEST.verdict))
+    throw new Error('imp-96526: verdict dropped the no-refereed-bound-change banner');
   if (!/sub-gap/.test(IMP96526_TRUNCATION_BRANCH_QUADRATURE_SCHEME_TEST.verdict))
     throw new Error('imp-96526: verdict dropped the open sub-gap disclosure');
-  if (!(/RH open/.test(IMP96526_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96526_HONEST_BANNER) && /NO QED/.test(IMP96526_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96526_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96526_HONEST_BANNER) && /NO QED/.test(IMP96526_HONEST_BANNER)))
     throw new Error('imp-96526: IMP96526_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

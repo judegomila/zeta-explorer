@@ -27,7 +27,7 @@
  *
  *   Ticket: imp-34198 (ux, medium). Presentation only of an already-established
  *   measurement; adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  */
 
 // -- pointwise residual-to-(-1/2) ladder on the log-space direct path, log10(N) = 11..100000 --

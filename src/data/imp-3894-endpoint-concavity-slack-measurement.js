@@ -81,8 +81,8 @@
  *    dominant-term structure) into a quantitative split; does NOT touch any
  *    imp-3854 INEQUALITY (LEMMA 3854 stays a valid over-bound) nor the certified
  *    K_paper enclosure or its thetaBar-robustness.
- *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; Platt-Trudgian
- *    Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; no refereed bound is changed
+ *    ; NO QED.
  *
  * @see imp-3870-smin-dmin-slack-measurement.js (relocated residual to concavity; sub-gap this closes)
  * @see imp-3854-thetabar-insensitivity-derivation.js (predictionRatio, kElasticityPerUnit source)
@@ -187,8 +187,8 @@ export const IMP_3894_ENDPOINT_CONCAVITY_SLACK_MEASUREMENT = Object.freeze({
       'imp-3854 predictionRatio to within imp-3728 improveFactor rounding. This ' +
       'DECOMPOSES imp-3870 "endpoint concavity + dominant-term structure": the ' +
       'dominant-term (proxy) part is the ~99% driver and sets the sign; concavity is ' +
-      'a real but ~1% one-sided slack. Necessary but not sufficient; Platt-Trudgian ' +
-      'Lambda <= 0.2 stays SOTA; imp-3066 untouched; NO QED.',
+      'a real but ~1% one-sided slack. Necessary but not sufficient; no refereed bound is changed' +
+      '; imp-3066 untouched; NO QED.',
   },
 
   closesImp3870SubGap:
@@ -210,7 +210,7 @@ export const IMP_3894_ENDPOINT_CONCAVITY_SLACK_MEASUREMENT = Object.freeze({
     measurementOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -294,7 +294,7 @@ export const IMP_3894_ENDPOINT_CONCAVITY_SLACK_MEASUREMENT_ASSERTIONS = [
     why:
       'Honesty guard: this measurement decomposes the imp-3870 residual and closes its ' +
       'concavity-fit sub-gap. It must not assert a new Lambda bound or a QED, imp-3066 ' +
-      'stays untouched, and Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'stays untouched, and no refereed bound is changed.',
   },
 ];
 

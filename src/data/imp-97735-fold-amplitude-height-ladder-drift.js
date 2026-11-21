@@ -64,7 +64,7 @@
  * rigorous asymptotic). C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED (bare E_coll prefactor); E_trunc pinned 3.06e-5
  * unchanged; no bound moves; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97725-fold-amplitude-analytic-pin (the K structure + the phi_xx SUB-GAP this leaf measures)
  * @see imp-97662-cc-elasticity-peak-divergence (the square-root fold law and first K route)
@@ -196,7 +196,7 @@ export const IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT = {
     'there is no reachable plateau. Inherited imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous asymptotic; C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc pinned 3.06e-5 unchanged; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97725 (K structure + phi_xx SUB-GAP measured here); imp-97662 (square-root fold law, first K route); imp-97683 ' +
     '(second K route); imp-97700 (differentiate the smooth model); imp-97520 (L1 peak sigma_max ~ 0.949429); ' +
@@ -229,11 +229,11 @@ export const IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT_ASSERTIONS = [
   },
   {
     id: 'imp97735-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, sub-gap confirmed, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, sub-gap confirmed, no QED, no refereed bound is changed',
     holds: () =>
       IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT.isRigorous === false &&
       /NO QED/.test(IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT.verdict) &&
-      /remains SOTA/.test(IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT.verdict) &&
+      /refereed bound is changed/i.test(IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT.verdict) &&
       /SUB-GAP/.test(IMP97735_FOLD_AMPLITUDE_HEIGHT_LADDER_DRIFT.verdict),
   },
 ];

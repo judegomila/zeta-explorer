@@ -13,7 +13,7 @@
  *   Measurement only. The Rayleigh-Ritz floor is an UPPER bound on the true infinite-dim lambda_min, so
  *   these floors and their decrements bound only how much the UPPER estimate is still improving, NOT the
  *   true compression defect from below. Produces no lower-bound certificate; no operator positivity; no
- *   bound moves; interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ *   bound moves; interval-rigorous reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * METHOD. The build() (A = T_a[sigma_2] Galerkin block, B = Legendre Gram, tail-inclusive T=800, panel
  *   1.5) is reused verbatim from imp-96772/imp-96749 with the SAME double-precision A,B ENTRIES; only the

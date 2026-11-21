@@ -25,8 +25,7 @@
  * would eventually increase but only far outside any reachable regime.
  *
  * Honest-status record only; no new numerics computed here, verbatim import of the imp-35989
- * verdict. Changes no bound; certifies no count; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains
- * the rigorous SOTA.
+ * verdict. Changes no bound; certifies no count; NO QED. No refereed bound is changed.
  *
  * @see imp-35989-i4-accumulated-error-vs-panel-count-scale (the two-channel surrogate this note restates)
  * @see imp-35804-i4-integer-closure-error-budget-scope (I4 pi GLOBAL accumulated-error budget)
@@ -63,7 +62,7 @@ export const IMP36055_I4_ROUNDING_NEVER_THREATENS_PI_BUDGET_HONEST_STATUS = {
     'whole range, dominated by the falling truncation channel. So the operative I4 constraint at ' +
     'every physically reachable panel count is TRUNCATION, reduced by subdivision, not rounding, ' +
     'which subdivision would eventually grow but only far outside any reachable regime. Changes no ' +
-    'bound; certifies no count; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; certifies no count; NO QED. No refereed bound is changed.',
   citation:
     'imp-35989-i4-accumulated-error-vs-panel-count-scale (source measurement); ' +
     'imp-35804-i4-integer-closure-error-budget-scope (I4 pi budget definition); ' +
@@ -98,11 +97,11 @@ export const IMP36055_I4_ROUNDING_NEVER_THREATENS_PI_BUDGET_HONEST_STATUS_ASSERT
   },
   {
     id: 'imp36055-honesty-gate-no-qed',
-    description: 'honest-status record only: no bound changed, no count certified, NO QED, PT stays SOTA',
+    description: 'honest-status record only: no bound changed, no count certified, NO QED, no refereed bound is changed',
     holds: () =>
       IMP36055_I4_ROUNDING_NEVER_THREATENS_PI_BUDGET_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP36055_I4_ROUNDING_NEVER_THREATENS_PI_BUDGET_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP36055_I4_ROUNDING_NEVER_THREATENS_PI_BUDGET_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP36055_I4_ROUNDING_NEVER_THREATENS_PI_BUDGET_HONEST_STATUS.verdict),
   },
 ];
 

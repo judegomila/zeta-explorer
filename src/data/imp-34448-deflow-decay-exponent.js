@@ -50,7 +50,7 @@
  * quantified exponent and an honestly fit-based (not directly-measurable-past-fp-floor) deep extrapolation.
  * Reuses the imp-34285/imp-34150/imp-34373 residual verbatim; the inherited imp-3220/imp-3406 component model
  * is NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb GUE-conditional per
- * imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34373-eflow-share-near-pole (the monotone deflow falloff this module fits to a decay law)
  * @see imp-34285-closedform-gap-term-decomposition (the ~2.2e-7 E_flow share at the crossing)
@@ -269,7 +269,7 @@ export const IMP34448_DEFLOW_DECAY_EXPONENT = {
     'verdict strengthens deeper than the pole. The inherited imp-3220/imp-3406 component model is NOT a ' +
     'rigorous asymptotic; the fit is descriptive within that model only; changes no bound; establishes no ' +
     'operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34373 (the monotone deflow falloff fit here); imp-34285 (the ~2.2e-7 crossing share); imp-34211 ' +
     '(the ~0.278 gap normalizer); imp-34169 (the resid_exp pole k* ~ 21.28095); imp-34127 (the E_flow form); ' +
@@ -324,13 +324,13 @@ export const IMP34448_DEFLOW_DECAY_EXPONENT_ASSERTIONS = [
       EXTRAPOLATION_TABLE[EXTRAPOLATION_TABLE.length - 1].shareFit < 1e-11,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34448-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34448_DEFLOW_DECAY_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP34448_DEFLOW_DECAY_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP34448_DEFLOW_DECAY_EXPONENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34448_DEFLOW_DECAY_EXPONENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34448_DEFLOW_DECAY_EXPONENT.verdict),
   },
 ];

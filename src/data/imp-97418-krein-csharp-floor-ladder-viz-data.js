@@ -19,7 +19,7 @@
  *
  * PRESENTATION ONLY. Neither certified floor is positive; no operator positivity
  * established; changes no bound; interval-rigorous certificate reach stays
- * 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97335-krein-csharp-naive-lowerbound-tlimit.js (naive symbol-infimum floor -4336.198)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (confined well + RK floor -3200.029)
@@ -96,7 +96,7 @@ export const IMP97418_HONEST_BANNER =
   'Measurement/derivation only: neither the naive nor the reproducing-kernel value is a positive floor -- ' +
   'both certify c_sharp >= (a negative number) at 2a=ln3, not c_sharp > 0. The third bar is a Rayleigh-Ritz ' +
   'UPPER bracket, not a certified floor. No operator positivity established; changes no bound; ' +
-  'interval-rigorous certificate reach stays 2a<=0.96; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -149,7 +149,7 @@ const IMP97418_ASSERTIONS = [
     id: 'imp97418-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97418_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97418_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97418_HONEST_BANNER) &&
       /NO QED/.test(IMP97418_HONEST_BANNER),
     why: 'every Route I viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

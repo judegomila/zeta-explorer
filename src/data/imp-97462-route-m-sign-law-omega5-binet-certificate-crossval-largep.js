@@ -27,7 +27,7 @@
  * leading margin constant (1-1/p1)/12 toward 1/12, so larger p1 is strictly easier, never a threat.
  *
  * Numerical cross-check only: NO new proof, NO bound on Lambda moved, the residual (uniform tail
- * lemma, closed by imp-97433 with threshold Q0 = 7) is unchanged; PT Lambda <= 0.2 SOTA; RH open;
+ * lemma, closed by imp-97433 with threshold Q0 = 7) is unchanged; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97443-route-m-sign-law-omega5-binet-certificate-crossval.js (same cross-check, p1 in {2,3,5})
@@ -112,11 +112,11 @@ export const IMP97462_FINDINGS = Object.freeze({
   X2_certificatesPositive: 'certA > 0 AND certB > 0 (and exact-D inequalities (A),(B) hold) across the whole minimal-config ladder q1 = 100 .. 10^6 for p1 = 7, 11, 13',
   X3_decayLaw: 'q1 * certA -> (1-1/p1)/12 monotonically (0.0714286 / 0.0757576 / 0.0769231 for p1 = 7/11/13); measured certA matches the predicted (1-1/p1)/(12 q1)[1 - Sum 1/qj] to ~1% at q1 = 100 and < 1e-5 relative by q1 = 10^6',
   Q0consistency: 'every ladder q1 (>= 101) sits far above the imp-97433 tail-lemma threshold Q0 = 7, and all rows stay strictly positive with p1 in {7,11,13}; larger p1 only raises the leading constant (1-1/p1)/12 toward 1/12, so p1 > 5 is strictly easier than the p1 = 2 boundary case, consistent with the uniform-in-p1 lemma',
-  status: 'numerical cross-check only; no proof, no bound on Lambda moved, residual (uniform tail lemma) unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED',
+  status: 'numerical cross-check only; no proof, no bound on Lambda moved, residual (uniform tail lemma) unchanged; no refereed bound is changed; RH open; NO QED',
 });
 
 export const IMP97462_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical cross-check: an independent extended-precision ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical cross-check: an independent extended-precision ' +
   '(mpmath dps=60) recompute confirms the imp-97423 bracket certificates certA/certB stay strictly positive ' +
   'across the omega = 5 minimal-config ladder down to q1 = 10^6 for the LARGER leading primes p1 = 7, 11, 13, ' +
   'that the bracket always under-estimates the exact margin (Dlo <= D <= Dhi), and that the margin decays like ' +
@@ -169,7 +169,7 @@ const IMP97462_ASSERTIONS = [
   {
     id: 'imp97462-honesty-gate-no-qed',
     holds: () => /NO QED/.test(IMP97462_HONEST_BANNER)
-      && /PT Lambda <= 0.2/.test(IMP97462_HONEST_BANNER)
+      && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97462_HONEST_BANNER)
       && /RH open/.test(IMP97462_HONEST_BANNER)
       && /numerical cross-check only/.test(IMP97462_FINDINGS.status),
     why: 'numerical cross-check only: no proof, no bound moved, RH open, no QED.',

@@ -61,7 +61,7 @@
  * imp-962 ladders) reaches higher. So ~97.6% of the way to the crossover, and all of the
  * way to the imp-95519 window bottom T = 3.0e12, stays reliant on the imp-95722 derived
  * envelope rather than on direct measurement. Assessment only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. The only zero-dependent input is the
  * baked largest-ordinate literal gamma_1e6 (last entry of ZEROS_EXTENDED); every decade
@@ -137,7 +137,7 @@ export const IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH = {
     '(T0 ~ 1.14e9). No other in-repo zero table (zeros-first-25, the imp-360 / imp-962 ladders) ' +
     'reaches higher. So ~97.6% of the way to the crossover, and all of the way to the imp-95519 ' +
     'window bottom T = 3.0e12, stays reliant on the imp-95722 derived envelope rather than on ' +
-    'direct measurement. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+    'direct measurement. Changes no bound; NO QED; no refereed bound is changed; ' +
     'the zero-side route stays PCC/GRH-gated.',
   citation:
     'imp-95710 (conservatism measured to T = 5e5); imp-95729 (crossover T0 ~ 1.14e9, dead zone); ' +
@@ -195,8 +195,8 @@ export const IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH_ASSERTIONS = [
   },
   {
     id: 'imp95750-verdict-pt-sota-banner',
-    description: 'the verdict retains the PT Lambda <= 0.2 SOTA banner',
-    holds: () => /Lambda <= 0\.2 remains SOTA/.test(IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.verdict),
+    description: 'the verdict retains the no-refereed-bound-change banner',
+    holds: () => /refereed bound is changed/i.test(IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.verdict),
   },
 ];
 

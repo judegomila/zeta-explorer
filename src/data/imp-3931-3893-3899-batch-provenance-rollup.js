@@ -4,7 +4,7 @@
  * (seven modules: imp-3893, imp-3894, imp-3895, imp-3896, imp-3897, imp-3898, imp-3899) by
  * EVIDENCE CLASS (measurement-only vs derivation vs live-certification) and confirming each
  * module carries the mandatory honest banner: no-QED, imp-3066 K_a >= 0 positivity untouched,
- * Platt-Trudgian Lambda <= 0.2 SOTA, and (where the module touches the Polymath15 bridge) the
+ * no refereed bound is changed, and (where the module touches the Polymath15 bridge) the
  * G6a/H2 status.
  *
  * METHOD (read-only, performed at author time, following the imp-3886 audit precedent). Each
@@ -16,7 +16,7 @@
  *   - "derivation+live-certification": the module both derives a bound/majorant AND certifies
  *     it live (at import time) against an independently baked reference dataset.
  * The honest-banner check greps each module for the four mandatory phrases (no QED, imp-3066
- * K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and, for modules that touch the
+ * K_a >= 0 untouched, no refereed bound is changed) and, for modules that touch the
  * Polymath15 bridge (G6a_shock_lipschitz / H2), the explicit G6a/H2 status line.
  *
  * RESULT (audited 2026-07-04). All seven modules carry the full honest banner. Six of seven
@@ -47,8 +47,8 @@ export const IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP = {
   method:
     'Read each of the seven imp-3893..imp-3899 module @fileoverview/detail blocks; classify by ' +
     'evidence class (measurement-only / derivation / derivation+live-certification); grep for the ' +
-    'four mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA) plus, where applicable, the explicit G6a/H2 bridge status line.',
+    'four mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    ') plus, where applicable, the explicit G6a/H2 bridge status line.',
   modules: [
     {
       file: 'imp-3893-model-fidelity-moment-discrepancy.js',
@@ -121,7 +121,7 @@ export const IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP = {
     'for a frontier-sharpening batch that should not overclaim.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. imp-3066 K_a >= 0 positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'itself. imp-3066 K_a >= 0 positivity untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -151,7 +151,7 @@ const IMP_3931_ASSERTIONS = [
         (x) => x.noQED === true && x.kaUntouched === true && x.plattTrudgianSOTA === true
       ) && IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 7,
     why: 'Every module in the batch must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp3931-g6a-h2-status-consistent-on-bridge-touching-modules',
@@ -168,11 +168,11 @@ const IMP_3931_ASSERTIONS = [
   {
     id: 'imp3931-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_3931_3893_3899_BATCH_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

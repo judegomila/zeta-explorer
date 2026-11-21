@@ -67,8 +67,7 @@
  * CLOSED-FORM DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Reuses
  * the inherited imp-97723/imp-97744 bare-slope inversion and RvM relation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (diagnostic = 1 - 1/log(T0/2pi), asymptote 1)
  * @see imp-97744-fartail-diagnostic-crossing-heights (pins 0.99/0.995/0.999/0.9999 heights)
@@ -168,7 +167,7 @@ export const IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER = {
     'the closed-form geometric signature of the logarithmic approach to 1. Conditional-share ' +
     'diagnostic, NOT an RH bound; reuses the inherited imp-97723/imp-97744 bare-slope inversion and ' +
     'RvM relation, NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97814 ROLE 1 (0.99/0.995 crossings reported, deeper nines not tabulated); imp-97723 ' +
     '(diagnostic = 1 - 1/log(T0/2pi)); imp-97744 (0.999/0.9999 heights pinned).',
@@ -222,14 +221,14 @@ export const IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER_ASSERTIONS = [
       Math.abs(SPACING[2].deltaLog10N - 3909.6507) < 1e-1,
   },
   {
-    // Honesty gate: closed-form derivation only, no QED, PT stays SOTA.
+    // Honesty gate: closed-form derivation only, no QED, no refereed bound is changed.
     id: 'imp124793-honesty-gate-no-qed',
-    description: 'Closed-form derivation/measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Closed-form derivation/measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER.isRigorous === false &&
       IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER.spacingRatioLimit === 10 &&
       /NO QED/.test(IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER.verdict) &&
-      /remains SOTA/.test(IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER.verdict),
   },
 ];
 

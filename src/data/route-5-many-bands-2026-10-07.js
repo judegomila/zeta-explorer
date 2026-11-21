@@ -98,7 +98,7 @@ export const ROUTE_5 = Object.freeze({
   verdict: 'More bands lower the route-P value at PT height relative to the ledger: 4 bands 0.145620383931826 (−7.37e-5), 3 bands 0.145632847457923 '
     + '(−6.12e-5); single implementation, one internal referee re-run. Band 1 binds and depends only on its right wall; with the current band-1 floors '
     + 'no layout goes below 0.145566855004312 (measured). Slab walls cost ≈ c f⁴/8 but line walls do the same job cheaply. Λ < 0.145 is not certified; '
-    + 'with 3 bands the 125 missing P47 floors at target alone would suffice (measured 0.144986). PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'with 3 bands the 125 missing P47 floors at target alone would suffice (measured 0.144986). No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_5;
@@ -164,7 +164,7 @@ export const ROUTE_5_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-honest-scope',
-    holds: () => R.status === 'done' && /not certified/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /not certified/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && R.values.ceiling.grade === 'MEASURED' && /sketch/.test(R.refereeKilled[2]),
     why: 'Λ < 0.145 not certified; ceiling graded measured; slab theorem graded as a sketch; no QED.',
   },

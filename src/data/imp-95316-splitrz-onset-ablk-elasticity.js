@@ -4,8 +4,7 @@
  * SPLIT-RZ every-octave onset (15.9816 at r = 1.3), or a loose artifact
  * of the crude symbol infimum / Schur bound? Measures the onset as a
  * function of a hypothetically improved A_blk and reports the elasticity.
- * Assessment only; changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Assessment only; changes NO bound; NO QED; no refereed bound is changed.
  *
  * SETUP. imp-95252 COROLLARY SPLIT-RZ certifies, on the dyadic twin
  * skeleton (rho = 2, r in (1, 1.3]) and for EVERY octave count m,
@@ -138,7 +137,7 @@ export const IMP95316_SPLITRZ_ONSET_ABLK_ELASTICITY = {
     "symbol infimum exactly gains ~7e-7 depth units; removing the block- " +
     "norm conversion factor gains ~0.37. The binding factor is the " +
     "exponential depth-decay of the coalescence-law numerator N(x), not " +
-    "A_blk. Assessment only; changes no bound; NO QED; PT SOTA.",
+    "A_blk. Assessment only; changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -257,7 +256,7 @@ export const IMP95316_ASSERTIONS = [
     id: "imp95316-verdict-honesty",
     description:
       "the verdict carries the honest labels: A_blk NOT binding as slack, " +
-      "Szegoe-ceiling sharp, assessment only, no bound change, NO QED, PT SOTA",
+      "Szegoe-ceiling sharp, assessment only, no bound change, NO QED, no refereed bound is changed",
     holds: () =>
       /NOT the binding factor/.test(
         IMP95316_SPLITRZ_ONSET_ABLK_ELASTICITY.verdict,
@@ -270,7 +269,7 @@ export const IMP95316_ASSERTIONS = [
         IMP95316_SPLITRZ_ONSET_ABLK_ELASTICITY.verdict,
       ) &&
       /NO QED/.test(IMP95316_SPLITRZ_ONSET_ABLK_ELASTICITY.verdict) &&
-      /PT SOTA/.test(IMP95316_SPLITRZ_ONSET_ABLK_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP95316_SPLITRZ_ONSET_ABLK_ELASTICITY.verdict),
   },
 ];
 

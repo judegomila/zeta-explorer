@@ -38,7 +38,7 @@
  * Measurement/diagnostic only, double precision, on the imp-35855/imp-35892 surrogate (identical K, delta,
  * S_inf, aOf, effectiveHeightForN). Instantiates NO interval, ports nothing, derives no remainder, changes
  * no bound. imp-34714a REMAINS OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486)
- * UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-35892-rdirect-own-floor-departure-height (coarse STEP=1 decade grid; loL bisection defeated by double spacing)
  * @see imp-35947-log-domain-height-seed-cliff-deferral (log-domain seed defers T-overflow but not the aOf product overflow)
@@ -186,7 +186,7 @@ export const IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF = {
     T_A_FAR_BELOW_MAX.toExponential(2) +
     '). Reuses the imp-35855/imp-35892 machinery (identical K, delta, S_inf, aOf, effectiveHeightForN). ' +
     'imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-35892 (coarse STEP=1 decade grid, loL bisection defeated by ~1e291 double spacing); imp-35947 ' +
     '(log-domain seed defers T-overflow but not the aOf product overflow); imp-35855 (de-cancelled dG ' +
@@ -228,14 +228,14 @@ export const IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF_ASSERTIONS = [
       DECADE_GAP_A_MINUS_B > 0,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35972-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF.subGap) &&
       /NO QED/.test(IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF.verdict) &&
-      /remains SOTA/.test(IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF.verdict),
+      /refereed bound is changed/i.test(IMP35972_EFFECTIVE_HEIGHT_OVERFLOW_CLIFF.verdict),
   },
 ];
 

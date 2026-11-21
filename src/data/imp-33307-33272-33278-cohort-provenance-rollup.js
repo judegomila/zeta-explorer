@@ -4,7 +4,7 @@
  * imp-33274/imp-33275/imp-33276/imp-33277/imp-33278 verification-and-measurement cohort
  * (seven modules) by EVIDENCE CLASS and confirming each module carries the mandatory
  * honest banner: no-QED, the relevant operator-level positivity invariant untouched, and
- * Platt-Trudgian Lambda <= 0.2 SOTA, following the imp-3886/imp-33247/imp-33268/imp-33287
+ * no refereed bound is changed, following the imp-3886/imp-33247/imp-33268/imp-33287
  * audit pattern.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was
@@ -24,7 +24,7 @@
  *   - "height-sweep": sweeps a single-height measurement across a geometric ladder of heights
  *     to test whether a claimed growth order actually holds across scale.
  * The honest-banner check greps each module for the mandatory phrases (no QED, the applicable
- * untouched-positivity invariant, Platt-Trudgian Lambda <= 0.2 SOTA) and for the Polymath15
+ * untouched-positivity invariant, no refereed bound is changed) and for the Polymath15
  * G6a/H2 bridge status line.
  *
  * RESULT (audited 2026-07-04). All seven modules carry the full honest banner. Six of the
@@ -62,7 +62,7 @@ export const IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP = {
     'exact decomposition-reframing / sliding-window fit / rung-uniformity cross-validation / ' +
     'cross-outer invariance / node-budget extension / height-sweep); grep for the mandatory ' +
     'honest-banner phrases (no QED, the applicable untouched-positivity invariant, ' +
-    'Platt-Trudgian Lambda <= 0.2 SOTA) plus the explicit G6a/H2 bridge status.',
+    'no refereed bound is changed) plus the explicit G6a/H2 bridge status.',
   modules: [
     {
       file: 'imp-33272-fifth-pair-extended-precision-crossval.js',
@@ -155,7 +155,7 @@ export const IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched (imp-486 C_mb GUE-conditional untouched for ' +
-    'the one out-of-scope member, imp-33274). Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'the one out-of-scope member, imp-33274). No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -184,7 +184,7 @@ const IMP_33307_ASSERTIONS = [
         (x) => x.noQED === true && typeof x.untouchedInvariant === 'string' && x.untouchedInvariant.length > 0 && x.plattTrudgianSOTA === true
       ) && IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 7,
     why: 'Every module in the cohort must state no-QED, an explicit untouched-positivity ' +
-      'invariant, and Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'invariant, and no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33307-six-imp3066-one-imp486-untouched',
@@ -221,11 +221,11 @@ const IMP_33307_ASSERTIONS = [
   {
     id: 'imp33307-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33307_33272_33278_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

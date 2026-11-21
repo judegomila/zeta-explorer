@@ -45,8 +45,7 @@
  * not write H2. So H2 stays UNWRITTEN as a certificate, the K4 route stays WHOLLY NEW (consistent with
  * imp-3714 / imp-3727 / imp-3846 / imp-3872 / imp-3891 / imp-3896), and G6a_shock_lipschitz stays OPEN.
  * Measurement / scoping only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066
- * off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA.
+ * off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3896-g6a-h2-inviscid-window-blocksize-height-scaling (the four (M, edge) points fit here)
  * @see imp-3872-g6a-h2-discrete-flux-convexity-probe (the [2, 8] window and ~500x shrinkage)
@@ -119,7 +118,7 @@ export const IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION = {
     'report the slope b and residuals, and EXTRAPOLATE the block size M needed to push the edge to a ' +
     'target multiplier such as 20 d, quantifying the "cannot reach the microscopic continuum by ' +
     'particle count alone" claim as an explicit ~log M scaling law. Measurement only; imp-3066 ' +
-    'UNTOUCHED; Lambda <= 0.2 SOTA; NO QED.',
+    'UNTOUCHED; no refereed bound is changed; NO QED.',
   candidate: 'K4',
   rootProbed: 'H2', // scale-separation sizing of the m_zz correction; here the budget law of its clean window
   law: 'edge(M) = a + b*ln(M), fit by ordinary least squares on the imp-3896 Q1 (M, edge) points',
@@ -177,8 +176,8 @@ export const IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION = {
     'viscosity, and does not write H2, so H2 stays UNWRITTEN as a certificate, the K4 route stays WHOLLY ' +
     'NEW (consistent with imp-3714 / imp-3727 / imp-3846 / imp-3872 / imp-3891 / imp-3896) and ' +
     'G6a_shock_lipschitz stays OPEN. Scoping / measurement only; no positivity, no bridge closure, no RH ' +
-    'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3896 (the four (M, edge) clean-window points fit here, and its ~log M widening claim); imp-3872 ' +
     '(the [2, 8] clean inviscid window and ~500x m_zz shrinkage); imp-3891 (H2a continuum inviscid-Burgers ' +
@@ -230,17 +229,17 @@ export const IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION_ASS
       budgetForEdge(FIT, 100) > 1e18,
   },
   {
-    // Honesty gate: measurement not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, PT
-    // stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed
+    // , imp-3066 untouched.
     id: 'imp3914-honesty-gate-no-qed',
-    description: 'MEASUREMENT not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'MEASUREMENT not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.isRigorous === false &&
       IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.h2StillUnwritten === true &&
       IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.k4ConfirmedWhollyNew === true &&
       IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.g6aStillOpen === true &&
       /NO QED/.test(IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.verdict) &&
+      /refereed bound is changed/i.test(IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION.verdict),
   },
 ];

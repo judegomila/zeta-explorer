@@ -17,7 +17,7 @@
  *
  * PRESENTATION ONLY. Both figures are Rayleigh-Ritz UPPER bounds, not a certified
  * floor; no operator positivity established; changes no bound; interval-rigorous
- * certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * certificate reach stays 2a<=0.96; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97335-krein-csharp-naive-lowerbound-tlimit.js (fixed-N=100 T-limit ~0.5822)
@@ -88,7 +88,7 @@ export const IMP97390_TIGHTEST_BRACKET = Object.freeze({
 export const IMP97390_HONEST_BANNER =
   'Measurement only: both bars are Rayleigh-Ritz UPPER bounds on c_sharp = lambda_min(P_a M_sigma2 P_a) ' +
   'at 2a=ln3, not a certified floor. No operator positivity established; changes no bound; ' +
-  'interval-rigorous certificate reach stays 2a<=0.96; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -128,7 +128,7 @@ const IMP97390_ASSERTIONS = [
     id: 'imp97390-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97390_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97390_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97390_HONEST_BANNER) &&
       /NO QED/.test(IMP97390_HONEST_BANNER),
     why: 'every Route I viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -51,7 +51,7 @@
  * CROSS-CHECK / TABULATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34197-logt0-resid-product-approach-rate (the product gap = 1/(2u) EXACT, log(2pi) cancels)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (the sigma-exponent gap ~ 1/(2 log T0), F2 law)
@@ -174,7 +174,7 @@ export const IMP34328_SIGMA_VS_PRODUCT_GAP_LOG2PI_SHIFT = {
     'ratio (u-1)/(u+log 2pi) exposes the retained log(2pi) shift. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34197 (product gap = 1/(2u) EXACT, log(2pi) cancels); imp-33816 (sigma-exponent gap ~ ' +
     '1/(2 log T0), F2 law); imp-34130 (shared resid = (1/2) d ln(log T0)/d ln N); imp-33859 (log-space ' +
@@ -241,13 +241,13 @@ export const IMP34328_SIGMA_VS_PRODUCT_GAP_LOG2PI_SHIFT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: cross-check only, no QED, PT SOTA.
+    // Honesty gate: cross-check only, no QED, no refereed bound is changed.
     id: 'imp34328-honesty-gate-no-qed',
-    description: 'Cross-check only: not rigorous, no QED, PT stays SOTA',
+    description: 'Cross-check only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34328_SIGMA_VS_PRODUCT_GAP_LOG2PI_SHIFT.isRigorous === false &&
       /NO QED/.test(IMP34328_SIGMA_VS_PRODUCT_GAP_LOG2PI_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP34328_SIGMA_VS_PRODUCT_GAP_LOG2PI_SHIFT.verdict),
+      /refereed bound is changed/i.test(IMP34328_SIGMA_VS_PRODUCT_GAP_LOG2PI_SHIFT.verdict),
   },
 ];
 

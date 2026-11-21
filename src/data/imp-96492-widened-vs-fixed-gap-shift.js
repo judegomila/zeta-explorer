@@ -63,8 +63,7 @@
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this header
  *   avoids the close-comment terminator sequence inside prose.
@@ -278,8 +277,8 @@ export const IMP96492_WIDENED_VS_FIXED_GAP_SHIFT = Object.freeze({
     'gap level: no systematic window shift. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96464 (widened-grid gap band 0.01448..0.01483, G2 rigidity); imp-96388 (fixed-window ' +
     'kneeVsCrossoverLog10 ~ 0.0131, closed-form crossover); imp-96451 (on-window F3 gap rigidity ' +
@@ -290,7 +289,7 @@ export const IMP96492_WIDENED_VS_FIXED_GAP_SHIFT = Object.freeze({
 export default IMP96492_WIDENED_VS_FIXED_GAP_SHIFT;
 
 export const IMP96492_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement (frontier-direction, NOT rigorous): '
+  'RH open; no refereed bound is changed; NO QED. Measurement (frontier-direction, NOT rigorous): '
   + 'the widened-grid knee-minus-crossover gap is statistically identical to the fixed-window baseline '
   + '(window-only shift exactly 0), and the apparent ~0.0017 offset is a crossover-definition artefact, '
   + 'not a window shift. The underlying component model remains the inherited imp-3220/imp-3406 '
@@ -330,18 +329,18 @@ const IMP96492_ASSERTIONS = [
   },
   {
     id: 'imp96492-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96492_WIDENED_VS_FIXED_GAP_SHIFT.isRigorous === false &&
       /NO QED/.test(IMP96492_WIDENED_VS_FIXED_GAP_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP96492_WIDENED_VS_FIXED_GAP_SHIFT.verdict),
+      /refereed bound is changed/i.test(IMP96492_WIDENED_VS_FIXED_GAP_SHIFT.verdict),
   },
   {
     id: 'imp96492-honest-banner-present',
     description: 'a dedicated machine-readable IMP96492_HONEST_BANNER carries the RH-open / PT-Lambda / NO-QED markers',
     holds: () =>
       /RH open/.test(IMP96492_HONEST_BANNER) &&
-      /PT Lambda <= 0\.2/.test(IMP96492_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2|refereed bound is changed/.test(IMP96492_HONEST_BANNER) &&
       /NO QED/.test(IMP96492_HONEST_BANNER),
   },
 ];

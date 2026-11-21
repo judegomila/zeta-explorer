@@ -22,8 +22,7 @@
  *
  * VERDICT. imp-124852 is import-light: its transitive closure never reaches
  * data/zeros-to-1e6.js. This is a bundle-hygiene check only -- it changes no bound,
- * establishes no operator positivity, and asserts no QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * establishes no operator positivity, and asserts no QED; no refereed bound is changed.
  */
 
 const AUDITED_MODULE = 'imp-124852-kernel-arm-offset-asymmetry-viz-data.js';

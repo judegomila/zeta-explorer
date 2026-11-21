@@ -5,7 +5,7 @@
  * GRADE: ASSESSMENT / TRACTABILITY TRIAGE only. NO certificate is produced,
  * NO margins are certified, the bound is unchanged. O2 is carried OPEN. The
  * package value 0.17759432 stays a package value, not a bound. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHAT O2 IS. The sealed v3 package (review-01787854-v3, commit 2e9976c4)
  * certified H_{129/800}(x+iy) != 0 on the barrier crossing by a three-piece

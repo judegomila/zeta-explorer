@@ -45,7 +45,7 @@
  *   behind C_inf is a determined transcendental NUMBER. Certification/measurement
  *   only; RH-equivalent; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0
  *   magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3470-Ttilde-spectral-peak-xistar-obstruction.js (located xi* on the short {6,8} ladder)
  *   @see imp-3240-mupass-capture-ratio-aU-grid.js (the U_GRID = {4,6,8,10} this certifies against)
@@ -202,7 +202,7 @@ export const IMP3489_XISTAR_U_INDEPENDENCE_CERTIFICATION = Object.freeze({
     'power spectrum, not an artifact of the imp-3470 ladder choice, ' +
     'sharpening the imp-3400 caveat that the sup behind C_inf is a determined transcendental NUMBER. ' +
     'Certification/measurement only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, ' +
-    'UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -264,7 +264,7 @@ export const IMP3489_XISTAR_U_INDEPENDENCE_CERTIFICATION = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -314,7 +314,7 @@ export const IMP3489_XISTAR_U_INDEPENDENCE_CERTIFICATION_ASSERTIONS = [
   {
     id: 'imp3489-honest-assessment-no-qed',
     why: 'Mandatory honesty: CERTIFIES invariance but does NOT close xi* (equation transcendental), value stays a ' +
-      'number, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'number, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3489_XISTAR_U_INDEPENDENCE_CERTIFICATION.honestCaveat;
       return (
@@ -324,7 +324,7 @@ export const IMP3489_XISTAR_U_INDEPENDENCE_CERTIFICATION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.certifiesInvarianceNotClosedForm === 'string' &&
         typeof c.valueStaysTranscendental === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

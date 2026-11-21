@@ -14,7 +14,7 @@
  * imp-96352 compute ceiling -- no re-fit, no new numerics.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no RH claim; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96656-route-m-conditioning-ceiling-confidence-interval.js (source CI numbers)
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (Frobenius sharper ceiling)
@@ -94,7 +94,7 @@ export const IMP96683_MARGIN_SUMMARY = Object.freeze({
 });
 
 export const IMP96683_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every band edge and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every band edge and ' +
   'point estimate is reused verbatim from imp-96656 (delta-method log-normal CI), the ' +
   'Frobenius reference ceiling is reused verbatim from imp-96648, and the compute ceiling ' +
   'from imp-96352; this module only reshapes those baked numbers into a chart-ready band ' +
@@ -151,7 +151,7 @@ const IMP96683_ASSERTIONS = [
     id: 'imp96683-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96683_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96683_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96683_HONEST_BANNER) &&
       /NO QED/.test(IMP96683_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

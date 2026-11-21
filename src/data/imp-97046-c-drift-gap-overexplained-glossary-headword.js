@@ -38,7 +38,7 @@
  *
  *   STATUS: a terminology/scope headword consolidating the imp-97018 measurement, not a new
  *   computation. No bound moved, no operator positivity claimed. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97018-c-drift-vs-residmeas-gap.js (the source measurement: IMP97018_VERDICT,
  *   overlap rows, gap over-explain factor)
@@ -48,7 +48,7 @@
  *   N=124 -- the source of the untestable-range gap)
  *
  * Ticket: imp-97046 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The C-drift/gap-overexplained headword, baked verbatim (no re-import of imp-97018).
@@ -77,7 +77,7 @@ const C_DRIFT_GAP_OVEREXPLAINED_HEADWORD = Object.freeze({
   verificationStatus:
     'Consolidates the imp-97018 measurement into one glossary entry; adds no new computation. ' +
     'Establishes nothing new; moves no bound; no operator positivity claimed or refuted. ' +
-    'Interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; ' +
+    'Interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -99,7 +99,7 @@ export const IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD = Object.freez
     'fall), C itself stays flat (0.18% drift) over the only range where the gap is measured, ' +
     'and the bulk 5.68% decline sits at N in {136,148,160} where imp-96995 provides no ' +
     'residMeasured value at all -- so the attribution is untestable exactly where it matters. ' +
-    'Establishes nothing; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97018 (C-drift vs residMeas-gap measurement, verdict and all cited constants); ' +
     'imp-96997 (Finding 1, the original attribution); imp-96995 (residFO/residMeas driver, ' +
@@ -141,11 +141,11 @@ export const IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97046-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD.verdict) &&
       IMP97046_C_DRIFT_GAP_OVEREXPLAINED_GLOSSARY_HEADWORD.glosses === 'imp-97018',
   },
 ];

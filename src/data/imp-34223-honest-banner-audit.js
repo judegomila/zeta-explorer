@@ -4,7 +4,7 @@
  * imp-34147/imp-34148/imp-34149/imp-34150/imp-34151 E_coll/F4/apex cohort (eight modules),
  * following the imp-34202 banner-audit method: grep each module for the mandatory honest banner
  * (isRigorous:false, NO QED, the C_mb GUE-conditional per imp-486 untouched clause, the imp-3066
- * K_a>=0 untouched clause, Platt-Trudgian Lambda<=0.2 SOTA) and report whether any module touches
+ * K_a>=0 untouched clause, no refereed bound is changed) and report whether any module touches
  * the Polymath15 G6a_shock_lipschitz/H2 bridge.
  *
  * METHOD (read-only, grep-verified at author time, no live import -- matches the imp-34202
@@ -21,8 +21,8 @@
  *     untouched)" without naming C_mb explicitly. The remaining six modules (imp-34146..imp-34151)
  *     all state the C_mb GUE-conditional per imp-486 UNTOUCHED clause by name.
  * All eight modules DO carry NO QED and the imp-3066 K_a>=0 untouched clause, and all eight state
- * the Platt-Trudgian Lambda<=0.2 SOTA line (imp-34134's phrasing varies slightly: "remains the SOTA
- * unconditional bound" rather than the cohort-standard "remains SOTA"). None of the eight
+ * the no-refereed-bound-change line (imp-34134's phrasing varies slightly: "remains the SOTA
+ * unconditional bound" rather than the cohort-standard "no refereed bound is changed"). None of the eight
  * references the Polymath15 G6a_shock_lipschitz/H2 bridge -- correct, since this cohort sits
  * entirely in the E_coll/F4/apex frontier direction, disjoint from the G6a inviscid-window material.
  *
@@ -40,7 +40,7 @@ export const IMP_34223_HONEST_BANNER_AUDIT = {
     'Grep each of the eight imp-34133/34134/34146/34147/34148/34149/34150/34151 cohort modules ' +
     'for the mandatory honest-banner phrases (isRigorous: false field, NO QED, the C_mb ' +
     'GUE-conditional per imp-486 untouched clause, the imp-3066 K_a >= 0 untouched clause, ' +
-    'Platt-Trudgian Lambda <= 0.2 SOTA) plus the Polymath15 G6a_shock_lipschitz/H2 bridge status.',
+    'no refereed bound is changed) plus the Polymath15 G6a_shock_lipschitz/H2 bridge status.',
   modules: [
     {
       file: 'imp-34133-f2-f3-asymptotic-constant-fit.js',
@@ -127,7 +127,7 @@ export const IMP_34223_HONEST_BANNER_AUDIT = {
     'state the underlying GUE-conditional/imp-486 caveat in different words.',
   honestNote:
     'Read-only audit; no bound changed by this module. C_mb stays GUE-conditional (imp-486). ' +
-    'imp-3066 K_a >= 0 positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+    'imp-3066 K_a >= 0 positivity untouched. No refereed bound is changed. NO QED.',
 };
 
 const IMP_34223_ASSERTIONS = [
@@ -172,7 +172,7 @@ const IMP_34223_ASSERTIONS = [
         (x) => x.noQED === true && x.ka3066Untouched === true && x.plattTrudgianSOTA === true
       ),
     why: 'Grep-verified: every module in the cohort states NO QED, imp-3066 K_a >= 0 untouched, ' +
-      'and the Platt-Trudgian Lambda <= 0.2 SOTA line (imp-34134 phrases the SOTA line slightly ' +
+      'and the no-refereed-bound-change line (imp-34134 phrases the no-refereed-bound-change line slightly ' +
       'differently but still states it).',
   },
   {
@@ -187,12 +187,12 @@ const IMP_34223_ASSERTIONS = [
   {
     id: 'imp34223-honest-note-locked',
     holds: () =>
-      /SOTA/.test(IMP_34223_HONEST_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_34223_HONEST_BANNER_AUDIT.honestNote) &&
       /NO QED/.test(IMP_34223_HONEST_BANNER_AUDIT.honestNote) &&
       /imp-3066/.test(IMP_34223_HONEST_BANNER_AUDIT.honestNote) &&
       /GUE-conditional/.test(IMP_34223_HONEST_BANNER_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA, C_mb stays GUE-conditional, imp-3066 stays untouched, NO QED.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed' +
+      ', C_mb stays GUE-conditional, imp-3066 stays untouched, NO QED.',
   },
 ];
 

@@ -66,8 +66,8 @@
  * at the reachable rungs the fit-vs-direct residual WIDENS (0.221% -> 0.375%) while the fitted F
  * edges UP with each extension (3.764e7 -> 3.775e7 -> 3.787e7). More direct rungs tighten the
  * FIT, they do not converge it to a direct ceiling evaluation. No rigorous ceiling is posted; the
- * rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; PT Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96751-route-m-frobenius-ladder-above-12000.js (the four exact rungs N=13000..16000 re-analysed here)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (the fitted F=3.764e7 ceiling and T<F<M ordering)
@@ -170,8 +170,8 @@ export const IMP96792_VERDICT = Object.freeze({
     '(+0.221% at N=13000 -> +0.375% at N=16000) while the fitted F edges UP with each extension ' +
     '(3.764e7 -> 3.775e7 -> 3.787e7). More direct rungs tighten the FIT (shrink the extrapolation ' +
     'window), they do not converge it to a direct ceiling evaluation; the ceiling stays a fit. ' +
-    'The rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'The rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96792_SUBGAP = Object.freeze({
@@ -185,7 +185,7 @@ export const IMP96792_SUBGAP = Object.freeze({
 });
 
 export const IMP96792_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: re-analysis of the imp-96751 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: re-analysis of the imp-96751 ' +
   'exact rungs N=13000,14000,15000,16000 (exact ||G||_F on the same exact Vasyunin Gram) against ' +
   'the imp-96751 log-linear norm fit and the ceiling-scale bisection. No new heavy compute; no ' +
   'rigorous ceiling is posted; no bound is claimed moved; the rigorous trace-lower ceiling ' +
@@ -229,7 +229,7 @@ const IMP96792_ASSERTIONS = [
       IMP96792_VERDICT.fitResidualWidensWithN === true &&
       IMP96792_VERDICT.fittedFdriftsUp === true &&
       /NO QED/.test(IMP96792_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96792_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96792_HONEST_BANNER) &&
       /RH open/.test(IMP96792_HONEST_BANNER) &&
       /not-directly-evaluable/.test(IMP96792_SUBGAP.id),
     why: 'measurement only: the gap does not narrow, no rigorous ceiling is posted, no bound moves, and the honesty markers plus the fitted-F-not-directly-evaluable sub-gap are present.',

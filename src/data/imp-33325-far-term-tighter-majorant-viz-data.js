@@ -16,7 +16,7 @@
  * @see imp-33250-tail-weight-ratio-n-uniformity-assessment.js (residual dg2 the obstruction relocates to)
  *
  * Ticket: imp-33325 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33325_KREAL_BAND = { min: 0.7982689435006131, max: 1.602253772651275 };

@@ -16,8 +16,8 @@
  * abundancy (sigma(b)/b < e^gamma log log b + O(1/log log b), Robin, unconditional). The primes are
  * EXACTLY where |E0(b)| is genuinely largest (~ (1/2) log b), and that peak is carried by a term with NO
  * divisor-count dependence at all; on smooth b the Moebius cancellation the triangle bound discards makes
- * |E0| collapse (|E0(720720)| ~ 6.7e-4 while 2^omega(log b + 2) ~ 991). No bound on Lambda moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * |E0| collapse (|E0(720720)| ~ 6.7e-4 while 2^omega(log b + 2) ~ 991). No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * Notation as imp-97096/imp-97133: C = (log 2pi - gamma)/2, kappa_arith = (3/2) C - 3/8 =
  * 0.5704960511308594..., omega(b) = number of distinct primes of b, mu = Moebius, Lambda = von Mangoldt,
@@ -108,7 +108,7 @@
  * settles the ticket question: the primes-only sharpness does NOT force a 2^omega prefactor. What remains
  * (residual below): the explicit uniform constant for the (loose, non-binding) E1, and sharpening the R(b)
  * tail from the proven O(log log b) to the measured O(1). No bound on Lambda moves; T ~ 2.594e7 trace anchor
- * unchanged; the cotangent first moment (imp-97097) stays the separate open leaf; PT Lambda <= 0.2 SOTA;
+ * unchanged; the cotangent first moment (imp-97097) stays the separate open leaf; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the 2^omega-dependent bound this makes uniform)
@@ -228,7 +228,7 @@ export const IMP97202_VERDICT = Object.freeze({
     'the 2; (1/2) log b is the true leading order, attained on primes. Residuals: the explicit uniform constant ' +
     'for the loose, non-binding E1 (same mechanism), and sharpening R from O(log log b) to the measured O(1). ' +
     'kappa_arith and the o(1) statement are unchanged; the cotangent first moment (imp-97097) stays open. No ' +
-    'bound on Lambda moves; T ~ 2.594e7 anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound on Lambda moves; T ~ 2.594e7 anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97202_SUBGAP = Object.freeze({
@@ -246,7 +246,7 @@ export const IMP97202_SUBGAP = Object.freeze({
 });
 
 export const IMP97202_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation closing a named sub-gap for E0: the imp-97133 ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation closing a named sub-gap for E0: the imp-97133 ' +
   '2^omega(b) prefactor is a triangle-inequality artifact -- a UNIFORM bound |E0(b)| <= (1/2) log b + ' +
   '(1/2) log 2pi + 11/8 + (1/6) sigma(b)/b = (1/2) log b + O(log log b) holds for all b, via ' +
   'Sum mu(d) log d = -Lambda(b) and the moment bound |S_k| <= zeta(k)-1 <= 3*2^{-k}. So the primes-only ' +
@@ -349,7 +349,7 @@ const IMP97202_ASSERTIONS = [
       IMP97202_VERDICT.closesResidual === 'imp-97133-arith-first-moment-uniform-remainder (for the binding remainder E0)' &&
       /uniform-E1/.test(IMP97202_SUBGAP.id) &&
       /NO QED/.test(IMP97202_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97202_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97202_HONEST_BANNER) &&
       /RH open/.test(IMP97202_HONEST_BANNER),
     why: 'derivation closing the imp-97133 uniform-remainder residual for the binding E0 with a named uniform constant, honest that E1 constant and the O(1) tail are residuals and the cotangent leaf stays open -- no bound moved, no rigorous ceiling, no QED.',
   },

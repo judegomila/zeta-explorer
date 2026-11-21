@@ -35,8 +35,7 @@
  * should be read as an order-of-magnitude positive floor, not a sharp number.
  *
  * GRADE: documentation/measurement only. Import-light (all literals baked,
- * no heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96173-route-bd-margin-decay-fits-table (the fit under test)
  * @see imp-96148-route-bd-online-margin-decay-law (source column + selector)
@@ -107,7 +106,7 @@ export const IMP_96265_MARGIN_FLOOR_LOO_STABILITY = {
     + 'than a sharp value',
   note:
     'documentation/measurement only; import-light baked literals; changes no '
-    + 'Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'Lambda bound; no refereed bound is changed',
   closesTickets: ['imp-96265'],
 };
 

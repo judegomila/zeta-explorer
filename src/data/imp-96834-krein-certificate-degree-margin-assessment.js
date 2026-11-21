@@ -62,8 +62,8 @@
  *     can only move right, bounded above by lambda_min -- the numeric size of the move is unmeasured.
  *
  * Assessment/measurement only; interval-rigorous reach stays exactly 2a <= 0.96; the operator
- * floor is a Rayleigh UPPER bound (no operator positivity established); RH open; Platt-Trudgian
- * Lambda <= 0.2 SOTA; NO QED.
+ * floor is a Rayleigh UPPER bound (no operator positivity established); RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source literals: epsMarginDecay, lambdaMinSigma2, normGrowthLaw)
  * @see imp-96732-krein-extended-precision-reach-assessment.js (parent: labelled the 2a>=1.0 end intrinsic; this ticket refines to degree-artifact)

@@ -24,7 +24,7 @@
  * MEASURED: slopes, height levers, contraction shares, re-tuning optima, lever scenarios (floating-point optimisation on a model).
  * HEURISTIC: the linear fit, "7/8 is a rounded choice", Gram-loss-as-main-term, duality sketch for the 11/12 method.
  *
- * PT Lambda <= 0.2 stands; RH is open; NO QED. Import-free. QRH_THETA_IMPROVEMENT_ASSERTIONS recompute decimals, de Bruijn
+ * No refereed bound is changed; RH is open; NO QED. Import-free. QRH_THETA_IMPROVEMENT_ASSERTIONS recompute decimals, de Bruijn
  * values, monotonicity, route-P gains, contraction shares, boundary formulas and barrier closed forms in exact rationals.
  */
 
@@ -56,7 +56,7 @@ export const QRH_THETA_IMPROVEMENT = Object.freeze({
     + '(Raymond chain 0.111178 at θ = 0.85, 0.095022 at 0.80; re-tuned route-P 0.108886 and 0.093069). No chain constraint binds for θ ≤ 7/8. '
     + 'No rigorous improvement of 7/8 itself was found: re-tuning the manuscript\'s geometry gains about 4.3e-5 in θ (model optimum 0.8749571; '
     + 'exact closing arithmetic for 34999/40000, conditional on re-used lemmas), and the method cannot go below 13/15 even with density-hypothesis counts. '
-    + 'All Λ values are conditional, not bounds. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'All Λ values are conditional, not bounds. No refereed bound is changed; RH is open; NO QED.',
 
   // ── (1) the Λ(θ) curve ────────────────────────────────────────────────────
   theta: Object.freeze({
@@ -193,7 +193,7 @@ export const QRH_THETA_IMPROVEMENT = Object.freeze({
   verdict: 'Λ(θ): at PT height each 0.01 of θ near 7/8 is worth about 0.003 of conditional Λ, and nothing in the chain caps the gain for θ ≤ 7/8; smaller θ needs no more verified height (10× height ≈ 0.0215 of θ at 7/8). Every θ other than 7/8 is hypothetical. '
     + 'Improving 7/8: no rigorous gain. The geometry re-tune reaches about 0.8749571 (4.3e-5, model); 34999/40000 has certified closing arithmetic but rests on re-used lemmas and is kept out of the Λ pipeline. '
     + 'The method stops at 13/15 even with density-hypothesis counts; the one lever worth more than 5e-3 is a new additive Gram estimate without the P_a^{1/6} term (≈ 0.864, open). '
-    + 'The conditional values 0.116091488672439 and 0.118505710922701 are unchanged; they are conditional values, not bounds. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'The conditional values 0.116091488672439 and 0.118505710922701 are unchanged; they are conditional values, not bounds. No refereed bound is changed; RH is open; NO QED.',
   nextStep: 'Lowering θ is worth far more than more verified height. If a θ below 7/8 becomes available, re-tune the route-P height sets on the new trajectory. For θ itself: test whether the sixth-power exceptional frequencies in Prop 15.2 can be cancelled by a modified probe while keeping c_S ≠ 0. A Lean-checked 34999/40000 is possible but low value (edits across 17–84 DirichletL files).',
 });
 
@@ -303,12 +303,12 @@ export const QRH_THETA_IMPROVEMENT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'qti-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /not bounds/.test(C.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(C.headline) && /NO QED/.test(C.headline)
+    holds: () => /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /not bounds/.test(C.verdict)
+      && /refereed bound is changed/i.test(C.headline) && /NO QED/.test(C.headline)
       && /NOT to be used/.test(C.improvement.A.retuned.grade) && /CONDITIONAL/.test(C.improvement.A.retuned.grade)
       && /No rigorous improvement/.test(C.improvement.B.verdict) && !C.improvement.A.referee.refuted && !C.improvement.B.referee.refuted
       && T.refereeCorrections.length === 7 && C.improvement.A.referee.corrections.length === 6 && C.improvement.B.referee.corrections.length === 7,
-    why: 'Verdict and headline: PT stands, no QED, conditional values not bounds; 34999/40000 graded conditional and kept out of the pipeline; referee corrections T1–T7, A1–A6, B1–B7 recorded.',
+    why: 'Verdict and headline: no refereed bound is changed, no QED, conditional values not bounds; 34999/40000 graded conditional and kept out of the pipeline; referee corrections T1–T7, A1–A6, B1–B7 recorded.',
   },
 ]);
 

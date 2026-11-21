@@ -53,7 +53,7 @@
  *   moment Sum kappa_a^2/a^2 = Sum 1/4 still DIVERGES -- that separation still requires the
  *   uniform (a ~ b) remainder profile. Measurement + pin only; no coefficient of g(b) is claimed;
  *   the rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds
- *   first by > 2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   first by > 2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97311-route-m-bettin-conrey-smalla-kappa-moment (kappa_a = a/2; the d_a table left unpinned)
  * @see imp-96667-route-m-frobenius-second-moment-asymptotic (rigorous a=1 border I(1,b) = (1/2)log b + (C+1/2))
@@ -170,11 +170,11 @@ export const IMP97330_VERDICT = Object.freeze({
     'fixed-a moment Sum kappa_a^2/a^2 = Sum 1/4 still diverges (imp-97311), so the separation still ' +
     'needs the uniform (a ~ b) remainder profile. Measurement + pin only; no g(b) coefficient ' +
     'claimed; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first by > 2600x; no ' +
-    'operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97330_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement + pin only: the small-a ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement + pin only: the small-a ' +
   'Bettin-Conrey intercept d_a of imp-97311 is PINNED to the closed form d_a = a(C + 1/2) - ' +
   '(a/2) log a = (a/2)(2C + 1 - log a), C = (log 2pi - gamma)/2, verified to a uniform o(1) tail ' +
   'for a = 1..47 (prime and composite). It is NOT the V(b,a)-residue arithmetic function the ' +
@@ -257,7 +257,7 @@ const IMP97330_ASSERTIONS = [
       IMP97330_VERDICT.separatesSqrtVsLog2b === false &&
       IMP97330_VERDICT.computeBindsFirst === true &&
       /RH open/.test(IMP97330_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97330_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97330_HONEST_BANNER) &&
       /NO QED/.test(IMP97330_HONEST_BANNER),
   },
 ];

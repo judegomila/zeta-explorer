@@ -30,7 +30,7 @@
  * WHAT THIS DOES NOT DO
  * -----------------------------------------------------------------------------
  * Read-only integrity audit. Fabricates no new pages, changes no bound, asserts no operator
- * positivity, no RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * positivity, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35186-registration-reachability-audit (method precedent)
  * @see imp-35327 (method precedent)
@@ -111,7 +111,7 @@ export const IMP35904_S_FRONTIER_CROSSREF_INTEGRITY_AUDIT = {
     '@see filename-suffixed target, every named ES import, and every bare imp-NNNNN citation ' +
     'across the six-module imp-35852/imp-35853/imp-35854/imp-35855/imp-35865/imp-35880 ' +
     'S-frontier cohort. Result: zero dangling references found. Changes no bound; establishes ' +
-    'no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35852, imp-35853, imp-35854, imp-35855, imp-35865, imp-35880 (audited modules); ' +
     'imp-35186, imp-35327, imp-35776 (integrity-audit method precedent); imp-58685 (the known ' +
@@ -149,11 +149,11 @@ export const IMP35904_S_FRONTIER_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35904-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35904_S_FRONTIER_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35904_S_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35904_S_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35904_S_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

@@ -19,7 +19,7 @@
  *   sigma-landmark heights alike.
  *
  *   Ticket: imp-35798 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35696-collision-exponent-consistency-check (derives the cube-root prefactor and coefficient-free -1/3 exponent)
  *   @see imp-35720-prefactor-M-independence-ladder (prefactor flat across an abstract M-ladder)
@@ -79,14 +79,14 @@ export const IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF = Object.freeze({
     changesAnyBound: false,
     dischargesAnyObligation: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
     'CROSS-REFERENCE NOTE (documentation only). Links imp-35696, imp-35720, and imp-35724 as a single collision-' +
     'scale prefactor cluster: derivation -> abstract-ladder flatness check -> concrete-landmark propagation, with ' +
     'the prefactor ((pi^2/3)/C_C)^{1/3} ~ 2.0467 staying a pure M/N-independent amplitude and the -1/3 exponent ' +
-    'untouched throughout. Ports nothing; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched throughout. Ports nothing; changes no bound; NO QED. No refereed bound is changed.',
 });
 
 export const IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF_ASSERTIONS = [
@@ -138,14 +138,14 @@ export const IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF_ASSERTIONS = [
       IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.honestCaveat.dischargesAnyObligation === false &&
       IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.honestCaveat.portsAnyRoute === false &&
       IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.honestCaveat.sota),
   },
   {
     id: 'imp35798-verdict-no-qed',
-    why: 'The verdict must record NO QED and the Platt-Trudgian SOTA floor, matching every source module.',
+    why: 'The verdict must record NO QED and the no-refereed-bound-change floor, matching every source module.',
     holds: () =>
       /NO QED/.test(IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP35798_COLLISION_SCALE_PREFACTOR_CROSSREF.verdict),
   },
 ];
 

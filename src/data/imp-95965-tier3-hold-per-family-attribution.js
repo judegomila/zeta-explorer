@@ -47,7 +47,7 @@
  * integral value -4 C_1 m - (C_1 + K) + O(m^-3), not to a family-resolvable law.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO
- * Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the offline accum literals and the
+ * Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the offline accum literals and the
  * leading-coefficient identity 4 C_1 = -8 INT v^2 zeta; the closed-form per-family leading coefficients
  * are checked ARITHMETICALLY at import (no quadrature).
  *
@@ -113,7 +113,7 @@ export const TIER3_HOLD_PER_FAMILY_ATTRIBUTION = Object.freeze({
     + 'base scalars are jointly under-determined (one scalar constraint per m cannot fix two unknowns) and '
     + 'are not among the imp-95901 per-locus laws (the accumulation constant of integration), so they admit '
     + 'no per-family split; the attributable part (alpha/beta/gamma/delta accumulated slope) is CLOSED. '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -198,7 +198,7 @@ export const TIER3_HOLD_PER_FAMILY_ATTRIBUTION = Object.freeze({
     + 'zeta) and carry ~1e-3 relative error, sufficient to confirm the O(m) leading coefficient and the '
     + 'finite subleading constant but NOT to pin K to full precision. The base scalars are not evaluated. '
     + 'Q0_RECON faithfulness is certified only at m=20 (imp-95822 residual). Catalan G irrationality OPEN; '
-    + 'Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const TIER3_HOLD_PER_FAMILY_ATTRIBUTION_ASSERTIONS = Object.freeze([
@@ -257,7 +257,7 @@ export const TIER3_HOLD_PER_FAMILY_ATTRIBUTION_ASSERTIONS = Object.freeze([
         && /under-determined base scalars/.test(v.outcome)
         && /SECOND independent relation/.test(v.remainingObstruction)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

@@ -69,7 +69,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643); changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33796-nhalf-below-ncross-independent-recompute (strict ordering N_half < N_cross, landmarks)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form N_cross fixed point, E_flow offset)
@@ -231,7 +231,7 @@ export const IMP124896_SIGMA_MONOTONE_HALF_CROSSOVER_CLOSED_FORM = {
     'finite difference of sigma to ~1e-10. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33848 (roadmap currentStatus: N_half<N_cross reduced to E_flow>0 and sigma monotone, latter ' +
     'asserted); imp-33796 (independent N_half < N_cross recompute); imp-33723 (closed-form N_cross, ' +
@@ -280,13 +280,13 @@ export const IMP124896_SIGMA_MONOTONE_HALF_CROSSOVER_CLOSED_FORM_ASSERTIONS = [
       Math.abs(CF_HALF.dlnR) < 1e-2,
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed.
     id: 'imp124896-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124896_SIGMA_MONOTONE_HALF_CROSSOVER_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP124896_SIGMA_MONOTONE_HALF_CROSSOVER_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP124896_SIGMA_MONOTONE_HALF_CROSSOVER_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP124896_SIGMA_MONOTONE_HALF_CROSSOVER_CLOSED_FORM.verdict),
   },
 ];
 

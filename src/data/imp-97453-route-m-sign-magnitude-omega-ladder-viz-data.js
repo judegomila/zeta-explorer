@@ -30,7 +30,7 @@
  *   @see imp-97389-route-m-sign-law-omega-ladder-viz-data.js (prior SIGN-only ladder, superseded in scope by the two-ladder view here)
  *
  *   Ticket: imp-97453 (ux, sonnet-4-6, sonnet). Presentation of already-established results; adds no
- *   new Lambda bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   new Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- SIGN ladder: elementary domination through omega=4 (imp-97352), omega=5 reduced (imp-97423). --
@@ -97,7 +97,7 @@ export const IMP97453_SUMMARY = Object.freeze({
 });
 
 export const IMP97453_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Combined status view of the Route M b/4-ceiling cohort: the ' +
+  'RH open; no refereed bound is changed; NO QED. Combined status view of the Route M b/4-ceiling cohort: the ' +
   'SIGN law T(b)<0 is PROVED elementarily through omega=4 (imp-97333/imp-97352) and REDUCED at omega=5 to a ' +
   'uniform tail lemma via a two-sided Binet bracket (imp-97423); the companion MAGNITUDE condition |Delta(b)|<=b/2 ' +
   'collapses to |T(b)|<=1/4 and is CONDITIONAL on a single hypothesis MCM, numerically verified only through ' +

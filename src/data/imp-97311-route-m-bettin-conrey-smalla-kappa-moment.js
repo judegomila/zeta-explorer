@@ -58,7 +58,7 @@
  *
  *   Derivation + measurement only; pins NO coefficient value for g(b); no bound moves; the only
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97311-uniform-crossover-second-moment -- the fixed-a moment Sum kappa_a^2/a^2
  *   DIVERGES (each term 1/4), so it cannot pin B* nor separate b^(1/2) from log^2 b; that separation
@@ -187,7 +187,7 @@ export const IMP97311_VERDICT = Object.freeze({
     'pin B* = 2 Sum g(b)/b^2; the separation needs the UNIFORM (a ~ b) remainder profile of ' +
     'I(a,b) = (a/2) log b + d_a + o(1), the true two-variable second moment. Derivation + measurement ' +
     'only; no coefficient pinned; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first ' +
-    'by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97311_SUBGAP = Object.freeze({
@@ -205,7 +205,7 @@ export const IMP97311_SUBGAP = Object.freeze({
 });
 
 export const IMP97311_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the small-a ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the small-a ' +
   'Bettin-Conrey asymptotic of the Vasyunin coefficient is I(a,b) = (a/2) log b + d_a + o(1), i.e. ' +
   'kappa_a = a/2 EXACTLY for every fixed a (confirmed to 5-6 digits for a = 1..10, matching the ' +
   'rigorous a=1 border 1/2), because V(a,b) has b log b coefficient -1/pi independent of a and no ' +
@@ -279,7 +279,7 @@ const IMP97311_ASSERTIONS = [
       IMP97311_VERDICT.computeBindsFirst === true &&
       IMP97311_VERDICT.kappaClosedForm === 'a/2' &&
       /NO QED/.test(IMP97311_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97311_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97311_HONEST_BANNER) &&
       /RH open/.test(IMP97311_HONEST_BANNER) &&
       /uniform-crossover-second-moment/.test(IMP97311_SUBGAP.id),
   },

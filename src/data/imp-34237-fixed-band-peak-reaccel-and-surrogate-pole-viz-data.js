@@ -37,8 +37,7 @@
  *
  *   Ticket: imp-34237 (ux, low). Viz-data only, presentation/no-bound-change;
  *   descriptive surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per
- *   imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2
- *   remains SOTA.
+ *   imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.
  *
  *   IMPORT-WEIGHT AUDIT (imp-34277): this module and the page it feeds
  *   (Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx) were traced for transitive
@@ -98,7 +97,7 @@ export const IMP34237_FIXED_BAND_PEAK_REACCEL_AND_SURROGATE_POLE_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-34169 measurement on one shared ' +
     'k-axis; adds no new derivation and changes no bound. Descriptive surrogate/fit, NOT ' +
     'a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 ' +
-    'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34237_ASSERTIONS = [

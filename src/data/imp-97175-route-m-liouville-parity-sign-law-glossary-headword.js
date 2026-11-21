@@ -38,14 +38,14 @@
  *   STATUS: glossary headword restating already-committed imp-97140 (measurement) and imp-97167
  *   (derivation) findings, not a new estimate. Establishes no uniform sign certificate for all
  *   non-primorial b (that remains the imp-97167 named residual); moves no bound; interval-rigorous
- *   reach unchanged; T ~ 2.594e7 anchor unchanged; PT Lambda <= 0.2 SOTA; RH open. NO QED.
+ *   reach unchanged; T ~ 2.594e7 anchor unchanged; no refereed bound is changed; RH open. NO QED.
  *
  * @see imp-97140-route-m-fixed-omega-residual-cohorts.js (source: the measured sign + magnitude laws)
  * @see imp-97167-route-m-parity-sign-law-derivation.js (source: the derivation, orientation correction,
  *   and primorial-collapse mechanism)
  *
  * Ticket: imp-97175 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Liouville-parity headword, baked verbatim (no re-import).
@@ -81,7 +81,7 @@ const ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_HEADWORD = Object.freeze({
     'imp-97140 data rather than its own mislabeled rule string); no new numerical computation. ' +
     'Establishes no uniform non-cancellation certificate for all non-primorial b (imp-97167 named ' +
     'residual, tracked separately by imp-97187 for string reconciliation across consumers); moves ' +
-    'no bound; T ~ 2.594e7 anchor unchanged; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no bound; T ~ 2.594e7 anchor unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD = Object.freeze({
@@ -102,8 +102,8 @@ export const IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD = Obje
     'sign(r(b)) = (-1)^(omega(b)+1) (r > 0 for omega odd), correcting the imp-97140 rule string ' +
     '"(-1)^omega(b)" which was mislabeled relative to its own cohort data. Readers should not treat ' +
     'this as literally Moebius mu, and should use the (-1)^(omega+1) orientation. Establishes ' +
-    'nothing new; moves no bound; interval-rigorous reach unchanged; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing new; moves no bound; interval-rigorous reach unchanged; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97140 (the measured sign + magnitude laws across fixed-omega cohorts); imp-97167 (the ' +
     'derivation, orientation correction, and primorial-collapse mechanism).',
@@ -131,11 +131,11 @@ export const IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp97175-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP97175_ROUTE_M_LIOUVILLE_PARITY_SIGN_LAW_GLOSSARY_HEADWORD.glosses === 'imp-97140',
   },
 ];

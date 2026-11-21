@@ -41,8 +41,7 @@
  * imp-34687a directed-rounding layer as imp-34817/imp-34818/imp-34843, not the layer itself; F(m) = 0
  * remains a double-precision artifact and the machine certificate imp-34714a REMAINS OPEN. C_C = 1/8
  * ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0
- * untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34861-krawczyk-crosscheck-band-sensitivity (edge-only band sensitivity this minimises over)
  * @see imp-34843-krawczyk-n-op-star-vs-deltastar-floor-crosscheck (the single-G headroom cross-check)
@@ -221,7 +220,7 @@ export const IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND = {
     'artifact. Measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34861 (edge-only band sensitivity; band-min 2555.2, band-max 2561.4); imp-34843 (n_op* vs ' +
     'delta*-floor cross-check; single-G center 2558.1); imp-34817 (n_op* = G/((1+G) eps) ' +
@@ -266,15 +265,15 @@ export const IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND_ASSERTIONS = [
       PUBLISHED_CENTER < maxVal, // the single-G center sits inside the band range
   },
   {
-    // Honesty gate: worst-case minimisation / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: worst-case minimisation / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34883-honesty-gate-no-qed',
-    description: 'worst-case headroom minimisation: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'worst-case headroom minimisation: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND.isRigorous === false &&
       /imp-34714a/.test(IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND.subGap) &&
       /REMAINS OPEN/.test(IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND.subGap) &&
       /NO QED/.test(IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND.verdict) &&
-      /remains SOTA/.test(IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND.verdict),
+      /refereed bound is changed/i.test(IMP34883_KRAWCZYK_WORSTCASE_HEADROOM_BAND.verdict),
   },
 ];
 

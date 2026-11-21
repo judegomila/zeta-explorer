@@ -50,7 +50,7 @@
  * [~1.38e12, ~1.76e12] (width ratio ~1.27), a proper subset at its lower end, still five-to-six decades past
  * the PT anchor L = 5.9e6 where basis C keeps ~5 decades of independence headroom. Cross-validation /
  * extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96430-basis-c-corroboration-reach-crossover (the coarse-min-sweep band this de-jitters)
  * @see imp-96389-three-basis-rho-crossvalidation-table (basis-C L-linear floor is the binding floor)
@@ -230,7 +230,7 @@ export const IMP96444_BASIS_C_FLOOR_SLOPE_DEJITTER = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. The crossover L* is still an EXTRAPOLATION -- the robust L-linear slope is calibrated only on accessible L (<= 960) and the direct integral is never evaluated at L ~ 1e12, so L* is a projected reach of an independence property, not a measured one. The median-over-resolved-ppp estimator removes the min-sweep jitter but the free log-log exponent (~1.30) shows the roundoff floor is not exactly L-linear, so the narrowed band is a tighter but still model-dependent projection. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Re-measuring the basis-C direct-integral floor as the MEDIAN error over a dense, fully-resolved high-ppp sweep (immune to the min-sweep zero-crossing jitter) yields a monotone floor sequence with tightly clustered robust L-linear slopes (~6.2e-15 median-of-slopes to ~8.0e-15 Theil-Sen). Re-bisecting the corroboration crossover narrows the imp-96430 band [~1.3e12, ~2.5e12] (width ratio ~1.92) to [~1.38e12, ~1.76e12] (width ratio ~1.27), a proper subset at its lower end, still five-to-six decades past the PT anchor L = 5.9e6 where basis C keeps ~5 decades of independence headroom. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Re-measuring the basis-C direct-integral floor as the MEDIAN error over a dense, fully-resolved high-ppp sweep (immune to the min-sweep zero-crossing jitter) yields a monotone floor sequence with tightly clustered robust L-linear slopes (~6.2e-15 median-of-slopes to ~8.0e-15 Theil-Sen). Re-bisecting the corroboration crossover narrows the imp-96430 band [~1.3e12, ~2.5e12] (width ratio ~1.92) to [~1.38e12, ~1.76e12] (width ratio ~1.27), a proper subset at its lower end, still five-to-six decades past the PT anchor L = 5.9e6 where basis C keeps ~5 decades of independence headroom. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (de-jittered floor + narrowed crossover) ---
@@ -273,8 +273,8 @@ export const IMP96444_BASIS_C_FLOOR_SLOPE_DEJITTER = {
   // honesty gates
   if (!/NO QED/.test(IMP96444_BASIS_C_FLOOR_SLOPE_DEJITTER.verdict))
     throw new Error('imp-96444: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96444_BASIS_C_FLOOR_SLOPE_DEJITTER.verdict))
-    throw new Error('imp-96444: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96444_BASIS_C_FLOOR_SLOPE_DEJITTER.verdict))
+    throw new Error('imp-96444: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96444_BASIS_C_FLOOR_SLOPE_DEJITTER;

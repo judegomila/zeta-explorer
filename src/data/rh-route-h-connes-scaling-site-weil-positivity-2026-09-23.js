@@ -4,7 +4,7 @@
  * attack Weil positivity on the Connes–Consani adelic SCALING SITE, the one geometry with
  * a second direction (idele-class / p-adic fibre) supporting transfer / Markov /
  * Osterwalder–Schrader tools. Two tests from the synthesis were run with real math and
- * cheap numerics. RH OPEN; PT Lambda <= 0.2 stands; NO QED.
+ * cheap numerics. RH OPEN; no refereed bound is changed; NO QED.
  *
  * SETUP (semilocal S = {oo, 2}). X_S = (R x Q_2)/{+-2^n}; C_S = R_+^x x Z_2^x. The scaling
  * flow U(lambda), lambda in R_+^x, has (i) the continuous fixed fibre y = 0 -> archimedean
@@ -284,7 +284,7 @@ export const RH_ROUTE_H_CONNES_SCALING_SITE = Object.freeze({
   id: 'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23',
   route: 'H — Weil positivity on the Connes–Consani adelic scaling site (semilocal S = {oo, 2}); the opening named by the A–G sweep',
   synthesis: 'src/data/rh-novel-routes-sweep-synthesis-2026-09-23.js (opening.nextTests[0], [1])',
-  status: 'BOTH TESTS RUN — no new lever: second direction is block-diagonal (a family, spectrally inert for zeta); archimedean-only positivity radius a_* = 0.3716 (odd) / 0.4101 (even) vs ln2/2 = 0.3466; positivity across ln 2 is an archimedean-vs-p=2 CANCELLATION to 5-6 relative digits on the Slepian gap function = Weil positivity itself; RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'BOTH TESTS RUN — no new lever: second direction is block-diagonal (a family, spectrally inert for zeta); archimedean-only positivity radius a_* = 0.3716 (odd) / 0.4101 (even) vs ln2/2 = 0.3466; positivity across ln 2 is an archimedean-vs-p=2 CANCELLATION to 5-6 relative digits on the Slepian gap function = Weil positivity itself; RH open; no refereed bound is changed; NO QED',
   setup: {
     space: 'X_S = (R x Q_2)/{+-2^n}, C_S = R_+^x x Z_2^x; scaling flow U(lambda); fixed fibre y=0 -> W_oo, periodic orbit of period ln 2 -> W_2; S_{ln 2} on R = 2-adic scaling by 2 (valuation shift)',
     form: 'W(h) = Sum_rho Ghat(rho), g = h*h~, h in L^2(-a,a): poles + archimedean - Sum_{ln n<2a} Lambda(n) n^{-1/2}(g(ln n)+g(-ln n)); only p=2 for a < (ln 3)/2',

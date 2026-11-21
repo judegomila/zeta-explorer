@@ -52,7 +52,7 @@
  * surrogate crossover map, NOT a rigorous asymptotic. Treats C_mb as a free knob to measure the gap curvature;
  * does NOT tighten or discharge the GUE conditional (imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34824-inflection-crossover-gap-cmb-sweep (the coarse sweep + the +2.15e-2/unit elasticity at C_mb=1)
  * @see imp-34838-cmb-zero-gap-precise-root-and-elasticity (the zero C_mb* ~ 0.5116, ~6.8x local steepening)
@@ -285,8 +285,8 @@ export const IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE = {
     'C_mb falls, accelerating the sign-flip. Second-order diagnostic of an imp-34824 landmark; treats C_mb as ' +
     'a free knob; does NOT tighten or discharge the GUE conditional (imp-486); the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'CLOSES the second-order question left open by imp-34824 (which quoted d(relGap)/dC_mb only at C_mb = 1): ' +
     'the elasticity is NOT constant -- it rises ~25x across the sweep under a uniformly-negative, ' +
@@ -352,16 +352,16 @@ export const IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE_ASSERTIONS = [
       IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.cmbStar < 0.52,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34844-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.isRigorous === false &&
       IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.farTailExponent === 0.5 &&
       typeof IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.subGap === 'string' &&
       /imp-486/.test(IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.subGap) &&
       /NO QED/.test(IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.verdict) &&
-      /remains SOTA/.test(IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.verdict),
+      /refereed bound is changed/i.test(IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE.verdict),
   },
 ];
 

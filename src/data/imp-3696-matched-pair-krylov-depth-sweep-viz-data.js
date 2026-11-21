@@ -19,7 +19,7 @@
  * @see imp-3645-skew-toeplitz-krylov-depth-vs-N-law.js (the undiscriminated two-point bracket)
  *
  * Ticket: imp-3696 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP3696_MATCHED_ANCHORS = [

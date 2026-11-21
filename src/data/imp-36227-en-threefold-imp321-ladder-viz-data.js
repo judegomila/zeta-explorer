@@ -80,7 +80,7 @@ export const IMP36227_EN_THREEFOLD_VIZ_DATA = {
     'and changes no bound. Measurement only; certifies no W1 bound; establishes no operator ' +
     'positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and ' +
     'C_mb GUE-conditional (imp-486) are UNTOUCHED; the E(N) surrogate does NOT tend to 0 on the ' +
-    'current model (imp-35164); imp-35337a stays OPEN; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'current model (imp-35164); imp-35337a stays OPEN; NO QED. No refereed bound is changed.',
 };
 
 export const IMP36227_VIZ_ASSERTIONS = [
@@ -130,13 +130,13 @@ export const IMP36227_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp36227-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, imp-486, imp-35164 (does not tend to 0), NO QED, SOTA',
+    description: 'honest status references measurement-only, imp-486, imp-35164 (does not tend to 0), NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP36227_EN_THREEFOLD_VIZ_DATA.honest) &&
       /imp-486/.test(IMP36227_EN_THREEFOLD_VIZ_DATA.honest) &&
       /does NOT tend to 0/.test(IMP36227_EN_THREEFOLD_VIZ_DATA.honest) &&
       /NO QED/.test(IMP36227_EN_THREEFOLD_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP36227_EN_THREEFOLD_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP36227_EN_THREEFOLD_VIZ_DATA.honest),
   },
 ];
 

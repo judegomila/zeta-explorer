@@ -32,14 +32,14 @@
  *   A glossary-style lookup restating the imp-95721 edge-dominance derivation and the
  *   resulting r_eff band for quick reference. It establishes nothing, instantiates no
  *   interval, closes no sub-gap, moves no bound. imp-2519 no-overclaim guard preserved;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-95721-cf-alpha-weight-density-pinned (source: the edge-dominance derivation and r_eff band this glosses)
  * @see imp-95705-cf-integrated-reach-measured (the heuristic single-alpha reach profile this supersedes)
  * @see imp-95660-cf-multiplier-wedge-closure (the box-min gap model re-evaluated at the derived r_eff)
  *
  * Ticket: imp-95755 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The edge-dominance headword, baked verbatim (no re-import).
@@ -90,7 +90,7 @@ export const IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD = Obj
     'the near-anchor edge because reach(alpha) ~ 0.860/(1-alpha), so the effective multiplier ' +
     'r_eff is set by the near-anchor cutoff (6.1-8.6x at physical cutoffs of 1-10 mean ' +
     'spacings) rather than by the bulk midpoint (1.914x). Establishes nothing; instantiates ' +
-    'no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95721 (edge-dominance derivation and r_eff band); imp-95705 (heuristic single-alpha ' +
     'reach profile this supersedes); imp-95660 (box-min gap model re-evaluated at r_eff); ' +
@@ -117,11 +117,11 @@ export const IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp95755-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD.verdict) &&
       IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD.glosses === 'imp-95721' &&
       IMP95755_CF_ALPHA_FLIP_REACH_EDGE_DOMINANCE_GLOSSARY_HEADWORD.scopes === 'imp-95705',
   },

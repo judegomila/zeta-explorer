@@ -114,7 +114,7 @@ export const ROUTE_2 = Object.freeze({
     + 'uses the full-height wall at X), and a Polymath-style hybrid cannot beat U up to ≈ 1e-24. Route-P values reproduced exactly: P-cert '
     + '0.146660920737233; P-cond 0.144797588795775 (conditional on WOL-C), margin 2.02e-4 below 0.145. Under Thm 1.2 the floor enters only '
     + 'through containment; every certified floor lies below y0 = 0.18727199, so 0.1787854 and 0.1758354 stay put. The existing lane fails at '
-    + 'y0 = 0.1809 (Arb row lbound −0.0218). PT Lambda <= 0.2 stands; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
+    + 'y0 = 0.1809 (Arb row lbound −0.0218). No refereed bound is changed; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
 });
 
 const R = ROUTE_2;
@@ -172,7 +172,7 @@ export const ROUTE_2_ASSERTIONS = Object.freeze([
   {
     id: 'r2-referee-scope',
     holds: () => R.hybrid.minCkChecked === false && R.hybrid.jumpSumBound <= 1e-24 && /producer-certified only/.test(R.floors[6].grade)
-      && R.floorsNoVerdict.length === 2 && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.status === 'done',
+      && R.floorsNoVerdict.length === 2 && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.status === 'done',
     why: 'Referee corrections carried: hybrid proved up to 1e-24 only; floor 0.022 graded lower; 0.021/0.020 have no verdict; no QED.',
   },
 ]);

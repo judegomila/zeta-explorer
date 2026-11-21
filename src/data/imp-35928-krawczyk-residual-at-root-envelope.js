@@ -47,7 +47,7 @@
  * finding, the absolute floor is surrogate-limited. Instantiates NO interval; ports NO operator; the
  * imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8
  * (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35855-rclean-interval-de-cancellation-assessment (F(m)=0 double-precision artifact; de-cancelled dG node)
  * @see imp-35925-krawczyk-interior-subtraction-audit (NODE G: residual-at-root a-independent; never measured)
@@ -245,7 +245,7 @@ export const IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE = {
     'a-independent residual width is NECESSARY but not SUFFICIENT. Reuses the imp-35266/imp-35766/imp-35810/' +
     'imp-35855 machinery (identical K, delta, S_inf, aOf, ladder); C_C = 1/8 (imp-2642/2643) and C_mb ' +
     'GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35855 (F(m)=0 double-precision artifact; de-cancelled dG node); imp-35925 (NODE G residual-at-root ' +
     'a-independent, never measured); imp-35885 (NODE B F(m)=0 root-proximity); imp-35810 (eps_mach/a dG-node ' +
@@ -283,15 +283,15 @@ export const IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE_ASSERTIONS = [
     holds: () => TOP.envEpsOverA > BOTTOM.envEpsOverA && TOP.envEpsOverA > 0,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35928-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE.subGap) &&
       /NO QED/.test(IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE.verdict) &&
-      /remains SOTA/.test(IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE.verdict),
+      /refereed bound is changed/i.test(IMP35928_KRAWCZYK_RESIDUAL_AT_ROOT_ENVELOPE.verdict),
   },
 ];
 

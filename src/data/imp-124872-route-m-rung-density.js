@@ -49,7 +49,7 @@
  * 8.597, R^2 0.567) and the single-bracket 7.499 is a coincidental endpoint-average, NOT a stable local
  * slope. Inserting intermediate heights does NOT stabilize the 7.5 reading; it exposes the imp-97659/imp-124789
  * oscillation resolved within one rung. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith
- * unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-124789-route-m-shallow-ladder-extprec.js (dps=40 shallow ladder; third rung 7.49854, turnover)
  * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (original 7-fig shallow ladder)
@@ -180,12 +180,12 @@ export const IMP124872_VERDICT = Object.freeze({
     'coincidental endpoint-average across an oscillating residual, NOT a stable local decay slope -- ' +
     'inserting intermediate heights does NOT stabilize the 7.5 reading, it exposes the ' +
     'imp-97659/imp-124789 oscillation resolved within a single rung. MCM stays refuted from omega=11; ' +
-    'b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; ' +
+    'b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP124872_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Rung-density test (dps=40, full-precision constants) of ' +
+  'RH open; no refereed bound is changed; NO QED. Rung-density test (dps=40, full-precision constants) of ' +
   'the wide imp-124789 Route M third rung (omega 100000 -> 148933): five intermediate heights show the ' +
   'residual is NON-MONOTONE (local magnitude minimum near p~1.73M then a rise), so the sub-rung exponents ' +
   'scatter -25 .. +26 (q_fit 8.597, R^2 0.567) and the single-bracket 7.499 is an endpoint-average, not a ' +
@@ -259,7 +259,7 @@ const IMP124872_ASSERTIONS = [
       IMP124872_VERDICT.anyBoundMoved === false &&
       IMP124872_VERDICT.qed === false &&
       /NO QED/.test(IMP124872_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP124872_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124872_HONEST_BANNER) &&
       /RH open/.test(IMP124872_HONEST_BANNER),
     why: 'measurement only -- MCM refuted from omega=11; no bound moved; no QED.',
   },

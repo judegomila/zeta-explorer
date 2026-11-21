@@ -55,4 +55,4 @@ export const IMP95808_CAVEAT_BANNER =
   'not an RH bound; the 13 measured cells sit inside a 27-cell (delta, rho) grid ' +
   'because the two sources are delta-disjoint -- the other 14 cells were never ' +
   'measured and are shown blank, not zero. Changes no bound of the Lambda ' +
-  'program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'program; NO QED; no refereed bound is changed.';

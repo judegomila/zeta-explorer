@@ -68,8 +68,7 @@
  *   growth class unresolved, driven by two tall tail clusters -- not the exact coefficients. The
  *   NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33639-cluster-peak-spacing-periodicity-fit.js (the spacing fit this complements; same scan)
  *   @see imp-33638-band-clearing-tail-reintensification-n900-1200.js (the seven [900,1200] tail clusters)
@@ -317,7 +316,7 @@ const verdict =
       'ULP);-THE-FIRST-FOURTEEN-PEAKS-SIT-IN-A-FLAT-~64..86-ULP-BAND.-CONSISTENT-WITH-THE-imp-33599/imp-33621/' +
       'imp-33638/imp-33639-latticeJitterCaveat-(THE-CLUSTERED-SPIKE-HEIGHTS-ARE-JITTER-DRIVEN,-SO-THE-EXACT-FIT-' +
       'COEFFICIENTS-ARE-NOT-ROBUST).-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-' +
-      'feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT = Object.freeze({
@@ -346,7 +345,7 @@ export const IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT = Object.freeze({
     'n ~ 1126,1198); the first fourteen peaks sit in a flat ~64..86 ULP band. VERDICT: ' +
     'HEIGHT-GROWS-WEAKLY-POSITIVE-GROWTH-CLASS-UNRESOLVED, consistent with the imp-33599/imp-33621/imp-33638/' +
     'imp-33639 latticeJitterCaveat. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-' +
-    'sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 SOTA.',
+    'sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -469,7 +468,7 @@ export const IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT = Object.freeze({
       '~19.1-vs-~23.3 residual RMS, and the ~0.33/~0.30/~0.27 growth-law R^2. The robust reading is the ' +
       'QUALITATIVE conclusion -- a weak positive trend, growth class unresolved, driven by two tall tail clusters ' +
       '-- not the exact fit coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -526,7 +525,7 @@ export const IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT_ASSERTIONS = [
   {
     id: 'imp33660-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT.honestCaveat;
       return (
@@ -535,7 +534,7 @@ export const IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

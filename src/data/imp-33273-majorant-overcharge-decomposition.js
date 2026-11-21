@@ -73,7 +73,7 @@
  *  - The N->infinity split is UN-certified; a finite 10-plateau measurement of the
  *    over-charge fraction is NOT a certified N-uniform statement.
  *  - Measurement only. imp-3910 C <= 54.56 (its 3 plateaus) stands as stated;
- *    imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *    imp-3066 K_a >= 0 UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-33269-all-plateaus-majorant-ratio-scan.js (source of the M/realised/Dmin aggregates)
  * @see imp-33250-tail-weight-ratio-n-uniformity-assessment.js (named this obstruction residual #2)
@@ -165,7 +165,7 @@ export const IMP_33273_MAJORANT_OVERCHARGE_DECOMPOSITION = Object.freeze({
       'tail. MEASUREMENT ONLY (exact reframing of the imp-33269 scan; genuineRMaj reproduces ' +
       'the baked K_real live): the N->infinity split is un-certified, and the over-charge is ' +
       'the PRICE of the rigorous 8/s_min^2 substitution, quantified -- not a defect to remove. ' +
-      'imp-3910 C <= 54.56 stands as stated; imp-3066 K_a >= 0 UNTOUCHED; PT Lambda <= 0.2 SOTA; NO QED.',
+      'imp-3910 C <= 54.56 stands as stated; imp-3066 K_a >= 0 UNTOUCHED; no refereed bound is changed; NO QED.',
   },
 
   closesResidual: {
@@ -197,7 +197,7 @@ export const IMP_33273_MAJORANT_OVERCHARGE_DECOMPOSITION = Object.freeze({
     noCertifiedNUniformConstant: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -266,7 +266,7 @@ export const IMP_33273_MAJORANT_OVERCHARGE_DECOMPOSITION_ASSERTIONS = [
     why:
       'Honesty guard: this quantifies the majorant over-charge but claims no certified ' +
       'N-uniform constant and no new Lambda bound, does not tighten the certified bound, ' +
-      'leaves imp-3066 untouched, and Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'leaves imp-3066 untouched, and no refereed bound is changed.',
   },
 ];
 

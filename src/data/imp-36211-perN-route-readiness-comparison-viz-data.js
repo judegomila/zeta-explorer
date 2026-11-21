@@ -10,8 +10,7 @@
  * storyline-cross-reference.js). No re-derivation, no new computation.
  *
  * Presentation only: closes nothing, discharges no gap, changes no bound;
- * C_mb stays GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * C_mb stays GUE-conditional (imp-486); NO QED; no refereed bound is changed.
  *
  * @see imp-36045-perN-translation-route-readiness-assessment.js (source ROUTES/scores/ranking)
  * @see imp-36164-perN-translation-storyline-cross-reference.js (arc cross-reference)

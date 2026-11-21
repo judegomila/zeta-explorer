@@ -67,7 +67,7 @@
  * proof; nor (ii) FULL / operator Weil positivity even inside the band -- the pole-free -> full
  * bridge (semilocal Sonine D_S<=L_S) is obstructed at 2a=ln2 and is not gap-free below ln3. The
  * interpretive gap is real and un-closed below ln3. This leaf establishes NO positivity theorem;
- * certified reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * certified reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * HONEST RESIDUAL -- SUB-GAP IMP97036_NO_INDEPENDENT_POLEFREE_TO_FULL_BRIDGE. This is an AUDIT: it
  * documents that the two named blockers (Rayleigh-upper-bound direction; Sonine obstruction at

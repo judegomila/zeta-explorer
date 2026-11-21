@@ -21,7 +21,7 @@
  * from imp-36062 is the second reference's FRAC_BITS (128 vs 96). MEASUREMENT / VALIDATION ONLY.
  * Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality;
  * changes no bound; establishes no positivity; the C_mb GUE-conditional constant (imp-486) is
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * RESULT: at all seven onset-region rungs the verdict is IDENTICAL under the 2^{-96} and the
  * stricter 2^{-128} reference, and the normalized errors agree to full 7-sig-fig display:
@@ -58,7 +58,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36062) -----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 
@@ -279,7 +279,7 @@ export const IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION = {
     '~1e-19 compensated floor everywhere, so precision is NOT binding on the ladder. Certifies no W1 bound; ' +
     'evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no ' +
     'positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36062 (located the onset at N~34000 against a 2^{-96} reference only); imp-36095 (intermittency band); ' +
     'imp-36023 (KBN=classic-Kahan at N<=1e4 but ~10x tighter by N~488602); imp-35852 (clustered worst ORDER); ' +
@@ -334,7 +334,7 @@ export const IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION_ASSERTIONS = [
   },
   {
     id: 'imp36098-honesty-gate',
-    description: 'Measurement/validation only; verdict survives stricter reference; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement/validation only; verdict survives stricter reference; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -344,7 +344,7 @@ export const IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP36098_KBN_KAHAN_ONSET_2E128_CROSSVALIDATION.verdict),
   },
 ];
 

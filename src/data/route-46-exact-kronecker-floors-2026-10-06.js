@@ -113,7 +113,7 @@ export const ROUTE_46 = Object.freeze({
   verdict: 'Kronecker suprema are certified from below at 12 cells (t = 0.075: ≥ 0.533514111339326); slice maxima k = 4/5 are float-validated '
     + 'only; k ≥ 6 is infeasible with this engine. These are lower bounds on cost and do not change Λ. On the exact consumer any floor '
     + 'improvement is capped at band = U2 = 0.144254643222956; exactness on the certified k ≤ 12 entries is worth 8.3e-5. The lever is WOL-C '
-    + 'on 369 P47 late-cell floors. PT Lambda <= 0.2 stands; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
+    + 'on 369 P47 late-cell floors. No refereed bound is changed; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
 });
 
 const R = ROUTE_46;
@@ -164,7 +164,7 @@ export const ROUTE_46_ASSERTIONS = Object.freeze([
   {
     id: 'r46-honest-scope',
     holds: () => R.status === 'partial' && /float-validated/.test(R.headline) && /MEASURED/.test(R.refereeKilled[2])
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict),
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict),
     why: 'Slice maxima graded measured, not certified; no Λ change; no QED.',
   },
 ]);

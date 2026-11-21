@@ -16,8 +16,8 @@
 // reported as its base-10 logarithm (decades) plus a normalized mantissa x 10^exp.
 //
 // Measurement only; the operative region stays classical throughout the window
-// with the inert per-zero factor ~0.845; changes no bound; NO QED; Platt-Trudgian
-// Lambda <= 0.2 remains SOTA (imp-3463 lineage).
+// with the inert per-zero factor ~0.845; changes no bound; NO QED; no refereed bound is changed
+//  (imp-3463 lineage).
 
 const ln = Math.log;
 const LN10 = Math.LN10; // 2.302585092994046
@@ -116,7 +116,7 @@ export const IMP_95632_VK_CROSSOVER_HEIGHT_GAP = {
     + 'classical MTY zero-free region only at a height utterly beyond any point of the '
     + 'window, so it offers ZERO unconditional saving anywhere the barrier operates -- '
     + 'the region stays classical with the inert per-zero factor ~0.845. Measurement '
-    + 'only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    + 'only; changes no bound; NO QED; no refereed bound is changed.',
   // self-check (log-space; the raw exp(10242) factor is not representable):
   //   gap in log t ~ 10204.75, gap in decades ~ 4431.87, normalized factor ~7.4e4431.
   holds: () =>

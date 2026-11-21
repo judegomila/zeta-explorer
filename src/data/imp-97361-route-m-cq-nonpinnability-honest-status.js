@@ -25,7 +25,7 @@
  * the analytic small-a asymptotic + crossover correction (inherits imp-97329-uniform-crossover-
  * mainterm-coupling), a wholly separate leaf from any finite-b extrapolation. No bound on Lambda
  * moves; the rigorous anchor stays the trace ceiling T = 2.594e7; compute N ~ 9916 (imp-96352)
- * binds first by >2600x; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * binds first by >2600x; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97334-route-m-cq-subleading-constant-evaluation.js (source of every verdict flag below)
  * @see imp-97207-route-m-farfield-intercept-derivation (the intercept coefficient cQ feeds)
@@ -33,7 +33,7 @@
  * @see imp-97329-route-m-uniform-crossover-second-moment (the analytic sub-gap that would pin cQ)
  *
  * Ticket: imp-97361 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97334_VERDICT_DEFAULT, { IMP97334_VERDICT, IMP97334_SUBGAP } from './imp-97334-route-m-cq-subleading-constant-evaluation.js';
@@ -63,8 +63,8 @@ export const IMP97361_HONEST_BANNER =
   'true sub-leading term grows sub-linearly (b^(1/2) or log^2 b, degenerate); and (ii) it is coupled to ' +
   'the exact leading slope with sensitivity |d cQ / d s0| = b exactly, so a longer ladder WIDENS the ' +
   'band rather than narrowing it. Pinning cQ needs the analytic Bettin-Conrey small-a asymptotic + ' +
-  'crossover correction, not more finite-b compute. No bound on Lambda moves; PT Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'crossover correction, not more finite-b compute. No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97361_ASSERTIONS = [
@@ -90,9 +90,9 @@ const IMP97361_ASSERTIONS = [
       IMP97361_STATUS.qed === false &&
       IMP97361_STATUS.pinnableConstant === false &&
       /NO QED/.test(IMP97361_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97361_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97361_HONEST_BANNER) &&
       /RH open/.test(IMP97361_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

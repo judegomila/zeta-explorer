@@ -5,7 +5,7 @@
  *   ASSESS whether the Step-4 E(N) bridge constants (G6_polymath15_bridge, imp-345)
  *   can consume it. Assessment / scoping ONLY: closes NOTHING, discharges no gap,
  *   the per-N translation stays OPEN, respects the imp-2519 no-overclaim guard,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -200,7 +200,7 @@ export const IMP36082_ROUTEB_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY = Object.fr
     'the rate EXISTS explicitly and unconditionally, but the bridge cannot consume it per-N without the missing ' +
     'anchor. Matches the imp-36045 Route-B verdict, adding the explicit r(N) FORM and the precise blocker ' +
     '(missing per-N anchor, not a missing rate). Closes NOTHING; discharges no gap; per-N stays OPEN; respects ' +
-    'the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed.',
 
   rateForms: Object.freeze({
     discrepancy_DN: 'D(N) = (pi C_Selberg / sqrt(2 pi)) log gamma_N / sqrt(N)  [Theta(log N N^{-1/2})]',
@@ -252,7 +252,7 @@ export const IMP36082_ROUTEB_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY = Object.fr
       'assessment that it bounds only the shock-time DEVIATION, so the Step-4 E(N) bridge cannot consume it as a ' +
       'per-N bound on |t_c(N)| without an unconditional anchor (CONSUMABLE-MODULO-ANCHOR). Closes nothing; per-N ' +
       'translation stays OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -318,7 +318,7 @@ export const IMP36082_ROUTEB_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY_ASSERTIONS 
   {
     id: 'imp36082-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a DERIVATION+ASSESSMENT that closes NOTHING, discharges no gap, keeps the per-N ' +
-         'translation OPEN, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'translation OPEN, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36082_ROUTEB_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY.honestCaveat;
       return (
@@ -330,7 +330,7 @@ export const IMP36082_ROUTEB_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY_ASSERTIONS 
         h.perNTranslationStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

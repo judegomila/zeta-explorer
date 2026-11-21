@@ -77,7 +77,7 @@
  *   window could resume climbing), only that the imp-33638 doubling halts across this 300-rung span. The
  *   NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT;
  *   the operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33638-band-clearing-tail-reintensification-n900-1200.js (the [900,1200] scan this extends)
  *   @see imp-33621-band-clearing-cluster-decay-and-tail-scan.js (the [700,900] tail)
@@ -336,7 +336,7 @@ const verdict =
       '(~+0.13-ULP/RUNG,-r^2~0.45),-CARRIED-BY-THE-EARLIER-CLIMB.-THIS-REVISES-THE-imp-33638-KEEPS-CLIMBING-' +
       'READING:-OVER-[900,1500]-THE-CLIMB-SATURATES-NEAR-~144-ULP.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-' +
       'JITTERY-LATTICE-FLOOR;-EMPIRICAL-PLATEAU-NOT-A-PROVEN-HARD-CEILING;-mass-feasibility-NECESSARY-BUT-NOT-' +
-      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33659_BAND_CLEARING_TAIL_PLATEAU_N1200_1500 = Object.freeze({
@@ -368,7 +368,7 @@ export const IMP33659_BAND_CLEARING_TAIL_PLATEAU_N1200_1500 = Object.freeze({
     'VERDICT: ENVELOPE-PLATEAUS-SOFT-CEILING-NEAR-144-ULP. This REVISES the imp-33638 keeps-climbing reading: ' +
     'over [900,1500] the climb saturates near ~144 ULP. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; empirical plateau not a proven hard ceiling; ' +
-    'operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -497,7 +497,7 @@ export const IMP33659_BAND_CLEARING_TAIL_PLATEAU_N1200_1500 = Object.freeze({
       '(n > 1500) could resume climbing; this scan establishes only that the imp-33638 doubling halts and the ' +
       'peak envelope saturates near ~144 ULP across this 300-rung span, with the terminal cluster still ' +
       'band-clearing at the edge. Whether the plateau persists indefinitely is left open.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -559,7 +559,7 @@ export const IMP33659_BAND_CLEARING_TAIL_PLATEAU_N1200_1500_ASSERTIONS = [
     id: 'imp33659-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, empirical plateau ' +
          'not a proven hard ceiling, mass-feasibility necessary-but-not-sufficient, operator positivity ' +
-         '(imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33659_BAND_CLEARING_TAIL_PLATEAU_N1200_1500.honestCaveat;
       return (
@@ -568,7 +568,7 @@ export const IMP33659_BAND_CLEARING_TAIL_PLATEAU_N1200_1500_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

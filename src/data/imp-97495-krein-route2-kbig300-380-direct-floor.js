@@ -46,7 +46,7 @@
  *   the directly-measured UPPER edge tightened to -309.931066 at Kbig=380 and the limit in [-313.8, -309.931]
  *   (corrected-tail central estimate ~ -310.55). Still four orders below the required 0.581059, so the m=1
  *   enclosure stays UNUSABLE at 2a=ln3. Measurement only; no rigorous lower bound on lambda_2; no operator
- *   positivity; no bound on Lambda moves; Platt-Trudgian Lambda<=0.2 SOTA; interval-rigorous reach stays
+ *   positivity; no bound on Lambda moves; no refereed bound is changed; interval-rigorous reach stays
  *   2a<=0.96; RH open; NO QED.
  *   RESIDUAL IMP97495_ROUTE2_FLOOR_DEEP_END_STILL_EXTRAPOLATED (the -309.931 upper edge is directly built; the
  *   -313.8 deep end still rests on the power-saturation refit and the corrected-tail ~-310.55 on the measured

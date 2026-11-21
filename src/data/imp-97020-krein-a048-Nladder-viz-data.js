@@ -69,7 +69,7 @@ export const IMP97020_LANDMARKS = Object.freeze({
 });
 
 export const IMP97020_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every floor, decrement, ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every floor, decrement, ' +
   'ratio, and cond(B) value plotted here is copied verbatim from imp-96998. The floors are ' +
   'finite-N Rayleigh UPPER bounds / positive-tail-dropped LOWER bounds, not a certified operator ' +
   'floor. The ladder is still pre-asymptotic (decrements accelerate through N~52) and the Gram ' +

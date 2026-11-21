@@ -73,7 +73,7 @@
  * the point estimate uses the nearest resolved anchor delta = ln 1.4. (c) F is
  * the same finite-size (80-point) proxy as imp-95693. (d) Model seam family
  * only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay
- * OPEN. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * OPEN. NO QED; no refereed bound is changed.
  *
  * @see imp-95693-twin-pair-block-floor-second-delta (the caveat this confirms)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the theta / Poisson dual)
@@ -150,7 +150,7 @@ export const IMP95708_LN12_LEFT_ENDPOINT_DUAL_CONFIRM = {
     "resolves a positive value above its own noise floor only at rho = 2. This " +
     "removes the spurious-negative artifact and confirms the imp-95693 caveat " +
     "(b) as a precision limit, not a mechanism failure. Changes no bound of the " +
-    "Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95708"],
 };
 
@@ -335,7 +335,7 @@ export const IMP95708_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /LEFT ENDPOINT CONFIRMED POSITIVE/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95708-closes-self",

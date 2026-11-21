@@ -49,7 +49,7 @@
  *   citations should carry sigma_crit ~ 0.0204 at eps = 1e-3 as the precision-independent figure)
  *
  * Ticket: imp-124802 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The E_CF noise-floor crossover headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -82,7 +82,7 @@ const ECF_NOISE_FLOOR_CROSSOVER_HEADWORD = Object.freeze({
     '~3.3e-7 across L2..L4, then turns back up at L6 (3.4e-12); the interpolated sigma_crit ~ ' +
     '0.013 lies strictly between L6 (0.005) and L5 (0.02). Naming / glossary headword only; ' +
     'supplies no new bound; the C_C 1/8 ansatz and E_trunc/E_flow component model are untouched; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD = Object.freeze({
@@ -101,7 +101,7 @@ export const IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD = Object.free
     'truncation plateau (relTrunc ~ 3.3e-7) across L2..L4, bottoms at the round-off floor ' +
     '(R ~ 4.5e-13) at L5, and turns back up at L6, pinning the crossover at |E_CF|_crit ~ 1.4e-6 ' +
     '(sigma_crit ~ 0.013) between L5 and L6. No bound moved; the component model and all pinned ' +
-    'surrogate constants are untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'surrogate constants are untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124769 (the crossover measurement this glosses); imp-97821 (L6 non-monotone eps-ladder, ' +
     'qualitative); imp-97710 (L5 clean O(eps^2) quartering); imp-97520 (landmark ladder L1..L4).',
@@ -114,7 +114,7 @@ export const IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD = Object.free
     'crossover measured against two floors, not two phenomena. Later citations should carry ' +
     'sigma_crit ~ 0.0204 (|E_CF|_crit ~ 3.36e-6) at eps = 1e-3 as the precision-independent figure; ' +
     'the ~0.013 value above is the double-precision-floor-contaminated artifact of the same ' +
-    'crossover, kept here for provenance. NO QED; no bound moved; PT Lambda <= 0.2 remains SOTA.',
+    'crossover, kept here for provenance. NO QED; no bound moved; no refereed bound is changed.',
 });
 
 export default IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD;
@@ -137,11 +137,11 @@ export const IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp124802-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124769.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124769.',
     holds: () =>
       IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.glosses === 'imp-124769',
   },
   {

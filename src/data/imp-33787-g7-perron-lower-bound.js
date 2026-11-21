@@ -72,8 +72,8 @@
  *   imp-33704 / imp-33725 / imp-33765 -- NOT the section-26 Gram. The measured ||R(s)|| carries
  *   NO RH verdict. The K_a >= 0 positivity step is NOT attempted; this is a lower-bound
  *   FEASIBILITY assessment, and its verdict is NEGATIVE (no uniform positive floor). imp-3066 /
- *   imp-33704 / imp-33725 / imp-33765 / G7 are UNTOUCHED as a proof. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   imp-33704 / imp-33725 / imp-33765 / G7 are UNTOUCHED as a proof. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: the derived s one-dimensionality this dualises)
  *   @see imp-33725-g7-obstruction-a-scaling.js (imp-33725: the a ladder / monotone-in-s ceiling saturation)
@@ -280,14 +280,14 @@ export const IMP33787_G7_PERRON_LOWER_BOUND = Object.freeze({
     '||R(s)|| = C1*s + O(s^3) -> 0 (C1 ~ 3.6401763947), so the infimum is 0, attained only in the ' +
     'degenerate s -> 0 limit. The lower-bound route reduces to the still-open residual GAP-G7-SMIN ' +
     '(pin a*U away from 0). Diagnostic; K_a >= 0 NOT attempted; imp-3066 / G7 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 
   honestCaveat:
     'STRUCTURAL / DIAGNOSTIC on the SAME representative monomial truncation as imp-3066 / ' +
     'imp-33704 / imp-33725 / imp-33765, NOT the section-26 Gram. The measured ||R(s)|| carries NO ' +
     'RH verdict. This is a lower-bound FEASIBILITY assessment with a NEGATIVE verdict; the K_a >= 0 ' +
     'positivity step is NOT attempted. imp-3066 / imp-33704 / imp-33725 / imp-33765 / G7 are ' +
-    'UNTOUCHED as a proof. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.',
+    'UNTOUCHED as a proof. No refereed bound is changed. No false QED.',
 });
 
 // -- Self-executing tripwire assertions (run at import; mirror the imp-33765 family gate style) --
@@ -323,11 +323,11 @@ if (!(Math.max(...A.measured.monotoneSweep) < A.measured.perronCeiling)) {
   throw new Error('imp-33787 tripwire: ||R(s)|| exceeded the all-ones ceiling DEG+1');
 }
 
-// 7. Honesty gate: no RH verdict / no QED, K_a >= 0 not attempted, SOTA preserved.
+// 7. Honesty gate: no RH verdict / no QED, K_a >= 0 not attempted, no refereed bound is changed.
 if (
   !A.honestCaveat.includes('NO') ||
   !A.honestCaveat.includes('K_a >= 0 positivity step is NOT attempted') ||
-  !A.honestCaveat.includes('Lambda &lt;= 0.2')
+  !A.honestCaveat.includes('efereed bound is changed')
 ) {
   throw new Error('imp-33787 tripwire: honesty gate text weakened');
 }

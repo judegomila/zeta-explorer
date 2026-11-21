@@ -33,7 +33,7 @@
  *
  * Sweep / audit only; no model recomputation, no new bound, no bound touched; imports the
  * pinned imp-35968 / imp-35950 / imp-36022 objects and the LAMBDA_ROADMAP prose unchanged;
- * C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-36022-etrunc-ecoll-crossover-reconciliation (the stale-prose finding this sweeps outward from)
  * @see imp-35968-e-trunc-coll-crossover-location (the one module still carrying the stale header; fix queued as imp-36065)
@@ -91,8 +91,8 @@ export const IMP36088_CROSSOVER_LAMBDABOUNDS_STALE_PROSE_SWEEP = {
     'stays ISOLATED to that one module (fix queued separately as imp-36065); it has not propagated into ' +
     'the LambdaBoundsPage-facing prose. imp-35968 and imp-35950 stored values still agree to the same ' +
     '~0.0017-decade imp-36022 residual, confirming no fresh drift since that reconciliation. Sweep/audit ' +
-    'only; no bound touched; C_mb remains GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'only; no bound touched; C_mb remains GUE-conditional (imp-486); NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-36022 (source finding: stale docstring prose vs stored value); imp-35968 (the module carrying ' +
     'the stale header; fix queued as imp-36065); imp-35950 (sigma = 0.5 crossover definition); ' +
@@ -125,7 +125,7 @@ export const IMP36088_CROSSOVER_LAMBDABOUNDS_STALE_PROSE_SWEEP_ASSERTIONS = [
     check: () =>
       /NO QED/.test(IMP36088_CROSSOVER_LAMBDABOUNDS_STALE_PROSE_SWEEP.verdict) &&
       /GUE-conditional/.test(IMP36088_CROSSOVER_LAMBDABOUNDS_STALE_PROSE_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP36088_CROSSOVER_LAMBDABOUNDS_STALE_PROSE_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP36088_CROSSOVER_LAMBDABOUNDS_STALE_PROSE_SWEEP.verdict),
   },
 ];
 

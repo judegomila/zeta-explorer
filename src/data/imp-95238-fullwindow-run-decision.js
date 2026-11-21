@@ -20,7 +20,7 @@
  *      statement of the Gate-2 program — a milestone — but window 1 is one
  *      window: imp-95213 records 54,109,011 windows beyond window 1 untouched.
  *      A sub-total run sets NO G5 window-promotion flag and changes no bound;
- *      Platt-Trudgian Lambda <= 0.2 remains SOTA regardless.
+ *      no refereed bound is changed regardless.
  *
  *  (B) WAIT ON THE imp-95228 SECOND-LEVEL LEVER FIRST? THE WAIT IS OVER —
  *      AND IT DOMINATES. The frequency-bin second level the imp-95213
@@ -47,7 +47,7 @@
  * the G5 precision-replay factor. Even so it stays a milestone (first
  * full-window continuum statement), NOT a bound-mover: it covers only window 1
  * (54,109,011 windows beyond untouched), sets no promotion flag, and changes
- * no bound. Assessment only; launches nothing; NO QED; PT Lambda <= 0.2 SOTA.
+ * no bound. Assessment only; launches nothing; NO QED; no refereed bound is changed.
  */
 
 import {
@@ -93,7 +93,7 @@ export const FULLWINDOW_RUN_DECISION = Object.freeze({
     'times the G5 precision-replay factor (which multiplies both routes equally, leaving the ' +
     'tier-2 dominance precision-invariant). Even the tier-2 certificate is a milestone (first ' +
     'full-window continuum statement), NOT a bound-mover: window 1 only (54,109,011 windows ' +
-    'beyond untouched), sets no promotion flag, changes no bound. NO QED; PT Lambda <= 0.2 SOTA.',
+    'beyond untouched), sets no promotion flag, changes no bound. NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; arithmetic over frozen ledgers) ──
@@ -152,13 +152,13 @@ export const IMP95238_ASSERTIONS = [
   {
     id: 'imp95238-honesty-gate-recommendation-and-no-qed',
     description:
-      'fail-closed honesty: the recommendation says DO NOT launch the level-1 run, names the tier-2 dominance, keeps the result a milestone not a bound-mover, launches nothing, and states NO QED and PT-SOTA',
+      'fail-closed honesty: the recommendation says DO NOT launch the level-1 run, names the tier-2 dominance, keeps the result a milestone not a bound-mover, launches nothing, and states NO QED and no-refereed-bound-change',
     holds: () =>
       /DO NOT launch/.test(FULLWINDOW_RUN_DECISION.recommendation) &&
       /milestone/.test(FULLWINDOW_RUN_DECISION.recommendation) &&
       /changes no bound/.test(FULLWINDOW_RUN_DECISION.recommendation) &&
       /NO QED/.test(FULLWINDOW_RUN_DECISION.recommendation) &&
-      /SOTA/.test(FULLWINDOW_RUN_DECISION.recommendation),
+      /refereed bound is changed/i.test(FULLWINDOW_RUN_DECISION.recommendation),
   },
 ];
 

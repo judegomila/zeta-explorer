@@ -55,8 +55,7 @@
  *   feature floor is lower, ~620.70). It gives xi* or the sup NO closed form (the imp-3470
  *   stationarity equation stays transcendental) and does not extend the finite-domain (0, 400]
  *   measurement of the objective. RH-EQUIVALENT; the imp-3066 off-diagonal endpoint-Hankel
- *   K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3622-planted-replica-argmax-drift.js (parent: above-floor planted-feature drift test)
  *   @see imp-3582-replica-hiding-grid-threshold.js (worst-case floor N_replica ~ 764)
@@ -246,7 +245,7 @@ export const IMP3647_BELOW_FLOOR_REPLICA_FOLDIN_MARGIN = Object.freeze({
     'on dxi = 0.1 keeps 250 on-grid and reports it at every rung even where the replica is present -- ' +
     'the grid artifact that makes a naive drift-0 read unsafe below the floor; the decisive quantity ' +
     'is the in-band peak count. Measurement/certification only; RH-equivalent; the imp-3066 ' +
-    'K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. PT Lambda <= 0.2 SOTA.',
+    'K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective:
@@ -365,7 +364,7 @@ export const IMP3647_BELOW_FLOOR_REPLICA_FOLDIN_MARGIN = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -460,7 +459,7 @@ export const IMP3647_BELOW_FLOOR_REPLICA_FOLDIN_MARGIN_ASSERTIONS = [
     id: 'imp3647-honest-assessment-no-qed',
     why: 'Mandatory honesty: measures the sub-floor fold-in of a SYNTHETIC feature (not the |P1| ' +
       'objective) but NOT a closed form (equation transcendental), over the finite domain (0, 400], ' +
-      'measures the ratio not positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'measures the ratio not positivity, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3647_BELOW_FLOOR_REPLICA_FOLDIN_MARGIN.honestCaveat;
       return (
@@ -472,7 +471,7 @@ export const IMP3647_BELOW_FLOOR_REPLICA_FOLDIN_MARGIN_ASSERTIONS = [
         typeof c.syntheticNotObjective === 'string' &&
         typeof c.firstOrderAliasModel === 'string' &&
         typeof c.measuresRatioNotPositivity === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

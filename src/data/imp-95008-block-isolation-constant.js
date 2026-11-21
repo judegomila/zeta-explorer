@@ -101,7 +101,7 @@
  * the disjointness threshold on four parameter families, a discretized
  * vector realization for the norm chain); they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── the model packet family (one branch sign) ───────────────────────────────
@@ -265,7 +265,7 @@ export const IMP95008_BLOCK_ISOLATION_CONSTANT = {
     'Proposition M is unconditional given the recorded blockwise-collapse hypotheses; Theorem N is conditional on the same packet-width SUPPORT hypothesis Proposition C already carries. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS aggregation step: the cross-block Cauchy-Schwarz factor B = ceil(log2(p D)) in the recorded blockwise l2 collapse is replaced by min(j0, B) with the closed-form, p-free hyperbolic isolation constant j0 (= 3 at the reference family, vs B = 7), plus the unconditional mass-adaptive bound (sum sqrt(K_b m_b))^2 that always dominates the recorded bracket. The within-block multiplicities, packet-width constants, window ceiling, and the l2-to-pointwise step remain open. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS aggregation step: the cross-block Cauchy-Schwarz factor B = ceil(log2(p D)) in the recorded blockwise l2 collapse is replaced by min(j0, B) with the closed-form, p-free hyperbolic isolation constant j0 (= 3 at the reference family, vs B = 7), plus the unconditional mass-adaptive bound (sum sqrt(K_b m_b))^2 that always dominates the recorded bracket. The within-block multiplicities, packet-width constants, window ceiling, and the l2-to-pointwise step remain open. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -335,12 +335,12 @@ export const IMP95008_BLOCK_ISOLATION_ASSERTIONS = [
   {
     id: 'imp95008-bi-honesty-gate',
     description:
-      'the verdict names the conditional hypothesis, keeps the open residuals, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict names the conditional hypothesis, keeps the open residuals, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_BLOCK_ISOLATION_CONSTANT.promotesBound === false &&
       IMP95008_BLOCK_ISOLATION_CONSTANT.openResiduals.length === 4 &&
       /NO QED/.test(IMP95008_BLOCK_ISOLATION_CONSTANT.verdict) &&
-      /remains SOTA/.test(IMP95008_BLOCK_ISOLATION_CONSTANT.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_BLOCK_ISOLATION_CONSTANT.verdict) &&
       /SUPPORT/.test(IMP95008_BLOCK_ISOLATION_CONSTANT.theoremN),
   },
 ];

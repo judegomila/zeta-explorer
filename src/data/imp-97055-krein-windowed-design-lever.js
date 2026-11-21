@@ -66,7 +66,7 @@
  *   reaches eps everywhere (no-guard min F = 1.0), so the residual deficit is the between-grid guard, which a
  *   finer FINEH shrinks; but the partial 3e-5 sweep is non-monotone (BASE worst cycled -0.004 to -0.052) and
  *   a full-stall 3e-5 confirmation of the guard-limited floor is untested.
- * RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-97032-krein-tail-parametrisation-lever.js (parent: larger-T/denser-HP levers fail; dip structural; names richer-design lever)
  * @see imp-97013-krein-finer-fineh-3e5-convergence.js (FINEH=3e-5 exposes the design-F tail dip at ~14 rounds)

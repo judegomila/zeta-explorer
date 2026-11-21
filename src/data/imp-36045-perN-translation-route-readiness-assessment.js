@@ -68,7 +68,7 @@
  *   irreducible, imp-486). Ranking by readiness-to-usable-unconditional-per-N:
  *   C > B > A. This closes NOTHING;
  *   G3a_max_gap (Route C) stays the nearest named residual. C_mb stays GUE-
- *   conditional (imp-486). Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   conditional (imp-486). No refereed bound is changed.
  *
  *   @see src/data/lambda-roadmap.js (Step 3 need field; Step 5 G5-perN-translation obligation; VERIFICATION_EFFORTS routes A/B/C)
  *
@@ -168,7 +168,7 @@ export const IMP36045_PERN_TRANSLATION_ROUTE_READINESS_ASSESSMENT = Object.freez
     'lim-sup SOURCE but delivers only a microscopic ABSOLUTE rate (imp-348); its per-N O(1/N) upgrade needs ' +
     'local-law rigidity that re-imports GUE. Readiness ranking C > B > A. Assessment/scoping ONLY; closes ' +
     'NOTHING; discharges no gap; G3a_max_gap stays the nearest named residual; C_mb stays GUE-conditional ' +
-    '(imp-486); respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486); respects the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed.',
 
   axes: Object.freeze({
     perNForm: 'Route delivers a per-N (not merely asymptotic) statement on |t_c(N)|',
@@ -222,7 +222,7 @@ export const IMP36045_PERN_TRANSLATION_ROUTE_READINESS_ASSESSMENT = Object.freez
       'Assessment of which of the three G5-perN-translation routes is closest to a usable UNCONDITIONAL per-N ' +
       'rate r(N). Verdict: Route C (density squeeze), residual G3a_max_gap. Closes nothing; discharges no gap; ' +
       'C_mb stays GUE-conditional (imp-486); respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -278,7 +278,7 @@ export const IMP36045_PERN_TRANSLATION_ROUTE_READINESS_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp36045-honest-no-closure-no-qed',
     why: 'Mandatory honesty: an ASSESSMENT that closes NOTHING, discharges no gap, does not close G3a_max_gap, ' +
-         'keeps C_mb GUE-conditional, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'keeps C_mb GUE-conditional, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36045_PERN_TRANSLATION_ROUTE_READINESS_ASSESSMENT.honestCaveat;
       return (
@@ -290,7 +290,7 @@ export const IMP36045_PERN_TRANSLATION_ROUTE_READINESS_ASSESSMENT_ASSERTIONS = [
         h.routeAStaysGueConditional === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

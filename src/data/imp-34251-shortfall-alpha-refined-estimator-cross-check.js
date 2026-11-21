@@ -49,7 +49,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Conditional-share diagnostic, NOT an RH bound. Identical inherited
  * imp-34065/imp-3220/imp-3406 sub-terms, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34126-shortfall-span-scaling-of-centroid-offset (F2 alpha ladder + the FD-floor hedge tested here)
  * @see imp-34191-span-exponent-alpha-limit-fit (fits the alpha ladder to saturating surrogates; alpha_inf ~ 0.88)
@@ -218,8 +218,8 @@ export const IMP34251_SHORTFALL_ALPHA_REFINED_ESTIMATOR_CROSS_CHECK = {
     'correct reading; its FD-floor hedge is a roundoff wall, not the source of the sub-linearity. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34126 (shortfall span scaling; F2 alpha ladder + FD-floor hedge tested here); imp-34191 (alpha ' +
     'limit fit; alpha_inf ~ 0.88 below 1); imp-34065 (window-span scaling; S1 shortfall grows with ' +
@@ -293,13 +293,13 @@ export const IMP34251_SHORTFALL_ALPHA_REFINED_ESTIMATOR_CROSS_CHECK_ASSERTIONS =
     },
   },
   {
-    // Honesty gate: measurement/cross-check only, not rigorous, no QED, PT Lambda<=0.2 stays SOTA.
+    // Honesty gate: measurement/cross-check only, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34251-honesty-gate-no-qed',
-    description: 'Measurement/cross-check only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/cross-check only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34251_SHORTFALL_ALPHA_REFINED_ESTIMATOR_CROSS_CHECK.isRigorous === false &&
       /NO QED/.test(IMP34251_SHORTFALL_ALPHA_REFINED_ESTIMATOR_CROSS_CHECK.verdict) &&
-      /remains SOTA/.test(IMP34251_SHORTFALL_ALPHA_REFINED_ESTIMATOR_CROSS_CHECK.verdict),
+      /refereed bound is changed/i.test(IMP34251_SHORTFALL_ALPHA_REFINED_ESTIMATOR_CROSS_CHECK.verdict),
   },
 ];
 

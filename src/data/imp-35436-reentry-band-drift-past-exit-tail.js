@@ -49,7 +49,7 @@
  * collapse dynamic at these heights. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays
  * 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35332-reentry-band-drift-analytic-derivation (DRIFT(N) formula; 0.0186273 reentry -> 0.0118306 exit)
  * @see imp-35372-reentry-band-drift-integral-half-offset (drift-integral band-width self-consistency)
@@ -218,7 +218,7 @@ export const IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL = {
     'imp-35243a (surrogate-fidelity), which stays OPEN with imp-35111a / imp-35174a / imp-34997a. The ' +
     'C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35332 (DRIFT(N) analytic derivation; sub-gap imp-35243a); imp-35372 (drift-integral band width); ' +
     'imp-35399 (successive recurrences ~2x sparser); imp-35111 (band width ~10.08 decades, exit 10^37.17); ' +
@@ -268,13 +268,13 @@ export const IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL_ASSERTIONS = [
       IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.cumulative_integral.has_hard_upper_band_edge === false,
   },
   {
-    // Honesty gate: measurement only, discharges nothing, no QED, PT SOTA, sub-gap named/OPEN.
+    // Honesty gate: measurement only, discharges nothing, no QED, no refereed bound is changed, sub-gap named/OPEN.
     id: 'imp35436-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, discharges nothing, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Measurement only: isRigorous false, discharges nothing, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.isRigorous === false &&
       /NO QED/.test(IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.verdict) &&
-      /remains SOTA/.test(IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.verdict) &&
+      /refereed bound is changed/i.test(IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.verdict) &&
       /imp-35243a/.test(IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.residual_sub_gap) &&
       /stay OPEN/.test(IMP35436_REENTRY_BAND_DRIFT_PAST_EXIT_TAIL.finding),
   },

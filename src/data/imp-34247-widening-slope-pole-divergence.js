@@ -56,7 +56,7 @@
  * extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural
  * observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34188-widening-slope-limit-exactly-minus-one (R3 tabulated the {-0.97,-0.64,+2.05} slopes characterized here)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the residExp sign-change pole k* ~ 21.281 whose divergence this fits)
@@ -273,7 +273,7 @@ export const IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-zero ' +
     'structure is a numerical/structural observation, not a derivation; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34188 (R3 tabulated the {-0.97,-0.64,+2.05} local slopes characterized here); imp-34023 (the ' +
     'residExp sign-change pole k* ~ 21.281); imp-34127 (closed-form k* ceiling); imp-34169 (fixed-band ' +
@@ -327,13 +327,13 @@ export const IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE_ASSERTIONS = [
       PLATEAU > -1.05,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34247-honesty-gate-no-qed',
-    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.isRigorous === false &&
       /NO QED/.test(IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.verdict) &&
-      /remains SOTA/.test(IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.verdict),
   },
 ];

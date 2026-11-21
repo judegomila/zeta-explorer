@@ -35,7 +35,7 @@
  * SCOPE: MEASUREMENT ONLY -- fills one matrix cell, changes NO bound, adopts NO new
  * slack denominator (imp-35412 KEEPS the endpoint DP45 dt/2 worst-case), does NOT
  * advance the R2 ladder, does NOT extend the C_mb certificate, does NOT remove the
- * imp-486 GUE conditional. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * imp-486 GUE conditional. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/4".
  *
@@ -97,7 +97,7 @@ export const IMP_35573_N2000_BS3_DT4_ENDPOINT_POSITIVITY_REFERENCE = {
       'Does NOT advance the R2 ladder past N=1000; does NOT adopt a new slack ' +
       'denominator (imp-35412 keeps the endpoint DP45 dt/2 worst-case); does NOT ' +
       'extend the C_mb certificate; does NOT remove the imp-486 GUE conditional; ' +
-      'changes NO Lambda bound. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'changes NO Lambda bound. No refereed bound is changed.',
   },
 };
 
@@ -144,8 +144,8 @@ export const IMP_35573_N2000_BS3_DT4_ENDPOINT_POSITIVITY_REFERENCE_ASSERTIONS = 
       IMP_35573_N2000_BS3_DT4_ENDPOINT_POSITIVITY_REFERENCE.verdict.secondPositiveCellAppears === false,
     why:
       'Measurement only: fills one knife-edge matrix cell, advances NO ladder and ' +
-      'changes NO bound. C_mb stays GUE-conditional (imp-486); Lambda <= 0.2 stays ' +
-      'SOTA. Never a QED.',
+      'changes NO bound. C_mb stays GUE-conditional (imp-486); no refereed bound is changed' +
+      '. Never a QED.',
   },
 ];
 

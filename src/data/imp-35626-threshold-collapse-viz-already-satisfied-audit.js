@@ -25,7 +25,7 @@
  * already discharged this exact requirement. This module records the
  * duplicate-ticket finding so the completed status is auditable. Changes no
  * bound; establishes no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35597-threshold-collapse-viz-data.js (the pre-existing module this ticket duplicates)
  * @see src/pages/Imp35597ThresholdCollapseViz.jsx (the pre-existing page)
@@ -64,7 +64,7 @@ export const IMP35626_THRESHOLD_COLLAPSE_VIZ_ALREADY_SATISFIED_AUDIT = {
     'AUDIT ONLY (not rigorous, not a measurement of a mathematical quantity). imp-35626 ' +
     'duplicates work already completed by imp-35597; no further module or page build needed. ' +
     'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35597 (git commit that already built this module + page); imp-35571 (the underlying ' +
     'subleading-rate scoping assessment); imp-35538 (REQ-4 log T0 >= 200 threshold this curve ' +
@@ -99,11 +99,11 @@ export const IMP35626_THRESHOLD_COLLAPSE_VIZ_ALREADY_SATISFIED_AUDIT_ASSERTIONS 
   },
   {
     id: 'imp35626-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35626_THRESHOLD_COLLAPSE_VIZ_ALREADY_SATISFIED_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35626_THRESHOLD_COLLAPSE_VIZ_ALREADY_SATISFIED_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35626_THRESHOLD_COLLAPSE_VIZ_ALREADY_SATISFIED_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35626_THRESHOLD_COLLAPSE_VIZ_ALREADY_SATISFIED_AUDIT.verdict),
   },
 ];
 

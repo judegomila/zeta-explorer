@@ -9,7 +9,7 @@
  * arithmetic, mixed and coalescing rate ratios, and -- for the derived
  * SPLIT-2 ordering -- a depth grid. MEASUREMENT ONLY: it re-verifies proven
  * statements on a broad grid; it changes NO bound and proves NOTHING new.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ * No refereed bound is changed; NO QED.
  *
  * OBJECT (imp-95226 / imp-95249 normalization). Distinct rates nu_i > 0,
  * Cauchy Gram G_ij = 1/(nu_i + nu_j); for a partition V = V1 disjoint-union
@@ -107,7 +107,7 @@ export const IMP95274_ANGPENCIL_CROSSVALIDATION = {
     "ANG-DET fence are CONFIRMED across 54 disjoint multi-block partitions " +
     "(identity to 2.64e-13, fence-dominant, tight, coalescence-uniform) and " +
     "the derived SPLIT-2 ordering across a depth grid; this changes no bound " +
-    "and proves nothing new. Platt-Trudgian Lambda <= 0.2 remains SOTA; " +
+    "and proves nothing new. No refereed bound is changed; " +
     "NO QED.",
 };
 
@@ -454,14 +454,14 @@ export const IMP95274_ASSERTIONS = [
     id: "imp95274-verdict-honesty",
     description:
       "the verdict carries the honest labels: measurement only, confirms " +
-      "imp-95249 statements, no bound change, no QED, PT SOTA, and the " +
+      "imp-95249 statements, no bound change, no QED, no refereed bound is changed, and the " +
       "every-octave block-Riesz obstruction is named OPEN",
     holds: () =>
       /MEASUREMENT ONLY/.test(IMP95274_ANGPENCIL_CROSSVALIDATION.verdict) &&
       /CONFIRMED/.test(IMP95274_ANGPENCIL_CROSSVALIDATION.verdict) &&
       /changes no bound/.test(IMP95274_ANGPENCIL_CROSSVALIDATION.verdict) &&
       /NO QED/.test(IMP95274_ANGPENCIL_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP95274_ANGPENCIL_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95274_ANGPENCIL_CROSSVALIDATION.verdict) &&
       /stays OPEN/.test(IMP95274_ANGPENCIL_CROSSVALIDATION.honestScope),
   },
 ];

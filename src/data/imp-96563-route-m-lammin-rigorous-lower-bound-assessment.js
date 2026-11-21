@@ -93,7 +93,7 @@
  *     spectrum lower-bound asymptotic.
  *
  * Assessment only. Changes no bound; establishes no operator positivity; makes no RH
- * claim. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * claim. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (rigorous lam_max; the ceiling this completes)
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (measured lam_min rungs + A N^-p fit)
@@ -246,11 +246,11 @@ export const IMP96563_VERDICT = Object.freeze({
     'at N ~ 1.08e5). Making the ceiling FIGURE rigorous needs extended-precision verified ' +
     'Cholesky at N ~ 2.6e7 or the open limiting-spectrum lower-bound asymptotic ' +
     '(sub-gap imp-96563-lammin-asymptotic-lower-bound-limiting-spectrum). Changes no bound; ' +
-    'no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96563_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the per-rung lower bound is ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the per-rung lower bound is ' +
   'standard verified linear algebra (Higham/Rump Cholesky backward error) on the same exact ' +
   'Vasyunin Gram as imp-96105 / imp-96325; the cert-limit and cond# re-solves are pure ' +
   're-analysis of the imp-96428 / imp-96548 numbers. No Gram was rebuilt, no bound is claimed ' +
@@ -305,7 +305,7 @@ const IMP96563_ASSERTIONS = [
       IMP96563_VERDICT.anyBoundMoved === false &&
       IMP96563_VERDICT.perRungRigorousLowerBoundExists === true &&
       /NO QED/.test(IMP96563_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96563_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96563_HONEST_BANNER) &&
       /RH open/.test(IMP96563_HONEST_BANNER),
     why: 'assessment only: no bound moved, the per-rung/asymptotic split is recorded, the honesty markers and the residual limiting-spectrum sub-gap are present.',
   },

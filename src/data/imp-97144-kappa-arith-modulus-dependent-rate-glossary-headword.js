@@ -21,8 +21,8 @@
  *
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
  *   Establishes nothing new; moves no bound. The imp-97096 explicit uniform remainder bound
- *   sub-gap stays open precisely because the rate is modulus-dependent. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA; RH open.
+ *   sub-gap stays open precisely because the rate is modulus-dependent. NO QED. No refereed bound is changed
+ *   ; RH open.
  *
  * @see imp-97122-route-m-arith-first-moment-convergence-rate.js (source: the measured general-b
  *   and primorial-b rates, and the R0/R1 remainder decomposition this headword glosses)
@@ -30,7 +30,7 @@
  *   remainder-bound sub-gap this modulus-dependence keeps open)
  *
  * Ticket: imp-97144 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97122_MEASURED, IMP97122_VERDICT } from './imp-97122-route-m-arith-first-moment-convergence-rate.js';
@@ -60,8 +60,8 @@ const KAPPA_ARITH_MODULUS_DEPENDENT_RATE_HEADWORD = Object.freeze({
   verificationStatus:
     'Measured (not proved) from the committed imp-97122 general-b ladder (7 rungs, b=101..9973) ' +
     'and primorial-b ladder (5 rungs, b=6..30030). Establishes no bound and moves nothing on its ' +
-    'own -- the imp-97096 explicit uniform remainder sub-gap remains open. NO QED; PT ' +
-    'Lambda <= 0.2 remains SOTA; RH open.',
+    'own -- the imp-97096 explicit uniform remainder sub-gap remains open. NO QED; no refereed bound is changed' +
+    '; RH open.',
 });
 
 export const IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD = Object.freeze({
@@ -81,7 +81,7 @@ export const IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD = Obj
     'over divisors of b that cancels when b is smooth. The rate is therefore genuinely ' +
     '2^omega(b)-modulus-dependent, not a uniform envelope in b alone -- which is exactly why the ' +
     'imp-97096 explicit remainder bound stays an open sub-gap. Establishes nothing new; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97122 (the measured general-b and primorial-b rates, and the R0/R1 remainder ' +
     'decomposition this headword glosses); imp-97096 (the exact kappa_arith and the explicit ' +
@@ -123,12 +123,12 @@ export const IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp97144-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the source ' +
       'verdict this headword glosses must still show the explicit remainder-bound sub-gap open.',
     holds: () =>
       IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD.verdict) &&
       IMP97144_KAPPA_ARITH_MODULUS_DEPENDENT_RATE_GLOSSARY_HEADWORD.glosses === 'imp-97122' &&
       IMP97122_VERDICT.suppliesExplicitRemainderBound === false,
   },

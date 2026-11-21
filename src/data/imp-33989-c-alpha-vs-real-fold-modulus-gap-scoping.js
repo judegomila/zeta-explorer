@@ -7,7 +7,7 @@
  * MODEL-CUSP-ONLY result. ASSESSMENT ONLY: this module ENUMERATES exactly which inputs the C(alpha)
  * derivation assumes, which inputs the H4 minimal-input map actually needs, and where the two DIVERGE,
  * and delivers a RESIDUAL LIST -- NOT a discharge. H4 stays undischarged; G6a_shock_lipschitz stays
- * OPEN; no positivity; imp-3066 K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * OPEN; no positivity; imp-3066 K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.
  *
  * WHAT C(alpha) = 2/(alpha+1) ACTUALLY IS (imp-33882)
  * ---------------------------------------------------
@@ -57,7 +57,7 @@
  * H3 curvature rung, which the k = 1-only tail coefficient never reaches. So C(alpha) CANNOT bound the
  * real fold-modulus back-conversion m_prime -> C_ren: it remains a model-cusp-only result. H4 stays
  * undischarged; G6a_shock_lipschitz stays OPEN. Assessment only; no positivity; imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-33882-cusp-exponent-onset-coefficient-robustness (the C(alpha) = 2/(alpha+1) model-cusp law)
  * @see imp-33766-h4-independent-discharge-scoping (the H4 minimal-input map and its H3 coupling)
@@ -171,7 +171,7 @@ export const IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING = {
     'CANNOT bound the real fold-modulus back-conversion m_prime -> C_ren; it remains a model-cusp-only ' +
     'result. Assessment only: this discharges NOTHING. H4 stays undischarged; G6a_shock_lipschitz stays ' +
     'OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33882-cusp-exponent-onset-coefficient-robustness (C(alpha) = 2/(alpha+1) model-cusp law); ' +
     'imp-33766-h4-independent-discharge-scoping (H4 minimal input, H3 coupling, H3 dominates a fortiori); ' +
@@ -224,15 +224,15 @@ export const IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_ASSERTIONS = [
       IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.remainsModelCuspOnly === true,
   },
   {
-    // Honesty gate: assessment only, not rigorous, H4 undischarged, G6a OPEN, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: assessment only, not rigorous, H4 undischarged, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33989-honesty-gate-no-qed',
-    description: 'Assessment only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Assessment only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.isRigorous === false &&
       IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.dischargesH4 === false &&
       /NO QED/.test(IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.verdict) &&
       /G6a_shock_lipschitz stays\s+OPEN/.test(IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33989_C_ALPHA_VS_REAL_FOLD_MODULUS_GAP_SCOPING.verdict,
       ),

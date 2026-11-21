@@ -13,8 +13,7 @@
  * fold analysis; does NOT re-attempt the RH-hard backward-flow Gronwall route; closes nothing; discharges no
  * gap; G6a_shock_lipschitz stays OPEN. C_H stays symbolic (the imp-354 placeholder 1.0 is untouched); C_C =
  * (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional (imp-486) untouched; changes no bound;
- * establishes no positivity; respects the imp-2519 no-overclaim guard; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * establishes no positivity; respects the imp-2519 no-overclaim guard; NO QED. No refereed bound is changed.
  *
  * THE MODULUS AND ITS TWO REGIMES
  * -----------------------------------------------------------------------------
@@ -104,7 +103,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 // -- Anchor + operative constants (import-light; matching imp-354 / imp-341) -------------------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const TWO_PI = 2 * Math.PI;
 const C_SELBERG = 3.0; // imp-341 Selberg constant
 const C1_IMP341 = Math.PI * C_SELBERG; // Koksma-Hlawka constant C1 = pi C_Selberg ~ 9.4248
@@ -251,7 +250,7 @@ export const IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS = {
     'curvature bound; ports no Riemann-Hilbert analysis; does NOT re-attempt the RH-hard Gronwall route; ' +
     'closes nothing; discharges no gap; G6a_shock_lipschitz stays OPEN; C_H stays symbolic; C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) untouched; changes no bound; respects the imp-2519 ' +
-    'no-overclaim guard; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no-overclaim guard; NO QED. No refereed bound is changed.',
   citation:
     'imp-354 / lambda-burgers-shock-lipschitz (Whitham Hoelder-1/2 modulus C_W and its sub-sub-gaps ' +
     'G6a-sub-hyperbolic, G6a-sub-constant); imp-345 / lambda-polymath15-bridge (G6a_shock_lipschitz opened ' +
@@ -313,16 +312,16 @@ export const IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS_ASSERTIONS
     },
   },
   {
-    // Honesty gate: scoping only; discharges nothing; G6a_shock_lipschitz open; exponent pinned at 1/2; no QED; PT SOTA.
+    // Honesty gate: scoping only; discharges nothing; G6a_shock_lipschitz open; exponent pinned at 1/2; no QED; no refereed bound is changed.
     id: 'imp36172-honesty-gate-no-qed',
-    description: 'scoping only; G6a_shock_lipschitz stays OPEN; Hoelder exponent pinned at 1/2; no QED; PT SOTA',
+    description: 'scoping only; G6a_shock_lipschitz stays OPEN; Hoelder exponent pinned at 1/2; no QED; no refereed bound is changed',
     holds: () =>
       IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       HOLDER_EXPONENT === 0.5 &&
       /G6a_shock_lipschitz stays OPEN/.test(IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS.obstruction.staysOpenNoQed) &&
       /NO QED/.test(IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS.verdict) &&
-      /remains SOTA/.test(IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS.verdict),
+      /refereed bound is changed/i.test(IMP36172_SHOCK_LIPSCHITZ_FINITE_N_SURROGATE_REQUIREMENTS.verdict),
   },
 ];
 

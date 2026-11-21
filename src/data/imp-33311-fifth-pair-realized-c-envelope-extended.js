@@ -57,7 +57,7 @@
  *   question in favour of scattered lattice jitter; it does NOT derive the per-rung value from first
  *   principles (still empirical), does NOT re-run the compute-heavy deep-rung N x N dense solve, does
  *   NOT re-certify the pairing (imp-3668), and adds NO new Lambda bound. imp-3066 K_a >= 0 UNTOUCHED.
- *   RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-33289-genuine-eigenvector-fifth-pair-realized-c.js (the 7-rung baseline this extends)
  *   @see imp-33272-fifth-pair-extended-precision-crossval.js (the surrogate-rotation cross-check)
@@ -65,7 +65,7 @@
  *   @see scripts/imp-33289-genuine-eigenvector-fifth-pair-c.mjs (the offline solver, reproducible)
  *
  *   Ticket: imp-33311 (numerical, medium). imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  */
 
 const EPS = 2.220446049250313e-16; // IEEE double-precision unit roundoff u = 2^-52
@@ -196,7 +196,7 @@ export const IMP33311_FIFTH_PAIR_REALIZED_C_ENVELOPE_EXTENDED = Object.freeze({
       'The extension characterizes the empirical envelope and shows the c>1 excursions are scattered lattice jitter (not a systematic small-N band), but it does NOT derive the per-rung value from first principles -- c remains empirical QL-convergence quality (imp-33253), and six of nineteen rungs sit modestly above the c <= 1 Wilkinson envelope.',
     didNotReRunDeepRungOfflineSolve: true,
     imp3066Untouched: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no RH verdict, no QED.',
+    sota: 'No refereed bound is changed; no RH verdict, no QED.',
   },
 });
 
@@ -247,7 +247,7 @@ export const IMP33311_FIFTH_PAIR_REALIZED_C_ENVELOPE_EXTENDED_ASSERTIONS = [
     id: 'imp33311-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT / cross-check only -- characterizes the empirical envelope and settles ' +
       'isolated-vs-band as scattered lattice jitter, but c stays empirical, no Lambda bound, re-certifies nothing, ' +
-      'positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP33311_FIFTH_PAIR_REALIZED_C_ENVELOPE_EXTENDED.honestCaveat;
       return (
@@ -258,7 +258,7 @@ export const IMP33311_FIFTH_PAIR_REALIZED_C_ENVELOPE_EXTENDED_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.measurementOnly === true &&
         typeof c.perRungCStillEmpirical === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

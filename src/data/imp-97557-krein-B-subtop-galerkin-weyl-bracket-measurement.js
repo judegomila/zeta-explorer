@@ -42,8 +42,8 @@
  *   reading falls ~59-65 short of the gate and drifts the wrong way with N.
  *
  *   No operator positivity; no certified bound on lambda_3rd-largest(B); the m=2 gate stays unreached at
- *   2a = ln3; no bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   2a = ln3; no bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97536-krein-lambda3-lower-bound-alt-routes-assessment.js (Route B; the untabulated ~2.41 TBW estimate this leaf measures)
  * @see imp-97335-krein-csharp-naive-lowerbound-tlimit.js (||B|| = -inf_t sigma_2 = 4336.198 at t=9.3502)
@@ -136,8 +136,8 @@ export const IMP97557_HONEST_BANNER =
   'eigenvalue of C overestimates, the certified bracket is even smaller. Reaching the gate needs a CERTIFIED ' +
   'upper bound on lambda_3rd-largest(B) below ~28-30 -- the missing band-limited concentration estimate ' +
   '(imp-97536 sub-gap). Route B is confirmed and quantified but does not reach the gate. No operator ' +
-  'positivity; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'positivity; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97557_ASSERTIONS = [
@@ -194,7 +194,7 @@ const IMP97557_ASSERTIONS = [
       IMP97557_VERDICT.requiresCertifiedBSubTopUpperBound === true &&
       IMP97557_VERDICT.qed === false &&
       /NO QED/.test(IMP97557_HONEST_BANNER) &&
-      /remains\s+SOTA/.test(IMP97557_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97557_HONEST_BANNER) &&
       /RH open/.test(IMP97557_HONEST_BANNER),
     why: 'measurement only: Rayleigh/Ritz brackets, no certified bound on lambda_3rd-largest(B), no operator positivity; no bound moves; reach stays 2a<=0.96; RH open; NO QED.',
   },

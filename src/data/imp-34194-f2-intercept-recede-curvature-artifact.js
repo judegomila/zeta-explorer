@@ -55,7 +55,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (F2: intercept a ~ 5.9e-4 declared curvature artifact; this module confirms it shrinks)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (the SIGMA-share exponent gap ~ 1/(2 log T0); same law)
@@ -250,8 +250,8 @@ export const IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT = {
     'imp-34130 F2 curvature-artifact claim from the intercept side (complementing the F3 direct-path ' +
     'refutation). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34130 (F2: intercept a ~ 5.9e-4 declared curvature artifact); imp-33816 (sigma-share exponent ' +
     'gap ~ 1/(2 log T0), same law); imp-33859 (log-space direct path ln N = u + log(u-1)); imp-3463 ' +
@@ -304,14 +304,14 @@ export const IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = -1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34194-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = -1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT.isRigorous === false &&
       IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT.farTailExponent === -0.5 &&
       /NO QED/.test(IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT.verdict) &&
-      /remains SOTA/.test(IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT.verdict),
+      /refereed bound is changed/i.test(IMP34194_F2_INTERCEPT_RECEDE_CURVATURE_ARTIFACT.verdict),
   },
 ];
 

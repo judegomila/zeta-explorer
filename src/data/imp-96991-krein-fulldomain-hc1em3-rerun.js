@@ -48,7 +48,7 @@
  * shrinks the dominant C2 curvature term without shrinking hc). Certified interval-rigorous reach
  * stays 2a<=0.96 until such a run passes. NEW SUB-GAP IMP96991_HIGH_T_HC_INSUFFICIENT -- decide the
  * hc (or the cell-local w1-prime-prime enclosure strength) that clears the t~24-38 bands and whether
- * it is tractable in-pool. RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * it is tractable in-pool. RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96978-krein-kmax5-100-guard-resolution.js (diagnosed the worst band cell; left this sub-gap)
  * @see imp-96956-krein-kmax5-100-interval-verify.js (the original 226-negative-cell collapse at hc=2e-3)

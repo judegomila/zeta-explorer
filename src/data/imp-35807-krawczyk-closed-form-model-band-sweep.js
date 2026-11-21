@@ -35,7 +35,7 @@
  * machinery VERBATIM (identical K, delta, S_inf, N_cross, band, ratioAt). The imp-34714a machine certificate
  * REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (closed form R - 2 = 2 eps/(1-a); band-top ~9e-6 check)
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (the 2:1 split -dFP/dG ~ 2.00042, tested only in-band)
@@ -179,7 +179,7 @@ export const IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP = {
     'double-precision artifact. Measurement only on the inherited imp-3220/imp-3406 surrogate; reproduces the ' +
     'imp-35266/imp-35766 machinery (identical K, delta, S_inf, N_cross, band, ratioAt); the C_C 1/8 ansatz ' +
     '(imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35766 (closed form R - 2 = 2 eps/(1-a); band-top ~9e-6 check); imp-35266 (2:1 split -dFP/dG ~ 2.00042, ' +
     'in-band only); imp-34693 (admissible seed band); imp-34996 (S_inf = 1/(2 delta) floor); imp-33723 (Banach map ' +
@@ -216,15 +216,15 @@ export const IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP_ASSERTIONS = [
     holds: () => RATIO_STAYS_TWO_BAND_WIDE === true && R_BAND_BOTTOM.R > R_BAND_TOP.R,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35807-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP.isRigorous === false &&
       /imp-34714a/.test(IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP.subGap) &&
       /REMAINS OPEN/.test(IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP.subGap) &&
       /NO QED/.test(IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP35807_KRAWCZYK_CLOSED_FORM_MODEL_BAND_SWEEP.verdict),
   },
 ];
 

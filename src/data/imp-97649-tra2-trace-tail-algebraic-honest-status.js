@@ -16,7 +16,7 @@
  * @see imp-97482-krein-route2-kbig-direct-projector-floor.js (the named ~4819.1M figure being reconciled)
  *
  * Ticket: imp-97649 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import {

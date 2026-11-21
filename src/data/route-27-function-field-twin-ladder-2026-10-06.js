@@ -109,7 +109,7 @@ export const ROUTE_27 = Object.freeze({
   verdict: 'Route 27 is built and mapped: over F_q the twin-ladder Weil form is minus the intersection form on primitive Frobenius-graph '
     + 'classes, so Weil\'s proof is Approach III with B built from divisor classes. Ladder data alone do not imply RH (215 exact fakes in the '
     + 'census boxes; some pass Weil positivity up to delay 2 log q). The lift to Q stops at the missing Spec Z × Spec Z with Hodge index (O3) '
-    + 'and needs a regularisation of the infinite zero count (O1). Nothing is claimed for ζ. PT Lambda <= 0.2 stands; 0.1758354 and 0.1787854 '
+    + 'and needs a regularisation of the infinite zero count (O1). Nothing is claimed for ζ. No refereed bound is changed; 0.1758354 and 0.1787854 '
     + 'remain computer-assisted candidates; RH open; NO QED.',
 });
 
@@ -184,7 +184,7 @@ export const ROUTE_27_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r27-honest-scope',
-    holds: () => /Nothing is claimed for ζ/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => /Nothing is claimed for ζ/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /Spec Z × Spec Z/.test(R.qObstructions.O3) && R.status === 'done',
     why: 'Route is done as a map; no claim about ζ; the lift is blocked at O3; no QED.',
   },

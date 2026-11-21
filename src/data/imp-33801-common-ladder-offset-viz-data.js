@@ -59,7 +59,7 @@ export const IMP33801_CAVEAT_BANNER =
   `~${IMP33801_RESIDUAL.residual_pts}-point gap between them is the halving-to-crossover landmark ` +
   'separation, which IS the E_flow displacement term (imp-33767 F2/F3). Measurement/interpretation ' +
   'only: isRigorous false, no QED; RH-equivalent K_a >= 0 sign-positivity untouched; ' +
-  'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.';
+  'no refereed bound is changed.';
 
 export const IMP33801_COMMON_LADDER_OFFSET_VIZ_DATA_ASSERTIONS = [
   {

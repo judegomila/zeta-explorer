@@ -77,7 +77,7 @@
  * (c) Numerical measurement of an established scaling law; introduces no new cited
  * input and no new bound. Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95761-szego-coefficient-larger-grid-subpct (the residual this implements)
  * @see imp-95743-szego-coefficient-double-double-crosscheck (the DD Jacobi fit)
@@ -264,8 +264,8 @@ export const IMP95779_ON2_DD_TOEPLITZ_LAMBDA_MIN_LN12 = {
     "preconditioned CG, or an O(N^2) deflation) is required to convert the removed per-solve " +
     "cost into the sub-1% C measurement at ln 1.2. Numerical measurement of an established " +
     "scaling law; model seam family only; imp-95212 envelope port, signed WEIGHT, modulus/" +
-    "phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95779"],
 };
 
@@ -379,7 +379,7 @@ export const IMP95779_ASSERTIONS = [
     description: "numerical measurement module; it moves no Lambda bound and proves no QED",
     holds: () =>
       REF.boundChange === false && REF.qed === false &&
-      /remains SOTA/.test(REF.verdict) && REF.closesTickets.includes("imp-95779"),
+      /refereed bound is changed/i.test(REF.verdict) && REF.closesTickets.includes("imp-95779"),
   },
 ];
 

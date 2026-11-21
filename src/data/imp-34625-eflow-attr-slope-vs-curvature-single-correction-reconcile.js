@@ -63,7 +63,7 @@
  *   surrogate, NOT a rigorous asymptotic; the component model is the inherited imp-3220/imp-3406
  *   extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  *   establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34612-eflow-attr-convexity-vs-analytic-log3-curvature.js (the curvature residual dC this reuses; the F3 single-correction claim this tests)
  *   @see imp-34586-eflow-attr-fp-floor-far-side-ladder.js (the deep-far rungs + the observed local-slope ladder)
@@ -197,7 +197,7 @@ export const IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE = {
     'Descriptive surrogate, NOT a rigorous asymptotic; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 };
 
 export const IMP34625_ASSERTIONS = [
@@ -246,13 +246,13 @@ export const IMP34625_ASSERTIONS = [
       /single-closed-form-magnitude/.test(IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE.subGap),
   },
   {
-    // Honesty gate: reconciliation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: reconciliation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34625-honesty-gate-no-qed',
-    description: 'Reconciliation only: isRigorous false, no QED, PT SOTA, imp-3066 K_a >= 0 untouched',
+    description: 'Reconciliation only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a >= 0 untouched',
     holds: () =>
       IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE.isRigorous === false &&
       /NO QED/.test(IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE.honest) &&
-      /remains SOTA/.test(IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE.honest) &&
+      /refereed bound is changed/i.test(IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34625_EFLOW_ATTR_SLOPE_VS_CURVATURE_RECONCILE.honest),
   },
 ];

@@ -84,7 +84,7 @@ export const IMP95971_CAVEAT_BANNER =
   `pair-correlation integral I_F, rigorously bracketed only in (${IF_RIGOROUS_BRACKET_RH[0].toFixed(2)}, ` +
   `${IF_RIGOROUS_BRACKET_RH[1]}) under RH -- so the a_0 spread this chart plots is not merely ` +
   'unpinned but has a named, rigorously-wide obstruction; establishes no operator positivity, ' +
-  'no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'no RH claim; no refereed bound is changed; NO QED.';
 
 // --- self-executing internal-consistency assertions (baked-literal re-derivation only) ---
 (() => {
@@ -121,7 +121,7 @@ export const IMP95971_CAVEAT_BANNER =
     ? 0
     : rows[0].log10Tx - rows[rows.length - 1].log10Tx;
   if (!(log10Spread > 20)) throw new Error('imp-95971: log10(T_x) must span tens of orders across the grid');
-  // HONESTY gates: no false pin, sub-gap named, PT stays SOTA.
+  // HONESTY gates: no false pin, sub-gap named, no refereed bound is changed.
   if (!/imp-95940-subgap-fujii-varS-constant/.test(IMP95971_SUBGAP))
     throw new Error('imp-95971: sub-gap name dropped');
   if (!/NO QED/.test(verdict)) throw new Error('imp-95971: source verdict dropped the NO QED banner');
@@ -130,6 +130,6 @@ export const IMP95971_CAVEAT_BANNER =
   if (!IMP95971_CAVEAT_BANNER.includes(`(${IF_RIGOROUS_BRACKET_RH[0].toFixed(2)}, ${IF_RIGOROUS_BRACKET_RH[1]})`))
     throw new Error('imp-95971: caveat banner dropped the imp-95984 rigorous I_F bracket');
   if (!/NO QED/.test(IMP95971_CAVEAT_BANNER)) throw new Error('imp-95971: caveat banner dropped NO QED');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95971_CAVEAT_BANNER))
-    throw new Error('imp-95971: caveat banner dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95971_CAVEAT_BANNER))
+    throw new Error('imp-95971: caveat banner dropped the no-refereed-bound-change banner');
 })();

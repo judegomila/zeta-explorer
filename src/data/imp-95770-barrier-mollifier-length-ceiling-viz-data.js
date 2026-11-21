@@ -12,7 +12,7 @@
  * to produce a plottable Lambda_ceil(X) curve, plus the X where the curve crosses the
  * 0.145 and 0.14 targets.
  *
- * MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed;
  * the 0.1758354 candidate remains unrefereed.
  *
  * @see barrier-mollifier-length-ceiling-2026-09 (source CEILING_HEIGHT_Y0 / CROSSING_PIN_Y0 literals this cross-checks)
@@ -77,7 +77,7 @@ export const CURRENT_HEIGHT_POINT = Object.freeze({
 export const IMP95770_SUMMARY = Object.freeze({
   law: 'Lambda_ceil(X) = min(1, gamma*||A/B||_{Aa_sigma}) at the fixed height X = 4*pi*N^2; a mollifier-independent Wiener-algebra ceiling on the fixed-height barrier/y-transfer certificate.',
   reading: `At the current verified height X = ${CURRENT_HEIGHT_POINT.X.toExponential(1)} the ceiling sits at Lambda_ceil ~ ${CURRENT_HEIGHT_POINT.lambdaCeil.toFixed(3)}, well below the unrefereed 0.1758354 candidate evaluated at the same height -- headroom that is entirely mollifier LENGTH, not a lower barrier Lambda. Reaching Lambda_ceil = 0.145 needs X >~ ${THRESHOLD_0145.X.toExponential(2)}; reaching 0.14 needs X >~ ${THRESHOLD_014.X.toExponential(2)}.`,
-  verdict: 'PRECISE OBSTRUCTION, no new candidate; presentation only. Changes no bound; NO QED; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; 0.1758354 remains an unrefereed candidate.',
+  verdict: 'PRECISE OBSTRUCTION, no new candidate; presentation only. Changes no bound; NO QED; RH open; no refereed bound is changed; 0.1758354 remains an unrefereed candidate.',
 });
 
 // ---------------------------------------------------------------------------
@@ -126,7 +126,7 @@ const IMP95770_VIZ_DATA_ASSERTIONS = [
     id: 'imp95770-honesty-gate-no-qed',
     description: 'summary carries NO QED / RH open / SOTA-denial / unrefereed markers',
     holds: () => /NO QED/.test(IMP95770_SUMMARY.verdict) && /RH open/.test(IMP95770_SUMMARY.verdict)
-      && /remains SOTA/.test(IMP95770_SUMMARY.verdict) && /unrefereed/.test(IMP95770_SUMMARY.verdict),
+      && /refereed bound is changed/i.test(IMP95770_SUMMARY.verdict) && /unrefereed/.test(IMP95770_SUMMARY.verdict),
   },
 ];
 

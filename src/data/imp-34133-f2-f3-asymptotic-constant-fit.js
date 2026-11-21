@@ -41,7 +41,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Curve fit of an inherited surrogate ratio, NOT an RH bound. The inherited
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the constant-plus-decay fit is descriptive
  * within that model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the F4 geometric collapse + the near-flat
  *   F2, F3 assertion this module fits to asymptotic constants; same sub-terms, head fixed at k=6)
@@ -230,7 +230,7 @@ export const IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT = {
     'over-prediction ratio 1/(F2*F3*F4). The inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
     'asymptotic; the fit is descriptive within the model only; changes no bound; establishes no operator ' +
     'positivity; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-34023 (the F4 geometric collapse + the near-flat F2, F3 assertion fit here to asymptotic ' +
@@ -301,13 +301,13 @@ export const IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT_ASSERTIONS = [
       F3_FIT.c > 0.5,
   },
   {
-    // Honesty gate: numerical/curve-fit only, isRigorous false, no QED, K_a untouched, PT SOTA.
+    // Honesty gate: numerical/curve-fit only, isRigorous false, no QED, K_a untouched, no refereed bound is changed.
     id: 'imp34133-honesty-gate-no-qed',
-    description: 'Curve-fit only: isRigorous false, no QED, imp-3066 K_a >= 0 untouched, PT SOTA',
+    description: 'Curve-fit only: isRigorous false, no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.isRigorous === false &&
       /NO QED/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict) &&
-      /remains\s+SOTA/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict),
   },
   {

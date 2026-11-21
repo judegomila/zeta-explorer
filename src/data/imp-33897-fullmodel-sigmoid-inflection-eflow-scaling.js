@@ -54,7 +54,7 @@
  * MEASUREMENT / RECONCILIATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33862-knee-separation-second-path-crossval (M3 named this sub-gap)
  * @see imp-33744-sigma-inflection-vs-half-closed-form (closed form sigma_infl = 1/2 - g_prime/(2 g^2))
@@ -204,7 +204,7 @@ export const IMP33897_FULLMODEL_SIGMOID_INFLECTION_EFLOW_SCALING = {
     'sub-gap SUB-GAP-imp-33862-fullmodel-sigmoid-inflection is reconciled. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33862 (M3 named this sub-gap; three landmark values); imp-33744 (closed form sigma_infl); ' +
     'imp-33708 (E_flow negligible on the far tail); imp-486 (C_mb GUE-conditional); imp-2631 ' +
@@ -242,13 +242,13 @@ export const IMP33897_FULLMODEL_SIGMOID_INFLECTION_EFLOW_SCALING_ASSERTIONS = [
     holds: () => EFLOW_OVER_ECOLL < 0.01 && EFLOW_OVER_ETRUNC < 0.01 && OFF_TO_FULL_PCT > 1 && OFF_TO_FULL_PCT < 5,
   },
   {
-    // Honesty gate: measurement / reconciliation only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement / reconciliation only, no bound change, no QED, no refereed bound is changed.
     id: 'imp33897-honesty-gate-no-qed',
-    description: 'Reconciliation only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Reconciliation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33897_FULLMODEL_SIGMOID_INFLECTION_EFLOW_SCALING.isRigorous === false &&
       /NO QED/.test(IMP33897_FULLMODEL_SIGMOID_INFLECTION_EFLOW_SCALING.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP33897_FULLMODEL_SIGMOID_INFLECTION_EFLOW_SCALING.verdict),
+      /refereed bound is changed/i.test(IMP33897_FULLMODEL_SIGMOID_INFLECTION_EFLOW_SCALING.verdict),
   },
 ];
 

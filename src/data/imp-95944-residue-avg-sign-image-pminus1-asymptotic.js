@@ -5,7 +5,7 @@
  *   (A) diagFrac := tr(G)/S ~ 1/(p-1),  (B) <theta_C> ~ 1/(p-1)^2
  * into STATED asymptotics with an explicit, bounded error term, from the
  * imp-95898 exact two-sided-exponential Gram closed form. Derivation only;
- * changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes NO bound; NO QED; no refereed bound is changed.
  *
  * SETUP (verbatim from imp-95898 / imp-95918). A seam window (p,k) carries p-1
  * alias packets h=1..p-1 at depth d_h = k - h/p. Packet h is a two-sided
@@ -175,7 +175,7 @@ export const IMP95944_PMINUS1_ASYMPTOTIC = {
   obstruction:
     "UNCHANGED from imp-95898/imp-95918: the residue mean is NOT the physical per-window theta -- it drops the von Mangoldt x Fresnel-Airy weight A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The imp-95212 Fresnel-Airy envelope port is untouched and STILL OPEN. This module derives the asymptotics of the exact residue-mean object only.",
   verdict:
-    "DERIVATION (honest): the two imp-95918 empirical fits are upgraded to stated asymptotics with an explicit error term -- (A) diagFrac = (1+eps_p)/(p-1) with 0 < eps_p < (a*D)_max^2/2 a PROVED p-independent bound (eps_p saturating to eps_inf(k) > 0); (B) <theta_C> = (1+p eps_p)/(p-1)^2, i.e. ~1/(p-1)^2 only for p << 1/eps_inf and ~eps_inf/p beyond -- correcting the imp-95918 reading of the drift as bounded off-diagonal noise (it is the deterministic factor 1+p*eps_p). Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "DERIVATION (honest): the two imp-95918 empirical fits are upgraded to stated asymptotics with an explicit error term -- (A) diagFrac = (1+eps_p)/(p-1) with 0 < eps_p < (a*D)_max^2/2 a PROVED p-independent bound (eps_p saturating to eps_inf(k) > 0); (B) <theta_C> = (1+p eps_p)/(p-1)^2, i.e. ~1/(p-1)^2 only for p << 1/eps_inf and ~eps_inf/p beyond -- correcting the imp-95918 reading of the drift as bounded off-diagonal noise (it is the deterministic factor 1+p*eps_p). Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form, the character average, and <theta_C> = (p tr - S)/((p-1) S) are EXACT (imp-95898). Identities (I1),(I2) are exact algebra (verified 1e-12). The residual bound eps_p < (a*D)_max^2/2 is PROVED and p-independent. eps_inf(k) is a bounded saturating constant whose exact value is read numerically (eps_inf(6) ~ 6.62e-4). The residue mean is NOT the physical theta. Derivation only; changes no bound; NO QED.",
 };
@@ -258,14 +258,14 @@ export const IMP95944_ASSERTIONS = [
   {
     id: "imp95944-verdict-honesty",
     description:
-      "the verdict carries the honest scope: DERIVATION only, an explicit p-independent bounded error term, the 1/(p-1)^2 -> eps_inf/p crossover, the imp-95212 port STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: DERIVATION only, an explicit p-independent bounded error term, the 1/(p-1)^2 -> eps_inf/p crossover, the imp-95212 port STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /DERIVATION/.test(IMP95944_PMINUS1_ASYMPTOTIC.verdict) &&
       /p-independent/.test(IMP95944_PMINUS1_ASYMPTOTIC.verdict) &&
       /eps_inf\/p/.test(IMP95944_PMINUS1_ASYMPTOTIC.verdict) &&
       /STILL OPEN/.test(IMP95944_PMINUS1_ASYMPTOTIC.obstruction) &&
       /NO QED/.test(IMP95944_PMINUS1_ASYMPTOTIC.verdict) &&
-      /remains SOTA/.test(IMP95944_PMINUS1_ASYMPTOTIC.verdict),
+      /refereed bound is changed/i.test(IMP95944_PMINUS1_ASYMPTOTIC.verdict),
   },
 ];
 

@@ -6,8 +6,7 @@
  * shared (delta, rho) cell.
  *
  * GRADE: verification / accuracy pass on baked literals only. Imports no heavy
- * bundle; no imports at all. Changes NO Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bundle; no imports at all. Changes NO Lambda bound; NO QED; no refereed bound is changed.
  *
  * THE CLAIM UNDER TEST (imp-95785). A single cancellation-free theta = 0 dual
  *   F_inf = (2 pi / L) * 2 * sum_{k>=1} sech(2 pi^2 k / L) * 2 sin^2(pi k delta / L),
@@ -63,7 +62,7 @@
  * dual reproduction to each source's storage precision, NOT a repeated measurement
  * of one cell by two methods. Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95785-twin-pair-block-bias-union-grid (the union grid and the single-boolean dual claim)
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the delta = ln1.5 rho-sweep float64 source)
@@ -173,7 +172,7 @@ export const IMP95807_FINF_DUAL_INDEPENDENT_RECOMPUTE = {
     "storage precision. Verification / accuracy pass on baked literals; no new " +
     "cited input. Model seam family only; imp-95212 envelope port, signed WEIGHT, " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95807"],
 };
 
@@ -266,7 +265,7 @@ export const IMP95807_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /INDEPENDENT RECOMPUTATION CONFIRMS/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95807-closes-self",

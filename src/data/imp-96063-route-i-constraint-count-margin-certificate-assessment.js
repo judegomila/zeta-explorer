@@ -10,7 +10,7 @@
  *   two moments already buy m(2) >= 0.539 UNIFORMLY on a in [0.30, (ln 3)/2]. This module does NOT re-run the
  *   pencil; it bakes the frozen high-res literals and answers the QUALITATIVE certificate question analytically.
  * Import-light: no imports, no zeros bundle; literals baked from rh-route-i-pencil-highres-map-2026-09-23.js.
- * RH open; PT Lambda <= 0.2 stands; NO QED; no bound moved; this is an assessment, not a proof.
+ * RH open; no refereed bound is changed; NO QED; no bound moved; this is an assessment, not a proof.
  *
  * ============================ 1. THE CONSTRAINT-COUNT-VS-MARGIN RELATION ============================
  * At a = (ln 3)/2 (the sup over a <= (ln 3)/2 of mu_max for every column; all columns monotone in a), N = 96:
@@ -110,7 +110,7 @@ export const IMP_96063_CONSTRAINT_MARGIN = Object.freeze({
   I1: Object.freeze({ lo: 8.145, hi: 9.875 }),
   unconstrainedMargin: 0.0028411, // m(0) at (ln3)/2 -- the residual any full-space certificate must reproduce
   twoMomentUniformMargin: 0.539, // m(2) >= 0.539 uniformly on a in [0.30, (ln3)/2]
-  verdict: 'A finite moment/support-constraint count does NOT by itself certify D_S <= L_S on the WHOLE pole-free space. It reduces the problem to a FIXED k-dimensional low-moment corner positivity + cross-term bound (sub-gap imp-96063-corner), whose residual margin is the unconstrained 2.8e-3, NOT the comfortable subspace 0.539. Two moments buy a large margin only ON the constrained subspace; the deleted corner carries the full hardness and cannot be improved by adding moments. Assessment only; NO QED; RH open; PT Lambda <= 0.2 SOTA.',
+  verdict: 'A finite moment/support-constraint count does NOT by itself certify D_S <= L_S on the WHOLE pole-free space. It reduces the problem to a FIXED k-dimensional low-moment corner positivity + cross-term bound (sub-gap imp-96063-corner), whose residual margin is the unconstrained 2.8e-3, NOT the comfortable subspace 0.539. Two moments buy a large margin only ON the constrained subspace; the deleted corner carries the full hardness and cannot be improved by adding moments. Assessment only; NO QED; RH open; no refereed bound is changed.',
   subGap: 'imp-96063-corner: k-dimensional low-moment corner positivity + cross term; carries the 2.8e-3 unconstrained residual (-> 0 as 2a -> ln 3); provably not reducible by more moments; must be closed by a separate explicit few-parameter argument.',
 });
 

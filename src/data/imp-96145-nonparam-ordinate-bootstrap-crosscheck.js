@@ -55,7 +55,7 @@
  * and T = 3e5 (p ~ 0.94) stay firmly in the noise floor. The measured window de-correlation is mild
  * (lag1-acf +0.244) and the per-window tails are light (excess kurtosis -0.495), so neither moves the
  * verdict. This CLOSES SG-96133-empirical-ordinate-bootstrap. Measurement / assessment only; changes
- * no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * @see imp-96133-mean-anchor-dip-bootstrap-crosscheck (the parametric chi-square bootstrap this extends)
@@ -194,7 +194,7 @@ export const IMP96145_NONPARAM_ORDINATE_BOOTSTRAP_CROSSCHECK = {
   caveat:
     'The bootstrap p-values are seeded Monte-Carlo estimates (MC std error ~4e-4 at p ~ 0.01 for B = 60000), reproducible in Node per seed; cross-engine transcendental last-ULP differences move them only at the ~1e-4 level, far below the reported bands. Measurement / assessment only.',
   verdict:
-    'The non-parametric block / circular ordinate-level bootstrap -- resampling the per-window (C - E) residuals empirically and therefore testing the window-independence / Gaussian-window assumption (a) that the imp-96133 parametric chi-square bootstrap had to ASSUME -- CONFIRMS the dip verdict: T = 1.5e5 is the single significant below-envelope dip (empirical two-sided p ~ 0.009-0.012 across iid / block / circular, vs parametric ~0.022 and chi-square normal ~0.027), while T = 1e4 (p ~ 0.76) and T = 3e5 (p ~ 0.94) stay firmly in the noise floor. The measured window de-correlation is mild (lag1-acf +0.244) and the per-window tails are light (excess kurtosis -0.495), so neither window dependence nor heavy tails move the verdict. This CLOSES SG-96133-empirical-ordinate-bootstrap. Changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The non-parametric block / circular ordinate-level bootstrap -- resampling the per-window (C - E) residuals empirically and therefore testing the window-independence / Gaussian-window assumption (a) that the imp-96133 parametric chi-square bootstrap had to ASSUME -- CONFIRMS the dip verdict: T = 1.5e5 is the single significant below-envelope dip (empirical two-sided p ~ 0.009-0.012 across iid / block / circular, vs parametric ~0.022 and chi-square normal ~0.027), while T = 1e4 (p ~ 0.76) and T = 3e5 (p ~ 0.94) stay firmly in the noise floor. The measured window de-correlation is mild (lag1-acf +0.244) and the per-window tails are light (excess kurtosis -0.495), so neither window dependence nor heavy tails move the verdict. This CLOSES SG-96133-empirical-ordinate-bootstrap. Changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (wide bands: MC + cross-engine tolerant) ---
@@ -230,8 +230,8 @@ export const IMP96145_NONPARAM_ORDINATE_BOOTSTRAP_CROSSCHECK = {
   // honesty gates
   if (!/NO QED/.test(IMP96145_NONPARAM_ORDINATE_BOOTSTRAP_CROSSCHECK.verdict))
     throw new Error('imp-96145: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96145_NONPARAM_ORDINATE_BOOTSTRAP_CROSSCHECK.verdict))
-    throw new Error('imp-96145: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96145_NONPARAM_ORDINATE_BOOTSTRAP_CROSSCHECK.verdict))
+    throw new Error('imp-96145: verdict dropped the no-refereed-bound-change banner');
   if (!/SG-96133-empirical-ordinate-bootstrap/.test(IMP96145_NONPARAM_ORDINATE_BOOTSTRAP_CROSSCHECK.subGapClosed))
     throw new Error('imp-96145: sub-gap name missing');
 })();

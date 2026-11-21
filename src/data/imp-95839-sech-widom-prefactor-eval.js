@@ -5,8 +5,7 @@
  *
  * GRADE: closed-form evaluation of an interior model-seam constant. Import-light
  * (Poisson-dual arithmetic, no zeros bundle, no imports). Changes NO Lambda bound;
- * NO operator-positivity claim on the main chain; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * NO operator-positivity claim on the main chain; NO QED. No refereed bound is changed.
  *
  * BACKGROUND. imp-95824 derived that the deep-corner lambda_min finite-size
  * correction scales as N^{-2} (p = 2) from Kac-Murdock-Szego / Widom / Parter edge
@@ -82,7 +81,7 @@
  * exponent-and-prefactor question is now closed at delta = ln 1.2; the wider-cell
  * prefactors and the imp-95212 envelope port, signed WEIGHT and modulus/phase legs
  * stay OPEN. Model seam family only. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95824-deep-corner-bias-exponent-szego-theory (derived p=2, left prefactor SUB-GAP b)
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (the measured biasPct ladder this matches)
@@ -157,7 +156,7 @@ export const IMP95839_SECH_WIDOM_PREFACTOR_EVAL = {
     "power change and NOT something else -- closing the imp-95824 residual (b). " +
     "Evaluation only; no cited input imported. Model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT and modulus/phase legs stay OPEN. Changes no bound " +
-    "of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95839"],
 };
 
@@ -306,7 +305,7 @@ export const IMP95839_ASSERTIONS = [
       REF.qed === false &&
       REF.prefactorEvaluated === true &&
       REF.resolvesSubGap === "pin-exact-limiting-bias-power-at-deep-corner" &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95839-closes-self",

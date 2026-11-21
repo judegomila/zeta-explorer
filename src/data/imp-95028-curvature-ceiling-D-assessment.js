@@ -7,7 +7,7 @@
  * nineteenth continuation (the EXACT closed-form pair correlation that
  * discarded the window / Cauchy-Schwarz apparatus) REMOVED the window
  * curvature dependence or merely RELOCATED it. Measurement/derivation only.
- * NO QED; NO bound promotion; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; NO bound promotion; no refereed bound is changed.
  *
  * WHERE D COMES FROM (the window/Cauchy-Schwarz route - Proposition C of the
  * alias-separation module). The arithmetic thread controls the imp-95008
@@ -74,7 +74,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 const P = 97; // telescope prime (identical to the alias-separation module)
@@ -148,7 +148,7 @@ export const IMP95028_CURVATURE_CEILING_D_ASSESSMENT = {
     "ASSESSMENT with exact arithmetic cross-checks, not a theorem. The block-count identity B = ceil(log2(pD)) and its growth in D are exact; the Theorem D majorant S and its D-invariance are exact finite-comb arithmetic pinned by the integral brackets 3((m+1)^(1/3)-1) <= sum j^(-2/3) <= 3 m^(1/3) - 2. The conclusion that D is a decomposition artifact removed by the exact route is an assessment of the two proof routes present in the sibling chain, conditional on Theorem D itself (which carries its own hypothesis on the low-curvature normalization mu). No new bound; NO QED.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT of openResiduals[1] the curvature ceiling D: D is retained ONLY by the superseded window / Cauchy-Schwarz route (Proposition C), where it sets the dyadic-block count B = ceil(log2(pD)) (7 at D = 1, unbounded in D) and the worst-block overlap K. The exact closed-form route (Theorem D almost-orthogonal comb sum S = 0.03811163970959593; Theorem Y-EXACT roll-up) carries NEITHER a block count NOR a ceiling D: finiteness is supplied by the finite arithmetic comb of (p-1)/2 aliases plus lambda^(-2/3) amplitude decay at the high-curvature end. Conclusion: the exact-closed-form move REMOVED the window curvature ceiling D (a decomposition artifact) rather than relocating it; the only surviving input is the distinct low-curvature normalization mu. openResiduals[1] is retired for the exact route. Name-collision with the model-family spatial-block scale DD recorded. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT of openResiduals[1] the curvature ceiling D: D is retained ONLY by the superseded window / Cauchy-Schwarz route (Proposition C), where it sets the dyadic-block count B = ceil(log2(pD)) (7 at D = 1, unbounded in D) and the worst-block overlap K. The exact closed-form route (Theorem D almost-orthogonal comb sum S = 0.03811163970959593; Theorem Y-EXACT roll-up) carries NEITHER a block count NOR a ceiling D: finiteness is supplied by the finite arithmetic comb of (p-1)/2 aliases plus lambda^(-2/3) amplitude decay at the high-curvature end. Conclusion: the exact-closed-form move REMOVED the window curvature ceiling D (a decomposition artifact) rather than relocating it; the only surviving input is the distinct low-curvature normalization mu. openResiduals[1] is retired for the exact route. Name-collision with the model-family spatial-block scale DD recorded. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 export const IMP95028_CURVATURE_CEILING_D_ASSERTIONS = [
@@ -236,13 +236,13 @@ export const IMP95028_CURVATURE_CEILING_D_ASSERTIONS = [
   {
     id: "imp95028-honesty-gate",
     description:
-      "the verdict assesses (does not prove) the ceiling, concludes REMOVED not relocated, names the surviving low-curvature normalization mu as a distinct residual, records the name-collision with the model-family DD, promotes no bound, NO QED, PT stays SOTA; isRigorous is false (assessment, not theorem)",
+      "the verdict assesses (does not prove) the ceiling, concludes REMOVED not relocated, names the surviving low-curvature normalization mu as a distinct residual, records the name-collision with the model-family DD, promotes no bound, NO QED, no refereed bound is changed; isRigorous is false (assessment, not theorem)",
     holds: () =>
       IMP95028_CURVATURE_CEILING_D_ASSESSMENT.promotesBound === false &&
       IMP95028_CURVATURE_CEILING_D_ASSESSMENT.isRigorous === false &&
       IMP95028_CURVATURE_CEILING_D_ASSESSMENT.openResiduals.length === 3 &&
       /NO QED/.test(IMP95028_CURVATURE_CEILING_D_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95028_CURVATURE_CEILING_D_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP95028_CURVATURE_CEILING_D_ASSESSMENT.verdict) &&
       /REMOVED/.test(IMP95028_CURVATURE_CEILING_D_ASSESSMENT.assessment) &&
       /artifact of the dyadic-block/.test(IMP95028_CURVATURE_CEILING_D_ASSESSMENT.assessment) &&
       /normalization mu/.test(IMP95028_CURVATURE_CEILING_D_ASSESSMENT.assessment) &&

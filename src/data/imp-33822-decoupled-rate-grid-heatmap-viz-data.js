@@ -39,7 +39,7 @@ export const IMP33822_CAVEAT_BANNER =
   'not a new measurement. The decoupled probe deliberately breaks the shared-rate exponential and ' +
   'is a diagnostic device, not an admissible imp-3066 modification. Carries no RH verdict; ' +
   'imp-3066 / imp-33725 / imp-33765 / imp-33789 / G7 remain untouched; K_a >= 0 and positivity were ' +
-  'not attempted; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'not attempted; no refereed bound is changed. No QED.';
 
 export const IMP33822_DECOUPLED_RATE_GRID_HEATMAP_VIZ_DATA_ASSERTIONS = [
   {

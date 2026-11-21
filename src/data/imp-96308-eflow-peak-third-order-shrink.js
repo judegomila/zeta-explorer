@@ -56,7 +56,7 @@
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-96286-eflow-peak-location-error-order (M4 predicts but does not measure the third-order shrink)
  * @see imp-96266-eflow-peak-recovery-residual (first-order reconstruction; ~9% location, <1e-3 height)
@@ -248,7 +248,7 @@ export const IMP96308_EFLOW_PEAK_THIRD_ORDER_SHRINK = {
     'Measurement on the inherited sub-terms only; the C_mb GUE-conditional per imp-486 stays ' +
     'GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96286 (M4 predicts but does not measure the third-order shrink); imp-96266 (first-order ' +
     'reconstruction; ~9% location, <1e-3 height); imp-96151 (closed-form share model); imp-3220 ' +
@@ -301,13 +301,13 @@ export const IMP96308_EFLOW_PEAK_THIRD_ORDER_SHRINK_ASSERTIONS = [
       HT_ERR_O3 > HT_ERR_EXACT,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96308-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96308_EFLOW_PEAK_THIRD_ORDER_SHRINK.isRigorous === false &&
       /NO QED/.test(IMP96308_EFLOW_PEAK_THIRD_ORDER_SHRINK.verdict) &&
-      /remains SOTA/.test(IMP96308_EFLOW_PEAK_THIRD_ORDER_SHRINK.verdict),
+      /refereed bound is changed/i.test(IMP96308_EFLOW_PEAK_THIRD_ORDER_SHRINK.verdict),
   },
 ];
 

@@ -73,8 +73,7 @@
  * on BOTH the E_coll amplitude and the E_trunc floor, through their ratio.
  *
  * ASSESSMENT ONLY. C_H = 1/8 ansatz untouched; C_mb stays GUE-conditional (imp-486); no bound
- * changes, no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes, no positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (COMPLEMENTARY E_trunc-floor swap on the SAME landmarks; N ~ E_trunc^(-2))
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the far-tail landmarks perturbed here)
@@ -246,7 +245,7 @@ export const IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY = {
     'amplitude and the E_trunc floor, through their ratio. BUT for any positive C_C both crossings ' +
     'still EXIST and stay ordered -- the milestones are structural, only their N-coordinates move. ' +
     'Assessment only; C_H = 1/8 ansatz untouched, C_mb stays GUE-conditional (imp-486), no bound ' +
-    'changes, no positivity, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes, no positivity, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33708 (COMPLEMENTARY E_trunc-floor swap on the same landmarks, exponent ~ -2.0); imp-33582 ' +
     '(far-tail landmarks perturbed here); imp-33606 (E_coll sub-leading 1/log SHAPE swap -- different ' +
@@ -307,16 +306,16 @@ export const IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY_ASSERTIONS
       AMP_FACTORS.every((f, i) => LANDMARK_0_5.table[i].N_landmark < LANDMARK_0_1.table[i].N_landmark),
   },
   {
-    // Honesty gate: sensitivity/assessment only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity/assessment only, split verdict, no QED, no refereed bound is changed.
     id: 'imp33747-honesty-gate-no-qed',
-    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY.isRigorous === false &&
       /ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY/.test(
         IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY.verdict,
       ) &&
       /NO QED/.test(IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33747_SIGMA_FARTAIL_LANDMARK_CC_AMPLITUDE_SENSITIVITY.verdict),
   },
 ];
 

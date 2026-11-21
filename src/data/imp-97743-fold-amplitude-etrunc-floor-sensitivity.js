@@ -67,7 +67,7 @@
  * C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED (bare E_coll prefactor); E_trunc base
  * pin 3.06e-5 unchanged (only rescaled as a perturbation); no bound moves; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97725-fold-amplitude-analytic-pin (the K = sqrt(S/(2 phi_xx)) pin whose floor dependence is measured here)
  * @see imp-97735-fold-amplitude-height-ladder-drift (SAME K denominator walked along a HEIGHT ladder -- different axis)
@@ -260,7 +260,7 @@ export const IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY = {
     'sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous asymptotic; C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc base pin 3.06e-5 ' +
     'unchanged (only rescaled); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97725 (the K pin whose floor dependence is measured here); imp-97735 (SAME K denominator walked along a HEIGHT ' +
     'ladder); imp-33708 (SAME floor swap on the far-tail landmark N ~E_trunc^(-2.0)); imp-33684 (SAME floor swap on the ' +
@@ -320,9 +320,9 @@ export const IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY_ASSERTIONS = [
     holds: () => SIGMA_MONOTONE_DOWN === true,
   },
   {
-    // Honesty gate: sensitivity/assessment only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity/assessment only, split verdict, no QED, no refereed bound is changed.
     id: 'imp97743-honesty-gate-no-qed',
-    description: 'Measurement only: robust-qualitative/gently-fragile verdict, sub-gap confirmed, no QED, PT stays SOTA',
+    description: 'Measurement only: robust-qualitative/gently-fragile verdict, sub-gap confirmed, no QED, no refereed bound is changed',
     holds: () =>
       IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY.isRigorous === false &&
       /ROBUST QUALITATIVELY, GENTLY FRAGILE QUANTITATIVELY/.test(
@@ -330,7 +330,7 @@ export const IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY_ASSERTIONS = [
       ) &&
       /SUB-GAP/.test(IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP97743_FOLD_AMPLITUDE_ETRUNC_FLOOR_SENSITIVITY.verdict),
   },
 ];
 

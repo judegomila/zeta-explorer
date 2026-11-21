@@ -50,7 +50,7 @@
  * FIT / TABULATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34410-complement-identity-direct-secant-crossvalidation (F3 named delta, tabulated 3 points)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (full-sigma direct secant path)
@@ -237,8 +237,8 @@ export const IMP34471_DIRECT_SECANT_DEVIATION_DECAY_LAW_FIT = {
     'The imp-34410 F3 three-point sketch is now a fitted decay law with the negligibility threshold ' +
     'quantified. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34410 (F3 named delta, tabulated 3 points, never fit); imp-33816 (full-sigma direct secant); ' +
     'imp-34328 (complement identity, shared closed form); imp-34130 (shared resid); imp-2631 (E_trunc ' +
@@ -286,13 +286,13 @@ export const IMP34471_DIRECT_SECANT_DEVIATION_DECAY_LAW_FIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: fit only, no QED, PT SOTA.
+    // Honesty gate: fit only, no QED, no refereed bound is changed.
     id: 'imp34471-honesty-gate-no-qed',
-    description: 'Fit only: not rigorous, no QED, PT stays SOTA',
+    description: 'Fit only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34471_DIRECT_SECANT_DEVIATION_DECAY_LAW_FIT.isRigorous === false &&
       /NO QED/.test(IMP34471_DIRECT_SECANT_DEVIATION_DECAY_LAW_FIT.verdict) &&
-      /remains SOTA/.test(IMP34471_DIRECT_SECANT_DEVIATION_DECAY_LAW_FIT.verdict),
+      /refereed bound is changed/i.test(IMP34471_DIRECT_SECANT_DEVIATION_DECAY_LAW_FIT.verdict),
   },
 ];
 

@@ -43,7 +43,7 @@
  * via the (6.26) B24 Euler-Maclaurin certificate at m=19 is a separate open sub-gap, imp-95745).
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.23).
  * SCRATCH: tmp/imp-95746-scratch.mjs (re-uses the tmp/imp-95720-m19.mjs machinery).
@@ -81,7 +81,7 @@ export const SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI = Object.freeze({
     + 'Only m=20 has a certified kappa: offset = kappa_cert - J_raw = 4.0000000001 (to 1.4e-10). '
     + 'Internal-consistency witness, NOT an independent +4 verification at m=18/19/21; c_odd(1/19) '
     + 'still double-precision (interval certificate at m=19 open). G irrationality OPEN; Sun '
-    + 'unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'tmp/sun-catalan/paper.txt Section 6, Proposition 6.3, eqs (6.11)-(6.23)',
   builtOn:
@@ -116,7 +116,7 @@ export const SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI = Object.freeze({
     + 'independent verification of the +4 at m=18/19/21. c_odd(1/19) remains offset-certain but '
     + 'double-precision; interval certification via the (6.26) B24 Euler-Maclaurin certificate at '
     + 'm=19 is a separate open sub-gap. Catalan G irrationality OPEN; Sun single-author, unrefereed; '
-    + 'NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI_ASSERTIONS = Object.freeze([
@@ -160,7 +160,7 @@ export const SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI_ASSERTIONS = Object.freeze([
       SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI.witness.certifiedAnchorModuli.join(',') === '20'
       && /internal-consistency m-independence witness/.test(SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI.caveats)
       && /NOT an\s+independent verification/.test(SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI.caveats)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI.status)
+      && /refereed bound is changed/i.test(SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI.status)
       && /NO QED/.test(SUN_PROP63_PLUS4_OFFSET_FOUR_MODULI.status),
   },
 ]);

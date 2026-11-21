@@ -41,8 +41,8 @@
  *   RH-EQUIVALENT. This LOCKS a saturating, strictly-positive residual gap; it neither
  *   claims the cover holds nor that it fails, and carries NO RH verdict. The
  *   off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction
- *   and is untouched. Lock only, no QED. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the
- *   rigorous SOTA. No false QED.
+ *   and is untouched. Lock only, no QED. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3125-orthogonalized-residual-gap-degree-sweep.js (the saturating gap sweep)
  *   @see imp-3127-interior-landmark-locks.js (companion interior landmark lock)
@@ -262,7 +262,7 @@ export const IMP3147_RESIDUAL_GAP_SATURATION_LOCK = Object.freeze({
       'Locks a saturating, strictly-positive residual gap of the representative monomial ' +
       'truncation; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the ' +
       'lone obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -319,7 +319,7 @@ export const IMP3147_RESIDUAL_GAP_SATURATION_LOCK_ASSERTIONS = [
     id: 'imp3147-honest-rh-equivalent-not-a-verdict',
     why: 'Mandatory honesty: this is a saturating-gap LOCK, RH-EQUIVALENT, representative ' +
          'truncation diagnostic, leaves the operator step untouched, did not attempt ' +
-         'positivity, is not a proof, not a reduction below RH, and PT 0.2 stays SOTA. If any ' +
+         'positivity, is not a proof, not a reduction below RH, and no refereed bound is changed. If any ' +
          'of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3147_RESIDUAL_GAP_SATURATION_LOCK.honestCaveat;
@@ -331,7 +331,7 @@ export const IMP3147_RESIDUAL_GAP_SATURATION_LOCK_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -66,7 +66,7 @@
  *   oscillation that no finite descent removes -- the intrinsic quantum-modular wobble. Measurement
  *   only; pins NO analytic constant (the exact kappa_smooth is still the psi cusp O(x^2) coefficient,
  *   imp-97578); no bound moves; rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916,
- *   imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open;
+ *   imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed; RH open;
  *   NO QED.
  *
  * @see imp-97563-route-m-bettin-conrey-reciprocity-split-assessment (VERDICT(b): the claim measured here)
@@ -160,12 +160,12 @@ export const IMP97577_VERDICT = Object.freeze({
     'content, RESULT 1), and (ii) the raw un-reciprocated cot sum, which GROWS ~q_n (the leading ' +
     'term the reciprocity strips, RESULT 2). Measurement only; pins no analytic constant (exact ' +
     'kappa_smooth = psi cusp O(x^2) coefficient, imp-97578); no bound moves; the rigorous anchor ' +
-    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97577_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97563 reciprocity residual ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97563 reciprocity residual ' +
   'is a Denjoy-Koksma cot Birkhoff sum along the Gauss-map orbit that is BOUNDED but NON-VANISHING -- ' +
   'its residue-class RMS stays ~0.026 (O(4e-2)) across a 75x denominator range (slope vs log r ~1.6e-4), ' +
   'while the fixed-x convergent wobble converges (smooth psi) and the raw un-reciprocated cot sum grows ' +
@@ -234,7 +234,7 @@ const IMP97577_ASSERTIONS = [
       IMP97577_VERDICT.analyticConstantPinned === false &&
       IMP97577_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97577_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97577_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97577_HONEST_BANNER) &&
       /RH open/.test(IMP97577_HONEST_BANNER),
   },
 ];

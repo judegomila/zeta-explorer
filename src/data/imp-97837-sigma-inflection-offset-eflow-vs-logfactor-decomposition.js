@@ -53,7 +53,7 @@
  * MEASUREMENT ONLY. Conditional-share curvature/value diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33744-sigma-inflection-vs-half-closed-form (closed form sigma_infl = 1/2 - g_prime/(2 g^2))
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma=1/2 halving landmark ~3.27e9)
@@ -250,7 +250,7 @@ export const IMP97837_SIGMA_INFLECTION_OFFSET_DECOMPOSITION = {
     'landmark before decaying steeply. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33744 (sigma_infl = 1/2 - g_prime/(2 g^2), offset attributed to log-factor running); imp-33582 ' +
     '(sigma=1/2 halving landmark ~3.27e9); imp-33721 (sub-decade ramp-inflection knee ~3.38e9, ~3.3% ' +
@@ -309,13 +309,13 @@ export const IMP97837_SIGMA_INFLECTION_OFFSET_DECOMPOSITION_ASSERTIONS = [
     holds: () => GEN_CROSSOVER_N > HALVING_LANDMARK_N && GEN_CROSSOVER_N < 1e10,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp97837-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97837_SIGMA_INFLECTION_OFFSET_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP97837_SIGMA_INFLECTION_OFFSET_DECOMPOSITION.verdict) &&
-      /Lambda <= 0\.2 SOTA/.test(IMP97837_SIGMA_INFLECTION_OFFSET_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP97837_SIGMA_INFLECTION_OFFSET_DECOMPOSITION.verdict),
   },
 ];
 

@@ -136,7 +136,7 @@
  * inertia table (n- in [5,11], n0 = 0 across the family), and the
  * small-prime Christoffel concentration. No new unconditional bound; no new
  * arithmetic-input statement of the class the no-gos require. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * Scope caveats: (i) sampled seam points, not a continuum certificate;
  * (ii) locked evaluator convention — the paper's anchor literal
@@ -480,7 +480,7 @@ export const IMP95217_INERTIA_PCC_Q = {
   thresholdCrossedEverywhere: true,
   killRuleTriggered: false,
   verdict:
-    'Q < 1.4326672 at all 21 measured seam points (worst attained qPure = 0.90487, Cauchy-Schwarz ceiling 1 - 8.5e-19, von Neumann qVN = 0.78939) — the compression "bites" per the strategist criterion, but STRUCTURALLY: on the discrete 25-prime-node picture the Christoffel diagonal is the diagonal of an orthogonal projection, so K <= 1 and Q <= 1 < 1.4326672 at unit weld constants identically; the crossing was pre-decided, and the technique yields only the conditional transfer "|C_E,17| < 0.27968819555261474 at the measured points PROVIDED the unidentified weld constants satisfy C*sqrt(K)*||f|| < 1.8149072". The load lands wholly on the imp-95008 identification residual — structurally the SAME PCC wall (soft linear algebra creates no arithmetic input; flow-blindness pattern). Genuinely NEW measurements delivered, not mechanism: lambda_max(rho) = 0.6231344958476320 (the imp-95020 named unmeasured number), the family-wide pointwise indefiniteness of the compressed defect form (n- in [5,11], n0 = 0 at every point — every PSD-certificate route through this compression refuted pointwise, per the Inertia.lean le_negIndex interface), and small-prime Christoffel concentration (K -> 1 at p = 2, 3, 5). MEASUREMENT, not a theorem: sampled points, locked (non-anchor-reproducing) convention, ensemble rho over the 21 points. Changes no bound; does NOT promote any Lambda; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Q < 1.4326672 at all 21 measured seam points (worst attained qPure = 0.90487, Cauchy-Schwarz ceiling 1 - 8.5e-19, von Neumann qVN = 0.78939) — the compression "bites" per the strategist criterion, but STRUCTURALLY: on the discrete 25-prime-node picture the Christoffel diagonal is the diagonal of an orthogonal projection, so K <= 1 and Q <= 1 < 1.4326672 at unit weld constants identically; the crossing was pre-decided, and the technique yields only the conditional transfer "|C_E,17| < 0.27968819555261474 at the measured points PROVIDED the unidentified weld constants satisfy C*sqrt(K)*||f|| < 1.8149072". The load lands wholly on the imp-95008 identification residual — structurally the SAME PCC wall (soft linear algebra creates no arithmetic input; flow-blindness pattern). Genuinely NEW measurements delivered, not mechanism: lambda_max(rho) = 0.6231344958476320 (the imp-95020 named unmeasured number), the family-wide pointwise indefiniteness of the compressed defect form (n- in [5,11], n0 = 0 at every point — every PSD-certificate route through this compression refuted pointwise, per the Inertia.lean le_negIndex interface), and small-prime Christoffel concentration (K -> 1 at p = 2, 3, 5). MEASUREMENT, not a theorem: sampled points, locked (non-anchor-reproducing) convention, ensemble rho over the 21 points. Changes no bound; does NOT promote any Lambda; NO QED; no refereed bound is changed.',
   newUnconditionalStatementAvailable: false,
   whatWouldBeAvailableIfConstantsIdentified:
     'the strict correlated-center target at the 21 measured seam points under C*sqrt(K)*||f|| < 1.8149072 (was 1.4326672 before the von Neumann measurement) — a conditional transfer, not new arithmetic input',
@@ -602,13 +602,13 @@ export const IMP95217_ASSERTIONS = [
   {
     id: 'imp95217-honesty-gate-no-qed',
     description:
-      'honest scope: measurement not theorem, no new unconditional statement claimed, structural (not discovered) threshold crossing recorded, NO QED, PT stays SOTA',
+      'honest scope: measurement not theorem, no new unconditional statement claimed, structural (not discovered) threshold crossing recorded, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95217_INERTIA_PCC_Q.promotesBound === false &&
       IMP95217_INERTIA_PCC_Q.newUnconditionalStatementAvailable === false &&
       IMP95217_INERTIA_PCC_Q.thresholdCrossedEverywhere === true &&
       /NO QED/.test(IMP95217_INERTIA_PCC_Q.verdict) &&
-      /remains SOTA/.test(IMP95217_INERTIA_PCC_Q.verdict) &&
+      /refereed bound is changed/i.test(IMP95217_INERTIA_PCC_Q.verdict) &&
       /SAME PCC wall/.test(IMP95217_INERTIA_PCC_Q.verdict),
   },
 ];

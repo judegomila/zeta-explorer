@@ -24,7 +24,7 @@
  * No source file required correction.
  *
  * SCOPE. Read-only audit. Changes no bound; establishes no operator positivity; no RH verdict;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-96337-mixed-ladder-margin-viz-data.js (the audited data module)
  * @see src/pages/Imp96337MixedLadderMarginViz.jsx (the audited page)
@@ -71,7 +71,7 @@ export const IMP96358_IMP96337_VIZ_BROWSER_RENDER_AUDIT = {
     + 'imp-96337 viz page under the browser-only-assertion discipline via a real headless-browser '
     + 'render plus a plain-node import check. Result: renders cleanly, no blank/NaN/silent-throw '
     + 'failure; no source file required correction. Changes no bound; establishes no operator '
-    + 'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-96337 (the audited viz-data leaf and page); imp-35606/imp-35545/imp-35484 (prior '
     + 'browser/registration audit method this ticket reuses).',
@@ -118,11 +118,11 @@ export const IMP96358_IMP96337_VIZ_BROWSER_RENDER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp96358-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96358_IMP96337_VIZ_BROWSER_RENDER_AUDIT.isRigorous === false
       && /NO QED/.test(IMP96358_IMP96337_VIZ_BROWSER_RENDER_AUDIT.verdict)
-      && /remains SOTA/.test(IMP96358_IMP96337_VIZ_BROWSER_RENDER_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP96358_IMP96337_VIZ_BROWSER_RENDER_AUDIT.verdict),
   },
 ];
 

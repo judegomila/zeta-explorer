@@ -42,7 +42,7 @@
  *   +7.52e-5 omega=10 gap re-checked here)
  *
  * Ticket: imp-97731 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The MCM kernel-precision cap headword, baked verbatim (no re-import).
@@ -72,8 +72,8 @@ const MCM_KERNEL_PRECISION_CAP_HEADWORD = Object.freeze({
     'with the measured noise exponent (3.93) checked against the theoretical 4, the extension factor ' +
     '(~3247) checked against the eps^{-1/4} law, and the extended-cap gap re-check confirming the omega=10 ' +
     'gap (7.520578537e-5) is unchanged to within the cap-independent tail budget. Naming / glossary ' +
-    'headword only; supplies no new bound; MCM stays refuted from omega=11; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'headword only; supplies no new bound; MCM stays refuted from omega=11; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,8 +90,8 @@ export const IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD = Object.freeze
     'kernel divisor-sum cap d <= 1000 is precision-limited (d*(eps) proportional to eps^{-1/4}), so a ' +
     'dps=30 eval would extend it ~3247x to ~2.7e6-3.2e6, but the cap-independent rigorous 1/(720 d^3) ' +
     'tail budget (< 5.69e-11) bounds any cap-to-infinity gap shift a million-fold below the +7.520579e-5 ' +
-    'omega=10 gap. No bound moved; MCM stays refuted from omega=11; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'omega=10 gap. No bound moved; MCM stays refuted from omega=11; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97704 (the cap-scaling derivation this glosses); imp-97685 (the RESULT 3 cap this refines); ' +
     'imp-97647 (the measured double noise ratios and the +7.52e-5 gap re-checked here).',
@@ -117,11 +117,11 @@ export const IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97731-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97704.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97704.',
     holds: () =>
       IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD.verdict) &&
       IMP97731_MCM_KERNEL_PRECISION_CAP_GLOSSARY_HEADWORD.glosses === 'imp-97704',
   },
 ];

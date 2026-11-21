@@ -5,7 +5,7 @@
  *   SAME modulus the OPEN Step-4 sub-gap G6a_shock_lipschitz (imp-1264 / imp-345)
  *   requires, or identify the residual gap between the two. Scoping / assessment
  *   ONLY: closes NOTHING, discharges no gap, changes no bound, respects the
- *   imp-2519 no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -140,7 +140,7 @@ export const IMP36152_WHITHAM_CW_VS_G6A_MODULUS_SCOPING = Object.freeze({
     'The deviation-vs-absolute distinction (E(N) needs |t_c(N)| absolutely) is a SEPARATE per-N ' +
     'anchor gap (imp-36082 CONSUMABLE-MODULO-ANCHOR), not a modulus shortfall. Closes NOTHING; ' +
     'discharges no gap; changes no bound; respects the imp-2519 no-overclaim guard; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
 
   moduli: Object.freeze({
     g6a_required: 'C in |tau_c(m_N) - tau_c(m_inf)| <= C ||m_N - m_inf||_{L^inf}^{1/2}  (G6a_shock_lipschitz spec)',
@@ -194,7 +194,7 @@ export const IMP36152_WHITHAM_CW_VS_G6A_MODULUS_SCOPING = Object.freeze({
       "(imp-354 C_W = sqrt(2/|u_0''|), Holder exponent 1/2, placeholder 1.0), that the residual gap is the " +
       'still-open G6a-sub-constant valuation of C_W, and that the deviation-vs-absolute distinction is a separate ' +
       'per-N anchor gap. Closes nothing; discharges no gap; changes no bound; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -254,7 +254,7 @@ export const IMP36152_WHITHAM_CW_VS_G6A_MODULUS_SCOPING_ASSERTIONS = [
   {
     id: 'imp36152-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a SCOPING assessment that closes NOTHING, discharges no gap, does NOT value C_W, ' +
-         'changes no bound, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'changes no bound, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36152_WHITHAM_CW_VS_G6A_MODULUS_SCOPING.honestCaveat;
       return (
@@ -267,7 +267,7 @@ export const IMP36152_WHITHAM_CW_VS_G6A_MODULUS_SCOPING_ASSERTIONS = [
         h.changesAnyBound === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

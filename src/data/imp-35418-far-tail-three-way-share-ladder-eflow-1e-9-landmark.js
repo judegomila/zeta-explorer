@@ -65,8 +65,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; the imp-34791
  * E_trunc = barrier-lemma reclassification is UNCHANGED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality (sigma<1e-3 landmark; parts() + bisection source)
  * @see imp-35410-far-tail-sigma-1e-4-threshold-three-way-shares (sigma<1e-4 landmark, E_flow share 7.35e-11)
@@ -256,7 +255,7 @@ export const IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; the imp-34791 E_trunc = barrier-lemma reclassification is UNCHANGED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35334 (sigma<1e-3 landmark, three-way share source; parts() + bisection); imp-35410 (sigma<1e-4 ' +
     'landmark, E_flow share 7.35e-11); imp-34474 (sigma<0.01 landmark); imp-33620 (sigma<0.01 far-tail ' +
@@ -334,9 +333,9 @@ export const IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK_ASSERT
   },
   {
     // Honesty gate: measurement only, GUE-conditional per imp-486, E_trunc barrier-lemma per imp-34791,
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp35418-honesty-gate-no-qed',
-    description: 'Measurement only: C_mb GUE-conditional (imp-486), E_trunc barrier lemma (imp-34791), no QED, PT SOTA',
+    description: 'Measurement only: C_mb GUE-conditional (imp-486), E_trunc barrier lemma (imp-34791), no QED, no refereed bound is changed',
     holds: () =>
       IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK.isRigorous === false &&
       /GUE-conditional share per imp-486 is UNTOUCHED/.test(
@@ -346,7 +345,7 @@ export const IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK_ASSERT
         IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK.verdict,
       ) &&
       /NO QED/.test(IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK.verdict) &&
-      /remains SOTA/.test(IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK.verdict),
+      /refereed bound is changed/i.test(IMP35418_FAR_TAIL_THREE_WAY_SHARE_LADDER_EFLOW_1E_9_LANDMARK.verdict),
   },
 ];
 

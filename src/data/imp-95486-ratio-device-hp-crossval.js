@@ -3,7 +3,7 @@
  * normalized-ratio device R(t) = p(t)/up(t) checked against the imp-95422
  * BigInt high-precision (HP) forms of the SAME series in the deep-t
  * float-trap band. Cross-validation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * BACKGROUND. imp-95449 introduced a stable DOUBLES device for the theta
  * density p(t): the normalized ratio R(t) = p(t)/up(t) is an alternating
@@ -57,7 +57,7 @@
  * the system of record for the positivity proof and its enclosures;
  * imp-95449 owns the doubles device; imp-95422 owns the BigInt-HP engine.
  * The imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay
- * OPEN. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * OPEN. NO QED; no refereed bound is changed.
  */
 
 export const IMP95486_RATIO_DEVICE_HP_CROSSVAL = {
@@ -104,8 +104,8 @@ export const IMP95486_RATIO_DEVICE_HP_CROSSVAL = {
     "positivity margin exactly. Cross-validation only; re-derives no proof; " +
     "changes no bound; imp-95420 (proof), imp-95449 (device), imp-95422 " +
     "(HP engine) untouched; the imp-95212 envelope port and signed WEIGHT " +
-    "/ modulus-phase legs stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "/ modulus-phase legs stay OPEN; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -331,7 +331,7 @@ export const IMP95486_CROSSVAL_ASSERTIONS = [
       /changes no bound/.test(REF.verdict) &&
       /stay OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

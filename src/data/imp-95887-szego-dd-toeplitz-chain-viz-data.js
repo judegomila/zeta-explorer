@@ -63,8 +63,8 @@ export const IMP95887_CAVEAT_BANNER =
   'independent numerical cross-check of an established scaling law (imp-95704); the per-delta ' +
   'comparison assembles previously-piecemeal u_fit intervals into one table. Both certified ' +
   'DD-vs-dual intervals CONTAIN ZERO (consistent with exact agreement, not a separation). ' +
-  'Introduces no new cited input and changes no bound; Platt-Trudgian Lambda <= 0.2 remains the ' +
-  'rigorous SOTA. NO QED.';
+  'Introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. NO QED.';
 
 export const IMP95887_SZEGO_DD_TOEPLITZ_CHAIN_VIZ_DATA_ASSERTIONS = [
   {

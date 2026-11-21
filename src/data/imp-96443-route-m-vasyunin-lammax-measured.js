@@ -52,7 +52,7 @@
  * imp-96428-lammax-unrecorded is now CLOSED (lam_max measured, bracket collapsed).
  *
  * MEASUREMENT / EXTRAPOLATION ONLY. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (the 3-proxy bracket this collapses)
@@ -151,7 +151,7 @@ export const IMP96443_SUBGAP = Object.freeze({
 });
 
 export const IMP96443_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: lam_max is a reproducible power-iteration eigenvalue on the same exact Vasyunin Gram as imp-96105 / imp-96325 (tmp/imp-96443-lammax.py), cross-checked vs eigvalsh; the fit and re-derived conditioning ceiling are pure re-analysis; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: lam_max is a reproducible power-iteration eigenvalue on the same exact Vasyunin Gram as imp-96105 / imp-96325 (tmp/imp-96443-lammax.py), cross-checked vs eigvalsh; the fit and re-derived conditioning ceiling are pure re-analysis; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -197,7 +197,7 @@ const IMP96443_ASSERTIONS = [
     id: 'imp96443-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96443_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96443_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96443_HONEST_BANNER) &&
       /NO QED/.test(IMP96443_HONEST_BANNER) &&
       IMP96443_CLOSES.id === 'imp-96428-lammax-unrecorded' &&
       /extrapolated/.test(IMP96443_SUBGAP.id),

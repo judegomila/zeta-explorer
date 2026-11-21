@@ -38,7 +38,7 @@
  * SCOPE: AUDIT / REGRESSION-GUARD ONLY -- confirms existing page content,
  * edits no page, changes no bound; does not advance the R2 ladder (certified
  * at N=1000 per imp-35221/imp-35324); does not touch the imp-486 GUE
- * conditional. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * conditional. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" prose throughout.
  *

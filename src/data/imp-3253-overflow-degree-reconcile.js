@@ -62,7 +62,7 @@
  *   (NPHI=10, a=0.5, U=6). RH-EQUIVALENT; necessary-but-NOT-sufficient at operator
  *   order; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the
  *   lone obstruction, UNTOUCHED. No positivity attempted, no reduction, no RH
- *   verdict, no false QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   verdict, no false QED. No refereed bound is changed.
  *
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (the ~0.209 degree-2 anchor)
  *   @see imp-2686-mupass-construction.js (the "64% is degree-0, not absolute" scale analysis)
@@ -264,7 +264,7 @@ export const IMP3253_OVERFLOW_DEGREE_RECONCILE = Object.freeze({
       'A nonzero overflow fraction at either degree is necessary-but-NOT-sufficient at ' +
       'operator order; the off-diagonal endpoint-Hankel step (imp-3066) is the lone obstruction, untouched.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -308,7 +308,7 @@ export const IMP3253_OVERFLOW_DEGREE_RECONCILE_ASSERTIONS = [
     id: 'imp3253-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC reconciliation, reconciliation-only (not a re-derivation ' +
          'of the 64%), necessary-but-not-sufficient at operator order, positivity not attempted, ' +
-         'PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3253_OVERFLOW_DEGREE_RECONCILE.honestCaveat;
       return (
@@ -316,7 +316,7 @@ export const IMP3253_OVERFLOW_DEGREE_RECONCILE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

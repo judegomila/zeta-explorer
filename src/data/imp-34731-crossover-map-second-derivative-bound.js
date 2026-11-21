@@ -67,7 +67,7 @@
  * DERIVATION / MEASUREMENT ONLY. This bounds the curvature of the INHERITED imp-3220/imp-3406
  * surrogate crossover map; it adds NO RH bound and asserts no operator positivity. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
- * changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (fixed point N = K log T0(N), g_prime form)
  * @see imp-34693-crossover-contraction-seed-band (sub-gap imp-34693a: bound g'' on the band)
@@ -195,8 +195,8 @@ export const IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND = {
     'derived inside its enclosure, here isolated and independently reproduced. Derivation/measurement ' +
     'only on the INHERITED surrogate map; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33723 (fixed point N = K log T0(N), g_prime = 2 pi K/(T u)); imp-34693a (sub-gap: bound ' +
     'g_double_prime on the band); imp-34727 (ALREADY derived the identical closed form + ' +
@@ -231,13 +231,13 @@ export const IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND_ASSERTIONS = [
       B_CONSERVATIVE < 1.1 * B_BOUND,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp34731-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND.isRigorous === false &&
       /NO QED/.test(IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND.verdict) &&
-      /remains SOTA/.test(IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND.verdict),
   },
 ];
 

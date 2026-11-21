@@ -19,7 +19,7 @@
  * imp-36062 / imp-36023 (same fixed oscillatory family, same clustered same-sign worst ORDER).
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; the C_mb GUE-conditional
- * constant (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * constant (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED on the step-25 grid across [34000, 40000] (241 rungs; sep = KBN error strictly differs
  * from classic-Kahan error):
@@ -59,7 +59,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36095) ----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 
@@ -293,8 +293,8 @@ export const IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION = {
     'anywhere in the band; the obstruction stays the ENGINEERING of the certified length-N interval sum ' +
     '(MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no ' +
     'inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays ' +
-    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36095 (step-250 intermittency band; reported last-identical N=39000, persistence from N~39250); imp-36062 ' +
     '(first strict separation N~34000; flagged intermittency, sub-sweep not stored); imp-36023 (KBN=classic-Kahan ' +
@@ -349,7 +349,7 @@ export const IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION_ASSERTIONS = [
   },
   {
     id: 'imp36113-honesty-gate',
-    description: 'Measurement only; verdict does not track kappa; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; verdict does not track kappa; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -361,7 +361,7 @@ export const IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION.verdict) &&
-      /remains SOTA/.test(IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION.verdict),
+      /refereed bound is changed/i.test(IMP36113_KBN_KAHAN_INTERMITTENCY_FINE_RESOLUTION.verdict),
   },
 ];
 

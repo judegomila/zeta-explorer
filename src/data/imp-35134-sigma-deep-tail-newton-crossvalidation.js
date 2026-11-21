@@ -55,8 +55,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35041-sigma-deep-tail-threshold-extension (the two landmarks cross-checked here, bisected)
  * @see imp-35016-ncross-newton-solver-crossvalidation (the Newton cross-check pattern mirrored here)
@@ -222,7 +221,7 @@ export const IMP35134_SIGMA_DEEP_TAIL_NEWTON_CROSSVALIDATION = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; far-tail exponent 1/2 per ' +
     'imp-3463; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35041 (deep-tail landmarks sigma < 0.01 ~4.62e13 / < 0.001 ~5.43e15, bisected -- the ' +
     'values cross-checked here); imp-35016 (Newton cross-check pattern mirrored); imp-35130 ' +
@@ -267,13 +266,13 @@ export const IMP35134_SIGMA_DEEP_TAIL_NEWTON_CROSSVALIDATION_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: cross-validation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation/measurement only, no QED, no refereed bound is changed.
     id: 'imp35134-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35134_SIGMA_DEEP_TAIL_NEWTON_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP35134_SIGMA_DEEP_TAIL_NEWTON_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35134_SIGMA_DEEP_TAIL_NEWTON_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35134_SIGMA_DEEP_TAIL_NEWTON_CROSSVALIDATION.verdict),
   },
 ];
 

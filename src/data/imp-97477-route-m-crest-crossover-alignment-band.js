@@ -58,8 +58,8 @@
  *   Measurement only; pins NO coefficient for g(b), B* or the analytic curvature (the 1.113% tip stays
  *   measured, not derived from the p = 6 Dedekind-sum residue -- that needs the imp-97437-obstructed
  *   analytic wobble amplitude); no bound moves; the only rigorous anchor stays the trace ceiling
- *   T = 2.594e7; compute N ~ 9916 (imp-96352) binds first by >2600x; no operator positivity; PT
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   T = 2.594e7; compute N ~ 9916 (imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97477-crest-crossover-alignment-band-analytic -- the crossing band [2003, 2116]
  *   and the non-crossing worst-aligned class r = 3 are MEASURED, but the closed-form amp_lower(b) as a
@@ -167,8 +167,8 @@ export const IMP97477_VERDICT = Object.freeze({
     'on the size of b. A(b) = x*(1%) b stays piecewise-linear across the flip (upper branch x* = 0.199 ' +
     'at b <= 2050, lower branch x* = 0.166 at b >= 2100). Measurement only; pins no coefficient (the ' +
     '1.113% tip stays measured, not derived from the p = 6 Dedekind-sum residue); the rigorous anchor ' +
-    'stays T = 2.594e7; compute N ~ 9916 binds first by >2600x; no operator positivity; PT Lambda <= ' +
-    '0.2 SOTA; RH open; NO QED.',
+    'stays T = 2.594e7; compute N ~ 9916 binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97477_SUBGAP = Object.freeze({
@@ -182,7 +182,7 @@ export const IMP97477_SUBGAP = Object.freeze({
 });
 
 export const IMP97477_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97459 "continuum threshold ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97459 "continuum threshold ' +
   'b ~ 2100" for the 1/6 crest crossing 1% is an alignment BAND [2003, 2116] set by frac(b/6): r = 0 ' +
   'samples the 1.1130% continuum tip (always > 1%), r = 1,5 ~1.05%, r = 2,4 shoulder crossing at ' +
   'b ~ 2084/2116, r = 3 (frac = 1/2) never clears 1% through b = 2400. A(b) = x* b stays piecewise- ' +
@@ -264,7 +264,7 @@ const IMP97477_ASSERTIONS = [
       IMP97477_VERDICT.scaleLinearAt1pct === true &&
       IMP97477_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97477_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97477_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97477_HONEST_BANNER) &&
       /RH open/.test(IMP97477_HONEST_BANNER) &&
       /crest-crossover-alignment-band-analytic/.test(IMP97477_SUBGAP.id),
   },

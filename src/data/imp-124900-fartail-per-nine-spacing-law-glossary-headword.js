@@ -43,7 +43,7 @@
  * @see imp-97744-fartail-diagnostic-crossing-heights (0.999/0.9999 crossing heights pinned)
  *
  * Ticket: imp-124900 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The far-tail per-nine spacing law headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -76,7 +76,7 @@ const FARTAIL_PER_NINE_SPACING_LAW_HEADWORD = Object.freeze({
     'g_k, share m_k/Delta_k from 2.595184e-2 down to 2.558431e-6 over k = 1..5, decay ratio ' +
     '10.1299 -> 10.0001 -> 10) measurement modules. Naming / glossary headword only; supplies no ' +
     'new bound; the C_C 1/8 ansatz and E_trunc/E_flow component model are untouched; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,7 +95,7 @@ export const IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD = Object.f
     'with leading g_k = 9*10^k*log10(e) growing ten-fold per rung and mantissa correction ' +
     'm_k -> 1 whose share m_k/Delta_k ~ 0.255843*10^-k decays ten-fold per added nine. No bound ' +
     'moved; the component model and all pinned surrogate constants are untouched; imp-3066 K_a >= 0 ' +
-    'untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124793 (per-nine ladder, spacing ratio -> 10, "+~1" mantissa term flagged); imp-124827 ' +
     '(exact Delta_k = g_k + m_k split, m_k - 1 ten-fold decay fit, k = 5 rung); imp-124846 (m_k ' +
@@ -124,11 +124,11 @@ export const IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp124900-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124793.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124793.',
     holds: () =>
       IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.glosses === 'imp-124793',
   },
   {

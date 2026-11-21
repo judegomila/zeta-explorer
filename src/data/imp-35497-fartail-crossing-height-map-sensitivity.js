@@ -46,7 +46,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35413-eflow-fartail-remnant-sub1e3-crossing (the surrogate-channel crossing recomputed here)
  * @see imp-35458 (the height-map sensitivity method, applied to the E_coll=E_trunc crossover)
@@ -200,7 +200,7 @@ export const IMP35497_FARTAIL_CROSSING_HEIGHT_MAP_SENSITIVITY = {
     'asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per ' +
     'imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 ' +
     'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35413 (surrogate-channel sub-1e-3 crossing, recomputed here); imp-35458 (height-map ' +
     'sensitivity method); imp-35198 (analytic -1 + 3/log N); imp-35135 (far-tail E_flow ' +
@@ -240,13 +240,13 @@ export const IMP35497_FARTAIL_CROSSING_HEIGHT_MAP_SENSITIVITY_ASSERTIONS = [
     holds: () => SHIFT_DECADES > 14 && SHIFT_DECADES < 17,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35497-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35497_FARTAIL_CROSSING_HEIGHT_MAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35497_FARTAIL_CROSSING_HEIGHT_MAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35497_FARTAIL_CROSSING_HEIGHT_MAP_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35497_FARTAIL_CROSSING_HEIGHT_MAP_SENSITIVITY.verdict),
   },
 ];
 

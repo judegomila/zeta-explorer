@@ -46,7 +46,7 @@
  * VERDICT: the imp-96770 homogeneous envelope DOES supply a numerical UPPER bracket for the imp-96750
  * s0 ~ 1.75 candidate -- envelope constant 5 K^2 ~ 7.94, ratio ~4.53, dominant at every checked b --
  * but conditional on the unproved envelope (E) and an order of magnitude loose. No bound moved;
- * T = 2.594e7 stays the rigorous anchor; compute (N ~ 9916) binds first; PT Lambda <= 0.2 SOTA;
+ * T = 2.594e7 stays the rigorous anchor; compute (N ~ 9916) binds first; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-96770-route-m-weighted-cotangent-homogeneous-envelope.js (the envelope (E) and K ~ 1.26)
@@ -102,12 +102,12 @@ export const IMP96796_VERDICT = Object.freeze({
     'to the unresolved normalisation gap between imp-96770 inline 0.76 and imp-96750 1.75 (it brackets ' +
     'both from above, ratios 10.44 and 4.53). So the envelope route is a complementary numerical ' +
     'upper-bracket witness -- distinct from the analytic non-term-splitting lemma route -- but moves ' +
-    'no rigorous bound: T = 2.594e7 stays the anchor, compute N ~ 9916 binds first, PT Lambda <= 0.2 ' +
-    'SOTA, RH open; NO QED.',
+    'no rigorous bound: T = 2.594e7 stays the anchor, compute N ~ 9916 binds first, no refereed bound is changed' +
+    ', RH open; NO QED.',
 });
 
 export const IMP96796_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Bracket MEASUREMENT only: the imp-96770 homogeneous ' +
+  'RH open; no refereed bound is changed; NO QED. Bracket MEASUREMENT only: the imp-96770 homogeneous ' +
   'envelope constant 5 K^2 ~ 7.94 (K ~ 1.26) numerically brackets the imp-96750 s0 ~ 1.75 candidate ' +
   'FROM ABOVE (ratio ~4.53, dominant at every checked b), robustly of the unresolved 0.76-vs-1.75 ' +
   'normalisation gap. The bracket is CONDITIONAL on the unproved envelope (E) and an order of ' +
@@ -152,7 +152,7 @@ const IMP96796_ASSERTIONS = [
       IMP96796_VERDICT.anyBoundMoved === false &&
       IMP96796_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96796_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96796_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96796_HONEST_BANNER) &&
       /RH open/.test(IMP96796_HONEST_BANNER),
     why: 'bracket measurement only: the envelope brackets s0 from above but conditional on the unproved envelope (E), no bound moved, compute binds first, and the honesty markers are present.',
   },

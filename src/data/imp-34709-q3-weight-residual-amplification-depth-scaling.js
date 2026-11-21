@@ -45,7 +45,7 @@
  *   as-is; this characterizes the STENCIL conditioning depth-scaling, it does not rehabilitate the
  *   surrogate. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED;
  *   the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator
- *   positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34690-q3-share-cancellation-stencil-width-scaling.js (F3: the ~4.5e-5 single-point figure extended here)
  *   @see imp-34654-sixth-order-stencil-reference-weight-crossvalidation.js (the ~3e-4 window-mean reference)
@@ -255,8 +255,8 @@ export const IMP34709_Q3_WEIGHT_RESIDUAL_AMPLIFICATION_DEPTH_SCALING = Object.fr
     'inherited as-is -- this characterizes the STENCIL conditioning depth-scaling, it does not ' +
     'rehabilitate the surrogate. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ' +
     'ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34690 (F3: the ~4.5e-5 single-point raw-vs-exact figure extended here); imp-34654 (9-point ' +
     'reference-weight cross-validation, ~3e-4 window-mean); imp-34684 (F3 exactly-representable-weights ' +
@@ -299,9 +299,9 @@ const IMP34709_ASSERTIONS = [
     holds: () =>
       IMP34709_Q3_WEIGHT_RESIDUAL_AMPLIFICATION_DEPTH_SCALING.isRigorous === false &&
       /NO QED/.test(IMP34709_Q3_WEIGHT_RESIDUAL_AMPLIFICATION_DEPTH_SCALING.verdict) &&
-      /remains SOTA/.test(IMP34709_Q3_WEIGHT_RESIDUAL_AMPLIFICATION_DEPTH_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP34709_Q3_WEIGHT_RESIDUAL_AMPLIFICATION_DEPTH_SCALING.verdict) &&
       /UNTOUCHED/.test(IMP34709_Q3_WEIGHT_RESIDUAL_AMPLIFICATION_DEPTH_SCALING.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

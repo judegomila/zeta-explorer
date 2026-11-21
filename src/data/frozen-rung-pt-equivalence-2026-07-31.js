@@ -17,8 +17,8 @@
  *     and L2 (mesh detection/resolution, genuinely OPEN).
  *   • It yields NO Λ improvement: fed the same verified zeros + the same H_t flow
  *     certificates (Polymath15 Thm 1.2 hyps ii/iii) it reproduces EXACTLY
- *     Λ ≤ 0.1787854 (candidate row) / Λ ≤ 0.2 (Polymath row). Platt–Trudgian
- *     Λ ≤ 0.2 remains the accepted SOTA. NO false QED.
+ *     Λ ≤ 0.1787854 (candidate row) / Λ ≤ 0.2 (Polymath row). No refereed bound is changed
+ *     . NO false QED.
  *
  * Its value is conceptual: it explains, in the operator frame, WHY the entire
  * barrier/positivity-tightening class (SOS, Carleman, Putinar, Schur/Blaschke
@@ -144,7 +144,7 @@ export const FROZEN_RUNG_PT_EQUIVALENCE_ASSERTIONS = [
     holds: () =>
       PROPOSITION.consequence.notANewBound === true &&
       PROPOSITION.consequence.notARHproof === true &&
-      /0\.2/.test(PROPOSITION.consequence.ptRemainsSOTA),
-    why: 'Must record that this yields NO new bound, is NOT an RH proof, and PT Λ≤0.2 stays SOTA.',
+      /0\.2|refereed bound is changed/.test(PROPOSITION.consequence.ptRemainsSOTA),
+    why: 'Must record that this yields NO new bound, is NOT an RH proof, and no refereed bound is changed.',
   },
 ];

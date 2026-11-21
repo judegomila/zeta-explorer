@@ -9,7 +9,7 @@
  *   magnitude, and quantifies how the still-open G3a_max_gap residual bounds the
  *   RELIABILITY of the Route-C column. Numerical comparison of two rate FORMS
  *   ONLY: both routes remain premised on the OPEN per-N translation; closes
- *   NOTHING; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NOTHING; NO QED; no refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -233,7 +233,7 @@ export const IMP36216_ROUTEC_VS_ROUTEB_PERN_RATE_TABULATION = Object.freeze({
     'CERTIFIED. The table compares two rate FORMS, neither presently a theorem -- consistent with imp-36151 ' +
     '(the imp-36045 C > B edge is structural TYPE, not a faster exponent). Closes NOTHING; discharges no gap; ' +
     'per-N translation, the Route-B anchor, and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 
   constants: Object.freeze({
     kappa: KAPPA,
@@ -286,7 +286,7 @@ export const IMP36216_ROUTEC_VS_ROUTEB_PERN_RATE_TABULATION = Object.freeze({
       'imp-321 ladder, the per-rung ratio, the magnitude crossover N* ~ 1482, and the imp-36259 G3a_max_gap ' +
       'reliability caveat on the Route-C column. Numerical comparison of two FORMS only; both premised on the OPEN ' +
       'per-N translation; closes nothing; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -344,7 +344,7 @@ export const IMP36216_ROUTEC_VS_ROUTEB_PERN_RATE_TABULATION_ASSERTIONS = [
   {
     id: 'imp36216-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a NUMERICAL tabulation of two rate FORMS that closes NOTHING, keeps the per-N ' +
-         'translation, the Route-B anchor, and G3a_max_gap OPEN, carries NO RH verdict, PT 0.2 stays SOTA. ' +
+         'translation, the Route-B anchor, and G3a_max_gap OPEN, carries NO RH verdict, no refereed bound is changed. ' +
          'If any flip, the module over-claims.',
     holds: () => {
       const h = IMP36216_ROUTEC_VS_ROUTEB_PERN_RATE_TABULATION.honestCaveat;
@@ -360,7 +360,7 @@ export const IMP36216_ROUTEC_VS_ROUTEB_PERN_RATE_TABULATION_ASSERTIONS = [
         h.routeBAnchorStaysOpen === true &&
         h.g3aMaxGapStaysOpen === true &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

@@ -16,7 +16,7 @@
  * MEASUREMENT / PRESENTATION ONLY. rho_exact is the theoretical GUE
  * (sine-kernel, universality) two-interval correlation, not a measurement of
  * the actual Riemann zeros; changes no bound; establishes no operator
- * positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96267-covariance-drift-rigidity-limit-reach.js (ladder, crossings, findings)
  *
@@ -51,7 +51,7 @@ export const IMP96314_ANCHORS = Object.freeze({
 });
 
 export const IMP96314_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every deviation, rho_exact, and '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every deviation, rho_exact, and '
   + 'crossing value is copied verbatim from the imp-96267 baked ladder; only the chart-axis reshaping '
   + '(log10 T) is computed here (no re-derivation, no new height measurement). rho_exact is the '
   + 'theoretical GUE (sine-kernel, universality) two-interval correlation, not a measurement of the '
@@ -94,8 +94,8 @@ const IMP96314_ASSERTIONS = [
   },
   {
     id: 'imp96314-honest-banner-carries-status',
-    holds: () => /RH open/.test(IMP96314_HONEST_BANNER) && /NO QED/.test(IMP96314_HONEST_BANNER) && /SOTA/.test(IMP96314_HONEST_BANNER),
-    why: 'honesty gate: measurement/presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96314_HONEST_BANNER) && /NO QED/.test(IMP96314_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96314_HONEST_BANNER),
+    why: 'honesty gate: measurement/presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

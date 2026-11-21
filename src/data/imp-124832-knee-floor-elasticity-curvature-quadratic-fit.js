@@ -67,7 +67,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486, the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F
  * prefactor are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124814-knee-floor-elasticity-fresh-locator-repro (the fresh locator + residual hump, unfit there)
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (the OLS certification p_knee ~ -2.106)
@@ -342,7 +342,7 @@ export const IMP124832_KNEE_FLOOR_ELASTICITY_CURVATURE_QUADRATIC_FIT = {
     'diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486, the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F ' +
     'prefactor are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124814 (fresh exponent-curvature locator + residual hump, unfit there); imp-124772 (OLS ' +
     'certification p_knee ~ -2.106); imp-97822 (two-floor knee fit p_knee ~ -2.099); imp-97720 (fixed-N ' +
@@ -403,13 +403,13 @@ export const IMP124832_KNEE_FLOOR_ELASTICITY_CURVATURE_QUADRATIC_FIT_ASSERTIONS 
       LIN_FROZEN.slope > LIN.slope, // frozen slope moves toward -2 (less negative)
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124832-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124832_KNEE_FLOOR_ELASTICITY_CURVATURE_QUADRATIC_FIT.isRigorous === false &&
       /NO QED/.test(IMP124832_KNEE_FLOOR_ELASTICITY_CURVATURE_QUADRATIC_FIT.verdict) &&
-      /remains SOTA/.test(IMP124832_KNEE_FLOOR_ELASTICITY_CURVATURE_QUADRATIC_FIT.verdict),
+      /refereed bound is changed/i.test(IMP124832_KNEE_FLOOR_ELASTICITY_CURVATURE_QUADRATIC_FIT.verdict),
   },
 ];
 

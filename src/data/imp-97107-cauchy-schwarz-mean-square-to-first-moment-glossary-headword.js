@@ -41,7 +41,7 @@
  *
  *   STATUS: a reduction-level glossary headword over an already-committed finding, not a new
  *   computation or a positivity theorem. No bound moved; T ~ 2.594e7 stays the rigorous anchor;
- *   compute (N~9916) binds first regardless. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   compute (N~9916) binds first regardless. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97071-route-m-lower-companion-first-moment-reduction.js (source: the Cauchy-Schwarz
  *   reduction and the measured kappa this headword glosses)
@@ -49,7 +49,7 @@
  *   lower companion this headword shows is not the tight target)
  *
  * Ticket: imp-97107 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The Cauchy-Schwarz mean-square-to-first-moment reduction headword, baked verbatim (no re-import).
@@ -81,7 +81,7 @@ const CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD = Object.freeze({
     'The Cauchy-Schwarz step is rigorous and exact (verified in JS from the Vasyunin kernel at ' +
     'small b in the source module); the first-moment floor kappa > 0 is MEASURED (window-mean ' +
     'reproduction to 1.75127, CS finite-difference slope 1.76 against a true 3.495) but not ' +
-    'proved. No new numerical computation here. No bound moved; PT Lambda <= 0.2 remains SOTA; ' +
+    'proved. No new numerical computation here. No bound moved; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -102,7 +102,7 @@ export const IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD = Obje
     'rigorous regardless of whether kappa > 0 is ever proved. Readers should not treat the ' +
     'mean-square shape from imp-97054 as the tight requirement; the first moment suffices and is ' +
     'free of the imp-96750 squaring overshoot. kappa ~ 0.696 remains MEASURED, not proved; no ' +
-    'bound is claimed moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound is claimed moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97071 (the Cauchy-Schwarz reduction and measured kappa this headword glosses); imp-97054 ' +
     '(the parent posing the mean-square lower companion this headword shows is not the tight ' +
@@ -131,11 +131,11 @@ export const IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD_ASSERT
   },
   {
     id: 'imp97107-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD.verdict) &&
       IMP97107_CAUCHY_SCHWARZ_MEAN_SQUARE_TO_FIRST_MOMENT_HEADWORD.glosses === 'imp-97071',
   },
 ];

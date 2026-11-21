@@ -18,7 +18,7 @@
  *
  *   Ticket: imp-35404 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- three-landmark 2:1 cancellation ladder: dG (asymptotic-floor pull) vs dFP (FP_LO push) --

@@ -54,7 +54,7 @@
  *   @see src/data/imp-34714-krawczyk-existence-uniqueness-lemma.js (Krawczyk lemma; sub-gap imp-34714a open)
  *
  *   Ticket: imp-36166 (content, low). Note only; imports source verdicts verbatim;
- *   changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   changes no bound; NO QED; no refereed bound is changed.
  */
 
 import { IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH } from './imp-35969-krawczyk-residual-directed-rounding-width.js';
@@ -159,7 +159,7 @@ export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE = Object.freeze({
       'Read-only cross-reference narrative assembling the imp-35969, imp-36017, and imp-36066 verdicts into ' +
       'one storyline plus an explicit derived-vs-open list. Imports each stage verbatim; derives nothing new; ' +
       'imp-34714a stays OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -214,7 +214,7 @@ export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE_ASSERTIONS = [
   {
     id: 'imp36166-honest-no-closure-no-qed',
     why: 'Mandatory honesty: an ASSEMBLY note that closes NOTHING, discharges no gap, keeps imp-34714a OPEN, ' +
-         'carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE.honestCaveat;
       return (
@@ -224,7 +224,7 @@ export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

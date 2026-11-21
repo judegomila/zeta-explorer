@@ -10,7 +10,7 @@
  *   plainly for a reader who has not read imp-35890 in full.
  *
  *   Ticket: imp-35963 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35890-w1-running-accumulator-apriori-bound.js (source: the tightest certified bound this note restates)
  *   @see imp-35948-w1-probabilistic-sqrtN-apriori-scale (companion: an UNCERTIFIED probabilistic scale that DOES close most of the residual)
@@ -50,7 +50,7 @@ export const IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS = Object.fre
     isReductionBelowRH: false,
     changesAnyBound: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -99,7 +99,7 @@ export const IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS_ASSERTIONS =
       IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35963_W1_APRIORI_BOUND_VS_RANDOM_WALK_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp35963-verdict-residual-no-qed',

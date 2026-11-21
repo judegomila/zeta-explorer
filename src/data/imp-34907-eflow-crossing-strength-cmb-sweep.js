@@ -52,7 +52,7 @@
  * (C_mb GUE-conditional per imp-486). The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34886-eflow-strength-knee-inflection-crossing (the s* ~ 0.78 crossing at C_mb=1, kernels reused verbatim)
  * @see imp-34824-inflection-crossover-gap-cmb-sweep (the +2.95% inflection-vs-crossover gap and its ~0.512 sign inversion)
@@ -267,8 +267,8 @@ export const IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP = {
     'strength leverage; it does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486). The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-34907: the imp-34886 E_flow knee-vs-inflection crossing strength s* PERSISTS (stays physical ' +
     'in (0,1)) across the C_mb sweep [0.5,1] but DRIFTS DOWN monotonically from ~0.778 (C_mb=1) to ~0.267 ' +
@@ -334,16 +334,16 @@ export const IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP_ASSERTIONS = [
       gapAt(0, 0.512) > 0,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp34907-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.isRigorous === false &&
       IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.farTailExponent === 0.5 &&
       typeof IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.subGap === 'string' &&
       /imp-486/.test(IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.subGap) &&
       /NO QED/.test(IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP34907_EFLOW_CROSSING_STRENGTH_CMB_SWEEP.verdict),
   },
 ];
 

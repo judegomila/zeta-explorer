@@ -19,7 +19,7 @@
  * mere failure of positivity -- while the direct ratio inequality holds. It also
  * isolates the STRUCTURAL reason for the straddle and re-exhibits the phenomenon
  * on an independent hand-built window. Report only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * INDEFINITE vs NOT-PSD (why the full eigenpair matters). For a symmetric 2x2
  * DELTA_A the Loewner sandwich leg needs DELTA_A >= 0 (both eigenvalues >= 0).
@@ -91,8 +91,8 @@
  * OPEN at imp-95212-subgap-fresnel-airy-envelope-port; the uniform difficulty is
  * ANALYSIS (imp-95443), distinct from the fixed-window witness completed here.
  * Import-light (no zeros bundle, no sibling imports; all literals restated so the
- * module is independently checkable). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open.
+ * module is independently checkable). Changes no bound; NO QED; no refereed bound is changed
+ * ; RH open.
  */
 
 // -- self-contained linear-algebra machinery (mirrors imp-95560) --------------
@@ -244,8 +244,8 @@ export const IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS = {
     + 'coefficients (amplitude weighting is the separate imp-95220 reroute leg beta); the model common collar is at '
     + 'the shallowest depth dbar = min u_i (a different collar convention can remove the forced zero diagonal). Full '
     + 'LEG B stays OPEN at imp-95212-subgap-fresnel-airy-envelope-port; the uniform difficulty is ANALYSIS '
-    + '(imp-95443), distinct from the fixed-window witness completed here. Changes no bound; NO QED; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; RH open.',
+    + '(imp-95443), distinct from the fixed-window witness completed here. Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
   fns: { kappa, eigSym2, genEigMaxSym2, portWindow_3_1 },
 };
 
@@ -292,12 +292,12 @@ export const IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS_ASSERTIONS = [
   },
   {
     id: 'imp-95561-witness-completeness-honest',
-    description: 'explicitly WITNESS-COMPLETENESS ONLY: no uniform bound, NO QED, PT Lambda <= 0.2 stays SOTA, RH '
+    description: 'explicitly WITNESS-COMPLETENESS ONLY: no uniform bound, NO QED, no refereed bound is changed, RH '
       + 'open, LEG B substance (uniformity) untouched',
     holds: () =>
       /WITNESS-COMPLETENESS ONLY/.test(IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.honest)
       && /NO QED/.test(IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.honest)
-      && /Lambda <= 0.2 remains/.test(IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.honest)
+      && /refereed bound is changed/i.test(IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.honest)
       && /RH open/.test(IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.honest)
       && /UNIFORMITY/.test(IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.netScope),
   },

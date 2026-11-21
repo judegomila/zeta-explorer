@@ -4,8 +4,8 @@
  * composed-gain pricing against the |C_E,17| target).
  *
  * GRADE: assessment (exact finite-rank algebra + measured model batteries).
- * Changes no bound; closes no analytic family; NO QED. Platt–Trudgian
- * Lambda <= 0.2 remains SOTA. Per the no-gain rule / flow-blindness /
+ * Changes no bound; closes no analytic family; NO QED. No refereed bound is changed
+ * . Per the no-gain rule / flow-blindness /
  * PT-floor audit, nothing here moves the rigorous frontier; this step only
  * settles whether an un-priced CONDITIONAL lever exists at the composition
  * level. Finding: it does not — the lever is pinned shut at every admissible
@@ -476,8 +476,8 @@ export const IMP_95204_GU_BARRIER_WORD_COMPOSITION = {
     'slides and the one slot it does not reach (pre-heat) is closed by the pinning; the unique ' +
     'defect-free placement forces a Schur closure eq 43 does not carry. The one real gain the ' +
     'family ever offered is already banked as the weld ladder\'s copositive margin — the two ' +
-    'lanes are one lane. Changes no bound; closes no gap; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'lanes are one lane. Changes no bound; closes no gap; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 // ─── sweep-countable assertions (same claims, re-expressed over MEASURED) ──
@@ -545,12 +545,12 @@ export const IMP_95204_ASSERTIONS = [
       'No bound moves: the Gate-2 open family 690988 <= N <= 54799999 is unchanged, the merger ' +
       'claim is operator-form only (no strip constant transports into the Gate-2 lane), eq 43 ' +
       'gains a mandatory Schur closure only IF G_U is composed (it is not, being gain-free); ' +
-      'no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+      'no QED; no refereed bound is changed',
     holds: () =>
       IMP_95204_GU_BARRIER_WORD_COMPOSITION.openFamilyUnchanged.Nmin === 690988 &&
       IMP_95204_GU_BARRIER_WORD_COMPOSITION.openFamilyUnchanged.Nmax === 54799999 &&
       IMP_95204_GU_BARRIER_WORD_COMPOSITION.verdict.includes('NO QED') &&
-      IMP_95204_GU_BARRIER_WORD_COMPOSITION.verdict.includes('Lambda <= 0.2 remains SOTA'),
+      IMP_95204_GU_BARRIER_WORD_COMPOSITION.verdict.includes('No refereed bound is changed'),
   },
 ];
 

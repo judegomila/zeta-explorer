@@ -70,7 +70,7 @@
  *   the observed sign change, so it is excluded. DERIVATION / ASSESSMENT ONLY on a self-contained model
  *   surrogate; the underlying component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  *   rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  *   @see imp-34247-widening-slope-pole-divergence.js (the residue-+1 measurement this assesses; log-derivative channel)
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (the SIMPLE sign-change zero, F2; raw-ratio channel residue)
@@ -219,8 +219,8 @@ export const IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE = {
     'a squared surrogate), and such an estimator would also destroy the imp-34310 clean sign change, so it ' +
     'is excluded by the data. DERIVATION on a self-contained model surrogate, NOT the inherited pipeline; ' +
     'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
-    'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-34247 (residue-+1 measurement, log-derivative channel); imp-34310 (simple sign-change zero, F2); ' +
     'imp-34284 (reciprocal orientation, resid_exp in the numerator); imp-34227 (estimator-dependence of ' +
@@ -272,13 +272,13 @@ export const IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE_ASSERTIONS = [
       G1_ABOVE < 0,
   },
   {
-    // Honesty gate: assessment only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: assessment only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34333-honesty-gate-no-qed',
-    description: 'assessment only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'assessment only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.isRigorous === false &&
       /NO QED/.test(IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.verdict) &&
-      /remains SOTA/.test(IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.verdict),
   },
 ];

@@ -42,14 +42,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95768 sign-flip-budget localization for
  *   quick reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95768-offset-error-budget-sensitivity (source: the sign-flip budget this glosses)
  * @see imp-95749-conditional-constant-j-refutation (the dI variation the budget bounds)
  * @see imp-95720-conditional-c-odd-1-19 (the measured m=20 offset and its residual)
  *
  * Ticket: imp-95793 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The offset-error sign-flip budget headword, baked verbatim (no re-import).
@@ -95,8 +95,8 @@ export const IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD = Object.freeze({
     'c_odd(1/19)-vs-null conclusions because they are one statement, and ~2.03e5x ' +
     'the measured m=20 residual (1.404e-10). Only the trailing displayed digits of ' +
     'c_odd(1/19) are residual-sensitive (~2.57x the residual). Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95768 (the offset-error sensitivity assessment and sign-flip budget this ' +
     'glosses); imp-95749 (conditional dI variation refuting the constant-J null); ' +
@@ -124,11 +124,11 @@ export const IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95793-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD.verdict) &&
       IMP95793_OFFSET_ERROR_BUDGET_GLOSSARY_HEADWORD.glosses === 'imp-95768',
   },
 ];

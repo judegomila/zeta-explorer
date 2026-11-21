@@ -39,7 +39,7 @@
  *
  * SCOPE. Assessment/audit only. No source file was modified as a result of this check
  * (none needed correction). Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (audit method template)
  * @see imp-36170-imp3606x67x82x95x96x97-cross-reference-integrity-audit.js (prior sweep, stops at imp-36097)
@@ -144,7 +144,7 @@ export const IMP36231_CROSS_REFERENCE_INTEGRITY_AUDIT = {
     'are prose-extraction artifacts and the 13 non-universe id tokens are wildcard-range ' +
     'shorthand / sub-gap labels / the imp-58685 typo exemplar -- all established ' +
     'conventions. No source file required correction. Changes no bound; establishes no ' +
-    'operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35186 (cross-reference integrity audit method); imp-36110/imp-36127/imp-36148/' +
     'imp-36170/imp-36190 (prior audit sweeps, earlier cohorts); imp-36189 (sibling ' +
@@ -185,11 +185,11 @@ export const IMP36231_CROSS_REFERENCE_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36231-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36231_CROSS_REFERENCE_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36231_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36231_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36231_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
   },
 ];
 

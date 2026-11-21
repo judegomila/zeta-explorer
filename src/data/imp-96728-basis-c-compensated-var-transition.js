@@ -55,7 +55,7 @@
  * ~1x). The naive per-ppp error is non-monotone (bottoms at ppp=3 then rises) while the compensated error is
  * strictly decreasing in ppp, confirming imp-96716 FINDING 2 correctly attributed the transition to
  * cancellation roundoff. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH
- * open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96716-basis-c-mechanism-transition-scale (FINDING 2: the ~49x jump attributed to Var cancellation roundoff -- confirmed here as a naive-accumulator artifact)
  * @see imp-96690-basis-c-above-anchor-rung-ladder (the anchor/crossover ppp ladder this compensates)
@@ -230,12 +230,12 @@ export const IMP96728_BASIS_C_COMPENSATED_VAR_TRANSITION = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. Compensation does not make the direct integral "correct" -- the compensated floor ~1.75e-6 is itself the residual Simpson discretization error at ppp=6 and keeps shrinking with finer panels; the point is only that L_transition and the ~49x jump are properties of the NAIVE accumulator, not of the analytic rho. The exact number variance (Si/Ci) already gives rhoExact to full precision. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The imp-96716 basis-C floor mechanism transition (best-floor optimum ppp dropping from crossover-set >= 4 to truncation-set = 3 at L in (5.5e6, 5.6e6]) and its ~49x floor jump are DOUBLE-PRECISION ARTIFACTS of the naive Var = L - 2*Int accumulation: Neumaier compensation holds the ppp=4 branch flat (~1.01e-5, no blow-up), keeps the best-floor optimum crossover-set (ppp=6, floor ~1.75e-6) at every rung in (5.5e6, 5.9e6], and removes the transition from the window entirely (jump cut from ~49x to ~1x). The naive per-ppp error is non-monotone (bottoms at ppp=3 then rises) while the compensated error is strictly decreasing in ppp, confirming imp-96716 FINDING 2 correctly attributed the transition to cancellation roundoff. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96716 basis-C floor mechanism transition (best-floor optimum ppp dropping from crossover-set >= 4 to truncation-set = 3 at L in (5.5e6, 5.6e6]) and its ~49x floor jump are DOUBLE-PRECISION ARTIFACTS of the naive Var = L - 2*Int accumulation: Neumaier compensation holds the ppp=4 branch flat (~1.01e-5, no blow-up), keeps the best-floor optimum crossover-set (ppp=6, floor ~1.75e-6) at every rung in (5.5e6, 5.9e6], and removes the transition from the window entirely (jump cut from ~49x to ~1x). The naive per-ppp error is non-monotone (bottoms at ppp=3 then rises) while the compensated error is strictly decreasing in ppp, confirming imp-96716 FINDING 2 correctly attributed the transition to cancellation roundoff. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96728_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros. The imp-96716 basis-C '
   + 'floor mechanism transition (L in (5.5e6, 5.6e6]) and its ~49x jump are double-precision artifacts '
   + 'of the naive Var accumulation; Neumaier compensation holds the ppp=4 branch flat and keeps the '
@@ -299,11 +299,11 @@ export const IMP96728_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96728_BASIS_C_COMPENSATED_VAR_TRANSITION.verdict))
     throw new Error('imp-96728: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96728_BASIS_C_COMPENSATED_VAR_TRANSITION.verdict))
-    throw new Error('imp-96728: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96728_BASIS_C_COMPENSATED_VAR_TRANSITION.verdict))
+    throw new Error('imp-96728: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96716/.test(IMP96728_BASIS_C_COMPENSATED_VAR_TRANSITION.source))
     throw new Error('imp-96728: source dropped the imp-96716 reference');
-  if (!(/RH open/.test(IMP96728_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96728_HONEST_BANNER) && /NO QED/.test(IMP96728_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96728_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96728_HONEST_BANNER) && /NO QED/.test(IMP96728_HONEST_BANNER)))
     throw new Error('imp-96728: IMP96728_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

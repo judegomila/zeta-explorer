@@ -46,7 +46,7 @@ export const IMP97698_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every scaled value is recomputed from the imp-97666 baked Rexact literals verbatim '
     + '(a derivation cross-check, not a new computation); no new computation. Changes no bound; MCM stays '
-    + 'refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

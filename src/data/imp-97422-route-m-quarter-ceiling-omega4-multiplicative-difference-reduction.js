@@ -87,7 +87,7 @@
  * RE-ESTABLISHING MAGNITUDE and SIGN at omega = 4 and beyond. RESIDUAL: prove MCM (verified numerically through
  * omega = 4 to 2e5); the smooth surrogate loses continuous complete monotonicity at 3rd order near x = 1, so a
  * proof must use the discrete step log 2. kappa_arith unchanged; the cotangent first moment (imp-97097) stays a
- * separate open leaf; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * separate open leaf; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97392-route-m-quarter-ceiling-omega3-magnitude-obstruction.js (the omega>=4 obstruction this addresses)
  * @see imp-97421-route-m-quarter-ceiling-omega3-sign-closed.js (omega=3 sign closed via the same h=g/m matching)
@@ -235,7 +235,7 @@ export const IMP97422_VERDICT = Object.freeze({
     'and beyond. RESIDUAL: prove MCM (verified numerically through omega=4 to 2e5); the smooth surrogate loses ' +
     'continuous complete monotonicity at 3rd order near x=1 (lnA-3c = -0.001246), so a proof must exploit the ' +
     'discrete step log 2. kappa_arith unchanged; cotangent first moment (imp-97097) stays open; no bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97422_SUBGAP = Object.freeze({
@@ -254,7 +254,7 @@ export const IMP97422_SUBGAP = Object.freeze({
 });
 
 export const IMP97422_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cancellation-aware assessment of the b/4 ceiling for ' +
+  'RH open; no refereed bound is changed; NO QED. Cancellation-aware assessment of the b/4 ceiling for ' +
   'omega>=4: PROVES the exact reformulation Delta(b) = mu(b) b S(b) collapsing both ceiling conditions to ' +
   '|T(b)|<=1/4 with T(b) = Sum_{d|b} mu(d) g(d)/d = (D_{p1}...D_{pk} h)(1); shows the pairing is the iterated ' +
   'multiplicative difference (omega=4 max group 8 -> 4 -> 2 -> 1); and REDUCES MAGNITUDE + SIGN for all omega ' +
@@ -363,7 +363,7 @@ const IMP97422_ASSERTIONS = [
       IMP97422_VERDICT.singleFunctionResidual === true &&
       /omega-ge-4/.test(IMP97422_SUBGAP.id) &&
       /NO QED/.test(IMP97422_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97422_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97422_HONEST_BANNER) &&
       /RH open/.test(IMP97422_HONEST_BANNER),
     why: 'proof / honest partial -- proves the exact reformulation and pairing, reduces omega>=4 MAGNITUDE + SIGN to the single MCM hypothesis (verified numerically, not proved); no bound moved, no rigorous full ceiling, no QED.',
   },

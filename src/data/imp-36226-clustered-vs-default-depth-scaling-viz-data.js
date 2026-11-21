@@ -18,8 +18,7 @@
  * No re-derivation, no new computation.
  *
  * Presentation only: closes nothing, discharges no gap, changes no bound;
- * C_mb stays GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * C_mb stays GUE-conditional (imp-486); NO QED; no refereed bound is changed.
  *
  * @see imp-36132-w1-pairwise-slack-depth-clustered-densified-fit.js (clustered exponent ~0.532, source)
  * @see imp-36081-w1-pairwise-slack-depth-densified-fit.js (default exponent ~0.753, source)

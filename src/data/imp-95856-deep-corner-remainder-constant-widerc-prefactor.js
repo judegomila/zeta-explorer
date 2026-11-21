@@ -8,7 +8,7 @@
  * GRADE: numerical assessment (closed-form convention algebra + a small anchored
  * least-squares fit) of an interior model-seam quantity. Import-light (8-point
  * OLS, no zeros bundle, no imports). Changes NO Lambda bound; NO operator-
- * positivity claim on the main chain; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity claim on the main chain; NO QED. No refereed bound is changed.
  *
  * BACKGROUND. imp-95839 evaluated the Widom leading prefactor for the actual
  * rho = 1 sech Gram symbol at delta = ln 1.2 as C_Widom = 50 pi^4/delta^2 =
@@ -74,7 +74,7 @@
  * evaluation of C_Widom(delta, rho > 1) is carried forward as the narrower named
  * residual wider-cell-widom-prefactor-ladder. (d) Model seam family only; the
  * imp-95212 envelope port, signed WEIGHT and modulus/phase legs stay OPEN.
- * Changes NO bound of the Lambda program; NO QED; PT Lambda <= 0.2 remains SOTA.
+ * Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95845-deep-corner-biasN2-widom-fit (the free-intercept fit, +0.44% best, that named this sub-gap)
  * @see imp-95839-sech-widom-prefactor-eval (evaluated C_Widom = 50 pi^4/delta^2, (N+1)^2 convention)
@@ -176,8 +176,8 @@ export const IMP95856_DEEP_CORNER_REMAINDER_CONSTANT_WIDERC_PREFACTOR = {
     "and no converged wider-cell ladder to fit), carried forward as the narrower named " +
     "residual wider-cell-widom-prefactor-ladder. Assessment only; no cited input imported. " +
     "Model seam family only; the imp-95212 envelope port, signed WEIGHT and modulus/phase " +
-    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95856"],
 };
 
@@ -357,7 +357,7 @@ export const IMP95856_ASSERTIONS = [
       REF.qed === false &&
       REF.exactRemainderConstantMeasured === true &&
       REF.cWidomConfirmedExactAsymptote === true &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95856-closes-self",

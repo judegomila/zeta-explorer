@@ -116,8 +116,7 @@
  * WHAT THIS RUN DOES NOT DO: no new certified rate constant -- the
  * jet-phantom cover is NAMED (sub-gap imp-95154-subgap-jet-phantom-
  * cover), not run. Floors and the class sandwich [0.2320723, 0.24502]
- * are carried UNCHANGED. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * are carried UNCHANGED. Changes no bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~4 s.
  */
@@ -446,7 +445,7 @@ export const IMP95154_KUNIFORM_HULL_JET_REDUCTION = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // ---------------------------------------------------------------------------

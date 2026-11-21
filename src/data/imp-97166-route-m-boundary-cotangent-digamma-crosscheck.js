@@ -82,7 +82,7 @@
  * Ticket: imp-97166 (accuracy, opus-4-8, medium). Accuracy cross-check only: an
  * independent digamma/Hurwitz-zeta derivation confirms the classical cotangent-sum
  * coefficient -pi/36. NO bound moves; the boundary term stays O(b log b) = o(phi(b) b)
- * (imp-97119); PT Lambda <= 0.2 remains SOTA; RH open; NO QED (says nothing about
+ * (imp-97119); no refereed bound is changed; RH open; NO QED (says nothing about
  * kappa > 0 -- still measured, not proved -- or about the zeros). No self-executing
  * throw (the imp-96294/imp-96819 convention) -- validation via a plain object below.
  */
@@ -147,7 +147,7 @@ export const IMP97166_VERDICT = Object.freeze({
 });
 
 export const IMP97166_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy cross-check only: an ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy cross-check only: an ' +
   'independent digamma/Hurwitz-zeta derivation of V(1,b) = c_0(1/b) confirms the ' +
   'imp-97139 sub-leading coefficient -pi/36 and the imp-97119 leading form. Via the ' +
   'exact identity V = (1/(pi b)) sum (b-2r) psi(r/b), the -pi/36 arises as the pi^2/72 ' +

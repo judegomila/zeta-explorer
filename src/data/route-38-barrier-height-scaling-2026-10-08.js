@@ -28,7 +28,7 @@
  *  of reach of this mesh rule. The height-scaling result holds only at proxy-selected X'.
  * HEURISTIC: Dz ~ X^{(1−y0)/4} log X, Dt ~ X^{(1−y0)/4} log² X, work ~ X^{(1−y0)/2} polylog X.
  *
- * PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. ROUTE_38_ASSERTIONS recompute the log-log slopes from the run table, the
+ * No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_38_ASSERTIONS recompute the log-log slopes from the run table, the
  * uniform-error scaling law, the N-constancy at both corners, the margin floors and the verified-height condition.
  */
 
@@ -79,7 +79,7 @@ export const ROUTE_38 = Object.freeze({
   verdict: 'At X\' chosen the way Polymath chose X, the floor-lowering barrier carries over to 2X, 5X and 10X: floors 0.17 and 0.03 certify with margins '
     + '≈ 0.50 and 0.08–0.10 (t = 0 endpoint carried over). Cost grows like X^0.45 (y0 = 0.17) to X^0.57 (y0 = 0.03); the uniform error shrinks like '
     + 'q^{−(1+y0)/4}. The choice of X\' dominates: at the exact multiple 10X the floor-0.17 run was incomplete after 90 minutes. None of these barriers '
-    + 'moves Λ until RH is verified to ≈ X\'/2; the binding constraint is verified height, not the barrier. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'moves Λ until RH is verified to ≈ X\'/2; the binding constraint is verified height, not the barrier. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_38;
@@ -132,7 +132,7 @@ export const ROUTE_38_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r38-honest-scope',
-    holds: () => R.status === 'done' && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /tautological|twice/.test(R.refereeKilled[0])
+    holds: () => R.status === 'done' && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /tautological|twice/.test(R.refereeKilled[0])
       && /not a law/.test(R.refereeKilled[3]),
     why: 'Verifier F3\' caveat and selection bias recorded; no Λ change; no QED.',
   },

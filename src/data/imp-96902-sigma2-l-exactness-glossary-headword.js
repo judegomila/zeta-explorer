@@ -53,7 +53,7 @@
  *   T_2 setup this enclosure certifies)
  *
  * Ticket: imp-96902 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The L-exactness headword, baked verbatim (no re-import).
@@ -88,7 +88,7 @@ const SIGMA2_L_EXACTNESS_HEADWORD = Object.freeze({
     'widths and the derivative identity are checked by that module\'s self-tests. Naming ' +
     '/ bookkeeping headword only; resolves no new interval; establishes no operator or ' +
     'zero-side result; conditional on the GUE sine-kernel hypothesis carried unchanged ' +
-    'from imp-96874; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'from imp-96874; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD = Object.freeze({
@@ -109,8 +109,8 @@ export const IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD = Object.freeze({
     'oscillatory Ci/Si derivative contributions cancel to this order -- the residual is ' +
     'whether L = 495.779 is a defined-exact box length or a rounded T = 1.5e5 proxy, a ' +
     'bookkeeping question rather than a numerical defect in either enclosure. Establishes ' +
-    'nothing; instantiates no new interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no new interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96874 (the enclosure and the IMP96874_SIGMA2_L_EXACTNESS sub-gap this glosses); ' +
     'imp-96853 (the residual item (i) the imp-96874 enclosure discharges); imp-96567 (the ' +
@@ -137,11 +137,11 @@ export const IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96902-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD.verdict) &&
       IMP96902_SIGMA2_L_EXACTNESS_GLOSSARY_HEADWORD.glosses === 'imp-96874',
   },
 ];

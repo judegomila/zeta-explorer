@@ -28,7 +28,7 @@
  * VERDICT. All three claims in the ticket title hold: tracked, registered, import-light.
  * No defect found; no code change required beyond recording this audit. Verification
  * only -- changes no bound, establishes no operator positivity, asserts no QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const AUDITED_FILES = Object.freeze([

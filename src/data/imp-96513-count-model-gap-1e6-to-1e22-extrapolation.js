@@ -59,7 +59,7 @@
  *   constant, does not close G6_polymath15_bridge. The conditional bound
  *   C_H <= 0.127 stays UNPROVEN; C_H isRigorousUpperBound remains false
  *   (imp-2642 / imp-2701); the imp-2640 Gronwall discharge of C_Lip stays
- *   NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains open. NO QED.
+ *   NEGATIVE. No refereed bound is changed. RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96426-ecoll-anchor-intermediate-heights.js: the N = 1e3..1e6 true-height
@@ -237,7 +237,7 @@ export const IMP96513_COUNT_MODEL_GAP_1E6_TO_1E22_EXTRAPOLATION = {
     + 'resolved no intermediate point). Accuracy audit only: no gap closed, no bound '
     + 'changed, G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays '
     + 'UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701), imp-2640 '
-    + 'Gronwall discharge of C_Lip NEGATIVE. Platt-Trudgian Lambda <= 0.2 SOTA. RH open. NO QED.',
+    + 'Gronwall discharge of C_Lip NEGATIVE. No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96426-ecoll-anchor-intermediate-heights.js (unmeasured span filled here; '
     + '+7/8 dominant omission, C_KH, Lambert-W path reused); '
@@ -249,7 +249,7 @@ export const IMP96513_COUNT_MODEL_GAP_1E6_TO_1E22_EXTRAPOLATION = {
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any
 // consumer surface that renders this finding.
 export const IMP96513_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/accuracy audit only: '
+  'RH open; no refereed bound is changed; NO QED. Measurement/accuracy audit only: '
   + 'the count-model gap across the imp-96426 unmeasured N = 1e6..1e22 span is '
   + 'extrapolated with the deterministic +7/8 Lambert-W count-inversion and found to '
   + 'be a single monotone featureless ~(7/8)/N power law; the only intermediate '
@@ -303,7 +303,7 @@ export const IMP96513_COUNT_MODEL_GAP_1E6_TO_1E22_EXTRAPOLATION_ASSERTIONS = [
     id: 'imp96513-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96513_HONEST_BANNER)
-      && /PT Lambda <= 0.2/.test(IMP96513_HONEST_BANNER)
+      && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96513_HONEST_BANNER)
       && /NO QED/.test(IMP96513_HONEST_BANNER),
     why:
       'the honest banner carries the RH-open / PT-Lambda / NO-QED markers for any '

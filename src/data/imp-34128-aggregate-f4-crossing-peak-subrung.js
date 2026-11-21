@@ -62,7 +62,7 @@
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the endpoint(k) surrogate and the
  * telescoping factor identity are exact WITHIN that model only; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is
- * UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34009-aggregate-share-window-endpoint-sensitivity (the integer-m F4 crossing/peak this pins)
  * @see imp-34003-f4-unity-crossing-locator (the DISTINCT per-step adjacent-rung F4(k)=1 crossing)
@@ -271,7 +271,7 @@ export const IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG = {
     'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the endpoint surrogate and the ' +
     'telescoping factor identity are exact WITHIN the model only; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34009 (the integer-m F4 crossing/peak this pins); imp-34003 (the DISTINCT per-step F4(k)=1 ' +
     'crossing); imp-33962 (the 0.9225 aggregate share headline); imp-33810 (the 21 quarter-decade ' +
@@ -323,13 +323,13 @@ export const IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG_ASSERTIONS = [
       M_MAX > 4,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34128-honesty-gate-no-qed',
-    description: 'Sub-rung locator only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Sub-rung locator only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG.isRigorous === false &&
       /NO QED/.test(IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG.verdict) &&
-      /remains SOTA/.test(IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG.verdict) &&
+      /refereed bound is changed/i.test(IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34128_AGGREGATE_F4_CROSSING_PEAK_SUBRUNG.verdict),
   },
 ];

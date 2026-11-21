@@ -42,7 +42,7 @@
  * baked ladder: c*x/ln x lands at 0.043 to 1e-67, the residual equals M0/ln x = 0.09549610599/ln x to 64
  * digits, and the residual ratio matches 1/ln x exactly (ruling out any power-law drift). MCM stays
  * VERIFIED not proved (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; kappa_arith
- * unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97499-route-m-mcm-baseterm-scaled-approach-K0.js (RESULT 3 crossing predictions spot-checked here)
  * @see imp-97478-route-m-mcm-level1-baseterm-extprec.js (extended-precision ladder + exact E-M R(m))
@@ -117,11 +117,11 @@ export const IMP97519_VERDICT = Object.freeze({
     'two-term law is the O(1/x^2) leftover kernel term (1e-67). The drift toward K0=1/24 is confirmed ' +
     '1/ln x, not power-law: resid(1e14)/resid(1.2737e31) = 2.22179 equals ln(1.2737e31)/ln(1e14) exactly. ' +
     'MCM stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97519_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Direct exact-kernel spot-check (mpmath 80 dps) of the ' +
+  'RH open; no refereed bound is changed; NO QED. Direct exact-kernel spot-check (mpmath 80 dps) of the ' +
   'imp-97499 RESULT 3 crossing: evaluating c(x)=h(x)-h(2x) directly at x~1.2737e31 gives c*x/ln x = 0.043 ' +
   'to 1e-67 with residual = M0/ln x to 64 digits, fourteen-plus decades past the x=1e14 ladder. The drift ' +
   'toward K0=1/24 is confirmed 1/ln x not power-law (residual ratio 2.22179 = ln-ratio exactly). MCM stays ' +
@@ -188,7 +188,7 @@ const IMP97519_ASSERTIONS = [
       IMP97519_VERDICT.qed === false &&
       IMP97519_VERDICT.mcmProved === false &&
       /NO QED/.test(IMP97519_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97519_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97519_HONEST_BANNER) &&
       /RH open/.test(IMP97519_HONEST_BANNER),
     why: 'the scaled-term limit is exactly 1/24, drift constant M0=0.095496; measurement only, no bound moved, no QED.',
   },

@@ -22,7 +22,7 @@
  * summary constants (t*, t0, margin, guarded window) are imported verbatim
  * from imp-97501, not re-derived. Establishes no operator positivity; changes
  * no bound; interval-rigorous certificate reach stays 2a<=0.96;
- * Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97501-sigma2-far-field-positivity-rigorous-margin.js (the rigorous margin, t*, t0, guarded window)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (confined negative well [0,3.306]u[6.945,10.532])

@@ -19,7 +19,7 @@
  *   @see imp-3444-sigma-nshape-landmark-ladder.js (E_coll = E_trunc crossover, N ~ 3.280e9)
  *
  *   Ticket: imp-33570 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  */
 
 // Ladder rows carrying a finite chord ratio (the exact crossover rung has fraction_slope /

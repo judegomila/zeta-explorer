@@ -3,7 +3,7 @@
  * signed coefficient field with Z_w * Z'' > 0 at every near-collision, at FIXED T,
  * and how the feasible support/norm degrades as T grows. Import-light (literals baked,
  * no zeros bundle); holds() assertions; self-executing. Measurement/feasibility only.
- * NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. rh-route-b-arithmetic-freeze-flow-2026-09-23.js nextTest (also
  * rh-novel-routes-sweep-synthesis-2026-09-23.js opening.nextTests[2]): the only
@@ -51,7 +51,7 @@
  * where Route B Test 2 already found NO coefficient set has a universal confining sign
  * (offLine.confiningCounts). A uniform OFF-line LP would be a Weil-positivity-strength
  * statement, and it is inaccessible to this on-line construction. Sub-gap named below.
- * Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const LP_SIGNED_FORCE_FEASIBILITY = Object.freeze({
@@ -60,7 +60,7 @@ export const LP_SIGNED_FORCE_FEASIBILITY = Object.freeze({
   route: 'B/D handoff',
   status: 'MEASURED -- on-line Gram-law surrogate Z_w*Z">0 UNIFORMLY FEASIBLE up to gamma_200 (n=1 saturates it, '
     + 'margin degrades gently not catastrophically); the uniform-in-T obstruction lives OFF the line (Route B Test 2). '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED',
 
   setup: {
     field: 'Z_w(x) = sum_{n=1..N} w_n n^{-1/2} cos(theta(x) - x log n)  (RS partial sum, signed coefficients)',
@@ -107,7 +107,7 @@ export const LP_SIGNED_FORCE_FEASIBILITY = Object.freeze({
     + 'feasible up to gamma_200 with only a gentle margin decay, so the surrogate does not degrade to infeasibility '
     + 'on the line -- it is a genuine Gram-law surrogate, satisfiable there and NOT confining. The uniform-in-T '
     + 'difficulty is relocated off the line (Route B Test 2 no-universal-sign / Weil positivity). Changes no bound; '
-    + 'PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'no refereed bound is changed; RH open; NO QED.',
 
   references: [
     'src/data/rh-route-b-arithmetic-freeze-flow-2026-09-23.js (Lemma A, Test 2, nextTest)',
@@ -166,7 +166,7 @@ export const LP_SIGNED_FORCE_FEASIBILITY_ASSERTIONS = Object.freeze([
     name: 'honest status: measurement only, no bound change, no QED',
     holds: () => /UNIFORMLY FEASIBLE/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

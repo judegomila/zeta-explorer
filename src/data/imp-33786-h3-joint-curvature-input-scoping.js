@@ -77,7 +77,7 @@
  * same object one derivative down, discharged a fortiori). It is the imp-3708 y2-adapted-flow-depth object.
  * The open catalogue stays four rows (H0, H3, H4, H5); nothing is discharged. Scoping only;
  * G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED;
- * C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * C_mb share untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33766-h4-independent-discharge-scoping (the collapse of H4 into H3 as one coupled object)
  * @see imp-33645-h3-curvature-divergence-scoping (the H3 curvature, exponent 5/2)
@@ -189,7 +189,7 @@ export const IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING = {
     'axis did -- so H0 and H5 remain the only genuinely off-axis open rows. The open catalogue stays ' +
     'four rows (H0, H3, H4, H5); nothing is discharged. Scoping only; G6a_shock_lipschitz stays OPEN; ' +
     'no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33766-h4-independent-discharge-scoping (H4 collapses into H3 as one coupled object); ' +
     'imp-33645-h3-curvature-divergence-scoping (H3 curvature, exponent 5/2); ' +
@@ -257,14 +257,14 @@ export const IMP33786_H3_JOINT_CURVATURE_INPUT_ASSERTIONS = [
       OPEN_ROWS_AFTER.includes('H3'),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33786-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33786_H3_JOINT_CURVATURE_INPUT_SCOPING.verdict),
   },
 ];

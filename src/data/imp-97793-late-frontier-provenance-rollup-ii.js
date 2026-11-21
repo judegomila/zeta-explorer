@@ -3,7 +3,7 @@
  * @fileoverview imp-97793 -- META provenance roll-up cataloguing the imp-97757..imp-97764
  * late-frontier measurement/cross-validation cohort by EVIDENCE CLASS and confirming each
  * module carries the mandatory honest banner: no-QED, isRigorous-false (or its textual
- * equivalent), and Platt-Trudgian Lambda <= 0.2 SOTA -- EXTENDING the imp-97754 roll-up
+ * equivalent), and no refereed bound is changed -- EXTENDING the imp-97754 roll-up
  * (which catalogued the earlier imp-97722/97723/97724/97725 cohort) to the next seven
  * modules in the same frontier-scout stream.
  *
@@ -23,7 +23,7 @@
  * RESULT (audited 2026-09-27). All seven modules carry a full honest banner: imp-97757,
  * imp-97759, imp-97762, and imp-97764 use the explicit `isRigorous: false` field; imp-97758,
  * imp-97761, and imp-97763 do not export an `isRigorous` field but state the equivalent textual
- * banner ("NO QED", "PT Lambda <= 0.2 SOTA", "no bound moves") directly in their exported
+ * banner ("NO QED", "No refereed bound is changed", "no bound moves") directly in their exported
  * verdict/banner strings. All seven state no bound on Lambda moves and no operator-positivity
  * claim; the three MCM-adjacent modules (imp-97758, imp-97761, imp-97763) additionally restate
  * "MCM refuted from omega=11" verbatim. No module in this cohort references the Polymath15
@@ -46,7 +46,7 @@
  * @see imp-97754-late-frontier-provenance-rollup.js (the prior cohort roll-up this extends)
  *
  * Ticket: imp-97793 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing new;
- * no bound moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound moves; NO QED; no refereed bound is changed.
  */
 
 export const IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II = {
@@ -126,14 +126,14 @@ export const IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II = {
   anyBoundMoved: false,
   recommendation:
     'No action needed on the honest-banner side -- all seven modules already disclose the ' +
-    'no-QED / no-bound-moved / PT-SOTA content, either as an explicit `isRigorous: false` field ' +
+    'no-QED / no-bound-moved / no-refereed-bound-change content, either as an explicit `isRigorous: false` field ' +
     '(imp-97757, imp-97759, imp-97762, imp-97764) or as an equivalent prose banner (imp-97758, ' +
     'imp-97761, imp-97763). Same optional future tidy as imp-97754: add an explicit ' +
     '`isRigorous: false` field to the three prose-only modules for format consistency -- not ' +
     'required, since the disclosure is already present.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. No operator-positivity claim touched. Platt-Trudgian Lambda <= 0.2 remains SOTA. ' +
+    'itself. No operator-positivity claim touched. No refereed bound is changed. ' +
     'RH open. NO QED.',
 };
 
@@ -166,7 +166,7 @@ const IMP_97793_ASSERTIONS = [
       IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II.modules.every(
         (x) => x.noQED === true && x.plattTrudgianSOTA === true && x.honestBannerInProse === true,
       ) && IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II.honestBannerFullCoverageCount === 7,
-    why: 'Every module in the cohort must carry the no-QED / PT-SOTA disclosure, whether as a ' +
+    why: 'Every module in the cohort must carry the no-QED / no-refereed-bound-change disclosure, whether as a ' +
       'structured field or as prose -- grep-verified against the source files.',
   },
   {
@@ -184,9 +184,9 @@ const IMP_97793_ASSERTIONS = [
     holds: () =>
       IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II.anyBoundMoved === false &&
       /NO QED/.test(IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II.honestNote) &&
-      /remains SOTA/.test(IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and no bound moves.',
+      /refereed bound is changed/i.test(IMP_97793_LATE_FRONTIER_PROVENANCE_ROLLUP_II.honestNote),
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and no bound moves.',
   },
 ];
 

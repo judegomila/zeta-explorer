@@ -38,7 +38,7 @@
  * but does NOT establish it: the Rayleigh floor is an UPPER bound and the uniform-in-N spectral gap
  * (imp-96749 IMP96749_UNIFORM_N_GAP_UNSETTLED) stays the open obstruction. Measurement only; operator
  * positivity for 0.96 < 2a < ln3 stays OPEN; interval-rigorous certificate reach stays 2a <= 0.96; RH
- * open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * open; no refereed bound is changed; NO QED.
  *
  * @see imp-96806-krein-tconv-plateau-2a-ln3.js (2a=ln3 t-converged plateau ~0.579; IMP96806_TSWEEP_LN3)
  * @see imp-96651-krein-096-fine-extended-scan.js (independent 2a=0.96 positivity scan)

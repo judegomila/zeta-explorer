@@ -57,7 +57,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97781-knee-crossover-eflow-sensitivity (knee_vs_cross sweep + cross-crossing amp)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee estimator, log10 N* ~ 9.529)
@@ -280,8 +280,8 @@ export const IMP97800_KNEE_VS_HALF_EFLOW_SENSITIVITY = {
     'is shallower because N_half tracks the knee down. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97781 (knee_vs_cross sweep + cross-crossing amp); imp-33721 (sub-decade knee, log10 N* ~ ' +
     '9.529); imp-3444 (bisected E_coll=E_trunc crossover ~3.280e9 + halving landmark ~3.267e9); ' +
@@ -335,13 +335,13 @@ export const IMP97800_KNEE_VS_HALF_EFLOW_SENSITIVITY_ASSERTIONS = [
       Math.abs(dCrossDAmp - IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY.eflowSensitivity.dOffsetPtsPerUnitAmp) < 0.02,
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp97800-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97800_KNEE_VS_HALF_EFLOW_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP97800_KNEE_VS_HALF_EFLOW_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP97800_KNEE_VS_HALF_EFLOW_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP97800_KNEE_VS_HALF_EFLOW_SENSITIVITY.verdict),
   },
 ];
 

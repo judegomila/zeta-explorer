@@ -9,7 +9,7 @@
  *
  * NO QED. Viz-data reshaping only; every number here traces back to imp-33723 / imp-33582 /
  * imp-33721 / imp-34693 (all inherited imp-3220/imp-3406 surrogate crossover map), C_mb
- * GUE-conditional per imp-486, no operator positivity, Platt-Trudgian Lambda<=0.2 SOTA.
+ * GUE-conditional per imp-486, no operator positivity, no refereed bound is changed.
  */
 
 import { IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM } from './imp-33723-sigma-half-vs-crossover-closed-form.js';

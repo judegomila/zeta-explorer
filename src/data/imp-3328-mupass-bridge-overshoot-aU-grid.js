@@ -63,7 +63,7 @@
  *   limit of the margin is a plausible-but-unproven extrapolation from N and H
  *   stability. Diagnostic only; the imp-3214 symmetric Gpass^{-1/2} normalization
  *   and the imp-3066 endpoint-Hankel operator step remain the RH-equivalent
- *   obstruction. No reduction, no QED; Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   obstruction. No reduction, no QED; no refereed bound is changed.
  *
  *   @see imp-3219-mupass-bridge-overshoot-knee.js (the single-cell peak resolution this generalizes)
  *   @see imp-3202-mupass-bridge-lag-cutoff-sweep.js (the coarse sweep that noted the &lt; 0.5% overshoot)
@@ -260,7 +260,7 @@ export const IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID = Object.freeze({
     '(d) imp-3219 headline 0.392% was power-iteration UNDER-converged (220 iters) -- the converged value is ' +
     '~0.443%, still < 0.5%. No closed form for the ~0.444% margin or c* ~ 0.24 in a, U (empirical ' +
     'Phi-autocorrelation-tail-cancellation constants). Diagnostic only; RH-equivalent residual untouched; ' +
-    'NO QED; PT Lambda <= 0.2 stays SOTA.',
+    'NO QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     bridgeOperator: 'T(u, v) = sinh(a (v - u)) * Abar(|v - u|): lag-stationary surrogate, Phi autocorrelation symbol',
@@ -323,7 +323,7 @@ export const IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID = Object.freeze({
     necessaryNotSufficient:
       'Sweeping the capture overshoot over a x U is a cutoff-localization diagnostic; it does NOT construct ' +
       'the missing operator-norm magnitude or attempt the K_a >= 0 positivity, the RH-equivalent obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -393,7 +393,7 @@ export const IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID_ASSERTIONS = [
   {
     id: 'imp3328-honest-no-qed-no-closed-form',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, RH-equivalent, NO closed form for the margin or ' +
-         'c*, continuum limit not proved, positivity not attempted, PT 0.2 stays SOTA.',
+         'c*, continuum limit not proved, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID.honestCaveat;
       return (
@@ -404,7 +404,7 @@ export const IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID_ASSERTIONS = [
         c.derivedClosedFormForCStar === false &&
         c.provedContinuumLimit === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

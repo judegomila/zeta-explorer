@@ -24,7 +24,7 @@
  * @see imp-97097-route-m-cotangent-first-moment-reciprocity.js (cotangent mean-value sub-gap)
  *
  * Ticket: imp-97218 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import { IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX } from './imp-97155-route-m-first-moment-evaluation-cohort-index.js';
@@ -85,7 +85,7 @@ export const IMP97218_TWO_OPEN_HALVES = Object.freeze({
 });
 
 export const IMP97218_TWO_HALVES_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The Route M first-moment cohort leaves TWO ' +
+  'RH open; no refereed bound is changed; NO QED. The Route M first-moment cohort leaves TWO ' +
   'DISTINCT open sub-gaps, not one: (1) the arithmetic explicit-remainder sub-gap (imp-97096) -- ' +
   'kappa_arith is an EXACT leading coefficient; the BINDING L0 remainder E0 now HAS a proved uniform-' +
   'in-b bound |E0(b)| <= (1/2)log b + O(log log b) with NO 2^omega prefactor (imp-97202), so this half ' +
@@ -152,10 +152,10 @@ const IMP97218_ASSERTIONS = [
     holds: () =>
       IMP97218_TWO_OPEN_HALVES.anyBoundMoved === false &&
       /NO QED/.test(IMP97218_TWO_HALVES_BANNER) &&
-      /remains SOTA/.test(IMP97218_TWO_HALVES_BANNER) &&
+      /refereed bound is changed/i.test(IMP97218_TWO_HALVES_BANNER) &&
       /RH open/.test(IMP97218_TWO_HALVES_BANNER) &&
       /MEASURED/.test(IMP97218_TWO_HALVES_BANNER),
-    why: 'documentation only: no bound claimed moved, no QED, PT SOTA line present, measured-not-proved status stated explicitly.',
+    why: 'documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, measured-not-proved status stated explicitly.',
   },
 ];
 

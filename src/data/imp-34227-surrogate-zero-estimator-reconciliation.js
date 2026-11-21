@@ -55,7 +55,7 @@
  * measurements). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the local log-derivatives are 4th-order finite differences with a ~1e-12 roundoff floor, not
  * closed forms; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the module that raised this sub-gap; its
  *   coarse resid_exp is what this reconciles as an estimator artifact)
@@ -267,7 +267,7 @@ export const IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the local log-derivatives are 4th-order ' +
     'finite differences with a ~1e-12 roundoff floor, not closed forms; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34169 (the module that raised SUB-GAP-imp-34169-surrogate-domain-edge; its coarse resid_exp is ' +
     'reconciled here); imp-34107 (the resid_exp(k) schedule); imp-33843 (the log-linear OLS); imp-33810 ' +
@@ -312,9 +312,9 @@ export const IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION_ASSERTIONS = [
       ANALYTIC_HAS_NO_CLEAN_CROSSING === true,
   },
   {
-    // Honesty gate: artifact verdict, isRigorous false, imp-34169 not overturned as measurement, no QED, SOTA.
+    // Honesty gate: artifact verdict, isRigorous false, imp-34169 not overturned as measurement, no QED, no refereed bound is changed.
     id: 'imp34227-honesty-gate-no-qed',
-    description: 'Measurement only: verdictArtifact true, isRigorous false, imp-34169 untouched as measurement, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched',
+    description: 'Measurement only: verdictArtifact true, isRigorous false, imp-34169 untouched as measurement, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched',
     holds: () =>
       IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdictArtifact === true &&
       IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.isRigorous === false &&
@@ -324,7 +324,7 @@ export const IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION_ASSERTIONS = [
       ) &&
       /are UNTOUCHED as measurements/.test(IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(
         IMP34227_SURROGATE_ZERO_ESTIMATOR_RECONCILIATION.verdict,

@@ -49,7 +49,7 @@ export const RUNNER_WIRING_AUDIT = {
   alreadyWired: COHORT_FILES.filter((m) => m.registeredInRunner).map((m) => m.ticket),
   wiringSafety: 'all six missing files depend only on lambda-rh-height-mapping.js / polymath15-constant-C-C.js / imp-33810-eflow-resid-ratio-N-ladder.js (or nothing at all for imp-33853), and those dependency files are themselves already directly registered in run-assertions.mjs, so per the imp-3369 KEEP-AND-WIRE verdict they are mechanical, low-risk candidates for wiring; NOT done in this audit run',
   status: '6 of the 7 cohort members (imp-33853, imp-33854, imp-33855, imp-33856, imp-33858, imp-28895) are ABSENT from scripts/run-assertions.mjs; their combined 38 *_ASSERTIONS entries are dormant (never execute during npm run assert / build sweeps). Only imp-33857 is registered.',
-  honest: 'AUDIT-ONLY -- reports the coverage gap for this specific 7-module cohort; does NOT modify run-assertions.mjs or add new math. PT Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'AUDIT-ONLY -- reports the coverage gap for this specific 7-module cohort; does NOT modify run-assertions.mjs or add new math. No refereed bound is changed.',
 };
 
 export const RUNNER_WIRING_AUDIT_ASSERTIONS = [
@@ -89,10 +89,10 @@ export const RUNNER_WIRING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-33893-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no runner mutation, no new math) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no runner mutation, no new math) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(RUNNER_WIRING_AUDIT.honest)
       && /does NOT modify run-assertions\.mjs/.test(RUNNER_WIRING_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(RUNNER_WIRING_AUDIT.honest),
+      && /refereed bound is changed/i.test(RUNNER_WIRING_AUDIT.honest),
   },
 ];
 

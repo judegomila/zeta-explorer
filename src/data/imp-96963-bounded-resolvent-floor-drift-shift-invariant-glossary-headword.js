@@ -42,7 +42,7 @@
  *   STATUS: a sensitivity scout closing one lever (the shift m) on an already-open wall.
  *   Ritz value is an UPPER bound, so the floor is an upper estimate, not a certified
  *   lower bound. Not a proof, not a new bound, not an operator-positivity result. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-96935-krein-shift-drift-sensitivity.js (source scout: the shift sweep and
  *   IMP96935_BOUNDED_RESOLVENT_FLOOR_DRIFT_IS_SHIFT_INVARIANT sub-gap this glosses)
@@ -54,7 +54,7 @@
  *   the floor bias couples to)
  *
  * Ticket: imp-96963 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The shift-invariance headword, baked verbatim (no re-import).
@@ -95,7 +95,7 @@ const BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_HEADWORD = Object.freeze({
     'shift-drift-sensitivity.py, /tmp/rhvenv scipy 1.18). A single sensitivity scout ' +
     'closing the shift lever; Ritz value is an upper bound so the floor is an upper ' +
     'estimate, not a certified lower bound; establishes no operator positivity; ' +
-    'interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; ' +
+    'interval-rigorous reach stays 2a<=0.96; RH open; no refereed bound is changed; ' +
     'NO QED.',
 });
 
@@ -119,7 +119,7 @@ export const IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEA
     'running the wrong way (large-m precision loss, not convergence). A well-conditioned ' +
     'resolvent is therefore not reachable by shift alone; the wall stays the open ' +
     'coupled (N,T) truncation of imp-96889/imp-96827. Establishes nothing; instantiates ' +
-    'no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96935 (the shift-sweep scout and IMP96935_BOUNDED_RESOLVENT_FLOOR_DRIFT_IS_' +
     'SHIFT_INVARIANT sub-gap this glosses); imp-96911 (the original m=1 Nbig/T floor ' +
@@ -147,11 +147,11 @@ export const IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEA
   },
   {
     id: 'imp96963-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEADWORD.verdict) &&
       IMP96963_BOUNDED_RESOLVENT_FLOOR_DRIFT_SHIFT_INVARIANT_GLOSSARY_HEADWORD.glosses === 'imp-96935',
   },
 ];

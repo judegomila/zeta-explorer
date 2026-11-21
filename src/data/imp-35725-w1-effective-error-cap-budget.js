@@ -20,7 +20,7 @@
  * SCOPING / ORDER-OF-MAGNITUDE ESTIMATE ONLY. Ports nothing; discharges nothing;
  * instantiates no interval sum; verifies no inequality; changes no bound; establishes
  * no positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * DECOMPOSITION RECALLED (Polymath15 2019, effective approximation)
  * -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35674 / imp-35717) ----
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this budget
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this budget
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -169,8 +169,8 @@ export const IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET = {
     'MECHANICAL cost -- certified interval evaluation of ~4.886e5-term sums at the sign-reconciled positive ' +
     'barrier time plus the strict-inequality check -- keeps the interval-bounded A + B - C certificate ' +
     'GREENFIELD (imp-35681 Part A). Ports nothing; discharges nothing; instantiates no sum; verifies no ' +
-    'inequality; changes no bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'inequality; changes no bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35681 Part A (A+B-C interval bound greenfield); imp-35717 R4 (names E_A,E_B,E_{C_0} as the seed); ' +
     'imp-35674 Part D (N(x)=floor(sqrt(x/4 pi)) retained terms); imp-35653 (names W1 in the S_barrier ' +
@@ -219,16 +219,16 @@ export const IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET_ASSERTIONS = [
       /NOT an achievable bound derived here/.test(IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.requiredBudget.character),
   },
   {
-    // Residual + honesty gate: mechanical obstruction keeps A+B-C greenfield; estimate only, no QED, PT SOTA.
+    // Residual + honesty gate: mechanical obstruction keeps A+B-C greenfield; estimate only, no QED, no refereed bound is changed.
     id: 'imp35725-honesty-gate-greenfield-no-qed',
-    description: 'Residual: mechanical interval-sum cost keeps A+B-C greenfield; estimate only, no QED, PT SOTA',
+    description: 'Residual: mechanical interval-sum cost keeps A+B-C greenfield; estimate only, no QED, no refereed bound is changed',
     holds: () =>
       IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /MECHANICAL/.test(IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.achievabilityResidual.mechanicalObstruction) &&
       /GREENFIELD/.test(IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.achievabilityResidual.staysGreenfield) &&
       /NO QED/.test(IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.verdict) &&
-      /remains SOTA/.test(IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.verdict),
+      /refereed bound is changed/i.test(IMP35725_W1_EFFECTIVE_ERROR_CAP_BUDGET.verdict),
   },
 ];
 

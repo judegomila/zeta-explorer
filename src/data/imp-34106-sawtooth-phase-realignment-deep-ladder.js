@@ -80,7 +80,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34044-sawtooth-phase-realignment-schedule (the 1/128 .. 1/32768 doubling-map schedule, extended here)
  * @see imp-33983-sawtooth-residue-finer-grid-verification (the frozen gap and out-of-ladder rungs)
@@ -361,7 +361,7 @@ export const IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER = {
     'asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34044 (the 1/128 .. 1/32768 doubling-map schedule, extended here); imp-33983 (the frozen gap ' +
     'and out-of-ladder rungs); imp-33942 (P3 sawtooth-residue closed form); imp-33878 (source of ' +
@@ -402,14 +402,14 @@ export const IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER_ASSERTIONS = [
     holds: () => PRECISION_FLOOR_DIAGNOSED,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, extends imp-34044, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, isRigorous false, extends imp-34044, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34106-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, EXTENDS the imp-34044 schedule, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, EXTENDS the imp-34044 schedule, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.isRigorous === false &&
       /EXTENDS the imp-34044/.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict) &&
       /NO QED/.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict) &&
-      /remains SOTA/.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict) &&
+      /refereed bound is changed/i.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34106_SAWTOOTH_PHASE_REALIGNMENT_DEEP_LADDER.verdict),

@@ -95,7 +95,7 @@ export const IMP124944_HONEST_BANNER =
   + 'denominator all use the identical term sequence E_trunc + E_flow + E_coll (imp-124837 '
   + 'expanded form matches the E_N shorthand elsewhere token-for-token, not merely up to '
   + 'commutativity); no drift found, nothing repaired. Changes no bound; imp-3066 K_a >= 0 '
-  + 'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  + 'untouched; no RH verdict, NO QED. No refereed bound is changed.';
 
 export default IMP124944_SIGMA_EN_DENOMINATOR_NOTATIONAL_CONSISTENCY_AUDIT;
 
@@ -113,7 +113,7 @@ if (
     IMP124944_SIGMA_EN_DENOMINATOR_NOTATIONAL_CONSISTENCY_AUDIT.isRigorous === false &&
     IMP124944_SIGMA_EN_DENOMINATOR_NOTATIONAL_CONSISTENCY_AUDIT.qed === false &&
     /NO QED/.test(IMP124944_HONEST_BANNER) &&
-    /Lambda <= 0.2/.test(IMP124944_HONEST_BANNER) &&
+    /Lambda <= 0.2|refereed bound is changed/.test(IMP124944_HONEST_BANNER) &&
     /imp-3066/.test(IMP124944_HONEST_BANNER)
   )
 ) {

@@ -11,7 +11,7 @@
  * rate. This module supplies that upper-bound form and shows what it costs.
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; certifies nothing; instantiates no interval
- * enclosure; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * enclosure; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE CERTIFIABLE FORM OF THE I2 CAP
  * -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@
  * its panel length to the I3 floor, but it BOUNDS no |H_t prime| (B), lower-bounds no
  * |H_t| (delta), instantiates no interval enclosure (I1), closes no integer (I4), composes
  * no corner (I5); it fixes no Delta or h; it certifies no count and changes no bound.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I2 named GREENFIELD)
  * @see imp-35757-i2-panel-width-count-scope (I2 via the MEAN winding rate; counts flagged LOWER bounds)
@@ -89,7 +89,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35758) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const TWO_PI = 2 * Math.PI;
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
@@ -180,7 +180,7 @@ export const IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE = {
     'bound (multiplier delta_robust/delta_local), so I2 is finite exactly when I3 holds. Bounds no B; lower-bounds no ' +
     'delta; instantiates no enclosure; fixes no Delta or h; certifies no count; establishes no positivity; certifies ' +
     'no non-vanishing; evaluates no |H_t| or |H_t prime| directly (only the ratio B/delta); I2 remains GREENFIELD ' +
-    'downstream of W1; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'downstream of W1; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35727 (I2 named GREENFIELD); imp-35757 (I2 via mean winding rate, counts flagged LOWER bounds); imp-35758 ' +
     '(I3 floor delta = barrier-margin surplus); imp-35725 (effective-error cap C_t); imp-2696 / imp-33968 (sampled ' +
@@ -229,15 +229,15 @@ export const IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE_ASSERTIONS = [
       GRAZING_AMPLIFICATION_EXAMPLES[2].G > GRAZING_AMPLIFICATION_EXAMPLES[0].G,
   },
   {
-    // Honesty gate: OOM scoping only, no certification, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: OOM scoping only, no certification, no QED, no refereed bound is changed.
     id: 'imp35777-honesty-gate-no-qed',
-    description: 'Scoping only; certifies no count; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Scoping only; certifies no count; bounds no B; lower-bounds no delta; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no count/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
       /NO QED/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict),
   },
   {
     // Honesty gate: the I2/I3 caveat template (positivity, non-vanishing, |H_t|/|H_t prime|, W1 downstream)

@@ -707,7 +707,7 @@ export const IMP95151_MIDDLE_FLOOR_RATE_STEP = {
   classSandwich: [0.2320723, 0.24502],
   promotesBound: false,
   noQED: true,
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+  sota: 'No refereed bound is changed',
 };
 
 // ---------------------------------------------------------------------------

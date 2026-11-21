@@ -68,7 +68,7 @@
  *   diagnostic; it establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   PRECISION NOTE (imp-3743, honest): the -ln A(1.5)=1267.12 and -ln A(2)=9362.72 literals
  *   above come from this module's N=12000 log-domain Simpson grid. imp-3709's INDEPENDENT
@@ -350,7 +350,7 @@ export const IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity (off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -418,7 +418,7 @@ export const IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK_ASSERTIONS = [
   {
     id: 'imp3665-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/cross-check only, mass-feasibility necessary-but-not-sufficient, operator ' +
-         'positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK.honestCaveat;
       return (
@@ -426,7 +426,7 @@ export const IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

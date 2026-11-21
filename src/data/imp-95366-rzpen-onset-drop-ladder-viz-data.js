@@ -32,8 +32,8 @@
  * imp-95349 import-light viz-data pattern.
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-95328-two-chart-pencil-floor.js (THEOREM RZ-PEN2 baseline
  *   onsets, corollarySplitPen2)

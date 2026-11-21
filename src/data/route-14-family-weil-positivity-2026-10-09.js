@@ -36,7 +36,7 @@
  *  RES-T unproved, so "no zero information beyond Platt's verified GRH heights (≈ 1e8/q)" is heuristic.
  *
  * Closed class: family Weil positivity is GRH-equivalent at all supports and Euler-blind at finite support (tlb-dh-blind, NS-RIGID (d));
- * not a Λ lever. PT Λ ≤ 0.2 stands; RH and GRH open; NO QED. Import-free. ROUTE_14_ASSERTIONS rebuild the characters mod q and check the
+ * not a Λ lever. No refereed bound is changed; RH and GRH open; NO QED. Import-free. ROUTE_14_ASSERTIONS rebuild the characters mod q and check the
  * orthogonality weights, recompute the triangle bound (q = 257 at ln 2355 positive; q = 101, 53 and q = 257 at 2a = 10 negative), the
  * dilution arithmetic, ν < 2 for every certificate and certificate ≤ Ritz live.
  */
@@ -94,7 +94,7 @@ export const ROUTE_14 = Object.freeze({
   verdict: 'Family-averaged Weil positivity is certifiable far beyond individual positivity (2a = 10.0 at q = 257; ≈ 2 log q), because only n ≡ 1 mod q enters at full '
     + 'weight and the conductor term log q is large; individual certificates stop at 2a ≈ 2 for method reasons. The gain is Euler-blind (hybrid with F_DH certified '
     + 'positive at 7.764) and, at all supports, family positivity is exactly GRH for every character mod q. At finite support it implies nothing about individual zeros; '
-    + 'that it adds nothing beyond verified GRH data is heuristic. Not a Λ lever. PT Lambda <= 0.2 stands; RH and GRH open; NO QED.',
+    + 'that it adds nothing beyond verified GRH data is heuristic. Not a Λ lever. No refereed bound is changed; RH and GRH open; NO QED.',
 });
 
 const R = ROUTE_14;
@@ -141,7 +141,7 @@ export const ROUTE_14_ASSERTIONS = Object.freeze([
   {
     id: 'r14-honest-scope',
     holds: () => R.status === 'done' && /Euler-blind/.test(R.verdict) && /heuristic/.test(R.verdict) && /Not a Λ lever/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /ζ number/.test(R.refereeKilled[0]),
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /ζ number/.test(R.refereeKilled[0]),
     why: 'Euler-blind, GRH-equivalent class; "no zero information" graded heuristic; no Λ change; no QED.',
   },
 ]);

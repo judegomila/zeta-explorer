@@ -73,7 +73,7 @@ export const IMP_33697_33629_33630_NAV_AUDIT = {
     'low priority), which build the actual hub page this cohort should link from.',
   honestNote:
     'Read-only nav/route audit; no new pages fabricated, no bound claimed. imp-3066 K_a >= 0 ' +
-    'positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'positivity untouched. No refereed bound is changed. No QED.',
 };
 
 const IMP_33697_ASSERTIONS = [
@@ -115,11 +115,11 @@ const IMP_33697_ASSERTIONS = [
   {
     id: 'imp33697-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33697_33629_33630_NAV_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33697_33629_33630_NAV_AUDIT.honestNote) &&
       /no QED/i.test(IMP_33697_33629_33630_NAV_AUDIT.honestNote) &&
       /imp-3066/.test(IMP_33697_33629_33630_NAV_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

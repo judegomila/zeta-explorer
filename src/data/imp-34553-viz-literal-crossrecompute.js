@@ -48,7 +48,7 @@
  *   underlying component model is the inherited imp-3220/imp-3406 extrapolation,
  *   NOT a rigorous asymptotic; the four locators are descriptive landmarks, not
  *   derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066
- *   K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34475-four-locator-cluster-axis-viz-data.js (the baked viz literals cross-checked here)
  *   @see imp-34441-3p28e9-landmark-cluster-reconciliation.js (the source reconciliation re-derived to produce RECOMPUTED_*)
@@ -109,7 +109,7 @@ export const IMP34553_VIZ_LITERAL_CROSSRECOMPUTE = {
     'imp-34441 re-derivation off the imp-33723/imp-33721/imp-3444 primitives; adds no new derivation ' +
     'and changes no bound. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 };
 
 const relClose = (a, b, tol) => Math.abs(a - b) <= tol * Math.abs(b || 1);

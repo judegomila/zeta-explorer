@@ -22,7 +22,7 @@
  *   Ticket: imp-35597 (ux, medium). Presentation only of an already-established
  *   scoping assessment; adds no new Lambda bound, discharges nothing. C_C =
  *   (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  */
 
 import { IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE } from './imp-35571-route-i-subleading-rate-scope.js';

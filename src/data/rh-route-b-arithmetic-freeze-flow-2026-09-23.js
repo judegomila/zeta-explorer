@@ -93,7 +93,7 @@
  *   away from ζ — the de Bruijn trap again — and is not even universal. (iv) Any additive pencil confining on its whole τ-range is an
  *   interlacing statement, which presupposes RH. A provable confining ARITHMETIC drift would be an
  *   arithmetic positivity statement of Weil type — the input the no-go says is needed, not a way around it.
- *   NOT a bound; PT Λ ≤ 0.2 stands; RH open; NO QED.
+ *   NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * Reproduction: tmp/route-b-freeze-flow-force.py (Lemma M, Test 1, census), tmp/route-b-negative-t-normal-force.py
  * (Test 2), tmp/route-b-meanfield-pencil.py (mean-field pencil). Import-light: literals baked, no zeros bundle.
@@ -104,7 +104,7 @@ export const ROUTE_B_FREEZE_FLOW = Object.freeze({
   date: '2026-09-23',
   route: 'B',
   status: 'FIRST TEST DONE — VERDICT NEGATIVE (no confining arithmetic drift in the multiplicative or '
-    + 'additive-coefficient class; pencil confinement = interlacing = RH-encoding); PT Λ≤0.2 stands; RH open; NO QED',
+    + 'additive-coefficient class; pencil confinement = interlacing = RH-encoding); no refereed bound is changed; RH open; NO QED',
 
   deformation: {
     family: 'H_{t,τ}(z) = ∫ e^{tu²}[Φ(u) − τ ψ_S(u)] e^{izu} du = H_t(z) − τ Ψ_{S,t}(z)',
@@ -419,7 +419,7 @@ export const ROUTE_B_FREEZE_FLOW_ASSERTIONS = Object.freeze([
   {
     id: 'route-b-honest-status',
     holds: () => /NEGATIVE/.test(F.status) && /RH open/.test(F.status) && /NO QED/.test(F.status),
-    why: 'No false QED: verdict negative, RH open, PT Λ≤0.2 stands.',
+    why: 'No false QED: verdict negative, RH open, no refereed bound is changed.',
   },
 ]);
 

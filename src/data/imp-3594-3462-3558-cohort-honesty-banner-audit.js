@@ -18,17 +18,17 @@
  * RESULT (audited 2026-07-03): all eleven modules carry a compliant honesty
  * banner in both the file-header comment and the exported data object; NO
  * drift, overclaim, or QED language found.
- *   - imp-3462-nmax-turnover-exponent-derivation.js:          "no positivity, no bridge closure, no RH claim, NO QED"; Platt-Trudgian SOTA cited; isRigorous:false. (topic is a pure exponent derivation -- no imp-3066 tie-in needed, none claimed)
- *   - imp-3546-moment-tail-bound-tightness.js:                RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, SOTA cited.
- *   - imp-3547-lower-moment-simpson-residual-localization.js: imp-3066 untouched, "No RH verdict, no QED", SOTA cited.
- *   - imp-3550-fartail-midpoint-quadrature-error-bound.js:    RH-equivalent, imp-3066 untouched, "NO RH verdict, NO QED", SOTA cited.
- *   - imp-3551-xistar-residual-band-sharpening.js:            RH-EQUIVALENT, imp-3066 untouched, "NO RH verdict, NO QED", SOTA cited.
- *   - imp-3552-cosh-certificate-overestimation-factor.js:     RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, SOTA cited.
- *   - imp-3553-remainder-tail-cancellation-free-r3.js:        RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, SOTA cited.
- *   - imp-3555-skew-toeplitz-gap-exponent-convergence.js:     RH-EQUIVALENT, imp-3066 K_a>=0 explicitly named NOT attempted, "NO RH verdict, NO QED", SOTA cited.
- *   - imp-3556-sigma-threshold-crossings-rootsolve.js:        "no positivity, no bridge closure, no RH claim, NO QED"; imp-3066 untouched; SOTA cited; isRigorous:false.
- *   - imp-3557-refined-m4-leading-form-propagation.js:        RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, SOTA cited.
- *   - imp-3558-far-tail-band-max-grid-ladder-n9600.js:        RH-equivalent, imp-3066 untouched, "NO RH verdict, NO QED", SOTA cited.
+ *   - imp-3462-nmax-turnover-exponent-derivation.js:          "no positivity, no bridge closure, no RH claim, NO QED"; no refereed bound is changed; isRigorous:false. (topic is a pure exponent derivation -- no imp-3066 tie-in needed, none claimed)
+ *   - imp-3546-moment-tail-bound-tightness.js:                RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, no refereed bound is changed.
+ *   - imp-3547-lower-moment-simpson-residual-localization.js: imp-3066 untouched, "No RH verdict, no QED", no refereed bound is changed.
+ *   - imp-3550-fartail-midpoint-quadrature-error-bound.js:    RH-equivalent, imp-3066 untouched, "NO RH verdict, NO QED", no refereed bound is changed.
+ *   - imp-3551-xistar-residual-band-sharpening.js:            RH-EQUIVALENT, imp-3066 untouched, "NO RH verdict, NO QED", no refereed bound is changed.
+ *   - imp-3552-cosh-certificate-overestimation-factor.js:     RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, no refereed bound is changed.
+ *   - imp-3553-remainder-tail-cancellation-free-r3.js:        RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, no refereed bound is changed.
+ *   - imp-3555-skew-toeplitz-gap-exponent-convergence.js:     RH-EQUIVALENT, imp-3066 K_a>=0 explicitly named NOT attempted, "NO RH verdict, NO QED", no refereed bound is changed.
+ *   - imp-3556-sigma-threshold-crossings-rootsolve.js:        "no positivity, no bridge closure, no RH claim, NO QED"; imp-3066 untouched; no refereed bound is changed; isRigorous:false.
+ *   - imp-3557-refined-m4-leading-form-propagation.js:        RH-EQUIVALENT, necessary-but-not-sufficient, imp-3066 untouched, no QED, no refereed bound is changed.
+ *   - imp-3558-far-tail-band-max-grid-ladder-n9600.js:        RH-equivalent, imp-3066 untouched, "NO RH verdict, NO QED", no refereed bound is changed.
  *
  * No module's derivation framing (e.g. imp-3462's closed-form exponent,
  * imp-3550's analytic O(H^2) bound, imp-3555's skew-Toeplitz exponent
@@ -39,7 +39,7 @@
  * by an under-scoped banner.
  *
  * This module fabricates NO pages and edits NO other module; it only records
- * the audit. No new bound, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * the audit. No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3499, imp-3569, imp-3593 (the prior audits in this series)
  */
@@ -68,7 +68,7 @@ export const IMP_3594_3462_3558_COHORT_HONESTY_BANNER_AUDIT = {
   flaggedCount: 0,
   honestNote:
     'Read-only audit; no pages fabricated, no modules edited. No new bound, no QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA. imp-3066 positivity obstruction untouched.',
+    'No refereed bound is changed. imp-3066 positivity obstruction untouched.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -90,10 +90,10 @@ const IMP_3594_ASSERTIONS = [
   {
     id: 'imp3594-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3594_3462_3558_COHORT_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3594_3462_3558_COHORT_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3594_3462_3558_COHORT_HONESTY_BANNER_AUDIT.honestNote) &&
       /imp-3066/.test(IMP_3594_3462_3558_COHORT_HONESTY_BANNER_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 untouched.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed; imp-3066 untouched.',
   },
 ];
 

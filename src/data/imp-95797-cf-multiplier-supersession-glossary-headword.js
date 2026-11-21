@@ -60,7 +60,7 @@
  *   A glossary-style lookup restating the imp-95691/95705/95721/95747 supersession
  *   chain for quick reference. It establishes nothing, instantiates no interval, closes
  *   no sub-gap, moves no bound beyond what those four modules already measured. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95691-cf-band-hi-pinned-wedge-opening (chain link 1: geometric-mean pin 1.29615)
  * @see imp-95705-cf-integrated-reach-measured (chain link 2: measured 1.914x)
@@ -68,7 +68,7 @@
  * @see imp-95747-cf-reff-gue-repulsion-regularization (chain link 4: converged 9.583x)
  *
  * Ticket: imp-95797 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The CF_BAND_HI multiplier supersession-chain headword, baked verbatim (no re-import).
@@ -118,7 +118,7 @@ export const IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD = Object.free
     '9.583x as the current honest CF_BAND_HI representative, above the imp-95691 pin ' +
     '1.29615 that remains unchanged in its own module for downstream-dependency ' +
     'reasons. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95691 (geometric-mean pin 1.29615 and its own SUPERSEDED forward-pointer ' +
     'note); imp-95705 (measured integrated reach 1.914x); imp-95721 (edge-dominated ' +
@@ -149,11 +149,11 @@ export const IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp95797-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD.verdict) &&
       IMP95797_CF_MULTIPLIER_SUPERSESSION_GLOSSARY_HEADWORD.glosses ===
         'imp-95691,imp-95705,imp-95721,imp-95747',
   },

@@ -13,7 +13,7 @@
  * crossings (H2) at step 5); and (d) which items are library-available vs must-build, and the single unmet
  * EXTERNAL dependency (a crlibm / MPFR directed-rounded log binding) that stays external before imp-34714a
  * could close. SCOPING / ASSESSMENT ONLY: does NOT instantiate the layer, does NOT discharge the conditional,
- * imp-34714a REMAINS OPEN, imp-34687a REMAINS OPEN, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-34714a REMAINS OPEN, imp-34687a REMAINS OPEN, NO QED. No refereed bound is changed.
  *
  * (a) THE LOG SITES IN THE effectiveHeightForN / g / g_prime CHAIN
  * ---------------------------------------------------------------
@@ -78,7 +78,7 @@
  * SCOPING / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous
  * asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34867-crlibm-log-enclosure-ulp-scope (scoped the log layer; per-call <= 1 ulp, kappa_log ~ 0.05, composes; this ASSEMBLES its checklist)
  * @see imp-34865-forward-vs-contraction-width-inflation (MEASURED forward doubling / crossing vs contraction floor; the (c) requirement)
@@ -274,7 +274,7 @@ export const IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST = {
     'conditional. SUB-GAPs imp-34714a and imp-34687a REMAIN OPEN. Scoping/assessment only on the inherited ' +
     'imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34867 (crlibm log-enclosure ULP scope; per-call <= 1 ulp, kappa_log ~ 0.05, composes -- this ' +
     'ASSEMBLES its checklist); imp-34865 (forward-vs-contraction width inflation; the (c) contraction ' +
@@ -337,16 +337,16 @@ export const IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST_ASSERTI
       /log/.test(EXTERNAL_UNMET[0]),
   },
   {
-    // Honesty gate: scoping only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: scoping only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34885-honesty-gate-no-qed',
-    description: 'Instantiation checklist: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Instantiation checklist: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.isRigorous === false &&
       /imp-34714a/.test(IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.subGap) &&
       /imp-34687a/.test(IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.subGap) &&
       /REMAINS? OPEN/.test(IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.subGap) &&
       /NO QED/.test(IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.verdict) &&
-      /remains SOTA/.test(IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.verdict),
+      /refereed bound is changed/i.test(IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST.verdict),
   },
 ];
 

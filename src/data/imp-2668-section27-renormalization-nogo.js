@@ -197,7 +197,7 @@ const OVERALL = Object.freeze({
   cruxAsPosedImpossible: true,
   gapReframedNotClosed: true,
   sotaUnchanged:
-    "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; this does not move it.",
+    "No refereed bound is changed; this does not move it.",
 });
 
 const HONEST_SCOPE = Object.freeze([
@@ -328,13 +328,13 @@ export const IMP_2668_SECTION27_RENORMALIZATION_NOGO_ASSERTIONS = [
     id: "imp2668-overall-honest-partial-not-confirmed-collapse",
     why:
       "Honest framing: crux-as-posed impossible, gap reframed not closed, collapse NOT " +
-      "confirmed, SOTA unchanged.",
+      "confirmed, no refereed bound is changed.",
     holds: () =>
       OVERALL.honestPartialClosure === true &&
       OVERALL.collapseConfirmed === false &&
       OVERALL.cruxAsPosedImpossible === true &&
       OVERALL.gapReframedNotClosed === true &&
-      /Platt-Trudgian/i.test(OVERALL.sotaUnchanged) &&
+      /Platt-Trudgian|refereed bound is changed/i.test(OVERALL.sotaUnchanged) &&
       OVERALL.summary.length >= 5,
   },
   {

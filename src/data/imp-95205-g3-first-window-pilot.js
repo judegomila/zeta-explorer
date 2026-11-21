@@ -68,7 +68,7 @@
  *  - Window 1 only: the open family is 690988 <= N <= 54799999; nothing
  *    here covers N > 690988.
  * Grade: MEASUREMENT (dd, sampled). Changes no bound; closes no gap;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  */
 
 // ── frozen program constants (paper eqs (13), (19); imp-95012) ───────────────
@@ -204,8 +204,8 @@ export const IMP95205_G3_FIRST_WINDOW_PILOT = Object.freeze({
     '<= 1.7e-14 on the pilot at three representative points. SAMPLED sup only (the fastest phase turns ~62x per ' +
     'grid step, and refinement provably raised the sup), under OUR locked convention (which does not reproduce the ' +
     'paper anchor literal); the continuum-sup statement and the 54,109,011 remaining windows stay open, and ' +
-    'certification needs the interval lane. Measurement only; changes no bound; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'certification needs the interval lane. Measurement only; changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ─────────────
@@ -300,11 +300,11 @@ export const IMP95205_ASSERTIONS = [
   },
   {
     id: 'imp95205-honesty-gate-no-qed',
-    description: 'NO QED, PT stays SOTA, verdict category is (a) restricted to sampled points, extrapolation question named',
+    description: 'NO QED, no refereed bound is changed, verdict category is (a) restricted to sampled points, extrapolation question named',
     holds: () =>
       IMP95205_G3_FIRST_WINDOW_PILOT.verdictCategory === 'a-sampled' &&
       /NO QED/.test(IMP95205_G3_FIRST_WINDOW_PILOT.verdict) &&
-      /remains SOTA/.test(IMP95205_G3_FIRST_WINDOW_PILOT.verdict) &&
+      /refereed bound is changed/i.test(IMP95205_G3_FIRST_WINDOW_PILOT.verdict) &&
       /interval lane/.test(IMP95205_G3_FIRST_WINDOW_PILOT.extrapolationQuestion),
   },
 ];

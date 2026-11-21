@@ -93,7 +93,7 @@
  * obligations. Changes no bound; establishes no operator positivity; the imp-2466 cross-check is
  * UNTOUCHED and remains a valid (non-certifying) cross-check; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see lambda-roadmap.js Step 2 rigorousUpgradeGap.obligations[G-step-error] (imp-35058; this ticket)
  * @see imp-2466-dyson-tc-interval-ladder (empirical two-method gap |t_c_RK4 - t_c_DP5|; cross-check)
@@ -329,8 +329,8 @@ export const IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE = {
     'cross-check, is provably not a certificate (I4). SCOPING ONLY: discharges NONE of I1..I5; changes ' +
     'no bound; establishes no operator positivity; the imp-2466 cross-check is UNTOUCHED and remains a ' +
     'valid non-certifying cross-check; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'lambda-roadmap.js Step 2 rigorousUpgradeGap.obligations[G-step-error] (imp-35058); imp-2466 ' +
     '(empirical two-method gap, cross-check not certificate); imp-2520 (G-gronwall, coupled to I3); ' +
@@ -374,14 +374,14 @@ export const IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE_ASSERTIONS = [
       /OPEN/.test(INGREDIENTS.find((r) => r.id === 'I4').status),
   },
   {
-    // Honesty gate: scoping only, no QED, imp-2466 untouched, PT stays SOTA.
+    // Honesty gate: scoping only, no QED, imp-2466 untouched, no refereed bound is changed.
     id: 'imp35127-honesty-gate-no-qed',
-    description: 'Scoping only: isRigorous false, NO QED, imp-2466 cross-check untouched, PT stays SOTA',
+    description: 'Scoping only: isRigorous false, NO QED, imp-2466 cross-check untouched, no refereed bound is changed',
     holds: () =>
       IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE.isRigorous === false &&
       /NO QED/.test(IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE.verdict) &&
       /imp-2466 cross-check is UNTOUCHED/.test(IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE.verdict),
   },
 ];
 

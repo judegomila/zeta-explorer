@@ -57,7 +57,7 @@ function honestBannerHolds(mod) {
     mod.isRigorous === false &&
     /NO QED/.test(mod.verdict) &&
     /imp-3066/.test(mod.verdict) &&
-    /remains SOTA/.test(mod.verdict)
+    /refereed bound is changed/i.test(mod.verdict)
   );
 }
 
@@ -70,8 +70,8 @@ export const IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP = {
     'Import the live exported object of each of the three imp-33940/33941/33942 modules (not a ' +
     'hardcoded snapshot); tabulate ticket id, headline finding (first key of the module finding ' +
     'object), isRigorous flag, and the refined-parent ticket; verify the full honest banner ' +
-    '(isRigorous:false, literal NO QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 ' +
-    'SOTA) directly against each module verdict string at read time.',
+    '(isRigorous:false, literal NO QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    ') directly against each module verdict string at read time.',
   modules: COHORT_SOURCE_MODULES.map((mod) => {
     const headline = headlineFindingOf(mod);
     const coverage = GLOSSARY_VIZ_COVERAGE_BY_TICKET[mod.id];
@@ -102,8 +102,8 @@ export const IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP = {
     'making either the natural next viz candidate (mirroring the imp-33994 page built for imp-33942).',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. imp-3066 K_a >= 0 positivity untouched across all three cohort members; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA. No QED.',
+    'itself. imp-3066 K_a >= 0 positivity untouched across all three cohort members; no refereed bound is changed' +
+    '. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -136,7 +136,7 @@ const IMP_33996_ASSERTIONS = [
         (x) => x.isRigorous === false && x.honestBannerOk === true
       ) && IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 3,
     why: 'Every module in the cohort must state no-QED as a literal string, imp-3066 K_a >= 0 untouched, ' +
-      'and Platt-Trudgian Lambda <= 0.2 SOTA -- checked directly against each live-imported verdict string.',
+      'and no refereed bound is changed -- checked directly against each live-imported verdict string.',
   },
   {
     id: 'imp33996-headline-findings-present',
@@ -157,11 +157,11 @@ const IMP_33996_ASSERTIONS = [
   {
     id: 'imp33996-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33996_33940_33942_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

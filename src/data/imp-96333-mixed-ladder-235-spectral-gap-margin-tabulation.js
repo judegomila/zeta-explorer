@@ -8,7 +8,7 @@
  * three-prime lattice-point count u <= (1/(2t))^2 -- a FINITE count that grows like (ln U)^3 instead of
  * (ln U)^2. This is a tabulation extension only: it diagonalizes nothing, establishes NO operator
  * positivity, moves NO Lambda bound / verified height, and does NOT touch the finitely-many top confined
- * states (the actual residual). RH open; PT Lambda <= 0.2 stands; NO QED.
+ * states (the actual residual). RH open; no refereed bound is changed; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * THE LADDER. As in imp-96143/imp-96270 the per-block norm is s_u = u^{-1/2}/2 (dilation unitarity +
@@ -52,7 +52,7 @@
  *  is extrapolated from p = 2, and fact (I) as a spectral-gap statement STILL depends on the mixed-group
  *  no-modulus-1 theorem for the finitely-many top confined states -- which this row does NOT address.
  *  Nothing here establishes operator positivity, moves a Lambda bound, or touches a verified height.
- *  RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: pure geometric arithmetic, no imports, no zeros bundle. Reproduction inline.
  */
@@ -126,7 +126,7 @@ export const IMP_96333_SPECTRAL_GAP_MARGIN_235 = Object.freeze({
     { U: 1e6, count: 506, asymptotic: 358.60, ratio: 1.41 },
     { U: 1e9, count: 1529, asymptotic: 1210.26, ratio: 1.26 },
   ]),
-  verdict: 'TABULATION only (three-prime extension): adding the prime 5 to S = {oo,2,3} leaves the ceiling s_2 = 0.353553 (attained once, at u = 2) and the gap 1 - sup = 0.646447 unchanged -- the first new rung u = 5 sits 0.129947 below the ceiling, so STILL only one rung lies within 0.06 of it. The tail is denser: rung-count-within-margin grows from (ln U)^2 to (ln U)^3 (sampled count(u<=1e2..1e9) = 33..1529), yet stays a finite count strictly below the ceiling for every threshold. Establishes NO operator positivity, moves NO Lambda bound, and does NOT touch the top confined states (the real residual). RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'TABULATION only (three-prime extension): adding the prime 5 to S = {oo,2,3} leaves the ceiling s_2 = 0.353553 (attained once, at u = 2) and the gap 1 - sup = 0.646447 unchanged -- the first new rung u = 5 sits 0.129947 below the ceiling, so STILL only one rung lies within 0.06 of it. The tail is denser: rung-count-within-margin grows from (ln U)^2 to (ln U)^3 (sampled count(u<=1e2..1e9) = 33..1529), yet stays a finite count strictly below the ceiling for every threshold. Establishes NO operator positivity, moves NO Lambda bound, and does NOT touch the top confined states (the real residual). RH open; no refereed bound is changed; NO QED',
 });
 
 // ---- assertions

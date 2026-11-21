@@ -43,8 +43,8 @@
  * one that pins C0. Removing the anomalous height only tightens the cap, consistent with the
  * imp-95787 "over-estimate errs conservative" reading and the imp-95766 "robust to ~4x error"
  * headroom. Measure/assess only; the Selberg leading log log cap is unconditional; the detailed
- * saturation shape is PCC/GRH-gated; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * saturation shape is PCC/GRH-gated; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the six sd(C - E) literals are
  * measured (imp-95562 over the verified ordinates); every derived quantity is recomputed here
@@ -162,7 +162,7 @@ export const IMP95800_NUMBER_VARIANCE_C0_LEAVE_ONE_OUT = {
     allBelowAsymptote: leaveOneOut.every((x) => x.belowGueAsymptote),
   },
   verdict:
-    'LEAVE-ONE-OUT sensitivity of the imp-95722 max-based offset C0 = 0.3337 to a drop of the anomalous T = 1.5e5 argmax height. Dropping that height re-anchors C0 to the runner-up 0.2854 (T = 1.0e4) -- a -14.5% drop, NOT a collapse to the mean 0.2618 -- and moves r_cap(3.0e12) from 0.2599 to 0.2348 (-9.65%). Dropping any of the other five heights leaves C0 and r_cap unchanged (the argmax is preserved), so the entire jackknife sensitivity is carried by the lone T = 1.5e5 point, exactly as imp-95787 diagnosed. The full leave-one-out cap range is [0.2348, 0.2599], all far below the GUE asymptote 1, so the r_cap < 1 conservatism SURVIVES every leave-one-out re-anchoring -- including the one that removes the pinning height -- and removing the anomalous point only tightens the cap. Measure/assess only; the Selberg leading log log cap is unconditional; the detailed saturation shape is PCC/GRH-gated; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'LEAVE-ONE-OUT sensitivity of the imp-95722 max-based offset C0 = 0.3337 to a drop of the anomalous T = 1.5e5 argmax height. Dropping that height re-anchors C0 to the runner-up 0.2854 (T = 1.0e4) -- a -14.5% drop, NOT a collapse to the mean 0.2618 -- and moves r_cap(3.0e12) from 0.2599 to 0.2348 (-9.65%). Dropping any of the other five heights leaves C0 and r_cap unchanged (the argmax is preserved), so the entire jackknife sensitivity is carried by the lone T = 1.5e5 point, exactly as imp-95787 diagnosed. The full leave-one-out cap range is [0.2348, 0.2599], all far below the GUE asymptote 1, so the r_cap < 1 conservatism SURVIVES every leave-one-out re-anchoring -- including the one that removes the pinning height -- and removing the anomalous point only tightens the cap. Measure/assess only; the Selberg leading log log cap is unconditional; the detailed saturation shape is PCC/GRH-gated; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -191,8 +191,8 @@ export const IMP95800_NUMBER_VARIANCE_C0_LEAVE_ONE_OUT = {
   // honesty gates
   if (!/NO QED/.test(IMP95800_NUMBER_VARIANCE_C0_LEAVE_ONE_OUT.verdict))
     throw new Error('imp-95800: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95800_NUMBER_VARIANCE_C0_LEAVE_ONE_OUT.verdict))
-    throw new Error('imp-95800: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95800_NUMBER_VARIANCE_C0_LEAVE_ONE_OUT.verdict))
+    throw new Error('imp-95800: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95800_NUMBER_VARIANCE_C0_LEAVE_ONE_OUT;

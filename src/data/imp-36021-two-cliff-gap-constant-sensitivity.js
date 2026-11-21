@@ -45,7 +45,7 @@
  * Measurement/diagnostic only, double precision, on the imp-35855/imp-35892 surrogate (identical aOf,
  * effectiveHeightForN, R_direct form). Instantiates NO interval, ports nothing, derives no remainder,
  * changes no bound. imp-34714a REMAINS OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486)
- * UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-35972-effective-height-overflow-cliff-bisection (LOCATED the two cliffs at the pinned constants; never perturbed them)
  * @see imp-35892-rdirect-own-floor-departure-height (coarse decade sweep; R_direct = -S_inf a/(2-a))
@@ -228,7 +228,7 @@ export const IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY = {
     'coincides with cliff B under every delta/S_inf probe, so the ~6.2e-4-decade separation has zero ' +
     'spread across a +/-4-order K sweep. Reuses the imp-35855/imp-35892/imp-35972 machinery. imp-34714a ' +
     'REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; instantiates ' +
-    'no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no interval; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-35972 (located both cliffs at the pinned constants; never perturbed them); imp-35892 (coarse ' +
     'decade sweep, R_direct = -S_inf a/(2-a)); imp-35855 (de-cancelled dG node); imp-34996 (S_inf = ' +
@@ -267,14 +267,14 @@ export const IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY_ASSERTIONS = [
       N_B_PINNED < N_A,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp36021-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY.subGap) &&
       /NO QED/.test(IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP36021_TWO_CLIFF_GAP_CONSTANT_SENSITIVITY.verdict),
   },
 ];
 

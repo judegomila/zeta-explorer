@@ -18,7 +18,7 @@
  *   54,109,012 windows: imp-95213 records 54,109,011 windows beyond window 1
  *   left untouched by such a run. A sub-total run over one window sets NO
  *   G5 window-promotion flag (imp-95213's promotesBound stays false) and
- *   changes no bound -- Platt-Trudgian Lambda <= 0.2 remains SOTA regardless
+ *   changes no bound -- no refereed bound is changed regardless
  *   of whether the run is ever launched, and regardless of which route
  *   (level-1 or the dominant imp-95214 tier-2 chirp) prices it.
  *
@@ -28,7 +28,7 @@
  *   54,109,011-window scope-honesty figure)
  *
  * Ticket: imp-95280 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 import { FULLWINDOW_RUN_DECISION } from './imp-95238-fullwindow-run-decision.js';
@@ -47,7 +47,7 @@ const FULLWINDOW1_SCOPE_HEADWORD = Object.freeze({
     'Window 1 is one window out of 54,109,012 in the Gate-2 family: ' +
     '54,109,011 windows beyond it stay untouched. A sub-total run over one ' +
     'window sets NO G5 window-promotion flag and changes no bound -- ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA regardless of whether or how ' +
+    'no refereed bound is changed regardless of whether or how ' +
     'the run is launched.',
   whyThisMatters:
     'A full-window-1 result reads, on its face, like progress toward a ' +
@@ -74,8 +74,8 @@ export const IMP95280_FULLWINDOW1_SCOPE_NOTE = Object.freeze({
     'continuum certificate would be the first full-window continuum ' +
     'statement of the Gate-2 program (milestone), but it is one window of ' +
     '54,109,012, sets no G5 promotion flag, and changes no bound. ' +
-    'Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95238-fullwindow-run-decision.js (finding (A), FULLWINDOW_RUN_DECISION ' +
     'ledger); imp-95213-tier-certifier-build.js (window-1 slice certifier, ' +
@@ -125,11 +125,10 @@ export const IMP95280_FULLWINDOW1_SCOPE_NOTE_ASSERTIONS = [
   {
     id: 'imp95280-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95280_FULLWINDOW1_SCOPE_NOTE.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP95280_FULLWINDOW1_SCOPE_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95280_FULLWINDOW1_SCOPE_NOTE.verdict) &&
       IMP95280_FULLWINDOW1_SCOPE_NOTE.glosses === 'imp-95238' &&
       IMP95280_FULLWINDOW1_SCOPE_NOTE.scopes ===
         'full-window-1 continuum certificate scope',

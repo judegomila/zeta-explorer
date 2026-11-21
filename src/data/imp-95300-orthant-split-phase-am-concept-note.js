@@ -75,8 +75,7 @@
  *   A plain-language restatement of the imp-95254 module verdict scope
  *   for quick reference. It establishes nothing new, fires no
  *   certificate, and does not decide the exact sharp phase-price
- *   frontier, which REMAINS OPEN; NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   frontier, which REMAINS OPEN; NO QED. No refereed bound is changed.
  *
  * @see imp-95254-orthant-split-phase-certificate.js (source: LEMMA ENT,
  *   LEMMA ODROP, THEOREM PHASE-AM, COROLLARY NO-UNIF, PROP LIN-NOGO,
@@ -87,7 +86,7 @@
  *
  * Ticket: imp-95300 (content, medium). Documentation only; establishes no
  * new bound; imp-95289 exact-frontier question stays OPEN; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95254).
@@ -145,8 +144,8 @@ export const IMP95300_ORTHANT_SPLIT_PHASE_AM_CONCEPT_NOTE = Object.freeze({
     'imp-95254 THEOREM PHASE-AM sharpening and its three refutations ' +
     '(PROP LIN-NOGO, COROLLARY NO-UNIF, PROP CEIL-X) in plain terms. ' +
     'Establishes nothing new; fires no certificate; the imp-95289 exact ' +
-    'sharp-frontier question REMAINS OPEN; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'sharp-frontier question REMAINS OPEN; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95254 (LEMMA ENT, LEMMA ODROP, THEOREM PHASE-AM, COROLLARY ' +
     'NO-UNIF, PROP LIN-NOGO, PROP CEIL-X, all proven there); imp-95233 ' +
@@ -177,12 +176,12 @@ export const IMP95300_ORTHANT_SPLIT_PHASE_AM_CONCEPT_NOTE_ASSERTIONS = [
     id: 'imp95300-honesty-gate-no-qed',
     why:
       'Documentation only: no enclosure claimed established, imp-95289 ' +
-      'stays OPEN, no QED, PT SOTA line present.',
+      'stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95300_ORTHANT_SPLIT_PHASE_AM_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
       /NO QED/.test(IMP95300_ORTHANT_SPLIT_PHASE_AM_CONCEPT_NOTE.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95300_ORTHANT_SPLIT_PHASE_AM_CONCEPT_NOTE.verdict
       ) &&
       /REMAINS OPEN/.test(

@@ -71,7 +71,7 @@
  *   inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the linear
  *   near-pole model reuses imp-34310; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  *   changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- *   no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (k*, slope m, F4 digit-loss caveat)
  *   @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (resid_exp rows, kStar)
@@ -175,7 +175,7 @@ export const IMP34405_RESID_EXP_NEAR_POLE_DIGIT_LOSS = {
     'only for |kEnd - k*| >~ 5e-6. Descriptive surrogate, NOT a rigorous asymptotic; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34405_ASSERTIONS = [
@@ -218,13 +218,13 @@ export const IMP34405_ASSERTIONS = [
       Math.abs(IMP34405_FLOOR_HEADROOM_DECADES - 1.4241) < 1e-3,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34405-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34405_RESID_EXP_NEAR_POLE_DIGIT_LOSS.isRigorous === false &&
       /NO QED/.test(IMP34405_RESID_EXP_NEAR_POLE_DIGIT_LOSS.honest) &&
-      /remains SOTA/.test(IMP34405_RESID_EXP_NEAR_POLE_DIGIT_LOSS.honest),
+      /refereed bound is changed/i.test(IMP34405_RESID_EXP_NEAR_POLE_DIGIT_LOSS.honest),
   },
 ];
 

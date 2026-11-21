@@ -54,7 +54,7 @@
  * two dangling references but does not itself edit imp-35545/imp-35561 -- that correction, and the
  * still-open imp-35531/imp-35536 corrections from the prior batch, are left to a follow-up
  * ticket. Changes no bound; establishes no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35589-imp3550x-imp3553x-frontier-crossref-integrity-audit (prior batch in the same series, [35505,35538])
@@ -160,8 +160,8 @@ export const IMP35629_FRONTIER_CROSSREF_INTEGRITY_AUDIT = {
     'improvements.js. Result: two dangling @see references found -- flagged here per the ' +
     'imp-35186/imp-35309 convention (audit flags, a follow-up ticket fixes); no source file was ' +
     'edited by this audit. No misnamed exports, no missing files otherwise. Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35186 (prior audit method), imp-35327/imp-35401/imp-35424/imp-35543/imp-35589 (prior ' +
     'batches in the same series), imp-35309 (precedent: audit-flags / follow-up-ticket-fixes pattern).',
@@ -189,11 +189,11 @@ export const IMP35629_FRONTIER_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35629-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35629_FRONTIER_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35629_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35629_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35629_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

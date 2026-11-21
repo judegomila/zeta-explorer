@@ -27,7 +27,7 @@
  *
  * HONEST SCOPE. NUMERICAL ONLY. This certifies the uniformity of an ALREADY-PROVEN
  * cap (imp-2786 pinned C_shock < 1/3 in closed form); it is NOT a new bound and does
- * NOT close C_H. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No QED.
+ * NOT close C_H. No refereed bound is changed. No QED.
  *
  * @see imp-3026-c-shock-cross-validation (cShockClosedForm, three-point ladder)
  * @see imp-2786-c-shock-cusp-constant (C_shock pinned to sqrt(2/(3 log gamma_N)) < 1/3)
@@ -103,7 +103,7 @@ export const C_SHOCK_N_DEPENDENCE_IMP3070 = {
   isNewBound: false,
   honestNote:
     'No false QED. NUMERICAL tabulation only: it certifies the imp-2786 cap C_shock < 1/3 is UNIFORM ' +
-    'across the assembly N-range, not a new bound. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'across the assembly N-range, not a new bound. No refereed bound is changed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -162,13 +162,13 @@ export const C_SHOCK_N_DEPENDENCE_ASSERTIONS = [
       const r = C_SHOCK_N_DEPENDENCE_IMP3070;
       return (
         r.isNewBound === false &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /UNIFORM/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: this is a NUMERICAL tabulation certifying an existing cap is uniform, NOT a new ' +
-      'bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from inflating this ' +
+      'bound. No refereed bound is changed. Blocks any future edit from inflating this ' +
       'uniformity check into a claimed C_H closure or rigorous beat.',
   },
 ];

@@ -51,8 +51,8 @@
  * imp-96949-coherent-tail-gram-required: a correct model of the p~3.27 super-linear residual must
  * retain the full coherent tail Gram (off-diagonal (A_tail)_{nn'}), not a separable coefficient^2 x
  * per-mode-mass product. Measurement only; the floor is a Rayleigh UPPER bound; no operator
- * positivity; interval-rigorous certificate reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * positivity; interval-rigorous certificate reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (the sub-gap this models: resid_fo and the onset)
  * @see imp-96928-krein-residual-vs-floor-uniform-N-extrap.js (the p~3.27 super-cubic residual growth)

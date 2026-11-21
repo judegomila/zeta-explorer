@@ -109,7 +109,7 @@
  * Grade: MEASUREMENT + INFEASIBILITY RECORD (dd, sampled; refutation
  * witnessed at sampled points, which suffices for the negative verdict).
  * Changes no bound; certifies nothing; closes the envelope-pivot lane.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  */
 
 // ── frozen program constants ─────────────────────────────────────────────────
@@ -249,7 +249,7 @@ export const IMP95210_W1_PILOT_CERTIFICATE = Object.freeze({
     '(|o_j| <= 3e-3, d/du <= 0.003) is envelope-scale, and it is the small one. Byproduct kept: the ' +
     'rigorous alias-decomposed Lipschitz ledger 44.476/x (vs 84.769) for the tiered certifier. ' +
     'Measurement + infeasibility record only; certifies nothing; changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -341,14 +341,14 @@ export const IMP95210_W1CERT_ASSERTIONS = [
   {
     id: 'imp95210w1-honesty-gate-no-certificate-no-qed',
     description:
-      'fail-closed honesty: pivotRefuted, no certificate produced, no pilotcert run launched, under the 2 CPU-hour infeasibility cap, NO QED and PT-SOTA stated',
+      'fail-closed honesty: pivotRefuted, no certificate produced, no pilotcert run launched, under the 2 CPU-hour infeasibility cap, NO QED and no-refereed-bound-change stated',
     holds: () =>
       IMP95210_W1_PILOT_CERTIFICATE.pivotRefuted === true &&
       IMP95210_W1_PILOT_CERTIFICATE.certificateProduced === false &&
       IMP95210_W1_PILOT_CERTIFICATE.certificationRunLaunched === false &&
       IMP95210_W1_PILOT_CERTIFICATE.cpuHoursSpentOnInfeasibility < 2 &&
       /NO QED/.test(IMP95210_W1_PILOT_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95210_W1_PILOT_CERTIFICATE.verdict) &&
+      /refereed bound is changed/i.test(IMP95210_W1_PILOT_CERTIFICATE.verdict) &&
       RESIDUAL_OPTIONS.length === 4 &&
       /only live path/.test(RESIDUAL_OPTIONS[0]),
   },

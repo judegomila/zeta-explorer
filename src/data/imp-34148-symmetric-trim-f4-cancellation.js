@@ -52,7 +52,7 @@
  * NOT an RH bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the
  * factor identity is exact WITHIN that model only; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34086-aggregate-share-asymmetric-trim (the opposite-direction F4 cancellation this locates)
  * @see imp-34009-aggregate-share-window-endpoint-sensitivity (the symmetric sweep + m=1 share bump)
@@ -253,8 +253,8 @@ export const IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION = {
     'and its m=1 share bump (0.9462) are the discrete shadow of this continuous |ln F4|=0 trough. The ' +
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor identity is ' +
     'exact WITHIN the model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34086 (the opposite-direction F4 cancellation this locates); imp-34009 (the symmetric endpoint ' +
     'sweep + m=1 share bump); imp-33962 (the 0.9225 aggregate F2 share, telescoping identity); imp-33810 ' +
@@ -305,13 +305,13 @@ export const IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION_ASSERTIONS = [
       Math.abs(CANCEL.agg_F2_share_at_star - 0.966238) < 1e-3,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34148-honesty-gate-no-qed',
-    description: 'Located-minimum measurement only: isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Located-minimum measurement only: isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION.isRigorous === false &&
       /NO QED/.test(IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION.verdict) &&
-      /remains SOTA/.test(IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34148_SYMMETRIC_TRIM_F4_CANCELLATION.verdict),
   },
 ];

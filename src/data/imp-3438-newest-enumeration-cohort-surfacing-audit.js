@@ -36,7 +36,7 @@
  * imports IMP3381_PCC_FREE_ROUTE_ENUMERATION directly and renders its rows, so
  * the enumeration backing the imp-3437 conclusion is traceable to live data
  * rather than only prose. This module fabricates NO pages; it only records the
- * audit and flags the orphan. No QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * audit and flags the orphan. No QED; no refereed bound is changed.
  *
  * @see imp-3083 (the prior finding-module surfacing audit this pattern follows)
  * @see imp-3398, imp-3459, imp-3480 (subsequent cohorts audited the same way)
@@ -82,7 +82,7 @@ export const IMP_3438_NEWEST_ENUMERATION_COHORT_SURFACING_AUDIT = {
     'route-matrix table/viz that imports the data module directly, so the imp-3437 prose conclusion ' +
     'is traceable to live data; do not fabricate pages in this audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -115,9 +115,9 @@ const IMP_3438_ASSERTIONS = [
   },
   {
     id: 'imp3438-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3438_NEWEST_ENUMERATION_COHORT_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3438_NEWEST_ENUMERATION_COHORT_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3438_NEWEST_ENUMERATION_COHORT_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

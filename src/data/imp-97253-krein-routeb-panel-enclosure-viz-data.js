@@ -13,7 +13,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every number below is copied verbatim from the imp-97184 baked
  * `IMP97184_ROUTEB` rows, `IMP97184_ROUTEA_OVER_RQ`, and `IMP97184_VERDICT.routeBFloorIsQuadratureRatio`
  * (no re-derivation of the panel majorant or the sigma_2 closed-form bound). Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH
+ * establishes no operator positivity, no RH claim; no refereed bound is changed. RH
  * open. NO QED.
  *
  * @see imp-97184-krein-routeb-panel-enclosure-execution.js (IMP97184_ROUTEB, IMP97184_ROUTEA_OVER_RQ, IMP97184_VERDICT)
@@ -40,7 +40,7 @@ export const IMP97253_ROUTEA_OVER_RQ = IMP97184_ROUTEA_OVER_RQ; // 200.4231... -
 export const IMP97253_FLOOR_RATIO = IMP97184_VERDICT.routeBFloorIsQuadratureRatio; // 1.17342... quadrature/actual
 
 export const IMP97253_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every panel-width row, the Route A control, and the quadrature floor are copied verbatim from the imp-97184 baked IMP97184_ROUTEB / IMP97184_ROUTEA_OVER_RQ / IMP97184_VERDICT (no re-derivation of the panel majorant or the sigma_2 closed-form bound); no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every panel-width row, the Route A control, and the quadrature floor are copied verbatim from the imp-97184 baked IMP97184_ROUTEB / IMP97184_ROUTEA_OVER_RQ / IMP97184_VERDICT (no re-derivation of the panel majorant or the sigma_2 closed-form bound); no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -79,7 +79,7 @@ const IMP97253_ASSERTIONS = [
     id: 'imp97253-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97253_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97253_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97253_HONEST_BANNER) &&
       /NO QED/.test(IMP97253_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

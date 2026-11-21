@@ -12,7 +12,7 @@
  * banded classification (positive-margin room vs sign-flipped ceiling).
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96834-krein-certificate-degree-margin-assessment.js (source window + verdict)
  * @see imp-96779-route-m-ceiling-ladder-viz-data.js (sibling viz-data leaf convention)
@@ -47,7 +47,7 @@ export const IMP96863_VERDICT_SUMMARY = Object.freeze({
 });
 
 export const IMP96863_HONEST_BANNER =
-  'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -79,7 +79,7 @@ const IMP96863_ASSERTIONS = [
     id: 'imp96863-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96863_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96863_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96863_HONEST_BANNER) &&
       /NO QED/.test(IMP96863_HONEST_BANNER) &&
       IMP96863_VERDICT_SUMMARY.epsWallIsIntrinsic === false,
     why: 'every disputed-window viz surface carries the RH-open / PT-Lambda / NO-QED markers, matching the source verdict.',

@@ -61,7 +61,7 @@
  * divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per imp-486 is
  * UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * no refereed bound is changed.
  *
  * @see imp-34329-crossover-surplus-fartail-composite-limit (composite exponent, shallow minimum ~2.871)
  * @see imp-34349-eflow-ratio-r-exponent-limit (isolated r exponent, shallow minimum ~1.875)
@@ -214,7 +214,7 @@ export const IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE = {
     'mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'positivity; changes no bound; no refereed bound is changed.',
   citation:
     'imp-34329-crossover-surplus-fartail-composite-limit.js (composite exponent, shallow minimum ~2.871); ' +
     'imp-34349-eflow-ratio-r-exponent-limit.js (isolated r exponent, shallow minimum ~1.875); ' +
@@ -275,14 +275,14 @@ export const IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE_ASSERTIONS = [
       Math.abs(NAIVE_ONE_PLUS_R_MIN - COMPOSITE_MIN.value - 0.00748) < 3e-3,
   },
   {
-    // Honesty gate: location/measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: location/measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34433-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE.honestScope) &&
       /NO QED/.test(IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE.honestScope) &&
-      /remains the SOTA/.test(IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE.honestScope),
+      /refereed bound is changed/i.test(IMP34433_COMPOSITE_VS_R_EXPONENT_MINIMA_COINCIDENCE.honestScope),
   },
 ];
 

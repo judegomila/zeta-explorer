@@ -63,7 +63,7 @@
  * imp-3220/imp-3406 double surrogate map, IEEE-754 double precision, no interval enclosure. The C_C = (1/8)
  * sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34997-iters-to-floor-tail-grid-refinement (parent: locates the 10^27.08 reentry; sub-gap imp-34997a)
  * @see imp-35109-ceil-phase-drift-precision-certification (certifies the drift/reentry; sub-gap imp-35109a)
@@ -255,8 +255,8 @@ export const IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH = {
     'imp-34997a / imp-35109a). IEEE-754 double precision; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34997 (parent: locates the 10^27.08 reentry; sub-gap imp-34997a); imp-35109 (certifies the drift/' +
     'reentry; sub-gap imp-35109a); imp-34903 (0 off-by-one above 1e12 on the 10^0.05 grid); imp-34951 (uniform ' +
@@ -306,13 +306,13 @@ export const IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH_ASSERTIONS = [
     holds: () => FLOOR_VALUES_BELOW_EXIT.length === 1 && FLOOR_VALUES_BELOW_EXIT[0] === 11,
   },
   {
-    // Honesty gate: measurement of a surrogate census, not rigorous, no QED, PT stays SOTA, sub-gap named.
+    // Honesty gate: measurement of a surrogate census, not rigorous, no QED, no refereed bound is changed, sub-gap named.
     id: 'imp35111-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gap named',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, sub-gap named',
     holds: () =>
       IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH.isRigorous === false &&
       /NO QED/.test(IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH.verdict) &&
-      /remains SOTA/.test(IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH.verdict) &&
+      /refereed bound is changed/i.test(IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH.verdict) &&
       /imp-35111a/.test(IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH.summary.residual_sub_gap_imp_35111a),
   },
 ];

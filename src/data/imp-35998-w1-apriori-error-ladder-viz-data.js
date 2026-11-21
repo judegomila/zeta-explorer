@@ -64,7 +64,7 @@ export const IMP35998_APRIORI_LADDER_VIZ_DATA = {
     'rungs are independence-conditional, NOT certified. Instantiates no directed-' +
     'rounding interval; the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
     '(imp-35681 Part A); C_mb GUE-conditional (imp-486) untouched; NO QED. ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35998_VIZ_ASSERTIONS = [
@@ -108,13 +108,13 @@ export const IMP35998_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35998-honesty-gate-no-qed',
-    description: 'honest status references viz-data-only, not-certified, greenfield, NO QED, SOTA',
+    description: 'honest status references viz-data-only, not-certified, greenfield, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35998_APRIORI_LADDER_VIZ_DATA.honest) &&
       /NOT certified/.test(IMP35998_APRIORI_LADDER_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP35998_APRIORI_LADDER_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35998_APRIORI_LADDER_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35998_APRIORI_LADDER_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35998_APRIORI_LADDER_VIZ_DATA.honest),
   },
 ];
 

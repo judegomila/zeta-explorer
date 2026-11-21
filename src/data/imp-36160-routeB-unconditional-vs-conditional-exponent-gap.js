@@ -7,8 +7,7 @@
  *   = Theta(sqrt(log N) N^{-1/2}), and QUANTIFY the exponent gap between the
  *   unconditional and conditional decay rates. Measurement / assessment ONLY:
  *   closes NOTHING, discharges no gap, the per-N translation stays OPEN, respects
- *   the imp-2519 no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   the rigorous SOTA.
+ *   the imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHY THIS TICKET (what it adds over imp-36140)
  *   ---------------------------------------------
@@ -226,7 +225,7 @@ export const IMP36160_ROUTEB_UNCONDITIONAL_VS_CONDITIONAL_EXPONENT_GAP = Object.
     'halves the exponent -1/2 -> -1/4. De-dressed wide log-log slopes confirm the three leading exponents ' +
     '(-1/2, -1/2, -1/4) to machine precision. Measurement / assessment ONLY; changes no bound; the per-N ' +
     'translation and the imp-36082 anchor stay OPEN; respects the imp-2519 no-overclaim guard; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
 
   exponents: Object.freeze({
     D_discrepancy: EXP_D, // -1/2, unconditional pre-composition input
@@ -287,7 +286,7 @@ export const IMP36160_ROUTEB_UNCONDITIONAL_VS_CONDITIONAL_EXPONENT_GAP = Object.
       'the gap to the imp-354 Holder-1/2 step by showing the pre-composition discrepancy D(N) shares E_coll -1/2 ' +
       'exponent exactly. It derives nothing new, closes no gap, and leaves the per-N translation and the imp-36082 ' +
       'anchor OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -326,7 +325,7 @@ export const IMP36160_ROUTEB_UNCONDITIONAL_VS_CONDITIONAL_EXPONENT_GAP_ASSERTION
   {
     id: 'imp36160-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a MEASUREMENT that closes NOTHING, discharges no gap, changes no bound, keeps the ' +
-         'per-N translation and the imp-36082 anchor OPEN, carries NO RH verdict, PT 0.2 stays SOTA.',
+         'per-N translation and the imp-36082 anchor OPEN, carries NO RH verdict, no refereed bound is changed.',
     holds: () => {
       const h = IMP36160_ROUTEB_UNCONDITIONAL_VS_CONDITIONAL_EXPONENT_GAP.honestCaveat;
       return (
@@ -339,7 +338,7 @@ export const IMP36160_ROUTEB_UNCONDITIONAL_VS_CONDITIONAL_EXPONENT_GAP_ASSERTION
         h.anchorGapStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

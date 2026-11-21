@@ -76,7 +76,7 @@
  *
  * SCOPE: MEASUREMENT ONLY. Does NOT advance the R2 ladder; does NOT extend the
  * C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO
- * bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "2/diff" prose.
  *
@@ -192,8 +192,8 @@ export const IMP_35350_R2_N2000_STILL_FINER_GRID_REFERENCE = {
     doesNotAchieve:
       'Does NOT advance the R2 ladder to N=2000 (trend non-monotone, tauC/32000 ' +
       'rung deferred); does NOT extend the C_mb certificate; does NOT remove the ' +
-      'imp-486 GUE conditional; changes NO Lambda bound. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'imp-486 GUE conditional; changes NO Lambda bound. No refereed bound is changed' +
+      '.',
     subGap:
       'imp-35350-sub-tauC32000-rung: run the tauC/32000 rung (base grid B dt/2) to ' +
       'confirm the dt/2 cross-family gap STAYS at the tie past tauC/16000 (monotone ' +
@@ -276,6 +276,6 @@ export const IMP_35350_R2_N2000_STILL_FINER_GRID_REFERENCE_ASSERTIONS = [
       'non-monotone and the tauC/32000 confirmation rung is DEFERRED, the R2 ladder ' +
       'largest-N-robustly-certified STAYS at 1000 (NOT advanced to 2000) and a ' +
       'named sub-gap is recorded. C_mb stays GUE-conditional (imp-486); ' +
-      'Lambda <= 0.2 stays SOTA.',
+      'no refereed bound is changed.',
   },
 ];

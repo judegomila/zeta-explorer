@@ -65,7 +65,7 @@
  * only; it uses no fabricated rho (the intercept numerator remains the deferred
  * imp-96392 sub-gap), changes NO Lambda bound, and the binding envelope stays
  * strictly positive (rho_min = 0.3791 at gamma_4000) so the margin SIGN
- * survives. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * survives. No refereed bound is changed; RH open; NO QED.
  *
  * GRADE: measurement/accuracy audit only. Import-light (columns baked from
  * imp-96392/imp-96224, recompute-and-check, no heavy bundle).
@@ -223,7 +223,7 @@ export const IMP_96425_HEIGHT_FORMULA_ERROR_PROPAGATION = {
     + 'slightly over-states the tightening (true lower height => larger x8 => less leverage), well '
     + 'inside the honest band. Measurement/accuracy audit only; no fresh rho; the intercept '
     + 'numerator stays the imp-96392 sub-gap; binding envelope rho_min=0.3791>0 so the margin SIGN '
-    + 'survives; changes no Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED',
+    + 'survives; changes no Lambda bound; no refereed bound is changed; RH open; NO QED',
   subGap: {
     name: 'the gamma_8000 INTERCEPT (numerator) is still not measurement-decided (unchanged by this audit)',
     statement: 'This audit only shows the DENOMINATOR x-design is insensitive to the approximate '
@@ -238,7 +238,7 @@ export const IMP_96425_HEIGHT_FORMULA_ERROR_PROPAGATION = {
     'measurement/accuracy audit only; import-light arrays baked from imp-96392/imp-96224, '
     + 'recompute-and-check; no fabricated rho (only the x-design and the measured s2 are used); '
     + 'changes no Lambda bound; the binding envelope stays strictly positive (0.3791 at gamma_4000) '
-    + 'so the margin SIGN survives; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED',
+    + 'so the margin SIGN survives; no refereed bound is changed; RH open; NO QED',
   closesTickets: ['imp-96425'],
 };
 

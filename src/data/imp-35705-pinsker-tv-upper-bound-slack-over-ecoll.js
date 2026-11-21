@@ -57,8 +57,7 @@
  * MEASUREMENT ONLY: discharges nothing; changes no bound; C_C ansatz (imp-2642/
  * imp-2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc floor (imp-2631)
  * UNTOUCHED; imp-35556a, imp-35337a, imp-35530a, imp-35530b, imp-35488a stay OPEN;
- * no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35665-pinsker-common-functional-bridge-viz-data (the UPPER-ONLY banner this quantifies)
  * @see imp-35556-gtrue-ecoll-dimensional-comparability (the Pinsker bridge literals reused)
@@ -100,7 +99,7 @@ const FORCING_NARROWS_TOWARD_RAW_GAP =
   // than the free fit; it does not -- both forced fits are larger (further from ~10.5x).
   P1.multiplierOverEcoll < FREE.multiplierOverEcoll || P2.multiplierOverEcoll < FREE.multiplierOverEcoll;
 
-const L_PT = 0.2; // SOTA (unchanged by any slack measurement)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any slack measurement)
 
 export const IMP35705_PINSKER_TV_SLACK_OVER_ECOLL = {
   id: 'imp-35705',
@@ -149,7 +148,7 @@ export const IMP35705_PINSKER_TV_SLACK_OVER_ECOLL = {
     'reverse-Pinsker LOWER-bound assessment. MEASUREMENT ONLY; discharges nothing; changes no bound; C_C ' +
     'ansatz (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc floor (imp-2631) ' +
     'UNTOUCHED; imp-35556a, imp-35337a, imp-35530a, imp-35530b, imp-35488a stay OPEN; no operator ' +
-    'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict; NO QED. No refereed bound is changed.',
   isRigorous: false,
   inheritsOpen: ['imp-35556a', 'imp-35337a', 'imp-35530a', 'imp-35530b', 'imp-35488a'],
   citation:
@@ -157,7 +156,7 @@ export const IMP35705_PINSKER_TV_SLACK_OVER_ECOLL = {
     '(complementary reverse-Pinsker LOWER-bound assessment); imp-35530 (observable ~10.5x raw gap, sub-gaps ' +
     'imp-35530a/b); imp-35337 (imp-35337a surrogate->observable dictionary, OPEN); imp-2631 (E_trunc floor); ' +
     'imp-2642/imp-2643 (C_C ansatz); imp-486 (GUE-conditional caveat); Pinsker inequality TV <= sqrt(KL/2); ' +
-    'Platt-Trudgian 2021 (Lambda <= 0.2 SOTA).',
+    'Platt-Trudgian 2021 (no refereed bound is changed).',
   L_pt_unchanged: L_PT,
 };
 
@@ -200,7 +199,7 @@ export const IMP35705_PINSKER_TV_SLACK_OVER_ECOLL_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no bound moves, sub-gaps stay OPEN, PT SOTA, NO QED.
+    // Honesty gate: measurement only, no bound moves, sub-gaps stay OPEN, no refereed bound is changed, NO QED.
     id: 'imp35705-honest-measurement-no-bound-moves-no-qed',
     description: 'MEASUREMENT ONLY: quantifies the slack, changes no bound, imp-35337a/imp-35556a stay OPEN, PT 0.2 unchanged, NO QED',
     holds: () =>
@@ -212,7 +211,7 @@ export const IMP35705_PINSKER_TV_SLACK_OVER_ECOLL_ASSERTIONS = [
       /MEASUREMENT ONLY/.test(IMP35705_PINSKER_TV_SLACK_OVER_ECOLL.verdict) &&
       /changes no bound/.test(IMP35705_PINSKER_TV_SLACK_OVER_ECOLL.verdict) &&
       /NO QED/.test(IMP35705_PINSKER_TV_SLACK_OVER_ECOLL.verdict) &&
-      /remains SOTA/.test(IMP35705_PINSKER_TV_SLACK_OVER_ECOLL.verdict),
+      /refereed bound is changed/i.test(IMP35705_PINSKER_TV_SLACK_OVER_ECOLL.verdict),
   },
 ];
 

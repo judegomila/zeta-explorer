@@ -53,8 +53,7 @@
  * models of the imp-34687a directed-rounding layer, not the layer itself; F(m) = 0 remains a
  * double-precision artifact and the machine certificate imp-34714a REMAINS OPEN. C_C = 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched;
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34843-krawczyk-n-op-star-vs-deltastar-floor-crosscheck (the single-G cross-check this varies over the band)
  * @see imp-34817-krawczyk-op-budget-contraction-gap (n_op* = G/((1+G) eps) contraction-validity op ceiling)
@@ -251,7 +250,7 @@ export const IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY = {
     'layer, and F(m) = 0 remains a double-precision artifact. Sensitivity/consistency check only on the ' +
     'inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and ' +
     'C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34843 (n_op* vs delta*-floor cross-check; factor 1 + G; bracket [2.20e15, 4.30e15]); imp-34817 ' +
     '(n_op* = G/((1+G) eps) contraction-validity op ceiling); imp-34818 (linear floor + n_op = 2 FP_LO k ' +
@@ -315,15 +314,15 @@ export const IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY_ASSERTIONS = [
       Math.abs(CENTER.starOverH2 / STAR_OVER_H2_PUBLISHED - 1) < 1e-3,
   },
   {
-    // Honesty gate: sensitivity check / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity check / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34861-honesty-gate-no-qed',
-    description: 'band-sensitivity check: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'band-sensitivity check: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY.isRigorous === false &&
       /imp-34714a/.test(IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY.subGap) &&
       /REMAINS OPEN/.test(IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY.subGap) &&
       /NO QED/.test(IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34861_KRAWCZYK_CROSSCHECK_BAND_SENSITIVITY.verdict),
   },
 ];
 

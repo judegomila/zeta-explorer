@@ -37,7 +37,7 @@
  * bound moves; the imp-95419 module text and its baked
  * citedInputs.length === 2 assertion are a correct HISTORICAL record and
  * are deliberately left unedited -- imp-95420 is the supersession record.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * TICKET CROSS-REFERENCE. This ledger IS the honest-status note requested
  * by imp-95440 ("record that imp-95420 eliminated the Brownian exit-time
@@ -102,7 +102,7 @@ export const IMP_95438_SEP_OPT_INPUT_REDUCTION_LEDGER = {
   note:
     'documentation only, citing imp-95419 (LEMMA MIX / THEOREM SEP-OPT) and ' +
     'imp-95420 (LEMMA P-SYM / LEMMA P-JAC / LEMMA P-MONO / THEOREM P-POS); ' +
-    'no Lambda bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    'no Lambda bound moves; no refereed bound is changed',
   closesTickets: ['imp-95440', 'imp-95453'],
 };
 

@@ -75,8 +75,7 @@
  *   a finite-difference log-curvature of the reused imp-34586 rungs. Descriptive surrogate, NOT
  *   a rigorous asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation;
  *   the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- *   positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34586-eflow-attr-fp-floor-far-side-ladder.js (the deep-far rungs + the F2 raw-value convexity this checks)
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (E_N E_trunc-flat regime; power-law fit; analytic E_flow slope)
@@ -242,7 +241,7 @@ export const IMP34612_EFLOW_ATTR_CONVEXITY_VS_ANALYTIC = {
     'correction the pure surrogate drops. Descriptive surrogate, NOT a rigorous asymptotic; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34612_ASSERTIONS = [
@@ -289,13 +288,13 @@ export const IMP34612_ASSERTIONS = [
       IMP34612_RESIDUAL_FLOOR_MARGIN > 40,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34612-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34612_EFLOW_ATTR_CONVEXITY_VS_ANALYTIC.isRigorous === false &&
       /NO QED/.test(IMP34612_EFLOW_ATTR_CONVEXITY_VS_ANALYTIC.honest) &&
-      /remains SOTA/.test(IMP34612_EFLOW_ATTR_CONVEXITY_VS_ANALYTIC.honest) &&
+      /refereed bound is changed/i.test(IMP34612_EFLOW_ATTR_CONVEXITY_VS_ANALYTIC.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34612_EFLOW_ATTR_CONVEXITY_VS_ANALYTIC.honest),
   },
 ];

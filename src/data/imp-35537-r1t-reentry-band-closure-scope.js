@@ -18,8 +18,7 @@
  * imp-35243a certificate stay OPEN; R1s (imp-35414 lemma) is untouched. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor
  * (imp-2631) and imp-3066 K_a >= 0 are UNTOUCHED; C_mb GUE-conditional per imp-486
- * UNTOUCHED; far-tail exponent stays 1/2 (imp-3463). Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED; far-tail exponent stays 1/2 (imp-3463). No refereed bound is changed.
  *
  * PART A -- THE SURROGATE MAP TO BE REPLACED (three inputs, three classes)
  * -----------------------------------------------------------------------------
@@ -121,7 +120,7 @@ const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (
 const E_TRUNC_PT = 3.06e-5; // fixed floor (imp-2631)
 const K_AMPL = (C_C / E_TRUNC_PT) ** 2; // ~1.5727e8 height-map amplitude K = (C_C/E_TRUNC)^2 (imp-3220/imp-34775)
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any R1t closure)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any R1t closure)
 
 // The reentry-band edges, log10 N (imp-34997/imp-35111/imp-35357), and its width.
 const REENTRY_LOG10_N = 27.084691; // band-on reentry edge
@@ -235,7 +234,7 @@ export const IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE = {
     'establishes no operator positivity; R1t and the imp-35243a certificate stay OPEN; R1s (imp-35414) is ' +
     'untouched; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), imp-3066 K_a >= 0 and ' +
     'C_mb GUE-conditional (imp-486) are UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   residual_sub_gap:
     'imp-35243a stays OPEN: certify surrogate-vs-true-dynamics fidelity for the reentry band by discharging R1t ' +
     '(true dynamic has no band) -- which needs R2 (a certified nonlinear-remainder uniform over the ~10.08-decade ' +
@@ -275,7 +274,7 @@ export const IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE_ASSERTIONS = [
   {
     // Part D honesty gate: modeled closure inherits imp-486 AND is data-unreachable, no bound moves, imp-35243a OPEN, NO QED.
     id: 'imp35537-inherits-imp486-data-unreachable-no-bound-moves-no-qed',
-    description: 'R1t closure is BOTH GUE-conditional (imp-486) AND data-unreachable, sigma is not a lever so no bound moves, imp-35243a OPEN, PT 0.2 SOTA, NO QED',
+    description: 'R1t closure is BOTH GUE-conditional (imp-486) AND data-unreachable, sigma is not a lever so no bound moves, imp-35243a OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       Math.abs(L_PT - 0.2) < 1e-15 &&
       IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE.isRigorous === false &&
@@ -284,7 +283,7 @@ export const IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE_ASSERTIONS = [
       /imp-35243a/.test(IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE.residual_sub_gap) &&
       /R1t and the imp-35243a certificate stay OPEN/.test(IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE.verdict) &&
       /NO QED/.test(IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35537_R1T_REENTRY_BAND_CLOSURE_SCOPE.verdict),
   },
 ];
 

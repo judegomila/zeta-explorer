@@ -74,7 +74,7 @@
  * imp-34997a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi)
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35357-reentry-band-pure-artifact-proof-requirement (axis(ii): surrogate zero residue, true residue needs R2/R3)
  * @see imp-35297-r4-independent-model-agreement-assessment (W2 unreachability: band ~15 decades above the frontier)
@@ -229,7 +229,7 @@ export const IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS = {
     'imp-34997a / imp-35243a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the ' +
     'C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; ' +
     'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35357 (axis(ii): surrogate zero residue, true residue needs a certified true model R2/R3); imp-35297 ' +
     '(W2 unreachability: band ~15 decades above the ~3e12 frontier); imp-35356 (R1 as DAG root); imp-34862 ' +
@@ -289,15 +289,15 @@ export const IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS_ASSERTIONS = [
       Math.abs(SENSITIVITY_DXARG_DLOGEPS + 0.323444) < 1e-5,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gaps named.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gaps named.
     id: 'imp35439-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, binding root I1, no QED, PT SOTA, sub-gaps stay OPEN',
+    description: 'Assessment only: isRigorous false, binding root I1, no QED, no refereed bound is changed, sub-gaps stay OPEN',
     holds: () =>
       IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.isRigorous === false &&
       IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.binding_root === 'I1' &&
       /binding root is I1/.test(IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.residual_sub_gap) &&
       /NO QED/.test(IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.verdict) &&
-      /remains SOTA/.test(IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.verdict) &&
+      /refereed bound is changed/i.test(IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.verdict) &&
       /imp-35243a/.test(IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.residual_sub_gap) &&
       /imp-35111a/.test(IMP35439_TRUE_DYNAMIC_MODEL_MINIMAL_REQUIREMENTS.residual_sub_gap),
   },

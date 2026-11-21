@@ -17,7 +17,7 @@
  *
  * MEASUREMENT ONLY. Positions no rectangle; certifies no floor delta_short > 0;
  * evaluates no real |H_t|; fixes no endpoint; changes no bound; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * THE SURROGATE PROFILE (why the maximum is robust and the zero is not)
  * -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@
  * [T_PT, T_PT + Delta]. It positions no rectangle, evaluates no real |H_t|, certifies
  * no delta_short > 0, fixes no endpoint, and instantiates no interval enclosure.
  * Establishes no positivity; certifies no non-vanishing; changes no bound; C_mb
- * GUE-conditional (imp-486) untouched; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GUE-conditional (imp-486) untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-35778-i3-edge-type-floor-decomposition-scope (short-edge floor robust at inter-zero maxima; grazing-collapse caveat, never quantified as a window)
  * @see imp-35816-short-edge-delta-integer-gap-deviation (companion: width QUANTIZATION residual, the orthogonal knob)
@@ -78,7 +78,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35816) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const TWO_PI = 2 * Math.PI;
 
 // Mean zero gap delta(T) = 2 pi / log(T / 2 pi) = pi / w(T) (imp-35757).
@@ -173,7 +173,7 @@ export const IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW = {
     'deviation this model does NOT capture. Positions no rectangle; evaluates no real |H_t|; certifies no floor ' +
     'delta_short > 0; fixes no endpoint; instantiates no enclosure; establishes no positivity; certifies no ' +
     'non-vanishing; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35778 (short-edge floor robust at inter-zero maxima, grazing-collapse caveat, never quantified as a window); ' +
     'imp-35816 (companion width QUANTIZATION residual, the orthogonal knob); imp-35758 (delta_short = reverse-triangle ' +
@@ -240,9 +240,9 @@ export const IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, cosine surrogate on uniform spacing, no certification, no QED, PT SOTA.
+    // Honesty gate: measurement only, cosine surrogate on uniform spacing, no certification, no QED, no refereed bound is changed.
     id: 'imp35833-honesty-gate-no-qed',
-    description: 'Measurement only; cosine surrogate on uniform spacing; certifies no floor; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; cosine surrogate on uniform spacing; certifies no floor; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -251,7 +251,7 @@ export const IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW_ASSERTIONS = [
       /certifies no floor delta_short > 0/.test(IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW.verdict) &&
       /changes no bound/.test(IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW.verdict) &&
       /NO QED/.test(IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW.verdict) &&
-      /remains SOTA/.test(IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW.verdict),
+      /refereed bound is changed/i.test(IMP35833_SHORT_EDGE_PLACEMENT_SENSITIVITY_WINDOW.verdict),
   },
 ];
 

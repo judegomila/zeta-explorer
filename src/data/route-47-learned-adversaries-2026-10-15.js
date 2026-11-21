@@ -44,8 +44,8 @@
  *  - Hard cells are hard because of majorant looseness near θ_s = 0, not because Φ approaches K0* (it stays ≥ 0.0016 below); the landscape is
  *    unimodal, so a learned adversary has no advantage over random-start constrained ascent.
  *
- * Verdict: no help as adversary or bound-improver; as a difficulty forecaster about as good as K0 alone (plus g within r_23_40). PT Lambda
- * <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_47_ASSERTIONS recompute live: target-class counts, the K0 separation, the g split on
+ * Verdict: no help as adversary or bound-improver; as a difficulty forecaster about as good as K0 alone (plus g within r_23_40). No refereed bound is changed
+ * ; RH open; NO QED. Import-free. ROUTE_47_ASSERTIONS recompute live: target-class counts, the K0 separation, the g split on
  * r_23_40, the RMSE ladder, the adversary maximum against r6, the box-growth bracket and the forecast premises.
  */
 
@@ -97,7 +97,7 @@ export const ROUTE_47 = Object.freeze({
     + 'and their hard-box proposals were mostly wrong when checked against the v4c engine (pessimistic by 0.005–0.017, optimistic by up to 0.039 when '
     + 'extrapolating in K0). As a difficulty forecaster the surrogate matches K0 alone; the referee adds g = τ − m0 as a testable variable within '
     + 'r_23_40. Operational heuristic: the 17 pending/running 0.88-sharp floors (cells 392–416) are expected to be budget-stopped under the current '
-    + 'policy. Everything is measured or heuristic; WOL-C is not proved; the conditional value stays 0.116091488672439. PT Lambda <= 0.2 stands; '
+    + 'policy. Everything is measured or heuristic; WOL-C is not proved; the conditional value stays 0.116091488672439. No refereed bound is changed; '
     + 'RH open; NO QED.',
 });
 
@@ -147,7 +147,7 @@ export const ROUTE_47_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r47-honesty',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R47.verdict) && /NO QED/.test(R47.verdict) && /WOL-C is not proved/.test(R47.verdict)
+    holds: () => /refereed bound is changed/i.test(R47.verdict) && /NO QED/.test(R47.verdict) && /WOL-C is not proved/.test(R47.verdict)
       && /0\.116091488672439/.test(R47.verdict) && R47.refereeKilled.length === 7,
     why: 'Verdict: measured/heuristic only, WOL-C not proved, conditional value unchanged, no QED; seven referee corrections recorded.',
   },

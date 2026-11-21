@@ -75,8 +75,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc
  * 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (appear only as symbolic axes); changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124812-diag3-additivity-exact-identity-assessment (B1 named as the sole load-bearing hinge)
  * @see imp-97668-nonlinear-amplitude-audit (the six-probe first-order amplitude audit assessed here)
@@ -266,8 +265,8 @@ export const IMP124835_DEGREE1_HINGE_AUDIT_SUFFICIENCY_ASSESSMENT = {
     'argument is a proof. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the pinned constants appear only as symbolic differentiation axes, not ' +
     're-pinned; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124812 (B1 named as the sole load-bearing hinge, verified not proven); imp-97668 (six-probe ' +
     'amplitude audit assessed here; A2 C_KH -> 0.5*E_CC, Gronwall exponent -> TC*E_CF; A3 T0(N) = ' +
@@ -322,13 +321,13 @@ export const IMP124835_DEGREE1_HINGE_AUDIT_SUFFICIENCY_ASSESSMENT_ASSERTIONS = [
     holds: () => Math.abs(DECOY_M4.finite_t_defect_t2) > 1e-2,
   },
   {
-    // Honesty gate: assessment/demonstration only, no QED, PT stays SOTA.
+    // Honesty gate: assessment/demonstration only, no QED, no refereed bound is changed.
     id: 'imp124835-honesty-gate-no-qed',
-    description: 'Assessment/demonstration only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment/demonstration only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124835_DEGREE1_HINGE_AUDIT_SUFFICIENCY_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP124835_DEGREE1_HINGE_AUDIT_SUFFICIENCY_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP124835_DEGREE1_HINGE_AUDIT_SUFFICIENCY_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP124835_DEGREE1_HINGE_AUDIT_SUFFICIENCY_ASSESSMENT.verdict),
   },
 ];
 

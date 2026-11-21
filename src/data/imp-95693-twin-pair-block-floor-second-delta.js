@@ -13,7 +13,7 @@
  * IDENTICAL machinery to imp-95659 / imp-95642 (normalized seam Gram
  * Gtilde_ij = sech((x_i - x_j)/2), twin-pair lattice of nPairs = 40 pairs,
  * in-pair gap delta, cross-pair gap D = rho * delta, F = lambda_min). Changes
- * no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no Lambda bound; NO QED; no refereed bound is changed.
  *
  * WHAT THE SECOND DELTA SHOWS (delta = ln 1.5, nPairs = 40, verified below).
  *
@@ -63,7 +63,7 @@
  * ln 1.2 left endpoint is below double precision (see caveat (b) above). (d)
  * Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the single-delta interior tabulation this generalizes)
  * @see imp-95642-twin-pair-symbol-offlattice-obstruction (the two endpoints bracketing the sweep)
@@ -137,8 +137,8 @@ export const IMP95693_TWIN_PAIR_BLOCK_FLOOR_SECOND_DELTA = {
     "absolute separation D, not the ratio rho. Pure tabulation of an " +
     "established two-endpoint mechanism; no new cited input. Model seam family " +
     "only; imp-95212 envelope port, signed WEIGHT, modulus/phase legs stay " +
-    "OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95693"],
 };
 
@@ -367,7 +367,7 @@ export const IMP95693_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /DELTA-ROBUSTNESS DECIDED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95693-closes-self",

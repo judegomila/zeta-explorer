@@ -8,8 +8,8 @@
  * This records the OUTCOME of the imp-95520 objective as an HONEST PARTIAL: the
  * structural PORT is confirmed and made precise, and the finite-truncation
  * VERDICT is delivered together with the EXACT obstruction that keeps the
- * finite -> infinite step (= full RH) out of reach. NO false QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH remains OPEN.
+ * finite -> infinite step (= full RH) out of reach. NO false QED; no refereed bound is changed
+ * ; RH remains OPEN.
  *
  * WHAT WAS ASKED (imp-95520): clone the imp-95509/95511 Gram/mean-time pencil
  * builder, swap the toy geometric lattice Q = {2^k} for the log-prime lattice
@@ -83,7 +83,7 @@
  *
  * HONEST LIMITS. Model-level structural analysis; ports the imp-95511 pencil
  * currency onto the log-prime lattice and records the verdict. Touches no Lambda
- * bound, no paper packet, no verified height. RH OPEN; PT Lambda <= 0.2 stands;
+ * bound, no paper packet, no verified height. RH OPEN; no refereed bound is changed;
  * NO QED. NO heavy imports; witness figures recomputed by the assertions.
  */
 
@@ -133,7 +133,7 @@ export const WEIL_POSITIVITY_PENCIL_PORT_VERDICT = Object.freeze({
   status:
     'PARTIAL — structural PORT confirmed exact; finite-truncation verdict = NO-PF is DISTINCT from Weil indefiniteness (a) '
     + 'and the SGN-C/COAL-N one-sided bound is INERT against W (b); named sub-gap = missing positive-type-cone form comparison '
-    + 'carrying the archimedean term; RH remains OPEN; PT Λ≤0.2 stands; NO QED',
+    + 'carrying the archimedean term; RH remains OPEN; no refereed bound is changed; NO QED',
   axis: 'Weil-positivity (prime -> zero-location); NOT the Montgomery-PCC axis',
   source:
     'imp-95511 (SPEC-INT / NO-PF / OSC-INF), imp-95509 (mean-time pencil, trace-class), imp-95508 (geometric-lattice cap); '
@@ -252,9 +252,9 @@ export const WEIL_POSITIVITY_PENCIL_PORT_VERDICT_ASSERTIONS = Object.freeze([
       && /archimedean/.test(WEIL_POSITIVITY_PENCIL_PORT_VERDICT.subGap),
   },
   {
-    name: 'honesty: RH OPEN, PT Λ≤0.2 stands, NO QED',
+    name: 'honesty: RH OPEN, no refereed bound is changed, NO QED',
     check: () => /RH remains OPEN/.test(WEIL_POSITIVITY_PENCIL_PORT_VERDICT.status)
-      && /PT Λ≤0.2 stands/.test(WEIL_POSITIVITY_PENCIL_PORT_VERDICT.status)
+      && /refereed bound is changed/i.test(WEIL_POSITIVITY_PENCIL_PORT_VERDICT.status)
       && /NO QED/.test(WEIL_POSITIVITY_PENCIL_PORT_VERDICT.status),
   },
 ]);

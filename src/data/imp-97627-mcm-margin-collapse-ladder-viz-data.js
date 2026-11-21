@@ -55,7 +55,7 @@ export const IMP97627_SUMMARY = Object.freeze({
     + `logarithmically vanishing rate (gap ~ ${GAP_LAW_CONST.toFixed(6)}/log p_omega).`,
   verdict:
     'MEASUREMENT ONLY. MCM holds through omega = 10 and stays refuted from omega = 11; b/4 ceiling '
-    + 'untouched; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    + 'untouched; no bound moved; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

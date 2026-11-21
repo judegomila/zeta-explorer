@@ -44,8 +44,7 @@
  *
  * MEASUREMENT ONLY. Reuses the imp-35812 2^{-96} reference; certifies no W1 bound; evaluates no
  * true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no
- * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35854-w1-summation-kappa-sweep (the kappa ~1..2e5 sweep this extends)
  * @see imp-35812-w1-summation-scheme-measured-cost (single-kappa baseline; term family + BigInt reference)
@@ -57,7 +56,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35854) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D)
 
@@ -320,7 +319,7 @@ export const IMP35929_W1_SUMMATION_DEEP_CANCELLATION = {
     'constraint at any conditioning. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; ' +
     'verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT ' +
     'stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional (imp-486) untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35854 (the kappa ~1..2e5 sweep this extends); imp-35812 (single-kappa baseline; term family + exact ' +
     'BigInt reference); imp-35886 (kappa^-1 naive-normalized descent to the plateau); imp-35761 (pessimistic ' +
@@ -388,16 +387,16 @@ export const IMP35929_W1_SUMMATION_DEEP_CANCELLATION_ASSERTIONS = [
       NAIVE_NORM_MAX < 30 * IMP35854_PLATEAU,
   },
   {
-    // Honesty gate: measurement only; both findings persist; no representability wall; no QED; PT SOTA.
+    // Honesty gate: measurement only; both findings persist; no representability wall; no QED; no refereed bound is changed.
     id: 'imp35929-honesty-gate',
-    description: 'Measurement only; both imp-35854 findings persist; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; both imp-35854 findings persist; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35929_W1_SUMMATION_DEEP_CANCELLATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /PERSIST/.test(IMP35929_W1_SUMMATION_DEEP_CANCELLATION.conclusion.findingsPersist) &&
       /GREENFIELD/.test(IMP35929_W1_SUMMATION_DEEP_CANCELLATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35929_W1_SUMMATION_DEEP_CANCELLATION.verdict) &&
-      /remains SOTA/.test(IMP35929_W1_SUMMATION_DEEP_CANCELLATION.verdict),
+      /refereed bound is changed/i.test(IMP35929_W1_SUMMATION_DEEP_CANCELLATION.verdict),
   },
 ];
 

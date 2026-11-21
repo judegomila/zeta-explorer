@@ -61,7 +61,7 @@
  * RH bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor
  * identity is exact WITHIN that model only; changes no bound; establishes no operator positivity; imp-3066
  * K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34149-tail-only-f4-unity-crossing (the tail-only crossing this complements, m* ~ 0.6063)
  * @see imp-34148-symmetric-trim-f4-cancellation (the symmetric crossing, m* ~ 0.6791)
@@ -272,7 +272,7 @@ export const IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR = {
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor identity is ' +
     'exact WITHIN the model only; changes no bound; establishes no operator positivity; imp-3066 ' +
     'K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34149 (the tail-only F4 unity crossing this complements, m* ~ 0.6063); imp-34148 (the symmetric ' +
     'crossing m* ~ 0.6791); imp-34086 (the tail/head endpoint-sensitivity family); imp-34009 (the ' +
@@ -333,13 +333,13 @@ export const IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34212-honesty-gate-no-qed',
-    description: 'Measured floor / honest negative only: isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Measured floor / honest negative only: isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR.isRigorous === false &&
       /NO QED/.test(IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34212_HEAD_ONLY_F4_NONCROSSING_FLOOR.verdict),
   },
 ];

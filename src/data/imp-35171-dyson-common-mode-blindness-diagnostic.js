@@ -51,7 +51,7 @@
  * field. It does NOT supply the imp-35127 I4 absolute per-scheme certificate, does NOT discharge any
  * of I1..I5, and does NOT touch the imp-2466 two-method cross-check (which remains a valid
  * NON-certifying cross-check). Changes no bound; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-35127-g-step-error-certified-bound-scope (scalar S1 illustration + I1..I5 enumeration; I4)
  * @see imp-2466 (empirical two-method gap "dg_{tc}/dt" style cross-check; NOT a certificate)
@@ -266,7 +266,7 @@ export const IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC = {
     'gap diagnostic cannot see at all. This supplies NO imp-35127 I4 certificate and discharges NONE ' +
     'of I1..I5; the imp-2466 two-method gap is UNTOUCHED and remains a valid NON-certifying ' +
     'cross-check. Changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35127-g-step-error-certified-bound-scope (scalar S1 + I1..I5, I4 common-mode); imp-2466 ' +
     '(empirical two-method gap, cross-check not certificate); backward-flow-stability-gronwall / ' +
@@ -326,16 +326,16 @@ export const IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC_ASSERTIONS = [
       TIGHTEST.twoMethodGap > WIDEST.twoMethodGap,
   },
   {
-    // Honesty gate: measurement only, no QED, imp-2466 untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, imp-2466 untouched, no refereed bound is changed.
     id: 'imp35171-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, imp-2466 cross-check untouched, PT SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, imp-2466 cross-check untouched, no refereed bound is changed',
     holds: () =>
       IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC.isRigorous === false &&
       /NO QED/.test(IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC.verdict) &&
       /imp-2466 two-method gap is UNTOUCHED/.test(
         IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC.verdict,
       ) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC.verdict),
+      /refereed bound is changed/i.test(IMP35171_DYSON_COMMON_MODE_BLINDNESS_DIAGNOSTIC.verdict),
   },
 ];
 

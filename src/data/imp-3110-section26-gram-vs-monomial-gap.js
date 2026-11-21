@@ -8,7 +8,7 @@
  *   measurements carry an RH verdict. This module characterizes the gap itself.
  *
  *   ASSESSMENT / DERIVATION ONLY. No new positivity, no RH verdict, not a reduction.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   THE TWO OBJECTS
  *   ---------------
@@ -76,7 +76,7 @@
  *   NOT compute the genuine section-26 Gram (that needs the completed kernel Phi and the
  *   complex channel basis -- see `faithfulComputationInputs`), does NOT attempt positivity,
  *   carries NO RH verdict, and is NOT a reduction. The bare-V pilot is not re-run.
- *   Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   No refereed bound is changed. No false QED.
  *
  *   @see imp-3066-offdiagonal-hankel-obstruction.js   (the toy this characterizes)
  *   @see imp-3084-offdiagonal-gap-degree-sweep.js     (degree sweep of the toy)
@@ -344,7 +344,7 @@ export const IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP = Object.freeze({
     noRHVerdict:
       'This characterizes the toy-vs-genuine gap and identifies which toy facts survive the swap; it does ' +
       'NOT compute the genuine section-26 Gram and asserts nothing about whether the cover holds or fails.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -405,7 +405,7 @@ export const IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP_ASSERTIONS = [
   {
     id: 'imp3110-honest-no-verdict',
     why: 'Mandatory honesty: assessment only, does not compute the genuine Gram, no positivity attempt, ' +
-         'no RH verdict, not a reduction, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'no RH verdict, not a reduction, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP.honestCaveat;
       return (
@@ -415,7 +415,7 @@ export const IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP_ASSERTIONS = [
         c.computesGenuineSection26Gram === false &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

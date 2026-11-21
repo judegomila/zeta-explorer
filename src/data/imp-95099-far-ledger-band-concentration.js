@@ -68,8 +68,7 @@
  *
  * The numerics below CROSS-CHECK the imp-95077 integer rows and the arithmetic
  * relations; they are not the claim. Import-light (no heavy bundle). Changes no
- * bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- parameterized ceiling machinery (identical to imp-95077; free theta) ------
@@ -225,7 +224,7 @@ export const IMP95099_FAR_LEDGER_BAND_CONCENTRATION = {
     "MEASUREMENT: the concentration fractions, the log-linear decay fit, and the 17-point fine grid are computed by the same quadrature machinery as imp-95077 and the integer rows reproduce that module's baked anchors to machine precision. No paper constant is instantiated, so no transferred ceiling is CLAIMED - only the band concentration, the decay fit, and the refined margin are measured. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT refinement of the imp-95077 far-ledger degradation. FINDING 1: the '~half / concentrated in [2, 6]' reading is quantity-dependent - the ledger-factor loss is only 37.7 % inside [2, 6] (62.3 % is in [6, 10]), while the cFar drop is 66.5 % inside [2, 6]; the low-theta concentration is a ~2/3 statement only for cFar, and reverses for the ledger factor 4/cFar. FINDING 2: the decay fits cFar ~ 1.2030 exp(-0.15100 theta) with R^2(log) 0.99903 and 2.20 % max residual - approximately, not exactly, exponential. FINDING 3: on a step-0.25 grid over [2, 6] cFar is strictly decreasing with max 0.89246, so 4 - cFar stays at least 3.10754 - the strict cFar < 4 margin has no near-crossing. SUB-GAP: the paper theta is not pinned in this repo, so this is a sensitivity refinement, not a single instantiated number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT refinement of the imp-95077 far-ledger degradation. FINDING 1: the '~half / concentrated in [2, 6]' reading is quantity-dependent - the ledger-factor loss is only 37.7 % inside [2, 6] (62.3 % is in [6, 10]), while the cFar drop is 66.5 % inside [2, 6]; the low-theta concentration is a ~2/3 statement only for cFar, and reverses for the ledger factor 4/cFar. FINDING 2: the decay fits cFar ~ 1.2030 exp(-0.15100 theta) with R^2(log) 0.99903 and 2.20 % max residual - approximately, not exactly, exponential. FINDING 3: on a step-0.25 grid over [2, 6] cFar is strictly decreasing with max 0.89246, so 4 - cFar stays at least 3.10754 - the strict cFar < 4 margin has no near-crossing. SUB-GAP: the paper theta is not pinned in this repo, so this is a sensitivity refinement, not a single instantiated number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -306,12 +305,12 @@ export const IMP95099_BAND_CONCENTRATION_ASSERTIONS = [
   {
     id: "imp95099-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper theta not pinned; refinement not a single number), promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper theta not pinned; refinement not a single number), promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95099_FAR_LEDGER_BAND_CONCENTRATION.promotesBound === false &&
       IMP95099_FAR_LEDGER_BAND_CONCENTRATION.openResiduals.length === 2 &&
       /NO QED/.test(IMP95099_FAR_LEDGER_BAND_CONCENTRATION.verdict) &&
-      /remains SOTA/.test(IMP95099_FAR_LEDGER_BAND_CONCENTRATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95099_FAR_LEDGER_BAND_CONCENTRATION.verdict) &&
       /MEASUREMENT/.test(IMP95099_FAR_LEDGER_BAND_CONCENTRATION.verdict),
   },
 ];

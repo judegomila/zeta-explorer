@@ -55,8 +55,7 @@
  * everywhere (THEOREM RATE-MONO); this contour only characterizes WHERE RI is
  * numerically tight, which is exactly the analytically-closed shallow edge.
  *
- * VERDICT. MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * VERDICT. MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -165,8 +164,8 @@ export const IMP95381_RI_SLACK_CONTOUR = {
     "cells carry ever more RI margin; the only near-tight region is the " +
     "shallow x -> 0 edge closed analytically by THEOREM RATE-MONO / COAL-DESC",
   verdict:
-    "MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA. Refines imp-95271 finding (3): the RI near-saturation set is " +
+    "MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed" +
+    ". Refines imp-95271 finding (3): the RI near-saturation set is " +
     "the whole shallow x -> 0 edge (uniformly in r), and the >= 8% interior " +
     "margin is uniform only for x >= x_c ~ 0.343; M >= 0 stays proven everywhere.",
 };
@@ -245,14 +244,14 @@ export const IMP95381_RI_SLACK_CONTOUR_ASSERTIONS = [
     id: "imp95381-record-honesty",
     description:
       "the record is measurement-only, refines imp-95271, carries NO QED and " +
-      "the SOTA line",
+      "the no-refereed-bound-change line",
     holds: () =>
       IMP95381_RI_SLACK_CONTOUR.xCritical > 0.34 &&
       IMP95381_RI_SLACK_CONTOUR.xCritical < 0.345 &&
       /imp-95271/.test(IMP95381_RI_SLACK_CONTOUR.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95381_RI_SLACK_CONTOUR.verdict) &&
       /NO QED/.test(IMP95381_RI_SLACK_CONTOUR.verdict) &&
-      /SOTA/.test(IMP95381_RI_SLACK_CONTOUR.verdict),
+      /refereed bound is changed/i.test(IMP95381_RI_SLACK_CONTOUR.verdict),
   },
 ];
 

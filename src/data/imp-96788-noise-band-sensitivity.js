@@ -1,7 +1,7 @@
 /**
  * imp-96788 -- Sensitivity of the imp-96755 borderline noise-band verdict to (A) the Monte-Carlo null
  * SAMPLE SIZE and (B) the small-gap BIN / block definition. Measurement only; conditional on GUE; NO QED.
- * PT Lambda <= 0.2 stays SOTA.
+ * No refereed bound is changed.
  *
  * BACKGROUND. imp-96755 Monte-Carloed the exact GUE cube-root (-1/3) Weibull-3 block-extreme null and
  * found the full-range imp-96629 gap exponent -0.3983 at z = -1.77 (one-sided p ~ 0.039), INSIDE the
@@ -45,7 +45,7 @@
  * the band on the 15-point dyadic layout and would flip to a nominal ~2.1-2.5-sigma rejection with ~2 extra
  * contiguous octaves or half-octave binning (flip threshold MC-sd <= 0.0331). The right lever to sharpen the
  * -1/3 question is more contiguous height, not more MC trials. Measurement only; conditional on GUE; moves
- * no bound; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * no bound; NO QED. No refereed bound is changed.
  */
 
 export const NOISE_BAND_SENSITIVITY = {
@@ -86,7 +86,7 @@ export const NOISE_BAND_SENSITIVITY = {
     '1/sqrt(TRIALS)) but FRAGILE to the bin/height design (flips to ~2.1-2.5-sigma rejection with ~2 extra ' +
     'contiguous octaves or half-octave binning; flip threshold MC-sd <= 0.0331). The lever to sharpen the ' +
     '-1/3 question is more contiguous height, not more MC trials. Measurement only; conditional on GUE; ' +
-    'moves no bound; NO QED. PT Lambda <= 0.2 stays SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
 };
 
 export default NOISE_BAND_SENSITIVITY;

@@ -35,7 +35,7 @@
  * code path, nothing more. The component model is the imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the derivation this cross-checks)
  * @see imp-35135-eflow-fartail-decay-exponent-positivity-reconciliation (the measured drift)
@@ -112,8 +112,8 @@ export const IMP35222_EFLOW_FARTAIL_EXPONENT_STANDALONE_CROSSCHECK = {
     '-0.91 at N = 1e16) to within ~0.013 / ~0.009 -- confirming the imp-35198 agreement by a ' +
     'separate code path. Changes no bound; component model is the imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35198 (leading +3/log N derivation, cross-checked here); imp-35135 (measured far-tail ' +
     'E_flow exponent drift); imp-486 (C_mb GUE-conditional, UNTOUCHED).',
@@ -158,13 +158,13 @@ export const IMP35222_EFLOW_FARTAIL_EXPONENT_STANDALONE_CROSSCHECK_ASSERTIONS = 
       TOP.leading > -1 && TOP.leading < 0 && DEEP.leading > -1 && DEEP.leading < TOP.leading,
   },
   {
-    // Honesty gate: cross-check only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: cross-check only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35222-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35222_EFLOW_FARTAIL_EXPONENT_STANDALONE_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP35222_EFLOW_FARTAIL_EXPONENT_STANDALONE_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP35222_EFLOW_FARTAIL_EXPONENT_STANDALONE_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP35222_EFLOW_FARTAIL_EXPONENT_STANDALONE_CROSSCHECK.verdict),
   },
 ];
 

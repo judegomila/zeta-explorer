@@ -8,7 +8,7 @@
  * UNIVERSAL primorial-collapse phenomenon or a coincidence that stops. It does not stop: every
  * primorial P5..P8 flips, and the flipped sign follows the clean opposite parity sign(r) = mu(b)
  * = (-1)^omega at squarefree primorials. No bound moves; supplies NO uniform remainder bound
- * (the imp-97096 sub-gap stays open); T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA;
+ * (the imp-97096 sub-gap stays open); T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed;
  * RH open; NO QED.
  *
  * Notation as imp-97140 / imp-97096 / imp-97122: R_b = {a : 1 <= a <= b-1, (a,b)=1},
@@ -61,7 +61,7 @@
  * explicit uniform remainder bound for the imp-97096 sub-gap must control TWO competing parity terms
  * (leading Liouville lambda(b), subleading Moebius mu(b)) whose crossover is governed by smoothness, not
  * a single 2^omega factor. Measurement only: no uniform remainder bound is supplied, no bound moved,
- * T ~ 2.594e7 anchor unchanged, PT Lambda <= 0.2 SOTA, RH open, NO QED.
+ * T ~ 2.594e7 anchor unchanged, no refereed bound is changed, RH open, NO QED.
  *
  * Numerics: r(b) computed by an independent O(b) coprime sum; plain and Kahan-compensated summation
  * agree to ~1e-14 at b = 9699690, far below the ~1e-9 residuals, so all signs and magnitudes here are
@@ -157,11 +157,11 @@ export const IMP97156_VERDICT = Object.freeze({
     'omega distinct SMALL primes (smoothness), not by exact primorials; a repeated prime power (1021020 = ' +
     '2^2.3.5.7.11.13.17) deepens |r| to the P8 scale yet keeps the leading sign. Measurement only: no ' +
     'uniform remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 ' +
-    'anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97156_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97140 subleading opposite-sign ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97140 subleading opposite-sign ' +
   'takeover is UNIVERSAL across primorials -- every primorial P5..P8 (2310, 30030, 510510, 9699690) flips the ' +
   'leading sign law sign(r) = (-1)^omega(b), and at these squarefree moduli the residual sign equals the ' +
   'literal Moebius mu(b), opposite the leading Liouville rule; |r| collapses ~10x per added small prime. ' +
@@ -240,7 +240,7 @@ const IMP97156_ASSERTIONS = [
       IMP97156_VERDICT.suppliesUniformRemainderBound === false &&
       IMP97156_VERDICT.qed === false &&
       /NO QED/.test(IMP97156_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97156_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97156_HONEST_BANNER) &&
       /RH open/.test(IMP97156_HONEST_BANNER),
     why: 'measurement only: the primorial sign-law extension is quantified but no uniform remainder bound is supplied and no bound moved -- honesty markers present, no QED.',
   },

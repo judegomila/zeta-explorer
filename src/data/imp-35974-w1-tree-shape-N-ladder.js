@@ -49,7 +49,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35893-w1-summation-pairwise-tree-shape (tree-SHAPE stress at the single N ~ 488602 -- this scales it in N)
  * @see imp-35852-w1-summation-adversarial-ordering (term-ORDER stress)
@@ -59,7 +59,7 @@
  */
 
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const EPS_DOUBLE = 2 ** -52; // machine epsilon
 const LEAF = 128; // base block size (identical to imp-35893)
 
@@ -206,7 +206,7 @@ export const IMP35974_W1_TREE_SHAPE_N_LADDER = {
     'the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; ' +
     'evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no ' +
     'positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35893 (tree-SHAPE stress at the single N ~ 488602, scaled in N here); imp-35852 (term-ORDER stress); ' +
     'imp-35761 (pairwise log2(N)*eps and naive N*eps ceilings); imp-35760 (barrier-margin allocation); ' +
@@ -267,9 +267,9 @@ export const IMP35974_W1_TREE_SHAPE_N_LADDER_ASSERTIONS = [
       withDepthEps.every((r) => r.worstRatioToDepthEpsBound < 1e-5),
   },
   {
-    // Honesty gate: measurement only; penalty does not grow; obstruction greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; penalty does not grow; obstruction greenfield; no QED; no refereed bound is changed.
     id: 'imp35974-honesty-gate',
-    description: 'Measurement only; tree-shape penalty does not grow with N; obstruction greenfield; no QED; PT SOTA',
+    description: 'Measurement only; tree-shape penalty does not grow with N; obstruction greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35974_W1_TREE_SHAPE_N_LADDER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -278,7 +278,7 @@ export const IMP35974_W1_TREE_SHAPE_N_LADDER_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP35974_W1_TREE_SHAPE_N_LADDER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35974_W1_TREE_SHAPE_N_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35974_W1_TREE_SHAPE_N_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35974_W1_TREE_SHAPE_N_LADDER.verdict),
   },
 ];
 

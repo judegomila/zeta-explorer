@@ -12,7 +12,7 @@
  *   N-endpoint coincidence -- it is one rung of an N-uniform compensated floor.
  *
  *   Ticket: imp-36086 (content, medium). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-36023-kbn-combined-worst-ladder.js (source: the four-rung KBN ladder sweep this note restates)
  *   @see imp-35973-w1-summation-order-shape-cross-term (single-endpoint combined stress this note re-contextualizes)
@@ -59,7 +59,7 @@ export const IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS = Object.freeze({
     isReductionBelowRH: false,
     changesAnyBound: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -117,7 +117,7 @@ export const IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS_ASSERTIONS = [
       IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36086_KBN_FLOOR_N_ROBUST_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36086-verdict-n-robust-no-qed',

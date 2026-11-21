@@ -41,7 +41,7 @@ export const IMP96040_CAVEAT_BANNER =
   'The conjectural - empirical gap is 0.337 SE (two-sided p ~ 0.736), FULLY noise-consistent, ' +
   'not a resolved discrepancy -- the six-height route cannot discriminate -0.176248 from -0.116 ' +
   'or from zero. Changes no bound, establishes no operator positivity, no RH claim; ' +
-  'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'no refereed bound is changed; NO QED.';
 
 export const IMP96040_ASSERTIONS = [
   {
@@ -73,7 +73,7 @@ export const IMP96040_ASSERTIONS = [
     holds: () =>
       /noise-consistent/.test(IMP96040_CAVEAT_BANNER) &&
       /NO QED/.test(IMP96040_CAVEAT_BANNER) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP96040_CAVEAT_BANNER) &&
+      /refereed bound is changed/i.test(IMP96040_CAVEAT_BANNER) &&
       SRC.isRigorous === false,
   },
 ];

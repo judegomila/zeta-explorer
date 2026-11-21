@@ -207,7 +207,7 @@ export const NODES = [
       'independently verified SOUND line-by-line vs Polymath15 §6 — so the corroborating bound is a ' +
       'strong, analytic-core-verified candidate (remaining unverified: AF §§6–12 + the 2.7M-row replay), ' +
       'NOT peer-reviewed, and does not move Λ. ' +
-      'PT Λ ≤ 0.2 remains the benchmark. See the /lambda-bounds ladder entry.',
+      'No refereed bound is changed. See the /lambda-bounds ladder entry.',
   },
 
   // ── the unconditional floor ────────────────────────────────────────────
@@ -221,7 +221,7 @@ export const NODES = [
     route: '/viz-imp96777-krein-lammin-n-trend',
     source: 'tlb-arb-lege-2026-09-28 (ARB-LEGE) / imp-96544 / imp-96749 / imp-96768 / imp-96769',
     closesIf:
-      'Settled for 2a ≤ ln 3 once an external referee checks the Arb run (scripts tmp/tlb-1-ref0-arb-lege-fixed.py [corrected Gauss exponent], tmp/tlb-1-normalisation-check.py, tmp/tlb-1-sigma2-reduction-check.py). Open sub-gaps: (i) a sharper certified σ₂ floor, e.g. via the clamped-beam constant (~0.285 vs Ritz ~0.57); (ii) 2a > ln 3, where the p = 3 term enters (one-prime reach 1.1286 is double-only). Fixed-window positivity localises no zero and moves no Λ bound; Platt–Trudgian Λ ≤ 0.2 remains the accepted benchmark.',
+      'Settled for 2a ≤ ln 3 once an external referee checks the Arb run (scripts tmp/tlb-1-ref0-arb-lege-fixed.py [corrected Gauss exponent], tmp/tlb-1-normalisation-check.py, tmp/tlb-1-sigma2-reduction-check.py). Open sub-gaps: (i) a sharper certified σ₂ floor, e.g. via the clamped-beam constant (~0.285 vs Ritz ~0.57); (ii) 2a > ln 3, where the p = 3 term enters (one-prime reach 1.1286 is double-only). Fixed-window positivity localises no zero and moves no Λ bound; no refereed bound is changed.',
   },
   {
     id: 'verified-height',

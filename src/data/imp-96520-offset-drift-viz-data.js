@@ -8,7 +8,7 @@
  *
  * No re-derivation: every value plotted is copied verbatim from
  * IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION. Presentation only; changes no bound;
- * establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96467-offset-drift-slope-vs-Ldrift-prediction.js (the source object this reshapes)
  * @see imp-96431-knee-crossover-tracking-wide-range.js (the underlying measured crossover ladder)
@@ -31,7 +31,7 @@ export const IMP96520_SLOPES = Object.freeze({
 });
 
 export const IMP96520_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every offset and slope '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every offset and slope '
   + 'value plotted here is copied verbatim from the imp-96467 baked fit object; the only '
   + 'computation in this module is sorting the rows by crossover log10. The analytic leading '
   + 'L(N)-drift prediction is the dominant, correctly-signed driver of the imp-96431 measured '

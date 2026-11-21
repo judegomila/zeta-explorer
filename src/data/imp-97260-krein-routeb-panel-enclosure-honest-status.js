@@ -21,15 +21,15 @@
  * WHAT REMAINS OPEN (unaffected by this note): the named residual SUB-GAP IMP97184_INTERVAL_BESSEL_ENCLOSURE
  * (replacing the sampled sup with a certified interval spherical-Bessel enclosure of g(t), plus a Route C
  * far-tail majorant beyond Tfar); IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP96749_UNIFORM_N_GAP_UNSETTLED stay
- * open. No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * open. No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97184-krein-routeb-panel-enclosure-execution.js (source of every verdict flag below)
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (Route B assessed viable-not-executed)
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (min-max Rayleigh tail integral; solver + quadrature)
  *
  * Ticket: imp-97260 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97184_VERDICT, { IMP97184_ROUTEB, IMP97184_RQ } from './imp-97184-krein-routeb-panel-enclosure-execution.js';
@@ -58,7 +58,7 @@ export const IMP97260_HONEST_BANNER =
   '1.421x as panels narrow toward h=period/16, trending toward ~1x, while the mode-wise Route A control ' +
   'diverges (200.4x). The per-panel supremum is SAMPLED on a subgrid, NOT a certified interval spherical-Bessel ' +
   'enclosure, so NO rigorous interval majorant is produced or claimed. No bound on Lambda moves; interval-' +
-  'rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97260_ASSERTIONS = [
@@ -83,9 +83,9 @@ const IMP97260_ASSERTIONS = [
       IMP97260_STATUS.qed === false &&
       IMP97260_STATUS.doNotClaimRigorousMajorant === true &&
       /NO QED/.test(IMP97260_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97260_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97260_HONEST_BANNER) &&
       /RH open/.test(IMP97260_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open, no-rigorous-majorant gate posted.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open, no-rigorous-majorant gate posted.',
   },
 ];
 

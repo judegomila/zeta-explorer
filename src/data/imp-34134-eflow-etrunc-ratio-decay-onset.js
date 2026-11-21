@@ -51,7 +51,7 @@
  * HONEST SCOPE -- measurement only, NO QED. This tabulates the inherited component
  * model; it introduces no new mathematical claim. C_mb stays GUE-conditional per
  * imp-486 (the E_coll term is untouched here); imp-3066 K_a >= 0 is untouched;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound. E_flow is the
+ * no refereed bound is changed. E_flow is the
  * benign, mesoscopic-Gronwall term (imp-2845 / imp-eflow-constant-discharge); its
  * negligibility here does NOT touch the divergent C_Lip collision-Gronwall.
  *
@@ -154,8 +154,8 @@ export const IMP34134_EFLOW_ETRUNC_RATIO_DECAY_ONSET = {
   isRigorous: false,
   honestScope:
     'Measurement only within the inherited component model; NO QED. The C_mb GUE-conditional per ' +
-    'imp-486 is UNTOUCHED (E_coll untouched); imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda ' +
-    '<= 0.2 remains the SOTA unconditional bound. E_flow is the benign mesoscopic-Gronwall term ' +
+    'imp-486 is UNTOUCHED (E_coll untouched); imp-3066 K_a >= 0 untouched; no refereed bound is changed' +
+    '. E_flow is the benign mesoscopic-Gronwall term ' +
     '(imp-2845); its negligibility here does NOT touch the divergent C_Lip collision-Gronwall.',
   citation:
     'imp-3444-sigma-nshape-landmark-ladder.js (identical sub-terms, E_coll=E_trunc crossover 3.280e9); ' +

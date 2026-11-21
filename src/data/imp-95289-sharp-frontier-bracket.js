@@ -85,7 +85,7 @@
  * not claim the witnesses are frontier-optimal off theta = 1). (c) Model-
  * family only, on the imp-95222 packet model; the map to paper per-window
  * quantities (imp-95255, gammaSL) is UNCHANGED. (d) Changes NO Lambda bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // -- exact Gram machinery (closed forms; same as imp-95254) ------------------
@@ -170,7 +170,7 @@ export const IMP95289_SHARP_FRONTIER_BRACKET = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (2) the imp-95254 residual (exact sharp frontier sup R at fixed (theta, y_min)) is now BRACKETED two-sided: exact endpoint F(1, y_min) = (1/2) e^(-y_min) (THEOREM FRONT-END), upper bracket min(1, PHASE-AM) (PROP FRONT-CAP), explicit lower witnesses at y_min = 1/4, and the interior residual identified as the imp-95226 pencil optimum on a theta-level set -- NOT closed for theta in (0, 1). (1), (3), (4) UNCHANGED. Import-light (no zeros bundle, no sibling imports).",
   verdict:
-    "HONEST PARTIAL (one exact endpoint + a two-sided bracket + a named residual): THEOREM FRONT-END pins F(1, y_min) = (1/2) e^(-y_min) exactly (positive cone forces PHASE-AM tight, single packet attains it). PROP FRONT-CAP gives the upper bracket min(1, (e^(-y_min)/4)(1 + 1/theta)) with the trivial ceiling operative below theta_cap = 1/(4 e^(y_min) - 1). Explicit y_min = 1/4 witnesses give the lower bracket (CEIL-X pins F(0.112, 1/4) >= 0.696). The bracket is exact at theta = 1 and widens toward small theta (gap >= 0.30 at the CEIL-X currency). The interior frontier stays OPEN and is identified with the imp-95226 pencil optimum on a theta-level set. Model-family only; changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "HONEST PARTIAL (one exact endpoint + a two-sided bracket + a named residual): THEOREM FRONT-END pins F(1, y_min) = (1/2) e^(-y_min) exactly (positive cone forces PHASE-AM tight, single packet attains it). PROP FRONT-CAP gives the upper bracket min(1, (e^(-y_min)/4)(1 + 1/theta)) with the trivial ceiling operative below theta_cap = 1/(4 e^(y_min) - 1). Explicit y_min = 1/4 witnesses give the lower bracket (CEIL-X pins F(0.112, 1/4) >= 0.696). The bracket is exact at theta = 1 and widens toward small theta (gap >= 0.30 at the CEIL-X currency). The interior frontier stays OPEN and is identified with the imp-95226 pencil optimum on a theta-level set. Model-family only; changes NO Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "THEOREM FRONT-END is an exact identity (positive-cone characterization of theta = 1, ENT-summed FA-2 bound, single-packet attainment). PROP FRONT-CAP is PHASE-AM (imp-95254, rigorous) intersected with R <= 1 (W, T nonnegative, W <= T). The lower witnesses are closed-form 2x2 pencil optima of explicit geometries. The 4,000,000-geometry scan is cross-check only; no asserted claim rests on it. No claim rests on quadrature.",
 };
@@ -272,7 +272,7 @@ export const IMP95289_FRONTIER_ASSERTIONS = [
   {
     id: "imp95289-verdict-honesty",
     description:
-      "the verdict carries the honest scope: HONEST PARTIAL, sub-gap STILL OPEN, interior frontier stays OPEN, residual named as the imp-95226 pencil object, no Lambda change, no QED, SOTA preserved",
+      "the verdict carries the honest scope: HONEST PARTIAL, sub-gap STILL OPEN, interior frontier stays OPEN, residual named as the imp-95226 pencil object, no Lambda change, no QED, no refereed bound is changed",
     holds: () =>
       /HONEST PARTIAL/.test(IMP95289_SHARP_FRONTIER_BRACKET.verdict) &&
       /STILL OPEN/.test(IMP95289_SHARP_FRONTIER_BRACKET.subGap) &&
@@ -280,7 +280,7 @@ export const IMP95289_FRONTIER_ASSERTIONS = [
       /imp-95226 pencil/.test(IMP95289_SHARP_FRONTIER_BRACKET.residual) &&
       /changes NO Lambda bound/.test(IMP95289_SHARP_FRONTIER_BRACKET.verdict) &&
       /NO QED/.test(IMP95289_SHARP_FRONTIER_BRACKET.verdict) &&
-      /remains SOTA/.test(IMP95289_SHARP_FRONTIER_BRACKET.verdict),
+      /refereed bound is changed/i.test(IMP95289_SHARP_FRONTIER_BRACKET.verdict),
   },
 ];
 

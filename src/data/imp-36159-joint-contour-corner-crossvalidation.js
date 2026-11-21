@@ -23,7 +23,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Instantiates no directed-rounding interval; evaluates no
  * true H_0; verifies no inequality; changes no bound; establishes no positivity; the certified
  * length-N interval sum stays MECHANICAL / GREENFIELD (imp-35725 / imp-35681 Part A); C_mb
- * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * FINDING (fixed N ~ 488602; r_base ~ 1.1814e-3) -- the normalization is CONSISTENT
  * -----------------------------------------------------------------------------
@@ -52,7 +52,7 @@ import { IMP36061_W1_ACCUMULATOR_RECOVERY_DETUNING_WIDTH } from './imp-36061-w1-
 
 // -- Anchor + operative constants (import-light; identical model to imp-36061 / imp-36096) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this cross-validation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this cross-validation
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 const TWO_PI = 2 * Math.PI; // nearest q=1 resonance above the baseline alpha
@@ -194,7 +194,7 @@ export const IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION = {
     '(normalized u + v bulging to ~2.5) rests on a correctly-scaled axis, not a normalization artifact. ' +
     'Instantiates no directed-rounding interval; evaluates no true H_0; verifies no inequality; changes no ' +
     'bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36096 (the joint recovery contour cross-validated here); imp-36061 (the single-axis edges it ' +
     'normalizes to); imp-35991 (r < 1e-2 basin edge); imp-35949 (located the q=1 resonant corner); ' +
@@ -249,15 +249,15 @@ export const IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION_ASSERTIONS = [
       RECOVER1_ABS_DIFF < 1e-12,
   },
   {
-    // Honesty gate: cross-validation only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: cross-validation only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36159-honesty-gate',
-    description: 'Cross-validation only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Cross-validation only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP36159_JOINT_CONTOUR_CORNER_CROSSVALIDATION.verdict),
   },
 ];
 

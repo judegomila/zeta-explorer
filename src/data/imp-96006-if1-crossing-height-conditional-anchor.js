@@ -53,7 +53,7 @@
  * discipline is preserved and the range does not collapse. Measurement only; changes no bound;
  * NO QED; I_F = 1 conjectural (Montgomery pair correlation, bracket (2/3-eps, 2)); Catalan G
  * irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the zero-side route stays
- * PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The imp-95940 closed form and C0 are
  * recomputed here exactly; the conjectural a_0 = -0.176248 (imp-95984) and empirical mean
@@ -182,7 +182,7 @@ export const IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR = {
     'so the imp-95987 no-collapse discipline is preserved and the range does not collapse. Measurement ' +
     'only; changes no bound; NO QED; I_F = 1 conjectural (Montgomery pair correlation, bracket (2/3-eps, 2)); ' +
     'Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the zero-side route ' +
-    'stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95940 (T_x closed form, range, d lnT_x/d a_0 ~ -78); imp-95984 (conjectural a_0 = -0.176248 from ' +
     'I_F = 1, Chan arXiv:math/0305339 Thm 1.1); imp-95964 (empirical mean a_0 ~ -0.116, K = I_F); ' +
@@ -215,13 +215,13 @@ export const IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR = {
     throw new Error('imp-96006: conjectural anchor must be flagged conditional (not a pin)');
   if (!(IF_RIGOROUS_BRACKET[0] < 1 && 1 < IF_RIGOROUS_BRACKET[1]))
     throw new Error('imp-96006: conjectural I_F = 1 must lie inside the rigorous RH bracket (2/3, 2)');
-  // HONESTY gates: measurement only, conjectural, no false pin, PT stays SOTA.
+  // HONESTY gates: measurement only, conjectural, no false pin, no refereed bound is changed.
   if (IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR.isRigorous !== false)
     throw new Error('imp-96006: isRigorous must be false');
   if (!/NO QED/.test(IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR.verdict))
     throw new Error('imp-96006: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR.verdict))
-    throw new Error('imp-96006: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR.verdict))
+    throw new Error('imp-96006: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96006_IF1_CROSSING_HEIGHT_CONDITIONAL_ANCHOR;

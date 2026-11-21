@@ -55,7 +55,7 @@
  * IMP96505_SUBGAP.
  *
  * MEASUREMENT/FIT ONLY. Changes no bound, establishes no operator positivity,
- * makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * makes no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96491-route-m-burnol-fit-extrapolation-residuals.js (verdict: needs new form)
  * @see imp-96094-route-m-burnol-ratio-dense-ladder.js (in-sample ladder, failed 3-term fit)
@@ -140,7 +140,7 @@ export const IMP96505_SUBGAP = Object.freeze({
 });
 
 export const IMP96505_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Fit/measurement only: every value is a reproducible numeric from tmp/imp-96505-scratch.mjs least-squares fitting the baked imp-96094/imp-96105 ladder rows; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Fit/measurement only: every value is a reproducible numeric from tmp/imp-96505-scratch.mjs least-squares fitting the baked imp-96094/imp-96105 ladder rows; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -210,7 +210,7 @@ const IMP96505_ASSERTIONS = [
     id: 'imp96505-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96505_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96505_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96505_HONEST_BANNER) &&
       /NO QED/.test(IMP96505_HONEST_BANNER) &&
       typeof IMP96505_SUBGAP.statement === 'string' &&
       /below-6000/.test(IMP96505_SUBGAP.id),

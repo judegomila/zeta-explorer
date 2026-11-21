@@ -13,8 +13,7 @@
  * at D -> delta+. It never tabulated the INTERIOR. This module measures the
  * per-pair effective block floor F = lambda_min(seam Gram) across a rho grid,
  * quantifying the continuous two-scale -> single-scale degradation between the
- * two endpoints. Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * two endpoints. Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * SETUP (identical machinery to imp-95642). Normalized seam Gram
  * Gtilde_ij = sech((x_i - x_j)/2) on log-rates x. Twin-pair lattice: nPairs
@@ -58,7 +57,7 @@
  * factor 1.092 as imp-95642 and is not the infinite-lattice infimum. (c) Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95642-twin-pair-symbol-offlattice-obstruction (the two endpoints this tabulates between)
  * @see imp-95419-separated-class-optimal-riesz-floor (THEOREM SEP-OPT, scalar class floor)
@@ -115,7 +114,7 @@ export const IMP95659_TWIN_PAIR_BLOCK_FLOOR_RHO_TABULATION = {
     "tabulation of an established two-endpoint mechanism; no new cited input. " +
     "Model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "QED; no refereed bound is changed.",
   closesTickets: ["imp-95659"],
 };
 
@@ -283,7 +282,7 @@ export const IMP95659_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /INTERIOR TABULATED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95659-closes-self",

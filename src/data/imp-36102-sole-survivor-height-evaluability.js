@@ -31,7 +31,7 @@
  * inverse. Instantiates NO interval, ports nothing, derives no remainder, changes no
  * bound. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED. The
  * baked logT0 30.021 and the ~294-decade margin are properties of the double-precision
- * height map, NOT RH quantities. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * height map, NOT RH quantities. NO QED. No refereed bound is changed.
  *
  * @see imp-36046-e-share-tail-landmarks-viz-data.js (source: the baked logT0 ~30.021 at N* ~4.7214e13)
  * @see imp-35971-etrunc-sole-survivor-height.js (source: the sole-survivor height N* ~4.7214e13)
@@ -144,7 +144,7 @@ export const IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY = {
     MARGIN_DECADES_TO_A_ZERO_CLIFF.toFixed(1) +
     ' decades BELOW the nearer imp-35972 overflow cliff, so the tail landmark never approaches it. ' +
     'imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-36046 (baked tail landmark logT0 ~30.021 at N* ~4.7214e13); imp-35971 (sole-survivor height); ' +
     'imp-35972 (twin overflow cliffs at log10 N ~307.4559 / ~307.4565); imp-36080 (analogous ~301.7-decade ' +
@@ -189,14 +189,14 @@ export const IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY_ASSERTIONS = [
       IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY.metric.evaluable_with_no_overflow === true,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp36102-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY.subGap) &&
       /NO QED/.test(IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY.verdict) &&
-      /remains SOTA/.test(IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY.verdict),
+      /refereed bound is changed/i.test(IMP36102_SOLE_SURVIVOR_HEIGHT_EVALUABILITY.verdict),
   },
 ];
 

@@ -68,7 +68,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486,
  * the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and enter only via the imp-124850 published ladder; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124850-pairratio-drift-slope-fit (the L2..L7 P = D*|E_CF| + R OLS drift fit certified here)
  * @see imp-124836-invariant-product-discriminator-general-test (the valid-vs-failure regime condition applied here)
@@ -217,7 +217,7 @@ export const IMP124873_DRIFT_FIT_REGIME_CERTIFICATION = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (enter only ' +
     'via the imp-124850 published ladder); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124850 (the L2..L7 P = D*|E_CF| + R OLS drift fit certified here); imp-124836 (the valid-vs-failure ' +
     'regime condition applied here); imp-124828 (the truncation-limited failure regime ruled out at double ' +
@@ -271,13 +271,13 @@ export const IMP124873_DRIFT_FIT_REGIME_CERTIFICATION_ASSERTIONS = [
     holds: () => ROUNDOFF_LIMITED && D_MIN > 1e-12 && D_MIN < 1e-10,
   },
   {
-    // Honesty gate: accuracy/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124873-honesty-gate-no-qed',
-    description: 'Accuracy/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124873_DRIFT_FIT_REGIME_CERTIFICATION.isRigorous === false &&
       /NO QED/.test(IMP124873_DRIFT_FIT_REGIME_CERTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP124873_DRIFT_FIT_REGIME_CERTIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP124873_DRIFT_FIT_REGIME_CERTIFICATION.verdict),
   },
 ];
 

@@ -22,7 +22,7 @@
  * visualizations-index.js for existing coverage.
  *
  * RESULT (audited 2026-07-09). All five modules carry isRigorous:false and the shared honest banner (no
- * QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and share the identical inherited
+ * QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed) and share the identical inherited
  * imp-3220/imp-3406 single-rate log-law surrogate, with the reentry band itself pinned by two
  * machine-precision constants (EPS_FP, PENULT) that have no continuum counterpart. All five have existing
  * glossary.js coverage (17/7/21/13/41 hits respectively); three of five (imp-34997, imp-35111, imp-35243)
@@ -130,7 +130,7 @@ export const IMP_35348_REENTRY_BAND_COHORT_PROVENANCE_ROLLUP = {
     'on the existing surrogate.',
   honestNote:
     'Read-only provenance roll-up; discharges nothing itself and imp-35243a stays OPEN. imp-3066 K_a >= 0 ' +
-    'positivity untouched across all catalogued modules. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'positivity untouched across all catalogued modules. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -172,11 +172,11 @@ const IMP_35348_ASSERTIONS = [
         r.modules.every((m) => m.isRigorous === false) &&
         /no QED/i.test(r.honestNote) &&
         /imp-3066/.test(r.honestNote) &&
-        /SOTA/.test(r.honestNote)
+        /refereed bound is changed/i.test(r.honestNote)
       );
     },
     why: 'Every catalogued resolved module must be isRigorous:false, and the roll-up itself must state ' +
-      'no-QED, imp-3066 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.',
+      'no-QED, imp-3066 untouched, and no refereed bound is changed.',
   },
   {
     id: 'imp35348-glossary-and-viz-coverage-counts-match',

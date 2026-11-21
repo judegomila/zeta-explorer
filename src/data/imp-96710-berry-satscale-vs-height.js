@@ -72,14 +72,14 @@
  *   The GUE-vs-empirical gap is confirmed a finite-height artefact (the accessible
  *   low-height zeros cannot corroborate the T -> infinity GUE rho the reach
  *   estimate uses), in the SAFE direction as imp-96695 already noted. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation (the finite-height claim this quantifies)
  * @see imp-96721-sigma2-emp-vs-gue-viz-data (the single-height Sigma2_emp-vs-GUE viz)
  * @see imp-96430-basis-c-corroboration-reach-crossover (the GUE rho model both check)
  *
  * Ticket: imp-96710 (numerical, medium). Measurement/derivation only; establishes
- * nothing; moves no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; moves no bound; NO QED; no refereed bound is changed.
  */
 
 // -- Provenance ----------------------------------------------------------------
@@ -150,7 +150,7 @@ export const IMP96710_BERRY_SATSCALE_VS_HEIGHT = Object.freeze({
     'rate: observed high-minus-low increment 0.0540 vs Berry (1/pi^2)*log(log ratio) ' +
     '= 0.0502. So Sigma2_emp saturates EARLIER at lower T, exactly as the Berry ' +
     'mechanism requires -- confirming imp-96695s finite-height attribution. Moves no ' +
-    'bound; instantiates no interval; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; instantiates no interval; NO QED. No refereed bound is changed.',
   citation:
     'imp-96695 (the finite-height claim quantified here); Berry 1988 semiclassical ' +
     'number variance of the Riemann zeros; Odlyzko zeros6 dataset; Dyson-Mehta ' +

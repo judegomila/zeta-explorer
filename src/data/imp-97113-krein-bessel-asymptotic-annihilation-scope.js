@@ -59,7 +59,7 @@
  * onto certified rational v0 components via the committed overlap matrix C (with interval enclosure) is NOT
  * executed; SUB-GAP IMP97100_PHASE_CANCELLATION_TRIAL stays open. Measurement / scoping only: produces no
  * interval majorant; Rayleigh floors stay UPPER bounds on the true lambda_min; establishes no operator
- * positivity; changes NO bound; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA;
+ * positivity; changes NO bound; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (SUB-GAP IMP97100_PHASE_CANCELLATION_TRIAL; measured g ~ t^-4)

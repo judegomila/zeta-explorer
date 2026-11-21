@@ -13,7 +13,7 @@
  *   @see imp-33312-tau-uniform-jitter-band.js (the height-collapsing band the envelope covers)
  *
  *   Ticket: imp-33572 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  */
 
 export const IMP33572_ENVELOPE_ULP = 10.779288696044262;

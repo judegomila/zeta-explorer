@@ -41,7 +41,7 @@ export const IMP95697_CAVEAT_BANNER =
   'float64 cancellation noise (lmin sits at the lmax*eps floor, cond ~5e15 ' +
   '> 1/eps), not a physical drop below the symbol infimum; model seam family ' +
   'only. Changes no bound of the Lambda program; no operator positivity ' +
-  'established; no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'established; no RH claim; no refereed bound is changed; NO QED.';
 
 // ---------------------------------------------------------------------------
 // imp-95833: float64-cancellation-floor caveat guard. Throws if any row with
@@ -72,7 +72,7 @@ export const IMP95697_ASSERTIONS = [
     holds: () =>
       /cancellation noise/.test(IMP95697_CAVEAT_BANNER) &&
       /NO QED/.test(IMP95697_CAVEAT_BANNER) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP95697_CAVEAT_BANNER),
+      /refereed bound is changed/i.test(IMP95697_CAVEAT_BANNER),
   },
 ];
 

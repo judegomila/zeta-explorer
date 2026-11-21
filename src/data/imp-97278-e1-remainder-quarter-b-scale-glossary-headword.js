@@ -43,7 +43,7 @@
  *
  *   STATUS: a scale-level glossary headword over an already-committed finding, not a new computation
  *   or a rigorous universal bound. No bound moved; the universal ceiling |E1(b)| <= b/4 stays
- *   MEASURED not proved (prime-class proof only); PT Lambda <= 0.2 remains SOTA; RH open. NO QED.
+ *   MEASURED not proved (prime-class proof only); no refereed bound is changed; RH open. NO QED.
  *
  * @see imp-97208-route-m-theorem2-tighter-remainder.js (source: the b/4 scale, the exact prime
  *   asymptotic, and the tighter C2star(b) constant this headword glosses)
@@ -53,7 +53,7 @@
  *   2^omega(b) b(log b + 2) whose over-count factor this headword names)
  *
  * Ticket: imp-97278 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The imp-97208 b/4 remainder-scale headword, baked verbatim (no re-import).
@@ -84,7 +84,7 @@ const E1_REMAINDER_QUARTER_B_SCALE_HEADWORD = Object.freeze({
     'b=1009). The universal bounds |E1(b)| <= C2star(b) and |E1(b)| <= b/4 are MEASURED (0 ' +
     'violations, b in [2,20000]), not proved for all b -- a full proof needs the mu-cancelling ' +
     'divisor-sum Euler-Maclaurin analysis imp-97202 already exploits on the smooth-b side. No new ' +
-    'numerical computation here. No bound moved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'numerical computation here. No bound moved; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD = Object.freeze({
@@ -105,7 +105,7 @@ export const IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD = Object.freeze({
     'Readers should not treat the scale of the old constant as informative about how E1(b) actually ' +
     'grows; the tighter C2star(b) = b/4 + 2^omega(b)(log b + 2) tracks it and saturates on primes. ' +
     'The universal ceiling |E1(b)| <= b/4 remains MEASURED, not proved, for all b; no bound is ' +
-    'claimed moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'claimed moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97208 (the b/4 scale, the exact prime asymptotic, and the tighter C2star(b) constant this ' +
     'headword glosses); imp-97158 (measured the ~40x Theorem-2 looseness the b/4 scale explains); ' +
@@ -134,11 +134,11 @@ export const IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97278-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD.verdict) &&
       IMP97278_E1_REMAINDER_QUARTER_B_SCALE_HEADWORD.glosses === 'imp-97208',
   },
 ];

@@ -56,8 +56,7 @@
  * on the RvM map, connecting the reentry-band fidelity question to the verified-height lever. It discharges
  * NOTHING: imp-35243a / imp-35174a / imp-35111a stay OPEN; R4 stays presently unreachable. MEASUREMENT ONLY on
  * the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED;
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (D2 count-axis gap; requirement R4)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T* Riemann-von Mangoldt inverse; zeroCountAtHeight)
@@ -143,7 +142,7 @@ export const IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET = {
     'Lambda lever (more verified zero height): imp-35243 R4 is presently UNREACHABLE by ~14-25 decades. ' +
     'MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; imp-35243a / imp-35174a / imp-35111a stay ' +
     'OPEN; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35243 (D2 count-axis gap and requirement R4); lambda-rh-height-mapping (effectiveHeightForN RvM ' +
     'inverse); imp-35111 (band edges); imp-34997 (locates the 10^27.08 reentry).',
@@ -189,15 +188,15 @@ export const IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET_ASSERTIONS = [
       Math.abs(COUNT_ORDINATE_WEDGE_EXIT - 0.5145) < 1e-2,
   },
   {
-    // Honesty gate: measurement only, discharges nothing, R4 unreachable, no QED, PT SOTA.
+    // Honesty gate: measurement only, discharges nothing, R4 unreachable, no QED, no refereed bound is changed.
     id: 'imp35307-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, R4 unreachable, imp-35243a OPEN, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, R4 unreachable, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET.isRigorous === false &&
       /UNREACHABLE/.test(IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET.reading) &&
       /imp-35243a/.test(IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET.verdict) &&
       /NO QED/.test(IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET.verdict) &&
-      /remains SOTA/.test(IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET.verdict),
+      /refereed bound is changed/i.test(IMP35307_REENTRY_BAND_VERIFIED_HEIGHT_TARGET.verdict),
   },
 ];
 

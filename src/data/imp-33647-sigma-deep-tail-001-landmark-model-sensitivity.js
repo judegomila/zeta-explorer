@@ -60,8 +60,7 @@
  * SENSITIVITY / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The
  * inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33606-sigma-postpeak-threshold-model-sensitivity (the 0.9/0.5/0.1 swap extended here)
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (added the sigma<0.01 landmark N~4.62e13)
@@ -204,7 +203,7 @@ export const IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY = {
     'deep-tail landmark is the MOST model-robust of the four, not the least. The inherited ' +
     'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33606 (0.9/0.5/0.1 landmark swap extended here); imp-33620 (added sigma<0.01 landmark ' +
     'N~4.62e13); imp-33582 (shallow landmark baseline); imp-3463 (far-tail leading form, the swap ' +
@@ -252,12 +251,12 @@ export const IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY_ASSERTIONS 
   {
     // Honesty gate: sensitivity/measurement only, swap preserves the imp-3463 leading form, no QED.
     id: 'imp33647-honesty-gate-no-qed',
-    description: 'Sensitivity only: not rigorous, imp-3463 leading form preserved, no QED, PT stays SOTA',
+    description: 'Sensitivity only: not rigorous, imp-3463 leading form preserved, no QED, no refereed bound is changed',
     holds: () =>
       IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY.isRigorous === false &&
       /imp-3463/.test(IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY.swapFamily.invariant) &&
       /NO QED/.test(IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33647_SIGMA_DEEP_TAIL_001_LANDMARK_MODEL_SENSITIVITY.verdict),
   },
 ];
 

@@ -22,7 +22,7 @@
  *   Ticket: imp-34516 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Component model is the inherited imp-3220/imp-3406 extrapolation,
  *   NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- the 1%/3%/8% degradation ladder, baked verbatim from imp-34468's LEAK_1_3_8_LADDER export --

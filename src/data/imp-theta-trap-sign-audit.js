@@ -108,7 +108,7 @@ export const THETA_TRAP_SIGN_AUDIT = {
   },
   whatWouldHelp: 'A rigorous LOWER bound t_c >= L would give Lambda <= -L + E(N); A1 supplies an UPPER bound, the opposite direction.',
   consequence:
-    'Route-selection is Picture A (A1 bounds the right object) but the headline gains nothing; Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA. Do NOT re-mine A1 as a Lambda-tightening step.',
+    'Route-selection is Picture A (A1 bounds the right object) but the headline gains nothing; no refereed bound is changed. Do NOT re-mine A1 as a Lambda-tightening step.',
 };
 
 export const THETA_TRAP_SIGN_AUDIT_ASSERTIONS = [
@@ -167,7 +167,7 @@ export const THETA_TRAP_SIGN_AUDIT_ASSERTIONS = [
   },
   {
     id: 'theta-trap-verdict-negative-certified',
-    description: 'Audit records a NEGATIVE-CERTIFIED verdict consistent with the linchpin resolution (Picture A route-selection, NEGATIVE headline, Platt-Trudgian remains SOTA) and names a LOWER bound as what would actually help',
+    description: 'Audit records a NEGATIVE-CERTIFIED verdict consistent with the linchpin resolution (Picture A route-selection, NEGATIVE headline, no refereed bound is changed) and names a LOWER bound as what would actually help',
     holds: () =>
       THETA_TRAP_SIGN_AUDIT.verdict === 'NEGATIVE-CERTIFIED' &&
       /LOWER bound/.test(THETA_TRAP_SIGN_AUDIT.whatWouldHelp) &&

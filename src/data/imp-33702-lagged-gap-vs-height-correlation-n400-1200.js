@@ -64,7 +64,7 @@
  *   at lag +/-1, no off-by-one coupling -- not the exact r / rho / R^2. The NPHI = 10 Phi-series truncation
  *   is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33682-gap-vs-height-correlation-n400-1200.js (the EXACT-rung baseline this lags)
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the sixteen peak HEIGHTS this lags)
@@ -370,7 +370,7 @@ export const IMP33702_LAGGED_GAP_VS_HEIGHT_CORRELATION = Object.freeze({
     'exact-rung reading missed. VERDICT: LAGGED-GAP-AND-HEIGHT-STILL-INDEPENDENT-NO-OFF-BY-ONE-COUPLING -- ' +
     'unlike imp-33686, the gap and height sequences stay independent arithmetic-floor phenomena at lag +/-1. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; small sample; jittery ' +
-    'lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -474,7 +474,7 @@ export const IMP33702_LAGGED_GAP_VS_HEIGHT_CORRELATION = Object.freeze({
       'and cross-platform libm exp/pow variation can shift the exact peak rungs, gaps, and heights, and hence ' +
       'every lagged correlation coefficient. The robust reading is the QUALITATIVE conclusion -- negligible ' +
       'correlation at lag +/-1, no off-by-one coupling -- not the exact r / rho / R^2.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -535,7 +535,7 @@ export const IMP33702_LAGGED_GAP_VS_HEIGHT_CORRELATION_ASSERTIONS = [
   {
     id: 'imp33702-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33702_LAGGED_GAP_VS_HEIGHT_CORRELATION.honestCaveat;
       return (
@@ -544,7 +544,7 @@ export const IMP33702_LAGGED_GAP_VS_HEIGHT_CORRELATION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

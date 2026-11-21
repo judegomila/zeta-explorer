@@ -62,7 +62,7 @@
  * the reversal.) Establishes NO
  * RH-level result, NO operator positivity, and changes NO bound. The C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. No RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34957-crossover-deriv-p11-p12-extension (the P_11/P_12 triangle being identified)
  * @see imp-34974-crossover-boundary-projection-recurrence-derivation (the "Cayley-type" row sum n^(n-1))
@@ -249,7 +249,7 @@ export const IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION = {
     '127941538 for n=2..12. This is an IDENTIFICATION of a combinatorial triangle attached to the ' +
     'INHERITED surrogate-map derivatives ONLY: the C_mb GUE-conditional per imp-486, the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator ' +
-    'positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34957 (P_11/P_12 triangle extension); imp-34974 ("Cayley-type" row sum n^(n-1), subleading ' +
     '(n-1)(n-1)!); imp-34922 (boundary closed forms (n-1)! and (2n-3)!!); imp-33723 (crossover map ' +
@@ -303,15 +303,15 @@ export const IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION_ASSERTIONS = [
       IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION.identificationPasses,
   },
   {
-    // Honesty gate: identification scope only, changes no bound, no QED, PT stays SOTA.
+    // Honesty gate: identification scope only, changes no bound, no QED, no refereed bound is changed.
     id: 'imp35068-honesty-gate-no-qed',
     description:
       'identification scope is the surrogate-map triangle combinatorics only: changes no bound, no ' +
-      'QED, Platt-Trudgian stays SOTA',
+      'QED, no refereed bound is changed',
     holds: () =>
       IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION.changesBound === false &&
       /NO QED/.test(IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION.verdict) &&
       /surrogate/.test(IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION.rigorousScope),
   },
 ];

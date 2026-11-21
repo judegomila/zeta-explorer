@@ -72,7 +72,7 @@
  * bound; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5
  * (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll
  * far-tail exponent 1/2 per imp-3463; no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35594-peak-crossover-mechanism-derivation (Derivation 1, the ~5 percent gap decomposed here)
  * @see imp-35458-crossover-height-map-sensitivity (the measured shift -0.983 percent and damping ~18x)
@@ -236,7 +236,7 @@ export const IMP35636_CROSSOVER_DAMPING_RESIDUAL_GAP_DECOMPOSITION = {
     'true fidelity) stays OPEN; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and E_trunc = ' +
     '3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
     'exponent 1/2 per imp-3463; discharges nothing; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35594 (Derivation 1, the ~5 percent gap decomposed here); imp-35458 (measured crossover shift ' +
     '-0.983 percent, damping ~18x); imp-35632 (crossover damping ~ log T0 ladder); imp-35413/imp-35280 ' +
@@ -293,13 +293,13 @@ export const IMP35636_CROSSOVER_DAMPING_RESIDUAL_GAP_DECOMPOSITION_ASSERTIONS = 
       Math.abs(DAMP_2ND - DAMP_MEASURED) < 0.2,
   },
   {
-    // Honesty gate: analysis only, no QED, PT stays SOTA.
+    // Honesty gate: analysis only, no QED, no refereed bound is changed.
     id: 'imp35636-honesty-gate-no-qed',
-    description: 'Analysis only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Analysis only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35636_CROSSOVER_DAMPING_RESIDUAL_GAP_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP35636_CROSSOVER_DAMPING_RESIDUAL_GAP_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP35636_CROSSOVER_DAMPING_RESIDUAL_GAP_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP35636_CROSSOVER_DAMPING_RESIDUAL_GAP_DECOMPOSITION.verdict),
   },
 ];
 

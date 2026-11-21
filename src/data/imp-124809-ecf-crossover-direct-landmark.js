@@ -50,7 +50,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only symbolically as differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124769-ecf-stencil-noise-floor-crossover (the interpolated crossover pin this leaf evaluates directly)
  * @see imp-97821-diag3-sixth-landmark-crossvalidation (L6 non-monotone eps-ladder reported qualitatively)
@@ -220,7 +220,7 @@ export const IMP124809_ECF_CROSSOVER_DIRECT_LANDMARK = {
     'a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (appear only symbolically as ' +
     'differentiation axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124769 (interpolated E_CF stencil crossover, |E_CF|_crit ~1.4e-6 / sigma_crit ~0.013); imp-97821 (L6 ' +
     'non-monotone eps-ladder); imp-97710 (L5 clean O(eps^2) quartering); imp-97665 (EXACT pair-ratio ' +
@@ -273,13 +273,13 @@ export const IMP124809_ECF_CROSSOVER_DIRECT_LANDMARK_ASSERTIONS = [
       ROUNDOFF_FLOOR < 8e-13,
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124809-honesty-gate-no-qed',
-    description: 'Measurement/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124809_ECF_CROSSOVER_DIRECT_LANDMARK.isRigorous === false &&
       /NO QED/.test(IMP124809_ECF_CROSSOVER_DIRECT_LANDMARK.verdict) &&
-      /remains SOTA/.test(IMP124809_ECF_CROSSOVER_DIRECT_LANDMARK.verdict),
+      /refereed bound is changed/i.test(IMP124809_ECF_CROSSOVER_DIRECT_LANDMARK.verdict),
   },
 ];
 

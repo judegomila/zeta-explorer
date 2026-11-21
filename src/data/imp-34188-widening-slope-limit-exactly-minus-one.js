@@ -71,7 +71,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate and the exponential-approach form are
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34129-widening-slope-drift-convergence-fit (the kEnd=18 exp-approach fit b_inf ~ -1.014 and R3 local-slope ~-0.98 reconciled here)
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (the buildLadder/fitLadder model reused verbatim)
@@ -369,8 +369,8 @@ export const IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE = {
     'verdict is untouched. The OLS surrogate and the exponential-approach form are descriptive, not ' +
     'derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34129 (the kEnd=18 exp-approach fit b_inf ~ -1.014 and R3 local-slope ~-0.98 reconciled here); ' +
     'imp-33877 (the buildLadder/fitLadder model reused verbatim); imp-33843 (the log-linear OLS whose ' +
@@ -432,15 +432,15 @@ export const IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE_ASSERTIONS = [
   },
   {
     // Honesty gate: indistinguishable-from-(-1) but NOT proven exactly -1; isRigorous false, no QED,
-    // K_a >= 0 untouched, PT SOTA.
+    // K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34188-honesty-gate-no-qed',
-    description: 'indistinguishable from -1 but not proven exact; isRigorous false, no QED, K_a>=0 untouched, PT SOTA',
+    description: 'indistinguishable from -1 but not proven exact; isRigorous false, no QED, K_a>=0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.bInfIndistinguishableFromMinusOne === true &&
       IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.bInfProvenExactlyMinusOne === false &&
       IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.isRigorous === false &&
       /NO QED/.test(IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.verdict) &&
-      /remains SOTA/.test(IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.verdict) &&
+      /refereed bound is changed/i.test(IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34188_WIDENING_SLOPE_LIMIT_EXACTLY_MINUS_ONE.verdict),
   },
 ];

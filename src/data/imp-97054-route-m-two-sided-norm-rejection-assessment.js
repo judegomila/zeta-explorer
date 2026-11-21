@@ -11,7 +11,7 @@
  * rungs. FINDING: the sharpening is the analytically-CORRECT route (the LOWER half of a two-sided
  * bound is exactly what rejects a concave turnover, and it transfers rung-free through the already
  * two-sided imp-96708 H2 sandwich), but it does NOT close here, for two reasons the parent tickets
- * elide. No bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * elide. No bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-96750: Int(N) = interior Frobenius second moment = ||G_int(N)||_F^2 (the sum of
  * squared interior Vasyunin-Gram entries); the "one-sided interior norm asymptotic" is the UPPER
@@ -105,7 +105,7 @@
  * the rejection-relevant LOWER companion Q(b) >= s0_lo b - O(1) is an unestablished lower bound on the
  * Bettin-Conrey cotangent second moment, with term-splitting even more hopeless downward. No improved
  * rigorous ceiling posted; the trace ceiling T ~ 2.594e7 stays the rigorous anchor; compute (N~9916)
- * binds first regardless. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * binds first regardless. No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97054-lower-companion-cotangent-second-moment -- the Omega(b) lower
  * companion Q(b) >= s0_lo b - O(1) with an absolute s0_lo > 0.
@@ -211,7 +211,7 @@ export const IMP97054_VERDICT = Object.freeze({
     'even the upper half is not in hand; (2) OBSTRUCTION -- the rejection-relevant LOWER companion ' +
     'Q(b)>=s0_lo b - O(1) is an unestablished lower bound on the Bettin-Conrey cotangent second moment, ' +
     'with term-splitting even more hopeless downward. No rigorous ceiling posted; T~2.594e7 stays the ' +
-    'anchor; compute N~9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; compute N~9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97054_SUBGAP = Object.freeze({
@@ -229,7 +229,7 @@ export const IMP97054_SUBGAP = Object.freeze({
 });
 
 export const IMP97054_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + direction analysis only: no bound ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + direction analysis only: no bound ' +
   'moved and no O(N^3) rung computed. Two findings the parent tickets elide -- (1) imp-96750 is a ' +
   'reduction+obstruction, not the "PROVEN" one-sided asymptotic imp-97016/imp-97033 cite ' +
   '(oneSidedBoundProved=false); (2) the UPPER half imp-96750 targets is the WRONG side for a concave ' +
@@ -287,7 +287,7 @@ const IMP97054_ASSERTIONS = [
       IMP97054_VERDICT.transfersRungFree === true &&
       IMP97054_VERDICT.lowerCompanionEstablished === false &&
       /NO QED/.test(IMP97054_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97054_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97054_HONEST_BANNER) &&
       /RH open/.test(IMP97054_HONEST_BANNER) &&
       /lower-companion-cotangent-second-moment/.test(IMP97054_SUBGAP.id),
     why: 'assessment only: the sharpening is the correct rung-free route but does NOT close (premise wrong + lower companion unestablished); no bound moved, no rigorous ceiling posted, honesty markers and the named residual sub-gap present.',

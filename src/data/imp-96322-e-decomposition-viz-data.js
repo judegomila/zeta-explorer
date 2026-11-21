@@ -15,7 +15,7 @@
  * changes no bound, asserts no operator positivity. The conditional anchor
  * (C_H <= 0.127) is UNPROVEN (imp-2642/imp-2701: C_H isRigorousUpperBound =
  * false); this leaf must never present it as proven. RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-96290-step4-bridge-subconstant-inventory.js (inventory, source of every literal)
  *
@@ -75,7 +75,7 @@ export function formatCHFactorValue(value) {
 }
 
 export const IMP96322_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every E_trunc/E_flow/E_coll/E(N) '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every E_trunc/E_flow/E_coll/E(N) '
   + 'magnitude and every C_shock/C_H value is copied verbatim from the imp-96290 baked inventory; only the '
   + 'log-scale bar layout is computed here (no re-derivation). The conditional anchor (C_H <= 0.127) is '
   + 'UNPROVEN -- C_H isRigorousUpperBound = false (imp-2642/imp-2701) -- and C_Lip, the one unquantified '

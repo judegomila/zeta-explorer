@@ -33,7 +33,7 @@ export const IMP35775_S_FRONTIER_COHORT_IMPORT_LIGHT_VERIFICATION = {
     IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.id,
     IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.id,
   ],
-  verdict: 'all six cohort modules import cleanly, stay import-light (8.3KB-37KB bundled, no zeros-bundle in the transitive closure), and their self-executing assertions pass. Verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all six cohort modules import cleanly, stay import-light (8.3KB-37KB bundled, no zeros-bundle in the transitive closure), and their self-executing assertions pass. Verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35721', 'imp-35722', 'imp-35724', 'imp-35725', 'imp-35726', 'imp-35727'];

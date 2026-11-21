@@ -46,7 +46,7 @@
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (top-window s0 ~ 1.751)
  *
  * Ticket: imp-96903 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The s0 normalisation discrepancy headword, baked verbatim (no re-import).
@@ -76,7 +76,7 @@ const S0_NORMALISATION_DISCREPANCY_HEADWORD = Object.freeze({
     'cites imp-96770 STEP 3 and the imp-96750 top-window means verbatim. Naming / ' +
     'bookkeeping headword only; resolves no new interval; establishes no operator or ' +
     'zero-side result; does not determine which of 0.76 or 1.751 is the correct sharp s0; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,8 +95,8 @@ export const IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD = Object.fr
     'window s0 ~ 1.751) differ by a factor ~2.30, and imp-96796 left the discrepancy ' +
     'unresolved because its own above-bracket verdict (envelope constant 5 K^2 ~ 7.94 ' +
     'dominates both cited values) is robust to it either way. No bound moved; which value ' +
-    '(if either) is the correct sharp s0 remains open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '(if either) is the correct sharp s0 remains open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96796 (the IMP96796_DISCREPANCY field this glosses and the robust above-bracket ' +
     'verdict); imp-96770 (STEP 3 inline s0 ~ 0.76); imp-96750 (top-window s0 ~ 1.751).',
@@ -122,12 +122,11 @@ export const IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp96903-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, discrepancy left open, no QED, PT ' +
-      'SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, discrepancy left open, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD.verdict) &&
       /remains open/.test(IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD.verdict) &&
       IMP96903_S0_NORMALISATION_DISCREPANCY_GLOSSARY_HEADWORD.glosses === 'imp-96796',
   },

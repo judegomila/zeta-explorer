@@ -86,7 +86,7 @@
  *
  *   STATUS: a grouping/index note over seven already-completed tickets, not a new derivation. No bound
  *   changes: interval-rigorous certified reach stays 2a<=0.96; MCM onset stays omega=11; RH open;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-97673-gap-law-decay-subgap-precision-limited-honest-status.js (residual-decay sub-gap honest status, already resolved by imp-97659)
  * @see imp-97675-omega10-cap-robustness-glossary-headword.js (omega=10 cap-robustness headword)
@@ -98,7 +98,7 @@
  * @see imp-97674-late-frontier-leaves-cohort-index-2.js (predecessor meta index: imp-97640..97647)
  *
  * Ticket: imp-97768 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the interval-rigorous certified reach
@@ -215,8 +215,8 @@ export const IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3 = Object.freeze({
     'inversion. The presentation leaf (imp-97746) charts the cap-scaling fit verbatim with the jitter ' +
     'caveat cross-referenced. No bound moves in any group: interval-rigorous certified reach stays ' +
     'EXACTLY 2a<=0.96, MCM stays verified-not-proved with onset unchanged at omega=11, and the ' +
-    'imp-97736 dps=42 rung stays an infeasible standing sub-gap. RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'imp-97736 dps=42 rung stays an infeasible standing sub-gap. RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97673 (residual-decay sub-gap honest status, resolved by imp-97659); imp-97675 (omega=10 cap-' +
     'robustness headword); imp-97736 (SNR-threshold gap reconciled as cap-metric jitter); imp-97742 ' +
@@ -279,13 +279,13 @@ export const IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3_ASSERTIONS = [
   },
   {
     id: 'imp97768-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.anyBoundMoved === false &&
       IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.certifiedReach === 0.96 &&
       IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.certifiedReach < IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.ln3 &&
       /NO QED/.test(IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict) &&
-      /remains SOTA/.test(IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict) &&
+      /refereed bound is changed/i.test(IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict) &&
       /2a<=0\.96/.test(IMP97768_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict),
   },
 ];

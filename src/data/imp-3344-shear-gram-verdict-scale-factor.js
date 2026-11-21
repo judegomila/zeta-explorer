@@ -69,7 +69,7 @@
  *
  *   Assessment / accuracy-diagnostic only; the structural min-eig / (-||Gshear||) = 1
  *   identity is already exact (imp-3252); RH-EQUIVALENT; no positivity, no reduction,
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Ticket: imp-3344 (accuracy, medium).
+ *   NO QED; no refereed bound is changed. Ticket: imp-3344 (accuracy, medium).
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -260,7 +260,7 @@ export const IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR = Object.freeze({
       'The min-eig / (-||Gshear||) = 1 identity is already exact (imp-3252) and convention-independent; only the ' +
       'absolute magnitude was mis-normalized, and the correct operator norm is the converged ~1.896e-4.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -304,7 +304,7 @@ export const IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR_ASSERTIONS = [
   {
     id: 'imp3344-honest-assessment-no-qed',
     why: 'Mandatory honesty: ACCURACY reconciliation only -- not a proof, not a reduction below RH, RH-equivalent, ' +
-         'positivity not attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'positivity not attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR.honestCaveat;
       return (
@@ -312,7 +312,7 @@ export const IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

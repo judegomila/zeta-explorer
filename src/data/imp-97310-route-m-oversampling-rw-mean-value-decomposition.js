@@ -6,7 +6,7 @@
  * inverse-line mean square M2w = Rw * Mbar can be certified below the squared target kappa_arith^2 = 0.32546.
  * Rw is NOT rigorously bounded here. What IS established: an exact per-modulus mean-value decomposition of Rw
  * with a rigorous b-average identity (the b-mean of Rw equals 1 exactly), and a REFUTATION of the trivial
- * per-modulus worst-case bounding route. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * per-modulus worst-case bounding route. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97285 / imp-97271 / imp-97203).
@@ -69,7 +69,7 @@
  * a b-mean pinned to 1. MEASURED (not proved): the trivial per-modulus ceiling C_a = max_h c_0^2 / E_h[c_0^2]
  * grows unboundedly (~ a^0.38), refuting the trivial-max bounding route. OPEN: a uniform (pointwise-in-b)
  * bound Rw <= ~2.5 -- it requires an anti-concentration/equidistribution transfer that the exact in-mean
- * identity (Result 2) does NOT by itself supply. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * identity (Result 2) does NOT by itself supply. No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97285-route-m-offdiag-oversampling-factorization.js (parent: M2w = Rw * Mbar, Rw the sole open scalar)
  * @see imp-97271-route-m-inverse-oversampling-ladder-extended.js (OVR ~1.254 plateau to b=64001)
@@ -209,11 +209,11 @@ export const IMP97310_VERDICT = Object.freeze({
     'small-denominator residues. A uniform Rw bound thus needs a genuine ANTI-CONCENTRATION / ' +
     'equidistribution transfer (the inverse residues h_a avoid the C_a-attaining residues on the a-weighted ' +
     'average), which the in-mean identity does not by itself supply. Rw and M2w stay MEASURED. No bound on ' +
-    'Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97310_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + partial only: the imp-97285 open scalar ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + partial only: the imp-97285 open scalar ' +
   'Rw = X/Xbar is NOT rigorously bounded. Established rigorously: the exact convex decomposition ' +
   'Rw = Sum_a w_a r_a (weights sum to 1) and the exact per-modulus b-average identity E_b[r_a] = 1 (inversion ' +
   'bijection), so Rw fluctuates about a b-mean pinned to 1 -- equidistribution in mean is exact. REFUTED: the ' +
@@ -301,7 +301,7 @@ const IMP97310_ASSERTIONS = [
       /anticoncentration-pointwise-transfer/.test(IMP97310_SUBGAP.id) &&
       /pointwise/.test(IMP97310_SUBGAP.statement) &&
       /NO QED/.test(IMP97310_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97310_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97310_HONEST_BANNER) &&
       /RH open/.test(IMP97310_HONEST_BANNER),
     why: 'derivation + partial: Rw is not certified; two rigorous structural facts (convex decomposition, in-mean identity) are established and the trivial-max bounding route is refuted, with no bound moved -- honesty markers and the named residual sub-gap present.',
   },

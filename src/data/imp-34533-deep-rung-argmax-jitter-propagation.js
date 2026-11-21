@@ -63,7 +63,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive,
  * not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643)
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34508-direct-e23-e24-margin-confirmation (source of the F4 e=24 argmax jitter this extends)
  * @see imp-34524-continuum-margin-below-ulp-floor (source of the continuum vertex k* and 4x-per-rung bound)
@@ -200,7 +200,7 @@ export const IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34508 (source of the F4 e=24 argmax jitter extended here); imp-34524 (source of the continuum ' +
     'vertex k* and 4x-per-rung margin bound); imp-34411 (source of the doubling-map operator); imp-486 ' +
@@ -227,14 +227,14 @@ export const IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION_ASSERTIONS = [
     holds: () => DEEP_RUNG_UNRESOLVABLE && RESID_ULP === Math.pow(2, -56),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, names the sub-gap, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, names the sub-gap, no QED, no refereed bound is changed.
     id: 'imp34533-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, answers the jitter-vs-lock question (continuum never locks but unobservable past e=24), names SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
+    description: 'Measurement only: isRigorous false, answers the jitter-vs-lock question (continuum never locks but unobservable past e=24), names SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
     holds: () =>
       IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.isRigorous === false &&
       /SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated/.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict) &&
       /NO QED/.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict) &&
-      /remains SOTA/.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34533_DEEP_RUNG_ARGMAX_JITTER_PROPAGATION.verdict),

@@ -89,8 +89,7 @@
  * to the sign-specification; it does NOT supply that specification. (c) The
  * numerical witness is a cross-check of the lemma, not the proof. Import-light
  * (no zeros bundle, no sibling imports); self-executing assertions THROW on
- * violation. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * violation. Changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95255-currency-per-window-map-assessment.js (LEG 2 theta obstruction, width-law port)
  * @see imp-95375-theta-range-geometry-image.js (theta range imaged, sign-reachable)
@@ -204,7 +203,7 @@ export const IMP95879_POSITIVE_CONE_TRIVIALITY = {
     "width-law port (c=1.7,v=2.3): variable-POSITIVE-amplitude theta = 1 (to 1e-9) at G(2,4) and G(3,8) confirming (A); a global x7.3 rescale of a signed pattern reproduces its theta (0.042591 / 0.017937) to 1e-9 confirming degree-0 (B); a per-window modulus renorm of the signed pattern moves theta (0.134758 / 0.016658) but never crosses 1.",
   constants: { portC: PORT_C, portV: PORT_V },
   verdict:
-    "ASSESSMENT / DERIVATION (honest, negative at the transcription layer): admitting a non-fixed-amplitude window family or an alternative modulus normalization does NOT give theta a nontrivial image; the triviality on the transcribed positive-cone family is intrinsic to positivity (exact positive-cone triviality theorem), so the signed-weight transcription stays gated on the per-window sign specification the geometry+modulus map drops. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT / DERIVATION (honest, negative at the transcription layer): admitting a non-fixed-amplitude window family or an alternative modulus normalization does NOT give theta a nontrivial image; the triviality on the transcribed positive-cone family is intrinsic to positivity (exact positive-cone triviality theorem), so the signed-weight transcription stays gated on the per-window sign specification the geometry+modulus map drops. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "the positive-cone triviality lemma is EXACT for the strictly-positive packet model (triangle inequality + strict positivity of the packets); the numerical rows are a Simpson-quadrature cross-check of the lemma, not the proof. Changes no bound; NO QED.",
 };
@@ -298,12 +297,12 @@ export const IMP95879_ASSERTIONS = [
   {
     id: "imp95879-verdict-honesty",
     description:
-      "the verdict carries the honest negative-at-transcription framing: non-fixed family does NOT help, triviality intrinsic to positivity, sign the sole lever, assessment-only (no bound), NO QED, SOTA preserved",
+      "the verdict carries the honest negative-at-transcription framing: non-fixed family does NOT help, triviality intrinsic to positivity, sign the sole lever, assessment-only (no bound), NO QED, no refereed bound is changed",
     holds: () =>
       /does NOT give theta a nontrivial image/.test(IMP95879_POSITIVE_CONE_TRIVIALITY.verdict) &&
       /intrinsic to positivity/.test(IMP95879_POSITIVE_CONE_TRIVIALITY.verdict) &&
       /NO QED/.test(IMP95879_POSITIVE_CONE_TRIVIALITY.verdict) &&
-      /remains\s+SOTA/.test(IMP95879_POSITIVE_CONE_TRIVIALITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95879_POSITIVE_CONE_TRIVIALITY.verdict) &&
       /sign-specification/.test(IMP95879_POSITIVE_CONE_TRIVIALITY.conclusion),
   },
 ];

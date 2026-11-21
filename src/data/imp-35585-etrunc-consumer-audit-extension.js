@@ -38,7 +38,7 @@
  *
  * AUDIT ONLY. No re-derivation of E_trunc; changes no bound; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35505-etrunc-consumer-audit (the named-five-module audit this extends)
  * @see imp-35419-etrunc-barrier-lemma-porting-scope (canonical: 3.06e-5 is a count artifact)
@@ -88,7 +88,7 @@ export default Object.freeze({
     'a FIXED barrier-lemma artifact, never as a tightenable Lambda lever -- extending the ' +
     'imp-35505 zero-violations verdict beyond its five named modules. No re-derivation; ' +
     'changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator positivity; ' +
-    'no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35505 (named-five-module audit this extends); imp-35419 (canonical: E_trunc is a ' +
     'count artifact); imp-35458 (cohort, FIXED-FLOOR, CLEAN); imp-35459 (cohort, canonical ' +
@@ -118,9 +118,9 @@ export const IMP35585_ETRUNC_CONSUMER_AUDIT_EXTENSION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: audit only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: audit only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35585-honesty-gate-no-derivation-change',
-    description: 'audit only: isRigorous false, no QED, PT stays SOTA',
+    description: 'audit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35585_ETRUNC_CONSUMER_AUDIT_EXTENSION.every(
         (c) => typeof c.basis === 'string' && c.basis.length > 0,

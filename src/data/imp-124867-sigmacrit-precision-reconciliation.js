@@ -58,7 +58,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only symbolically as differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124769-ecf-stencil-noise-floor-crossover (the double-precision sigma_crit ~ 0.013 pin)
  * @see imp-124802-ecf-noise-floor-crossover-glossary-headword (the glossary headword carrying ~0.013)
@@ -181,8 +181,8 @@ export const IMP124867_SIGMACRIT_PRECISION_RECONCILIATION = {
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the ' +
     'imp-398 C_F prefactor are UNTOUCHED (appear only symbolically as differentiation axes); changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124769 (double-precision sigma_crit ~ 0.013 pin); imp-124802 (glossary headword carrying ~0.013); ' +
     'imp-124810 (the R_inf~4.46e-13 double-precision floor); imp-124849 (dps-invariant sigma_crit = 0.020385 ' +
@@ -240,13 +240,13 @@ export const IMP124867_SIGMACRIT_PRECISION_RECONCILIATION_ASSERTIONS = [
       /0\.013/.test(IMP124867_SIGMACRIT_PRECISION_RECONCILIATION.citationGuidance),
   },
   {
-    // Honesty gate: reconciliation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: reconciliation/measurement only, no QED, no refereed bound is changed.
     id: 'imp124867-honesty-gate-no-qed',
-    description: 'Reconciliation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Reconciliation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124867_SIGMACRIT_PRECISION_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP124867_SIGMACRIT_PRECISION_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP124867_SIGMACRIT_PRECISION_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP124867_SIGMACRIT_PRECISION_RECONCILIATION.verdict),
   },
 ];
 

@@ -148,8 +148,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are
  * not the claim. Import-light (no heavy bundle). Changes no bound; does
- * NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -459,7 +458,7 @@ export const IMP95008_MULTIRATE_WITNESS_FLOOR = {
     "Theorem R is an elementary exact integral (three-piece split) plus the verbatim floor assembly of Theorems K and L, whose hypotheses are per-packet MAJ membership only; Lemma S is calculus on the closed-form kernel (series expansion cross-checked against the exact common-rate algebra). The baked floors are exact witness evaluations at baked literals with exact correlations and exact per-packet Lemma V legality, in the sharp currency of continuations ten and eleven; the witnesses come from a numerical optimizer and optimality is NOT claimed. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step executing the one untested witness generalization (per-packet rates): NEW Theorem R extends the floor currency to multi-rate witnesses with the exact cross-rate kernel K(a, b, tau) = 2(b e^(-a tau) - a e^(-b tau))/(b^2 - a^2), and NEW Lemma S proves the cross-coupling decays at the SLOWER partner rate - rate-locking forced one rate to serve three conflicting roles, and the closed-form gradient at the ninth witness (components above 0.048, sum 5.1e-8) shows the penalty is first order. Baked multi-rate witnesses: HEADLINE spacing theta = 10 far bracket closes [0.025882, 4] (gap 154.55) -> [0.092871808411129783, 4] (gap 43.070120722669579), a 3.588x closure - the strongest witness-side step of the chain; fixed-97 theta = 10 gap closes 10.6x; both theta = 2 gaps close ~1.26x. The twelfth-continuation theta = 10 saturation verdict is scoped, not contradicted: it was a rate-locked statement. Witness optimality is NOT claimed; floors are exact baked evaluations. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step executing the one untested witness generalization (per-packet rates): NEW Theorem R extends the floor currency to multi-rate witnesses with the exact cross-rate kernel K(a, b, tau) = 2(b e^(-a tau) - a e^(-b tau))/(b^2 - a^2), and NEW Lemma S proves the cross-coupling decays at the SLOWER partner rate - rate-locking forced one rate to serve three conflicting roles, and the closed-form gradient at the ninth witness (components above 0.048, sum 5.1e-8) shows the penalty is first order. Baked multi-rate witnesses: HEADLINE spacing theta = 10 far bracket closes [0.025882, 4] (gap 154.55) -> [0.092871808411129783, 4] (gap 43.070120722669579), a 3.588x closure - the strongest witness-side step of the chain; fixed-97 theta = 10 gap closes 10.6x; both theta = 2 gaps close ~1.26x. The twelfth-continuation theta = 10 saturation verdict is scoped, not contradicted: it was a rate-locked statement. Witness optimality is NOT claimed; floors are exact baked evaluations. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -676,12 +675,12 @@ export const IMP95008_MR_ASSERTIONS = [
   {
     id: "imp95008-mr-honesty-gate",
     description:
-      "the verdict records the headline closure, the scoped (not contradicted) twelfth saturation verdict, the optimizer provenance of witnesses, the still-open residuals, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the headline closure, the scoped (not contradicted) twelfth saturation verdict, the optimizer provenance of witnesses, the still-open residuals, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_MULTIRATE_WITNESS_FLOOR.promotesBound === false &&
       IMP95008_MULTIRATE_WITNESS_FLOOR.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_MULTIRATE_WITNESS_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_MULTIRATE_WITNESS_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_MULTIRATE_WITNESS_FLOOR.verdict) &&
       /optimality is NOT claimed/.test(IMP95008_MULTIRATE_WITNESS_FLOOR.verdict) &&
       /scoped, not contradicted/.test(IMP95008_MULTIRATE_WITNESS_FLOOR.verdict) &&
       /SLOWER partner rate/.test(IMP95008_MULTIRATE_WITNESS_FLOOR.verdict) &&

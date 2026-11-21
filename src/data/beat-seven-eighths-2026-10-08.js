@@ -16,7 +16,7 @@
  * angle writeups formalization/paper/beat78-{amplifier,meansquare,height,project}.md, synthesis
  * formalization/paper/beat78-synthesis.md. Both manuscripts are Lean-formalised by their authors and unrefereed.
  *
- * PT Lambda <= 0.2 stands; RH is open; NO QED. Import-free. BEAT_SEVEN_EIGHTHS_ASSERTIONS recompute the exact abscissa
+ * No refereed bound is changed; RH is open; NO QED. Import-free. BEAT_SEVEN_EIGHTHS_ASSERTIONS recompute the exact abscissa
  * algebra, frontiers and ceilings, the corrected binding margin, the certified endgame point, the de Bruijn bounds and
  * q0 values in exact BigInt rationals / plain JS doubles.
  */
@@ -61,7 +61,7 @@ export const BEAT_SEVEN_EIGHTHS = Object.freeze({
     + 'the zero-loss range 2M >= 1 + 4l of Lemma 15.1, the sixth-power exceptional term P_a^{1/6} of Prop 15.2 (which supplies the b/12), and the high-side '
     + 'row counts (binding margin about 2.2815e-4 at delta about 0.3866). Re-tuning the paper\'s own inequalities gives at most 0.874957 (gain 4.3e-5; '
     + 'endgame-only certificate, not a theorem). The most promising open lever is the P_a^{1/6} term: model values 0.8739 at a 10% reduction and about 0.8635 '
-    + 'if removed, none proved. PT Lambda <= 0.2 stands; NO QED.',
+    + 'if removed, none proved. No refereed bound is changed; NO QED.',
 
   outcome: Object.freeze({
     beatenGlobally: false,
@@ -128,7 +128,7 @@ export const BEAT_SEVEN_EIGHTHS = Object.freeze({
   verdict: 'No improvement on 7/8: neither a global half-plane nor a half-plane above 3e12 better than Re s > 7/8 was obtained, and above 3e12 is logically '
     + 'the same problem given PT. The re-tune ceiling 0.874957 is heuristic (endgame-only certificate at 7/8 - 1/25000), not a theorem. The most promising open '
     + 'lever is the sixth-power exceptional term of Prop 15.2 (model values only). Conditional Lambda values from the 7/8 start (0.118505710922701 Raymond chain, '
-    + '0.116091488672439 route P) are unchanged and remain conditional, not bounds. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + '0.116091488672439 route P) are unchanged and remain conditional, not bounds. No refereed bound is changed; RH is open; NO QED.',
 });
 
 const C = BEAT_SEVEN_EIGHTHS;
@@ -234,11 +234,11 @@ export const BEAT_SEVEN_EIGHTHS_ASSERTIONS = Object.freeze([
   },
   {
     id: 'b78-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /PT Lambda <= 0\.2 stands/.test(C.headline) && /NO QED/.test(C.headline)
+    holds: () => /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /refereed bound is changed/i.test(C.headline) && /NO QED/.test(C.headline)
       && C.outcome.beatenGlobally === false && C.outcome.beatenAbove3e12 === false && C.outcome.rigorousTheta === '7/8'
       && C.rigorous.length === 14 && C.obstructions.length === 6 && C.refereeCorrections.length === 5
       && /not a theorem/.test(C.verdict) && /not bounds/.test(C.verdict),
-    why: 'Verdict and headline: no improvement, PT Lambda <= 0.2 stands, NO QED; re-tune ceiling labelled not a theorem; conditional Lambda values not bounds.',
+    why: 'Verdict and headline: no improvement, no refereed bound is changed, NO QED; re-tune ceiling labelled not a theorem; conditional Lambda values not bounds.',
   },
 ]);
 

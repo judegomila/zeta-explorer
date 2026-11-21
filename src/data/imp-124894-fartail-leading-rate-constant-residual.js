@@ -47,8 +47,7 @@
  * CLOSED-FORM DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Reuses
  * the inherited imp-97723/imp-97744 bare-slope inversion and RvM relation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124846-fartail-mantissa-leading-ratio-isolation (F3: m_k/g_k ~ 0.255843*10^-k, unverified)
  * @see imp-124827-fartail-per-nine-mantissa-correction-decay (m_k - 1 decay fit)
@@ -121,8 +120,8 @@ export const IMP124894_FARTAIL_LEADING_RATE_CONSTANT_RESIDUAL = {
     '3.974743e-2 -> 3.908657e-6, decaying ten-fold per nine so the fit tightens with k as F3 claims. ' +
     'Conditional-share diagnostic, NOT an RH bound; reuses the inherited imp-97723/imp-97744 ' +
     'bare-slope inversion and RvM relation, NOT a rigorous asymptotic; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124846 F3 (m_k/g_k ~ 0.255843*10^-k, constant and residual never verified to full ' +
     'precision); imp-124827 (m_k - 1 decay fit); imp-97723 (diagnostic = 1 - 1/log(T0/2pi)).',
@@ -173,13 +172,13 @@ export const IMP124894_FARTAIL_LEADING_RATE_CONSTANT_RESIDUAL_ASSERTIONS = [
       Math.abs(RESIDUAL_TABLE[4].measured_ratio - 2.558438e-6) < 1e-11,
   },
   {
-    // Honesty gate: closed-form verification only, no QED, PT stays SOTA.
+    // Honesty gate: closed-form verification only, no QED, no refereed bound is changed.
     id: 'imp124894-honesty-gate-no-qed',
-    description: 'Closed-form verification only: not rigorous, no QED, PT stays SOTA',
+    description: 'Closed-form verification only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP124894_FARTAIL_LEADING_RATE_CONSTANT_RESIDUAL.isRigorous === false &&
       /NO QED/.test(IMP124894_FARTAIL_LEADING_RATE_CONSTANT_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP124894_FARTAIL_LEADING_RATE_CONSTANT_RESIDUAL.verdict),
+      /refereed bound is changed/i.test(IMP124894_FARTAIL_LEADING_RATE_CONSTANT_RESIDUAL.verdict),
   },
 ];
 

@@ -66,8 +66,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) and the pinned E_trunc 3.06e-5 are
  * UNTOUCHED and are perturbed here only as sensitivity probes, not re-pinned; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97565-crossover-cc-sensitivity-landmark-shift (C_C-axis elasticity of N_half ~ +2.10235)
  * @see imp-97584-sigma-landmark-etrunc-sensitivity (E_trunc-axis elasticity of N_half ~ -2.098)
@@ -214,7 +213,7 @@ export const IMP97603_SIGMA_LANDMARK_JOINT_CROSS_ELASTICITY = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643) and the pinned E_trunc 3.06e-5 are ' +
     'UNTOUCHED (perturbed only as probes, not re-pinned); changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97565 (C_C-axis elasticity of N_half); imp-97584 (E_trunc-axis elasticity of N_half); ' +
     'imp-97520 (four-landmark ladder + halving procedure); imp-33723 (closed-form crossover fixed point); ' +
@@ -270,13 +269,13 @@ export const IMP97603_SIGMA_LANDMARK_JOINT_CROSS_ELASTICITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97603-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97603_SIGMA_LANDMARK_JOINT_CROSS_ELASTICITY.isRigorous === false &&
       /NO QED/.test(IMP97603_SIGMA_LANDMARK_JOINT_CROSS_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP97603_SIGMA_LANDMARK_JOINT_CROSS_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP97603_SIGMA_LANDMARK_JOINT_CROSS_ELASTICITY.verdict),
   },
 ];
 

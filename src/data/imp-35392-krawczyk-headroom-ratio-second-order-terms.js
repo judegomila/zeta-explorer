@@ -54,7 +54,7 @@
  * imp-35241/imp-34996 machinery (identical K, delta, N_cross, band, headroom form). The imp-34714a machine
  * certificate REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched;
- * establishes no operator positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * establishes no operator positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35374-krawczyk-headroom-ratio-correction (exact closed form -dFP/dG = 2(aLo/a)(1-a)/(1-aLo))
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (2:1 cancellation, -dFP/dG ~ 2.00042 reported N-flat)
@@ -236,7 +236,7 @@ export const IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS = {
     'surrogate; reproduces the imp-35266/imp-35374/imp-35241/imp-34996 machinery (identical K, delta, N_cross, ' +
     'band); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35374 (exact closed form -dFP/dG = 2(aLo/a)(1-a)/(1-aLo); lift off 2 = 2(da/a)/(1-aLo)); imp-35266 (2:1 ' +
     'cancellation, -dFP/dG ~ 2.00042; a^2-terms hypothesis); imp-35241 (band-top S ~ 2555.18); imp-34996 ' +
@@ -281,15 +281,15 @@ export const IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS_ASSERTIONS = [
       Math.abs(BAND_TOP_R.devLeading - BAND_TOP_R.devExact) < 1e-7,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35392-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS.isRigorous === false &&
       /imp-34714a/.test(IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS.subGap) &&
       /REMAINS OPEN/.test(IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS.subGap) &&
       /NO QED/.test(IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS.verdict) &&
-      /remains SOTA/.test(IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS.verdict),
+      /refereed bound is changed/i.test(IMP35392_KRAWCZYK_HEADROOM_RATIO_SECOND_ORDER_TERMS.verdict),
   },
 ];
 

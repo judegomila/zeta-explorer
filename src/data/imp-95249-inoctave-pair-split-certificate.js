@@ -6,7 +6,7 @@
  * residuals of the imp-95226 signed cross-octave leg (the in-octave
  * multiplicity hybrid; measured BROKEN for the raw Blaschke-Lagrange
  * bound in imp-95232 FINDING 3). Twenty-fourth leg of the seam chain.
- * Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 normalization). Distinct rates nu_1 < ... < nu_N > 0,
  * depth d > 0, E_V = span{e^(-nu t)} in L2(0, inf), Cauchy Gram
@@ -197,7 +197,7 @@ export const IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE = {
     "COROLLARY IN-OCT is their instantiation with all constants closed " +
     "form. The in-octave residual is ADVANCED (single-pair case fenced " +
     "coalescence-uniformly), NOT closed. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -550,14 +550,14 @@ export const IMP95249_ASSERTIONS = [
     id: "imp95249-verdict-honesty",
     description:
       "the verdict and scope carry the honest labels: RIGOROUS theorems, " +
-      "residual ADVANCED not closed, no bound change, no QED, PT SOTA, " +
+      "residual ADVANCED not closed, no bound change, no QED, no refereed bound is changed, " +
       "and the multi-block obstruction is named OPEN",
     holds: () =>
       /RIGOROUS/.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.verdict) &&
       /ADVANCED/.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.verdict) &&
       /Changes no bound/.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.verdict) &&
       /NO QED/.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.verdict) &&
+      /refereed bound is changed/i.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.verdict) &&
       /stays OPEN/.test(IMP95249_INOCTAVE_PAIR_SPLIT_CERTIFICATE.honestScope),
   },
 ];

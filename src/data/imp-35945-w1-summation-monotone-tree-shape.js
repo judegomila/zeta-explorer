@@ -23,7 +23,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED at N = 488602 on t_k = 1/sqrt(k) (condition number ~1.0; balanced base block 128):
  *   shape          depth    pairwise err   err / log2(N)*eps ceiling   err / (depth*eps)
@@ -63,7 +63,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35893) --------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -311,8 +311,8 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE = {
     'worst-case tree shape; the obstruction stays the ENGINEERING of the certified length-N interval sum ' +
     '(MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies ' +
     'no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays ' +
-    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35893 (tree-SHAPE stress on the cancellation-heavy multiset, complemented here); imp-35852 ' +
     '(term-ORDER stress); imp-35812 (fixed term family + balanced pairwise baseline); imp-35761 (pairwise ' +
@@ -376,9 +376,9 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE_ASSERTIONS = [
       SHAPES.every((r) => r.pairwiseNormErr < NAIVE_ORIGINAL_NORM_ERR),
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35945-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -390,7 +390,7 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE.verdict) &&
-      /remains SOTA/.test(IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE.verdict),
+      /refereed bound is changed/i.test(IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE.verdict),
   },
 ];
 

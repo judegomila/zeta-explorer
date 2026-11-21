@@ -134,8 +134,8 @@
  *  - The W_1-channel C_Lip verdicts (RH-HARD-CONFIRMED) are NOT overturned,
  *    weakened, or bypassed IN THAT CHANNEL; this module claims nothing about
  *    an N-uniform C_Lip constant over all configurations.
- *  - NO new Lambda bound is claimed. Platt-Trudgian Lambda <= 0.2 REMAINS the
- *    rigorous SOTA. NO QED.
+ *  - NO new Lambda bound is claimed. No refereed bound is changed
+ *    . NO QED.
  *
  * @see imp-3725-fmb-plateau-domination-lemma (the eps' = 0 parent; rows cross-pinned)
  * @see ch-wall-frontier-verdict-2026-06-26 / econn-metric-rearchitecture-verdict-2026-06-30
@@ -155,7 +155,7 @@
 // unchanged, so tLo is identical); Psi/theta/tHi/width/epsMax/cFieldSlope shift
 // by <~1e-4 rel. Certification is UNAFFECTED (all 10 plateaus certify at
 // thetaBar = 0.99, minEpsMax 22.92). Anchor-choice correction only; NO Lambda
-// consequence; PT Lambda <= 0.2 stands; NO QED.
+// consequence; no refereed bound is changed; NO QED.
 const THETA_BAR = 0.99;
 const EPS_GRID = Object.freeze([0, 0.25, 1, 4, 10, 20]);
 
@@ -263,7 +263,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP = {
     'Rigorous lemma + certified per-plateau table; NOT a Lambda bound. The W_1-channel C_Lip verdicts '
     + '(RH-HARD-CONFIRMED) are untouched — this module claims no N-uniform C_Lip constant over configurations. '
     + 'The true-flow eps\'-certificate and the bracket re-architecture are OPEN named sub-gaps; E_trunc/E_flow '
-    + 'stay ansatz. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.',
+    + 'stay ansatz. No refereed bound is changed. NO false QED.',
   rigorousBeat: false,
 };
 
@@ -427,7 +427,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
       && /impossibility proofs\s+stand untouched/.test(EPS_FIELD_ROBUST_BOOTSTRAP.verdict.replace(/\s+/g, ' '))
       && EPS_FIELD_ROBUST_BOOTSTRAP.openSubGaps.every((s) => s.status === 'open')
       && EPS_FIELD_ROBUST_BOOTSTRAP.rigorousBeat === false
-      && /Lambda <= 0.2 REMAINS the rigorous SOTA/.test(EPS_FIELD_ROBUST_BOOTSTRAP.honest)
+      && /refereed bound is changed/i.test(EPS_FIELD_ROBUST_BOOTSTRAP.honest)
       && /NO false QED/.test(EPS_FIELD_ROBUST_BOOTSTRAP.honest),
   },
   {

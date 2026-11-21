@@ -34,7 +34,7 @@
  * import and does NOT import the ~16.7MB zeros bundle. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95660-cf-multiplier-wedge-closure (the bisected cf* ~ 0.83891 this cross-checks)
  * @see imp-95658-eflow-inversion-contour-surface-viz-data (the baked WITH_FLOW / E_flow=0 surfaces)
@@ -170,8 +170,8 @@ export const IMP95679_CF_STAR_CROSSCHECK = {
     'cf* is decided separately by imp-95674 (OUTSIDE the honest C_F band; wedge FORECLOSED) and is not ' +
     'touched here. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95660 (bisected cf* ~ 0.83891, cross-checked here); imp-95658 (baked WITH_FLOW / E_flow=0 ' +
     'surfaces and contours); imp-95674 (C_F provenance band; separately forecloses cf*); imp-95617 ' +
@@ -208,13 +208,13 @@ export const IMP95679_CF_STAR_CROSSCHECK_ASSERTIONS = [
       CONTOUR_TOP_AT_CF1 > CONTOUR_TOP_AT_STAR,
   },
   {
-    // Honesty gate: cross-check/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: cross-check/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95679-honesty-gate-no-qed',
-    description: 'cross-check/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'cross-check/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95679_CF_STAR_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP95679_CF_STAR_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP95679_CF_STAR_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP95679_CF_STAR_CROSSCHECK.verdict),
   },
 ];
 

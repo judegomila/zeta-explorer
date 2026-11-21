@@ -7,7 +7,7 @@
  * tracked delta-uniform statement with its Rayleigh-quotient derivation, and
  * assesses the scope of the uniform-in-delta claim across the imp-95693 rho-sweep.
  * Import-light (no heavy bundle, no imports). Assessment/derivation only; changes
- * NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO bound; NO QED; no refereed bound is changed.
  *
  * WHY THIS EXISTS. imp-95846 completed the two-sided envelope
  *     ess-inf f = A_opt(delta) <= lambda_min(G_n) <= lambda_max(G_n) <= ess-sup f = f(0)
@@ -85,7 +85,7 @@
  * upper companion at every delta down to ln 1.2. (c) The off-line (rho != 1) matrix
  * -symbol envelope is only sketched, not formalized; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95825-finite-section-positivity-certificate (lower companion, verified)
  * @see imp-95846-finite-section-upper-companion-bound (upper companion, verified)
@@ -185,7 +185,7 @@ export const IMP95862_DELTA_UNIFORM_TWO_SIDED_ENVELOPE_STATEMENT = {
     "consistent with the imp-95693 rho-monotone lower floor. Formalization only; adds " +
     "no cited input and no bound; the off-line matrix envelope, imp-95212 envelope " +
     "port, signed WEIGHT and modulus/phase legs stay OPEN. Changes no bound of the " +
-    "Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95862"],
 };
 
@@ -397,7 +397,7 @@ export const IMP95862_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /FORMALIZED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95862-closes-self",

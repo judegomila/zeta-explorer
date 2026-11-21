@@ -105,8 +105,7 @@
  * 47/200 carried UNCHANGED. Float discipline: double arithmetic with
  * conservative inflation nudges (1e-9 relative) and Cholesky pivot
  * tolerance 1e-12; every asserted margin is >= 5e-3, at least 6 orders
- * above the nudges. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * above the nudges. Changes no bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~3 s.
  */
@@ -423,7 +422,7 @@ export const IMP95155_JET_PHANTOM_CERTIFIED_CELL = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

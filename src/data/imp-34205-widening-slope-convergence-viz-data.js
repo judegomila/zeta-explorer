@@ -71,7 +71,7 @@ export const IMP34205_CAVEAT_BANNER =
   `plateauing near ${IMP34205_LIMIT_MARKERS.localSlopeMean.toFixed(3)}. Measurement/convergence-fit ` +
   'only on the inherited imp-33810/imp-33877 component model, NOT a rigorous asymptotic; the ' +
   'imp-33843 log-linear form verdict is untouched; isRigorous false, NO QED; imp-3066 K_a >= 0 ' +
-  'untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'untouched; no refereed bound is changed.';
 
 export const IMP34205_WIDENING_SLOPE_CONVERGENCE_VIZ_DATA_ASSERTIONS = [
   {
@@ -104,11 +104,11 @@ export const IMP34205_WIDENING_SLOPE_CONVERGENCE_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp34205-honesty-gate-no-qed',
-    description: 'caveat banner states convergence-fit only, no QED, PT SOTA',
+    description: 'caveat banner states convergence-fit only, no QED, no refereed bound is changed',
     holds: () =>
       /HONEST STATUS/.test(IMP34205_CAVEAT_BANNER) &&
       /NO QED/.test(IMP34205_CAVEAT_BANNER) &&
-      /remains SOTA/.test(IMP34205_CAVEAT_BANNER),
+      /refereed bound is changed/i.test(IMP34205_CAVEAT_BANNER),
   },
 ];
 

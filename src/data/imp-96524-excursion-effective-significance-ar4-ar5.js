@@ -66,7 +66,7 @@
  * sum_{k>=1} rho_k -> -1/2 (the sine process is hyperuniform, compressibility 0, so VIF -> 0 and
  * f -> infinity). This ramp is the optimistic direction and does not lower any bound: the conservative
  * z_cons = 1.9234 floor is unchanged and remains a strict lower bound. Measurement only; changes no
- * bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * @see imp-96509-excursion-effective-significance-ar2 (the AR-1/2/3 ladder this extends)
@@ -223,7 +223,7 @@ export const IMP96524_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR4_AR5 = {
   caveat:
     'rho_2..rho_5 are the theoretical sine-process (GUE, universality) box autocorrelations at the rho_1-calibrated L, not the empirical adjacent-box covariance of the actual Riemann zeros (which would need the zeros bundle). Because rho_1 is large the higher-AR factors are sensitive to the exact tail, so the >6-sigma AR-4/AR-5 figures are indicative, not precise; the robust takeaways are the DIRECTION (each added negative lag raises n_eff/z_eff), the SIGN safety (all negative), and the NON-saturation driven by the exact hyperuniform identity sum rho_k = -1/2. Measurement only; changes no bound; the headline ~1.9-sigma floor is untouched.',
   verdict:
-    'Extending the imp-96509 AR ladder to AR-4/AR-5 gives n_eff = 3099.76/4038.15 and z_eff = 6.2776/7.1651; both fits are stationary (root moduli 0.6574/0.6966 < 1) and the safe-direction monotonicity persists. The sequence does NOT saturate to a finite limit -- it diverges, because sum_{k>=1} rho_k -> -1/2 (the sine process is hyperuniform, compressibility 0, so VIF -> 0 and f -> infinity). This ramp is the optimistic direction and does not lower any bound: the conservative z_cons = 1.9234 floor is unchanged and remains a strict lower bound. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Extending the imp-96509 AR ladder to AR-4/AR-5 gives n_eff = 3099.76/4038.15 and z_eff = 6.2776/7.1651; both fits are stationary (root moduli 0.6574/0.6966 < 1) and the safe-direction monotonicity persists. The sequence does NOT saturate to a finite limit -- it diverges, because sum_{k>=1} rho_k -> -1/2 (the sine process is hyperuniform, compressibility 0, so VIF -> 0 and f -> infinity). This ramp is the optimistic direction and does not lower any bound: the conservative z_cons = 1.9234 floor is unchanged and remains a strict lower bound. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only; import-light) ---
@@ -258,8 +258,8 @@ export const IMP96524_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR4_AR5 = {
   // honesty gates
   if (!/NO QED/.test(IMP96524_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR4_AR5.verdict))
     throw new Error('imp-96524: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96524_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR4_AR5.verdict))
-    throw new Error('imp-96524: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96524_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR4_AR5.verdict))
+    throw new Error('imp-96524: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96524_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR4_AR5;

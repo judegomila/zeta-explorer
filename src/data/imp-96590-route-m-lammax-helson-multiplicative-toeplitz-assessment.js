@@ -103,7 +103,7 @@
  * leading-constant theorem for weighted GCD sums, which is not available; classical
  * additive Szego (imp-96562), mean-field proxies (imp-96586), and Helson compact/bounded
  * asymptotics (this ticket) all miss it. Changes no bound; no operator positivity;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (rules out additive Szego; frames the Bohr-lift kernel)
  * @see imp-96586-route-m-lammax-meanfield-cesaro-proxy.js (rules out mean-field / rank-one proxies)
@@ -215,7 +215,7 @@ export const IMP96590_VERDICT = Object.freeze({
     'intermediate log-divergent Vasyunin kernel. Sharpens IMP96562_SUBGAP: 0.3526 is the leading ' +
     'log-constant of a critical, I-weighted GCD-Gram spectral-edge problem, reachable only by a ' +
     'Gal / Bondarenko-Seip-type leading-constant theorem for weighted GCD sums, not available. ' +
-    'Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96590_SUBGAP = Object.freeze({
@@ -230,7 +230,7 @@ export const IMP96590_SUBGAP = Object.freeze({
 });
 
 export const IMP96590_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Structural assessment only: the kernel-class ' +
+  'RH open; no refereed bound is changed; NO QED. Structural assessment only: the kernel-class ' +
   'analysis and the Helson / GCD-sum literature mapping establish no bound and no operator ' +
   'positivity; the only computation is a re-derivation of the imp-96562 measured lam_max slope ' +
   '0.3526 for internal consistency. No canonical multiplicative-matrix framework predicts it.';
@@ -274,7 +274,7 @@ const IMP96590_ASSERTIONS = [
     holds: () =>
       IMP96590_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96590_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96590_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96590_HONEST_BANNER) &&
       /RH open/.test(IMP96590_HONEST_BANNER) &&
       /weighted-gcd-sum-leading-constant/.test(IMP96590_SUBGAP.id),
     why: 'assessment only: no bound moved, honesty markers present, and the sharpened weighted-GCD-sum leading-constant sub-gap is recorded.',

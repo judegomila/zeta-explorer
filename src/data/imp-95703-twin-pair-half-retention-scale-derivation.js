@@ -15,7 +15,7 @@
  * IDENTICAL machinery to imp-95659 / imp-95693 (normalized seam Gram
  * Gtilde_ij = sech((x_i - x_j)/2), twin-pair lattice of nPairs = 40 pairs,
  * in-pair gap delta, cross-pair gap D, F = lambda_min). Changes NO Lambda bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * THE MECHANISM.
  *   The isolated 2x2 in-pair block [[1, s],[s, 1]] with s = sech(delta/2) has
@@ -83,7 +83,7 @@
  * chain-end (finite-size band-edge) effect, and quantifies the gap between the
  * derived symbol and the finite section. (d) Model seam family only; the imp-95212
  * envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO
- * bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95693-twin-pair-block-floor-second-delta (the tabulated D_cross this derives)
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the single-delta interior tabulation)
@@ -138,7 +138,7 @@ export const IMP95703_TWIN_PAIR_HALF_RETENTION_SCALE = {
     "delta-stability (a 3.8x delta change moves a log by only ~0.4). Derivation of " +
     "an established constant; no new cited input. Model seam family only; imp-95212 " +
     "envelope port, signed WEIGHT, modulus/phase legs stay OPEN. Changes no bound of " +
-    "the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95703"],
 };
 
@@ -345,7 +345,7 @@ export const IMP95703_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /DERIVED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95703-closes-self",

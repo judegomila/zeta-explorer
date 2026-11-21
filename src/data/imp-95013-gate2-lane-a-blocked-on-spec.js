@@ -44,7 +44,7 @@
  * imp-95012 frozen spec; (b) the exact list of missing arithmetic inputs; and
  * (c) a named sub-gap. It runs NO scan, emits NO E97 measurement, and makes no
  * surrogate substitution. Changes no bound; closes no gap; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import {
@@ -127,7 +127,7 @@ export const IMP95013_GATE2_LANE_A_BLOCKED = Object.freeze({
   isRigorous: false,
   promotesBound: false,
   verdict:
-    'BLOCKED-ON-SPEC (the ticket-named failure mode, not a work-around): the native Lane-A E97/C_E,17 scanner cannot be built and anchor-gated in this repo because the arithmetic evaluator inputs (compute_exact_N, sB(x), the carrier c_n(x), the window/seam family) and the reference C file are absent -- only the imp-95012 structural spec is present. This module pins the mandatory anchor gate and the exact missing inputs and names the sub-gap; it runs no scan, emits no E97 measurement, and makes no surrogate substitution. Changes no bound; closes no gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'BLOCKED-ON-SPEC (the ticket-named failure mode, not a work-around): the native Lane-A E97/C_E,17 scanner cannot be built and anchor-gated in this repo because the arithmetic evaluator inputs (compute_exact_N, sB(x), the carrier c_n(x), the window/seam family) and the reference C file are absent -- only the imp-95012 structural spec is present. This module pins the mandatory anchor gate and the exact missing inputs and names the sub-gap; it runs no scan, emits no E97 measurement, and makes no surrogate substitution. Changes no bound; closes no gap; NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ───────────
@@ -173,13 +173,13 @@ export const IMP95013_GATE2_LANE_A_BLOCKED_ASSERTIONS = [
   },
   {
     id: 'imp95013-honesty-gate-no-qed',
-    description: 'promotes no bound, names the sub-gap, NO QED, PT stays SOTA',
+    description: 'promotes no bound, names the sub-gap, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95013_GATE2_LANE_A_BLOCKED.promotesBound === false &&
       IMP95013_GATE2_LANE_A_BLOCKED.isRigorous === false &&
       IMP95013_GATE2_LANE_A_BLOCKED.namedSubGap === 'imp-95013-sub-native-evaluator-spec' &&
       /NO QED/.test(IMP95013_GATE2_LANE_A_BLOCKED.verdict) &&
-      /remains SOTA/.test(IMP95013_GATE2_LANE_A_BLOCKED.verdict),
+      /refereed bound is changed/i.test(IMP95013_GATE2_LANE_A_BLOCKED.verdict),
   },
 ];
 

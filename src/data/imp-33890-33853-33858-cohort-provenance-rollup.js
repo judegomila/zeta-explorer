@@ -3,7 +3,7 @@
  * @fileoverview imp-33890 -- META provenance roll-up cataloguing the NEWER imp-33853/imp-33854/
  * imp-33855/imp-33856/imp-33857/imp-33858 + imp-28895 fit-derivation-crossvalidation cohort (seven
  * modules) by EVIDENCE CLASS and confirming each carries the mandatory honest banner: isRigorous:false,
- * NO QED, imp-3066 K_a>=0 untouched, and Platt-Trudgian Lambda<=0.2 SOTA, mirroring the imp-33872
+ * NO QED, imp-3066 K_a>=0 untouched, and no refereed bound is changed, mirroring the imp-33872
  * roll-up of the imp-33843/imp-33844/imp-33845 cohort (imp-33268/imp-33287/imp-33307/imp-33551/
  * imp-33574/imp-33593/imp-33693/imp-33719/imp-33784/imp-33824/imp-33872 audit precedent).
  *
@@ -23,7 +23,7 @@
  *   - "residual localization": tabulates the PER-RUNG signed residual of an existing aggregate fit and
  *     characterizes its shape (autocorrelation, sign-flip count) without changing the fit's verdict.
  * The honest-banner check greps each module for isRigorous:false, NO QED, imp-3066 K_a>=0 untouched,
- * and Platt-Trudgian Lambda<=0.2 SOTA, plus an explicit grep for "G6a" to flag any Polymath15 bridge
+ * and no refereed bound is changed, plus an explicit grep for "G6a" to flag any Polymath15 bridge
  * touch.
  *
  * RESULT (audited 2026-07-05). All seven modules carry the full honest banner. Exactly ONE
@@ -58,7 +58,7 @@ export const IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP = {
     'headers and isRigorous/verdict fields; classify by evidence class (closed-form derivation / ' +
     'closed-form reconciliation / monotonicity-ordering derivation / discrete-residual law-fit / ' +
     'cross-validation / residual localization); grep for the mandatory honest-banner phrases ' +
-    '(isRigorous false, NO QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) plus a ' +
+    '(isRigorous false, NO QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed) plus a ' +
     'G6a grep to flag any Polymath15 bridge touch; check glossary.js and src/pages for surfacing.',
   modules: [
     {
@@ -159,7 +159,7 @@ export const IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP = {
     'imp-33843/33844/33845 cohort.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module itself. ' +
-    'imp-3066 K_a >= 0 positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'imp-3066 K_a >= 0 positivity untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -194,7 +194,7 @@ const IMP_33890_ASSERTIONS = [
       ) && IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 7,
     why:
       'Every module in the cohort must state isRigorous:false, NO QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33890-exactly-one-bridge-touching-module',
@@ -233,11 +233,11 @@ const IMP_33890_ASSERTIONS = [
   {
     id: 'imp33890-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33890_33853_33858_COHORT_PROVENANCE_ROLLUP.honestNote),
     why:
-      'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA ' +
+      'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed ' +
       'and imp-3066 stays untouched.',
   },
 ];

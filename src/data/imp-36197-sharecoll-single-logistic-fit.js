@@ -41,7 +41,7 @@
  *   Ticket: imp-36197 (numerical, opus-4-8, api-pool). Measurement only; no
  *   re-derivation of the surrogate; C_C = (1/8) sqrt(3 pi) GUE-conditional
  *   (imp-2642/imp-2643/imp-486) untouched; imp-35337a stays OPEN; changes no bound;
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED; no refereed bound is changed.
  *
  * @see imp-36111-e-share-tail-storyline-crossref (the five-landmark combinedSequence this fits)
  * @see imp-36179-sharecoll-decay-crossvalidation (independent direct recomputation of the same shares)
@@ -155,7 +155,7 @@ export const IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT = Object.freeze({
     'slope stays within ~4% (-1.0695 -> -1.1111, a slow monotone steepening), which is the imp-33582 ' +
     'running-exponent signature of one arm, not a structural break. This QUANTIFIES the imp-36111 ' +
     'single-decaying-arm claim. Measurement only; changes no bound; imp-35337a stays OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 
   honestCaveat: Object.freeze({
     isProof: false,
@@ -163,7 +163,7 @@ export const IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT = Object.freeze({
     dischargesAnyObligation: false,
     portsAnyRoute: false,
     reDerivesSurrogate: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -221,7 +221,7 @@ export const IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT_ASSERTIONS = [
       IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT.honestCaveat.portsAnyRoute === false &&
       IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT.honestCaveat.changesAnyBound === false &&
       /NO QED/.test(IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT.verdict) &&
-      /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT.verdict),
+      /refereed bound is changed/i.test(IMP36197_SHARECOLL_SINGLE_LOGISTIC_FIT.verdict),
   },
 ];
 

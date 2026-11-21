@@ -68,7 +68,7 @@
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
  *   changes: kappa_arith=0.5705 remains the proved arithmetic-leaf floor, kappa~0.696 stays measured for
- *   the full first moment; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   the full first moment; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith derivation, prior to cohort)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (explicit remainder, F_arith lower bound)
@@ -79,7 +79,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97200 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const GAMMA = 0.5772156649015329;
@@ -153,8 +153,8 @@ export const IMP97200_ROUTE_M_ARITH_FIRST_MOMENT_POSITIVITY_COHORT_INDEX = Objec
     'the gap is exactly the positive cotangent leaf and not a shortfall. Together these four form the ' +
     'ARITHMETIC-LEAF-PROVED family: complete on its own terms, with three named residuals left open (a ' +
     'uniform O(1/b) remainder, a uniform sign-law non-cancellation certificate, and the cotangent leafs ' +
-    'own lower bound). Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'own lower bound). Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97133 (explicit remainder); imp-97159 (positivity crossover); imp-97167 (sign-law derivation); ' +
     'imp-97168 (kappa_arith vs kappa reconciliation).',
@@ -203,10 +203,10 @@ export const IMP97200_ROUTE_M_ARITH_FIRST_MOMENT_POSITIVITY_COHORT_INDEX_ASSERTI
   },
   {
     id: 'imp97200-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97200_ROUTE_M_ARITH_FIRST_MOMENT_POSITIVITY_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97200_ROUTE_M_ARITH_FIRST_MOMENT_POSITIVITY_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97200_ROUTE_M_ARITH_FIRST_MOMENT_POSITIVITY_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97200_ROUTE_M_ARITH_FIRST_MOMENT_POSITIVITY_COHORT_INDEX.verdict),
   },
 ];

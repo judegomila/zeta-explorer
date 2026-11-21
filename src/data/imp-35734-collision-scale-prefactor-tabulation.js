@@ -46,7 +46,7 @@
  * discharges nothing; changes no bound; establishes no operator positivity;
  * C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5
  * (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays
- * OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35696-collision-exponent-consistency-check (gave the prefactor RATIO 2.047; never tabulated the absolute (3/c)^{1/3} nor the s_min gap)
  * @see imp-35680-constant-mismatch-magnitude (measured the amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573)
@@ -59,7 +59,7 @@
 import { IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK } from './imp-35696-collision-exponent-consistency-check.js';
 import { IMP35680_CONSTANT_MISMATCH_MAGNITUDE } from './imp-35680-constant-mismatch-magnitude.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any tabulation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any tabulation here)
 
 // Short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752
@@ -153,7 +153,7 @@ export const IMP35734_COLLISION_SCALE_PREFACTOR_TABULATION = {
     'multiplicative O(1) offset decoupled from the shared -1/3 exponent. Confirms imp-35696 quantitatively; derives ' +
     'no remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; ' +
-    'imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35696 (gave the prefactor ratio 2.047; never tabulated the absolute (3/c)^{1/3} nor the s_min gap done ' +
     'here); imp-35680 (measured the amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573); imp-35695 (reciprocal floor ' +
@@ -240,7 +240,7 @@ export const IMP35734_COLLISION_SCALE_PREFACTOR_TABULATION_ASSERTIONS = [
     },
   },
   {
-    // (6) honesty gate: tabulation only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: tabulation only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35734-tabulation-only-no-qed',
     description: 'prefactor tabulation only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -253,7 +253,7 @@ export const IMP35734_COLLISION_SCALE_PREFACTOR_TABULATION_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

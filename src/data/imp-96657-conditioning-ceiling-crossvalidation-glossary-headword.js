@@ -41,7 +41,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96570 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96570-route-m-conditioning-ceiling-crossvalidation.js (source: the cross-check this glosses)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (rigorous lower ceiling 2.59e7)
@@ -49,7 +49,7 @@
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (lam_min power law, exponent p=1.9179)
  *
  * Ticket: imp-96657 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The cross-validation headword, baked verbatim (no re-import).
@@ -87,8 +87,8 @@ const CONDITIONING_CEILING_CROSSVALIDATION_HEADWORD = Object.freeze({
     'Accuracy cross-check (validates the composition step of an existing ceiling), not ' +
     'a new measurement and not a rigorous derivation. Both the composed and the ' +
     'independent routes rest on the same non-rigorous lam_min N^-p extrapolation. ' +
-    'Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -110,7 +110,7 @@ export const IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD = O
     'rigorous lower ceiling 2.59e7, and its exponent q ~ 1.96-1.98 is consistent with ' +
     'the lam_min exponent p = 1.9179 -- the two-fit composition is CROSS-VALIDATED, ' +
     'not an artifact. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96570 (the cross-validation this glosses); imp-96548 (rigorous trace lower ' +
     'ceiling 2.59e7); imp-96443 (measured lam_max ladder, composed ceiling 4.11e7); ' +
@@ -139,11 +139,11 @@ export const IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD_ASS
   },
   {
     id: 'imp96657-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96657_CONDITIONING_CEILING_CROSSVALIDATION_GLOSSARY_HEADWORD.glosses === 'imp-96570',
   },
 ];

@@ -10,7 +10,7 @@
  * This is pure S-unit lattice arithmetic (count of nonneg (a,b,c) with a ln2 + b ln3 + c ln5 <= ln U),
  * import-light, no zeros bundle. It diagonalizes nothing, establishes NO operator positivity, moves NO
  * Lambda bound / verified height, and does NOT touch the finitely-many top confined states (the actual
- * residual). RH open; Platt-Trudgian Lambda <= 0.2 stands; NO QED.
+ * residual). RH open; no refereed bound is changed; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * THE COUNT. count(u <= U) is the number of S-units u = 2^a 3^b 5^c (excluding u = 1) with u <= U, i.e.
@@ -46,7 +46,7 @@
  *
  * HONEST LIMITS. A convergence-rate MEASUREMENT of a magnitude count, nothing more: it certifies no
  *  operator positivity, moves no Lambda bound / verified height, and does not touch the finitely-many top
- *  confined states (the actual residual). RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  confined states (the actual residual). RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: pure lattice arithmetic, no imports, no zeros bundle. Reproduction inline.
  */
@@ -103,7 +103,7 @@ export const IMP_96365_SUNIT_COUNT_CONVERGENCE = Object.freeze({
     { U: 1e14, count: 5309, asymptotic: 4555.50, ratio: 1.1654 },
     { U: 1e15, count: 6465, asymptotic: 5603.06, ratio: 1.1538 },
   ]),
-  verdict: 'MEASUREMENT only: the imp-96333 three-prime S-unit count converges to its cubic leading term (ln U)^3/(6 ln2 ln3 ln5) only as 1 + 5.049/ln U -- the fitted (ln U)^2 surface coefficient A = 0.6866 matches the theoretical coordinate-face term (1/4)(1/(ln2 ln3)+1/(ln2 ln5)+1/(ln3 ln5)) = 0.6938 to 99.0 percent, and the ratio does NOT fall within 5 percent of 1 until U ~ 1e45 (L* = 102.85). Establishes NO operator positivity, moves NO Lambda bound, and does NOT touch the finitely-many top confined states (the real residual). RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'MEASUREMENT only: the imp-96333 three-prime S-unit count converges to its cubic leading term (ln U)^3/(6 ln2 ln3 ln5) only as 1 + 5.049/ln U -- the fitted (ln U)^2 surface coefficient A = 0.6866 matches the theoretical coordinate-face term (1/4)(1/(ln2 ln3)+1/(ln2 ln5)+1/(ln3 ln5)) = 0.6938 to 99.0 percent, and the ratio does NOT fall within 5 percent of 1 until U ~ 1e45 (L* = 102.85). Establishes NO operator positivity, moves NO Lambda bound, and does NOT touch the finitely-many top confined states (the real residual). RH open; no refereed bound is changed; NO QED',
 });
 
 // ---- assertions

@@ -23,7 +23,7 @@
  *   - "ratio-unresolved": the pencil is too ill-conditioned to Cholesky-factor in
  *      float64 (connects to the imp-95557 W-decay precision ceiling).
  * Report only; assesses the prevalence of the D2 phenomenon; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * NO QED; no refereed bound is changed; RH open.
  *
  * PORT-WINDOW CONSTRUCTION (imp-95220 width law at model normalization c = v = 1,
  * generalizing imp-95561 portWindow_3_1 to arbitrary (p, D)). Alias grid
@@ -90,8 +90,8 @@
  * stays OPEN at imp-95212-subgap-fresnel-airy-envelope-port; the uniform difficulty
  * is ANALYSIS (imp-95443), distinct from the fixed-window prevalence measured here.
  * Import-light (no zeros bundle, no sibling imports; all machinery restated so the
- * module is independently checkable). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open.
+ * module is independently checkable). Changes no bound; NO QED; no refereed bound is changed
+ * ; RH open.
  */
 
 // -- self-contained linear-algebra machinery (mirrors imp-95561, KxK) ----------
@@ -351,8 +351,8 @@ export const IMP95575_LEGB_D2_PORTGRID_SWEEP = {
     + 'collar is at the shallowest depth dbar = min u_i (a different collar convention can remove the forced zero '
     + 'diagonal). "ratio-unresolved" windows are float64 conditioning limits, NOT counterexamples. Full LEG B stays '
     + 'OPEN at imp-95212-subgap-fresnel-airy-envelope-port; the uniform difficulty is ANALYSIS (imp-95443), distinct '
-    + 'from the fixed-window prevalence measured here. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open.',
+    + 'from the fixed-window prevalence measured here. Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
   fns: { kappa, jacobiEig, cholesky, genEigMax, buildPortWindow, analyzeWindow },
 };
 
@@ -406,12 +406,12 @@ export const IMP95575_LEGB_D2_PORTGRID_SWEEP_ASSERTIONS = [
   },
   {
     id: 'imp-95575-prevalence-honest',
-    description: 'explicitly PREVALENCE OVER A FINITE GRID ONLY: no uniform bound, NO QED, PT Lambda <= 0.2 stays '
-      + 'SOTA, RH open, LEG B substance (uniformity) untouched, ratio-unresolved windows are conditioning limits',
+    description: 'explicitly PREVALENCE OVER A FINITE GRID ONLY: no uniform bound, NO QED, no refereed bound is changed'
+      + ', RH open, LEG B substance (uniformity) untouched, ratio-unresolved windows are conditioning limits',
     holds: () =>
       /PREVALENCE OVER A FINITE GRID ONLY/.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.honest)
       && /NO QED/.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.honest)
-      && /Lambda <= 0.2 remains/.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.honest)
+      && /refereed bound is changed/i.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.honest)
       && /RH open/.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.honest)
       && /UNIFORMITY/.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.netScope)
       && /NOT counterexamples/.test(IMP95575_LEGB_D2_PORTGRID_SWEEP.honest),

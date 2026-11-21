@@ -36,8 +36,7 @@
  *
  *   STATUS: sharpens (does not close) the imp-96562 numerical-pinnability sub-gap by
  *   naming the correct functional form of the mode-accumulation curve. Establishes no
- *   operator positivity, closes no analytic gap. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   operator positivity, closes no analytic gap. NO QED. No refereed bound is changed.
  *
  * @see imp-96636-route-m-lammax-slope-saturation-fit.js (source: the fits this glosses)
  * @see imp-96612-route-m-lammax-rankr-power-iteration-bracket.js (the underlying b_r sequence)
@@ -46,7 +45,7 @@
  * @see imp-96647-vasyunin-lammax-collective-rank-glossary-headword.js (sibling headword on the same rank-r sequence, mode-count framing)
  *
  * Ticket: imp-96659 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The saturation-model headword, baked verbatim (no re-import).
@@ -82,7 +81,7 @@ const LAMMAX_SLOPE_SATURATION_HEADWORD = Object.freeze({
     'Sharpens (does not close) the imp-96562 numerical-pinnability sub-gap by naming ' +
     'the functional FORM of the mode-accumulation curve. Not a closed-form/averaged-' +
     'symbol asymptotic prediction of the 0.3526 coefficient itself. Changes no bound; ' +
-    'establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -102,8 +101,8 @@ export const IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD = Object.freeze(
     'fixed- and free-amplitude single exponentials underfit (r2 <= 0.944) with a ' +
     'non-constant implied time-constant -- the onset is sigmoidal/delayed because a ' +
     'rank-one surrogate alone captures only ~4.7% of the target slope. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96636 (the saturation-model fits this glosses); imp-96612 (the underlying ' +
     'rank-r log-slope sequence b_r); imp-96443 (the measured target slope ' +
@@ -132,11 +131,11 @@ export const IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96659-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96659_LAMMAX_SLOPE_SATURATION_GLOSSARY_HEADWORD.glosses === 'imp-96636',
   },
 ];

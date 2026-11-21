@@ -74,7 +74,7 @@
  * inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED (the share stays GUE-conditional); the C_C 1/8 ansatz
  * is UNTOUCHED (imp-2642/imp-2643); changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form crossover N_cross fixed point)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ramp to 0.4310, stopped at 1e12)
@@ -294,8 +294,8 @@ export const IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION = {
     'Component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33723 (closed-form crossover N_cross fixed point); imp-33582 (per-decade ramp to 0.4310, ' +
     'stopped at 1e12); imp-35036 (1/2 - p_dec ~ 1/(2 ln N), 0.499 at N ~ 1.3e218); imp-3220 ' +
@@ -349,14 +349,14 @@ export const IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION_ASSERTION
     },
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp96151-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION.isRigorous === false &&
       IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION.verdict) &&
-      /remains SOTA/.test(IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION.verdict),
+      /refereed bound is changed/i.test(IMP96151_SIGMA_CLOSED_FORM_CROSSOVER_FARTAIL_REPRODUCTION.verdict),
   },
 ];
 

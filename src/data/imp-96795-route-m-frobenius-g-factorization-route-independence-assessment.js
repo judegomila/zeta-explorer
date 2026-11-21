@@ -5,7 +5,7 @@
  * g-factorization yield an INDEPENDENT third conditioning-ceiling estimate, distinct from
  * the trace (T) and Frobenius (F) route ceilings tabulated in imp-96693, or does it reduce
  * to one of them? Decide which, and name the residual obstruction. No bound is proved;
- * PT Lambda <= 0.2 remains SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE THREE ROUTES IN PLAY. imp-96693 tabulates three Route M lam_max conditioning ceilings
@@ -63,7 +63,7 @@
  * single well-posed uniform-cotangent-second-moment statement -- but it yields no new ceiling
  * number and no rigorous bound. The conditioning ladder stays two-rigor-levels deep (T rigorous,
  * F/M fit/measured); wall-clock compute still binds >=1500x before any of them (imp-96693/96706).
- * No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96688-route-m-frobenius-g-factorization-assessment.js (the g-factorization assessed here)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (the T/F/M ceiling ladder)
@@ -150,11 +150,11 @@ export const IMP96795_VERDICT = Object.freeze({
     'second moment up to a bounded [1, zeta(2)] factor and reducing F fit sub-gap to a single ' +
     'well-posed uniform-cotangent-second-moment statement -- but it produces no new ceiling number ' +
     'and no rigorous bound. The ladder stays two-rigor-levels deep; wall-clock compute still binds ' +
-    'first. No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'first. No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96795_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: imp-96688 g-factorization is ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: imp-96688 g-factorization is ' +
   'an EXACT re-expression of the F-route second-moment object trace(G^2)=||G||_F^2, so it reduces ' +
   'to the Frobenius route rather than giving an independent third estimate; it sharpens that route ' +
   'structurally but proves no growth law and moves no bound. The trace route T remains the only ' +
@@ -199,7 +199,7 @@ const IMP96795_ASSERTIONS = [
       IMP96795_VERDICT.isIndependentThirdRoute === false &&
       IMP96795_VERDICT.rigorousBoundProduced === false &&
       /NO QED/.test(IMP96795_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96795_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96795_HONEST_BANNER) &&
       /RH open/.test(IMP96795_HONEST_BANNER),
     why: 'assessment only: no bound moved, no independent route, no rigorous bound, and the honesty markers are present.',
   },

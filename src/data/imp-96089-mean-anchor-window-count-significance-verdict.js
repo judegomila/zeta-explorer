@@ -65,7 +65,7 @@
  * (-6.1 percent, n_w 75 << 537, z 0.37) is NOISE and T = 1.5e5 (-16.0 percent, n_w 291 >> 79, z 1.92)
  * is SIGNIFICANT -- the deepest dip is a real ~1.9-sigma below-envelope excursion at exactly the
  * height where imp-96070/imp-96071 already flagged the mean anchor fails as a cap. Changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96071-mean-anchor-below-envelope-correction-vs-noise-floor (the sub-gap this closes)
  * @see imp-96049-number-variance-mean-anchor-six-height-residual-band (the mean-anchor residual band)
@@ -177,7 +177,7 @@ export const IMP96089_MEAN_ANCHOR_WINDOW_COUNT_SIGNIFICANCE_VERDICT = {
   caveat:
     'The chi-square sqrt(2/n_w) is the first-order variance-estimator sampling model and z >= 1 is a 1-sigma threshold, so T = 1.5e5 at ~1.9 sigma is significant but not overwhelming. Any true de-correlation of the non-overlapping hard boxes lowers the effective n_w, which can only shrink z (push toward noise): it leaves T = 1e4 and T = 3e5 firmly noise and would need an implausible ~73 percent window loss to flip T = 1.5e5, so the qualitative verdict is stable. Measurement/assessment only.',
   verdict:
-    'The imp-96071-window-count sub-gap is CLOSED import-light: n_w(T) = floor(0.6 T / 2 Delta) reproduces the imp-95562 tiling counts exactly (75, 291, 411 at T = 1e4, 1.5e5, 3e5), so the window count was deterministic geometry all along -- no zeros bundle needed. Of the contested dips, T = 1e4 (-6.1 percent, n_w 75 << crossover 537, z 0.37 sigma) is NOISE and T = 1.5e5 (-16.0 percent, n_w 291 >> crossover 79, z 1.92 sigma) is SIGNIFICANT: the deepest dip is a real ~1.9-sigma below-envelope excursion, at exactly the height where imp-96070 (LOO -19.1 percent) and imp-96071 (binding uniform correction) already flagged the mean anchor fails as a cap. T = 3e5 (-0.5 percent, z 0.08 sigma) is unambiguously noise. So the dead-zone r_cap < 1 headline must keep resting on the out-of-sample-safer imp-95722 max anchor. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96071-window-count sub-gap is CLOSED import-light: n_w(T) = floor(0.6 T / 2 Delta) reproduces the imp-95562 tiling counts exactly (75, 291, 411 at T = 1e4, 1.5e5, 3e5), so the window count was deterministic geometry all along -- no zeros bundle needed. Of the contested dips, T = 1e4 (-6.1 percent, n_w 75 << crossover 537, z 0.37 sigma) is NOISE and T = 1.5e5 (-16.0 percent, n_w 291 >> crossover 79, z 1.92 sigma) is SIGNIFICANT: the deepest dip is a real ~1.9-sigma below-envelope excursion, at exactly the height where imp-96070 (LOO -19.1 percent) and imp-96071 (binding uniform correction) already flagged the mean anchor fails as a cap. T = 3e5 (-0.5 percent, z 0.08 sigma) is unambiguously noise. So the dead-zone r_cap < 1 headline must keep resting on the out-of-sample-safer imp-95722 max anchor. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -212,8 +212,8 @@ export const IMP96089_MEAN_ANCHOR_WINDOW_COUNT_SIGNIFICANCE_VERDICT = {
   // honesty gates
   if (!/NO QED/.test(IMP96089_MEAN_ANCHOR_WINDOW_COUNT_SIGNIFICANCE_VERDICT.verdict))
     throw new Error('imp-96089: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96089_MEAN_ANCHOR_WINDOW_COUNT_SIGNIFICANCE_VERDICT.verdict))
-    throw new Error('imp-96089: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96089_MEAN_ANCHOR_WINDOW_COUNT_SIGNIFICANCE_VERDICT.verdict))
+    throw new Error('imp-96089: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96089_MEAN_ANCHOR_WINDOW_COUNT_SIGNIFICANCE_VERDICT;

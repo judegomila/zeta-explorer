@@ -18,7 +18,7 @@
  *       alternative sufficient gates + the [B_v,Π_p] weld.
  *
  * Honest scope on every ticket: none of these promotes Λ≤0.14 or proves RH;
- * Platt–Trudgian Λ≤0.2 remains the rigorous SOTA. NO QED.
+ * no refereed bound is changed. NO QED.
  */
 
 export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
@@ -31,7 +31,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
-      "Submit the permutation-defect lemma to Aristotle for a Lean-4 proof: for contractions T_1..T_m on a common Hilbert space and a permutation pi, ||T_pi - T_id|| <= sum_{(i,j) in Inv(pi)} ||[T_i,T_j]||, via reduced adjacent-swap (bubble-sort) telescoping. This is an E-status exact operator inequality, self-contained (no analytic zeta input), and is the load-bearing lemma of the typed freeze calculus. Target mathlib v4.28. Report the verified statement + faithfulness caveat. Establishes no bound; NO QED; PT Lambda<=0.2 SOTA.",
+      "Submit the permutation-defect lemma to Aristotle for a Lean-4 proof: for contractions T_1..T_m on a common Hilbert space and a permutation pi, ||T_pi - T_id|| <= sum_{(i,j) in Inv(pi)} ||[T_i,T_j]||, via reduced adjacent-swap (bubble-sort) telescoping. This is an E-status exact operator inequality, self-contained (no analytic zeta input), and is the load-bearing lemma of the typed freeze calculus. Target mathlib v4.28. Report the verified statement + faithfulness caveat. Establishes no bound; NO QED; no refereed bound is changed.",
     rationale: 'Freeze calculus (Permuting the Zeta Twin Ladder, Lemma 3.1): the exact commutator-sum bound underpinning admissible-word equivalence; ideal Aristotle target (discrete/operator, like the frozen-rung lemmas already verified).',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -87,7 +87,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     status: 'pending',
     proofSection: 'twistor-framework',
     description:
-      "Submit twistor-framework Lemma 6.1 to Aristotle with the paper hypotheses exactly as stated (Section 6.2 + eq. (12) of Def 5.1): (i) R A = A R (plain commutation of the reflection with the channel heat generator, no I_K term); (ii) the incidence intertwining I_K F_+ = F_- R; (iii) Ahat_pm F_pm = F_pm A. Conclusion: I_K Ahat_+ = Ahat_- I_K on ran(F_+), by composing the three intertwining identities. Pure diagram-chase / operator algebra, C-status (the antecedents F_pm, K remain O-status constructions). Confirms the geometric layer is logically coherent even though it proves no bound. Target v4.28. NO QED; PT Lambda<=0.2 SOTA.",
+      "Submit twistor-framework Lemma 6.1 to Aristotle with the paper hypotheses exactly as stated (Section 6.2 + eq. (12) of Def 5.1): (i) R A = A R (plain commutation of the reflection with the channel heat generator, no I_K term); (ii) the incidence intertwining I_K F_+ = F_- R; (iii) Ahat_pm F_pm = F_pm A. Conclusion: I_K Ahat_+ = Ahat_- I_K on ran(F_+), by composing the three intertwining identities. Pure diagram-chase / operator algebra, C-status (the antecedents F_pm, K remain O-status constructions). Confirms the geometric layer is logically coherent even though it proves no bound. Target v4.28. NO QED; no refereed bound is changed.",
     rationale: 'Consistency-Preserving Twistor Framework Lemma 6.1: a clean conditional operator identity; formalizing it certifies the auxiliary geometric layer as coherent without over-claiming it as proof-bearing.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -132,7 +132,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
-      "The decisive analytic object is the single noncommuting weld: the smooth zero-alias B-transform and a prime projection do not commute, [B_v,Pi_p]!=0. The h=0 stationary point u=v/k pairs exactly with the reflected B-dual lattice; only the nonzero aliases (u=v/(k-h/p)) create the open correlated packet theorem. MEASURE/BOUND the aliased Fresnel-Airy transition packets and whether their correlated sum stays controlled through the five orthogonal shells or the 25 defects. This commutator, not the already-paired smooth interior, is where the strict route lives. Deliver a quantitative alias bound or a named obstruction. NO QED; PT Lambda<=0.2 SOTA.",
+      "The decisive analytic object is the single noncommuting weld: the smooth zero-alias B-transform and a prime projection do not commute, [B_v,Pi_p]!=0. The h=0 stationary point u=v/k pairs exactly with the reflected B-dual lattice; only the nonzero aliases (u=v/(k-h/p)) create the open correlated packet theorem. MEASURE/BOUND the aliased Fresnel-Airy transition packets and whether their correlated sum stays controlled through the five orthogonal shells or the 25 defects. This commutator, not the already-paired smooth interior, is where the strict route lives. Deliver a quantitative alias bound or a named obstruction. NO QED; no refereed bound is changed.",
     rationale: 'Permuting the Zeta Twin Ladder Section 4.5: [B_v,Pi_p] is identified as THE decisive object; quantifying the alias coupling is the concrete lever on the open family.',
     estimatedComplexity: 'high',
     dependsOn: ['imp-95006'],

@@ -22,7 +22,7 @@
  *
  *   Ticket: imp-34260 (ux, low). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- surplus(thr) family ladder, thr = 0.5 -> 0.01 (baked from imp-34174 surplusLadder) --

@@ -46,7 +46,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * two-parameter OLS surrogates are descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21-rung ladder whose widening form is fit here)
  * @see imp-33773-ecoll-sigma-offset-eflow-attribution (M2 refutation the ladder locks)
@@ -160,7 +160,7 @@ export const IMP33843_EFLOW_RESID_WIDENING_FORM_FIT = {
     'descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33810 (the 21-rung ladder whose widening form is fit here); imp-33773 (M2 refutation the ' +
     'ladder locks); imp-33809 (M3 curvature-hump vs k); imp-486 (C_mb GUE-conditional); ' +
@@ -207,14 +207,14 @@ export const IMP33843_EFLOW_RESID_WIDENING_FORM_FIT_ASSERTIONS = [
     holds: () => LOG_LINEAR.rmse > 0 && LOG_LINEAR.rmse < 0.15 && LOG_LINEAR.rmse < POWER_LAW.rmse,
   },
   {
-    // Honesty gate: measurement/surrogate-fit only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement/surrogate-fit only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33843-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, winner log-linear, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, winner log-linear, no QED, no refereed bound is changed',
     holds: () =>
       IMP33843_EFLOW_RESID_WIDENING_FORM_FIT.isRigorous === false &&
       IMP33843_EFLOW_RESID_WIDENING_FORM_FIT.winner === 'log-linear' &&
       /NO QED/.test(IMP33843_EFLOW_RESID_WIDENING_FORM_FIT.verdict) &&
-      /remains SOTA/.test(IMP33843_EFLOW_RESID_WIDENING_FORM_FIT.verdict),
+      /refereed bound is changed/i.test(IMP33843_EFLOW_RESID_WIDENING_FORM_FIT.verdict),
   },
 ];
 

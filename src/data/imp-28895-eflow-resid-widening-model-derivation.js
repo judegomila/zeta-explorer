@@ -62,7 +62,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the closed-form E_flow scaling
  * is exact WITHIN that model only; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33810-eflow-resid-ratio-N-ladder (the ladder whose ~918x widening is derived here)
  * @see imp-33843-eflow-resid-widening-form-fit (fit the widening FORM but not derived from the model)
@@ -224,7 +224,7 @@ export const IMP28895_EFLOW_RESID_WIDENING_MODEL_DERIVATION = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the closed-form E_flow ' +
     'scaling is exact WITHIN that model only; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33810 (~918x widening derived here); imp-33843 (fit the form but not derived); imp-33773 ' +
     '(M2 refutation, M3 curvature-hump residual); imp-33809 (bounded residual hump peak near k=9); ' +
@@ -263,13 +263,13 @@ export const IMP28895_EFLOW_RESID_WIDENING_MODEL_DERIVATION_ASSERTIONS = [
       WIDENING_IMP33810_TOFIXED < 925,
   },
   {
-    // Honesty gate: derivation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: derivation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp28895-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, PT SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP28895_EFLOW_RESID_WIDENING_MODEL_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP28895_EFLOW_RESID_WIDENING_MODEL_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP28895_EFLOW_RESID_WIDENING_MODEL_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP28895_EFLOW_RESID_WIDENING_MODEL_DERIVATION.verdict),
   },
 ];
 

@@ -46,7 +46,7 @@
  *
  *   Cross-check only. No coefficient pinned beyond w_lin (already forced by imp-97460); no bound
  *   moves; the rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352)
- *   binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97664-wlin-b1e6-halfwidth-artifact-test (the factorization hypothesis tested here)
  * @see imp-97645-wlin-largeb-linear-coeff-crossval (the non-monotone b-ladder, now read as magnitude)
@@ -124,11 +124,11 @@ export const IMP97688_VERDICT = Object.freeze({
     'xbar=a0/b rather than target x drops the x=0.05 node for 2^20, giving a spurious 3-node 1.67e-3) ' +
     'was identified and controlled. The imp-97597 RESULT 3 mixed-kernel sub-gap STANDS; no coefficient ' +
     'newly pinned; no bound moves; the rigorous anchor stays T = 2.594e7; compute binds first by ' +
-    '>2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '>2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97688_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical cross-check only: at fixed magnitude ~1e6 ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical cross-check only: at fixed magnitude ~1e6 ' +
   'the w_lin linErr is factorization-INDEPENDENT -- a prime (1000003), a 2-power (2^20), a ' +
   'highly-composite number (960960) and a smooth number (1e6=2^6*5^6) all give linErr ~1.14-1.16e-2, ' +
   'and the node-by-node residual w(x)-w_lin(x) agrees across all four. This REFUTES the imp-97664 ' +
@@ -211,7 +211,7 @@ const IMP97688_ASSERTIONS = [
       IMP97688_VERDICT.anyBoundMoved === false &&
       IMP97688_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97688_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97688_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97688_HONEST_BANNER) &&
       /RH open/.test(IMP97688_HONEST_BANNER),
   },
 ];

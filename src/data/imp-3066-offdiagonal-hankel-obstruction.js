@@ -53,8 +53,8 @@
  *   claim that the cover fails (nor that it holds). The deliverable is ONLY the existence
  *   and magnitude of the off-diagonal cross-terms and the strictly-positive operator/
  *   diagonal gap that scalar domination cannot reach. We do NOT attempt positivity. The
- *   bare-V pilot (imp-1240) is NOT re-run. Platt-Trudgian Lambda <= 0.2 REMAINS the
- *   rigorous SOTA. No false QED.
+ *   bare-V pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3007-mupass-overflow-cover.js (imp-3007 section 3: the scalar cover + isolated operator step)
  *   @see imp-3065-residual-deficit-quadrature-2026-06-30.js (independent Simpson cross-check of the scalar cover)
@@ -240,7 +240,7 @@ export const IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION = Object.freeze({
       'off-diagonal cross-terms; it is NOT the section-26 Gram, so it neither claims the cover fails ' +
       'nor that it holds. Only the existence and magnitude of the off-diagonal obstruction is asserted.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -302,7 +302,7 @@ export const IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION_ASSERTIONS = [
     id: 'imp3066-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic truncation, the operator norm ' +
          'carries no RH verdict, positivity was not attempted, it is not a proof or a reduction, and ' +
-         'PT 0.2 stays SOTA. If any of these flip the module is over-claiming.',
+         'no refereed bound is changed. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat;
       return (
@@ -312,7 +312,7 @@ export const IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

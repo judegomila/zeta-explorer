@@ -56,7 +56,7 @@
  * conclusion: the cap-independent rigorous 1/(720 d^3) tail budget (< 5.69e-11) already bounds any cap-to-infinity
  * gap shift a million-fold below the +7.520579e-5 omega=10 ordering gap, so the primorial extremality, the gap,
  * and the omega=11 MCM onset are all unchanged under the extended cap. MCM stays refuted from omega=11; the b/4
- * ceiling is untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * ceiling is untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97685-mcm-tail-budget-two-term-euler-maclaurin.js  (cap set by kernel precision, not tail-term count)
  * @see imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js  (two-term remainder derivation)
@@ -121,7 +121,7 @@ export const IMP97704_HONEST_BANNER =
   'precision, not by the analytic tail-term count). But the extension moves NO conclusion: the cap-independent ' +
   'rigorous 1/(720 d^3) tail budget (< 5.69e-11) already bounds any cap->infinity shift of the +7.520579e-5 ' +
   'omega=10 gap a million-fold below it (gap/budget > 1.3e6), so the primorial p_10# stays the strict minimiser ' +
-  'and the MCM onset stays omega=11. MCM refuted; b/4 ceiling untouched; no bound moved. PT Lambda <= 0.2 SOTA; ' +
+  'and the MCM onset stays omega=11. MCM refuted; b/4 ceiling untouched; no bound moved. No refereed bound is changed; ' +
   'RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
@@ -167,7 +167,7 @@ const IMP97704_ASSERTIONS = [
       IMP97704_PRECISION_CAP_SCALING.anyBoundMoved === false &&
       IMP97704_PRECISION_CAP_SCALING.qed === false &&
       /NO QED/.test(IMP97704_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97704_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97704_HONEST_BANNER) &&
       /RH open/.test(IMP97704_HONEST_BANNER) &&
       /omega=11/.test(IMP97704_HONEST_BANNER),
     why: 'measurement/accuracy only -- dps=30 extends the precision-limited cap ~3200x but the cap-independent tail budget leaves the omega=10 gap and omega=11 onset unchanged; no bound moved; no QED.',

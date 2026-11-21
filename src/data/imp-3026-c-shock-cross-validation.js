@@ -31,8 +31,8 @@
  * HONEST SCOPE. This is a NUMERICAL CONSISTENCY CHECK that documents the shared
  * constant; it is NOT a new bound. The squared-gap surrogate itself remains REFUTED
  * (its bounded constant holds ONLY along the 1-parameter cusp family and breaks under
- * the consistent-W_1 rank-1 move, ch-wall l.32-33). Platt-Trudgian Lambda <= 0.2
- * stays the rigorous SOTA; no QED.
+ * the consistent-W_1 rank-1 move, ch-wall l.32-33). No refereed bound is changed
+ * ; no QED.
  *
  * @see ch-wall-frontier-verdict-2026-06-26 (route 1 C_shock<1/3 and surrogate C_shock^2/8)
  * @see imp-2786-c-shock-cusp-constant (C_shock pinned to sqrt(2/(3 log gamma_N)) < 1/3)
@@ -157,7 +157,7 @@ export const C_SHOCK_CROSS_VALIDATION_IMP3026 = {
   honestNote:
     'No false QED. This is a NUMERICAL CONSISTENCY CHECK confirming the cusp-law C_shock and the ' +
     'squared-gap surrogate constant C_shock^2/8 share one underlying C_shock < 1/3; it is NOT a new ' +
-    'bound and does NOT close C_H. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'bound and does NOT close C_H. No refereed bound is changed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -211,13 +211,13 @@ export const C_SHOCK_CROSS_VALIDATION_ASSERTIONS = [
       return (
         r.isNewBound === false &&
         /REFUTED/.test(r.surrogateStillRefuted) &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /CONSISTENT/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: this is a consistency check, NOT a new bound. The surrogate stays refuted and ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from flipping this documentation ' +
+      'no refereed bound is changed. Blocks any future edit from flipping this documentation ' +
       'cross-check into a claimed C_H closure or rigorous beat.',
   },
   {
@@ -254,7 +254,7 @@ for (const a of C_SHOCK_CROSS_VALIDATION_ASSERTIONS) {
 // HONEST SCOPE. The 1/2 is the structural Holder ansatz of the cusp law g ~ C_shock
 // W_1^{1/2}, so this certifies estimator/channel CONSISTENCY of the exponent, not an
 // empirical derivation of 1/2 from dynamics. Consistency check, NOT a bound; surrogate
-// stays REFUTED, Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA. No QED.
+// stays REFUTED, no refereed bound is changed. No QED.
 
 const HOLDER_HALF = 0.5;
 
@@ -333,7 +333,7 @@ export const HOLDER_HALF_EXPONENT_CROSS_VALIDATION_IMP3069 = {
     'No false QED. The 1/2 is the structural Holder ansatz of the cusp law, so this certifies estimator/channel ' +
     'CONSISTENCY of the exponent (global OLS vs per-decade local vs squared-gap channel), NOT an empirical ' +
     'derivation of 1/2 from dynamics. Consistency check, NOT a new bound; the squared-gap surrogate stays ' +
-    'REFUTED and Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'REFUTED and no refereed bound is changed.',
 };
 
 export const HOLDER_HALF_EXPONENT_ASSERTIONS_IMP3069 = [
@@ -380,14 +380,14 @@ export const HOLDER_HALF_EXPONENT_ASSERTIONS_IMP3069 = [
       const r = HOLDER_HALF_EXPONENT_CROSS_VALIDATION_IMP3069;
       return (
         r.isNewBound === false &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /REFUTED/.test(r.honestNote) &&
         /CONSISTENT/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: this is a consistency check of the EXPONENT, NOT a new bound. The surrogate stays refuted and ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from flipping this exponent cross-check into ' +
+      'no refereed bound is changed. Blocks any future edit from flipping this exponent cross-check into ' +
       'a claimed C_H closure or rigorous beat.',
   },
 ];
@@ -428,8 +428,8 @@ for (const a of HOLDER_HALF_EXPONENT_ASSERTIONS_IMP3069) {
 //
 // HONEST SCOPE. This MEASURES the off-cusp degradation; it does NOT rehabilitate the
 // surrogate, which stays REFUTED off the cusp family. No new bound, no QED; the
-// dual-appearance identity remains a cusp-family-only coincidence. Platt-Trudgian
-// Lambda <= 0.2 stays the rigorous SOTA.
+// dual-appearance identity remains a cusp-family-only coincidence. No refereed bound is changed
+// .
 
 // Off-cusp distance grid: Holder-exponent offset delta from the cusp value 1/2.
 const OFF_CUSP_DELTAS = [0, 0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2];
@@ -494,8 +494,8 @@ export const OFF_CUSP_RESIDUAL_BAND_IMP3092 = {
     '1-parameter cusp family.',
   honestNote:
     'No false QED. This is a NUMERICAL measurement of how far off the cusp the squared-gap surrogate degrades; it ' +
-    'is NOT a new bound and does NOT close C_H. The surrogate stays REFUTED and Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'is NOT a new bound and does NOT close C_H. The surrogate stays REFUTED and no refereed bound is changed' +
+    '.',
 };
 
 export const OFF_CUSP_RESIDUAL_BAND_ASSERTIONS_IMP3092 = [
@@ -559,13 +559,13 @@ export const OFF_CUSP_RESIDUAL_BAND_ASSERTIONS_IMP3092 = [
       return (
         r.isNewBound === false &&
         /REFUTED/.test(r.surrogateStillRefuted) &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /NARROW/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: this MEASURES the off-cusp residual band, it is NOT a new bound and does not rehabilitate the ' +
-      'surrogate. The surrogate stays REFUTED and Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from ' +
+      'surrogate. The surrogate stays REFUTED and no refereed bound is changed. Blocks any future edit from ' +
       'flipping this measurement into a claimed surrogate revival or C_H closure.',
   },
 ];

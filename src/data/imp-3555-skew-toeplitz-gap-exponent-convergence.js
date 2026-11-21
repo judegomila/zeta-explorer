@@ -59,7 +59,7 @@
  *   gap-decay ladder above 800 and certifies q converges to the -2 section-gap
  *   heuristic. Does NOT construct the missing magnitude and does NOT attempt the
  *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -207,7 +207,7 @@ export const IMP3555_SKEW_TOEPLITZ_GAP_EXPONENT_CONVERGENCE = Object.freeze({
     'per-N non-monotonicity); naively including it collapses the OLS to q = -1.763 (R^2 0.99999 -> 0.9605) -- a ' +
     'data-quality outlier degrading the fit, not the true exponent drifting from -2. Measurement/fit only; does NOT ' +
     'construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'rho(N) = lambda_3/lambda_1 of the Gram S = T^T T of the skew-Toeplitz section Ttilde(u,v)=a(v-u)R',
@@ -283,7 +283,7 @@ export const IMP3555_SKEW_TOEPLITZ_GAP_EXPONENT_CONVERGENCE = Object.freeze({
       'This certifies a section-gap decay exponent from measured spectra; it does NOT construct the missing ' +
       'magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -335,7 +335,7 @@ export const IMP3555_SKEW_TOEPLITZ_GAP_EXPONENT_CONVERGENCE_ASSERTIONS = [
   {
     id: 'imp3555-honest-assessment-no-qed',
     why: 'Mandatory honesty: FIT only -- extends a section-gap ladder and certifies q -> -2 numerically, excludes one ' +
-      'non-monotone rung as an artifact, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'non-monotone rung as an artifact, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3555_SKEW_TOEPLITZ_GAP_EXPONENT_CONVERGENCE.honestCaveat;
       return (
@@ -345,7 +345,7 @@ export const IMP3555_SKEW_TOEPLITZ_GAP_EXPONENT_CONVERGENCE_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.convergenceIsNumericalNotSymbolic === 'string' &&
         typeof c.excludesOneMeasuredRung === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

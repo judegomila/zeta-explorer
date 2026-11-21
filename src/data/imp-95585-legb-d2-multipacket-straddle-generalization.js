@@ -15,7 +15,7 @@
  * it DERIVES the general-K forcing (a leading-principal-minor / Cauchy-interlacing
  * lemma) and DEMONSTRATES it on genuine multi-packet port windows (K = 3 and
  * K = 4), confirming the forcing is NOT special to the 2x2 case. Report only;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * changes no bound; NO QED; no refereed bound is changed; RH open.
  *
  * THE GENERAL-K LEMMA (why the 2x2 argument is not special to two packets). Let M
  * be a real symmetric K x K matrix with a zero diagonal entry M[c][c] = 0 and a
@@ -94,8 +94,8 @@
  * imp-95212-subgap-fresnel-airy-envelope-port; the uniform difficulty is ANALYSIS
  * (imp-95443), distinct from the fixed-window structural forcing derived here.
  * Import-light (no zeros bundle, no sibling imports; all machinery restated so the
- * module is independently checkable). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open.
+ * module is independently checkable). Changes no bound; NO QED; no refereed bound is changed
+ * ; RH open.
  */
 
 // -- self-contained linear-algebra machinery (mirrors imp-95561, KxK) ----------
@@ -265,8 +265,8 @@ export const IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION = {
     + 'INDEFINITENESS (one sign each), not the full inertia count, which is window-specific. Port rates/centers are '
     + 'the imp-95220 width-law map at c=v=1; the model collar is at dbar=min u_i (a different collar convention can '
     + 'remove the forced zero diagonal). Full LEG B stays OPEN at imp-95212-subgap-fresnel-airy-envelope-port; the '
-    + 'uniform difficulty is ANALYSIS (imp-95443). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open.',
+    + 'uniform difficulty is ANALYSIS (imp-95443). Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
   fns: { kappa, eigSym2, jacobiEigSym, portWindow, analyzeWindow },
 };
 
@@ -308,12 +308,12 @@ export const IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION_ASSERTIONS = [
   },
   {
     id: 'imp-95585-report-only-honest',
-    description: 'explicitly DERIVATION + FINITE DEMONSTRATION ONLY: no uniform bound, NO QED, PT Lambda <= 0.2 stays '
-      + 'SOTA, RH open, LEG B uniformity (imp-95443) untouched',
+    description: 'explicitly DERIVATION + FINITE DEMONSTRATION ONLY: no uniform bound, NO QED, no refereed bound is changed'
+      + ', RH open, LEG B uniformity (imp-95443) untouched',
     holds: () =>
       /DERIVATION \+ FINITE DEMONSTRATION ONLY/.test(IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION.honest)
       && /NO QED/.test(IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION.honest)
-      && /Lambda <= 0.2 remains/.test(IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION.honest)
+      && /refereed bound is changed/i.test(IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION.honest)
       && /RH open/.test(IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION.honest)
       && /imp-95443/.test(IMP95585_LEGB_D2_MULTIPACKET_STRADDLE_GENERALIZATION.netScope),
   },

@@ -57,8 +57,8 @@
  * height (the dip's window is fully interior, not clipped -- zeros above 6e5 add nothing at 1.5e5) nor
  * from the correlation model (already favourable, quoted conservatively). The only genuine lever is a
  * DEEPER excursion (larger relErr) drawn from new INTERIOR data at ~1.5e5, which the fixed ordinate set
- * does not supply. Assessment/measurement only; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * does not supply. Assessment/measurement only; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (sets z = 1.923 at T = 1.5e5)
  * @see imp-96128-number-variance-two-interval-covariance-exact (n_eff ~ 795; ~1.9-sigma is conservative)
@@ -176,11 +176,11 @@ export const IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH = {
     note: 'imp-96128 shows adjacent boxes are strongly ANTI-correlated, raising the effective count to n_eff ~ 795 (a naive z ~ 3.18). The ~1.9-sigma figure is deliberately pinned to the NAIVE n_w (conservative floor) and to the dip depth, not to the favourable correlation model -- so ~1.9-sigma is a lower bound on the true significance.',
   },
   verdict:
-    'The ~1.9-sigma excursion confidence is the imp-96089 z-score z = relErr/sqrt(2/n_w) = 0.159457/sqrt(2/291) = 1.9234 of the single significant below-envelope dip at T = 1.5e5. Its three inputs are the fixed ~16% dip depth relErr, the deterministic +/-30% tiling window count n_w = 291 (~ sqrt(T)), and the chi-square sqrt(2/n_w) sampling model. Reaching a clean 2-sigma at fixed depth needs n_w >= 315 (+24 windows, +8.1 percent). That increment CANNOT come from more verified-zero height: the dip window [1.05e5, 1.95e5] is fully interior to the existing 10^6-ordinate set (not clipped), so zeros above ~6e5 add nothing there. Nor from the correlation model: imp-96128 already puts n_eff ~ 795 (naive z ~ 3.18), so the ~1.9-sigma quote is a conservative floor. The confidence is capped by a fixed data ceiling -- the single measured dip depth over a complete interior window -- and only a DEEPER excursion from new interior data at ~1.5e5 would clear 2-sigma. Assessment/measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The ~1.9-sigma excursion confidence is the imp-96089 z-score z = relErr/sqrt(2/n_w) = 0.159457/sqrt(2/291) = 1.9234 of the single significant below-envelope dip at T = 1.5e5. Its three inputs are the fixed ~16% dip depth relErr, the deterministic +/-30% tiling window count n_w = 291 (~ sqrt(T)), and the chi-square sqrt(2/n_w) sampling model. Reaching a clean 2-sigma at fixed depth needs n_w >= 315 (+24 windows, +8.1 percent). That increment CANNOT come from more verified-zero height: the dip window [1.05e5, 1.95e5] is fully interior to the existing 10^6-ordinate set (not clipped), so zeros above ~6e5 add nothing there. Nor from the correlation model: imp-96128 already puts n_eff ~ 795 (naive z ~ 3.18), so the ~1.9-sigma quote is a conservative floor. The confidence is capped by a fixed data ceiling -- the single measured dip depth over a complete interior window -- and only a DEEPER excursion from new interior data at ~1.5e5 would clear 2-sigma. Assessment/measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 export const IMP96452_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment/measurement only: the ~1.9-sigma '
+  'RH open; no refereed bound is changed; NO QED. Assessment/measurement only: the ~1.9-sigma '
   + 'figure is capped by a FIXED DATA CEILING (the single measured T=1.5e5 dip depth over a '
   + 'complete interior window) -- more verified zero height does NOT lift it, since the dip '
   + 'window is already fully interior to the existing 10^6-ordinate set. The naive n_w=291 quote '
@@ -216,9 +216,9 @@ export const IMP96452_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH.verdict))
     throw new Error('imp-96452: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH.verdict))
-    throw new Error('imp-96452: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96452_HONEST_BANNER) && /PT Lambda <= 0\.2/.test(IMP96452_HONEST_BANNER) && /NO QED/.test(IMP96452_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH.verdict))
+    throw new Error('imp-96452: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96452_HONEST_BANNER) && /PT Lambda <= 0\.2|refereed bound is changed/.test(IMP96452_HONEST_BANNER) && /NO QED/.test(IMP96452_HONEST_BANNER)))
     throw new Error('imp-96452: IMP96452_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

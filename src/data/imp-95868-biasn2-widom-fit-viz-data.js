@@ -7,7 +7,7 @@
  *
  * Reuses the baked imp-95845 ladder and fit constants verbatim -- no
  * re-derivation, no new computation. Presentation only; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-95845-deep-corner-biasN2-widom-fit.js (the fit this reshapes)
  */
@@ -36,7 +36,7 @@ export const IMP95868_VIZ_SUMMARY = Object.freeze({
   verdict:
     'PRESENTATION ONLY, no new computation; reshapes the imp-95845 fit literals into chart rows. '
     + 'Model seam family only; changes no bound of the Lambda program; NO QED; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'no refereed bound is changed.',
 });
 
 // ---------------------------------------------------------------------------
@@ -77,8 +77,8 @@ const IMP95868_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95868-honest-status-carried',
-    description: 'summary verdict restates NO QED / SOTA honesty markers',
-    holds: () => /NO QED/.test(IMP95868_VIZ_SUMMARY.verdict) && /SOTA/.test(IMP95868_VIZ_SUMMARY.verdict),
+    description: 'summary verdict restates NO QED / no-refereed-bound-change honesty markers',
+    holds: () => /NO QED/.test(IMP95868_VIZ_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP95868_VIZ_SUMMARY.verdict),
   },
 ];
 

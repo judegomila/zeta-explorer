@@ -15,7 +15,7 @@
  *
  * PRESENTATION ONLY. Changes no bound; establishes no operator positivity;
  * C_mb stays GUE-conditional (imp-486); interval-rigorous certificate reach
- * stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96916-sigma-quarter-crossing-etrunc-elasticity.js (source ladder + verdict)
  * @see imp-96939-tladder-plateau-leaf-viz-data.js (sibling viz-data leaf convention)
@@ -68,7 +68,7 @@ export const IMP96940_HONEST_BANNER =
   'share sigma(N), a sensitivity reading, not an operator positivity proof. The elasticity magnitude ' +
   'rides monotonically toward the -2 inverse-square regime as the sigma level falls (0.75 -> 0.1), ' +
   'with a residual excess from the slowly-growing log T0 factor. C_mb stays GUE-conditional ' +
-  '(imp-486); interval-rigorous certificate reach stays 2a<=0.96; PT Lambda <= 0.2 remains SOTA; ' +
+  '(imp-486); interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; ' +
   'RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
@@ -94,7 +94,7 @@ export const IMP96940_VALIDATION = Object.freeze({
   matchesSourceVerdict: SRC.isRigorous === false && /NO QED/.test(SRC.verdict),
   honestBannerPresent:
     /RH open/.test(IMP96940_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96940_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96940_HONEST_BANNER) &&
     /NO QED/.test(IMP96940_HONEST_BANNER),
 });
 

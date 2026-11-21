@@ -49,8 +49,8 @@ export const IMP97671_SUMMARY = Object.freeze({
     'Presentation only: every local exponent and residual ratio is reused verbatim from imp-97640 (a '
     + 'measurement, not a derivation); no new computation. The precision-limited third rung is flagged, '
     + 'not resolved -- deciding the asymptotic exponent still needs an extended-precision (dps >= 30) '
-    + 'recompute. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open; NO QED.',
+    + 'recompute. Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

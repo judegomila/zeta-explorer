@@ -48,7 +48,7 @@
  * identity or a bound.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js (baseline)
  * @see imp-96075-route-m-vasyunin-dn-ladder-viz-data.js (N=500 viz surface)
@@ -112,7 +112,7 @@ export const IMP96069_VERDICT = Object.freeze({
 });
 
 export const IMP96069_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m7-extend-mellin.py; the N=500 row matches the source Route M module bit-for-bit; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m7-extend-mellin.py; the N=500 row matches the source Route M module bit-for-bit; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -160,7 +160,7 @@ const IMP96069_ASSERTIONS = [
     id: 'imp96069-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96069_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96069_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96069_HONEST_BANNER) &&
       /NO QED/.test(IMP96069_HONEST_BANNER) &&
       typeof IMP96069_VERDICT.conclusion === 'string',
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers required of every Route A-M measurement surface.',

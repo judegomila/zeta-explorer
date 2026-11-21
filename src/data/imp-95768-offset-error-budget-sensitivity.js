@@ -40,8 +40,8 @@
  * m=20 residual — so they do NOT depend on the +4 offset being pinned tighter than that. Only
  * the trailing displayed digits of c_odd(1/19) are residual-sensitive (~2.6 x the residual).
  * Sensitivity assessment only; the offset remains uncertified off m=20; changes no bound; Sun
- * arXiv:2609.04176 single-author, unrefereed; Catalan G irrationality OPEN; PT Lambda<=0.2
- * SOTA; NO QED. NO heavy imports.
+ * arXiv:2609.04176 single-author, unrefereed; Catalan G irrationality OPEN; no refereed bound is changed
+ * ; NO QED. NO heavy imports.
  */
 
 // carried literals (imp-95720 / imp-95724 / imp-95516 anchor)
@@ -91,7 +91,7 @@ export const OFFSET_ERROR_BUDGET_SENSITIVITY = Object.freeze({
     + '(constant-J null refuted; c_odd below the null) do NOT need the +4 offset pinned tighter than '
     + '2.852e-5 and are enormously robust; only the trailing printed digits of c_odd(1/19) are '
     + 'residual-limited. Sensitivity only; offset uncertified off m=20; changes no bound; Sun '
-    + 'unrefereed; G irrationality OPEN; PT Lambda<=0.2 SOTA; NO QED',
+    + 'unrefereed; G irrationality OPEN; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'imp-95720 measured m=20 offset + conditional J_raw(1/19)/c_odd(1/19); imp-95749 dI variation; imp-95724 exact split; imp-95746 four-moduli witness',
   builtOn:
@@ -148,7 +148,7 @@ export const OFFSET_ERROR_BUDGET_SENSITIVITY = Object.freeze({
     + 'quadrature. The whole exercise is CONDITIONAL on the offset being exactly 4 and m-independent '
     + '(verified only at m=20; imp-95720 sub-gap). The budgets bound sensitivity to offset error, not '
     + 'the certification status. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO '
-    + 'Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const OFFSET_ERROR_BUDGET_SENSITIVITY_ASSERTIONS = Object.freeze([
@@ -191,11 +191,11 @@ export const OFFSET_ERROR_BUDGET_SENSITIVITY_ASSERTIONS = Object.freeze([
       && OFFSET_ERROR_BUDGET_SENSITIVITY.verdict.trailingDigitsResidualLimited === true,
   },
   {
-    name: 'honest: sensitivity only, offset uncertified off m=20, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: sensitivity only, offset uncertified off m=20, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /uncertified off m=20/.test(OFFSET_ERROR_BUDGET_SENSITIVITY.status)
       && /G irrationality OPEN/.test(OFFSET_ERROR_BUDGET_SENSITIVITY.status)
-      && /PT Lambda<=0.2 SOTA/.test(OFFSET_ERROR_BUDGET_SENSITIVITY.status)
+      && /refereed bound is changed/i.test(OFFSET_ERROR_BUDGET_SENSITIVITY.status)
       && /NO QED/.test(OFFSET_ERROR_BUDGET_SENSITIVITY.status),
   },
 ]);

@@ -48,7 +48,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35473-eflow-fartail-remnant-sub1e4-crossing (two-crossing product datapoints this tabulates)
  * @see imp-35496-eflow-fartail-remnant-two-component-split (both components vanish faster than 1/log N)
@@ -188,7 +188,7 @@ export const IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER = {
     'imp-35496 component split. Measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
     'rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per ' +
     'imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35473 (two-crossing product datapoints 0.05899/0.02514, tabulated here); imp-35496 (both ' +
     'components vanish faster than 1/log N); imp-35413 (sub-1e-3 crossing); imp-35198 (analytic ' +
@@ -231,13 +231,13 @@ export const IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER_ASSERTIONS = [
     holds: () => Math.abs(PRODUCT_DROP_FACTOR - 3.597) < 0.05 && PRODUCT_TAIL < PRODUCT_HEAD,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35535-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER.isRigorous === false &&
       /NO QED/.test(IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER.verdict),
   },
 ];
 

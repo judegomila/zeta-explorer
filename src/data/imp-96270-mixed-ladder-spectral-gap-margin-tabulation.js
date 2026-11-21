@@ -7,7 +7,7 @@
  * Here we TABULATE the leading magnitudes and MEASURE how fast the tail decays below the 0.353553
  * ceiling. This is a tabulation of the already-reduced fact (I): it diagonalizes nothing, establishes
  * NO operator positivity, moves NO Lambda bound / verified height, and closes NOTHING about the
- * finitely-many top confined states (the actual residual). RH open; PT Lambda <= 0.2 stands; NO QED.
+ * finitely-many top confined states (the actual residual). RH open; no refereed bound is changed; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * THE LADDER (from imp-96143). The A_S23 = P_1 F_S23 P_1 spectrum tail clusters on the S-unit ladder:
@@ -51,7 +51,7 @@
  *  Euler 1/2 weight), the multiplicity m_u = O(u) is extrapolated from p = 2, and fact (I) as a
  *  spectral-gap statement STILL depends on the mixed-group no-modulus-1 theorem for the finitely-many
  *  top confined states -- which this row does NOT address. Nothing here establishes operator positivity,
- *  moves a Lambda bound, or touches a verified height. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  moves a Lambda bound, or touches a verified height. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: pure geometric arithmetic, no imports, no zeros bundle. Reproduction inline.
  */
@@ -103,7 +103,7 @@ export const IMP_96270_SPECTRAL_GAP_MARGIN = Object.freeze({
     { rank: 10, a: 3, b: 1, u: 24, s: 0.10206207261596574 },
   ]),
   countAboveThreshold: Object.freeze({ '0.30': 1, '0.25': 3, '0.20': 4, '0.15': 6, '0.10': 10, '0.05': 19 }),
-  verdict: 'TABULATION only: the mixed 2^a 3^b ladder tail sup is s_2 = 0.353553 (attained once, at u = 2), gap 1 - sup = 0.646447; the second rung already drops to 0.288675 (ratio sqrt(2/3) = 0.816497) and the count of rungs above any threshold t is the finite S-unit count u <= (1/(2t))^2, growing only like (ln U)^2. Establishes NO operator positivity, moves NO Lambda bound, and does NOT touch the top confined states (the real residual). RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'TABULATION only: the mixed 2^a 3^b ladder tail sup is s_2 = 0.353553 (attained once, at u = 2), gap 1 - sup = 0.646447; the second rung already drops to 0.288675 (ratio sqrt(2/3) = 0.816497) and the count of rungs above any threshold t is the finite S-unit count u <= (1/(2t))^2, growing only like (ln U)^2. Establishes NO operator positivity, moves NO Lambda bound, and does NOT touch the top confined states (the real residual). RH open; no refereed bound is changed; NO QED',
 });
 
 // ---- assertions

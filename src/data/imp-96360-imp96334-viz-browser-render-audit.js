@@ -25,7 +25,7 @@
  * legend labels ("C_H = ...") all render. No source file required correction.
  *
  * SCOPE. Read-only audit. Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-96334-ecoll-rate-ch-independence-viz-data.js (the audited data module)
  * @see src/pages/Imp96334EcollRateChIndependenceChartViz.jsx (the audited page)
@@ -67,7 +67,7 @@ export const IMP96360_IMP96334_VIZ_BROWSER_RENDER_AUDIT = {
     + 'headless-browser render. Result: renders cleanly, every E_coll value and every shared '
     + 'segment slope is plotted, the honest banner renders verbatim; no source file required '
     + 'correction. Changes no bound; establishes no operator positivity; no RH verdict; '
-    + 'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'NO QED. No refereed bound is changed.',
   citation:
     'imp-96334 (the audited viz-data leaf and page); imp-96359/imp-96358/imp-35606/imp-35545 '
     + '(prior browser render audits, same method).',
@@ -112,11 +112,11 @@ export const IMP96360_IMP96334_VIZ_BROWSER_RENDER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp96360-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96360_IMP96334_VIZ_BROWSER_RENDER_AUDIT.isRigorous === false
       && /NO QED/.test(IMP96360_IMP96334_VIZ_BROWSER_RENDER_AUDIT.verdict)
-      && /remains SOTA/.test(IMP96360_IMP96334_VIZ_BROWSER_RENDER_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP96360_IMP96334_VIZ_BROWSER_RENDER_AUDIT.verdict),
   },
 ];
 

@@ -9,7 +9,7 @@
  *   (B) the remaining obstruction is localized to a single OCTAVE (1/2, 1) that carries EXACTLY HALF
  *       of the rigid mode s L^2 mass — the archimedean edge is not a measure-zero endpoint but half
  *       the state, so the boundary condition genuinely undecided-weighs the top state.
- * RH open; PT Lambda <= 0.2 stands; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * (A) WHY THE ANALYTIC SHORTCUT DOES NOT CLOSE IT. It is tempting to argue: an eigenvector g of the
@@ -57,7 +57,7 @@
  * NET. SG-96164-boundary is refined to SG-96181-edge-octave: exclude the scale-invariant mode v^{-1}
  *  at the confinement-cutoff octave (1/2, 1), which the dilation rigidity cannot reach and which carries
  *  half the mode s L^2 mass. The analytic-continuation shortcut is refuted (Zygmund, not entire). No
- *  diagonalization, no Lambda move, no verified-height move. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  diagonalization, no Lambda move, no verified-height move. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: pure arithmetic (closed-form L^2 octave integrals, dilation-fixed-point check), no
  *  imports, no zeros bundle. Reproduction inline in the assertions.
@@ -110,7 +110,7 @@ export const IMP_96181_SG_BOUNDARY = Object.freeze({
     'src/data/imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability.js (residual (I): the mixed-group no-modulus-1 theorem)',
   ],
   status:
-    'PARTIAL — SG-96164-boundary is NOT decided (neither C=0 proved nor C!=0 admitted), but SHARPENED. (A) The tempting Paley-Wiener / analytic-continuation shortcut (band-limited => entire => equals C/v on a deep-tail interval => pole at 0 forbidden => C=0) is REFUTED: the semilocal {oo,2,3} top confined states are FRACTAL / Zygmund-class (no bounded modulus of continuity, dyadic grids unusable), NOT entire of exponential type, so there is no analytic continuation from the deep tail to v=1/2 and the pole argument never reaches the boundary — a would-be false QED closed off. (B) The rigid mode 1/v is exactly the UNIQUE fixed point of the multiplicative dilation group (D_U g(v)=U g(Uv), the imp-96164 law g(Uv)=g(v)/U is D_U g = g for all U>0); the confinement cutoff P_1 at v=1/2 does NOT commute with D_U, so the scaling rigidity by construction CANNOT reach the v=1/2 edge — the residual is intrinsically an edge-band condition. (C) The undecided content is localized to the FIRST OCTAVE (1/2,1) (where the inverse relation g(v)=(1/2)g(v/2) first fails), which carries EXACTLY HALF the rigid mode L^2 mass: int_{1/2}^{1} v^-2 dv = 1 of int_{1/2}^{oo} v^-2 dv = 2. So the archimedean edge is not a thin endpoint but half the candidate top state. C=0 is INDICATED numerically (p=2 top 0.9999731<1) but not ENCLOSED (Zygmund edge blocks the exact scalar phase-match P_{1/2} F_S23 P_{1/2}(v^-1) at v=1/2). New sub-gap SG-96181-edge-octave. RH open; PT Lambda <= 0.2 stands; NO QED',
+    'PARTIAL — SG-96164-boundary is NOT decided (neither C=0 proved nor C!=0 admitted), but SHARPENED. (A) The tempting Paley-Wiener / analytic-continuation shortcut (band-limited => entire => equals C/v on a deep-tail interval => pole at 0 forbidden => C=0) is REFUTED: the semilocal {oo,2,3} top confined states are FRACTAL / Zygmund-class (no bounded modulus of continuity, dyadic grids unusable), NOT entire of exponential type, so there is no analytic continuation from the deep tail to v=1/2 and the pole argument never reaches the boundary — a would-be false QED closed off. (B) The rigid mode 1/v is exactly the UNIQUE fixed point of the multiplicative dilation group (D_U g(v)=U g(Uv), the imp-96164 law g(Uv)=g(v)/U is D_U g = g for all U>0); the confinement cutoff P_1 at v=1/2 does NOT commute with D_U, so the scaling rigidity by construction CANNOT reach the v=1/2 edge — the residual is intrinsically an edge-band condition. (C) The undecided content is localized to the FIRST OCTAVE (1/2,1) (where the inverse relation g(v)=(1/2)g(v/2) first fails), which carries EXACTLY HALF the rigid mode L^2 mass: int_{1/2}^{1} v^-2 dv = 1 of int_{1/2}^{oo} v^-2 dv = 2. So the archimedean edge is not a thin endpoint but half the candidate top state. C=0 is INDICATED numerically (p=2 top 0.9999731<1) but not ENCLOSED (Zygmund edge blocks the exact scalar phase-match P_{1/2} F_S23 P_{1/2}(v^-1) at v=1/2). New sub-gap SG-96181-edge-octave. RH open; no refereed bound is changed; NO QED',
   contributionA:
     'refute the analytic shortcut: top confined states are Zygmund-fractal not entire, so band-limited=>entire=>C=0 does NOT apply (no continuation from deep tail to the edge)',
   contributionB:

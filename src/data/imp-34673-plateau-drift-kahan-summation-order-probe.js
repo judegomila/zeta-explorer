@@ -65,7 +65,7 @@
  *   forms, so the sigma -> 1 deep-tail regime (imp-3220/imp-3406 component model least trustworthy) is
  *   inherited as-is. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are
  *   UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no
- *   operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34649-plateau-drift-shared-stencil-crossvalidation.js (F3 ~7e-6 jitter assessed here)
  *   @see imp-34626-plateau-drift-sixth-order-stencil-crosscheck.js (the 6th-order 9-point stencil)
@@ -251,7 +251,7 @@ export const IMP34673_PLATEAU_DRIFT_KAHAN_PROBE = Object.freeze({
     '(imp-3220/imp-3406 component model least trustworthy) is inherited as-is. The -2 asymptote and ' +
     'C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share ' +
     'per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34649 (F3 ~7e-6 6th-order plateau jitter assessed here); imp-34626 (6th-order 9-point ' +
     'stencil); imp-34611 (2nd/4th-order inline plateau); imp-34593 (roundoff-free plateau drift ' +
@@ -302,9 +302,9 @@ const IMP34673_ASSERTIONS = [
     holds: () =>
       IMP34673_PLATEAU_DRIFT_KAHAN_PROBE.isRigorous === false &&
       /NO QED/.test(IMP34673_PLATEAU_DRIFT_KAHAN_PROBE.verdict) &&
-      /remains SOTA/.test(IMP34673_PLATEAU_DRIFT_KAHAN_PROBE.verdict) &&
+      /refereed bound is changed/i.test(IMP34673_PLATEAU_DRIFT_KAHAN_PROBE.verdict) &&
       /UNTOUCHED/.test(IMP34673_PLATEAU_DRIFT_KAHAN_PROBE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

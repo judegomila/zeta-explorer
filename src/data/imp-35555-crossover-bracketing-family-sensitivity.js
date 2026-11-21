@@ -74,7 +74,7 @@
  * 1/8 Holder coefficient) and E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED;
  * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35458-crossover-height-map-sensitivity (the two-map -0.98% study this extends)
  * @see imp-35536-peak-height-map-sensitivity (the RvM x {1.02,0.98,1.05,0.95} bracketing family)
@@ -237,7 +237,7 @@ export const IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY = {
     '(imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35458 (two-map crossover height-map sensitivity, -0.98 percent); imp-35536 ' +
     '(RvM x {1.02,0.98,1.05,0.95} bracketing family); imp-35337/imp-35417 (crossover ' +
@@ -279,13 +279,13 @@ export const IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY_ASSERTIONS = [
       BRACKET.every((b) => Math.abs(b.slope - MEAN_SLOPE) < 5e-4),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35555-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.verdict),
   },
 ];
 

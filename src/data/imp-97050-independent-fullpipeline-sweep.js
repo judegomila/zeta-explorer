@@ -58,7 +58,7 @@
  * proof, and it does not touch step (b) -- the interpretive step from a verified T_a[sigma_2] >= 0
  * certificate to any Weil / operator positivity (the operator floor is a Rayleigh UPPER bound; the
  * Sonine port is obstructed at 2a=ln2). Certified reach stays 2a <= 0.96; operator positivity not
- * proved; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * proved; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97034-independent-celllocal-reverify.js (step (a) enclosure + tail formula, second impl)
  * @see imp-97012-krein-kmax5-100-celllocal-w1pp-verify.js (the imp-97012 mpmath.iv run under test)

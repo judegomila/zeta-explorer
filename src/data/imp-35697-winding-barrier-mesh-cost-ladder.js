@@ -52,7 +52,7 @@
  * derives no remainder; changes no bound; establishes no operator positivity;
  * C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and
  * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35653 stays breakthrough-tier
- * OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35653-sbarrier-finite-check-porting-scope (Part C names the 4.28 zeros/unit density and O(Delta log T_PT) scaling but never tabulates the count)
  * @see imp-35698 (measures the complementary B2 tail-lemma margin |A+B|-|C| and the handoff Delta)
@@ -63,7 +63,7 @@
 
 import { IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE } from './imp-35653-sbarrier-finite-check-porting-scope.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const TWO_PI = 2 * Math.PI;
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height
 
@@ -147,7 +147,7 @@ export const IMP35697_WINDING_BARRIER_MESH_COST_LADDER = {
     'x >= T_PT + Delta remains the semi-infinite, non-finite, breakthrough-tier obstruction. Changes no bound; ' +
     'establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) ' +
     'and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35653 stays breakthrough-tier OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35653 (Part C names the 4.28 zeros/unit density and O(Delta log T_PT) scaling but never tabulates the ' +
     'evaluation count done here); imp-35698 (complementary B2 tail-lemma margin and handoff Delta); ' +
@@ -211,7 +211,7 @@ export const IMP35697_WINDING_BARRIER_MESH_COST_LADDER_ASSERTIONS = [
       Math.abs(MAX_COST - 16 * RHO * 1e6) < 1,
   },
   {
-    // (6) honesty gate: measurement only, does NOT make S_barrier finite, no bound moves, PT SOTA, NO QED.
+    // (6) honesty gate: measurement only, does NOT make S_barrier finite, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35697-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, does not make S_barrier finite (B2 tail lemma stays the obstruction), changes no bound, imp-35653 OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -224,7 +224,7 @@ export const IMP35697_WINDING_BARRIER_MESH_COST_LADDER_ASSERTIONS = [
         /B2 . W3 analytic tail lemma/.test(r.verdict) &&
         /imp-35653 stays breakthrough-tier OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

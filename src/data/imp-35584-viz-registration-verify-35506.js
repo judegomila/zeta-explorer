@@ -41,7 +41,7 @@ export const VIZ_REGISTRATION_VERIFY_35506 = {
     + 'in src/data/visualizations-index.js, routed in src/App.jsx, and reachable via the '
     + 'VisualizationsIndexPage.jsx card link (entry.route). No routes added, no index entries '
     + 'changed. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. '
-    + 'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'No refereed bound is changed.',
 };
 
 export const VIZ_REGISTRATION_VERIFY_35506_ASSERTIONS = [
@@ -60,12 +60,12 @@ export const VIZ_REGISTRATION_VERIFY_35506_ASSERTIONS = [
   },
   {
     id: 'imp-35584-verify-only-honest',
-    description: 'explicitly VERIFY-ONLY (no routes/index entries added) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly VERIFY-ONLY (no routes/index entries added) and no refereed bound is changed',
     holds: () =>
       VIZ_REGISTRATION_VERIFY_35506.gapsFound.length === 0
       && /VERIFY-ONLY/.test(VIZ_REGISTRATION_VERIFY_35506.honest)
       && /No routes added, no index entries changed/.test(VIZ_REGISTRATION_VERIFY_35506.honest)
-      && /Lambda<=0.2 remains SOTA/.test(VIZ_REGISTRATION_VERIFY_35506.honest),
+      && /refereed bound is changed/i.test(VIZ_REGISTRATION_VERIFY_35506.honest),
   },
 ];
 

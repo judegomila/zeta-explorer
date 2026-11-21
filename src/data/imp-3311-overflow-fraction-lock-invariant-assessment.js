@@ -8,7 +8,7 @@
  *   ossify a double-precision artifact?
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE SITUATION
  *   -------------
@@ -78,8 +78,7 @@
  *   verdict, no reduction. Overflow-fraction anchor only; the absolute deg-2
  *   deficit magnitude is untouched. A nonzero overflow fraction is necessary-
  *   but-NOT-sufficient at operator order; the off-diagonal endpoint-Hankel step
- *   (imp-3066) remains the lone obstruction. No false QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 stays SOTA.
+ *   (imp-3066) remains the lone obstruction. No false QED. No refereed bound is changed.
  *
  *   @see imp-3211-overflow-fraction-converged-lock.js (the lock under assessment)
  *   @see imp-3306-overflow-fraction-anchor-underflow-reconcile.js (the 1/U artifact reconciliation)
@@ -207,7 +206,7 @@ export const IMP3311_OVERFLOW_FRACTION_LOCK_INVARIANT_ASSESSMENT = Object.freeze
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -251,8 +250,8 @@ export const IMP3311_OVERFLOW_FRACTION_LOCK_INVARIANT_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp3311-honest-maintenance-assessment',
     why: 'Mandatory honesty: DIAGNOSTIC maintenance assessment that does NOT edit the lock, overflow-fraction ' +
-         'anchor only, necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays ' +
-         'SOTA. If any flip the module is over-claiming.',
+         'anchor only, necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed' +
+         '. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3311_OVERFLOW_FRACTION_LOCK_INVARIANT_ASSESSMENT.honestCaveat;
       return (
@@ -261,7 +260,7 @@ export const IMP3311_OVERFLOW_FRACTION_LOCK_INVARIANT_ASSESSMENT_ASSERTIONS = [
         c.isMaintenanceAssessment === true &&
         c.doesNotEditLock === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

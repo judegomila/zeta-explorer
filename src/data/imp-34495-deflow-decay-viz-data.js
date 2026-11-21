@@ -12,8 +12,7 @@
  *   bundle), per [[no_heavy_imports_in_pages]].
  *
  *   NO QED. Viz-data reshaping only; the imp-34448 exponent fit and share extrapolation are
- *   UNCHANGED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; Platt-Trudgian
- *   Lambda<=0.2 remains SOTA.
+ *   UNCHANGED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no refereed bound is changed.
  *
  *   @see imp-34448-deflow-decay-exponent.js (source of the exponent series + extrapolation table)
  */

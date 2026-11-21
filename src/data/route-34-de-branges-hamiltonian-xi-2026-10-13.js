@@ -31,7 +31,7 @@
  *  tautological given real zeros; a violation is a localised dipole at a depth that grows as δ → 0 — the Hamiltonian form of T3's single-point
  *  failure certificate: you cannot find it without knowing where the zero is. Prime-power features in τ untested.
  *
- * Tagged [map]; REDUCES-TO-WALL (T3 = strip). No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_34_ASSERTIONS
+ * Tagged [map]; REDUCES-TO-WALL (T3 = strip). No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_34_ASSERTIONS
  * recompute live: the length identity 2Σ1/γ² from 30 zeros + smooth tail + boundary term, the cross-identity L/2 − λ_1 = Σ(1/4)/(γ²(γ² + 1/4))
  * with λ_1 = 1 + γ_E/2 − log(4π)/2, the rung lengths L_1, L_2, the truncation pinning of the δ = 1e-6 defect, and the τ ranges.
  */
@@ -77,7 +77,7 @@ export const ROUTE_34 = Object.freeze({
     + 'and reads the zeros in order of height with depth. Mass positivity is tautological given real zeros; an off-line quadruple shows up as one '
     + 'negative mass plus one negative length, at a depth that is not yet N-converged. Under the T3 dictionary it is the a → 0 gauge limit of the '
     + 'strip ladder, so the route reduces to the zero-location wall: a usable object, no lever beyond the verified zeros. Internal, one referee '
-    + 'pass. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'pass. No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_34;
@@ -128,7 +128,7 @@ export const ROUTE_34_ASSERTIONS = Object.freeze([
   {
     id: 'r34-honest-scope',
     holds: () => R.status === 'done' && /REDUCES-TO-WALL/.test(R.verdict) && /tautological/.test(R.verdict) && /one negative mass plus one negative length/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
     why: 'Reduces to the T3 zero-location wall; mass positivity tautological; defect = mass + length dipole; no Λ change; no QED.',
   },
 ]);

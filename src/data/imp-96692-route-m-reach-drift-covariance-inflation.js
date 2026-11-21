@@ -65,7 +65,7 @@
  * lower-bound caveat; it does not overturn the plateau reading or move any bound.
  *
  * MEASUREMENT/PROJECTION ONLY. Establishes no operator positivity, changes no
- * bound, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * bound, makes no RH claim; no refereed bound is changed. RH open.
  * NO QED.
  *
  * @see imp-96569-route-m-window-reach-projection.js (SE-of-mean LOWER-bound reach)
@@ -146,7 +146,7 @@ export const IMP96692_VERDICT = Object.freeze({
 });
 
 export const IMP96692_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/projection only: every value is a reproducible numeric from tmp/imp-96692-scratch.mjs over the baked imp-96487 ladder and the imp-96569 reach constants. The drift covariance is estimated from only 21 non-uniformly-spaced rungs, so the VIF (and hence the reach inflation) is a bracketed estimate (AR(1) 2.58 / integrated-ACF 2.14 / coherence 4.65), not a rigorous power calculation; it makes the imp-96569 reach LARGER (more pessimistic), never smaller. No new solve, no bound is claimed, no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement/projection only: every value is a reproducible numeric from tmp/imp-96692-scratch.mjs over the baked imp-96487 ladder and the imp-96569 reach constants. The drift covariance is estimated from only 21 non-uniformly-spaced rungs, so the VIF (and hence the reach inflation) is a bracketed estimate (AR(1) 2.58 / integrated-ACF 2.14 / coherence 4.65), not a rigorous power calculation; it makes the imp-96569 reach LARGER (more pessimistic), never smaller. No new solve, no bound is claimed, no operator positivity is established.';
 
 // Honest residual sub-gap.
 export const IMP96692_SUBGAP = Object.freeze({
@@ -214,7 +214,7 @@ const IMP96692_ASSERTIONS = [
     id: 'imp96692-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96692_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96692_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96692_HONEST_BANNER) &&
       /NO QED/.test(IMP96692_HONEST_BANNER) &&
       /bracketed estimate/.test(IMP96692_HONEST_BANNER) &&
       typeof IMP96692_SUBGAP.statement === 'string' &&

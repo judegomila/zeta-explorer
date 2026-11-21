@@ -38,7 +38,7 @@
  * SCOPE. Assessment/audit only. No source file was modified as a result of this check (none
  * needed correction). Changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
  * untouched; C_mb GUE-conditional per imp-486 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35036-sigma-decay-exponent-ladder-extension (audited: @see + import targets resolve)
  * @see imp-35036-sigma-fartail-exponent-log-slow-half-approach (audited: @see + import targets resolve)
@@ -94,7 +94,7 @@ export const IMP35186_CROSS_REFERENCE_INTEGRITY_AUDIT = {
     'references, zero misnamed exports. No source file required correction. Changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_mb GUE-conditional per ' +
     'imp-486 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35036, imp-35042, imp-35109, imp-35110, imp-35111, imp-35113, imp-35114, imp-35115, ' +
     'imp-35127, imp-35149 (the audited frontier modules).',
@@ -113,11 +113,11 @@ export const IMP35186_CROSS_REFERENCE_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35186-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35186_CROSS_REFERENCE_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35186_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35186_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35186_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
   },
 ];
 

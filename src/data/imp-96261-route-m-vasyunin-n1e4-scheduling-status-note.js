@@ -60,7 +60,7 @@ export const IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE = Object.freeze({
     'What this note corrects is narrower: the RESOURCE framing. "CPU-starved" should be read as a ' +
     'scheduling condition (route the build to a dedicated off-peak process) reported as ~7 min / ~2 GB ' +
     'reachable, not as evidence the N=1e4 target is computationally infeasible. Changes no bound; ' +
-    'establishes no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; RH open.',
+    'establishes no operator positivity; NO QED; no refereed bound is changed; RH open.',
 });
 
 const IMP96261_ASSERTIONS = [
@@ -82,7 +82,7 @@ const IMP96261_ASSERTIONS = [
     id: 'imp96261-honesty-gate-no-qed-and-subgaps-stay-open',
     holds: () =>
       /NO QED/.test(IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE.honest) &&
-      /remains the rigorous SOTA/.test(IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE.honest) &&
+      /refereed bound is changed/i.test(IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE.honest) &&
       /stay open/.test(IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE.honest),
   },
 ];

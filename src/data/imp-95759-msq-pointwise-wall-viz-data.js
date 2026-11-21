@@ -65,8 +65,8 @@ export const IMP95759_CAVEAT_BANNER =
   'series together show the SAME wall from its two faces -- a scale-invariant normalised ' +
   'residual (variance ratio flat near 0.40, never trending to the GUE value 1) and a ' +
   'height-decaying absolute residual (additive worst excess, O(1-2) zeros, so relative excess ' +
-  'falls ~1/L). Introduces no new cited input and changes no bound; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'falls ~1/L). Introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. No QED.';
 
 export const IMP95759_MSQ_POINTWISE_WALL_VIZ_DATA_ASSERTIONS = [
   {

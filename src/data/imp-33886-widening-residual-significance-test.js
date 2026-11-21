@@ -58,7 +58,7 @@
  * OLS surrogate is descriptive, not derived; the normal-approximation p-value is itself only asymptotic
  * on N = 21 (hence the continuity-corrected companion); the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33858-widening-fit-residual-localization (the eyeballed "structured" verdict calibrated here)
  * @see imp-33843-eflow-resid-widening-form-fit (the aggregate RMSE ~0.116 log-linear fit)
@@ -211,7 +211,7 @@ export const IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST = {
     'the normal-approximation p-value is itself asymptotic on N=21 (hence the continuity-corrected ' +
     'companion); the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33858 (the eyeballed "structured" verdict calibrated here); imp-33843 (the aggregate RMSE ' +
     '~0.116 log-linear fit); imp-33810 (the 21-rung ladder); imp-28895 (the ~918x widening component ' +
@@ -256,13 +256,13 @@ export const IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST_ASSERTIONS = [
       REJECTS_WHITE_NOISE_NULL,
   },
   {
-    // (R3) Honesty gate: isRigorous false, no QED, PT SOTA, and "significant" != "large" (bound untouched).
+    // (R3) Honesty gate: isRigorous false, no QED, no refereed bound is changed, and "significant" != "large" (bound untouched).
     id: 'imp33886-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, residual still small',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, residual still small',
     holds: () =>
       IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST.isRigorous === false &&
       /NO QED/.test(IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST.verdict) &&
-      /remains SOTA/.test(IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST.verdict) &&
       /12% multiplicative/.test(IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST.verdict),
   },
 ];

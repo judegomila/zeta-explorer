@@ -44,7 +44,7 @@
  * the analytic +4, imp-95746 the four-moduli witness, neither an off-anchor certificate).
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no
- * bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * bound; NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  */
 
 // carried literals (imp-95720 / imp-95724 / imp-95516 anchor)
@@ -88,7 +88,7 @@ export const DI_VARIATION_AGAINST_CONSTANT_J_NULL = Object.freeze({
     + 'variation -2.822e-5 = 2.484x the fractional J variation -1.136e-5 (dI carries 40% of J but 100% '
     + 'of the drift); induced kappa error -2.852e-5 abs (-1.136e-5 rel). One-anchor-plus-conditional, '
     + 'NOT a certified second anchor. G irrationality OPEN; Sun unrefereed; changes no bound; '
-    + 'PT Lambda<=0.2 SOTA; NO QED',
+    + 'no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'imp-95720 conditional J(1/19) + imp-95724 exact split J(rho)=3/2+dI(rho); anchor kappa via imp-95516/95637/95653',
   builtOn:
@@ -149,7 +149,7 @@ export const DI_VARIATION_AGAINST_CONSTANT_J_NULL = Object.freeze({
     + 'split) through arithmetic only; performs no new Prop-6.3 quadrature. The entire dI(1/19) value '
     + 'and hence the whole variation is CONDITIONAL on the +4 offset being exactly 4 and m-independent '
     + '(verified only at m=20). NOT a certified second anchor. Catalan G irrationality OPEN; Sun '
-    + 'single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const DI_VARIATION_AGAINST_CONSTANT_J_NULL_ASSERTIONS = Object.freeze([
@@ -188,11 +188,11 @@ export const DI_VARIATION_AGAINST_CONSTANT_J_NULL_ASSERTIONS = Object.freeze([
       && DI_VARIATION_AGAINST_CONSTANT_J_NULL.verdict.certifiedSecondAnchor === false,
   },
   {
-    name: 'honest: conditional on the +4 offset, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: conditional on the +4 offset, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /conditional/i.test(DI_VARIATION_AGAINST_CONSTANT_J_NULL.caveats)
       && /G irrationality OPEN/.test(DI_VARIATION_AGAINST_CONSTANT_J_NULL.status)
-      && /PT Lambda<=0.2 SOTA/.test(DI_VARIATION_AGAINST_CONSTANT_J_NULL.status)
+      && /refereed bound is changed/i.test(DI_VARIATION_AGAINST_CONSTANT_J_NULL.status)
       && /NO QED/.test(DI_VARIATION_AGAINST_CONSTANT_J_NULL.status),
   },
 ]);

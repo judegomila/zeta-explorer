@@ -20,7 +20,7 @@
  * only, collecting figures already on record in lambda-roadmap.js currentStatus.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. imp-3066 K_a >= 0 untouched.
+ * No refereed bound is changed. imp-3066 K_a >= 0 untouched.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior peak N ~ 9.22e5)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma>0.9 / halving / sigma<0.1 empirical landmarks)
@@ -79,8 +79,8 @@ export const IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE = {
     'lambda-roadmap.js currentStatus PHASEs, in strict N-order, each tagged with the imp-id that ' +
     'established it: interior peak (imp-3406) < sigma>0.9 threshold (imp-33582) < halving (imp-33582) ' +
     '< E_coll=E_trunc crossover (imp-33723) < inflection knee (imp-33721) < sigma<0.1 threshold ' +
-    '(imp-33582). No new value is derived and no bound changes. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; imp-3066 K_a >= 0 is untouched.',
+    '(imp-33582). No new value is derived and no bound changes. No refereed bound is changed' +
+    '; imp-3066 K_a >= 0 is untouched.',
 };
 
 const IMP_33828_ASSERTIONS = [
@@ -107,9 +107,9 @@ const IMP_33828_ASSERTIONS = [
     holds: () =>
       IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.isRigorous === false &&
       /no QED/i.test(IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.verdict) &&
-      /remains SOTA/.test(IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.verdict) &&
       /imp-3066/.test(IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.verdict),
-    why: 'VERDICT LOCK: reference-only, no bound changed, imp-3066 untouched, PT Lambda<=0.2 SOTA.',
+    why: 'VERDICT LOCK: reference-only, no bound changed, imp-3066 untouched, no refereed bound is changed.',
   },
 ];
 

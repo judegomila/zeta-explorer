@@ -39,7 +39,7 @@
  *   Ticket: imp-35604 (proof/assessment, medium). ASSESSMENT / SCOPING ONLY: quantifies an already-
  *   established feasibility statement; discharges NOTHING; imp-35337a stays OPEN; route-(ii) stays
  *   the only viable partial; changes no bound; establishes no positivity; C_mb GUE-conditional
- *   (imp-486) UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   (imp-486) UNTOUCHED; NO QED. No refereed bound is changed.
  */
 
 import { IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE } from './imp-35571-route-i-subleading-rate-scope.js';
@@ -126,8 +126,8 @@ export const IMP35604_ROUTE_II_DATA_REACHABILITY = Object.freeze({
     'height spot check is only half-anchorable with in-repo data and the crossover anchor needs ' +
     'external verified zeros -- an honest sub-gap on the only viable partial. Discharges NOTHING; ' +
     'imp-35337a stays OPEN; route-(ii) stays the only viable partial; changes no bound; establishes no ' +
-    'operator positivity; C_mb GUE-conditional (imp-486) UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; C_mb GUE-conditional (imp-486) UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35571 (names route-(ii) as the only viable partial, source of the two landmark log-heights); ' +
     'imp-35488 (route-(ii) two-height g_true spot check); imp-35337 (imp-35337a OPEN); imp-35475 ' +
@@ -190,11 +190,11 @@ export const IMP35604_ROUTE_II_DATA_REACHABILITY_ASSERTIONS = [
   },
   {
     // (4) honesty gate: assessment only, imp-35337a stays OPEN, route-(ii) stays the only partial,
-    //     no bound moves, PT 0.2 SOTA, NO QED.
+    //     no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35604-honesty-gate-no-qed',
     description:
       'assessment/scoping only: not rigorous, not unconditional, imp-35337a stays OPEN, route-(ii) ' +
-      'stays the only viable partial, no bound moves, Platt-Trudgian stays SOTA, NO QED',
+      'stays the only viable partial, no bound moves, no refereed bound is changed, NO QED',
     holds: () =>
       IMP35604_ROUTE_II_DATA_REACHABILITY.isRigorous === false &&
       IMP35604_ROUTE_II_DATA_REACHABILITY.isUnconditional === false &&
@@ -202,7 +202,7 @@ export const IMP35604_ROUTE_II_DATA_REACHABILITY_ASSERTIONS = [
       /only viable partial/.test(IMP35604_ROUTE_II_DATA_REACHABILITY.verdict) &&
       /changes no bound/.test(IMP35604_ROUTE_II_DATA_REACHABILITY.verdict) &&
       /NO QED/.test(IMP35604_ROUTE_II_DATA_REACHABILITY.verdict) &&
-      /remains SOTA/.test(IMP35604_ROUTE_II_DATA_REACHABILITY.verdict),
+      /refereed bound is changed/i.test(IMP35604_ROUTE_II_DATA_REACHABILITY.verdict),
   },
 ];
 

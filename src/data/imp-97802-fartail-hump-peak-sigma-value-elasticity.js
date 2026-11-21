@@ -56,7 +56,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the inherited
  * imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional per imp-486; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97782-fartail-diagnostic-hump-peak-pin (parent: pins the peak, reports location + diag-value elasticities)
  * @see imp-97795-fartail-diagnostic-three-landmark-floor-table (co-tabulates the three landmarks)
@@ -216,7 +216,7 @@ export const IMP97802_FARTAIL_HUMP_PEAK_SIGMA_VALUE_ELASTICITY = {
     'while bounding where the value sensitivity actually comes from. Measurement only; uses the ' +
     'inherited imp-3406/imp-97723 model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb ' +
     'stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97782 (parent: pins the peak, reports location + diag-value elasticities); imp-97795 ' +
     '(three-landmark floor table); imp-97723 (full diagnostic closed form); imp-33708 (0.5x..5x ' +
@@ -270,13 +270,13 @@ export const IMP97802_FARTAIL_HUMP_PEAK_SIGMA_VALUE_ELASTICITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp97802-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/sensitivity only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97802_FARTAIL_HUMP_PEAK_SIGMA_VALUE_ELASTICITY.isRigorous === false &&
       /NO QED/.test(IMP97802_FARTAIL_HUMP_PEAK_SIGMA_VALUE_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP97802_FARTAIL_HUMP_PEAK_SIGMA_VALUE_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP97802_FARTAIL_HUMP_PEAK_SIGMA_VALUE_ELASTICITY.verdict),
   },
 ];
 

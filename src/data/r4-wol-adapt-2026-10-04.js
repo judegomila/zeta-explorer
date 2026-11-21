@@ -47,7 +47,7 @@ export const R4_WOL_ADAPT = Object.freeze({
   }),
   verdict: 'WOL-C certified for 164 band-path entries by the centred branch-and-bound; route P 0.147157850303694 (robust 0.147157850303695), '
     + 'below the b145 PT value. The near box is certifiable at P47 with 6–8 boxed primes; the far cover (~128·16^(NL−2) boxes) is the obstruction. '
-    + 'Conditional on the shared inputs and on r3core4.c (no line-by-line audit). PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'Conditional on the shared inputs and on r3core4.c (no line-by-line audit). No refereed bound is changed. RH open. NO QED.',
 });
 
 const A = R4_WOL_ADAPT;
@@ -73,7 +73,7 @@ export const R4_WOL_ADAPT_ASSERTIONS = Object.freeze([
       && lt(A.values.uniform0223.exact, '18409208597849/125000000000000'),
     why: 'mixed < robust (+1e-15) < uniform-0.0223 sensitivity < b145 PT 0.147273668782792.',
   },
-  { id: 'r4-woladapt-honest', holds: () => /NO QED/.test(A.status) && /PT Lambda <= 0\.2 stands/.test(A.verdict) && /r3core4\.c/.test(A.verdict), why: 'Engine trust base named; no QED.' },
+  { id: 'r4-woladapt-honest', holds: () => /NO QED/.test(A.status) && /refereed bound is changed/i.test(A.verdict) && /r3core4\.c/.test(A.verdict), why: 'Engine trust base named; no QED.' },
 ]);
 
 export default R4_WOL_ADAPT;

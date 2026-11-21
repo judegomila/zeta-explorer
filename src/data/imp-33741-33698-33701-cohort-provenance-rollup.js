@@ -6,8 +6,7 @@
  * [400,1200] set, a leave-two-out ROBUSTNESS refit of the [1200,1600] four-peak height plateau, and
  * a sigma-decay ramp CURVATURE/inflection diagnostic), by EVIDENCE CLASS, mirroring the imp-33719
  * imp-33679..imp-33682 roll-up pattern and confirming each module carries the mandatory honest
- * banner: no-QED, the imp-3066 K_a >= 0 operator-positivity invariant untouched, and Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * banner: no-QED, the imp-3066 K_a >= 0 operator-positivity invariant untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was read
  * and classified into the evidence class it earns on its own terms:
@@ -27,7 +26,7 @@
  *     six-decade local-exponent ladder and finds the ramp is monotone in value but SIGMOID in
  *     shape, with exactly one inflection (a knee) in the [1e10,1e11] decade.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA); shared-caveat coverage (the imp-33599/imp-33621/
+ * untouched, no refereed bound is changed); shared-caveat coverage (the imp-33599/imp-33621/
  * imp-33638/imp-33660/imp-33661/imp-33679 latticeJitterCaveat lineage for the first three, the
  * imp-486 C_mb GUE-conditional caveat for the fourth) and glossary/viz-page coverage were
  * cross-checked against src/data/glossary.js and src/pages. Import lines were grepped per the
@@ -85,7 +84,7 @@ export const IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP = {
     'classify by evidence class (inter-peak gap-series regime-change measurement / gap-vs-trough-' +
     'depth correlation measurement / leave-two-out robustness degenerate-on-four-peaks test / ' +
     'sigma-decay ramp curvature single-inflection diagnostic); grep for the mandatory honest-banner ' +
-    'phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) plus the ' +
+    'phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed) plus the ' +
     'shared-caveat phrases (latticeJitterCaveat lineage for the first three, C_mb GUE-conditional ' +
     'for the fourth); cross-check glossary.js and src/pages for dedicated coverage and import lines ' +
     'for heavy-import safety.',
@@ -159,7 +158,7 @@ export const IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all four cohort members. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -188,7 +187,7 @@ const IMP_33741_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 4,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33741-zero-direct-bridge-references',
@@ -238,11 +237,11 @@ const IMP_33741_ASSERTIONS = [
   {
     id: 'imp33741-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33741_33698_33701_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

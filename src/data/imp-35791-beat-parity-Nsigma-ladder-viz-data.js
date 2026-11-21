@@ -12,7 +12,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-35723 literals;
  * changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35723-beat-parity-regime-boundary-Nsigma-locator.js (source: the three N-sigma rungs baked here)
  * @see imp-35750-beat-parity-handoff-sigma-viz-data.js (sigma-axis sibling; this module is the N-axis view)

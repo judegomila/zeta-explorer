@@ -45,8 +45,7 @@
  * true collapse dynamics (that DEEPER half stays OPEN as re-pointed sub-gap imp-35336a, inheriting the imp-3406
  * / imp-3220 / imp-486 caveats). The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (parent: the three crossings measured on double)
  * @see imp-35174-reentry-band-precision-certification (the dd toolkit + certification method reproduced here)
@@ -327,7 +326,7 @@ export const IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE = {
     'imp-35336a. MEASUREMENT / CERTIFICATION ONLY on the inherited imp-3220/imp-3406 surrogate, which is NOT a ' +
     'rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (parent: the three sigma crossings measured on double); imp-35174 (dd toolkit + certification ' +
     'method reproduced here, for the reentry-band edges); imp-35109 (origin of the cancellation-free dd path); ' +
@@ -378,13 +377,13 @@ export const IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE_ASSERTIONS = [
       ARTIFACT_FREE === true,
   },
   {
-    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, PT SOTA, sub-gap named.
+    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, no refereed bound is changed, sub-gap named.
     id: 'imp35336-honesty-gate-no-qed',
-    description: 'Certification only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gap imp-35336a named',
+    description: 'Certification only: isRigorous false, no QED, no refereed bound is changed, sub-gap imp-35336a named',
     holds: () =>
       IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE.isRigorous === false &&
       /NO QED/.test(IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE.verdict) &&
-      /remains SOTA/.test(IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE.verdict) &&
+      /refereed bound is changed/i.test(IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE.verdict) &&
       /imp-35336a/.test(IMP35336_SIGMA_CROSSING_LANDMARKS_DOUBLE_DOUBLE.residual_sub_gap_imp_35336a),
   },
 ];

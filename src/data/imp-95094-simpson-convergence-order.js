@@ -53,7 +53,7 @@
  * exact and unaffected; only its Finding-A numeric reproduction carries this floor.
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── identical machinery to imp-95076 (so the trace is reproduced bit-for-bit) ──
@@ -185,7 +185,7 @@ export const IMP95094_SIMPSON_CONVERGENCE_ORDER = {
     "Empirical convergence measurement of a deterministic composite-Simpson evaluator: the N-table reproduces bit-for-bit and the log-log fit is exact arithmetic on it, but the reported order p ~ 1.8-2.1 is a FIT, not a proved bound, and oscillates with corner-node alignment. No bound is promoted. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT bounding the imp-95076 Finding-A quadrature floor. The composite-Simpson cFar converges to the closed form 0.2717408057586117 at SECOND order O(N^-2) (log-log fit p ~ 1.82 over the doubling table, ~2.11 over a denser grid), NOT the classical O(N^-4) Simpson rate - degraded by the two interior corners of the pair-correlation integrand at u=0 and u=T (kinks from the absolute values). The error is corner-straddling-OSCILLATORY in fine N (e.g. N=250000 rel 4.98e-6 vs adjacent N=252000 rel 1.26e-7, a ~40x dip), so p ~ 2 is an effective fit order over the trend. The imp-95076 N=40000 point (rel 2.18e-4) sits on this O(N^-2) curve; matching the imp-95073 adaptive reference 7.5e-9 on this rule needs N ~ 1e7-1e8. The imp-95076 structural findings (cFar amplitude-invariant, M proportional to A_d^2) are exact and untouched. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT bounding the imp-95076 Finding-A quadrature floor. The composite-Simpson cFar converges to the closed form 0.2717408057586117 at SECOND order O(N^-2) (log-log fit p ~ 1.82 over the doubling table, ~2.11 over a denser grid), NOT the classical O(N^-4) Simpson rate - degraded by the two interior corners of the pair-correlation integrand at u=0 and u=T (kinks from the absolute values). The error is corner-straddling-OSCILLATORY in fine N (e.g. N=250000 rel 4.98e-6 vs adjacent N=252000 rel 1.26e-7, a ~40x dip), so p ~ 2 is an effective fit order over the trend. The imp-95076 N=40000 point (rel 2.18e-4) sits on this O(N^-2) curve; matching the imp-95073 adaptive reference 7.5e-9 on this rule needs N ~ 1e7-1e8. The imp-95076 structural findings (cFar amplitude-invariant, M proportional to A_d^2) are exact and untouched. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -249,13 +249,13 @@ export const IMP95094_CONVERGENCE_ASSERTIONS = [
   {
     id: "imp95094-honesty-gate",
     description:
-      "the verdict names the empirical-order / oscillation sub-gap, reports second-order O(N^-2) not O(N^-4), promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the empirical-order / oscillation sub-gap, reports second-order O(N^-2) not O(N^-4), promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95094_SIMPSON_CONVERGENCE_ORDER.promotesBound === false &&
       IMP95094_SIMPSON_CONVERGENCE_ORDER.isRigorous === false &&
       IMP95094_SIMPSON_CONVERGENCE_ORDER.openResiduals.length === 1 &&
       /NO QED/.test(IMP95094_SIMPSON_CONVERGENCE_ORDER.verdict) &&
-      /remains SOTA/.test(IMP95094_SIMPSON_CONVERGENCE_ORDER.verdict) &&
+      /refereed bound is changed/i.test(IMP95094_SIMPSON_CONVERGENCE_ORDER.verdict) &&
       /SECOND order/.test(IMP95094_SIMPSON_CONVERGENCE_ORDER.verdict) &&
       /OSCILLATORY/.test(IMP95094_SIMPSON_CONVERGENCE_ORDER.verdict),
   },

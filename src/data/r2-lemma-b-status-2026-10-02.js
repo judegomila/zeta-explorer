@@ -16,7 +16,7 @@
  *  zeros stay real in a walled cell; Hurwitz + forward splitting, no hypothesis on zeros outside), Theorem B as an implication.
  * CERTIFIED: walls (both lanes), H2_BMAX52 far field (24/24), window coverage by a second FLINT entry point. CONDITIONAL: (BB1), (BB2) not
  *  proved; (RH-win) on FLINT (audited once, wrap-fixed rerun); (RH-head) proved by PT at PT floor height, open at 1.6X/1.7X.
- * Verdict: Lemma B is a written conditional gluing theorem; its band barriers are the open piece. PT Lambda <= 0.2 stands. RH open. NO QED.
+ * Verdict: Lemma B is a written conditional gluing theorem; its band barriers are the open piece. No refereed bound is changed. RH open. NO QED.
  * Files: formalization/paper/lemma-B-two-band.md, formalization/paper/verify_lemma_B_hypotheses.py (0 failures 2026-10-01).
  * Import-free. ASSERTIONS recompute the B.2 contraction end time (= q_e/2), window width vs D_W, the boundary-zero margins, U1 > U2 at both
  * band values, the band-1 start margin, the RH-head ordinates at PT and 1.7X, and the fix-status bookkeeping.
@@ -61,7 +61,7 @@ export const R2_LEMMA_B_STATUS = Object.freeze({
   verdict:
     'Lemma B is written as a conditional gluing theorem (B.1–B.3 and Theorem B, unrefereed). Of the five steps the second referee listed, three are '
     + 'absorbed in the written document and two are part of the band barriers BB1/BB2, which are not proved. At PT floor height (RH-head) is supplied '
-    + 'by Platt–Trudgian; at 1.6X/1.7X it is open. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'by Platt–Trudgian; at 1.6X/1.7X it is open. No refereed bound is changed. RH open. NO QED.',
   nextStep: 'Write the BB1/BB2 transplant of Raymond AF §11 (single-cell first contact, compactness of the walled band-1 cell, H2 for cross-band pairs, joint first contact) and the chained three-band statement; send B.1–B.3, Theorem B and the transplant to one adversarial referee.',
 });
 
@@ -103,7 +103,7 @@ export const R2_LEMMA_B_STATUS_ASSERTIONS = Object.freeze([
     holds: () => L.refereeFixes.length === 5 && L.refereeFixes.filter((f) => f.status === 'absorbed').length === 3
       && L.refereeFixes.filter((f) => /deferred/.test(f.status)).every((f) => /BB/.test(f.status))
       && L.steps.filter((s) => /NOT PROVED/.test(s.grade)).map((s) => s.id).join(',') === 'BB1,BB2'
-      && /PT Lambda <= 0\.2 stands/.test(L.verdict) && /NO QED/.test(L.verdict),
+      && /refereed bound is changed/i.test(L.verdict) && /NO QED/.test(L.verdict),
     why: 'Three referee fixes absorbed, two deferred into BB1/BB2; BB1/BB2 the only NOT PROVED steps; honest scope.',
   },
 ]);

@@ -18,8 +18,8 @@
  * MEASUREMENT / PRESENTATION ONLY. Every number here is copied verbatim
  * from the baked certificate literal (itself cross-checked by that
  * module's own assertions); no re-derivation, no fresh solve. Changes no
- * bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see rh-route-i-uncertainty-concentration-certificate-2026-09-24.js
  *   (UNCERTAINTY_CERTIFICATE_LITERALS.certificate, .constantReconciliation)
@@ -72,7 +72,7 @@ export const IMP96577_BRACKET = Object.freeze({
 });
 
 export const IMP96577_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ladder value, extrapolant, and bracket endpoint plotted here is copied verbatim from the baked certificate constantReconciliation literal; no re-derivation, no fresh solve. c(T) is a rigorous (double-precision, non-interval) lower bound on C* for each finite T; the two-term fit and Ritz value are point estimates, not proved bounds themselves, but together they bracket C* into [9.2918e-4, 9.46e-4]. No bound is claimed beyond D_S <= L_S on pole-free h for 2a <= ln 3; nothing here localises a zero.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every ladder value, extrapolant, and bracket endpoint plotted here is copied verbatim from the baked certificate constantReconciliation literal; no re-derivation, no fresh solve. c(T) is a rigorous (double-precision, non-interval) lower bound on C* for each finite T; the two-term fit and Ritz value are point estimates, not proved bounds themselves, but together they bracket C* into [9.2918e-4, 9.46e-4]. No bound is claimed beyond D_S <= L_S on pole-free h for 2a <= ln 3; nothing here localises a zero.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -121,7 +121,7 @@ const IMP96577_ASSERTIONS = [
     id: 'imp96577-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96577_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96577_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96577_HONEST_BANNER) &&
       /NO QED/.test(IMP96577_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

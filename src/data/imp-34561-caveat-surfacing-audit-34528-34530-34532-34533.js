@@ -5,7 +5,7 @@
  * (measurement/fit only; component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a>=0 untouched; no operator positivity; NO QED;
- * Platt-Trudgian Lambda<=0.2 remains SOTA) carried by the imp-34528/34530/
+ * no refereed bound is changed) carried by the imp-34528/34530/
  * 34532/34533 module JSDoc/verdict blocks is ALSO surfaced by every page or
  * viz that consumes these modules' exports, extending the imp-34521 (and its
  * imp-34463/imp-34504 precedents) caveat-surfacing-audit lineage to this
@@ -89,7 +89,7 @@ export const CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533 = {
   gapsFound: COHORT.filter((m) => !m.improvementsLogHasCaveat).map((m) => m.ticket),
   honest: 'AUDIT-ONLY -- confirms the caveat reaches end-readers on every surface for all 4 cohort ' +
     'modules; no surfacing added because none was missing. No bound change; imp-3066 K_a>=0 untouched; ' +
-    'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533_ASSERTIONS = [
@@ -127,10 +127,10 @@ export const CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533_ASSERTIONS = [
   },
   {
     id: 'imp-34561-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533.honest)
       && /no surfacing added because none was missing/.test(CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34528_34530_34532_34533.honest),
   },
 ];
 

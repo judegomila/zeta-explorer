@@ -46,7 +46,7 @@
  * machinery (identical K, delta, N_cross, band, a(N), split form). The imp-34714a machine certificate REMAINS
  * OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35809-krawczyk-surplus-split-band-and-height-profile (closed form a/(4 delta) + a = 4 delta crossover)
  * @see imp-35846-crossover-height-sensitivity-to-delta (sensitivity of the crossover height to delta)
@@ -218,8 +218,8 @@ export const IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION = {
     'the inherited imp-3220/imp-3406 surrogate; reproduces the imp-35809/imp-35762/imp-35266 machinery ' +
     '(identical K, delta, N_cross, band, a(N), split form); C_C 1/8 (imp-2642/2643) and C_mb GUE-conditional ' +
     'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; changes ' +
-    'no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35809 (closed form a/(4 delta) + a = 4 delta crossover, spot-checked at 3 anchors); imp-35846 ' +
     '(crossover-height sensitivity to delta); imp-35762 (defined the exact additive split); imp-35266 (D3 ' +
@@ -262,15 +262,15 @@ export const IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION_ASSERTIONS = [
         splitExactAt(N_CROSS_EXACT).shift_fraction < 1e-3,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35869-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION.isRigorous === false &&
       /imp-34714a/.test(IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION.subGap) &&
       /REMAINS OPEN/.test(IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION.subGap) &&
       /NO QED/.test(IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35869_CROSSOVER_MODEL_CROSS_VALIDATION.verdict),
   },
 ];
 

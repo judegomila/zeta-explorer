@@ -57,7 +57,7 @@
  * Sigma2 residual sign oscillates rung to rung. At every rung the discrepancy stays below ~1.5e-7, so
  * the -0.4818 value survives out-of-family at every decade, not only at the PT anchor. Accuracy
  * cross-check only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96350-covariance-outoffamily-crossvalidation (the PT-anchor exact-vs-asymptotic measurement this extends)
  * @see imp-96267-covariance-drift-rigidity-limit-reach (the decade ladder of heights and the rho_exact drift)
@@ -202,7 +202,7 @@ export const IMP96371_COVARIANCE_EXACT_VS_ASYMPTOTIC_DECADE_LADDER = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights (and certainly at 3e12) there are no computed Riemann zeros, so this cross-validates two independent closed-form evaluations of the same envelope across the ladder, not a measurement of actual zeros. The mid-ladder floor ~3e-13 is at the double-precision roundoff limit of the rho ratio, so the out-of-family discrepancy there is only bounded, not resolved. It changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The imp-96350 near-perfect exact-vs-asymptotic cancellation is NOT uniform across the imp-96267 decade ladder: |rho_exact - rho_asymp| is U-shaped in log T, growing to 1.47e-7 at T = 1e4 (dropped oscillatory terms matter most at small L, ~580x the PT value), falling to a roundoff-limited ~3e-13 floor near T = 1e8-1e9, then rising back to the imp-96350 2.52e-10 at the PT anchor 3e12; the Sigma2 residual sign oscillates rung to rung. At every rung the discrepancy stays below ~1.5e-7, so the -0.4818 value survives out-of-family at every decade, not only at the PT anchor. Accuracy cross-check only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96350 near-perfect exact-vs-asymptotic cancellation is NOT uniform across the imp-96267 decade ladder: |rho_exact - rho_asymp| is U-shaped in log T, growing to 1.47e-7 at T = 1e4 (dropped oscillatory terms matter most at small L, ~580x the PT value), falling to a roundoff-limited ~3e-13 floor near T = 1e8-1e9, then rising back to the imp-96350 2.52e-10 at the PT anchor 3e12; the Sigma2 residual sign oscillates rung to rung. At every rung the discrepancy stays below ~1.5e-7, so the -0.4818 value survives out-of-family at every decade, not only at the PT anchor. Accuracy cross-check only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -242,8 +242,8 @@ export const IMP96371_COVARIANCE_EXACT_VS_ASYMPTOTIC_DECADE_LADDER = {
   // honesty gates
   if (!/NO QED/.test(IMP96371_COVARIANCE_EXACT_VS_ASYMPTOTIC_DECADE_LADDER.verdict))
     throw new Error('imp-96371: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96371_COVARIANCE_EXACT_VS_ASYMPTOTIC_DECADE_LADDER.verdict))
-    throw new Error('imp-96371: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96371_COVARIANCE_EXACT_VS_ASYMPTOTIC_DECADE_LADDER.verdict))
+    throw new Error('imp-96371: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96371_COVARIANCE_EXACT_VS_ASYMPTOTIC_DECADE_LADDER;

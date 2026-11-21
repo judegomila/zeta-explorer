@@ -65,7 +65,7 @@
  * new bound. (b) The bound is exact and delta-uniform; the verification confirms
  * it at four deltas including ln 1.3. (c) Model seam family only; the imp-95212
  * envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO
- * bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95825-finite-section-positivity-certificate (the lower companion this mirrors)
  * @see imp-95677-rho1-szego-finite-size-convergence (the ratio table these bracket)
@@ -126,7 +126,7 @@ export const IMP95846_FINITE_SECTION_UPPER_COMPANION_BOUND = {
     "Numerical verification of the standard bound imp-95825 stated but did not " +
     "check; no new cited input, no new bound. Model seam family only; imp-95212 " +
     "envelope port, signed WEIGHT, modulus/phase legs stay OPEN. Changes no bound " +
-    "of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95846"],
 };
 
@@ -322,7 +322,7 @@ export const IMP95846_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /VERIFIED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95846-closes-self",

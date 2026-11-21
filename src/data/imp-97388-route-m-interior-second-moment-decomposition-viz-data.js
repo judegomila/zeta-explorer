@@ -11,7 +11,7 @@
  * No re-derivation: every number reused here is stated verbatim in the imp-97349 JSDoc/exports.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97349-route-m-diagonal-remainder-profile-separation.js (source of every figure reshaped here)
  *
@@ -87,7 +87,7 @@ const IMP97388_ASSERTIONS = [
     id: 'imp97388-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97388_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97388_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97388_HONEST_BANNER) &&
       /NO QED/.test(IMP97388_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

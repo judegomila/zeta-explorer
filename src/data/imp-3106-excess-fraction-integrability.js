@@ -58,8 +58,7 @@
  *   ONLY, RH-EQUIVALENT, NOT THE OPERATOR STEP. The integral of the imp-3064
  *   scalar ratio neither proves nor weakens RH; it has no finite mean to report.
  *   The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone
- *   obstruction and is untouched. measure only, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA.
+ *   obstruction and is untouched. measure only, no QED. No refereed bound is changed.
  *
  *   @see imp-3064-deficit-excess-fraction-grid.js (imp-3064: the a*U scale invariant + phi)
  *   @see imp-3087-excess-fraction-onset-divergence.js (imp-3087: onset pole C/(s-s0)^2)
@@ -223,7 +222,7 @@ export const IMP3106_EXCESS_FRACTION_INTEGRABILITY = Object.freeze({
       'An integrability assessment of the imp-3064 degree-0 scalar ratio; the ' +
       'off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone ' +
       'obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -350,7 +349,7 @@ export const IMP3106_EXCESS_FRACTION_INTEGRABILITY_ASSERTIONS = [
     id: 'imp3106-honest-divergence-not-a-value',
     why: 'Mandatory honesty: this is a DIVERGENCE CHARACTERIZATION (no finite mean to report), ' +
          'RH-EQUIVALENT, structural/diagnostic, leaves the operator step untouched, is not a ' +
-         'proof, not a reduction below RH, and PT 0.2 stays SOTA. If any of these flip the ' +
+         'proof, not a reduction below RH, and no refereed bound is changed. If any of these flip the ' +
          'module is over-claiming.',
     holds: () => {
       const c = IMP3106_EXCESS_FRACTION_INTEGRABILITY.honestCaveat;
@@ -361,7 +360,7 @@ export const IMP3106_EXCESS_FRACTION_INTEGRABILITY_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isDivergenceCharacterizationNotAValue === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

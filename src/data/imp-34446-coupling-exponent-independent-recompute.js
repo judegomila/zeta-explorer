@@ -47,7 +47,7 @@
  *   new Lambda bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  *   rigorous asymptotic; C_C is the imp-2714 (1/8)sqrt(3 pi) ansatz (C_H = 1/8), UNTOUCHED; the
  *   C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator
- *   positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34372-lockstep-ratio-deeptail-persistence.js (lockstep-read coupling ratio 2.0634)
  *   @see imp-33620-etrunc-ecoll-ladder-1e15-extension.js (deep-tail landmark N* ~ 4.62e13, E_coll ladder)
@@ -160,7 +160,7 @@ export const IMP34446_COUPLING_EXPONENT = Object.freeze({
     'E_coll(N*) ~ 3.0909e-7 equals the sigma-landmark value E_trunc thr/(1-thr). C_C is the ' +
     'imp-2714 (1/8)sqrt(3 pi) ansatz UNTOUCHED; the C_mb GUE-conditional share per imp-486 ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34372 (lockstep-read coupling ratio 2.0634, reproduced/cross-checked here); imp-33620 ' +
     '(deep-tail landmark N* ~ 4.62e13); imp-34351 (exact residual = 1 - [L/L]/(1+r)^2); imp-2714 ' +
@@ -199,9 +199,9 @@ const IMP34446_ASSERTIONS = [
     holds: () =>
       IMP34446_COUPLING_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP34446_COUPLING_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP34446_COUPLING_EXPONENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34446_COUPLING_EXPONENT.verdict) &&
       /UNTOUCHED/.test(IMP34446_COUPLING_EXPONENT.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

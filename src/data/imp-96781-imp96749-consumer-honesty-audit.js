@@ -32,7 +32,7 @@
  * flagged here as the natural next content ticket in this thread.
  *
  * This module fabricates NO pages and edits NO other module; it only records
- * the audit. No new bound, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * the audit. No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-96749, imp-96777, imp-96778, imp-96768, imp-96769
  */
@@ -64,7 +64,7 @@ export const IMP_96781_IMP96749_CONSUMER_HONESTY_AUDIT = {
     'not this ticket’s named scope, flagged for a future content ticket.',
   honestNote:
     'Read-only audit; no pages fabricated, no modules edited. No new bound, no QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -86,9 +86,9 @@ const IMP_96781_ASSERTIONS = [
   {
     id: 'imp96781-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_96781_IMP96749_CONSUMER_HONESTY_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_96781_IMP96749_CONSUMER_HONESTY_AUDIT.honestNote) &&
       /no QED/i.test(IMP_96781_IMP96749_CONSUMER_HONESTY_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

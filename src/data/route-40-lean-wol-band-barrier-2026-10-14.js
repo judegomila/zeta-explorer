@@ -35,7 +35,7 @@
  * MEASURED: each file 10–25 s; peak footprint ≈ 0.93–1.17 GB (RSS ≈ 5.8 GB mostly mmapped .olean); referee audit 14.5 s.
  * HEURISTIC: the heat-equation route (4β' = D²β + 2β*Dβ, triangular since β_1 = 0) may simplify wol-pd §2 and possibly Lemma CG (untested).
  *
- * Verdict: partial; no Λ change. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_40_ASSERTIONS recompute live: β_n(t) from the
+ * Verdict: partial; no Λ change. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_40_ASSERTIONS recompute live: β_n(t) from the
  * Dirichlet-ring recursion (β(0) = Λ, β ≥ 0, monotone, heat equation by finite differences, n ≤ 300), A17 ≤ e^{−x} ≤ A18, the tail bound,
  * the H2/E2 coefficient identities, the vacuity of the original L1 hypotheses and the admissibility of log under the fix.
  */
@@ -70,7 +70,7 @@ export const ROUTE_40 = Object.freeze({
   verdict: 'Partial. Lean kernel-checks fragments of the structural lemmas behind WOL-C (L1 identities after the referee\'s fix of a vacuous '
     + 'hypothesis set, L2 log-positivity via a new heat-equation proof, L3 grid maxima, pieces of L4, steps of L5) and the logical/algebraic core '
     + 'of Theorem BB. WOL-C (a per-entry numerical statement) and BB1/BB2 (analytic and computational inputs) are not proved; nothing was sent to '
-    + 'Aristotle. No Λ value changes. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'Aristotle. No Λ value changes. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_40;
@@ -128,7 +128,7 @@ export const ROUTE_40_ASSERTIONS = Object.freeze([
   {
     id: 'r40-honest-scope',
     holds: () => R.status === 'partial' && R.aristotle.submitted === 0 && /not proved/.test(R.verdict) && /fragments/.test(R.verdict)
-      && R.wolc.entries === 630 && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 4 && sqrt(4) === 2,
+      && R.wolc.entries === 630 && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 4 && sqrt(4) === 2,
     why: 'Fragments only; WOL-C and BB1/BB2 unproved; nothing submitted externally; no Λ change; no QED.',
   },
 ]);

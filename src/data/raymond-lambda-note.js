@@ -31,7 +31,7 @@
  * unrefereed preprint on the Λ ladder (/lambda-bounds, /frontier-dag) — this note
  * never concerned it, and nothing is to be sent to him.
  *
- * PT Λ ≤ 0.2 remains the accepted peer-reviewed SOTA; RH and Catalan-G both OPEN.
+ * No refereed bound is changed; RH and Catalan-G both OPEN.
  * Kept as a retraction record; unregistered from run-assertions; no heavy imports.
  */
 

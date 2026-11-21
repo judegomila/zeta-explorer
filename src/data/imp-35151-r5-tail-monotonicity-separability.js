@@ -162,7 +162,7 @@ export const IMP_35151_R5_SEPARABILITY = {
     removesConditional: false,
     establishesPositivity: false,
     isQED: false,
-    ptFloor: "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    ptFloor: "No refereed bound is changed.",
   },
 };
 

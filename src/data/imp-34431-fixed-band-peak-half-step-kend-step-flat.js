@@ -68,7 +68,7 @@
  * untouched). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the peak, increments and step read are descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34347-odd-quarter-increment-parity-branch (F3 sole concave node kEnd = 19.00 this refinement tests)
  * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (the convex branch; 0.25 stitch grid this halves)
@@ -325,7 +325,7 @@ export const IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT = {
     'imp-34347/imp-34268/imp-34196/imp-34169 findings are untouched. The peak, increments and step read are ' +
     'descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34347 (F3 sole concave node kEnd = 19.00, centered second diff -0.000480, this refinement tests); ' +
     'imp-34268 (the convex branch; 0.25 stitch grid this halves); imp-34196 (the 0.25-grid increment minimum at ' +
@@ -387,10 +387,10 @@ export const IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT_ASSERTIONS = [
       MIN_ABS_SAWTOOTH > 20 * IMP34347_GENUINE_CONCAVITY_19,
   },
   {
-    // Honesty gate: measurement only, imp-34347 reading stands, isRigorous false, no bound change, no QED, PT SOTA,
+    // Honesty gate: measurement only, imp-34347 reading stands, isRigorous false, no bound change, no QED, no refereed bound is changed,
     // imp-3066 K_a>=0 & imp-486 C_mb untouched.
     id: 'imp34431-honesty-gate-no-qed',
-    description: 'Measurement only: allIntermediateStepFlat & sawtoothDwarfsGenuine, isRigorous false, imp-34347 reading STANDS, no bound change, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
+    description: 'Measurement only: allIntermediateStepFlat & sawtoothDwarfsGenuine, isRigorous false, imp-34347 reading STANDS, no bound change, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
     holds: () =>
       IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.allIntermediateStepFlat === true &&
       IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.sawtoothDwarfsGenuine === true &&
@@ -398,7 +398,7 @@ export const IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT_ASSERTIONS = [
       /NOT a rigorous asymptotic/.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict) &&
       /reading STANDS/.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict) &&
       /NO QED/.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict) &&
-      /remains SOTA/.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict) &&
+      /refereed bound is changed/i.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34431_FIXED_BAND_PEAK_HALF_STEP_KEND_STEP_FLAT.verdict),
   },

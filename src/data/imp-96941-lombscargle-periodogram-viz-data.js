@@ -14,8 +14,8 @@
  * its alias image, the genuine peak) plus a stability-estimate series.
  *
  * PRESENTATION ONLY. Changes no bound; establishes no operator positivity;
- * interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96915-burnol-oscillation-frequency-periodogram.js (source claimed/alias/genuine-peak/stability + verdict)
  * @see imp-96940-sigma-crossing-ladder-viz-data.js (sibling viz-data leaf convention)
@@ -81,7 +81,7 @@ export const IMP96941_HONEST_BANNER =
   '(the signature of an above-Nyquist alias, not a real spectral line), while the genuine dominant ' +
   'peak sits at w=0.70 (~13x stronger) and is stable under leave-one-out and half-split subsampling. ' +
   'A measurement/decision only; the qualitative VIF>1 conclusion is untouched; interval-rigorous ' +
-  'certificate reach stays 2a<=0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -104,7 +104,7 @@ export const IMP96941_VALIDATION = Object.freeze({
   matchesSourceVerdict: IMP96915_VERDICT.qed === false && IMP96915_VERDICT.w385IsSamplingArtifact === true,
   honestBannerPresent:
     /RH open/.test(IMP96941_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96941_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96941_HONEST_BANNER) &&
     /NO QED/.test(IMP96941_HONEST_BANNER),
 });
 

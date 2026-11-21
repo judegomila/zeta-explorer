@@ -57,7 +57,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ladder k=6..11, stops at 1e12)
  * @see imp-33722-sigma-exponent-ladder-fartail-1pct-of-half (ladder to k=16, k* ~ 44 for the 1% band)
@@ -208,7 +208,7 @@ export const IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18 = {
     'consistent with the imp-33722 k* ~ 44 landing point. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (per-decade ladder k=6..11, stops at 1e12, p_dec ~ 0.4310); imp-33722 (ladder to ' +
     'k=16, k* ~ 44 for the 1% band); imp-33701/imp-33721 (ramp knee N* ~ 3.38e9); imp-3463 ' +
@@ -253,14 +253,14 @@ export const IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18_ASSERTIONS = [
     holds: () => RESIDUAL_FIT.every((g) => g.ratio > 0.95 && g.ratio < 1.06),
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34112-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18.isRigorous === false &&
       IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18.farTailExponent === 0.5 &&
       /NO QED/.test(IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18.verdict) &&
-      /remains SOTA/.test(IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18.verdict),
+      /refereed bound is changed/i.test(IMP34112_SIGMA_FARTAIL_SATURATION_VERDICT_1E18.verdict),
   },
 ];
 

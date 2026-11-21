@@ -50,8 +50,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade (quarter-decade knee across [1e9,1e11])
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (coarse whole-decade ladder)
@@ -208,7 +207,7 @@ export const IMP96351_SIGMA_KNEE_TENTHDECADE_1E12_STABILITY = Object.freeze({
     'truncated-range artifact. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33721 (quarter-decade knee across [1e9,1e11] at log10 N* ~ 9.529); imp-33701 (coarse ' +
     'whole-decade ladder); imp-33582 (six-decade exponent ladder + sigma=1/2 halving landmark); ' +
@@ -247,11 +246,11 @@ const IMP96351_ASSERTIONS = [
   },
   {
     id: 'imp96351-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96351_SIGMA_KNEE_TENTHDECADE_1E12_STABILITY.isRigorous === false &&
       /NO QED/.test(IMP96351_SIGMA_KNEE_TENTHDECADE_1E12_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP96351_SIGMA_KNEE_TENTHDECADE_1E12_STABILITY.verdict),
+      /refereed bound is changed/i.test(IMP96351_SIGMA_KNEE_TENTHDECADE_1E12_STABILITY.verdict),
   },
 ];
 

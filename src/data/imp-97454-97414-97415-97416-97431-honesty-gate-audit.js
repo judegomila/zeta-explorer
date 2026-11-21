@@ -92,14 +92,14 @@ export const IMP97454_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
     'field naming). 2 of 4 (imp-97416, imp-97431) additionally recompute their key literal from a ' +
     'cheap closed-form grid pass inside the assertion body; the other 2 (imp-97414, imp-97415) ' +
     'check stored-literal cross-consistency only, without an independent source recompute -- a ' +
-    'coverage-depth nuance, not a missing tripwire. No bound changed; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'coverage-depth nuance, not a missing tripwire. No bound changed; NO QED; no refereed bound is changed' +
+    '.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by reading each of the four ' +
     'modules; does not modify any module and does not add the missing independent recompute to ' +
-    'imp-97414/imp-97415 (left as a follow-up gap, not performed here). Platt-Trudgian Lambda <= ' +
-    '0.2 stays the rigorous SOTA.',
+    'imp-97414/imp-97415 (left as a follow-up gap, not performed here). No refereed bound is changed' +
+    '.',
 });
 
 export const IMP97454_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -134,11 +134,11 @@ export const IMP97454_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-97454-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP97454_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP97454_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP97454_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP97454_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP97454_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP97454_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

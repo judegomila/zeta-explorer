@@ -59,7 +59,7 @@
  * order; the sliding-position route is now closed as a zero."
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO
- * Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the offline continuity residual and the
+ * Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the offline continuity residual and the
  * zero-flux literal; the continuity identity itself is checked ARITHMETICALLY at import (no quadrature).
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95916-scratch.mjs
@@ -129,7 +129,7 @@ export const TIER3_PER_FAMILY_ATTRIBUTION = Object.freeze({
     + '(they carry zero transport flux). The per-family split thus reduces EXACTLY to symbolizing the '
     + 'accumulation base s_base(m), c_base(m) (the imp-95901 open piece), now sharpened to "flux route '
     + 'closed (=0); only the base route open". G irrationality OPEN; Sun unrefereed; changes no bound; '
-    + 'PT Lambda<=0.2 SOTA; NO QED',
+    + 'no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -202,7 +202,7 @@ export const TIER3_PER_FAMILY_ATTRIBUTION = Object.freeze({
     + 'jumps superimpose) still carry zero VALUE jump (each summand is continuous), so the zero-flux '
     + 'conclusion is unaffected by them. The HOLD term (accumulation base) is NOT evaluated here and is the '
     + 'named residual. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; '
-    + 'PT Lambda<=0.2 SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
 });
 
 export const TIER3_PER_FAMILY_ATTRIBUTION_ASSERTIONS = Object.freeze([
@@ -256,7 +256,7 @@ export const TIER3_PER_FAMILY_ATTRIBUTION_ASSERTIONS = Object.freeze([
         && /exactly zero/.test(v.outcome)
         && /accumulation base/.test(v.remainingObstruction)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

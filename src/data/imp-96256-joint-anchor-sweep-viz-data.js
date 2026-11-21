@@ -16,7 +16,7 @@
  * are copied verbatim from IMP_96227_JOINT_ANCHOR_SWEEP / IMP_96227_LITERALS
  * (imp-96227, not re-derived here); only the chart-axis reshaping is done in this
  * module. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96227-route-i-kato-temple-joint-anchor-sweep.js (anchor-sweep table, literals)
  *
@@ -58,7 +58,7 @@ export const IMP96256_ANCHORS = {
 };
 
 export const IMP96256_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every worst-case threshold, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every worst-case threshold, '
   + 'equal-split boundary, and the sqrt(3)/2 coupling constant are copied verbatim from the imp-96227 '
   + 'baked anchor-sweep table; only the chart-axis reshaping is computed here (no re-derivation, no '
   + 'new bisection). The underlying sweep uses the exact FFT-Mellin semilocal {oo,2} spectrum '

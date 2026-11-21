@@ -62,7 +62,7 @@
  *
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33255-sigma-postpeak-regime-effective-exponent (crossover-anchored p_eff ladder, window-dependent)
  * @see imp-3529-sigma-postpeak-decay-exponent (LOCAL pointwise exponent p(N), residual drift)
@@ -222,7 +222,7 @@ export const IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT = {
     'drift imp-33255 flagged is an artefact of anchoring every window at the crossover ramp, ' +
     'and sliding the start past that ramp settles the exponent onto the exact sqrt(1/N) law. ' +
     'The C_mb GUE-conditional per imp-486 is UNTOUCHED; no positivity, no bridge closure, no ' +
-    'RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33255 (crossover-anchored single-exponent ladder, window-dependent 0.39-0.49); ' +
     'imp-3529 (LOCAL pointwise exponent p(N), residual drift); imp-3463 (far-tail leading ' +
@@ -286,14 +286,14 @@ export const IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, converges to the imp-3463 1/2 asymptote, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, converges to the imp-3463 1/2 asymptote, no QED, no refereed bound is changed.
     id: 'imp33274-honesty-gate-no-qed',
-    description: 'Measurement only: converged exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: converged exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT.isRigorous === false &&
       IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT.convergedExponent === 0.5 &&
       /NO QED/.test(IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP33274_SIGMA_POSTPEAK_LATER_WINDOW_DECAY_EXPONENT.verdict),
   },
 ];
 

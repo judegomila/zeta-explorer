@@ -50,7 +50,7 @@
  * imp-3220/imp-3406/imp-33723 extrapolation as imp-96187/imp-96162; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident (F2 derived (P2), 0.3% at one height)
  * @see imp-96162-sigma-ushape-peak-eflow-recovery (measured N_peak/N_flow = 0.5769)
@@ -222,7 +222,7 @@ export const IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP = {
     'error; sigma = E_coll/E_N is a ratio of terms in the inherited imp-3220/imp-3406/imp-33723 ' +
     'extrapolation, the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll stays conditional), and ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED. Changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no QED. No refereed bound is changed.',
   verdict:
     'MEASUREMENT/VERIFICATION (frontier-direction, NOT rigorous). The imp-96187 (P2) law ' +
     'N_peak/N_flow = (b/a)^(1/(a+b)) is verified across the 0.25x..16x E_trunc sweep (peak height L = ' +
@@ -235,7 +235,7 @@ export const IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP = {
     'inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96187 (derived (P2), 0.3% at one height); imp-96162 (measured N_peak/N_flow = 0.5769); ' +
     'imp-3220 (interior peak sigma_max ~ 0.9494 at N ~ 9.22e5); imp-486 (C_mb GUE-conditional); ' +
@@ -274,13 +274,13 @@ export const IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP_ASSERTIONS = [
     holds: () => PEAK_BEATS_MIDPOINT,
   },
   {
-    // Honesty gate: measurement/verification only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/verification only, no QED, no refereed bound is changed.
     id: 'imp96306-honesty-gate-no-qed',
-    description: 'measurement/verification only: isRigorous false, no QED, PT Lambda<=0.2 stays SOTA',
+    description: 'measurement/verification only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP.isRigorous === false &&
       /NO QED/.test(IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP.verdict) &&
+      /refereed bound is changed/i.test(IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP.verdict) &&
       /NOT AN RH BOUND/.test(IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP.honestStatus) &&
       /UNTOUCHED/.test(IMP96306_USHAPE_PEAK_LOCATION_LAW_HEIGHT_SWEEP.honestStatus),
   },

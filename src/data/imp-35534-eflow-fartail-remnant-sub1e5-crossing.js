@@ -55,7 +55,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35473-eflow-fartail-remnant-sub1e4-crossing (the ladder this continues, crossing 1.546e109)
  * @see imp-35413-eflow-fartail-remnant-sub1e3-crossing (the sub-1e-3 crossing 4.17e25)
@@ -204,7 +204,7 @@ export const IMP35534_EFLOW_FARTAIL_REMNANT_SUB1E5_CROSSING = {
     'only on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; E_flow > 0 ' +
     'strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
     'exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35473 (sub-1e-4 crossing 1.546e109, continued here); imp-35413 (sub-1e-3 crossing ' +
     '4.17e25); imp-35371 (slow-decay reading, endpoint N = 1e24); imp-35280 (four-rung ' +
@@ -264,13 +264,13 @@ export const IMP35534_EFLOW_FARTAIL_REMNANT_SUB1E5_CROSSING_ASSERTIONS = [
       DECADE_SPAN_FROM_SUB1E4 > 83.57,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35534-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35534_EFLOW_FARTAIL_REMNANT_SUB1E5_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP35534_EFLOW_FARTAIL_REMNANT_SUB1E5_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP35534_EFLOW_FARTAIL_REMNANT_SUB1E5_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP35534_EFLOW_FARTAIL_REMNANT_SUB1E5_CROSSING.verdict),
   },
 ];
 

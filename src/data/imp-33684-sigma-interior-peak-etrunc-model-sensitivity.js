@@ -68,8 +68,7 @@
  * E_trunc^(-1.375) and the above/below-10^6 side flips within ~6% of the floor.
  *
  * ASSESSMENT ONLY. C_mb stays GUE-conditional (imp-486); no bound changes, no
- * positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * RELATION TO imp-3443. imp-3443 already measured the RAW sensitivity magnitude --
  * dN_max/dE_trunc and the power law N_max ~ (1/E_trunc)^1.376 over a 0.5x..2x grid.
@@ -208,7 +207,7 @@ export const IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY = {
     '"widest at 10^6 is a flat-cap sampling artifact, not an unbounded-widening frontier" ' +
     'is model-form robust; only the exact peak coordinates are model-dependent. Assessment ' +
     'only; C_mb stays GUE-conditional (imp-486), no bound changes, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-3406 (interior max N_max ~ 9.22e5, the pinned peak); imp-3443 (raw N_max ~ ' +
@@ -275,16 +274,16 @@ export const IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY_ASSERTIONS = 
       N_MAX_MIN > 8e4 && N_MAX_MAX < 2.5e6 && WORST_CEILING_GAP < 0.04,
   },
   {
-    // Honesty gate: sensitivity/assessment only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity/assessment only, split verdict, no QED, no refereed bound is changed.
     id: 'imp33684-honesty-gate-no-qed',
-    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY.isRigorous === false &&
       /ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY/.test(
         IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY.verdict,
       ) &&
       /NO QED/.test(IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33684_SIGMA_INTERIOR_PEAK_ETRUNC_MODEL_SENSITIVITY.verdict),
   },
 ];
 

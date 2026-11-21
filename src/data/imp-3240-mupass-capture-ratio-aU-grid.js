@@ -53,7 +53,7 @@
  *   fixed-width Phi mass becomes an ever-smaller fraction of the widening window, so
  *   the lag-stationary surrogate under-reports the concentrated norm by a factor
  *   ~U/C. The headline cell a = 0.5, U = 6 gives r = 0.02967 ~ 0.178/6, reproducing
- *   the imp-3197 ~3% capture. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   the imp-3197 ~3% capture. No refereed bound is changed.
  *
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (the parent single-cell MAGNITUDE probe)
  *   @see imp-3215-mupass-capture-ratio-n-scaling.js (the N-scaling at the base cell only)
@@ -259,7 +259,7 @@ export const IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID = Object.freeze({
     'share 1 - r ~ 1 - C/U rises toward 1 as the window widens (the fixed-width Phi mass ' +
     'becomes an ever-smaller fraction of the window). The headline a = 0.5, U = 6 gives ' +
     'r = 0.02967 ~ 0.178/6, reproducing the imp-3197 ~3% capture. Assessment only; ' +
-    'RH-equivalent; carries NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'RH-equivalent; carries NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -327,7 +327,7 @@ export const IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID = Object.freeze({
       'The U-only scaling of the position-concentration deficit is diagnostic; the imp-3066 off-diagonal ' +
       'endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -386,7 +386,7 @@ export const IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID_ASSERTIONS = [
   {
     id: 'imp3240-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-      'not attempted, the closed form is leading-order not exact, PT 0.2 stays SOTA. Any flip is over-claiming.',
+      'not attempted, the closed form is leading-order not exact, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID.honestCaveat;
       return (
@@ -395,7 +395,7 @@ export const IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.closedFormIsLeadingOrderNotExact === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

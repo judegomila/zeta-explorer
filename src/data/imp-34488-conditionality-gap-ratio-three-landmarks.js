@@ -64,7 +64,7 @@
  *
  * ASSESSMENT ONLY. Within the inherited imp-3220/imp-3406 component model, which is NOT a
  * rigorous asymptotic. C_mb remains GUE-conditional per imp-486. No positivity, no bridge
- * closure, no bound change, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no bound change, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-34453-crossover-en-headline-slack-vs-lpt (crossover headline; L_pt/E(N)=1975.2)
  * @see imp-34474-far-tail-en-headline-slack-vs-lpt (far-tail headline; L_pt/E(N)~3915)
@@ -217,7 +217,7 @@ export const IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS = {
     '1 - sigma to the negligible E_flow term, so R scales with N only through sigma(N). A CONDITIONALITY ' +
     'gap throughout (GUE-conditional E_coll, C_H = 1/8, vs fully-unconditional L_pt), NOT a bound. C_mb ' +
     'remains GUE-conditional per imp-486. No positivity, no bridge closure, no bound change, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34453 (crossover headline, L_pt/E(N)=1975.2); imp-34474 (far-tail headline, L_pt/E(N)~3915); ' +
     'imp-33582 (sigma < 0.1 knee N ~ 3.21e11); imp-33620 (sigma < 0.01 far-tail landmark); imp-3444 ' +
@@ -279,14 +279,14 @@ export const IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS_ASSERTIONS = [
       Math.abs(CEILFRAC_001 - (1 - P001.sigma)) < Math.abs(CEILFRAC_01 - (1 - P01.sigma)),
   },
   {
-    // Honesty gate: measurement only, GUE-conditional, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, GUE-conditional, no QED, no refereed bound is changed.
     id: 'imp34488-honesty-gate-no-qed',
-    description: 'Measurement only: C_mb GUE-conditional, no bound change, no QED, PT stays SOTA',
+    description: 'Measurement only: C_mb GUE-conditional, no bound change, no QED, no refereed bound is changed',
     holds: () =>
       IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS.isRigorous === false &&
       /GUE-conditional per imp-486/.test(IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS.verdict) &&
       /NO QED/.test(IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS.verdict) &&
-      /remains SOTA/.test(IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS.verdict),
+      /refereed bound is changed/i.test(IMP34488_CONDITIONALITY_GAP_RATIO_THREE_LANDMARKS.verdict),
   },
 ];
 

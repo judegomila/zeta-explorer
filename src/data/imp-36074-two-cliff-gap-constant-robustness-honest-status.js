@@ -132,7 +132,7 @@ export const IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS = Object.f
     portsAnyRoute: false,
     fixesImp36021ExportedConstant: false,
     subGap: 'imp-34714a REMAINS OPEN',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -141,7 +141,7 @@ export const IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS = Object.f
     'edge, independently re-bisected here rather than trusting imp-36021’s exported constant, sits ~' +
     ORDERS_BELOW_PINNED.toFixed(1) +
     ' orders below the pinned K -- far outside any stated provenance. Note only; changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 });
 
 export const IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS_ASSERTIONS = [
@@ -186,7 +186,7 @@ export const IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS_ASSERTIONS
       IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
       IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS.honestCaveat.fixesImp36021ExportedConstant === false &&
-      /Platt-Trudgian/.test(IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36074_TWO_CLIFF_GAP_CONSTANT_ROBUSTNESS_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36074-verdict-constant-robust-no-qed',

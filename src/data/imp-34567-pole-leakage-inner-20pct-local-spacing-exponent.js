@@ -57,7 +57,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-pole structure is a
  * numerical/structural observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34548-pole-leakage-local-spacing-exponent (the four-midpoint local-exponent ladder extended here)
  * @see imp-34530-pole-leakage-spacing-compression-fit (the GLOBAL cubic fit)
@@ -290,7 +290,7 @@ export const IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT = {
     'k*, unresolved by this rung. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the residExp simple-pole structure is a numerical/structural observation, not a ' +
     'derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34548 (the four-midpoint local-exponent ladder extended here); imp-34530 (the GLOBAL cubic fit); ' +
     'imp-34512 (R2 per-pp spacing compression; the {1,3,8,15,20}% ladder); imp-34468 (the 1%/3%/8% ladder); ' +
@@ -352,13 +352,13 @@ export const IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT_ASSERTIONS
       NEWEST_DROP < PREV_DROP,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34567-honesty-gate-no-qed',
-    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34567_POLE_LEAKAGE_INNER_20PCT_LOCAL_SPACING_EXPONENT.verdict),
   },
 ];

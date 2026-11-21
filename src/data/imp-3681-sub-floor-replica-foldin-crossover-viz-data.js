@@ -14,7 +14,7 @@
  * @see imp-3582-replica-hiding-grid-threshold.js (generic worst-case floor N_replica ~ 764)
  *
  * Ticket: imp-3681 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP3681_XI_MAX = 400;

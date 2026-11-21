@@ -39,7 +39,7 @@
  * HONEST (NO new bound, NO false QED): this is the SAME metric fact already stated
  * in the verdict, now MEASURED as an N-sweep. It quantifies WHY a global-W_1 C_Lip
  * cannot be finite (the per-pair channel is finite -- 9.4e-3 -- but the global one
- * is N times it). Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the
+ * is N times it). No refereed bound is changed; the
  * finite-N*=1e4 beat stays an ESTIMATE. The basin-conditional finite C_Lip lives in
  * the PER-PAIR channel only (ch-lip-basin-conditional); the global-W_1 constant is
  * untouched and still diverges.
@@ -79,7 +79,7 @@ export const CH_LIP_NORM_MISMATCH_NSWEEP = {
   cLipAtNStarTrap: cLip(N_STAR, THETA_TRAP),
   growth: 'strictly linear in N: C_Lip(N)/N is flat to machine precision; each decade multiplies C_Lip by exactly 10',
   mechanism: 'W_1 = (1/N) Sum|Dx| averages a single 1-pair collision move (L-inf cost eps) over all N coordinates -> registers as eps/N; restoring per-pair sensitivity costs the factor N',
-  honest: 'NO new bound: the SAME metric fact as the verdict, now measured as an N-sweep. Per-pair channel is finite (9.4e-3); the global-W_1 constant is N times it and diverges. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; finite-N*=1e4 beat stays an ESTIMATE. NO false QED.',
+  honest: 'NO new bound: the SAME metric fact as the verdict, now measured as an N-sweep. Per-pair channel is finite (9.4e-3); the global-W_1 constant is N times it and diverges. No refereed bound is changed; finite-N*=1e4 beat stays an ESTIMATE. NO false QED.',
 };
 
 export const CH_LIP_NORM_MISMATCH_NSWEEP_ASSERTIONS = [
@@ -112,9 +112,9 @@ export const CH_LIP_NORM_MISMATCH_NSWEEP_ASSERTIONS = [
   },
   {
     id: 'ch-lip-nsweep-no-new-bound-no-qed',
-    description: 'explicitly NO new bound and NO false QED: PT 0.2 stays SOTA, finite-N beat stays ESTIMATE',
+    description: 'explicitly NO new bound and NO false QED: no refereed bound is changed, finite-N beat stays ESTIMATE',
     holds: () => /NO new bound/.test(CH_LIP_NORM_MISMATCH_NSWEEP.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CH_LIP_NORM_MISMATCH_NSWEEP.honest)
+      && /refereed bound is changed/i.test(CH_LIP_NORM_MISMATCH_NSWEEP.honest)
       && /ESTIMATE/.test(CH_LIP_NORM_MISMATCH_NSWEEP.honest),
   },
 ];

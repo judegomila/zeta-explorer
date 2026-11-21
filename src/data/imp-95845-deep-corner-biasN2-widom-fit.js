@@ -8,7 +8,7 @@
  * GRADE: numerical assessment (a small closed-form least-squares fit) of an
  * interior model-seam quantity. Import-light (8-point OLS, no zeros bundle, no
  * imports). Changes NO Lambda bound; NO operator-positivity claim on the main
- * chain; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * chain; NO QED. No refereed bound is changed.
  *
  * BACKGROUND. imp-95803 converged the deep-corner (delta = ln 1.2, rho = 1)
  * finite-N bias ladder to N = 500 and reported that biasPct*N^2 still drifts
@@ -72,7 +72,7 @@
  * the exact-remainder-constant and wider-cell prefactors stay the inherited
  * SUB-GAP wider-cell-widom-prefactors-and-exact-remainder-constant. (c) Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT and modulus/phase legs
- * stay OPEN. Changes NO bound of the Lambda program; NO QED; PT Lambda <= 0.2 SOTA.
+ * stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (the converged biasPct ladder this fits)
  * @see imp-95824-deep-corner-bias-exponent-szego-theory (derived p=2, asserted O(N^{-3}) drift, unfitted)
@@ -158,7 +158,7 @@ export const IMP95845_DEEP_CORNER_BIASN2_WIDOM_FIT = {
     "wider-cell-widom-prefactors-and-exact-remainder-constant. Assessment only; no cited " +
     "input imported. Model seam family only; the imp-95212 envelope port, signed WEIGHT and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95845"],
 };
 
@@ -329,7 +329,7 @@ export const IMP95845_ASSERTIONS = [
       REF.driftIsSubleadingTail === true &&
       REF.exactConstantReadOff === true &&
       REF.subGap === "wider-cell-widom-prefactors-and-exact-remainder-constant" &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95845-closes-self",

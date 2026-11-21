@@ -37,15 +37,13 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95661 prefactor correction and its ln(2) robustness for
  *   quick reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. Catalan constant G irrationality remains OPEN; NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   bound. Catalan constant G irrationality remains OPEN; NO QED. No refereed bound is changed.
  *
  * @see imp-95661-condition-number-law-verification (source: the independent verification and prefactor correction this glosses)
  * @see imp-95621-alt-form-precision-threshold (the original (1/2)exp(pi^2/delta) derivation being corrected)
  * @see imp-95647-condition-number-viz-data (the condition-number viz this correction applies to)
  *
- * Ticket: imp-95683 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95683 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The kappa-prefactor-correction headword, baked verbatim (no re-import).
@@ -90,8 +88,8 @@ export const IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD = Object.free
     'sech(pi^2/delta) ~ 2 exp(-pi^2/delta) factor of 2 in the theta-dual leading magnitude. The ' +
     'correction shifts delta* only by ln 2 (the previously-recorded ~2 percent analytic-vs-numeric ' +
     'gap); the TRAP/CLEAN verdicts and delta*~0.307 threshold are ROBUST. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; G irrationality OPEN; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; G irrationality OPEN; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95661 (independent verification and prefactor correction); imp-95621 (original ' +
     '(1/2)exp(pi^2/delta) derivation being corrected); imp-95647 (condition-number viz this ' +
@@ -118,11 +116,11 @@ export const IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp95683-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, G irrationality OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, G irrationality OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
       /G irrationality OPEN/.test(IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
       IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.glosses === 'imp-95661' &&
       IMP95683_KAPPA_PREFACTOR_CORRECTION_GLOSSARY_HEADWORD.scopes === 'imp-95621',

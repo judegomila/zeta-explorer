@@ -40,7 +40,7 @@
  * means the fluctuating-remainder description is well-founded, not that ratio(N) -> 1.
  *
  * MEASUREMENT/FIT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (the MB fit and ladder)
  */
@@ -91,7 +91,7 @@ export const IMP96532_VERDICT = Object.freeze({
 });
 
 export const IMP96532_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only: every value is a reproducible numeric from tmp/imp-96532-scratch.mjs re-fitting the imp-96487 MB model over the frozen imp-96487 ladder; no new solve, no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement/fit only: every value is a reproducible numeric from tmp/imp-96532-scratch.mjs re-fitting the imp-96487 MB model over the frozen imp-96487 ladder; no new solve, no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -124,7 +124,7 @@ const IMP96532_ASSERTIONS = [
     id: 'imp96532-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96532_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96532_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96532_HONEST_BANNER) &&
       /NO QED/.test(IMP96532_HONEST_BANNER) &&
       IMP96532_VERDICT.reductionRobust === true,
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers and the verdict records the robust-reduction reading.',

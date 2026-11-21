@@ -52,7 +52,7 @@
  *     of a fully explicit bound (imp-97288).
  *
  *   STATUS: a grouping/index note over five already-committed modules, not a new derivation. No
- *   bound changes: PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   bound changes: no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97208-route-m-theorem2-tighter-remainder.js (b/4 ceiling scale, exact prime asymptotic)
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (per-divisor identity, prime proof, semiprime obstruction)
@@ -62,7 +62,7 @@
  * @see imp-97305-route-m-arith-first-moment-remainder-family-cohort-index.js (sibling: the broader nine-member E0/E1/tail cohort this narrows)
  *
  * Ticket: imp-97323 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const E1_QUARTER_CEILING_COHORT = Object.freeze([
@@ -144,7 +144,7 @@ export const IMP97323_E1_QUARTER_CEILING_COHORT_INDEX = Object.freeze({
     'out by imp-97265) or re-derive the leader+inward-correction split (already isolated by ' +
     'imp-97290), and should target the two live residuals: the omega>=3 sign+magnitude condition ' +
     'and the Qlog Mertens-product cap. No bound on Lambda moves; establishes nothing new; RH open; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97208 (ceiling scale, prime asymptotic); imp-97265 (per-divisor identity, prime proof, ' +
     'semiprime obstruction); imp-97290 (leader+inward-correction decomposition, semiprime-class ' +
@@ -187,11 +187,11 @@ export const IMP97323_E1_QUARTER_CEILING_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97323-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97323_E1_QUARTER_CEILING_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97323_E1_QUARTER_CEILING_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97323_E1_QUARTER_CEILING_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97323_E1_QUARTER_CEILING_COHORT_INDEX.verdict),
   },
 ];
 

@@ -56,8 +56,8 @@
  * reports r1 = +0.243, but that positive value is a box-overlap artifact of the fixed-step / local-width
  * mismatch, not a real de-correlation reversal. The proxy is neither materially under- nor over-stated:
  * the true correlation is anti-correlated on the safe side of the sign-forbidden flip threshold, exactly
- * as imp-96128 concluded. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * as imp-96128 concluded. Measurement only; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96128-number-variance-two-interval-covariance-exact (the exact GUE proxy this validates)
  * @see imp-96150-number-variance-two-interval-covariance-heldout-heights
@@ -126,7 +126,7 @@ export const IMP96171_NUMBER_VARIANCE_EMPIRICAL_LAG1_VS_GUE_PROXY = {
   caveat:
     'r1 values are single-realization sample autocorrelations over ~290 boxes at one height (sampling spread ~0.115), so the agreement is "not rejected", not a high-precision match. The unfolding uses the smooth Riemann-von Mangoldt N(t) (no S(t) correction), exact on average and negligible at L ~ 500. This CLOSES the imp-96128 empirical-covariance caveat but changes no bound and does not raise the ~1.9-sigma significant-dip confidence, which is set by the excursion depth, not the correlation model.',
   verdict:
-    'The empirical adjacent-box lag-1 correlation of the sd(C - E) statistic on the actual Riemann zeros at T = 1.5e5 is r1 = -0.5126 under a clean unfolded edge-to-edge tiling (290 boxes), CONFIRMING the exact GUE proxy rho_exact = -0.46398 in sign and magnitude (difference 0.049 < the 0.1151 small-sample band) and stable in [-0.526,-0.433] across an L-sweep. The imp-95562 raw variable-width tiling reports r1 = +0.243, but that positive value is a box-overlap artifact of the fixed-step / local-width mismatch, not a real de-correlation reversal. The proxy is neither materially under- nor over-stated: the true correlation is anti-correlated on the safe side of the sign-forbidden flip threshold, exactly as imp-96128 concluded. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The empirical adjacent-box lag-1 correlation of the sd(C - E) statistic on the actual Riemann zeros at T = 1.5e5 is r1 = -0.5126 under a clean unfolded edge-to-edge tiling (290 boxes), CONFIRMING the exact GUE proxy rho_exact = -0.46398 in sign and magnitude (difference 0.049 < the 0.1151 small-sample band) and stable in [-0.526,-0.433] across an L-sweep. The imp-95562 raw variable-width tiling reports r1 = +0.243, but that positive value is a box-overlap artifact of the fixed-step / local-width mismatch, not a real de-correlation reversal. The proxy is neither materially under- nor over-stated: the true correlation is anti-correlated on the safe side of the sign-forbidden flip threshold, exactly as imp-96128 concluded. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (comparison arithmetic only; no zeros) ---
@@ -152,8 +152,8 @@ export const IMP96171_NUMBER_VARIANCE_EMPIRICAL_LAG1_VS_GUE_PROXY = {
   // honesty gates
   if (!/NO QED/.test(IMP96171_NUMBER_VARIANCE_EMPIRICAL_LAG1_VS_GUE_PROXY.verdict))
     throw new Error('imp-96171: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96171_NUMBER_VARIANCE_EMPIRICAL_LAG1_VS_GUE_PROXY.verdict))
-    throw new Error('imp-96171: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96171_NUMBER_VARIANCE_EMPIRICAL_LAG1_VS_GUE_PROXY.verdict))
+    throw new Error('imp-96171: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96171_NUMBER_VARIANCE_EMPIRICAL_LAG1_VS_GUE_PROXY;

@@ -20,7 +20,7 @@
  *     deepest at T = 1.5e5; T = 1e4 and T = 3e5 are within the number-variance noise floor.
  *
  * This is an accuracy re-derivation ONLY: it establishes nothing new, moves no bound, and confirms
- * imp-96089 was arithmetically faithful. RH remains open; Platt-Trudgian Lambda <= 0.2 stays SOTA;
+ * imp-96089 was arithmetically faithful. RH remains open; no refereed bound is changed;
  * NO QED.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the verdict cross-checked here)
@@ -101,7 +101,7 @@ export const IMP96114_MEAN_ANCHOR_DIP_ZSCORE_CROSSCHECK = {
   })),
   significantHeights, // [1.5e5]
   verdict:
-    'CONFIRMED: the imp-96089 verdict reproduces exactly from the baked literals. Tiling geometry gives 75/130/198/291/411/443 (= imp-95562 nWindows); crossovers 537.4/78.7/73194.2 and z-scores 0.374/1.923/0.075 match imp-96089 to the quoted precision; exactly one below-envelope dip (T = 1.5e5, z = 1.92 sigma) is significant. Accuracy re-derivation only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'CONFIRMED: the imp-96089 verdict reproduces exactly from the baked literals. Tiling geometry gives 75/130/198/291/411/443 (= imp-95562 nWindows); crossovers 537.4/78.7/73194.2 and z-scores 0.374/1.923/0.075 match imp-96089 to the quoted precision; exactly one below-envelope dip (T = 1.5e5, z = 1.92 sigma) is significant. Accuracy re-derivation only; changes no bound; RH open; NO QED; no refereed bound is changed.',
 };
 
 // --- self-executing cross-check assertions (independent re-derivation must match imp-96089) ---
@@ -125,8 +125,8 @@ export const IMP96114_MEAN_ANCHOR_DIP_ZSCORE_CROSSCHECK = {
     if (r.significant !== r.zScore >= 1) throw new Error('imp-96114: significance/z-score threshold inconsistent');
   if (!/NO QED/.test(IMP96114_MEAN_ANCHOR_DIP_ZSCORE_CROSSCHECK.verdict))
     throw new Error('imp-96114: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96114_MEAN_ANCHOR_DIP_ZSCORE_CROSSCHECK.verdict))
-    throw new Error('imp-96114: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96114_MEAN_ANCHOR_DIP_ZSCORE_CROSSCHECK.verdict))
+    throw new Error('imp-96114: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96114_MEAN_ANCHOR_DIP_ZSCORE_CROSSCHECK;

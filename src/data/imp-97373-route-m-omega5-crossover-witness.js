@@ -56,8 +56,8 @@
  * combinatorial (Hall) failure of the one-to-one injection, which is uniform over all omega = 5 b. This
  * sharpens the imp-97352 / imp-97372 picture: the one-to-one method fails at omega = 5 for a pure counting
  * reason (6 > 4), while the aggregate weighted headroom L1 - L2 stays strictly positive not just through
- * omega = 5 but far beyond (measured through omega = 8001). No bound on Lambda moves; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED. The tail omega >= 5 remains IMP97333_SIGN_TAIL_SUBGAP.
+ * omega = 5 but far beyond (measured through omega = 8001). No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED. The tail omega >= 5 remains IMP97333_SIGN_TAIL_SUBGAP.
  *
  * @see imp-97352-route-m-sign-law-omega4-proof.js (omega<=4 one-to-one domination proof; Hall wall at omega=5)
  * @see imp-97372-route-m-sign-law-weighted-domination-obstruction.js (weighted route: L1>=L2 necessary, L2/L1 diverges)
@@ -231,11 +231,11 @@ export const IMP97373_VERDICT = Object.freeze({
     'strictly positive (min +1.8129e-3 at 2*83*89*97*101, max +3.8953e-2 at 2310), and remains positive ' +
     'far beyond (surplus +1.24e-2 at omega = 8001 on the 2-primorial). So the sought sharp omega = 5 ' +
     'MAGNITUDE crossover does not exist; the weighted headroom is at its family maximum at omega = 5 and ' +
-    'thins only at large omega. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'thins only at large omega. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97373_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the smallest squarefree omega = 5 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the smallest squarefree omega = 5 ' +
   'domination witness is b = 2*3*5*7*11 = 2310, but its failure is purely COMBINATORIAL (6 level-2 ' +
   'positives vs 4 level-1 negatives, Hall deficiency 2, uniform over all omega = 5 b). The aggregate ' +
   'pairing surplus L1 - L2 never goes negative at omega = 5 (strictly positive across all C(26,5) = 65780 ' +
@@ -294,7 +294,7 @@ const IMP97373_ASSERTIONS = [
       IMP97373_VERDICT.oneToOneFailsCombinatoriallyAtOmega5 === true &&
       IMP97373_VERDICT.residualSubgap === 'IMP97333_SIGN_TAIL_SUBGAP' &&
       /NO QED/.test(IMP97373_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97373_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97373_HONEST_BANNER) &&
       /RH open/.test(IMP97373_HONEST_BANNER),
     why: 'measurement only: pinned the combinatorial omega=5 witness (b=2310) and measured no magnitude crossover -- no proof for all omega, no bound moved, no rigorous ceiling, no QED.',
   },

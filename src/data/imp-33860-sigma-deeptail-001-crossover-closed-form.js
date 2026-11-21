@@ -60,7 +60,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33743-sigma-fartail-crossover-closed-form (far-tail closed form, thr = 0.1)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (halving-landmark closed form, thr = 1/2)
@@ -217,7 +217,7 @@ export const IMP33860_SIGMA_DEEPTAIL_001_CROSSOVER_CLOSED_FORM = {
     'discretization contribution. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33743 (far-tail closed form, thr = 0.1); imp-33723 (halving-landmark closed form, thr = 1/2); ' +
     'imp-33620 (M3: sigma < 0.01 crossing N ~ 4.62e13, bisected); imp-399/imp-2642 (C_C = (1/8) sqrt(3 pi), ' +
@@ -257,13 +257,13 @@ export const IMP33860_SIGMA_DEEPTAIL_001_CROSSOVER_CLOSED_FORM_ASSERTIONS = [
     holds: () => WITH_FLOW_VS_EMP < 1e-9 && R_FLOW_TRUNC > 0 && R_FLOW_TRUNC < 1e-4,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33860-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33860_SIGMA_DEEPTAIL_001_CROSSOVER_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP33860_SIGMA_DEEPTAIL_001_CROSSOVER_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP33860_SIGMA_DEEPTAIL_001_CROSSOVER_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP33860_SIGMA_DEEPTAIL_001_CROSSOVER_CLOSED_FORM.verdict),
   },
 ];
 

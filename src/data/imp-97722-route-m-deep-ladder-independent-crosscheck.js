@@ -50,7 +50,7 @@
  * confirmed by two estimators (endpoint ~10.29, Theil-Sen ~10.62) that share no code with the
  * imp-97687 OLS/bootstrap route; the shared OLS itself reproduces to a round-off floor. No
  * code-shared bug detected. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith
- * unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97706-route-m-deep-ladder-extension.js (the doubled ladder + OLS/bootstrap being checked)
  * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 11-rung ladder; single sign-change)
@@ -173,11 +173,11 @@ export const IMP97722_VERDICT = Object.freeze({
     '~10.29, Theil-Sen median ~10.62, 90pct of pairwise slopes > 3) while a from-scratch OLS recompute ' +
     '(10.560017) matches the baked imp-97706 exponent to a ~1e-5 round-off floor. No code-shared bug ' +
     'detected. MCM stays refuted from omega=11; b/4 ceiling untouched; no bound on Lambda moves; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97722_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Independent (non-OLS, from-source) cross-check of the ' +
+  'RH open; no refereed bound is changed; NO QED. Independent (non-OLS, from-source) cross-check of the ' +
   'imp-97706 doubled Route M gap-law residual ladder: the eight sign-changes reproduce EXACTLY off a ' +
   'raw |residual| monotonicity count, and the "outruns every fixed power <= 3" exponent survives the ' +
   'endpoint (~10.29) and Theil-Sen (~10.62) estimators, with the shared OLS reproducing to a round-off ' +
@@ -223,7 +223,7 @@ const IMP97722_ASSERTIONS = [
       IMP97722_VERDICT.anyBoundMoved === false &&
       IMP97722_VERDICT.qed === false &&
       /NO QED/.test(IMP97722_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97722_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97722_HONEST_BANNER) &&
       /RH open/.test(IMP97722_HONEST_BANNER),
     why: 'cross-validation only -- both imp-97706 headline claims reproduce off a structurally-independent path; no code-shared bug, no bound moved, no QED.',
   },

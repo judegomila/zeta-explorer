@@ -33,7 +33,7 @@
  *   statements, not the needed pointwise bound), or (ii) verified zero-location at heights
  *   3e12-1.9e16 (out of reach; Platt's GRH verification for q = 97 tops out near 1.0e6, a factor
  *   ~2.9e6 below the window's bottom edge).
- *   Documentation only; no bound is changed; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ *   Documentation only; no bound is changed; NO QED; no refereed bound is changed;
  *   RH open. Import-light: literals only, no sibling module imports, no zeros bundle.
  *
  * Ticket: imp-95543 (content, medium).
@@ -114,7 +114,7 @@ export const IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED = Object.freeze({
     scope:
       'restates the imp-95530 / imp-95519 / perm-arch-sieve-universality verdicts only; no new ' +
       'measurement, no new inequality, no re-derivation',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -123,7 +123,7 @@ export const IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED = Object.freeze({
     'configuration lever this program can currently express, and all three collapse to the same ' +
     'shared residual -- a pointwise arithmetic input beyond mean-value/proportion technology, or ' +
     'verified zero-location at heights 3e12-1.9e16. Documentation only; changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+    'no refereed bound is changed; RH open.',
 });
 
 export const IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED_ASSERTIONS = [
@@ -158,7 +158,7 @@ export const IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED_ASSERTIONS = [
       IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED.honestCaveat.isProof === false &&
       IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED.honestCaveat.isReductionBelowRH === false &&
       IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED.honestCaveat.sota),
   },
   {
     id: 'imp95543-verdict-mentions-all-three-and-no-qed',
@@ -170,7 +170,7 @@ export const IMP95543_LAST_LEVER_CLOSURE_CONSOLIDATED_ASSERTIONS = [
         /imp-95519/.test(v) &&
         /perm-arch-sieve-universality/.test(v) &&
         /NO QED/.test(v) &&
-        /Lambda <= 0\.2 remains SOTA/.test(v)
+        /refereed bound is changed/i.test(v)
       );
     },
   },

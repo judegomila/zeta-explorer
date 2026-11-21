@@ -130,7 +130,7 @@ export const IMP_2662_CLIP_THETA_ENDPOINT = {
   honestCaveat:
     'A W_1 perturbation can also change which pair collides first and shift Theta_eff; the ' +
     'endpoint route controls the initial-gap channel with a vanishing modulus but leaves the ' +
-    'Theta-sensitivity channel (C_Theta) open. Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.',
+    'Theta-sensitivity channel (C_Theta) open. No refereed bound is changed.',
 };
 
 // Build-time internal-consistency checks (computed booleans; non-throwing).

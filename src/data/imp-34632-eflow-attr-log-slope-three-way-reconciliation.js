@@ -67,7 +67,7 @@
  *   imp-34585 / imp-34604 / imp-34612 exports verbatim. Descriptive surrogate, NOT a rigorous
  *   asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb
  *   GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- *   imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (D1: pure power-law fit slope; analytic surrogate slope)
  *   @see imp-34585-eflow-attr-log-corrected-fit.js (D2 near: log-corrected p,q)
@@ -255,8 +255,8 @@ export const IMP34632_EFLOW_ATTR_LOG_SLOPE_THREE_WAY_RECONCILIATION = {
     'outliers, each offset pinned to its dropped term. Descriptive surrogate, NOT a rigorous ' +
     'asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34632_ASSERTIONS = [
@@ -313,13 +313,13 @@ export const IMP34632_ASSERTIONS = [
       IMP34632_RECONCILE_NODES.every((n) => n.curvD1_powerLaw === 0),
   },
   {
-    // Honesty gate: cross-tabulation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: cross-tabulation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34632-honesty-gate-no-qed',
-    description: 'Cross-tabulation only: isRigorous false, no QED, PT SOTA, imp-3066 K_a >= 0 untouched',
+    description: 'Cross-tabulation only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a >= 0 untouched',
     holds: () =>
       IMP34632_EFLOW_ATTR_LOG_SLOPE_THREE_WAY_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP34632_EFLOW_ATTR_LOG_SLOPE_THREE_WAY_RECONCILIATION.honest) &&
-      /remains SOTA/.test(IMP34632_EFLOW_ATTR_LOG_SLOPE_THREE_WAY_RECONCILIATION.honest) &&
+      /refereed bound is changed/i.test(IMP34632_EFLOW_ATTR_LOG_SLOPE_THREE_WAY_RECONCILIATION.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34632_EFLOW_ATTR_LOG_SLOPE_THREE_WAY_RECONCILIATION.honest),
   },
 ];

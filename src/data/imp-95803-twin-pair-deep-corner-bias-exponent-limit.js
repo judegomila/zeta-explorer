@@ -6,7 +6,7 @@
  *
  * GRADE: numerical assessment of an already-established interior model-seam
  * quantity. Imports no heavy bundle; no imports at all. Changes NO Lambda bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * BACKGROUND. imp-95788 measured the finite-size biasPct = 100*(lambda_min(N)/
  * F_inf - 1) at the DEEPEST twin-pair cell (delta = ln 1.2, rho = 1) over
@@ -81,8 +81,7 @@
  * precision (double-double relative residual bottoms near ~1e-6 at the deep
  * corner). SUB-GAP: pin-exact-limiting-bias-power-at-deep-corner. (c) Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs
- * stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95788-twin-pair-deep-corner-finite-n-bias-convergence (the N<=200 ladder this extends)
  * @see imp-95762-twin-pair-block-floor-finite80-dd-eigensolver (the DD eigensolver reused)
@@ -154,7 +153,7 @@ export const IMP95803_TWIN_PAIR_DEEP_CORNER_BIAS_EXPONENT_LIMIT = {
     "pin-exact-limiting-bias-power-at-deep-corner). Assessment only; no new cited " +
     "input. Model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95803"],
 };
 
@@ -318,7 +317,7 @@ export const IMP95803_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       REF.subGap === "pin-exact-limiting-bias-power-at-deep-corner" &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95803-closes-self",

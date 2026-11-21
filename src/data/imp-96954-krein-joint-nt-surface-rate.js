@@ -56,7 +56,7 @@
  * N<=100. The Rayleigh/Ritz floor is an UPPER bound so the joint limit is an upper ESTIMATE, not a
  * certified LB; this establishes NO operator positivity; the uniform-in-N gap
  * IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous certificate reach stays 2a <= 0.96; RH
- * open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * open; no refereed bound is changed; NO QED.
  * SUB-GAP IMP96954_JOINT_NT_LIMIT_THREE_RUNG_ONLY.
  *
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (source floor(N,T) grid + per-N plateau limits LExp/LGeom)

@@ -27,7 +27,7 @@
  *   clean 2x reading applies.
  *
  *   Ticket: imp-36066 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * @see imp-35969-krawczyk-residual-directed-rounding-width (source: the nextafter SURROGATE width; "NOT a machine certificate")
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (source: the a-priori LAYER-model width; surrogate over-estimates it 2x)
@@ -99,7 +99,7 @@ export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS = Objec
     changesAnyBound: false,
     portsAnyRoute: false,
     subGap: 'imp-34687a (directed-rounding layer) UNIMPLEMENTED; imp-34714a (Krawczyk existence/uniqueness) REMAINS OPEN',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -112,7 +112,7 @@ export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS = Objec
     LAYER_DISCREPANCY.measurement.ratio_at_N_cross.toFixed(2) +
     'x tighter) are MODELS of what the imp-34687a directed-rounding layer would emit, not that layer itself. ' +
     'The imp-34687a layer remains UNIMPLEMENTED and imp-34714a stays OPEN. Measurement/diagnostic ' +
-    'restatement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'restatement only; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS_ASSERTIONS = [
@@ -139,7 +139,7 @@ export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS_ASSERTI
       IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
       /imp-34687a/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.honestCaveat.subGap) &&
       /imp-34714a/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.honestCaveat.subGap) &&
-      /Platt-Trudgian/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36066-verdict-no-certificate-no-qed',

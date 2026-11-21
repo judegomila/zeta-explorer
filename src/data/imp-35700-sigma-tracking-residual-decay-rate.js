@@ -67,7 +67,7 @@
  * post-port model (the imp-34791 E_trunc barrier-lemma port is NOT done). The C_mb GUE-conditional
  * share per imp-486 is UNTOUCHED; the imp-34791 E_trunc = barrier-lemma reclassification is UNCHANGED;
  * ports nothing; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35654 (F3: post-port residual is sigma-tracking and "vanishes" -- no rate given)
  * @see imp-35699 (post-port unconditional share crossings; empirical ~2.05 decades per nine)
@@ -235,7 +235,7 @@ export const IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE = {
     'the sigma-tracking residual is the imp-35654 HYPOTHETICAL post-port model (E_trunc port NOT done). ' +
     'The C_mb GUE-conditional share per imp-486 is UNTOUCHED; the imp-34791 E_trunc = barrier-lemma ' +
     'reclassification is UNCHANGED; ports nothing; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35654 (F3: residual sigma-tracking, "vanishes", no rate); imp-35699 (post-port share ' +
     'crossings, empirical ~2.05 decades/nine); imp-3406 (monotone-decay peak: E_trunc floor outlives ' +
@@ -286,9 +286,9 @@ export const IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE_ASSERTIONS = [
   },
   {
     // Honesty gate: derivation/measurement of the imp-35654 hypothetical post-port model, ports
-    // nothing, GUE-conditional per imp-486, E_trunc barrier lemma per imp-34791, no QED, PT SOTA.
+    // nothing, GUE-conditional per imp-486, E_trunc barrier lemma per imp-34791, no QED, no refereed bound is changed.
     id: 'imp35700-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: hypothetical post-port model, ports nothing, C_mb GUE-conditional (imp-486), no QED, PT SOTA',
+    description: 'Derivation/measurement only: hypothetical post-port model, ports nothing, C_mb GUE-conditional (imp-486), no QED, no refereed bound is changed',
     holds: () =>
       IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE.isRigorous === false &&
       /GUE-conditional share per imp-486 is UNTOUCHED/.test(
@@ -297,7 +297,7 @@ export const IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE_ASSERTIONS = [
       /HYPOTHETICAL post-port model/.test(IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE.verdict) &&
       /ports nothing/i.test(IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE.verdict) &&
       /NO QED/.test(IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE.verdict) &&
-      /remains SOTA/.test(IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE.verdict),
+      /refereed bound is changed/i.test(IMP35700_SIGMA_TRACKING_RESIDUAL_DECAY_RATE.verdict),
   },
 ];
 

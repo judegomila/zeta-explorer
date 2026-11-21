@@ -33,7 +33,7 @@
  *   |kappaK_period| <~ 3.87e-3 cap this headword's split refines)
  *
  * Ticket: imp-97714 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The reflection-weight-cap headword, baked verbatim (no re-import).
@@ -61,7 +61,7 @@ const BC_REFLECTION_WEIGHT_CAP_HEADWORD = Object.freeze({
     'Re-cited from the imp-97681 derivation module ' +
     '(src/data/imp-97681-route-m-bc-reflection-gamma-normalisation.js). Naming / glossary ' +
     'headword only; supplies no new bound; kappa_smooth stays measured, not pinned; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD = Object.freeze({
@@ -78,8 +78,8 @@ export const IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD = Object.freeze
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97681 residual pure-' +
     'number reflection weight cap |W_refl| <~ 0.24/pi = 0.0764, obtained by dividing the pinned ' +
     'gamma-factor ratio rho_refl = N(3)/N(1) = 1/(2 pi^2) out of the imp-97663 no-cancellation ' +
-    'cap |kappaK_period| <~ 3.87e-3. No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'cap |kappaK_period| <~ 3.87e-3. No bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97681 (the derivation of rho_refl and the converted W_refl cap); imp-97617 (the gamma ' +
     'factor N(s) and Eichler selection map RESULT A/B/C this derivation is built on); imp-97663 ' +
@@ -106,11 +106,11 @@ export const IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97714-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97681.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97681.',
     holds: () =>
       IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD.verdict) &&
       IMP97714_BC_REFLECTION_WEIGHT_CAP_GLOSSARY_HEADWORD.glosses === 'imp-97681',
   },
 ];

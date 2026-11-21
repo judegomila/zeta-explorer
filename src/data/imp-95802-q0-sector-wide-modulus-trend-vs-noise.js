@@ -41,7 +41,7 @@
  * and magnitude plus the clean linear slope, not a re-quadrature certificate.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: imp-95780 seven-modulus q0Sector column. SCRATCH: tmp/imp-95802-scratch.mjs.
  */
@@ -119,7 +119,7 @@ export const Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE = Object.freeze({
     + 'noise at unit spacing, dominates once the modulus gap exceeds the ~3e-5 noise scale. The '
     + 'wider grid does NOT overturn the alternating-noise reading; it separates noise and trend. '
     + 'SUB-GAP: arithmetic on the carried table, NOT a re-quadrature; only m=20 certified. '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'imp-95780 seven-modulus q0Sector column (raw (6.21) Q_0 zeta(3) sector; +4 offset)',
   builtOn:
@@ -198,7 +198,7 @@ export const Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE = Object.freeze({
     + 'quadrature. Trend reading is an inference from the two wide steps agreeing in sign/magnitude '
     + 'plus the clean linear slope, not a re-quadrature certificate. Entire table CONDITIONAL on the '
     + '+4 offset being exactly 4 and m-independent (verified only at m=20). Catalan G irrationality '
-    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE_ASSERTIONS = Object.freeze([
@@ -245,11 +245,11 @@ export const Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE_ASSERTIONS = Object.freeze([
       && /NOT a re-quadrature/.test(Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE.subGap),
   },
   {
-    name: 'honest: conditional on the +4 offset, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: conditional on the +4 offset, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /CONDITIONAL/.test(Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE.verdict.conclusion)
       && /G irrationality OPEN/.test(Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE.status)
-      && /PT Lambda<=0.2 SOTA/.test(Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE.status)
+      && /refereed bound is changed/i.test(Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE.status)
       && /NO QED/.test(Q0_SECTOR_WIDE_MODULUS_TREND_VS_NOISE.status),
   },
 ]);

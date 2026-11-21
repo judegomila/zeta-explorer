@@ -63,8 +63,7 @@
  *   NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT and
  *   the degree-3 (odd) face carries no feasibility comparison. The operator-level
  *   K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3488-degree2-miss-factor-closed-form.js (the even n=2 case this mirrors)
  *   @see imp-3481-autocorrelation-moment-ladder.js (the moment M_3 and Taylor ladder)
@@ -275,7 +274,7 @@ export const IMP3510_DEGREE3_MISS_FACTOR_CLOSED_FORM = Object.freeze({
     '(< 1e-3, reconciled to r_k to < 1e-12), the over-prediction k/r_k matches k^4 and the fitted ' +
     'exponent matches 3 to the O(a^2) tail. DERIVATION/CERTIFICATION, RH-EQUIVALENT, necessary-but-not-' +
     'sufficient; the degree-3 (odd) face carries no feasibility ratio; operator positivity (imp-3066) ' +
-    'untouched; no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'untouched; no QED. No refereed bound is changed.',
 
   derivation: Object.freeze({
     degree3Mass: 'B_3(a) = int (sinh(a tau) - a tau) A(tau) d(tau) = S(a) - a M_1 (imp-3481 R_3)',
@@ -341,7 +340,7 @@ export const IMP3510_DEGREE3_MISS_FACTOR_CLOSED_FORM = Object.freeze({
       'feasibility comparison. The operator-level K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel ' +
       'step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -397,7 +396,7 @@ export const IMP3510_DEGREE3_MISS_FACTOR_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3510-honest-derivation-not-a-verdict',
     why: 'Mandatory honesty: derivation/certification only, mass-feasibility necessary-but-not-sufficient ' +
-         '(no degree-3 ratio), operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(no degree-3 ratio), operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3510_DEGREE3_MISS_FACTOR_CLOSED_FORM.honestCaveat;
       return (
@@ -405,7 +404,7 @@ export const IMP3510_DEGREE3_MISS_FACTOR_CLOSED_FORM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isDerivationAndCertification === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

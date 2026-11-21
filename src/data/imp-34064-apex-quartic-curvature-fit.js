@@ -49,7 +49,7 @@
  * resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the
  * C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; refines, does not overturn, imp-34005; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34005-apex-curvature-fit-window-sensitivity (S3 inferred but never fit the leading quartic)
  * @see imp-33948-hump-apex-curvature-error-bar (the single tight-window resid double-prime fit)
@@ -295,8 +295,8 @@ export const IMP34064_APEX_QUARTIC_CURVATURE_FIT = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34005 (S3 inferred but never fit the leading quartic -- fit directly here); imp-33948 (single ' +
     'tight-window apex resid double-prime fit); imp-33878 (resid_exp(k) model + central-difference resid ' +
@@ -336,14 +336,14 @@ export const IMP34064_APEX_QUARTIC_CURVATURE_FIT_ASSERTIONS = [
       QUART_2C_VS_CENTRAL_DIFF_REL < 0.2 * QUAD_2C_REL_RANGE,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34064-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-34005, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-34005, no QED, no refereed bound is changed',
     holds: () =>
       IMP34064_APEX_QUARTIC_CURVATURE_FIT.isRigorous === false &&
       /refines, does not overturn, imp-34005/.test(IMP34064_APEX_QUARTIC_CURVATURE_FIT.verdict) &&
       /NO QED/.test(IMP34064_APEX_QUARTIC_CURVATURE_FIT.verdict) &&
-      /remains\s+\n?SOTA|remains SOTA/.test(IMP34064_APEX_QUARTIC_CURVATURE_FIT.verdict),
+      /refereed bound is changed/i.test(IMP34064_APEX_QUARTIC_CURVATURE_FIT.verdict),
   },
 ];
 

@@ -43,8 +43,8 @@
  * ever re-detect INSIDE the already-verified region and never extends it. This is the
  * quantitative form of the imp-96287 verdict: Route L is a fixed-cost, verified-height-
  * dominated DETECTOR, NOT a Lambda lever, at every point in the band. Derivation on
- * baked literals only; changes NO bound; RH open; Platt-Trudgian Lambda <= 0.2 stays
- * SOTA; NO QED.
+ * baked literals only; changes NO bound; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * Reproduce: tmp/imp-96310-feasibility-height.mjs (pure JS log-log LSQ + inversion).
  *
@@ -99,7 +99,7 @@ export const IMP96310_VERDICT =
   + 'the fit place Route L at or above the verified height, so it can only ever re-detect '
   + 'inside the already-verified region -- the quantitative form of the imp-96287 verdict: '
   + 'Route L is a fixed-cost, verified-height-dominated DETECTOR, NOT a Lambda lever, at '
-  + 'every point in the band. Baked literals only; changes no bound; RH open; Platt-Trudgian '
-  + 'Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'every point in the band. Baked literals only; changes no bound; RH open; no refereed bound is changed'
+  + '; NO QED.';
 
 export const IMP96310_SCRIPTS = Object.freeze(['tmp/imp-96310-feasibility-height.mjs']);

@@ -61,7 +61,7 @@
  * measured 0.296789 is the finite-height value approaching it from below. The gap-law constant is
  * e^{-gamma}*(lnA + gamma/12) = 0.16667249 (refining 0.166635). The next-order correction is the
  * PNT/Mertens error, NOT an elementary 1/log^2 constant (sub-gap named). MCM stays refuted from omega=11;
- * b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97601-route-m-mcm-margin-collapse-rate-law.js (B_inf ~ 0.296789 measured; gap ~ 0.166635/log p)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (surrogate closed form + primorial limit; kernel)
@@ -133,11 +133,11 @@ export const IMP97619_VERDICT = Object.freeze({
     'is e^{-gamma}*(lnA + gamma/12) = 0.16667249 (refining 0.166635). The next-order correction is the ' +
     'PNT/Mertens error term, NOT an elementary 1/log^2 constant (sub-gap IMP97619_GAP_LAW_NEXT_ORDER_IS_' +
     'PNT_ERROR_NOT_ELEMENTARY): |gap - derived law|*log^2 p strictly decreases. MCM stays refuted from ' +
-    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97619_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation of the Route M MCM bracket limit: ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation of the Route M MCM bracket limit: ' +
   'B_inf = lnA + gamma/12 = 0.2968557824, a shifted Euler-Mascheroni constant (lim(log p - Sigma_omega) = gamma). ' +
   'The imp-97601 measured 0.296789 is the finite-height value at p ~ 2e6 approaching from below. The gap-law ' +
   'constant is e^{-gamma}*(lnA + gamma/12) = 0.16667249 (refines 0.166635). The next-order term is the ' +
@@ -227,7 +227,7 @@ const IMP97619_ASSERTIONS = [
       IMP97619_VERDICT.anyBoundMoved === false &&
       IMP97619_VERDICT.qed === false &&
       /NO QED/.test(IMP97619_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97619_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97619_HONEST_BANNER) &&
       /RH open/.test(IMP97619_HONEST_BANNER),
     why: 'derivation/measurement only -- closed form B_inf = lnA + gamma/12, gap const refined, next-order = PNT/Mertens error; MCM refuted from omega=11; no bound moved, no QED.',
   },

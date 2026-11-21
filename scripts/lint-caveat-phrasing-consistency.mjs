@@ -31,7 +31,7 @@ const COHORT = [
 const CANONICAL_CLAUSES = [
   'NO QED',
   'GUE-conditional per imp-486',
-  'SOTA',
+  'efereed bound is changed',
   'changes no bound',
   'operator positivity',
   'C_C 1/8 ansatz',

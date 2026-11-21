@@ -45,8 +45,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H isRigorousUpperBound
  * stays false (imp-2642/imp-2701); changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this header
  *   avoids the close-comment terminator sequence inside prose.
@@ -262,7 +261,7 @@ export const IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT = Object.freeze({
     'edge within any physically-motivated E_trunc band. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H ' +
     'isRigorousUpperBound stays false (imp-2642/imp-2701); changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96464 (widened-grid low-edge exit f* ~ 1.7847, one-sided assertion); imp-96451 (0.5x..2x band, knee ' +
     'elasticity -0.9115); imp-96351 (baseline knee at log10 N* ~ 9.529); imp-486 (C_mb GUE-conditional); ' +
@@ -272,7 +271,7 @@ export const IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT = Object.freeze({
 export default IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT;
 
 export const IMP96488_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement (frontier-direction, NOT rigorous): '
+  'RH open; no refereed bound is changed; NO QED. Measurement (frontier-direction, NOT rigorous): '
   + 'the high-edge window-exit multiplier f_hi ~ 0.065 (E_trunc ~ 2.0e-6, ~15x below the pinned floor) '
   + 'confirms the imp-96464 G3 one-sidedness quantitatively, but the underlying component model remains '
   + 'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional '
@@ -311,18 +310,18 @@ const IMP96488_ASSERTIONS = [
   },
   {
     id: 'imp96488-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT.isRigorous === false &&
       /NO QED/.test(IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT.verdict) &&
-      /remains SOTA/.test(IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT.verdict),
+      /refereed bound is changed/i.test(IMP96488_SIGMA_KNEE_HIGH_EDGE_EXIT.verdict),
   },
   {
     id: 'imp96488-honest-banner-present',
     description: 'a dedicated machine-readable IMP96488_HONEST_BANNER carries the RH-open / PT-Lambda / NO-QED markers',
     holds: () =>
       /RH open/.test(IMP96488_HONEST_BANNER) &&
-      /PT Lambda <= 0\.2/.test(IMP96488_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2|refereed bound is changed/.test(IMP96488_HONEST_BANNER) &&
       /NO QED/.test(IMP96488_HONEST_BANNER),
   },
 ];

@@ -13,7 +13,7 @@
  * ASSESSMENT / STRUCTURAL SCOPING ONLY. Establishes no positivity; certifies no
  * non-vanishing; lower-bounds no inf|H_t prime| numerically; evaluates no derivative on
  * any edge; fixes no Delta or h; positions no rectangle; changes no bound; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * WHY THE sup-B PROXY CANNOT BE A FLOOR (upper vs lower bound are DUAL, not the same)
  * -----------------------------------------------------------------------------
@@ -85,7 +85,7 @@
  * A_t prime, B_t prime, C_t prime on any edge; produces no numeric M_prime; verifies no
  * M_prime > 0; certifies no non-vanishing; fixes no Delta or h; positions no rectangle;
  * establishes no positivity; changes no bound; C_mb GUE-conditional (imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35778-i3-edge-type-floor-decomposition-scope (delta_long ~ inf|H_t prime| . h; sup-B proxy flagged)
  * @see imp-35777-i2-logderivative-panel-cap-scope (B = sup|H_t prime| ~ |H_t| . w; UPPER-bound direction, I2)
@@ -99,7 +99,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35778 / imp-35777 / imp-35725) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const N_AT_TPT = Math.floor(Math.sqrt(T_PT / (4 * Math.PI))); // ~488602 retained terms (imp-35674 Part D)
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777).
@@ -186,8 +186,8 @@ export const IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE = {
     'non-grazing edge-placement condition. It ADDS NO greenfield MECHANISM: same ~4.886e5-term structure, same ' +
     'reverse-triangle architecture, I3 stays downstream of W1 (imp-35727). Builds no enclosure; evaluates no ' +
     'derivative; produces no numeric M_prime; verifies no M_prime > 0; certifies no non-vanishing; establishes no ' +
-    'positivity; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'positivity; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35778 (delta_long ~ inf|H_t prime| . h; sup-B proxy flagged); imp-35777 (B = sup|H_t prime| ~ |H_t| . w, ' +
     'UPPER bound); imp-35758 (I3 floor = margin - cap); imp-35727 (I3 GREENFIELD); imp-35725 (barrier margin M = ' +
@@ -250,16 +250,16 @@ export const IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE_ASSERTIONS = [
       N_AT_TPT > 4.8e5 && N_AT_TPT < 4.9e5,
   },
   {
-    // Honesty gate: assessment only, no positivity, no numeric floor, no QED, PT SOTA.
+    // Honesty gate: assessment only, no positivity, no numeric floor, no QED, no refereed bound is changed.
     id: 'imp35799-honesty-gate-no-qed',
-    description: 'Assessment only; establishes no positivity; produces no numeric M_prime; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Assessment only; establishes no positivity; produces no numeric M_prime; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /establishes no positivity/.test(IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE.verdict) &&
       /verifies no M_prime > 0/.test(IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE.verdict) &&
       /NO QED/.test(IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35799_I3_LONG_EDGE_DERIVATIVE_FLOOR_SCOPE.verdict),
   },
 ];
 

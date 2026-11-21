@@ -68,7 +68,7 @@
  * RESIDUAL (named sub-gap). IMP97333_SIGN_TAIL_SUBGAP still open for omega >= 5. This module localizes it at
  * omega = 5 to the two explicit inequalities (A), (B) and confirms weighted domination is alive there (L1 >
  * L2), correcting any read of imp-97372 as killing weighted domination AT omega = 5 (it kills it only in the
- * large-omega limit). No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * large-omega limit). No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97352-route-m-sign-law-omega4-proof.js (omega<=4 injection proof; Hall wall at omega=5; D monotonicity)
  * @see imp-97372-route-m-sign-law-weighted-domination-obstruction.js (aggregate L1>=L2 dies at LARGE omega; L2/L1~(1/2)loglog b)
@@ -202,12 +202,12 @@ export const IMP97396_VERDICT = Object.freeze({
     'both verified numerically across the omega = 5 families and true to leading Binet order (Sum 1/qj < 1). ' +
     'Proving (A),(B) elementarily is out of reach of the one-sided sign/order toolkit -- it needs the ' +
     'quantitative two-sided Binet control of IMP97333_SIGN_TAIL_SUBGAP. So omega = 5 is the boundary of the ' +
-    'ELEMENTARY method, not of weighted domination itself. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; ' +
+    'ELEMENTARY method, not of weighted domination itself. No bound on Lambda moves; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97396_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97352 pure injection does NOT ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97352 pure injection does NOT ' +
   'extend to omega = 5 (Hall wall), but weighted domination is ALIVE there (L1 > L2, unlike the large-omega ' +
   'death of imp-97372) and reduces the omega = 5 sign law T(b) < 0 to two explicit per-prime inequalities ' +
   '(A) D(q1) > D(q1q2)+D(q1q3)+D(q1q4) and (B) D(q2) > D(q2q3)+D(q2q4). These hold numerically and to ' +
@@ -275,7 +275,7 @@ const IMP97396_ASSERTIONS = [
       IMP97396_VERDICT.qed === false &&
       IMP97396_VERDICT.residualSubgap === 'IMP97333_SIGN_TAIL_SUBGAP' &&
       /NO QED/.test(IMP97396_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97396_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97396_HONEST_BANNER) &&
       /RH open/.test(IMP97396_HONEST_BANNER),
     why: 'honest partial: omega = 5 reduced to two inequalities and shown weighted-domination-alive, but NOT proved -- no bound moved, no rigorous ceiling, no operator positivity, RH open, no QED.',
   },

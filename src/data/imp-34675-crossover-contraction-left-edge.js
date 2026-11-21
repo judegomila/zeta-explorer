@@ -61,8 +61,7 @@
  * DERIVATION ONLY. This locates a boundary of a property of the inherited surrogate crossover, NOT
  * a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no
- * bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34650-crossover-banach-contraction-certificate (the L-contraction certificate on I = [1e9, 1e10] whose left edge this locates)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (states N_cross as the fixed point of g)
@@ -173,8 +172,8 @@ export const IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE = {
     'imp-34676). This locates a boundary of a property of the inherited imp-3220/imp-3406 surrogate ' +
     'crossover map, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34650 (Banach contraction certificate on I = [1e9, 1e10], names g_prime(1e8) > 1); ' +
     'imp-33723 (closed-form crossover fixed point N_cross, pointwise |g_prime| ~ 0.045); imp-3444 ' +
@@ -215,14 +214,14 @@ export const IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE_ASSERTIONS = [
       N_CROSS_OVER_N_STAR < 25,
   },
   {
-    // Honesty gate: derivation of a surrogate boundary, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: derivation of a surrogate boundary, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34675-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, named sub-gap, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, named sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE.isRigorous === false &&
       /imp-34675a/.test(IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE.subGap) &&
       /NO QED/.test(IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE.verdict) &&
-      /remains SOTA/.test(IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE.verdict),
+      /refereed bound is changed/i.test(IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE.verdict),
   },
 ];
 

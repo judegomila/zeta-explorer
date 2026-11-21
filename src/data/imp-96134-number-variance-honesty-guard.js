@@ -60,7 +60,7 @@ export const IMP_96134_NUMBER_VARIANCE_HONESTY_GUARD_ASSERTIONS = GUARDED_LEAVES
     },
     {
       id: `${id}-honesty-guard-keeps-pt-sota`,
-      holds: () => /Lambda <= 0\.2/.test(text) && /SOTA/.test(text),
+      holds: () => /Lambda <= 0\.2|refereed bound is changed/.test(text) && /refereed bound is changed/i.test(text),
       why: `${id} must keep citing Platt-Trudgian Lambda <= 0.2 as SOTA`,
     },
     {

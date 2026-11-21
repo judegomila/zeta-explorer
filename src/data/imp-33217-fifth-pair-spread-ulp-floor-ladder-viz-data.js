@@ -15,7 +15,7 @@
  * @see imp-3851-fifth-pair-spread-n2200-resolved.js (source module: spreadLadderExtended, exponents, verdict)
  *
  * Ticket: imp-33217 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33217_LADDER = [

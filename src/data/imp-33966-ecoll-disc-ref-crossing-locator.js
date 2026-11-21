@@ -52,8 +52,7 @@
  * extrapolation, NOT a rigorous asymptotic; the crossing is a property of the model estimators
  * (discrete decade slope vs pointwise vs g), not a rigorous statement about zeros; the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33919-ecoll-three-way-decomposition-lower-ladder (V2 "anchor-specific/fortuitous" verdict, offsets diverge)
  * @see imp-33887-ecoll-gap-anchoring-convention-reconciliation (exact three-way split on 1e12..1e15 anchor)
@@ -216,8 +215,8 @@ export const IMP33966_ECOLL_DISC_REF_CROSSING_LOCATOR = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'crossing is a property of the model estimators, not a statement about zeros; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33919 (V2: offsets grow and diverge off the anchor, fortuitous/anchor-specific); imp-33887 ' +
     '(exact three-way split on 1e12..1e15 anchor, two ~6.3e-4 offsets nearly cancel to ~1e-5); ' +
@@ -270,13 +269,13 @@ export const IMP33966_ECOLL_DISC_REF_CROSSING_LOCATOR_ASSERTIONS = [
     holds: () => Math.abs(Math.abs(RESID_AT_ANCHOR_LO) - 6.48e-6) < 5e-8,
   },
   {
-    // Honesty gate: numerical/measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: numerical/measurement only, no QED, no refereed bound is changed.
     id: 'imp33966-honesty-gate-no-qed',
-    description: 'Numerical/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Numerical/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33966_ECOLL_DISC_REF_CROSSING_LOCATOR.isRigorous === false &&
       /NO QED/.test(IMP33966_ECOLL_DISC_REF_CROSSING_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP33966_ECOLL_DISC_REF_CROSSING_LOCATOR.verdict),
+      /refereed bound is changed/i.test(IMP33966_ECOLL_DISC_REF_CROSSING_LOCATOR.verdict),
   },
 ];
 

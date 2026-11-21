@@ -19,7 +19,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-36062 / imp-36076 per-rung
  * literals verbatim; changes no bound; the W1 A + B - C certificate at T_PT stays
  * GREENFIELD (imp-35681 Part A) and the certified length-N interval sum stays MECHANICAL
- * (imp-35725); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-35725); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36112-compensated-summation-storyline-crossref.js (source: the merged two-episode reconciliation)
  * @see imp-36062-kbn-kahan-separation-onset.js (source of the N=33000/34000/38000/40000/70000 rungs)

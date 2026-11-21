@@ -32,7 +32,7 @@
  * NOT A BOUND. This RE-MEASURES the gap between two already-established quantities on matched orders;
  * it certifies no W1 bound, instantiates no directed-rounding interval, evaluates no true H_0,
  * verifies no inequality, changes no bound, establishes no positivity; C_mb GUE-conditional (imp-486)
- * is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED (both channels normalized by Sum|t_k|):
  *   N        kbn(nat)=kbn(clu)   cert(nat)    cert(clu)    same-nat log10   same-clu log10   mismatch log10
@@ -50,7 +50,7 @@
  */
 
 // -- Anchor + operative constants (import-light; matching imp-36083) ----------------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(3e12); // ~488602 terms per mollified sum at T_PT
 
@@ -275,8 +275,8 @@ export const IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER = {
     'the gap between two already-established quantities on matched orders: certifies no W1 bound; evaluates ' +
     'no true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no ' +
     'positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL ' +
-    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36083 (the order-mismatched headroom this re-measures); imp-36023 (the DETERMINISTIC KBN N-flat ' +
     'floor); imp-35890 (CERTIFIED deterministic running-accumulator run-max bound); imp-35852 (clustered ' +
@@ -342,14 +342,14 @@ export const IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER_ASSERTIONS = [
   },
   {
     id: 'imp36134-honesty-gate',
-    description: 'Re-measurement only; imp-36083 unbiased; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Re-measurement only; imp-36083 unbiased; no QED; no refereed bound is changed',
     holds: () =>
       IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /NO bias/.test(IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER.reading.noBias) &&
       /GREENFIELD/.test(IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER.verdict) &&
-      /remains SOTA/.test(IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER.verdict),
+      /refereed bound is changed/i.test(IMP36134_KBN_FLOOR_HEADROOM_SAME_ORDER.verdict),
   },
 ];
 

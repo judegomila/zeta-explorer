@@ -47,7 +47,7 @@
  * Reuses the imp-34285/imp-34150 residual verbatim; the inherited imp-3220/imp-3406 component model is NOT a
  * rigorous asymptotic; the crossing is descriptive within that model only; changes no bound; establishes no
  * operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34285-closedform-gap-term-decomposition (the ~2.2e-7 E_flow share measured at the crossing)
  * @see imp-34211-closedform-vs-bisection-kend-gap (the ~0.278 gap the share normalizes against)
@@ -211,7 +211,7 @@ export const IMP34373_EFLOW_SHARE_NEAR_POLE = {
     'LOCATION effect, so it does not transfer to the negligible-for-the-root verdict. The inherited ' +
     'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the crossing is descriptive within that ' +
     'model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34285 (the ~2.2e-7 E_flow share at the crossing); imp-34211 (the ~0.278 gap normalizer); imp-34169 ' +
     '(the resid_exp pole k* ~ 21.28095); imp-34127 (the E_flow-negligible closed form and E_flow form); ' +
@@ -257,13 +257,13 @@ export const IMP34373_EFLOW_SHARE_NEAR_POLE_ASSERTIONS = [
     holds: () => POLE_APPROACH_TABLE[POLE_APPROACH_TABLE.length - 1].distToPole < 0.1,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34373-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34373_EFLOW_SHARE_NEAR_POLE.isRigorous === false &&
       /NO QED/.test(IMP34373_EFLOW_SHARE_NEAR_POLE.verdict) &&
-      /remains SOTA/.test(IMP34373_EFLOW_SHARE_NEAR_POLE.verdict) &&
+      /refereed bound is changed/i.test(IMP34373_EFLOW_SHARE_NEAR_POLE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34373_EFLOW_SHARE_NEAR_POLE.verdict),
   },
 ];

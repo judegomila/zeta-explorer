@@ -60,7 +60,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8
  * ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and appear
  * only as symbolic differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97720-diag3-second-order-hessian (the 3x3 log-Hessian + closed form at L2/L3/L4)
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (the far-downslope L5 sigma = 0.02 landmark)
@@ -273,7 +273,7 @@ export const IMP97820_DIAG3_OFFDIAGONAL_SIGMA_TRAJECTORY = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (appear only as ' +
     'symbolic differentiation axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97720 (3x3 log-Hessian + closed form at L2/L3/L4); imp-97710 (far-downslope L5 sigma = 0.02 landmark); ' +
     'imp-97689 (analytic first-order DIAG3 == 0, Euler degree-0); imp-97668 (first-order six-probe amplitude ' +
@@ -339,13 +339,13 @@ export const IMP97820_DIAG3_OFFDIAGONAL_SIGMA_TRAJECTORY_ASSERTIONS = [
     holds: () => MIN_OFFDIAG_ABS > 0,
   },
   {
-    // Honesty gate: measurement/audit only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/audit only, no QED, no refereed bound is changed.
     id: 'imp97820-honesty-gate-no-qed',
-    description: 'Measurement/audit only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/audit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97820_DIAG3_OFFDIAGONAL_SIGMA_TRAJECTORY.isRigorous === false &&
       /NO QED/.test(IMP97820_DIAG3_OFFDIAGONAL_SIGMA_TRAJECTORY.verdict) &&
-      /remains SOTA/.test(IMP97820_DIAG3_OFFDIAGONAL_SIGMA_TRAJECTORY.verdict),
+      /refereed bound is changed/i.test(IMP97820_DIAG3_OFFDIAGONAL_SIGMA_TRAJECTORY.verdict),
   },
 ];
 

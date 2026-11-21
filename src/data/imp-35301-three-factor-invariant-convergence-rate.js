@@ -54,7 +54,7 @@
  * N-uniformity of beta (beta still diverges ~1/g_min toward the front; the invariant being bounded IS
  * the statement beta ~ 1/g_min), does NOT discharge M2 or M5, does NOT touch the imp-2563 sandwich (a
  * valid CONDITIONAL bracket). Changes no bound; establishes no operator positivity; C_mb GUE-conditional
- * per imp-486 UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * per imp-486 UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-35238-real-ordinate-three-factor-invariant (parent: approach-to-1 from above, decay law unmeasured)
  * @see imp-35281-real-ordinate-three-factor-invariant-larger-N (extends N=250..400; invariant stays pinned at 1)
@@ -378,8 +378,8 @@ export const IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE = {
     's < t_c still requires an a-priori g_min > 0. M2 stays INSEPARABLE from the horizon/front bridge ' +
     'M5. Certifies NO N-uniformity of beta, does NOT discharge M2 or M5, does NOT touch the imp-2563 ' +
     'sandwich (a valid CONDITIONAL bracket). Changes no bound; establishes no operator positivity; ' +
-    'C_mb GUE-conditional per imp-486 UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional per imp-486 UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-35238 (parent: approach-to-1 from above, decay law unmeasured); imp-35281 (extends N=250..400); ' +
     'imp-35282 (span vs RvM mean spacing); imp-35215 (single-dominant-term derivation); imp-35167 ' +
@@ -436,15 +436,15 @@ export const IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE_ASSERTIONS = [
     holds: () => dominantFractionToOneEveryN === true,
   },
   {
-    // Honesty gate: measurement only, no QED, M2/M5 stay OPEN, imp-2563 untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, M2/M5 stay OPEN, imp-2563 untouched, no refereed bound is changed.
     id: 'imp35301-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, M2/M5 OPEN, imp-2563 untouched, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, M2/M5 OPEN, imp-2563 untouched, no refereed bound is changed',
     holds: () =>
       IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE.isRigorous === false &&
       /NO QED/.test(IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE.verdict) &&
       /M2 stays INSEPARABLE/.test(IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE.verdict) &&
       /imp-2563 sandwich/.test(IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE.verdict) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE.verdict),
+      /refereed bound is changed/i.test(IMP35301_THREE_FACTOR_INVARIANT_CONVERGENCE_RATE.verdict),
   },
 ];
 

@@ -54,7 +54,7 @@
  * favours B. So the imp-96493 depth decay IS quantitatively consistent with a fixed ~2.28% one-sided
  * GUE tail rather than a systematic excursion, corroborating imp-96510 across five extra anchors while
  * confirming the exponent itself cannot be nailed from the existing 10^6 set. Measurement only;
- * changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated.
  *
  * @see imp-96510-deeper-interior-dip-height-source-reach (two-endpoint systematic-vs-noise argument + the exponent sub-gap this fits)
@@ -205,12 +205,12 @@ export const IMP96530_EXCURSION_DEPTH_DECAY_EXPONENT_FIT = {
     note: 'Across the six higher anchors relErr collapsed 6.54x (systematic predicts constant) and the z-exponent is -1.667 (systematic predicts +1/4, opposite sign); the systematic reading (A) is decisively rejected in direction.',
   },
   verdict:
-    'Fitting the below-envelope dip-depth decay across all SEVEN clean unclipped interior anchors (not just the imp-96510 two endpoints): the free log-log exponent p = -1.917 is too steep and too scattered (R^2 = 0.288) to PIN, so the imp-96510 relErr(T)-exponent sub-gap stays OPEN -- but the DIRECTION decisively favours the sampling-noise reading (B) over the systematic reading (A). The higher-anchor mean depth collapsed 6.54x (systematic predicts constant), the z-exponent is -1.667 (systematic predicts +1/4, opposite sign), and the constrained-law RSS ratio A/B = 1.076 favours B. So the imp-96493 depth decay IS quantitatively consistent with a fixed ~2.28% one-sided GUE tail rather than a systematic excursion, corroborating imp-96510 across five extra anchors while confirming the exponent itself cannot be nailed from the existing 10^6 set. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Fitting the below-envelope dip-depth decay across all SEVEN clean unclipped interior anchors (not just the imp-96510 two endpoints): the free log-log exponent p = -1.917 is too steep and too scattered (R^2 = 0.288) to PIN, so the imp-96510 relErr(T)-exponent sub-gap stays OPEN -- but the DIRECTION decisively favours the sampling-noise reading (B) over the systematic reading (A). The higher-anchor mean depth collapsed 6.54x (systematic predicts constant), the z-exponent is -1.667 (systematic predicts +1/4, opposite sign), and the constrained-law RSS ratio A/B = 1.076 favours B. So the imp-96493 depth decay IS quantitatively consistent with a fixed ~2.28% one-sided GUE tail rather than a systematic excursion, corroborating imp-96510 across five extra anchors while confirming the exponent itself cannot be nailed from the existing 10^6 set. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96510 convention).
 export const IMP96530_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: fitting the dip-depth decay across '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: fitting the dip-depth decay across '
   + 'seven interior anchors REJECTS the systematic reading in direction (depth collapses 6.54x, z-exponent '
   + '-1.667 vs the systematic +0.25) and favours the fixed-tail sampling-noise reading (constrained RSS ratio '
   + '1.076), corroborating imp-96510 -- but the free relErr(T) exponent stays unpinned (R^2 = 0.288), so the '
@@ -242,11 +242,11 @@ export const IMP96530_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96530_EXCURSION_DEPTH_DECAY_EXPONENT_FIT.verdict))
     throw new Error('imp-96530: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96530_EXCURSION_DEPTH_DECAY_EXPONENT_FIT.verdict))
-    throw new Error('imp-96530: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96530_EXCURSION_DEPTH_DECAY_EXPONENT_FIT.verdict))
+    throw new Error('imp-96530: verdict dropped the no-refereed-bound-change banner');
   if (!/sub-gap stays OPEN/.test(IMP96530_EXCURSION_DEPTH_DECAY_EXPONENT_FIT.verdict))
     throw new Error('imp-96530: verdict must keep the imp-96510 exponent sub-gap OPEN');
-  if (!(/RH open/.test(IMP96530_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96530_HONEST_BANNER) && /NO QED/.test(IMP96530_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96530_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96530_HONEST_BANNER) && /NO QED/.test(IMP96530_HONEST_BANNER)))
     throw new Error('imp-96530: IMP96530_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

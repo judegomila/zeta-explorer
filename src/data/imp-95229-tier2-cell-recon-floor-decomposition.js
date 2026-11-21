@@ -81,8 +81,7 @@
  *
  * Grade: MEASUREMENT (direct CPU-second split + per-panel/per-cell
  * normalization + lever assessment); ball-op restatement apportioned (named
- * sub-gap). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * sub-gap). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 import {
@@ -166,8 +165,8 @@ export const TIER2_CELL_RECON_FLOOR = Object.freeze({
     'crossover, no residual carrier to batch); the ONLY remaining non-spent lever is on the CELL ' +
     'half -- a sharper cell criterion lowering the 335.2 cells/x-unit density (the imp-95136 4.9x ' +
     'cell under-pricing), a ledger rearchitecture separate from the spent panel batching. Ball-op ' +
-    'restatement apportioned (named sub-gap); changes no bound; NO QED; Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'restatement apportioned (named sub-gap); changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -277,7 +276,7 @@ export const IMP95229_ASSERTIONS = [
       'the lever assessment names reconstruction structurally irreducible and the cell half as the ' +
       'one remaining non-spent lever; fail-closed honesty: direct CPU-second split with only the ' +
       'ball-op restatement apportioned (named OPEN sub-gap), carries the imp-95214 build which ' +
-      'promotes no bound, verdict states NO QED and PT-SOTA',
+      'promotes no bound, verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       TIER2_CELL_RECON_FLOOR.remainingLeverHalf === 'cell-setup' &&
       /irreducible/.test(TIER2_CELL_RECON_FLOOR.reconLever) &&
@@ -286,7 +285,7 @@ export const IMP95229_ASSERTIONS = [
       /only its ball-op-currency restatement is apportioned/.test(TIER2_CELL_RECON_FLOOR.subGap) &&
       IMP95214_TIER2_CHIRP.promotesBound === false &&
       /NO QED/.test(TIER2_CELL_RECON_FLOOR.verdict) &&
-      /remains SOTA/.test(TIER2_CELL_RECON_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(TIER2_CELL_RECON_FLOOR.verdict) &&
       TIER2_LEDGER.panelsPerSuper === 31 &&
       WINDOW_WIDTH_U === 2 * 690988 + 1,
   },

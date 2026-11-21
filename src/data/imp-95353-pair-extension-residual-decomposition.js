@@ -63,8 +63,7 @@
  * is the b-uniform t3 trace weight, which imp-95334 (THEOREM RZ-PEN8,
  * T-EXACT) subsequently executed pointwise (looseness -> 1.084 at e^6);
  * imp-95337 attributes ~77 percent of the log-looseness reduction to that
- * leg. Measurement only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * leg. Measurement only; changes no bound; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) Floor/measurement only; the gains live at rho > ~ 6.5
  * where no certificate fires; the rho = 2 anchor and every onset are
@@ -135,7 +134,7 @@ export const IMP95353_PAIR_EXTENSION_RESIDUAL = {
     "single dominant term. The pair-truncation leg is confirmed " +
     "NEAR-EXHAUSTED; the dominant large-rho residual is the b-uniform t3 " +
     "trace weight, executed pointwise by imp-95334. Changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -391,10 +390,10 @@ export const IMP95353_ASSERTIONS = [
       "the verdict records that imp-95333 already carried the " +
       "distance-1/2 pairs, that the remaining cross pairs add <= 1.9 " +
       "percent, names the b-uniform t3 residual (imp-95334), and keeps " +
-      "measurement-only scope: NO QED, PT stays SOTA",
+      "measurement-only scope: NO QED, no refereed bound is changed",
     holds: () =>
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /NEAR-EXHAUSTED/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /distance-3 cross pairs/.test(REC.verdict) &&

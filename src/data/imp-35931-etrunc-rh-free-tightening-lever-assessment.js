@@ -12,7 +12,7 @@
  * it is the natural place to look for an RH-free lever.
  *
  * ASSESSMENT / SCOPING ONLY. Derives no new constant; discharges nothing; changes no bound;
- * no operator positivity; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; NO QED. No refereed bound is changed.
  *
  * WHICH E_trunc (per [[etrunc_pt_anchor_reclassification]] / imp-34791)
  * ---------------------------------------------------------------------
@@ -178,7 +178,7 @@ export const IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT = {
     'conditional-share diagnostic (C_mb GUE-conditional per imp-486) and the numeric 3.06e-5 is ' +
     'itself a count artifact whose operative content is an unported barrier lemma (imp-34791 / ' +
     'imp-35419). Assessment/scoping only; derives no constant; changes no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Self-checks: keep the baked scaling literals internally consistent and the honesty gate intact.
@@ -213,13 +213,13 @@ const IMP35931_ASSERTIONS = [
   },
   {
     id: 'imp35931-honesty-gate-no-qed',
-    description: 'Assessment only: not rigorous, changes no bound, count artifact, NO QED, PT SOTA.',
+    description: 'Assessment only: not rigorous, changes no bound, count artifact, NO QED, no refereed bound is changed.',
     holds: () =>
       IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT.isRigorous === false &&
       IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT.changesBound === false &&
       IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT.target.isCountArtifact === true &&
       /NO QED/.test(IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35931_ETRUNC_RH_FREE_TIGHTENING_LEVER_ASSESSMENT.verdict),
   },
 ];
 

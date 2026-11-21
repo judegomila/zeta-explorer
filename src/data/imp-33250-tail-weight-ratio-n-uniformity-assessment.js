@@ -69,8 +69,8 @@
  *    single C beyond imp-3910 (which certified C <= 54.56 on the 3 plateaus). It
  *    SHARPENS the picture by separating the realised ratio (N-flat ~1) from the
  *    certified majorant (endpoint-rising) and naming the obstruction to N-uniformity.
- *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; Platt-Trudgian
- *    Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; no refereed bound is changed
+ *    ; NO QED.
  *
  * @see imp-3898-path-local-elasticity-bound.js (realised sharpRatio + the named sub-gap)
  * @see imp-3910-tail-weight-constant-certification.js (certified collapse constant C)
@@ -184,7 +184,7 @@ export const IMP_33250_TAIL_WEIGHT_RATIO_N_UNIFORMITY_ASSESSMENT = Object.freeze
       'constant UN-established from 3 samples. OBSTRUCTION: 7 of 10 plateaus unscanned ' +
       '(imp-3917-sub-all-plateaus) coupled with the majorant e_j <= 8/s_min(j)^2 over-charge ' +
       'of wide-spread far terms (imp-3910 residual) driving the endpoint drift. Assessment ' +
-      'only; imp-3910 C <= 54.56 stands; imp-3066 untouched; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.',
+      'only; imp-3910 C <= 54.56 stands; imp-3066 untouched; no refereed bound is changed; NO QED.',
   },
 
   assessesSubGap: {
@@ -212,7 +212,7 @@ export const IMP_33250_TAIL_WEIGHT_RATIO_N_UNIFORMITY_ASSESSMENT = Object.freeze
     measurementAndAssessmentOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -283,7 +283,7 @@ export const IMP_33250_TAIL_WEIGHT_RATIO_N_UNIFORMITY_ASSESSMENT_ASSERTIONS = [
     why:
       'Honesty guard: this MEASURES the realised tail-weight ratio and ASSESSES N-uniformity, ' +
       'consolidating imp-3898/imp-3910; it asserts no new Lambda bound and no QED, leaves ' +
-      'imp-3066 untouched, and Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-3066 untouched, and no refereed bound is changed.',
   },
 ];
 

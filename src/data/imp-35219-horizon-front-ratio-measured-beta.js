@@ -58,7 +58,7 @@
  * coupling AS-IS. It certifies NOTHING, discharges NOTHING (the measured beta itself diverges as
  * g_min -> 0, so M2/M5 stay bound), changes NO bound, and does NOT touch the imp-2563 sandwich (a valid
  * CONDITIONAL bracket). I2/M5 stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35195-horizon-front-mismatch-ratio (parent; RvM-density-beta version of this ratio)
  * @see imp-35194-background-field-sup-n-uniformity (measured beta ~ 1/g_min, product band 1.33 -> 1.04)
@@ -240,7 +240,7 @@ export const IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA = {
     'T_minus closed form and the imp-35194/imp-35215 coupling AS-IS; certifies nothing; the measured ' +
     'beta itself diverges as g_min -> 0, so M2/M5 stay bound; changes NO bound; I2/M5 stay OPEN; the ' +
     'sandwich remains a valid CONDITIONAL bracket; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35195 (parent, RvM-beta version); imp-35194 (measured beta ~ 1/g_min, band 1.33 -> 1.04); ' +
     'imp-35215 (near-front limit beta*g_min -> 1); imp-2563 (T_minus closed form, AS-IS); imp-325 / ' +
@@ -288,15 +288,15 @@ export const IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA_ASSERTIONS = [
     holds: () => ONSET_RUNGS.length > 0 && ONSET_GATE_MEAS_OK,
   },
   {
-    // Honesty gate: measurement only, no QED, M5 stays OPEN, sandwich untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, M5 stays OPEN, sandwich untouched, no refereed bound is changed.
     id: 'imp35219-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, changes NO bound, I2/M5 stay OPEN, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, changes NO bound, I2/M5 stay OPEN, no refereed bound is changed',
     holds: () =>
       IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA.isRigorous === false &&
       /NO QED/.test(IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA.verdict) &&
       /changes NO bound/.test(IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA.verdict) &&
       /I2\/M5 stay OPEN/.test(IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA.verdict) &&
-      /remains SOTA/.test(IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA.verdict),
+      /refereed bound is changed/i.test(IMP35219_HORIZON_FRONT_RATIO_MEASURED_BETA.verdict),
   },
 ];
 

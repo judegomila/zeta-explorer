@@ -57,8 +57,7 @@
  * MEASUREMENT / ASSESSMENT ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34820-sigmoid-inflection-d2-closed-form-locator (the closed-form D2 locator this reinstates E_flow into; posed this OPEN sub-gap)
  * @see imp-34749-sigma-knee-eflow-corrected-closed-form (the exact additive log-odds shift phi = -ln(1+E_flow/E_trunc) reused here)
@@ -264,7 +263,7 @@ export const IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT = {
     'landmarks cross. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34837: the imp-34820 closed-form D2 inflection locator SURVIVES reinstating E_flow (the D2 ' +
     'root still lands on the finite-difference sigma_secondDeriv=0 inflection to ~8e-8 with u_full carried), ' +
@@ -325,15 +324,15 @@ export const IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT_ASSERTIONS = [
       KNEE_SHIFT_LOG10 > -9e-3,
   },
   {
-    // Honesty gate: assessment/measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: assessment/measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34837-honesty-gate-no-qed',
-    description: 'Assessment/measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Assessment/measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT.isRigorous === false &&
       IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT.farTailExponent === 0.5 &&
       typeof IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT.subGap === 'string' &&
       /NO QED/.test(IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT.verdict) &&
-      /remains SOTA/.test(IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT.verdict),
+      /refereed bound is changed/i.test(IMP34837_SIGMOID_INFLECTION_D2_EFLOW_REINSTATEMENT.verdict),
   },
 ];
 

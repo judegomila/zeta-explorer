@@ -17,8 +17,7 @@
  * IMPORT-LIGHT / MEASUREMENT ONLY. Baked literals, no live quadrature, does NOT import the ~16.7MB
  * zeros bundle. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95598-transition-knee-ordering-robustness (live source: F1 band-robustness sweep baked here)
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (F3 transition-precedes-knee ordering)
@@ -103,7 +102,7 @@ export const IMP95630_TRANSITION_KNEE_GAP_BAKED_VIZ_DATA = {
     ', ' +
     C_C_GAP_RANGE.max +
     '] over the C_C band, versus the base 0.01315. No bound moved, no operator positivity ' +
-    'established, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'established, no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95598 (live source of every literal baked here); imp-95582 (F3 ordering); imp-34694 ' +
     '(ramp-acceleration knee); imp-2631 (E_trunc floor); imp-2714 (C_C_PINNED).',
@@ -149,13 +148,13 @@ export const IMP95630_TRANSITION_KNEE_GAP_BAKED_VIZ_DATA_ASSERTIONS = [
       IMP95630_INVERSION_EDGE.eTrunc_8x_still_precedes === true,
   },
   {
-    // Honesty gate: content bake only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: content bake only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95630-honesty-gate-no-qed',
-    description: 'Content bake only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Content bake only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95630_TRANSITION_KNEE_GAP_BAKED_VIZ_DATA.isRigorous === false &&
       /NO QED/.test(IMP95630_TRANSITION_KNEE_GAP_BAKED_VIZ_DATA.verdict) &&
-      /remains SOTA/.test(IMP95630_TRANSITION_KNEE_GAP_BAKED_VIZ_DATA.verdict),
+      /refereed bound is changed/i.test(IMP95630_TRANSITION_KNEE_GAP_BAKED_VIZ_DATA.verdict),
   },
 ];
 

@@ -42,7 +42,7 @@
  * the two breaching windows are noise fluctuations of a single adversarial estimator, and the
  * max-anchor cap sign is statistically uniform across the held-out set once per-window noise is
  * accounted for. The imp-96090 canonical-window cap was never touched. Measurement / assessment
- * only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * HONEST SUB-GAP (SG-96146-empirical-ordinate-bootstrap). This is the SAME parametric bootstrap as
@@ -210,7 +210,7 @@ export const IMP96146_ENDPOINT_BREACH_WINDOW_NOISE_BOOTSTRAP = {
   caveat:
     'The bootstrap p-values are seeded Monte-Carlo estimates (MC std error ~2e-3 at these large p for N = 60000), reproducible in Node per seed; cross-engine transcendental last-ULP differences move them only at the ~1e-3 level, far below the reported bands. Measurement / assessment only; changes no bound.',
   verdict:
-    'Both imp-96132 endpoint breaches are ESTIMATOR NOISE, not real cap-sign violations: the per-window bootstrap places T = 2e4 (k = 2) at two-sided p ~ 0.98 (excursion ~0.02 sigma of the single-window noise) and T = 4e5 (k = 0.5) at two-sided p ~ 0.9997 (~0.0004 sigma), neither near the 5% bar. So the imp-96112 sign-independence claim is NOT actually broken at the endpoint heights -- the two breaching windows are noise fluctuations of a single adversarial estimator, and the max-anchor cap sign is statistically uniform across the held-out set once per-window noise is accounted for; the imp-96090 canonical-window cap was never touched. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Both imp-96132 endpoint breaches are ESTIMATOR NOISE, not real cap-sign violations: the per-window bootstrap places T = 2e4 (k = 2) at two-sided p ~ 0.98 (excursion ~0.02 sigma of the single-window noise) and T = 4e5 (k = 0.5) at two-sided p ~ 0.9997 (~0.0004 sigma), neither near the 5% bar. So the imp-96112 sign-independence claim is NOT actually broken at the endpoint heights -- the two breaching windows are noise fluctuations of a single adversarial estimator, and the max-anchor cap sign is statistically uniform across the held-out set once per-window noise is accounted for; the imp-96090 canonical-window cap was never touched. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (wide bands: MC + cross-engine tolerant) ---
@@ -243,8 +243,8 @@ export const IMP96146_ENDPOINT_BREACH_WINDOW_NOISE_BOOTSTRAP = {
     throw new Error('imp-96146: verdict dropped the NO QED banner');
   if (!/RH open/.test(IMP96146_ENDPOINT_BREACH_WINDOW_NOISE_BOOTSTRAP.verdict))
     throw new Error('imp-96146: verdict dropped the RH open banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96146_ENDPOINT_BREACH_WINDOW_NOISE_BOOTSTRAP.verdict))
-    throw new Error('imp-96146: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96146_ENDPOINT_BREACH_WINDOW_NOISE_BOOTSTRAP.verdict))
+    throw new Error('imp-96146: verdict dropped the no-refereed-bound-change banner');
   if (!/SG-96146-empirical-ordinate-bootstrap/.test(IMP96146_ENDPOINT_BREACH_WINDOW_NOISE_BOOTSTRAP.subGap))
     throw new Error('imp-96146: sub-gap name missing');
 })();

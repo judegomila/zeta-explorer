@@ -43,7 +43,7 @@
  * six points (max offset), this is a self-consistency check that quantifies the
  * max-anchor slack, not an out-of-sample validation; the dead-zone conservatism above
  * 5e5 remains reliant on the derived envelope (imp-95750 F3). Cross-validation only;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * changes no bound; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * @see imp-95973-six-point-noise-domination-wall-glossary-headword (shared nav index: this
@@ -140,7 +140,7 @@ export const IMP95946_NUMBER_VARIANCE_ENVELOPE_VS_MEASURED_CROSSVALIDATION = {
   caveat:
     'NOT an out-of-sample validation. C0 was pinned FROM these same six measurements as the MAX per-height offset (argmax at T = 1.5e5), so residual >= 0 is a self-consistency check -- the envelope cannot fall below the point that anchored it -- and the tabulation quantifies the SLACK the max anchor buys over the measured band (0 at the anchor, up to ~38% at the tightest interior height), consistent with imp-95787/imp-95800 that the max anchor over-estimates the central offset. The dead-zone conservatism above 5e5 stays reliant on the derived envelope (imp-95750 F3).',
   verdict:
-    'CROSS-VALIDATED over the T = 1e4..5e5 overlap: the imp-95722 derived envelope r_cap(T) is UNIFORMLY CONSERVATIVE against the six imp-95710 direct measurements (r_cap >= r at every height, min residual 0), touching the measurement only at the C0-anchor T = 1.5e5 and clearing it by up to +0.133 (~38.1% relative) at T = 7e4, mean absolute residual ~ +0.077 (~+20.4%). Because C0 was pinned from these same six points (max offset), this is a self-consistency check quantifying the max-anchor slack, NOT an out-of-sample test; the dead-zone conservatism above 5e5 remains reliant on the derived envelope (imp-95750 F3). Cross-validation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'CROSS-VALIDATED over the T = 1e4..5e5 overlap: the imp-95722 derived envelope r_cap(T) is UNIFORMLY CONSERVATIVE against the six imp-95710 direct measurements (r_cap >= r at every height, min residual 0), touching the measurement only at the C0-anchor T = 1.5e5 and clearing it by up to +0.133 (~38.1% relative) at T = 7e4, mean absolute residual ~ +0.077 (~+20.4%). Because C0 was pinned from these same six points (max offset), this is a self-consistency check quantifying the max-anchor slack, NOT an out-of-sample test; the dead-zone conservatism above 5e5 remains reliant on the derived envelope (imp-95750 F3). Cross-validation only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -172,8 +172,8 @@ export const IMP95946_NUMBER_VARIANCE_ENVELOPE_VS_MEASURED_CROSSVALIDATION = {
   // honesty gates
   if (!/NO QED/.test(IMP95946_NUMBER_VARIANCE_ENVELOPE_VS_MEASURED_CROSSVALIDATION.verdict))
     throw new Error('imp-95946: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95946_NUMBER_VARIANCE_ENVELOPE_VS_MEASURED_CROSSVALIDATION.verdict))
-    throw new Error('imp-95946: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95946_NUMBER_VARIANCE_ENVELOPE_VS_MEASURED_CROSSVALIDATION.verdict))
+    throw new Error('imp-95946: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95946_NUMBER_VARIANCE_ENVELOPE_VS_MEASURED_CROSSVALIDATION;

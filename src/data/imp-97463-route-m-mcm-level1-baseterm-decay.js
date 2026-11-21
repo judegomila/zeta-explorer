@@ -59,7 +59,7 @@
  * decreasing over the reliable range, approaching 0 from above without crossing -- the base of the tower is
  * safe. The induction top term T(b) stays four orders of magnitude higher. MCM stays VERIFIED not proved
  * (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97442-route-m-mcm-omega56-subgrid-verification.js (identifies the ~1.4e-6 minima as level-1 base terms)
  * @see imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js (MCM hypothesis; h=g/m kernel)
@@ -128,11 +128,11 @@ export const IMP97463_VERDICT = Object.freeze({
     'the reliable range, approaching 0 from above without ever crossing -- the base of the tower stays safe. ' +
     'The induction-relevant TOP term T(b) stays four orders of magnitude higher, in [1.34e-2, 2.02e-2]. MCM ' +
     'stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97463_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Fit of the imp-97442 level-1 base term c(x)=h(x)-h(2x) ' +
+  'RH open; no refereed bound is changed; NO QED. Fit of the imp-97442 level-1 base term c(x)=h(x)-h(2x) ' +
   '(the iterated-difference tower global minimum, at x~b/2): it decays as (1/24)(ln x)/x + M0/x (M0=0.095496), ' +
   'LS-confirmed (K=0.041927 vs 1/24), strictly positive and monotone, approaching 0 from above without ' +
   'crossing. The induction top term T(b) stays ~9.4e3x higher in [1.34e-2, 2.02e-2]. MCM stays VERIFIED not ' +
@@ -180,7 +180,7 @@ const IMP97463_ASSERTIONS = [
       IMP97463_VERDICT.qed === false &&
       IMP97463_VERDICT.mcmProved === false &&
       /NO QED/.test(IMP97463_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97463_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97463_HONEST_BANNER) &&
       /RH open/.test(IMP97463_HONEST_BANNER),
     why: 'the decay leading coefficient is exactly 1/24 and the constant term M0=LN_A/2-(ln2)/24; measurement only, no bound moved, no QED.',
   },

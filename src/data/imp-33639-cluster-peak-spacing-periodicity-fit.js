@@ -60,8 +60,7 @@
  *   is the QUALITATIVE conclusion -- no fixed period, spacing irregular -- not the exact R^2 or period.
  *   The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33621-band-clearing-cluster-decay-and-tail-scan.js (the six tail clusters and the scan this reuses)
  *   @see imp-33599-wide-range-band-crossing-envelope-law.js (the three [400,700] clusters)
@@ -300,7 +299,7 @@ const verdict =
       'THE-SPACING-IS-IRREGULAR-/-JITTER-DOMINATED,-NOT-QUASI-PERIODIC.-CONSISTENT-WITH-THE-imp-33599/imp-33621/' +
       'imp-33557/imp-33537-latticeJitterCaveat-(THE-CLUSTERED-SPIKE-STRUCTURE-IS-JITTER-DRIVEN,-SO-ITS-PEAKS-' +
       'RECUR-ON-NO-FIXED-LATTICE).-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT = Object.freeze({
@@ -327,7 +326,7 @@ export const IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT = Object.freeze({
     'PERIODIC -- there is no clean period; the spacing is jitter-dominated, consistent with the imp-33599/' +
     'imp-33621/imp-33557/imp-33537 latticeJitterCaveat. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -435,7 +434,7 @@ export const IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT = Object.freeze({
       'variation can shift the exact peak rungs, the gaps, and hence the ~41.4-rung period, the ~16.8-rung ' +
       'residual RMS, the ~0.46 CV, and the ~0.18/~0.21 spacing-law R^2. The robust reading is the QUALITATIVE ' +
       'conclusion -- no fixed period, spacing irregular, not quasi-periodic -- not the exact fit coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -489,7 +488,7 @@ export const IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT_ASSERTIONS = [
   {
     id: 'imp33639-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT.honestCaveat;
       return (
@@ -498,7 +497,7 @@ export const IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

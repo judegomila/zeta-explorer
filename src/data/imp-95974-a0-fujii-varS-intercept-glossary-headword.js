@@ -44,7 +44,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95940 identity for quick reference. It
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no bound.
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95940-arithmetic-intercept-a0-obstruction (source: a_0 = b - gamma - 1, two-leg obstruction)
  * @see imp-95921-c0-offset-approach-analytic-bracket (named the sub-gap; slope pinned, intercept not)
@@ -52,7 +52,7 @@
  * @see imp-95973-six-point-noise-domination-wall-glossary-headword (sibling headword, shared six-point wall)
  *
  * Ticket: imp-95974 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The a_0 = b - gamma - 1 headword, baked verbatim (no re-import of imp-95940).
@@ -97,7 +97,7 @@ export const IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD = Object.freeze(
     'fixed shift gamma + 1) the arithmetic prime-sum constant b, not a free parameter. The box ' +
     'model supplies only the loglog slope 1/2pi^2 (a geometric decorrelated-endpoint fact), ' +
     'not b (an arithmetic prime sum), so it cannot generate a_0. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95940 (a_0 = b - gamma - 1 reduction; two-leg obstruction; sharpened sub-gap ' +
     'imp-95940-subgap-fujii-varS-constant); imp-95921 (named the original sub-gap); Selberg / ' +
@@ -127,12 +127,12 @@ export const IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95974-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, source ' +
       'ticket id recorded.',
     holds: () =>
       IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD.verdict) &&
       /imp-95940/.test(IMP95974_A0_FUJII_VARS_INTERCEPT_GLOSSARY_HEADWORD.glosses),
   },
 ];

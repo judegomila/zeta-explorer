@@ -54,7 +54,7 @@
  * rho(x) = |x|^{-alpha}. It establishes NO operator positivity, does NOT re-derive the m_prime -> C_ren map
  * off-axis/off-exponent, and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN. C_mb
  * GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34045-phase-zero-endpoint-degeneracy (named both outer families; bounded family (ii) only qualitatively)
  * @see imp-34103-endpoint-distance-curvature (quadratic pi/8 curvature of the FAMILY (i) real-negative branch)
@@ -213,8 +213,8 @@ export const IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY = {
     'for alpha < 3, exactly as imp-33970 uniqueness requires on the cusp range. Pure phase-condition geometry on ' +
     'the inherited imp-33924 closed form; establishes NO operator positivity; does NOT re-derive the ' +
     'm_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 (imp-33766). C_mb GUE-conditional ' +
-    'untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY_ASSERTIONS = [
@@ -250,15 +250,15 @@ export const IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY_ASSERTIONS = [
       Math.abs(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.endpointSlopeAtAlpha3 - -Math.PI / 8) < 1e-4,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34104-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.isRigorous === false &&
       IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.dischargesH4 === false &&
       /NO QED/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
       /STAYS OPEN/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
+      /refereed bound is changed/i.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
       /C_mb GUE-conditional untouched/i.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict),
   },

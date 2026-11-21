@@ -63,7 +63,7 @@
  * finite-L correction not enclosed here). R2 (truncation tail) and R3 (window) are non-issues by the
  * finite Bartlett window and the L-uniformity of C(k). The certificate does NOT close. Assessment only;
  * conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes
- * NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * NO unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated.
  *
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment (the obstruction list (i)-(iii) re-audited here)
@@ -129,12 +129,12 @@ export const IMP96730_VIF_CERTIFICATE_RESIDUAL_OBSTRUCTION_LEDGER = {
   conditionality:
     'All conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). Changes NO unconditional bound.',
   verdict:
-    'Of the three imp-96593 obstructions, (i) [interval Sigma^2(L)] is discharged by imp-96618 and (ii) [finite-L correction] is discharged in its correct TWO-SIDED re-cast by the imp-96628 certified envelope: summed over the Bartlett window it pins VIF to +/- 5.65e-8 (~1.7e-6 of the level (A) bound 0.0334214, ~1.0e-5 of the actual value 0.005463). The literal one-sided form of (ii) stays impossible (imp-96617: the sign oscillates) but is not what the certificate needs -- an interval is. What REMAINS: R0, obstruction (iii) [GUE / pair correlation, UNPROVEN], the binding conditional gate; and R1, the k = 1 lag exact-value provenance at finite L (excluded from the k >= 2 envelope, dominant in VIF, its finite-L correction not enclosed here). R2 (truncation tail) and R3 (window) are non-issues by the finite Bartlett window and the L-uniformity of C(k). The certificate does NOT close. Assessment only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Of the three imp-96593 obstructions, (i) [interval Sigma^2(L)] is discharged by imp-96618 and (ii) [finite-L correction] is discharged in its correct TWO-SIDED re-cast by the imp-96628 certified envelope: summed over the Bartlett window it pins VIF to +/- 5.65e-8 (~1.7e-6 of the level (A) bound 0.0334214, ~1.0e-5 of the actual value 0.005463). The literal one-sided form of (ii) stays impossible (imp-96617: the sign oscillates) but is not what the certificate needs -- an interval is. What REMAINS: R0, obstruction (iii) [GUE / pair correlation, UNPROVEN], the binding conditional gate; and R1, the k = 1 lag exact-value provenance at finite L (excluded from the k >= 2 envelope, dominant in VIF, its finite-L correction not enclosed here). R2 (truncation tail) and R3 (window) are non-issues by the finite Bartlett window and the L-uniformity of C(k). The certificate does NOT close. Assessment only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96593 / imp-96628 convention).
 export const IMP96730_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: re-auditing the imp-96593 VIF '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: re-auditing the imp-96593 VIF '
   + 'obstruction list, (i) interval Sigma^2(L) is discharged (imp-96618) and (ii) the finite-L correction '
   + 'is discharged in its TWO-SIDED re-cast by the imp-96628 certified envelope |DeltaCov_k| <= C(k)/L^2 '
   + '(summed over lags it pins VIF to +/- 5.65e-8). The one-sided form of (ii) stays impossible (imp-96617: '
@@ -175,13 +175,13 @@ export const IMP96730_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96730_VIF_CERTIFICATE_RESIDUAL_OBSTRUCTION_LEDGER.verdict))
     throw new Error('imp-96730: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96730_VIF_CERTIFICATE_RESIDUAL_OBSTRUCTION_LEDGER.verdict))
-    throw new Error('imp-96730: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96730_VIF_CERTIFICATE_RESIDUAL_OBSTRUCTION_LEDGER.verdict))
+    throw new Error('imp-96730: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(IMP96730_VIF_CERTIFICATE_RESIDUAL_OBSTRUCTION_LEDGER.verdict))
     throw new Error('imp-96730: verdict must flag the result as CONDITIONAL');
   if (!/does NOT close/.test(IMP96730_VIF_CERTIFICATE_RESIDUAL_OBSTRUCTION_LEDGER.verdict))
     throw new Error('imp-96730: verdict must state the certificate does NOT close');
-  if (!(/RH open/.test(IMP96730_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96730_HONEST_BANNER) && /NO QED/.test(IMP96730_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96730_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96730_HONEST_BANNER) && /NO QED/.test(IMP96730_HONEST_BANNER)))
     throw new Error('imp-96730: IMP96730_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

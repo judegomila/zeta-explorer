@@ -58,7 +58,7 @@
  * with an asymptotic saturation ratio of EXACTLY 1/4 (finite factor-4 overhead, ~5.0 at b~5000). It is
  * orders too large on prime powers and primorials (mu-cancellation the triangle bound discards). The
  * Theorem-2 constant is uniformly looser (~40x, ratio -> 0 everywhere). No bound on Lambda moves; the
- * exact leading coefficient kappa_arith and the o(1) remainder are unchanged; PT Lambda <= 0.2 SOTA;
+ * exact leading coefficient kappa_arith and the o(1) remainder are unchanged; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the two theorems whose sharpness this measures)
@@ -153,11 +153,11 @@ export const IMP97158_VERDICT = Object.freeze({
     'the mu-sign cancellation the triangle bound discards, confirming the imp-97133 uniform-O(1/b) sub-gap. ' +
     'The Theorem-2 constant is uniformly ~40x looser (r1 -> 0 on every class, max 0.0242 at b=7), so E0 is the ' +
     'binding remainder. Measurement only; no bound on Lambda moves; kappa_arith and the o(1) remainder unchanged; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97158_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement filling the imp-97133 tightness residual: the ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement filling the imp-97133 tightness residual: the ' +
   'Theorem-1 constant 2^omega(b)(log b+2) is sharp only on PRIMES (saturation ratio -> 1/4, factor-4 overhead), ' +
   'orders too large on prime powers and primorials (mu-cancellation the triangle bound discards); the Theorem-2 ' +
   'constant is ~40x looser (ratio -> 0 everywhere). No bound moved.';
@@ -225,7 +225,7 @@ const IMP97158_ASSERTIONS = [
       IMP97158_VERDICT.e0AsymptoticSaturationRatio === 0.25 &&
       IMP97158_VERDICT.bindingBound === 'E0' &&
       /NO QED/.test(IMP97158_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97158_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97158_HONEST_BANNER) &&
       /RH open/.test(IMP97158_HONEST_BANNER),
     why: 'measurement only -- reports the Theorem-1 constant is sharp only on primes (ratio -> 1/4) and loose elsewhere, moving no bound, posting no ceiling, claiming no QED.',
   },

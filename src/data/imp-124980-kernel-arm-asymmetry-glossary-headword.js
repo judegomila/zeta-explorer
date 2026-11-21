@@ -44,7 +44,7 @@
  *   both arms)
  *
  * Ticket: imp-124980 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The kernel arm-asymmetry headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -77,7 +77,7 @@ const KERNEL_ARM_ASYMMETRY_HEADWORD = Object.freeze({
     'symmetric-residual slope ratio ~2 over the two genuine deep rows), built from the frozen ' +
     'imp-97823 tables via the imp-124776 gap-keyed leaf. Naming / glossary headword only; ' +
     'supplies no new bound; the C_C 1/8 ansatz and E_trunc/E_flow component model are untouched; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD = Object.freeze({
@@ -97,7 +97,7 @@ export const IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD = Object.freeze({
     'arm-asymmetry ratio |up_offset| / |down_offset| runs to 1 as the near-peak gap g -> 0, and ' +
     'each arm offset shrinks as the antisymmetric O(sqrt(g)) leading finite-gap correction. No ' +
     'bound moved; the component model and all pinned surrogate constants are untouched; ' +
-    'imp-3066 K_a >= 0 untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124852 (signed offsets, asymmetry ratio -> 1, |offset| ~ g^(1/2) convergence, symmetric ' +
     'residual collapse); imp-124776 (gap-keyed ratio tables, source of the frozen rows); ' +
@@ -124,11 +124,11 @@ export const IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124980-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124852.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124852.',
     holds: () =>
       IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD.verdict) &&
       IMP124980_KERNEL_ARM_ASYMMETRY_GLOSSARY_HEADWORD.glosses === 'imp-124852',
   },
   {

@@ -32,8 +32,7 @@
  *   the grid, whereas c(U)*U^2 grows monotonically -- ruling out a 1/U^2 rate). Every
  *   per-U small-a exponent stays pinned at p = 2.000 (R^2 = 1.000000), so the residual
  *   is a clean O(a^2) drift at every cutoff, with only its coefficient sliding as ~1/U.
- *   Measurement only; RH-equivalent; carries NO RH verdict and NO QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   Measurement only; RH-equivalent; carries NO RH verdict and NO QED. No refereed bound is changed.
  *
  *   @see imp-3409-capture-ratio-sinh-residual-order.js (the O(a^2) rate + c ~ 1.58e-5 at U = 6 only)
  *   @see imp-3240-mupass-capture-ratio-aU-grid.js (the r ~ C/U capture law across the U-grid)
@@ -288,7 +287,7 @@ export const IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING = Object.freeze({
     'SHARE a scaling: c(U) inherits the r ~ C/U law (c(U)*U stays near-constant ~9.5e-5 across the grid, whereas ' +
     'c(U)*U^2 grows monotonically, ruling out a 1/U^2 rate), while every per-U small-a exponent stays pinned at ' +
     'p = 2.000 (R^2 = 1.000000). Measurement only; RH-equivalent; carries NO RH verdict and NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -368,7 +367,7 @@ export const IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING = Object.freeze({
       'Mapping the coefficient U-scaling is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator ' +
       'magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -444,7 +443,7 @@ export const IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING_ASSERTIONS = [
   {
     id: 'imp3442-honest-measurement-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-      'not attempted, the exponent is numerical not symbolic, PT 0.2 stays SOTA. Any flip is over-claiming.',
+      'not attempted, the exponent is numerical not symbolic, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING.honestCaveat;
       return (
@@ -453,7 +452,7 @@ export const IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.exponentIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

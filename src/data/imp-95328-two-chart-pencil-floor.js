@@ -17,8 +17,7 @@
  * certificate (dyadic skeleton, r in (1, 1.3], every m): the
  * m-and-r-uniform onset drops 15.689897 -> 14.302669, and the fixed-r
  * onsets drop 15.466164 -> 14.077435 (r = 1.3), 15.215651 -> 13.825182
- * (r = 1.05). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * (r = 1.05). Changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 normalization, verbatim). a = ln rho in
  * (0, 6], b = ln r in (0, a), tau = b/a, s = sech(b/2), P(w) =
@@ -224,8 +223,8 @@ export const IMP95328_TWO_CHART_PENCIL_FLOOR = {
     "verbatim. The imp-95288 two-chart residual is EXECUTED: floor gain " +
     "13.326x at rho = 2, every-octave onsets 15.689897 -> 14.302669 " +
     "(m-and-r-uniform), 15.466164 -> 14.077435, 15.215651 -> 13.825182. " +
-    "Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains " +
-    "SOTA.",
+    "Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -683,13 +682,13 @@ export const IMP95328_ASSERTIONS = [
       "the verdict and scope carry the honest labels: RIGOROUS lemmas " +
       "and theorem, residual EXECUTED not oversold, floor-only " +
       "looseness recorded, scan-selected split point recorded, no " +
-      "bound change, no QED, PT SOTA",
+      "bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(REC.verdict) &&
       /EXECUTED/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /floor only/i.test(REC.honestScope) &&
       /named residual/.test(REC.honestScope) &&
       /scan-selected/.test(REC.honestScope),

@@ -78,7 +78,7 @@ export const ROUTE_4 = Object.freeze({
     'tmp/routes-b2-ref4-check.py', 'tmp/routes-b2-ref4-gap.py', 'tmp/routes-b2-ref4-out/']),
   verdict: 'Route 4 does not beat v4c. The Fejér–Riesz certificate is a valid drop-in for the per-prime maxima, but its gain (2.2–4.1e-4 per box) '
     + 'equals v4c\'s θ-grid slack and a finer grid recovers it to 9.2e-7. The binding boxes need 0.0024–0.035, which one octree split supplies. '
-    + 'No floor closes, no new route-P value, no margin at or below 0.050 for any floor. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No floor closes, no new route-P value, no margin at or below 0.050 for any floor. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_4;
@@ -141,7 +141,7 @@ export const ROUTE_4_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r4-honest-scope',
-    holds: () => R.status === 'done' && /does not beat v4c/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /does not beat v4c/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && R.refereeKilled.length === 5,
     why: 'Route 4 is not a lever; five referee corrections recorded; no QED.',
   },

@@ -214,7 +214,7 @@ export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE = Object.freeze({
  * VERDICT: the analytic Krein extension is the CORRECT route (equivalent reformulation, not a detour); the
  * live sub-gap is KREIN-EXT-UNIFORM-N -- an infinite-dimensional / uniform-in-N positivity (spectral gap)
  * of T_a[sigma_2], equivalently a constructive de Branges realisation, replacing the LP conditioning wall.
- * No positivity for 2a > 0.96 is claimed; RH open; PT Lambda <= 0.2 stands.
+ * No positivity for 2a > 0.96 is claimed; RH open; no refereed bound is changed.
  *
  * @see imp-96749-krein-lammin-N-trend-measurement.js (pushes the N=20/28/36 Rayleigh floor here up the
  *   ladder to N<=76; floor stays firmly positive to N=52 (condB<=4.6e12) but the uniform-in-N gap this

@@ -4,7 +4,7 @@
 //
 // Presentation only: recomputes the same two closed forms IMP_95605_ZERO_FREE_VERIFY
 // already recorded, sampled onto a curve for charting. No new derivation; changes no
-// bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+// bound; NO QED; no refereed bound is changed.
 
 import { IMP_95605_ZERO_FREE_VERIFY } from './imp-95605-zero-free-region-verify.js';
 

@@ -63,7 +63,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * OLS surrogate is descriptive, not derived; the DF critical values are finite-sample tabulated values on
  * N=21; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33921-ar1-residual-rho-reconciliation (the rho_AR ~ 0.968 and the t-CI spanning the unit root)
  * @see imp-33886-widening-residual-significance-test (the DW ~0.22 serial-dependence companion)
@@ -209,7 +209,7 @@ export const IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST = {
     'the DF critical values are finite-sample tabulated values on N=21; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33921 (the rho_AR ~ 0.968 and the t-CI spanning the unit root re-tested here); imp-33886 (the DW ' +
     '~0.22 serial-dependence companion); imp-33858 (the lag-1 ~+0.757 and head/far-tail endpoint ' +
@@ -263,13 +263,13 @@ export const IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST_ASSERTIONS = [
       IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdictStableToFarTailDrop === true,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, and the residual stays small (bound untouched).
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, and the residual stays small (bound untouched).
     id: 'imp33963-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual still small, imp-3066 untouched',
     holds: () =>
       IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.isRigorous === false &&
       /NO QED/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
-      /remains SOTA/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
       /12% multiplicative/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict),
   },

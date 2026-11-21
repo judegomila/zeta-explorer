@@ -59,8 +59,8 @@
  *   classical concentration-eigenvalue decay does NOT supply. The redirect is therefore sharpened: the missing
  *   primitive is not "eigenvalue decay" in the abstract but a CERTIFIED POLYNOMIALLY-WEIGHTED PSWF cross-moment
  *   (Schur / Weyl) tail bound int t^4 phi_m phi_n for the direct compression G. No operator positivity claimed;
- *   no coercivity constant; NO bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA; RH open; NO QED. SUB-GAP IMP97435_WEIGHTED_PSWF_DECAY_IS_WRONG_DECAY_NEEDS_T4_WEIGHTED_MOMENT_TAIL.
+ *   no coercivity constant; NO bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED. SUB-GAP IMP97435_WEIGHTED_PSWF_DECAY_IS_WRONG_DECAY_NEEDS_T4_WEIGHTED_MOMENT_TAIL.
  *
  * @see imp-97416-krein-csharp-bathtub-joint-floor.js (scalar two-budget coupling exhausted; named this spectral primitive; floor -3065.435)
  * @see imp-97436 (the sibling spectral primitive: Fejer-Riesz / de Branges square factorisation sigma_2 = |q|^2 - r)
@@ -70,7 +70,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; pole-free Weil positivity; reach 2a<=0.96)
  *
  * Ticket: imp-97435 (proof, high, opus-4-8). Assessment/derivation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

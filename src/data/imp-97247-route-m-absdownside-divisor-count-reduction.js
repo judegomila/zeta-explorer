@@ -8,7 +8,7 @@
  * measured coefficient plateaus at ~0.147-0.148. imp-97116 named the sole remaining input as "the
  * frequency of small modular inverses b-inverse mod a ... an equidistribution / Kloosterman-type input
  * ... NOT elementary." This leaf attacks exactly that frequency and reports two rigorous results plus a
- * correction. No bound is proved rigorous; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * correction. No bound is proved rigorous; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97116/imp-97188. V(h,k) = Sum_{m=1}^{k-1} frac(mh/k) cot(pi m/k) is the Vasyunin sum;
  * c_0(h/k) = Sum_{n=1}^{k-1} (n/k) cot(pi n h/k) is the Bettin-Conrey cotangent sum; by the imp-97116
@@ -78,8 +78,8 @@
  * imp-97116 "small inverse only" framing (the large a=b-2 term has non-small inverse). But measurement
  * shows the small-inverse tail is a shrinking minority of A(b); the mass is the bulk mean value of
  * |c_0(h_a/a)| ~ 0.14 a, which the divisor counts do not bound. The explicit c stays MEASURED, not
- * proved; no bound moved; the rigorous trace ceiling T ~ 2.594e7 stays the anchor. PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * proved; no bound moved; the rigorous trace ceiling T ~ 2.594e7 stays the anchor. No refereed bound is changed
+ * ; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97247-bulk-mean-value -- prove A(b) <= c phi(b) b, c < 0.5705, from a
  * cancellation-free mean-value bound Sum_{a bulk} |c_0(b-inverse mod a / a)| = O(phi(b) b) (saving the
@@ -247,11 +247,11 @@ export const IMP97247_VERDICT = Object.freeze({
     'cancellation-free BULK MEAN VALUE of |c_0(h_a/a)| ~ 0.14 a over ~phi(b) moduli of order b (a ' +
     'per-term bound gives only O(phi b b log b)). The explicit c stays MEASURED (~0.147 << 0.5705), not ' +
     'proved; no bound moved, no rigorous ceiling posted; T ~ 2.594e7 anchor; compute binds first. ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97247_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Attempt -> honest partial: the imp-97116 residual ' +
+  'RH open; no refereed bound is changed; NO QED. Attempt -> honest partial: the imp-97116 residual ' +
   '"frequency of small inverses b-inverse mod a" is shown ELEMENTARY -- a divisor sum, #{a: h_a<=H} <= ' +
   'Sum_{h<=H} d(b h - 1) -- and a dual divisor descriptor a | (b - r) is shown to govern the actually- ' +
   'large terms, correcting the imp-97116 "small inverse only" framing (a=b-2 is large with inverse ~a/2). ' +
@@ -358,7 +358,7 @@ const IMP97247_ASSERTIONS = [
       /bulk-mean-value/.test(IMP97247_SUBGAP.id) &&
       /MEAN-VALUE/.test(IMP97247_SUBGAP.statement) &&
       /NO QED/.test(IMP97247_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97247_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97247_HONEST_BANNER) &&
       /RH open/.test(IMP97247_HONEST_BANNER),
     why: 'attempt -> honest partial: the small-inverse frequency is made elementary and the large-term descriptor corrected, but the explicit constant stays measured not proved and the residual is a bulk mean value -- no bound moved, no rigorous ceiling, honesty markers and named residual sub-gap present.',
   },

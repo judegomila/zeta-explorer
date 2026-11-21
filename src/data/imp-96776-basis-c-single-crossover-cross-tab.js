@@ -68,7 +68,7 @@
  * window nested at the p ~ 2.42 rung (not overlapping the p ~ 1.81 or p = 1.0 figures). The ~1.5-decade L
  * span is entirely exponent-LEVEL uncertainty; the imp-96712 band is the far smaller exponent-SHAPE
  * uncertainty at the fixed OLS level. Cross-tabulation only; theoretical GUE quantity, not real zeros;
- * changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated.
  *
  * @see imp-96711-basis-c-corroboration-reach-cross-tab (the three L* as one anchored crossover)
@@ -294,12 +294,12 @@ export const IMP96776_BASIS_C_SINGLE_CROSSOVER_CROSS_TAB = {
     + 'p ~ 2.42 rung (not overlapping the p ~ 1.81 or p = 1.0 figures). The ~1.5-decade L span is entirely '
     + 'exponent-LEVEL uncertainty; the imp-96712 band is the far smaller exponent-SHAPE uncertainty at the '
     + 'fixed OLS level. Cross-tabulation only; theoretical GUE quantity, not real zeros; changes no bound; '
-    + 'RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    + 'RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96776_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-tabulation only: rho is the theoretical GUE '
+  'RH open; no refereed bound is changed; NO QED. Cross-tabulation only: rho is the theoretical GUE '
   + 'two-interval correlation, not computed from real zeros. Placing the three imp-96711 reach figures '
   + '(L* ~ 2.86e9 / 1.90e8 / 8.1e7) and the imp-96712 bracket [7.63e7, 8.2e7] on one L axis via the inverse '
   + 'exponent map confirms ONE crossover, not four scales: the reach figures recover p ~ 1.00 / 1.81 / 2.42 '
@@ -347,11 +347,11 @@ export const IMP96776_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96776_BASIS_C_SINGLE_CROSSOVER_CROSS_TAB.verdict))
     throw new Error('imp-96776: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96776_BASIS_C_SINGLE_CROSSOVER_CROSS_TAB.verdict))
-    throw new Error('imp-96776: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96776_BASIS_C_SINGLE_CROSSOVER_CROSS_TAB.verdict))
+    throw new Error('imp-96776: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96690/.test(IMP96776_BASIS_C_SINGLE_CROSSOVER_CROSS_TAB.source))
     throw new Error('imp-96776: source dropped the imp-96690 reference');
-  if (!(/RH open/.test(IMP96776_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96776_HONEST_BANNER) && /NO QED/.test(IMP96776_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96776_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96776_HONEST_BANNER) && /NO QED/.test(IMP96776_HONEST_BANNER)))
     throw new Error('imp-96776: IMP96776_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

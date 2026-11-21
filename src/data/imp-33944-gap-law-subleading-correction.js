@@ -56,7 +56,7 @@
  * NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (F2 gap law gap ~ 1/(2 log T0), ratio -> 1.00)
  * @see imp-33859 (log-space direct path: ln N = u + log(u - 1), never forming T0/N)
@@ -209,7 +209,7 @@ export const IMP33944_GAP_LAW_SUBLEADING_CORRECTION = {
     'verdict. Sub-leading diagnostic of the inherited imp-3220/imp-3406 conditional-share model, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33816 (F2 gap law gap ~ 1/(2 log T0), ratio -> 1.00); imp-33859 (log-space direct path ' +
     'ln N = u + log(u - 1)); imp-33918 (companion g/law = L/(L+1) order-1 ratio); imp-3529 (LOCAL ' +
@@ -259,13 +259,13 @@ export const IMP33944_GAP_LAW_SUBLEADING_CORRECTION_ASSERTIONS = [
     holds: () => Math.abs(RATIO_LADDER[0].ratio - 0.9897) < 1e-3,
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp33944-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33944_GAP_LAW_SUBLEADING_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP33944_GAP_LAW_SUBLEADING_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP33944_GAP_LAW_SUBLEADING_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP33944_GAP_LAW_SUBLEADING_CORRECTION.verdict),
   },
 ];
 

@@ -43,8 +43,7 @@
  *        +13.96% over-statement) is the shift imp-3661 already contains, not an outstanding correction.
  *
  * ACCURACY AUDIT / DERIVATION ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3661-sigma-crossover-tc-density-corrected-pin (the propagation this audits; density-corrected pin)
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (density-corrected shrink 0.3870 vs bare 0.4410)
@@ -116,7 +115,7 @@ export const IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT = {
     're-point does not need to touch it. The counterfactual stale-factor shift (bare 0.4410 -> 1.0001045, ' +
     '22.05%, +13.96% over-statement) is the shift imp-3661 already contains. Accuracy audit / derivation ' +
     'only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3661 (density-corrected pin, t_c(N_x)=9.1714e-5, flow factor 1.0000917, ~19.3% bracket); imp-3642 ' +
     '(density-corrected shrink 0.3870 vs bare 0.4410, +13.96% over-statement); imp-3620 (bare-log pin, ' +
@@ -153,13 +152,13 @@ export const IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT_ASSERTIONS = [
       Math.abs(IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT.counterfactualOverstatePct - 13.96) < 0.5,
   },
   {
-    // Honesty gate: accuracy audit only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: accuracy audit only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3710-honesty-gate-no-qed',
-    description: 'Accuracy audit only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Accuracy audit only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3710_IMP3661_DENSITY_FACTOR_CONSUMED_AUDIT.verdict),
   },
 ];

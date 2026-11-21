@@ -52,8 +52,7 @@
  * imp-34414 sub-terms verbatim (import-light: only effectiveHeightForN + C_C_PINNED, no
  * zeros bundle). C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/
  * imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; establishes no operator positivity;
- * changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the SOTA
- * unconditional bound.
+ * changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34414-crossover-surplus-direct-cubic-expansion (the A_r formula assembled here)
  * @see imp-34174-crossover-surplus-threshold-family-decay (the closed form surplus(thr))
@@ -176,7 +175,7 @@ export const IMP34473_SURPLUS_AMPLITUDE_AR_CLOSED_FORM_ASSEMBLY = {
     'extrapolation component model (NOT a rigorous asymptotic). E_flow is the benign mesoscopic-Gronwall term ' +
     '(imp-2845) and does NOT touch the divergent C_Lip collision-Gronwall. C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; changes no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'No refereed bound is changed.',
   assertions: [
     {
       description:

@@ -47,7 +47,7 @@
  *   it stays capped at ~ 0.9980 (grid-sensitive there because the tail is
  *   dominated by the single nearest term as a -> 0). No bound is changed;
  *   this is a corroboration of an already-established chartwise inequality.
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED; no refereed bound is changed.
  *
  *   HONEST SCOPE
  *   -----------------------------------------------
@@ -257,8 +257,8 @@ export const IMP95356_TAIL_CHART_CAP_REFINED_CROSSVAL = {
     'imp-95332 0.9978 literal and the imp-95342 rho = 2 cell (0.9978842, ' +
     'k = 73) while sharpening the global figure and relocating the binding ' +
     'cell to rho = 1.2 below the imp-95342 grid floor. Cross-validation ' +
-    'only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'only; changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 const IMP95356_TAIL_CHART_CAP_REFINED_CROSSVAL_ASSERTIONS = [
@@ -318,12 +318,12 @@ const IMP95356_TAIL_CHART_CAP_REFINED_CROSSVAL_ASSERTIONS = [
     id: 'imp95356-honesty-gate-no-qed',
     why:
       'Cross-validation only: no enclosure established, no bound moved, ' +
-      'PT SOTA line present, scope names the single leg being checked and ' +
+      'no-refereed-bound-change line present, scope names the single leg being checked and ' +
       'the module it corroborates.',
     holds: () =>
       IMP95356_TAIL_CHART_CAP_REFINED_CROSSVAL.anyEnclosureEstablished ===
         false &&
-      /remains\s+SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95356_TAIL_CHART_CAP_REFINED_CROSSVAL.verdict,
       ) &&
       /NO QED/.test(IMP95356_TAIL_CHART_CAP_REFINED_CROSSVAL.verdict) &&

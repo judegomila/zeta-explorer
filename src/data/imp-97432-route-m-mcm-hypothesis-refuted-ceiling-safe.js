@@ -74,7 +74,7 @@
  * the b/4 ceiling |T(b)| <= 1/4 (the counterexample has |T| = 9.7e-4; the primorial limit is -0.0458). So the
  * omega >= 4 ceiling reduction via MCM is a dead route; a closure for omega >= 11 needs the weaker two-sided
  * band -1/4 <= T <= 1/4 directly, not the non-negativity MCM. kappa_arith unchanged; cotangent first moment
- * (imp-97097) stays open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * (imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js (the MCM hypothesis, now refuted)
  * @see imp-97421-route-m-quarter-ceiling-omega3-sign-closed.js (omega=3 sign, via the same h=g/m matching)
@@ -192,7 +192,7 @@ export const IMP97432_VERDICT = Object.freeze({
     '|T| = 9.7e-4 and the primorial family converges to -e^{-gamma}/12 + Rcorr = -0.0458, deep inside the band. ' +
     'So the omega >= 4 ceiling reduction via MCM is a dead route past omega = 10 (premise false); an omega >= 11 ' +
     'closure needs the two-sided band -1/4 <= T <= 1/4 directly, not the non-negativity MCM. kappa_arith unchanged; ' +
-    'cotangent first moment (imp-97097) open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'cotangent first moment (imp-97097) open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97432_SUBGAP = Object.freeze({
@@ -209,7 +209,7 @@ export const IMP97432_SUBGAP = Object.freeze({
 });
 
 export const IMP97432_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Attempt to prove the imp-97422 MCM hypothesis: MCM is ' +
+  'RH open; no refereed bound is changed; NO QED. Attempt to prove the imp-97422 MCM hypothesis: MCM is ' +
   'REFUTED. Exact reweighted-mean characterization (iterDiff(H,{p1..pj},x) >= 0 <=> tilted mean >= j - lnA/c) ' +
   'shows the exponential tilt drives the surrogate difference negative at order 10; the bounded R-correction ' +
   '(saturation +1.0186e-3, anchor R(1) = 1/4 - lnA) leaves T(p_11#) = -9.624e-4 < 0 at b = p_11# = ' +
@@ -295,7 +295,7 @@ const IMP97432_ASSERTIONS = [
       IMP97432_VERDICT.characterizationProved === true &&
       /omega-ge-11/.test(IMP97432_SUBGAP.id) &&
       /NO QED/.test(IMP97432_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97432_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97432_HONEST_BANNER) &&
       /RH open/.test(IMP97432_HONEST_BANNER),
     why: 'proof attempt with an honest negative outcome -- MCM refuted, ceiling not refuted; no bound moved, no rigorous full ceiling, no QED.',
   },

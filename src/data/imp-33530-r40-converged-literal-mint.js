@@ -39,7 +39,7 @@
  *   converged R_40 is a grid-CONVERGENCE floor of this truncated-kernel model (shared finite
  *   NPHI = 10 kernel truncation), NOT a certified error bound. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33310-r40-converged-literal-feasibility.js (FEASIBLE verdict, mint deferred)
  *   @see imp-33292-r40-inner-richardson-extrapolation.js (converged R_40 ~ 1.0243966950314)
@@ -141,7 +141,7 @@ export const IMP33530_R40_CONVERGED_LITERAL_MINT = Object.freeze({
     gridStabilityNotCertifiedBound:
       'The converged R_40 is a grid-CONVERGENCE floor of this truncated-kernel model; the shared ' +
       'finite NPHI = 10 kernel truncation remains the residual model floor, not a certified error bound.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -182,7 +182,7 @@ export const IMP33530_R40_CONVERGED_LITERAL_MINT_ASSERTIONS = [
   {
     id: 'imp33530-honest-mint-only',
     why: 'Mandatory honesty: mint of a grid-convergence literal only, proposes no edit to imp-3685/imp-3849, ' +
-      'unifies no field, changes no bound, imp-3066 untouched, PT 0.2 stays SOTA.',
+      'unifies no field, changes no bound, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33530_R40_CONVERGED_LITERAL_MINT.honestCaveat;
       return (

@@ -71,8 +71,7 @@
  * MEASUREMENT / DECOMPOSITION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * SUB-GAP (named): the frozen-L ablation is a first-order term-freezing split -- any E_flow x
  * E_coll-log cross-term is attributed to the frozen (E_coll-log) leg wherever it is removed, so the
@@ -323,7 +322,7 @@ export const IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION = {
     'not exact; a fully path-independent decomposition is not attempted. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124848 (interior-peak p ~ -1.412, the E_flow attribution decomposed here); imp-124772 ' +
     '(far-tail knee p ~ -2.106); imp-33684 (interior-peak sensitivityTable + model form); imp-97822 ' +
@@ -371,14 +370,14 @@ export const IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION_ASSERT
     holds: () => PEAK_VANISHES_NOFLOW === true,
   },
   {
-    // Honesty gate: measurement/decomposition only, named sub-gap, no QED, PT SOTA.
+    // Honesty gate: measurement/decomposition only, named sub-gap, no QED, no refereed bound is changed.
     id: 'imp124870-honesty-gate-no-qed',
-    description: 'Measurement only: decomposes the elasticity gap, names the sub-gap, no QED, PT stays SOTA',
+    description: 'Measurement only: decomposes the elasticity gap, names the sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION.verdict) &&
       /SUB-GAP/.test(IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP124870_PEAK_KNEE_ELASTICITY_GAP_EFLOW_ECOLL_DECOMPOSITION.verdict),
   },
 ];
 

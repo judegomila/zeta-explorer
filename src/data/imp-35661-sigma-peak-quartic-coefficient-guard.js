@@ -40,7 +40,7 @@
  * REGRESSION-GUARD ONLY; recomputes established measurement figures; changes no bound;
  * the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc = 3.06e-5
  * (imp-2631) UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED; the surrogate-vs-true
- * fidelity half (imp-35337a) stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * fidelity half (imp-35337a) stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35575-sigma-peak-quartic-coefficient (the literals pinned here)
  * @see imp-35451-sigma-peak-arm-asymmetry (cubic c3 ~ -2.623677e-4 and A_skew ~ 11.02)
@@ -175,7 +175,7 @@ export const IMP35661_SIGMA_PEAK_QUARTIC_COEFFICIENT_GUARD = {
     'the well-resolved tol = 1e-5 (LINEAR in tol, ~10x per decade), BELOW the ~1.5e-4 stencil spread -- ' +
     'so the cubic-only prediction stands. Recomputes established measurement figures; changes no bound; ' +
     'the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) ' +
-    'UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.',
   citation:
     'imp-35575 (the quartic-coefficient literals pinned here); imp-35451 (cubic c3 ~ -2.623677e-4 and ' +
     'A_skew ~ 11.02); imp-35450 (quadratic k ~ 6.43191e-3); imp-35619 (a sibling span-growth guard); ' +
@@ -240,13 +240,13 @@ export const IMP35661_SIGMA_PEAK_QUARTIC_COEFFICIENT_GUARD_ASSERTIONS = [
       Math.abs(REL_SHIFT_1E5 - REC_MAT.rel_shift_at_tol_1e5) < 1e-6,
   },
   {
-    // Honesty gate: regression-guard only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: regression-guard only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35661-honesty-gate-no-qed',
-    description: 'Regression-guard only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Regression-guard only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35661_SIGMA_PEAK_QUARTIC_COEFFICIENT_GUARD.isRigorous === false &&
       /NO QED/.test(IMP35661_SIGMA_PEAK_QUARTIC_COEFFICIENT_GUARD.verdict) &&
-      /remains SOTA/.test(IMP35661_SIGMA_PEAK_QUARTIC_COEFFICIENT_GUARD.verdict),
+      /refereed bound is changed/i.test(IMP35661_SIGMA_PEAK_QUARTIC_COEFFICIENT_GUARD.verdict),
   },
 ];
 

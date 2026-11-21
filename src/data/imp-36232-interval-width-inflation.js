@@ -13,8 +13,7 @@
  * MEASUREMENT / DIAGNOSTIC ONLY. Certifies no enclosure; instantiates no
  * certified interval; integrates no certified flow; changes no bound;
  * G-interval-enclosure (lambda-roadmap.js Step-2 rigorousUpgradeGap) stays OPEN;
- * C_mb GUE-conditional (imp-486) untouched; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; NO QED. No refereed bound is changed.
  *
  * WHAT WAS MEASURED
  * -----------------------------------------------------------------------------
@@ -129,9 +128,9 @@ export const IMP36232_INTERVAL_WIDTH_INFLATION = {
       'wFinal <= ~2.2e-5 << the 0.01 heuristic at every measured N, so the brackets still close narrower than the heuristic pm; but the terminal blow-up, not the bulk factor, sets how narrow.',
   },
   conclusion:
-    'The per-step width inflation SPLITS into an approximately N-uniform bulk factor (~1.1-1.15x/step) and a non-N-uniform terminal boundary-layer blow-up (2x-8x/step). Quantifying E4 as a single N-uniform per-step factor is therefore INCORRECT: any N-uniform interval-width control must dominate the terminal blow-up, which the smooth factor does not. G-interval-enclosure stays OPEN; changes NO Lambda bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'The per-step width inflation SPLITS into an approximately N-uniform bulk factor (~1.1-1.15x/step) and a non-N-uniform terminal boundary-layer blow-up (2x-8x/step). Quantifying E4 as a single N-uniform per-step factor is therefore INCORRECT: any N-uniform interval-width control must dominate the terminal blow-up, which the smooth factor does not. G-interval-enclosure stays OPEN; changes NO Lambda bound; NO QED. No refereed bound is changed.',
   verdict:
-    'MEASUREMENT ONLY. imp-36193 E4 per-step wrapping factor tabulated vs step index and N: N-uniform in the bulk (~1.1-1.15x/step), NOT N-uniform in the terminal boundary layer (2x-8x/step). Certifies nothing; G-interval-enclosure OPEN; NO QED; PT Lambda <= 0.2 SOTA.',
+    'MEASUREMENT ONLY. imp-36193 E4 per-step wrapping factor tabulated vs step index and N: N-uniform in the bulk (~1.1-1.15x/step), NOT N-uniform in the terminal boundary layer (2x-8x/step). Certifies nothing; G-interval-enclosure OPEN; NO QED; no refereed bound is changed.',
 };
 
 export default IMP36232_INTERVAL_WIDTH_INFLATION;

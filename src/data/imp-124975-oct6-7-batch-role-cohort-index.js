@@ -42,7 +42,7 @@
  *
  *   STATUS: a grouping/index note over five already-committed modules, not a new derivation. No
  *   bound changes; DIAG3 == 0, the C_C 1/8 ansatz, E_trunc, and the C_F prefactor all untouched;
- *   imp-3066 K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-3066 K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-124917-f2-residual-curvature-u-viz-data.js (viz-data leaf: F2 residual-curvature U-shape)
  * @see imp-124918-kernel-ratio-bracket-viz-data.js (viz-data leaf: kernel ratio bracket, merged axis)
@@ -53,7 +53,7 @@
  * @see imp-124906-sigma-diagnostic-leaf-cluster-index.js (earlier sigma-diagnostic cluster index)
  *
  * Ticket: imp-124975 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const OCT67_BATCH_COHORT = Object.freeze([
@@ -130,8 +130,8 @@ export const IMP124975_OCT67_BATCH_ROLE_COHORT_INDEX = Object.freeze({
     'None of the five adds new numerics. Future work on this thread should not re-derive any of the ' +
     'five viz/glossary/chain leaves, and should not treat a role-tagged leaf as an open question. ' +
     'DIAG3 == 0, the C_C 1/8 ansatz, E_trunc, and the C_F prefactor all untouched; imp-3066 K_a >= 0 ' +
-    'untouched; establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'untouched; establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124917 (viz-data leaf, F2 residual-curvature U-shape); imp-124918 (viz-data leaf, kernel ' +
     'ratio bracket merged axis); imp-124919 (glossary headword, E_CF stencil crossover); imp-124921 ' +
@@ -167,11 +167,11 @@ export const IMP124975_OCT67_BATCH_ROLE_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp124975-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124975_OCT67_BATCH_ROLE_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP124975_OCT67_BATCH_ROLE_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP124975_OCT67_BATCH_ROLE_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP124975_OCT67_BATCH_ROLE_COHORT_INDEX.verdict),
   },
 ];
 

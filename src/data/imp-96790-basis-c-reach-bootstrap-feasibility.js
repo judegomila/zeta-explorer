@@ -56,7 +56,7 @@
  *   (~214x below the Platt-Trudgian frontier T ~ 3e10; heights exist, the contiguous list does not).
  *   This confirms imp-96753's binding obstruction is contiguity, and rules out bootstrap as a shortcut.
  *   Scoping only; recomputes no rho, instantiates no interval, moves no bound; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see imp-96753-basis-c-reach-dataset-requirement (the spanReq = 3.54e8 / T ~ 1.40e8 acquisition target this tests)
  * @see imp-96733-basis-c-real-zero-intermediate-signal (Finding 3: reach rungs unreachable from the 2e6 cache; ~30-window threshold)
@@ -67,7 +67,7 @@
  * floor(S/ell) block counts.
  *
  * Ticket: imp-96790 (numerical, medium). Scoping only; establishes nothing; moves no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // --- reference cache (Odlyzko zeros6, matching imp-96753 literals) ------------
@@ -174,7 +174,7 @@ export const IMP96790_BASIS_C_REACH_BOOTSTRAP_FEASIBILITY = Object.freeze({
     + 'the imp-96753 acquisition requirement is unchanged (3.54e8 consecutive zeros up to T ~ 1.40e8, ~214x below the '
     + 'Platt-Trudgian frontier). This confirms contiguity -- not zero height -- as the binding obstruction and rules '
     + 'out bootstrap as a shortcut. Recomputes no rho, instantiates no interval, moves no bound; NO QED. '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+    + 'No refereed bound is changed; RH open.',
   citation:
     'imp-96753 (spanReq = 3.54e8 / T ~ 1.40e8 acquisition target); imp-96733 Finding 3 (~30-window threshold; '
     + 'unreachable from the 2e6 cache); imp-96695 (number-variance estimator); block-bootstrap independent-sample '
@@ -183,7 +183,7 @@ export const IMP96790_BASIS_C_REACH_BOOTSTRAP_FEASIBILITY = Object.freeze({
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96790_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Scoping only: sub-window bootstrap of the ~2e6 cache CANNOT '
+  'RH open; no refereed bound is changed; NO QED. Scoping only: sub-window bootstrap of the ~2e6 cache CANNOT '
   + 'recover rho_emp at the first Basis-C reach rung L = 5.9e6 -- both box scales L and 2L exceed the cached span, '
   + 'so the block-bootstrap independent-window ceiling floor(S/2L) is 0 and the estimate is undefined/model-circular. '
   + 'The ~30 windows require fresh contiguous ordinates (3.54e8 zeros up to T ~ 1.40e8, imp-96753). Changes no bound.';
@@ -231,8 +231,8 @@ export default IMP96790_BASIS_C_REACH_BOOTSTRAP_FEASIBILITY;
     throw new Error('imp-96790: scoping must not move any bound');
   if (!/NO QED/.test(IMP96790_BASIS_C_REACH_BOOTSTRAP_FEASIBILITY.verdict))
     throw new Error('imp-96790: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96790_BASIS_C_REACH_BOOTSTRAP_FEASIBILITY.verdict))
-    throw new Error('imp-96790: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96790_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96790_HONEST_BANNER) && /NO QED/.test(IMP96790_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96790_BASIS_C_REACH_BOOTSTRAP_FEASIBILITY.verdict))
+    throw new Error('imp-96790: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96790_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96790_HONEST_BANNER) && /NO QED/.test(IMP96790_HONEST_BANNER)))
     throw new Error('imp-96790: IMP96790_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();

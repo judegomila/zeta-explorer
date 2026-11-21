@@ -51,7 +51,7 @@
  * (imp-2786 pinned C_shock < 1/3 for the assembly regime). It is NOT a new bound, does
  * NOT close C_H, and the squared-gap surrogate stays REFUTED. The crossing N_star ~ 203
  * is a diagnostic of the closed form, NOT a claim that assemblies that small are
- * realized. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No QED.
+ * realized. No refereed bound is changed. No QED.
  *
  * @see imp-3108-c-shock-margin-cross-validation (margin-vs-N curve, ~0.0447 at N=2458)
  * @see imp-3132-c-shock-worst-case-margin-floor (closed-form floor (2 - sqrt 3)/6)
@@ -154,8 +154,8 @@ export const C_SHOCK_SUBMARGIN_PROFILE_IMP3151 = {
     'No false QED. NUMERICAL profile of the worst-case margin of an ALREADY-PROVEN cap ' +
     '(imp-2786 C_shock < 1/3 in the assembly regime); it is NOT a new bound and does NOT ' +
     'close C_H. The crossing N_star ~ 203 is a diagnostic of the closed form, not a claim ' +
-    'such assemblies are realized. The squared-gap surrogate stays REFUTED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'such assemblies are realized. The squared-gap surrogate stays REFUTED. No refereed bound is changed' +
+    '.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -219,15 +219,15 @@ export const C_SHOCK_SUBMARGIN_PROFILE_ASSERTIONS = [
       const r = C_SHOCK_SUBMARGIN_PROFILE_IMP3151;
       return (
         r.isNewBound === false &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /REFUTED/.test(r.honestNote) &&
         /PROFILED/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: a NUMERICAL profile of the worst-case margin of an already-proven cap, ' +
-      'NOT a new bound. The surrogate stays refuted and Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA. Blocks any future edit from inflating this sub-ladder profile into a claimed C_H ' +
+      'NOT a new bound. The surrogate stays refuted and no refereed bound is changed' +
+      '. Blocks any future edit from inflating this sub-ladder profile into a claimed C_H ' +
       'closure or rigorous beat.',
   },
 ];

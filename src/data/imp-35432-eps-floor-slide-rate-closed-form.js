@@ -54,7 +54,7 @@
  * its parents imp-35111a / imp-35174a / imp-34997a) stay OPEN. The C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (DEMONSTRATION D1: measured ~11.99 decades/factor-2; sub-gap imp-35243a)
  * @see imp-35263-reentry-band-eps-floor-sweep (direct sweep: 12.036 reentry-local, ~18.95 exit-edge slide)
@@ -207,8 +207,8 @@ export const IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM = {
     'imp-3220/imp-3406 surrogate; it does NOT discharge imp-35243a (surrogate-fidelity), which stays OPEN with ' +
     'imp-35111a / imp-35174a / imp-34997a. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35243 (DEMONSTRATION D1: measured ~11.99 decades/factor-2; sub-gap imp-35243a); imp-35263 (direct ' +
     'sweep: 12.036 reentry-local, ~18.95 exit-edge); imp-35332 (analytic DRIFT(N)); imp-35357 (axis(iii): ' +
@@ -254,13 +254,13 @@ export const IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM_ASSERTIONS = [
       IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.slide_growth_assessment.is_constant === false,
   },
   {
-    // Honesty gate: derivation/measurement only, discharges nothing, no QED, PT SOTA, sub-gap named/OPEN.
+    // Honesty gate: derivation/measurement only, discharges nothing, no QED, no refereed bound is changed, sub-gap named/OPEN.
     id: 'imp35432-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, discharges nothing, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Derivation/measurement only: isRigorous false, discharges nothing, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.verdict) &&
+      /refereed bound is changed/i.test(IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.verdict) &&
       /imp-35243a/.test(IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.residual_sub_gap) &&
       /stay OPEN/.test(IMP35432_EPS_FLOOR_SLIDE_RATE_CLOSED_FORM.finding),
   },

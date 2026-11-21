@@ -28,7 +28,7 @@
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
  *   Establishes nothing new; moves no bound. The imp-97100 residual (a fixed rational trial vector
  *   with certified g(t) = O(t^{-4}) decay, SUB-GAP IMP97100_PHASE_CANCELLATION_TRIAL) remains open.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (source: the measured
  *   cancellation depth, the route assessment, and the named residual this headword glosses)
@@ -38,7 +38,7 @@
  *   phase-cancellation finding explains structurally)
  *
  * Ticket: imp-97129 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97100_TAIL_DECAY, IMP97100_VERDICT } from './imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js';
@@ -68,8 +68,8 @@ const RAYLEIGH_TAIL_PHASE_CANCELLATION_HEADWORD = Object.freeze({
     'Cancellation depth measured (not proved) from the committed imp-96888 T-ladder (three rungs, ' +
     'T in {4800,6400,9600}): p ~ 2.91, gDecayOrder ~ 3.96, cancellationDepth ~ 2.96. Establishes no ' +
     'bound and moves nothing on its own -- the residual (a fixed rational trial with certified ' +
-    'g(t) = O(t^{-4}) decay, IMP97100_PHASE_CANCELLATION_TRIAL) remains open. NO QED; PT ' +
-    'Lambda <= 0.2 remains SOTA; RH open.',
+    'g(t) = O(t^{-4}) decay, IMP97100_PHASE_CANCELLATION_TRIAL) remains open. NO QED; no refereed bound is changed' +
+    '; RH open.',
 });
 
 export const IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,7 +90,7 @@ export const IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD = Objec
     'is why the mode-wise triangle bound (Route A) is structurally vacuous (it discards phase before ' +
     'squaring) and why a rigorous interval majorant needs a phase-preserving enclosure or a trial ' +
     'vector with certified t^{-4} decay. Establishes nothing new; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97100 (the full route assessment, measured cancellation depth, and named residual this ' +
     'headword glosses); imp-96888 (the min-max Rayleigh bound and T-ladder the decay exponent is ' +
@@ -128,12 +128,12 @@ export const IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp97129-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the source ' +
       'verdict this headword glosses must still show the phase-cancellation residual as unresolved.',
     holds: () =>
       IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD.verdict) &&
       IMP97129_RAYLEIGH_TAIL_PHASE_CANCELLATION_GLOSSARY_HEADWORD.glosses === 'imp-97100' &&
       IMP97100_VERDICT.intervalMajorantProduced === false &&
       IMP97100_VERDICT.rayleighTailMajorantOpen === true,

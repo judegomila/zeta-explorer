@@ -59,8 +59,8 @@
  *   still requires the genuinely SPECTRAL estimate (weighted-PSWF eigenvalue decay or Fejer-Riesz / de Branges
  *   factorisation with a certified margin) -- because a scalar rearrangement bound cannot see (a) that the
  *   optimal profile is not band-limited or (b) the discarded t^4 positive far field. No operator positivity, no
- *   coercivity constant, no bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA; RH open; NO QED. SUB-GAP IMP97416_SCALAR_TWO_BUDGET_COUPLING_EXHAUSTED_NEEDS_SPECTRAL_ESTIMATE.
+ *   coercivity constant, no bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED. SUB-GAP IMP97416_SCALAR_TWO_BUDGET_COUPLING_EXHAUSTED_NEEDS_SPECTRAL_ESTIMATE.
  *
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (uniform pointwise floor -3200.029; confined well; named this joint primitive)
  * @see imp-97350-krein-csharp-lower-bound-routes-shared-obstruction.js (the shared concentration primitive; "confined well")
@@ -69,7 +69,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; pole-free Weil positivity; reach 2a<=0.96)
  *
  * Ticket: imp-97416 (proof, medium, opus-4-8). Attempt/derivation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

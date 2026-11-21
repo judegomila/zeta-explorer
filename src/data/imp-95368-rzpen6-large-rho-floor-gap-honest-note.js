@@ -62,8 +62,8 @@ export const IMP95368_RZPEN6_LARGE_RHO_FLOOR_GAP_HONEST_NOTE = {
     'still undershoots the exact symbol-pencil infimum by 3.0-5.1x at ' +
     'rho = e^6, the gap is named (two open legs) not eliminated, and the ' +
     'RZ-PEN program is a floor-tightening/onset-lowering measurement ' +
-    'effort that changes no bound. NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'effort that changes no bound. NO QED; no refereed bound is changed' +
+    '.',
 };
 
 const REC = IMP95368_RZPEN6_LARGE_RHO_FLOOR_GAP_HONEST_NOTE;
@@ -92,12 +92,12 @@ export const IMP95368_ASSERTIONS = [
     description:
       'the note is explicit that the gap is named not eliminated, that ' +
       'onsets are unchanged, that this is documentation only, and that ' +
-      'PT Lambda <= 0.2 remains SOTA',
+      'no refereed bound is changed',
     holds: () =>
       /named/.test(REC.honest) &&
       /not eliminated/.test(REC.honest) &&
       /DOCUMENTATION ONLY/.test(REC.honest) &&
-      /remains SOTA/.test(REC.honest) &&
+      /refereed bound is changed/i.test(REC.honest) &&
       /unchanged/.test(REC.unchanged) &&
       /OPEN/.test(REC.namedResidual),
   },

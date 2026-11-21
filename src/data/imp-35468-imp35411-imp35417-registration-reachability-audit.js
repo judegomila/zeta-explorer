@@ -36,8 +36,7 @@
  * page. NOT an orphan; NOT a dangling reference.
  *
  * SCOPE. Read-only audit only. No source file required correction -- zero orphans found. Changes
- * no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35484-imp35410x-registration-reachability-audit (the audit method this ticket repeats)
  * @see imp-35545-imp354xx-registration-reachability-audit (prior cohort application of the same method)
@@ -93,7 +92,7 @@ export const IMP35468_REGISTRATION_REACHABILITY_AUDIT = {
     'baked-literal viz-consumer/page wiring, and glossary citation for imp-35411 and imp-35417. ' +
     'Result: zero unwired assertions arrays, zero dangling references. No source file required ' +
     'correction. Changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35484/imp-35545 (prior audits using this method); imp-35482 (viz-data consumer of ' +
     'imp-35411); imp-35505 (registry consumer of imp-35417).',
@@ -130,11 +129,11 @@ export const IMP35468_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35468-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35468_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35468_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35468_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35468_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

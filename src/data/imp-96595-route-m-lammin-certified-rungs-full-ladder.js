@@ -29,7 +29,7 @@
  *
  * This changes NO bound, establishes no operator positivity, makes no RH claim, and rebuilds
  * no Gram. It is a standalone recomputation of the imp-96428 / imp-96563 numbers plus the
- * standard verified-linear-algebra facts. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * standard verified-linear-algebra facts. No refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js (FINDING 1 table reproduced here)
@@ -114,7 +114,7 @@ export const IMP96595_CROSSCHECK = Object.freeze({
 });
 
 export const IMP96595_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reproduction only: this recomputes the ' +
+  'RH open; no refereed bound is changed; NO QED. Reproduction only: this recomputes the ' +
   'imp-96563 FINDING 1 verified-Cholesky (Higham/Rump backward error) enclosure across the full ' +
   'imp-96428 lam_min ladder from carried inputs. No Gram was rebuilt, no bound is claimed moved, ' +
   'and no operator positivity is established.';
@@ -148,7 +148,7 @@ const IMP96595_ASSERTIONS = [
     id: 'imp96595-honesty-gate-no-qed',
     holds: () =>
       /NO QED/.test(IMP96595_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96595_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96595_HONEST_BANNER) &&
       /RH open/.test(IMP96595_HONEST_BANNER),
     why: 'reproduction only: the honesty markers are present and no bound is claimed moved.',
   },

@@ -93,13 +93,13 @@ export const IMP33826_COHORT_ASSERTION_WIRING_AUDIT = Object.freeze({
     'COHORT-MOSTLY-UNWIRED: 1 of 4 modules registered, 3 of 4 (imp-33786, imp-33787, ' +
     'imp-33788) silently absent from the run-assertions.mjs sweep. Read-only audit; no ' +
     'run-assertions.mjs edit made; no bound changed; imp-3066 K_a>=0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
 
   honest:
     'AUDIT-ONLY -- reports the cohort wiring gap identified by grepping ' +
     'scripts/run-assertions.mjs for each of the four file paths; does not modify the sweep ' +
-    'registration or re-derive the modules’ own findings. PT Lambda <= 0.2 stays the ' +
-    'rigorous SOTA.',
+    'registration or re-derive the modules’ own findings. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP33826_COHORT_ASSERTION_WIRING_AUDIT_ASSERTIONS = [
@@ -134,11 +134,11 @@ export const IMP33826_COHORT_ASSERTION_WIRING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-33826-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP33826_COHORT_ASSERTION_WIRING_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP33826_COHORT_ASSERTION_WIRING_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP33826_COHORT_ASSERTION_WIRING_AUDIT.honest)
       && /NO QED/.test(IMP33826_COHORT_ASSERTION_WIRING_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP33826_COHORT_ASSERTION_WIRING_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP33826_COHORT_ASSERTION_WIRING_AUDIT.verdict),
   },
 ];
 

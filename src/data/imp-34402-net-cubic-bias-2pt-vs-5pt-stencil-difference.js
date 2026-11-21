@@ -42,8 +42,8 @@
  *
  * Measurement only, within the inherited imp-3406/imp-33810 component model; the imp-34311 D^2/160
  * coefficient and the imp-34127 (21.00) / canonical (21.28095) readings are UNCHANGED; no bound
- * changes; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. NO QED.
+ * changes; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-34311-m2-closedform-5point-endpoint-stencil-share (net D^2/160 asserted analytically)
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (leading closed form using D^2/160)
@@ -196,7 +196,7 @@ export const IMP34402_NET_CUBIC_BIAS_2PT_VS_5PT_STENCIL_DIFFERENCE = {
     'Descriptive within the inherited imp-3406/imp-33810 component model only; the component model is ' +
     'NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34311 (net D^2/160 asserted analytically from the 2pt-vs-5pt stencil bias expansions); ' +
     'imp-34127 (leading closed form using D^2/160, kEnd ~ 21.00); imp-34023 (bisected kEnd* ~ 21.281); ' +
@@ -248,12 +248,12 @@ export const IMP34402_NET_CUBIC_BIAS_2PT_VS_5PT_STENCIL_DIFFERENCE_ASSERTIONS = 
     holds: () => RATIO_MONOTONE_CONVERGENT === true,
   },
   {
-    // (G) Governance: measurement only, NO QED, SOTA preserved.
+    // (G) Governance: measurement only, NO QED, no refereed bound is changed.
     id: 'imp34402-governance-no-qed-sota',
-    description: 'isRigorous false and the verdict carries the NO QED / remains SOTA governance markers',
+    description: 'isRigorous false and the verdict carries the NO QED / no-refereed-bound-change governance markers',
     holds: () =>
       IMP34402_NET_CUBIC_BIAS_2PT_VS_5PT_STENCIL_DIFFERENCE.isRigorous === false &&
       /NO QED/.test(IMP34402_NET_CUBIC_BIAS_2PT_VS_5PT_STENCIL_DIFFERENCE.verdict) &&
-      /remains SOTA/.test(IMP34402_NET_CUBIC_BIAS_2PT_VS_5PT_STENCIL_DIFFERENCE.verdict),
+      /refereed bound is changed/i.test(IMP34402_NET_CUBIC_BIAS_2PT_VS_5PT_STENCIL_DIFFERENCE.verdict),
   },
 ];

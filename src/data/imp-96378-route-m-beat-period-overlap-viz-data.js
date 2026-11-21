@@ -28,8 +28,7 @@
  * PRESENTATION ONLY. Renders the imp-96344 (D2) line-resolution finding; moves
  * no Lambda bound, establishes no operator positivity, decides nothing about
  * the real Route M band (imp-96344 F4: that still needs the actual Vasyunin
- * Gram at N ~ 5.5e6..1.2e11). RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Gram at N ~ 5.5e6..1.2e11). RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96344-route-m-synthetic-span-identifiability.js (IMP96344_LINE_RESOLUTION, IMP96344_CONDUCTORS)
  *
@@ -143,8 +142,8 @@ const IMP96378_ASSERTIONS = [
   },
   {
     id: 'imp96378-honest-banner-carries-status',
-    holds: () => /RH open/.test(IMP96378_HONEST_BANNER) && /NO QED/.test(IMP96378_HONEST_BANNER) && /SOTA/.test(IMP96378_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96378_HONEST_BANNER) && /NO QED/.test(IMP96378_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96378_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

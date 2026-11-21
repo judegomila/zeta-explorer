@@ -30,15 +30,13 @@
  *   A glossary-style lookup restating the imp-95879 positive-cone triviality theorem and its
  *   departure-mechanism for quick reference. It establishes nothing, instantiates no interval, closes
  *   no sub-gap, moves no bound. Obligation (2) stays gated on the per-window sign specification
- *   (imp-95397 / imp-95212 Fresnel-Airy envelope port); NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA.
+ *   (imp-95397 / imp-95212 Fresnel-Airy envelope port); NO QED. No refereed bound is changed.
  *
  * @see imp-95879-theta-positive-cone-triviality-intrinsic (source: the exact theorem and numerical witness this glosses)
  * @see imp-95388-seam-chain-obligation-ledger.js (obligation (2), OPEN at transcription)
  * @see imp-95375-theta-range-geometry-image.js (theta range imaged, sign-reachable)
  *
- * Ticket: imp-95903 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95903 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The positive-cone triviality headword, baked verbatim (no re-import).
@@ -81,7 +79,7 @@ export const IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD = Object.freeze
     'triviality theorem: theta = 1 exactly on a positive cone (all nonzero amplitudes sharing one ' +
     'sign), and its departure below 1 is governed entirely by the sign-orthant of the amplitude ' +
     'vector, never by modulus data. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-95879 (positive-cone triviality theorem and numerical witness); imp-95388 (obligation (2), ' +
     'the ledger this bears on); imp-95375 / imp-95405 (theta range and sign-lattice imaged at fixed ' +
@@ -108,11 +106,11 @@ export const IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95903-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD.verdict) &&
       IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD.glosses === 'imp-95879' &&
       IMP95903_POSITIVE_CONE_TRIVIALITY_GLOSSARY_HEADWORD.scopes === 'imp-95388',
   },

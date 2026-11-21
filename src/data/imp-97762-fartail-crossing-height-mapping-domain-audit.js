@@ -11,7 +11,7 @@
  * shipped effectiveHeightForN degrades that far out. This module runs the shipped
  * consumer directly and reports the outcome. MEASUREMENT / CONSUMER-AUDIT ONLY:
  * no bound moves, no operator positivity, imp-3066 K_a >= 0 untouched, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHAT THE SHIPPED CODE ACTUALLY IS
  * ---------------------------------
@@ -67,7 +67,7 @@
  * MEASUREMENT / CONSUMER-AUDIT ONLY. Uses the shipped effectiveHeightForN /
  * zeroCountAtHeight and the imp-97744 closed-form RvM inverse; changes no bound,
  * establishes no positivity, adds no theorem; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see lambda-rh-height-mapping (imp-327: effectiveHeightForN Newton inverse, N_TO_T_STAR_TABLE)
  * @see imp-97744-fartail-diagnostic-crossing-heights (crossing pins N ~ 2.66e45 .. 8.81e4346)
@@ -176,7 +176,7 @@ export const IMP97762_FARTAIL_CROSSING_HEIGHT_MAPPING_DOMAIN_AUDIT = {
     'and returning the sentinel 0 once N overflows double (t >= 0.999, log10 N > 308.25). imp-97744 ' +
     'carrying log10 space is the correct handling of that overflow floor. Changes no bound, ' +
     'establishes no positivity, adds no theorem; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'lambda-rh-height-mapping (imp-327 effectiveHeightForN / N_TO_T_STAR_TABLE); ' +
     'imp-97744 (crossing pins N ~ 2.66e45 .. 8.81e4346); imp-97723 (upstream diagnostic).',
@@ -242,13 +242,13 @@ export const IMP97762_FARTAIL_CROSSING_HEIGHT_MAPPING_DOMAIN_AUDIT_ASSERTIONS = 
     },
   },
   {
-    // Honesty gate: consumer-audit only, no QED, PT stays SOTA.
+    // Honesty gate: consumer-audit only, no QED, no refereed bound is changed.
     id: 'imp97762-honesty-gate-no-qed',
-    description: 'Consumer-audit/measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Consumer-audit/measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97762_FARTAIL_CROSSING_HEIGHT_MAPPING_DOMAIN_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP97762_FARTAIL_CROSSING_HEIGHT_MAPPING_DOMAIN_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP97762_FARTAIL_CROSSING_HEIGHT_MAPPING_DOMAIN_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP97762_FARTAIL_CROSSING_HEIGHT_MAPPING_DOMAIN_AUDIT.verdict),
   },
 ];
 

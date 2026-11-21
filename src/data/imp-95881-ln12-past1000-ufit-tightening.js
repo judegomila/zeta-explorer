@@ -70,7 +70,7 @@
  * certified interval (that interval is at ln 1.3; this is the ln 1.2 companion
  * measurement). Model seam family only; the imp-95212 envelope port, signed WEIGHT,
  * and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed. Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95860-ln12-extended-grid-ufit-tightening (the 8-point N<=1000 grid this extends)
  * @see imp-95857-ln13-extended-reach-exponent (the ln1.3 extended-reach measurement this mirrors)
@@ -162,7 +162,7 @@ export const IMP95881_LN12_PAST1000_UFIT_TIGHTENING = {
     "Direct measurement extending an established audit grid; no new cited input; no " +
     "numeric change to the imp-95767 certified interval; model seam family only; the " +
     "imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes " +
-    "no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no bound of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95881"],
 };
 
@@ -436,7 +436,7 @@ export const IMP95881_ASSERTIONS = [
       REF.qed === false &&
       REF.residualSubGap === "imp-95820-ln125-shift-budget-scaling" &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95881"),
   },
 ];

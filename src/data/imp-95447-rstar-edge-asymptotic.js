@@ -52,7 +52,7 @@
  * x -> 1 leading asymptotic r_star(x) = 1 + (1/x)[3d - (9/4)d^2 + (81/40)d^3 - ...],
  * d = (1-x)/x, whose leading term recovers the imp-95377 cubic bound and which
  * complements the small-x Lambert form; the residual mid-band uniform closed form
- * is named open. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * is named open. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -123,7 +123,7 @@ export const IMP95447_RSTAR_EDGE = {
   verdict:
     "DERIVATION / MEASUREMENT ONLY. Closed-form x -> 1 leading asymptotic " +
     "complementing the small-x Lambert form; residual mid-band uniform closed " +
-    "form named open. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.",
+    "form named open. Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -217,12 +217,12 @@ export const IMP95447_RSTAR_EDGE_ASSERTIONS = [
     id: "imp95447-record-honesty",
     description:
       "the record is derivation/measurement-only, states RSTAR-EDGE, names the " +
-      "mid-band sub-gap, carries NO QED and the SOTA line",
+      "mid-band sub-gap, carries NO QED and the no-refereed-bound-change line",
     holds: () =>
       /RSTAR-EDGE/.test(IMP95447_RSTAR_EDGE.edgeExpansion) &&
       /SUB-GAP/.test(IMP95447_RSTAR_EDGE.complementarity) &&
       /NO QED/.test(IMP95447_RSTAR_EDGE.verdict) &&
-      /SOTA/.test(IMP95447_RSTAR_EDGE.verdict) &&
+      /refereed bound is changed/i.test(IMP95447_RSTAR_EDGE.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95447_RSTAR_EDGE.verdict),
   },
 ];

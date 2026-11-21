@@ -52,7 +52,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97822-sigma-knee-etrunc-floor-elasticity (the two-floor knee fit p_knee ~ -2.099; floorSweep reused here)
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (the 0.5x..5x E_trunc floor sweep; far-tail exponent ~ -2.099)
@@ -173,7 +173,7 @@ export const IMP124772_KNEE_FLOOR_ELASTICITY_MULTIFLOOR_FIT = {
     'contaminated by curvature (~0.007 from the full-set slope). The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97822 (two-floor knee fit p_knee ~ -2.099; floorSweep reused here); imp-33708 (0.5x..5x ' +
     'E_trunc floor sweep; far-tail sigma=0.5 exponent ~ -2.099); imp-33684 (interior-peak floor ' +
@@ -223,13 +223,13 @@ export const IMP124772_KNEE_FLOOR_ELASTICITY_MULTIFLOOR_FIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp124772-honesty-gate-no-qed',
-    description: 'Measurement only: certifies p_knee ~ -2 via full-set LSQ, no QED, PT stays SOTA',
+    description: 'Measurement only: certifies p_knee ~ -2 via full-set LSQ, no QED, no refereed bound is changed',
     holds: () =>
       IMP124772_KNEE_FLOOR_ELASTICITY_MULTIFLOOR_FIT.isRigorous === false &&
       /NO QED/.test(IMP124772_KNEE_FLOOR_ELASTICITY_MULTIFLOOR_FIT.verdict) &&
-      /remains SOTA/.test(IMP124772_KNEE_FLOOR_ELASTICITY_MULTIFLOOR_FIT.verdict),
+      /refereed bound is changed/i.test(IMP124772_KNEE_FLOOR_ELASTICITY_MULTIFLOOR_FIT.verdict),
   },
 ];
 

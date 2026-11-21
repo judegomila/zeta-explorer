@@ -70,7 +70,7 @@
  *
  *   Analytic form-decision + measurement only; pins NO coefficient value; no bound moves; the only
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97261-cq-subleading-power-coefficient -- the sub-leading term g(b) of Q(b)
  *   is a NEGATIVE sub-b power/log-power term (b^(1/2) .. log^2 b scale), not a constant; its EXACT
@@ -192,8 +192,8 @@ export const IMP97261_VERDICT = Object.freeze({
     '(finite for both forms; the log M slope is unaffected); pinning it as a VALUE needs the genuine ' +
     'Bettin-Conrey small-a asymptotic I(a,b)=kappa_a log b + d_a + o(1) with Sum kappa_a^2/a^2 ' +
     'evaluated. Analytic form decision + measurement only; no coefficient pinned; the rigorous anchor ' +
-    'stays T=2.594e7; compute N~9916 binds first by >2600x; no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'stays T=2.594e7; compute N~9916 binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97261_SUBGAP = Object.freeze({
@@ -210,7 +210,7 @@ export const IMP97261_SUBGAP = Object.freeze({
 });
 
 export const IMP97261_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Analytic form decision + measurement only: using ' +
+  'RH open; no refereed bound is changed; NO QED. Analytic form decision + measurement only: using ' +
   'the exact relation m(bLo)=c*rho_h(bLo) between a candidate sub-leading form h(b) and the imp-97241 ' +
   'two-parameter OLS slope, the sub-leading content of Q(b) is DECIDED to be a NEGATIVE sub-b growing ' +
   'term (b^(1/2) with c ~ -1.4, or the collinear log^2 b with c ~ -0.7), NOT a range-independent ' +
@@ -293,7 +293,7 @@ const IMP97261_ASSERTIONS = [
       IMP97261_VERDICT.interceptConstituentBIllPosed === true &&
       IMP97261_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97261_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97261_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97261_HONEST_BANNER) &&
       /RH open/.test(IMP97261_HONEST_BANNER) &&
       /subleading-power-coefficient/.test(IMP97261_SUBGAP.id),
   },

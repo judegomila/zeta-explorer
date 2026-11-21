@@ -53,8 +53,8 @@
  *   constant can isolate the linear coefficient below 6e-3 by subtraction. The linear coefficient stays
  *   FORCED by imp-97460 but NOT numerically pinnable below ~6e-3 by any exact-term subtraction of a
  *   constant kappa. The imp-97597 RESULT 3 sub-gap STANDS. The rigorous anchor stays the trace ceiling
- *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (carried forward, unchanged): imp-97597-psi-cusp-x2-mixed-kernel-coefficient -- pinning
  *   kappa_smooth (and hence the exact O(x^2) wobble term) reduces to the single uncomputed scalar
@@ -136,11 +136,11 @@ export const IMP97682_VERDICT = Object.freeze({
     'gamma_1-governed double-pole wobble. The linear coefficient stays forced at -1/pi but is NOT ' +
     'pinnable below ~6e-3 by any constant exact-term subtraction; the imp-97597 RESULT 3 sub-gap STANDS. ' +
     'The rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97682_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the exact O(x^2) ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the exact O(x^2) ' +
   'wobble term = (pi/2)[P2-L2] with normalisation = the unpinned kappaK, so the subtraction route ' +
   'collapses onto the SAME imp-97597 RESULT 3 obstruction (no number pinned). The frozen imp-97660 ' +
   'residuals show the effective x^2 coefficient sign-swings, so the exact term is arithmetic (not a ' +
@@ -204,7 +204,7 @@ const IMP97682_ASSERTIONS = [
       IMP97682_VERDICT.result3SubGapStands === true &&
       IMP97682_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97682_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97682_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97682_HONEST_BANNER) &&
       /RH open/.test(IMP97682_HONEST_BANNER),
   },
 ];

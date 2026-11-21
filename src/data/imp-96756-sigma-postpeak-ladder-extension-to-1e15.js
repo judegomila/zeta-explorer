@@ -59,8 +59,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share ladder-extension diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the six-decade ladder this extends)
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (single-knee sigmoid this re-tests)
@@ -206,8 +205,8 @@ export const IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15 = {
     'S-shaped approach saturates CLEANLY with NO second inflection in the far tail. The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33582 (six-decade post-peak ladder this extends); imp-33701 (single-knee sigmoid ' +
     'curvature this re-tests); imp-33721 (sub-decade knee relocation N* ~ 3.38e9); imp-3463 ' +
@@ -261,14 +260,14 @@ export const IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15_ASSERTIONS = [
     holds: () => d2SignChanges === 1 && d2NegPastKnee && D2[D2.length - 1] < 0 && D2[D2.length - 1] > -0.02,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp96756-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15.isRigorous === false &&
       IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15.farTailExponent === 0.5 &&
       /NO QED/.test(IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15.verdict) &&
-      /remains SOTA/.test(IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15.verdict),
+      /refereed bound is changed/i.test(IMP96756_SIGMA_POSTPEAK_LADDER_EXTENSION_TO_1E15.verdict),
   },
 ];
 

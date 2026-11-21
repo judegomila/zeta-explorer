@@ -22,8 +22,8 @@
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
  *   Establishes nothing new; moves no bound. The explicit remainder bound turning this exact
  *   leading coefficient into an absolute lower bound for all b remains open (imp-97096's named
- *   residual), as does the cotangent first moment (imp-97097). NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA; RH open.
+ *   residual), as does the cotangent first moment (imp-97097). NO QED. No refereed bound is changed
+ *   ; RH open.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (source: full derivation, exact value,
  *   and the named residual this headword glosses)
@@ -31,7 +31,7 @@
  *   reading this closed form matches)
  *
  * Ticket: imp-97124 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97096_KAPPA_ARITH } from './imp-97096-route-m-arith-first-moment-evaluation.js';
@@ -60,7 +60,7 @@ const ROUTE_M_KAPPA_ARITH_HEADWORD = Object.freeze({
     'Closed-form value derived and machine-verified at finite b (imp-97096); matches the imp-97071 ' +
     'measured ~0.575 arithmetic-part reading (which drifts to 0.5705 as b grows, 0.570495 at the ' +
     'primorial b=2310). Explicit remainder bound for all b not yet proved; establishes no bound; ' +
-    'NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'NO QED; no refereed bound is changed; RH open.',
 });
 
 export const IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD = Object.freeze({
@@ -79,8 +79,8 @@ export const IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD = Object.freeze({
     '0.5704960511308594... = (3/4)(log 2pi - gamma) - 3/8, with two exact elementary sub-parts and ' +
     'a provable log b cancellation between them and the Moebius/Stirling remainder. Readers should ' +
     'read the ~0.575 imp-97071 figure as converging to this exact constant, not as an independent ' +
-    'numerical estimate. Establishes nothing new; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'numerical estimate. Establishes nothing new; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97096 (the full derivation, exact value, and named remainder-bound residual this ' +
     'headword glosses); imp-97071 (the parent measured ~0.575 reading this closed form matches).',
@@ -112,11 +112,11 @@ export const IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97124-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD.verdict) &&
       IMP97124_ROUTE_M_KAPPA_ARITH_GLOSSARY_HEADWORD.glosses === 'imp-97096',
   },
 ];

@@ -59,8 +59,8 @@
  * SCOPE: MEASUREMENT ONLY. Adopts NO new slack denominator (imp-35412 KEEPS the
  * endpoint DP45 dt/2 worst-case), changes NO bound, does NOT advance the R2 ladder
  * past N=1000 (stays N=1000 per imp-35221/imp-35324/imp-35412), does NOT extend the
- * C_mb certificate, does NOT remove the imp-486 GUE conditional. Platt-Trudgian
- * Lambda <= 0.2 stays SOTA. NO QED.
+ * C_mb certificate, does NOT remove the imp-486 GUE conditional. No refereed bound is changed
+ * . NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2", "g_end", "y[i+1]-y[i]".
  *
@@ -187,7 +187,7 @@ export const IMP_35490_DP45_DTHALF_ENDPOINT_POSITIVITY_DOUBLEDOUBLE_REFERENCE = 
       'imp-35221/imp-35324/imp-35412), does NOT change the imp-35412 slack denominator ' +
       'choice (imp-35412 KEEPS the endpoint worst-case), does NOT extend the C_mb ' +
       'certificate, does NOT remove the imp-486 GUE conditional, changes NO Lambda ' +
-      'bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. Never a QED or a bound change.',
+      'bound. No refereed bound is changed. Never a QED or a bound change.',
   },
 };
 
@@ -258,6 +258,6 @@ export const IMP_35490_DP45_DTHALF_ENDPOINT_POSITIVITY_DOUBLEDOUBLE_REFERENCE_AS
       'Precision cross-check only: confirms the endpoint positivity is genuine but does ' +
       'NOT advance the R2 ladder past N=1000, does NOT change the imp-35412 slack ' +
       'denominator, changes NO bound. Full-trajectory dd left as sub-gap imp-35490a. ' +
-      'C_mb stays GUE-conditional (imp-486); Lambda <= 0.2 stays SOTA. Never a QED.',
+      'C_mb stays GUE-conditional (imp-486); no refereed bound is changed. Never a QED.',
   },
 ];

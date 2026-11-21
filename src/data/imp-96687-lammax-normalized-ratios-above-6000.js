@@ -37,7 +37,7 @@
  *
  * MEASUREMENT ONLY. No bound is moved, no operator positivity is established, no RH
  * claim is made. Every lam_max is the imp-96649 measured value; every trace is the
- * exact I(1,1) H_N. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * exact I(1,1) H_N. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96604-lammax-normalized-ratio-viz-data.js (the eight-rung ladder extended here)
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (FINDING 3, both targets)
@@ -132,7 +132,7 @@ export const IMP96687_RESIDUAL_SUMMARY = Object.freeze({
 });
 
 export const IMP96687_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: lam_max at N=7000,8000,9000 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: lam_max at N=7000,8000,9000 ' +
   'is the imp-96649 NMAX=9000 power-iteration value; trace is the exact closed form I(1,1) H_N ' +
   '(diag(G)_kk = I(1,1)/k), reproducing every committed imp-96562 trace to < 4e-15 rel. No bound ' +
   'is claimed moved and no operator positivity is established.';
@@ -179,7 +179,7 @@ const IMP96687_ASSERTIONS = [
     holds: () =>
       IMP96687_RESIDUAL_SUMMARY.pinnableFromExtendedLadder === false &&
       /RH open/.test(IMP96687_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96687_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96687_HONEST_BANNER) &&
       /NO QED/.test(IMP96687_HONEST_BANNER),
     why: 'measurement only: no bound moved, the extended ladder stays unpinnable, and the honesty markers are present.',
   },

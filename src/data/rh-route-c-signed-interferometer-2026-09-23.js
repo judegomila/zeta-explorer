@@ -16,7 +16,7 @@
  * Roadmap: src/data/rh-novel-routes-roadmap-2026-09-23.js (Route C).
  * Scratch: tmp/route-c-interferometer.mjs, -2.mjs, -3.mjs (+ .out logs).
  * Import-light (no zeros bundle). holds() assertions recompute the key figures.
- * PT Λ≤0.2 stays SOTA; RH open; GRH for the arms is not touched; NO QED.
+ * No refereed bound is changed; RH open; GRH for the arms is not touched; NO QED.
  */
 
 // ---------------------------------------------------------------------------
@@ -92,7 +92,7 @@ export const RH_ROUTE_C_SIGNED_INTERFEROMETER = Object.freeze({
   id: 'rh-route-c-signed-interferometer-2026-09-23',
   date: '2026-09-23',
   route: 'C — Twisted-ladder signed interferometer (rh-novel-routes-roadmap-2026-09-23.js)',
-  status: 'TESTED — REFUTED as an off-line-nonvanishing / zero-free-region lever (3 independent obstructions, 2 classical theorems, numerics on q=5,7); PT Λ≤0.2 SOTA; RH open; NO QED',
+  status: 'TESTED — REFUTED as an off-line-nonvanishing / zero-free-region lever (3 independent obstructions, 2 classical theorems, numerics on q=5,7); no refereed bound is changed; RH open; NO QED',
   oneLine:
     'Φ_ε(s)=Σ_χ ε_χ L(s,χ) is a hyperplane test on the arm vector v(s)=(L(s,χ))_χ. GRH is the statement '
     + 'that v avoids the COORDINATE hyperplanes off the line; every other hyperplane is crossed ≫T times '
@@ -337,7 +337,7 @@ export const RH_ROUTE_C_SIGNED_INTERFEROMETER = Object.freeze({
       + 'to T≈5000 and compare with the Bombieri–Hejhal / Bombieri–Ghosh (2011) predictions — a test of the leak law, not a lever. '
       + 'Redirect the "signed twist" idea to routes that keep the Euler product (per-arm), i.e. back to GRH for the individual arms.',
     honesty:
-      'No bound moves; PT Λ≤0.2 stays SOTA; GRH for L(s,χ) is untouched; every "on-line" statement about mixed designs is a '
+      'No bound moves; no refereed bound is changed; GRH for L(s,χ) is untouched; every "on-line" statement about mixed designs is a '
       + 'finite-window count or a conditional literature result; NO QED.',
   },
 

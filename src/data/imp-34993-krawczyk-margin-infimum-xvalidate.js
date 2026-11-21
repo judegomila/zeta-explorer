@@ -52,7 +52,7 @@
  * layer, not the layer itself; F(m) = 0 remains a double-precision artifact and the machine certificate
  * imp-34714a REMAINS OPEN. C_C = 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34949-krawczyk-margin-infimum-band-endpoint (the exact closed form + single-sweep infimum this cross-validates)
  * @see imp-34929-krawczyk-headroom-monotonicity-derivative (closed-form d/dN sign; the 4000-point sweep worst case 0.487834)
@@ -278,8 +278,8 @@ export const IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE = {
     'double-precision artifact. Measurement/cross-validation only on the inherited imp-3220/imp-3406 surrogate ' +
     'crossover map; reproduces the imp-34949/imp-34929 ~0.4878337 infimum; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34949 (exact closed-form margin + single-sweep infimum); imp-34929 (closed-form d/dN sign + 4000-' +
     'point sweep worst case 0.487834); imp-34906 (2555/2558 reconciliation); imp-34883 (k=10 band-min ' +
@@ -330,15 +330,15 @@ export const IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE_ASSERTIONS = [
       MIN_FORWARD_DIFF > 0,
   },
   {
-    // Honesty gate: cross-validation / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34993-honesty-gate-no-qed',
-    description: 'cross-validation: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'cross-validation: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE.isRigorous === false &&
       /imp-34714a/.test(IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE.subGap) &&
       /REMAINS OPEN/.test(IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE.subGap) &&
       /NO QED/.test(IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE.verdict) &&
-      /remains SOTA/.test(IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE.verdict),
+      /refereed bound is changed/i.test(IMP34993_KRAWCZYK_MARGIN_INFIMUM_XVALIDATE.verdict),
   },
 ];
 

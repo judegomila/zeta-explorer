@@ -40,7 +40,7 @@
  *   verification of MCM on the range below the omega=11 breakdown)
  *
  * Ticket: imp-97465 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The MCM refutation headword, baked verbatim (no re-import).
@@ -76,7 +76,7 @@ const MCM_REFUTATION_HEADWORD = Object.freeze({
     '(src/data/imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js), where the exact ' +
     'reweighted-mean characterization, the omega=11 counterexample, and the primorial limit ' +
     'are all verified directly. Naming / glossary headword only; supplies no new bound; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -94,7 +94,7 @@ export const IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD = Object.freeze({
     'MCM (first counterexample b = p_11# = 200560490130, T(p_11#) = -9.624e-4 < 0) and the ' +
     'primorial asymptote T(p_j#) -> -e^{-gamma}/12 + 1.0186e-3 = -0.04577, plus the honest ' +
     'outcome that the b/4 ceiling survives (|T(p_11#)| = 9.7e-4 deep inside [-1/4, 1/4]). No ' +
-    'bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97432 (the refutation, omega=11 counterexample, and primorial limit this glosses); ' +
     'imp-97422 (the MCM hypothesis and ceiling reduction now refuted as a route); imp-97442 ' +
@@ -122,11 +122,11 @@ export const IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97465-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97432.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97432.',
     holds: () =>
       IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD.verdict) &&
       IMP97465_MCM_REFUTATION_GLOSSARY_HEADWORD.glosses === 'imp-97432',
   },
 ];

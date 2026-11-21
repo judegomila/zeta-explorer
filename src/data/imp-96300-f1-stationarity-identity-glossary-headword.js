@@ -43,14 +43,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96187 F1/imp-96292 F4 verdict for quick
  *   reference. It establishes nothing new, instantiates no interval, closes no sub-gap, moves
- *   no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident (source: derives F1/F2/F3)
  * @see imp-96162-sigma-ushape-peak-eflow-recovery (measured E_flow/E_trunc=1.530 at the peak, F2 flag)
  * @see imp-3220-en-bridge-fidelity-frontier (the U-shape interior peak, ~0.9494 at N~9.22e5)
  *
  * Ticket: imp-96300 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The stationarity-identity headword, baked verbatim (no re-import).
@@ -78,7 +78,7 @@ const F1_STATIONARITY_IDENTITY_HEADWORD = Object.freeze({
     'Measurement/derivation-only upgrade of a previously-flagged empirical number (imp-96162) ' +
     'to a derived identity, confirmed off-height (imp-96292). Does not by itself pin the peak ' +
     'LOCATION -- see the separate imp-96187 F2 location formula and F3 accident verdict. ' +
-    'Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -96,7 +96,7 @@ export const IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD = Object.freeze
     'imp-96292 F4 verdict: E_flow/E_trunc |_peak = a/b is a DERIVED stationarity identity ' +
     '(peak-value ratio equals the log-slope ratio of g_t and g_f), confirmed genuine (not a ' +
     'single-height coincidence) across a 0.25x..16x E_trunc sweep. Establishes nothing new; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96187 (derives F1/F2/F3, the source this glosses); imp-96162 (measured ' +
     'E_flow/E_trunc=1.530 at the peak, F2 flag); imp-96292 (F4 off-height robustness check); ' +
@@ -124,11 +124,11 @@ export const IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96300-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96300_F1_STATIONARITY_IDENTITY_GLOSSARY_HEADWORD.glosses === 'imp-96187',
   },
 ];

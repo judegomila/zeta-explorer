@@ -73,7 +73,7 @@
  * unresolved term is the cutoff / off-diagonal boundary constant K (imp-95964-subgap-boundary-K),
  * NOT the convergent prime sum. Assessment only; changes no bound; NO QED; Catalan G irrationality
  * OPEN; Sun arXiv:2609.04176 single-author unrefereed; the zero-side route stays PCC / GRH-gated;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. P2 is summed live over a small prime sieve;
  * M, gamma, C0 and the imp-95940 empirical a_0 mean are baked literals; b and K are derived here.
@@ -215,7 +215,7 @@ export const IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION = {
     'and the unresolved term is the cutoff / off-diagonal boundary constant K, NOT the convergent ' +
     'prime sum -- renamed sub-gap imp-95964-subgap-boundary-K. Assessment only; changes no bound; ' +
     'NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the ' +
-    'zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'zero-side route stays PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95940 (a_0 = b - gamma - 1; named the b sub-gap); imp-95921 (slope pinned, intercept ' +
     'unpinned); imp-95897 (noise-dominated data); Selberg / Goldston 1987 / Tsang 1984 / Fujii ' +
@@ -242,15 +242,15 @@ export const IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION = {
   // the crossing height is NOT collapsed (still the imp-95940 ~5.8e17 anchor).
   if (!(crossingT(A0_EMPIRICAL_MEAN) > 1e17 && crossingT(A0_EMPIRICAL_MEAN) < 1e18))
     throw new Error('imp-95964: crossing at empirical mean must remain the imp-95940 ~5.8e17 anchor');
-  // HONESTY gates: assessment only, sub-gap named, no false pin, PT stays SOTA.
+  // HONESTY gates: assessment only, sub-gap named, no false pin, no refereed bound is changed.
   if (IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION.isRigorous !== false)
     throw new Error('imp-95964: isRigorous must be false');
   if (!/NO QED/.test(IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION.verdict))
     throw new Error('imp-95964: verdict dropped the NO QED banner');
   if (!/imp-95964-subgap-boundary-K/.test(IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION.verdict))
     throw new Error('imp-95964: verdict dropped the named sub-gap');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION.verdict))
-    throw new Error('imp-95964: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION.verdict))
+    throw new Error('imp-95964: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95964_FUJII_VARS_CONSTANT_LOCATE_OBSTRUCTION;

@@ -57,7 +57,7 @@ export const IMP124844_KERNEL_RATIO_LEAF_CROSSCHECK = Object.freeze({
     'independently-written leaves differ only in presentation (gap-keyed vs decade-index-keyed), not in the ' +
     'numbers they carry. Presentation-layer audit only; no new computation on the imp-97823 measurement; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 const IMP124844_ASSERTIONS = [

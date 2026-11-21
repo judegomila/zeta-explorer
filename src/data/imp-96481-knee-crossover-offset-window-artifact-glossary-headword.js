@@ -41,7 +41,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96431 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96431-knee-crossover-tracking-wide-range (source: the wide-range correction this glosses)
  * @see imp-96405-knee-crossover-forced-vs-coincidental (source: the M4 narrow-window band being corrected)
@@ -49,7 +49,7 @@
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form crossover N_cross ~ 3.28e9)
  *
  * Ticket: imp-96481 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The knee/crossover offset window-artifact headword, baked verbatim
@@ -82,7 +82,7 @@ const KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_HEADWORD = Object.freeze({
   verificationStatus:
     'Measurement + fit (frontier-direction), not a rigorous derivation. Changes no bound; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
-    'the C_mb GUE-conditional per imp-486 is UNTOUCHED; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'the C_mb GUE-conditional per imp-486 is UNTOUCHED; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD = Object.freeze({
@@ -100,8 +100,8 @@ export const IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD = 
     'imp-96405 M4 offset band: the [+0.0068, +0.0088] band tested over 1.32 decades is a ' +
     'window artifact -- over ~5.24 decades the offset drifts monotonically (~+0.0124 -> ' +
     '~+0.0044, slope ~-0.00143/decade) while sigma at the inflection stays pinned near 1/2. ' +
-    'Establishes nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96431 (the wide-range correction this glosses, offset drift ~+0.0124 -> ~+0.0044 over ' +
     '~5.24 decades, slope ~-0.00143/decade); imp-96405 (the M4 narrow-window band [+0.0068, ' +
@@ -129,11 +129,11 @@ export const IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD_AS
   },
   {
     id: 'imp96481-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
       IMP96481_KNEE_CROSSOVER_OFFSET_WINDOW_ARTIFACT_GLOSSARY_HEADWORD.glosses === 'imp-96431',
   },
 ];

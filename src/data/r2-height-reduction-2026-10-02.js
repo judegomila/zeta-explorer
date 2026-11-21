@@ -27,7 +27,7 @@
  *  G0, Track A lemmas, multi-height consumer, two-height coupling incl. Raymond’s joint-pair lemma for arbitrary shifts, Lemma B incl.
  *  BB1/BB2, FLINT, MTY). MEASURED: band values per height, lever gains, wall-clock. HEURISTIC: 1.45X/1.5X full-stack estimates, prices.
  * Verdict: Λ < 0.145 needs verified RH to T* = 4.80e12 (1.6×PT, 5.68e6 core-hours) on this route; nothing beyond PT is verified.
- *  PT Lambda <= 0.2 stands. RH open. NO QED.
+ *  No refereed bound is changed. RH open. NO QED.
  * Files: tmp/r2-height-{run,augment,walls}.sh, tmp/r2-height-{plans,consume,consume2,wallcheck,collect}.py, tmp/r2-height-out/
  *  (RESULT.json, c2_X160_full_band26.json, c2_X160_full_band165.json, walls/, window165/), referee tmp/r2-refH-*, /tmp/b145-B-archive/.
  * Import-free. ASSERTIONS recompute T*, core-hours and dollar ranges, margins, the 1.59X interpolation, q_MTY at each band start and the
@@ -85,7 +85,7 @@ export const R2_HEIGHT_REDUCTION = Object.freeze({
     'On the Track A route (no outer lemma) the verified height needed for Λ < 0.145 drops from 1.7×PT to 1.6×PT: RH to 4.80e12, 5.68e6 core-hours '
     + '($0.114M–0.284M per physical core-hour at $0.02–0.05, before the unmeasured hardware factor and up to ×2 for vCPU pricing). Best conditional '
     + 'value 0.144951726247781 (three-band) or 0.144974387559643 (two-band); margins 4.8e-5 / 2.6e-5. 1.55X fails by 1.015e-4. Local windows '
-    + 'separate bands only. No RH height beyond PT is verified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'separate bands only. No RH height beyond PT is verified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const H = R2_HEIGHT_REDUCTION;
@@ -155,7 +155,7 @@ export const R2_HEIGHT_REDUCTION_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r2-height-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(H.verdict) && /NO QED/.test(H.verdict) && /No RH height beyond PT is verified/.test(H.verdict)
+    holds: () => /refereed bound is changed/i.test(H.verdict) && /NO QED/.test(H.verdict) && /No RH height beyond PT is verified/.test(H.verdict)
       && /not verified/.test(H.status),
     why: 'Every sub-0.145 value here assumes RH to 4.80e12, which is not verified.',
   },

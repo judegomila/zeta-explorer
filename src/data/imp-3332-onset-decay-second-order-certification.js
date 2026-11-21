@@ -68,7 +68,7 @@
  *   numerical routes; it neither proves nor weakens RH, adds no positivity, and
  *   touches neither imp-3066 (the off-diagonal endpoint-Hankel operator obstruction,
  *   the lone remaining gap) nor the bare pilot. Measurement/certification only, no
- *   QED. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA.
+ *   QED. No refereed bound is changed.
  *
  *   @see imp-3222-onset-decay-second-order-coefficient.js (parent: closed-form A2, B(s))
  *   @see imp-3422-onset-coefficient-certification.js (sibling: A3, A4 certification)
@@ -313,7 +313,7 @@ export const IMP3332_ONSET_DECAY_SECOND_ORDER_CERTIFICATION = Object.freeze({
       'Re-derives three scalar second-order coefficients from independent numerical routes; adds ' +
       'no positivity and touches neither imp-3066 (the off-diagonal endpoint-Hankel operator ' +
       'obstruction, the lone remaining gap) nor the bare pilot.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -371,7 +371,7 @@ export const IMP3332_ONSET_DECAY_SECOND_ORDER_CERTIFICATION_ASSERTIONS = [
     id: 'imp3332-honest-rh-equivalent-certification-only',
     why: 'Mandatory honesty: this is a coefficient CERTIFICATION, RH-EQUIVALENT, not a proof, not a ' +
          'reduction below RH, leaves the imp-3066 operator step untouched, does not rerun the bare ' +
-         'pilot, and PT 0.2 stays SOTA. If any of these flip the module over-claims.',
+         'pilot, and no refereed bound is changed. If any of these flip the module over-claims.',
     holds: () => {
       const c = IMP3332_ONSET_DECAY_SECOND_ORDER_CERTIFICATION.honestCaveat;
       return (
@@ -380,7 +380,7 @@ export const IMP3332_ONSET_DECAY_SECOND_ORDER_CERTIFICATION_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isCertificationOnly === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

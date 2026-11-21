@@ -63,7 +63,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * OLS surrogate and the growth-exponent classification are descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33940-interior-residual-boundary-stability (the R2 convex low-k drift this extends; machinery reused)
  * @see imp-33986-penultimate-rung-unrounded-concavity-crossval (the R1 concavity cross-validation companion)
@@ -292,8 +292,8 @@ export const IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT = {
     'The OLS surrogate and the growth-exponent classification are descriptive, not derived; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33940 (the R2 convex low-k drift extended; machinery reused verbatim); imp-33986 (the R1 ' +
     'concavity cross-validation companion); imp-33917 (the endpoint peak whose machinery is reused); ' +
@@ -339,14 +339,14 @@ export const IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, convex drift persists, isRigorous false, imp-33940 R2 extended
-    // not overturned, no QED, PT SOTA.
+    // not overturned, no QED, no refereed bound is changed.
     id: 'imp33987-honesty-gate-no-qed',
-    description: 'Measurement only: convex drift persists, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: convex drift persists, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.fixedBandGrowthIsSuperLinear === true &&
       IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.verdict),
   },
   {
     // imp-34058/imp-34080: dedicated tripwire for the imp-3066 K_a >= 0 untouched clause -- previously

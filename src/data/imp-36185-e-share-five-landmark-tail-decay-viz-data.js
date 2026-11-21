@@ -17,8 +17,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-36111 combined-sequence
  * literals verbatim; changes no bound; C_C GUE-conditional (imp-2642/imp-2643/imp-486)
- * untouched; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * untouched; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36111-e-share-tail-storyline-crossref.js (source: the merged five-landmark sequence baked here)
  * @see imp-35977-e-share-stacked-bar-viz-data.js (source of the first two landmarks)

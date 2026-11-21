@@ -37,8 +37,7 @@
  * zeros-to-1e6.js bundle.
  *
  * Read-only confirmation; no correction needed this run. Changes no bound; establishes no
- * operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- * rigorous SOTA.
+ * operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-36007-frontier-cohort-registration-reachability-audit (prior sweep, same method)
  * @see imp-35982-imp3589x-registration-reachability-audit (prior sweep, same method)
@@ -129,8 +128,8 @@ export const IMP36070_IMP3601X2X_SECOND_COHORT_REGISTRATION_REACHABILITY_AUDIT =
     'plain-node re-run of each file standalone to confirm the assertions actually pass. ' +
     'Result: six directly registered, one (imp-36017) transitively reachable via two ' +
     'directly-registered importers, zero orphans, zero zeros-bundle references. Changes no ' +
-    'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36007/imp-35982 (registration/reachability method); imp-35905 (import-light guard ' +
     'method); imp-36034 (transitive-reachability-via-importer classification precedent); ' +
@@ -177,11 +176,11 @@ export const IMP36070_IMP3601X2X_SECOND_COHORT_REGISTRATION_REACHABILITY_AUDIT_A
   },
   {
     id: 'imp36070-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36070_IMP3601X2X_SECOND_COHORT_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36070_IMP3601X2X_SECOND_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36070_IMP3601X2X_SECOND_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36070_IMP3601X2X_SECOND_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

@@ -22,7 +22,7 @@
  *   ceiling. None of the values below is a proven LOWER bound on c_glob; the only
  *   load-bearing lower reference is the Theorem-C basin constant 0.72, which sits
  *   >0.18 BELOW the lowest located onset, so the basin-conditional C_Lip (imp-3006)
- *   never depended on closing c_glob. PT Lambda <= 0.2 remains the rigorous SOTA.
+ *   never depended on closing c_glob. No refereed bound is changed.
  *
  * STATUS TAXONOMY (the rigor column):
  *   closed-form-exact        -- an exact identity / algebraic / transcendental root
@@ -206,7 +206,7 @@ export const SG1C_ASYM_ONSET_BRACKET_LEDGER = {
     + 'ledger. Every value is an UPPER bound on the OPEN global asymmetric constant; the lowest (0.9016) is the '
     + 'tightest ceiling and the open bracket is ~(0.9016, 0.9028). 0.90625 and 0.9032364 are selector artifacts, '
     + 'NOT smooth zeros. Basin margin 0.9016 - 0.72 = 0.1816 > 0.18 keeps the basin-conditional C_Lip independent '
-    + 'of c_glob; PT Lambda <= 0.2 stays SOTA. Bookkeeping only, NO QED.',
+    + 'of c_glob; no refereed bound is changed. Bookkeeping only, NO QED.',
 };
 
 export const SG1C_ASYM_ONSET_BRACKET_LEDGER_ASSERTIONS = [

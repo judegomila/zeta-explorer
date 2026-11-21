@@ -59,7 +59,7 @@
  * NOT a rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848)
  * untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent
  * 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35663-eflow-fartail-decade-span-growth-viz-data (the four-rung ladder this extends)
  * @see imp-35553-eflow-fartail-remnant-decade-span-growth-fit (the crossing/span/ratio channel)
@@ -225,7 +225,7 @@ export const IMP35701_EFLOW_FARTAIL_DECADE_SPAN_LADDER_SUB1E7_RUNG = {
     'imp-3406 surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35663 (four-rung ladder viz-data, extended here); imp-35553 (crossing/span/ratio channel, ' +
     'sub-1e-6 crossing 10^1467.7351); imp-35552 (remnant ~ 2 loglogN/(logN)^2 leading form, sqrt(10) ' +
@@ -288,11 +288,11 @@ const IMP35701_ASSERTIONS = [
   },
   {
     id: 'imp35701-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35701_EFLOW_FARTAIL_DECADE_SPAN_LADDER_SUB1E7_RUNG.isRigorous === false &&
       /NO QED/.test(IMP35701_EFLOW_FARTAIL_DECADE_SPAN_LADDER_SUB1E7_RUNG.verdict) &&
-      /remains SOTA/.test(IMP35701_EFLOW_FARTAIL_DECADE_SPAN_LADDER_SUB1E7_RUNG.verdict),
+      /refereed bound is changed/i.test(IMP35701_EFLOW_FARTAIL_DECADE_SPAN_LADDER_SUB1E7_RUNG.verdict),
   },
 ];
 

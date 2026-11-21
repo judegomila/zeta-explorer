@@ -56,7 +56,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33879-geometric-center-correction-endpoint-midpoint-offset (closed form, 1e12..1e15 ladder)
  * @see imp-33856-ecoll-discrete-residual-log-shortfall-fit (~4% midpoint-vs-endpoint caveat)
@@ -176,7 +176,7 @@ export const IMP33901_GEOMETRIC_CENTER_CORRECTION_LOWER_DECADE_LADDER = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33879 (closed form (1/2 ln 10)/log T0, 1e12..1e15 ladder, extended here); imp-33856 (~4% ' +
     'midpoint-vs-endpoint caveat); imp-33816 (pointwise gap_sigma ~ 1/(2 log T0)); imp-486 (C_mb ' +
@@ -214,13 +214,13 @@ export const IMP33901_GEOMETRIC_CENTER_CORRECTION_LOWER_DECADE_LADDER_ASSERTIONS
     holds: () => REPRODUCES_IMP33879_1E12,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33901-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33901_GEOMETRIC_CENTER_CORRECTION_LOWER_DECADE_LADDER.isRigorous === false &&
       /NO QED/.test(IMP33901_GEOMETRIC_CENTER_CORRECTION_LOWER_DECADE_LADDER.verdict) &&
-      /remains SOTA/.test(IMP33901_GEOMETRIC_CENTER_CORRECTION_LOWER_DECADE_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP33901_GEOMETRIC_CENTER_CORRECTION_LOWER_DECADE_LADDER.verdict),
   },
 ];
 

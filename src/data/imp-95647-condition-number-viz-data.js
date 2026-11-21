@@ -7,7 +7,7 @@
  * Re-implements the imp-95621 numeric kernel standalone (no imports, no 16.7MB
  * zeros bundle) so a semilog chart can be baked at render-friendly resolution.
  *
- * MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95621-alt-form-precision-threshold (source derivation this re-plots)
  */
@@ -101,7 +101,7 @@ export const IMP95647_SUMMARY = {
     'kappa(delta)*EPS crosses 1 percent relative error at delta* ~ 0.307 (ratio r ~ 1.36); ' +
     'below delta* the alternating form is trapped by cancellation, above it the form is clean.',
   verdict:
-    'MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. ' +
+    'MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed. ' +
     'Re-plots the imp-95621 condition-number threshold derivation at render-friendly resolution.',
 };
 
@@ -142,7 +142,7 @@ const IMP95647_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95647-honesty-gate-no-qed',
-    holds: () => /NO QED/.test(IMP95647_SUMMARY.verdict) && /remains SOTA/.test(IMP95647_SUMMARY.verdict),
+    holds: () => /NO QED/.test(IMP95647_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP95647_SUMMARY.verdict),
   },
 ];
 

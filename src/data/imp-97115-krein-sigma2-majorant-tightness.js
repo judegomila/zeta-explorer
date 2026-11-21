@@ -44,7 +44,7 @@
  * MEASUREMENT ONLY. No solver run; exact w1 evaluated from the standard digamma asymptotic; no interval
  * majorant is produced or claimed; the Rayleigh floor stays an UPPER bound on lambda_min; establishes NO
  * operator positivity; changes NO bound; IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP97100_PHASE_CANCELLATION_TRIAL
- * stay open; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stay open; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (EASY/HARD split; sigma_2 majorant form)
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (min-max Rayleigh bound + T-ladder)

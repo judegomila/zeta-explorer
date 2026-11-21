@@ -50,8 +50,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96351-sigma-knee-tenthdecade-1e12-stability (knee at log10 N* ~ 9.529, N ~ 3.38e9)
  * @see imp-96266-eflow-peak-recovery-residual (peak at N ~ 9.22e5, E_flow-manufactured)
@@ -264,7 +263,7 @@ export const IMP96388_SIGMA_PEAK_VS_KNEE_CROSS_TABULATION = Object.freeze({
     'log10 of N_cross ~ 3.28e9). Component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96351 (knee at log10 N* ~ 9.529, N ~ 3.38e9); imp-96266 (peak at N ~ 9.22e5, ' +
     'E_flow-manufactured); imp-3220 (interior peak sigma_max ~ 0.9494); imp-33723 (closed-form ' +
@@ -306,11 +305,11 @@ const IMP96388_ASSERTIONS = [
   },
   {
     id: 'imp96388-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96388_SIGMA_PEAK_VS_KNEE_CROSS_TABULATION.isRigorous === false &&
       /NO QED/.test(IMP96388_SIGMA_PEAK_VS_KNEE_CROSS_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP96388_SIGMA_PEAK_VS_KNEE_CROSS_TABULATION.verdict),
+      /refereed bound is changed/i.test(IMP96388_SIGMA_PEAK_VS_KNEE_CROSS_TABULATION.verdict),
   },
 ];
 

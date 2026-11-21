@@ -25,7 +25,7 @@
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (the Gram to N = 6000, lam_min)
  *
  * Ticket: imp-96242 (content, low). Documentation only; establishes nothing; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The eigen-drift-elimination headword, baked verbatim (no re-import).
@@ -70,8 +70,8 @@ export const IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD = Object.freeze(
     'six smallest Vasyunin eigenvalues per rung are strictly monotone-decreasing (0 upward steps ' +
     'each) and uncorrelated with the residual swing (max |corr| = 0.064, gap ratios max 0.072), so ' +
     'the eigen-drift candidate is ruled out and the low-conductor q = 4, 5 band attribution is ' +
-    'strengthened. Establishes nothing; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'strengthened. Establishes nothing; changes no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96203 (six-eigenvalue elimination test and verdict); imp-96189 (low-conductor band ' +
     'attribution and the eigen-drift sub-gap it left open); imp-96147 (the per-N residual r(N) ' +
@@ -98,11 +98,11 @@ export const IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96242-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD.glosses === 'imp-96203' &&
       IMP96242_EIGEN_DRIFT_ELIMINATION_GLOSSARY_HEADWORD.scopes === 'imp-96189',
   },

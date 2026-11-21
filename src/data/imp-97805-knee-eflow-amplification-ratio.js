@@ -59,7 +59,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97781-knee-crossover-eflow-sensitivity (the "~1000x" F3 heuristic this leaf pins)
  * @see imp-97804-knee-eflow-linear-expansion (closed-form A ~ 9.4 via the continuous knee proxy)
@@ -264,7 +264,7 @@ export const IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97781 (the "~1000x" F3 heuristic); imp-97804 (closed-form A ~ 9.4 via the continuous knee); ' +
     'imp-33721 (sub-decade knee, log10 N* ~ 9.529); imp-3444 (bisected E_coll=E_trunc crossover ' +
@@ -321,13 +321,13 @@ export const IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO_ASSERTIONS = [
     holds: () => A_MIN > 9.4 && A_MAX < 10.3 && (A_MAX / A_MIN - 1) < 0.08,
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp97805-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO.isRigorous === false &&
       /NO QED/.test(IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO.verdict) &&
-      /remains SOTA/.test(IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO.verdict),
+      /refereed bound is changed/i.test(IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO.verdict),
   },
 ];
 

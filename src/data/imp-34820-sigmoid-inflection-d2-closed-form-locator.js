@@ -62,7 +62,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34796-sigma-knee-gap-exact-zero-identity (the third-order identity F = -g_thirdDeriv/(1-S) this assesses)
  * @see imp-33744-sigma-inflection (the closed form sigma_infl = 1/2 - v_prime/(2 v^2) this recovers)
@@ -256,7 +256,7 @@ export const IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR = {
     'imp-34796 identity itself. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34820: the imp-34796 identity F = -g_thirdDeriv/(1-S) does NOT locate the sigmoid inflection ' +
     '(its third-order root is the DISTINCT sigma-KNEE ~0.0127 dex away), but the sibling SECOND-order identity ' +
@@ -303,15 +303,15 @@ export const IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR_ASSERTIONS = [
       SCALING[SCALING.length - 1].relResid < SCALING[0].relResid,
   },
   {
-    // Honesty gate: assessment/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: assessment/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34820-honesty-gate-no-qed',
-    description: 'Assessment/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Assessment/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR.isRigorous === false &&
       IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR.farTailExponent === 0.5 &&
       typeof IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR.subGap === 'string' &&
       /NO QED/.test(IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR.verdict),
+      /refereed bound is changed/i.test(IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR.verdict),
   },
 ];
 

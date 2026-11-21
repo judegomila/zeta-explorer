@@ -34,7 +34,7 @@
  *
  * WHAT REMAINS OPEN (unaffected by this closure): c_sharp itself -- bracketed from above only at
  * 0.581059 (imp-97183/imp-97206/imp-97379), no proven positive lower bound. No bound on Lambda
- * moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH
+ * moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH
  * open; NO QED.
  *
  * @see imp-97414-krein-full-projector-second-moment-execution.js (source of every verdict flag below)
@@ -43,7 +43,7 @@
  * @see imp-97415 (the still-required certified LOWER bound rho <= lambda_2)
  *
  * Ticket: imp-97446 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import {
@@ -85,7 +85,7 @@ export const IMP97446_HONEST_BANNER =
   'COLLAPSES TO VACUITY (hopelessly negative for every shift rho), the same failure mode as the ' +
   'uncompressed surrogate, because P_a M_sigma2 P_a is unbounded ABOVE. The m=1 Lehmann-Maehly route ' +
   'is NOT viable for a positive lower bound on c_sharp at 2a=ln3. No bound on Lambda moves; ' +
-  'interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97446_ASSERTIONS = [
@@ -111,11 +111,11 @@ const IMP97446_ASSERTIONS = [
       IMP97446_STATUS.rhResolved === false &&
       IMP97446_STATUS.qed === false &&
       /NO QED/.test(IMP97446_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97446_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97446_HONEST_BANNER) &&
       /RH open/.test(IMP97446_HONEST_BANNER) &&
       /CLOSES/.test(IMP97446_HONEST_BANNER) &&
       /VACUITY/.test(IMP97446_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

@@ -51,7 +51,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Reuses the imp-33809 per-k amplitudes verbatim; the component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33809-saturation-curvature-hump-vs-k (per-k hump amplitudes + one-sided step ratios)
  * @see imp-33773-ecoll-sigma-offset-eflow-attribution (M3 curvature-hump asserted)
@@ -151,8 +151,8 @@ export const IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K = {
     'flank, consistent with the imp-33809 H2/H3 finding that it falls off like sigma ~ N^(-1/2). The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33809 (per-k hump amplitudes + one-sided step ratios, reused here); imp-33773 (M3 ' +
     'curvature-hump asserted); imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9); imp-3463 (far-tail ' +
@@ -203,14 +203,14 @@ export const IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K_ASSERTIONS = [
       Math.abs(WINDOW_ASYM - 0.2042) < 5e-4,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33851-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, no refereed bound is changed',
     holds: () =>
       IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K.isRigorous === false &&
       IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K.verdict) &&
-      /remains SOTA/.test(IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K.verdict),
+      /refereed bound is changed/i.test(IMP33851_HUMP_ENVELOPE_SYMMETRY_VS_K.verdict),
   },
 ];
 

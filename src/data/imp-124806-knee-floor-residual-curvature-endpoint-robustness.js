@@ -64,8 +64,7 @@
  * MEASUREMENT / ROBUSTNESS ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124786-knee-floor-residual-quadratic-fit (fit the same a2, ruled out the ZERO-noise null; complemented here)
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (the 10-floor OLS p_knee fit; F2 residual U tested here)
@@ -243,7 +242,7 @@ export const IMP124806_KNEE_FLOOR_RESIDUAL_CURVATURE_ENDPOINT_ROBUSTNESS = {
     'log10 N* (the imp-124786 correction to the imp-124772 concave-up U label). The component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124786 (fit the same a2; ruled out the zero-noise null; complemented here); imp-124772 ' +
     '(10-floor OLS p_knee fit; F2 residual U tested here); imp-97822 (two-floor knee fit; floorSweep ' +
@@ -287,13 +286,13 @@ export const IMP124806_KNEE_FLOOR_RESIDUAL_CURVATURE_ENDPOINT_ROBUSTNESS_ASSERTI
     holds: () => FULL.a2 < 0,
   },
   {
-    // Honesty gate: measurement/robustness only, no QED, PT SOTA.
+    // Honesty gate: measurement/robustness only, no QED, no refereed bound is changed.
     id: 'imp124806-honesty-gate-no-qed',
-    description: 'Measurement only: robustness decision on the imp-124772 residual curvature, no QED, PT stays SOTA',
+    description: 'Measurement only: robustness decision on the imp-124772 residual curvature, no QED, no refereed bound is changed',
     holds: () =>
       IMP124806_KNEE_FLOOR_RESIDUAL_CURVATURE_ENDPOINT_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP124806_KNEE_FLOOR_RESIDUAL_CURVATURE_ENDPOINT_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP124806_KNEE_FLOOR_RESIDUAL_CURVATURE_ENDPOINT_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP124806_KNEE_FLOOR_RESIDUAL_CURVATURE_ENDPOINT_ROBUSTNESS.verdict),
   },
 ];
 

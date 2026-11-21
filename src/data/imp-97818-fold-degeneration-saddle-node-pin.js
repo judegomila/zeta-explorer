@@ -53,8 +53,7 @@
  * the inherited imp-3220/imp-3406 extrapolation surrogate (NOT a rigorous asymptotic). C_mb
  * GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc
  * base pin 3.06e-5 unchanged (only rescaled); no bound moves; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97779-fold-amplitude-saturation-extreme-window (bracketed the degeneration near ~50x-75x, corrected here)
  * @see imp-97764-fold-amplitude-wide-window-power-law (the ~0.249-by-10x local drift)
@@ -269,8 +268,8 @@ export const IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN = {
     'profile). factor 1.0 reproduces the imp-97725 pin exactly. Measurement / sensitivity only on the inherited ' +
     'imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc base pin 3.06e-5 unchanged (only rescaled); changes no ' +
-    'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97779 (bracketed the degeneration near ~50x-75x, corrected here); imp-97764 (the ~0.249-by-10x drift); ' +
     'imp-97725 (the K pin reproduced at factor 1.0); imp-486 (C_mb GUE-conditional); imp-2642/imp-2643 ' +
@@ -313,15 +312,15 @@ export const IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN_ASSERTIONS = [
       Math.abs(K_EXPONENT - -0.25) < 0.05 && Math.abs(K_EXPONENT) < 0.4 && A_K > 2.3 && A_K < 3.0,
   },
   {
-    // Honesty gate: measurement only, saddle-node / quarter-power verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, saddle-node / quarter-power verdict, no QED, no refereed bound is changed.
     id: 'imp97818-honesty-gate-no-qed',
-    description: 'Measurement only: saddle-node / quarter-power-divergence verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: saddle-node / quarter-power-divergence verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN.isRigorous === false &&
       /SADDLE-NODE AT factor\* = 56\.9184/.test(IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN.verdict) &&
       /QUARTER power/.test(IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN.verdict) &&
       /NO QED/.test(IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN.verdict) &&
-      /remains SOTA/.test(IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN.verdict),
+      /refereed bound is changed/i.test(IMP97818_FOLD_DEGENERATION_SADDLE_NODE_PIN.verdict),
   },
 ];
 

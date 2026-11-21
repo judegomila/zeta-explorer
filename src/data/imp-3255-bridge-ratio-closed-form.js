@@ -7,7 +7,7 @@
  *   of a closed-form function -- reporting its full (a, U, NPHI)-dependence.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. This is
+ *   reduction. No refereed bound is changed. This is
  *   the analytic companion to imp-3251, which measured only the tau-grid
  *   RESOLUTION stability of the same margin at the single genuine cell.
  *
@@ -312,7 +312,7 @@ export const IMP3255_BRIDGE_RATIO_CLOSED_FORM = Object.freeze({
       'B > D_0 does NOT close the route: the surviving operator-level K_a >= 0 sign-positivity (the off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -384,7 +384,7 @@ export const IMP3255_BRIDGE_RATIO_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3255-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC closed-form structure only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, positivity not attempted, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3255_BRIDGE_RATIO_CLOSED_FORM.honestCaveat;
       return (
@@ -392,7 +392,7 @@ export const IMP3255_BRIDGE_RATIO_CLOSED_FORM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

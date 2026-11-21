@@ -45,7 +45,7 @@
  *   MEASUREMENT ONLY. C_mb stays GUE-conditional (imp-486); C_H <= 0.127 remains
  *   UNPROVEN (imp-2642/imp-2701); this closes no gap, changes no bound, proves no
  *   constant, and does not close G6_polymath15_bridge. RH open. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -60,7 +60,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // Same C_H-free sub-terms as imp-3220 / imp-2643 (identical repo formulas).
 const E_TRUNC_PT = 3.06e-5; // fixed-strip Platt-Trudgian route, N-independent.
@@ -213,7 +213,7 @@ export const IMP96370_SIGMA_PEAK_CH_SENSITIVITY = {
     'at the peak. The share is monotone in C_H, and the peak is the least ' +
     'C_H-sensitive rung. C_mb stays GUE-conditional (imp-486); C_H <= 0.127 stays ' +
     'UNPROVEN; no gap closed, no bound changed, no closure of G6_polymath15_bridge. ' +
-    'RH open. NO QED. Platt-Trudgian Lambda <= ' + PT_BOUND + ' remains SOTA.',
+    'RH open. NO QED. No refereed bound is changed.',
   citation:
     'imp-3220 (sigma(N) U-shape, same repo E(N) formulas); imp-96311/imp-96349 ' +
     '(E_coll = C_H * R(N), C_H a linear prefactor); imp-2642 (C_H = 1/8 ansatz); ' +
@@ -274,12 +274,12 @@ export const IMP96370_SIGMA_PEAK_CH_SENSITIVITY_ASSERTIONS = [
   },
   {
     id: 'imp96370-honesty-gate-no-qed',
-    description: 'Measurement only: names the C_H/C_mb conditional, no QED, PT stays SOTA',
+    description: 'Measurement only: names the C_H/C_mb conditional, no QED, no refereed bound is changed',
     holds: () =>
       IMP96370_SIGMA_PEAK_CH_SENSITIVITY.isRigorous === false &&
       /C_H <= 0.127 stays UNPROVEN/.test(IMP96370_SIGMA_PEAK_CH_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP96370_SIGMA_PEAK_CH_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96370_SIGMA_PEAK_CH_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96370_SIGMA_PEAK_CH_SENSITIVITY.verdict),
     why:
       'This ticket is measurement only: it must not assert closure of G6_polymath15_bridge, ' +
       'must not change any bound, and must not reclassify the unproven C_H <= 0.127 as rigorous.',

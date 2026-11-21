@@ -74,7 +74,7 @@
  * deterministic N-uniform transfer modulus certified on N in [1e4, 1e6]. Assessment /
  * scoping ONLY: nothing is proved, no construction is shipped, no grade changes,
  * G6a_shock_lipschitz stays OPEN, imp-3066 off-diagonal endpoint-Hankel positivity
- * UNTOUCHED, NO QED, Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED, NO QED, no refereed bound is changed.
  *
  * @see imp-3714-g6a-modulus-object-requirements (Route M joint requirement-set)
  * @see imp-3671-mesoscopic-v0-vs-g6a-shock-lipschitz-assessment (S1 type / S2 scale obstructions)
@@ -160,8 +160,8 @@ export const IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT = {
     'NARROWER discharge target: a spatial-derivative bound on a KNOWN analytic error field, not a ' +
     'square-root shock modulus on the collision-time field. Assessment only: nothing proved, no ' +
     'construction shipped, no grade changed, G6a_shock_lipschitz stays OPEN, imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED, NO QED, Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED, NO QED, no refereed bound is changed' +
+    '.',
   citation:
     'lambda-roadmap currentStatus (Step 4 Polymath15 bridge, NUMERICAL, open G6a_shock_lipschitz); ' +
     'imp-2640 (W_1 shock modulus C_H provably divergent); imp-3671/imp-3693/imp-3708/imp-3714 ' +
@@ -208,13 +208,13 @@ export const IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT_ASSERTIONS = [
       IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT.g6aStillOpen === true,
   },
   {
-    // Honesty gate: assessment only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: assessment only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35457-honesty-gate-no-qed',
-    description: 'Assessment/scoping only: no QED, PT stays SOTA, imp-3066 untouched, G6a open',
+    description: 'Assessment/scoping only: no QED, no refereed bound is changed, imp-3066 untouched, G6a open',
     holds: () =>
       IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP35457_G6A_SHOCK_LIPSCHITZ_FORMAL_STATE_ASSESSMENT.verdict),
   },
 ];

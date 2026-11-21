@@ -44,7 +44,7 @@
  * open but WORSENED: certifying a uniform floor needs T scaled super-linearly with N by a new,
  * still-unmeasured law. Measurement only: Rayleigh floors are UPPER bounds on the true lambda_min;
  * establishes NO operator positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous
- * reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96847-krein-tconv-tvsn-scaling-law.js (source three-point law; IMP96847_TVSN_LAW_THREE_POINT_ONLY)
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (source (N,T) grid; IMP96807_TCONV_LADDER_LOWER_ENVELOPE)

@@ -21,8 +21,7 @@
  * Concepts headword for imp-35574 peak-location amplification vs crossover log-damping
  * contrast") already discharged this exact requirement. This module records the
  * duplicate-ticket finding so the completed status is auditable. Changes no bound;
- * establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see src/data/glossary.js (carries the "imp-35574 peak-location amplification vs crossover log-damping contrast" headword)
  * @see imp-35574-peak-location-height-map-damping.js (the measurement module the headword documents)
@@ -65,7 +64,7 @@ export const IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT = 
     'The audited ~0.553 peak-location amplification factor rests on the inherited ' +
     'imp-3220/imp-3406 double-surrogate sigma(N); surrogate-vs-true fidelity (imp-35337a) ' +
     'stays OPEN. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35574 (the peak-location-vs-crossover damping measurement); imp-35458 (the ~18x ' +
     'crossover log-damping baseline); imp-35592 (git commit that already added the ' +
@@ -104,11 +103,11 @@ export const IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT_AS
   {
     id: 'imp35622-honesty-gate-no-qed',
     description:
-      'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+      'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT.verdict
       ),
   },

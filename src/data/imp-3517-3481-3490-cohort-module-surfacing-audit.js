@@ -34,7 +34,7 @@
  * family) belong in a shared degree-2 narrative section; imp-3481/imp-3482/imp-3484
  * (moment ladder, spectral integral) belong beside the moment-ladder visualizations.
  * This module fabricates NO pages; it only records the audit and flags the orphans.
- * No new bound, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498 (the prior audits in this orphan-surfacing series)
  */
@@ -64,7 +64,7 @@ export const IMP_3517_3481_3490_COHORT_MODULE_SURFACING_AUDIT = {
     'shared degree-2 deficit/miss-factor section; imp-3481/imp-3482/imp-3484 beside the ' +
     'moment-ladder visualizations. Do not fabricate pages in this audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -85,9 +85,9 @@ const IMP_3517_ASSERTIONS = [
   },
   {
     id: 'imp3517-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3517_3481_3490_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3517_3481_3490_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3517_3481_3490_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

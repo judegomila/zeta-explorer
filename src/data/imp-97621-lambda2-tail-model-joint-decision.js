@@ -59,7 +59,7 @@
  *   convergent limits are measured (non-rigorous) tail estimates, not promoted bounds. The floor stays
  *   four orders below the required 0.581059, so the m=1 enclosure remains UNUSABLE at 2a=ln3.
  *   Measurement/decision only; no operator positivity; no bound moves; interval-rigorous reach stays
- *   2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (named): IMP97621_GEOMETRIC_VS_ALGEBRAIC_UNCERTIFIED_UNTIL_KBIG800 -- the decision rejects
  *   the -313.756 deep end but does NOT certify geometric (~ -310.87) vs slow-algebraic (~ -310.99); the

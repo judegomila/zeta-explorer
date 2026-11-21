@@ -31,7 +31,7 @@
  *  hard windows; both are Gram-irregular); exact-multiple controls 2X, 5X, 10X at the 89th–97th background bad10 percentile (n = 3, post hoc).
  *  Context only, not evidence: bad-Gram rate elasticity 0.0106 (between the 1e12 and 1.5e13–3e13 groups) vs barrier mesh cost 0.446/0.565.
  *
- * No Λ value changes. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_37_ASSERTIONS recompute live: the Rosser rates and their
+ * No Λ value changes. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_37_ASSERTIONS recompute live: the Rosser rates and their
  * exact (Garwood) Poisson 95% intervals, the event-shape tally, the binomial selection tail, the height elasticity between groups, the
  * 45× RMS ratio, monotone trends of the certified Gram table, and the rank-correlation bounds that carry the negative conclusion.
  */
@@ -84,7 +84,7 @@ export const ROUTE_37 = Object.freeze({
     + 'late-cell floors are height-free torus suprema; for the barrier, Gram irregularity is a weak two-tailed signal for t = 0 bottom-edge '
     + 'difficulty and shows no relation to the full flow minimum Dall; max|Z| and the zero count carry the predictive power, and the easy '
     + 'proxy-selected sites have three times the background bad-Gram density. Gram and Rosser counts certified assuming FLINT 3.6 is correct '
-    + '(near selected sites at ≥ 3e12); correlations measured; no Λ value changes. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + '(near selected sites at ≥ 3e12); correlations measured; no Λ value changes. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_37;
@@ -137,7 +137,7 @@ export const ROUTE_37_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r37-honest-scope',
-    holds: () => R.status === 'done' && /negative result/.test(R.verdict) && /Dall/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /negative result/.test(R.verdict) && /Dall/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && !/no height variable at all/.test(R.headline) && R.refereeKilled.length === 7,
     why: 'Headline scoped to the late-cell floors; Dall counter-evidence recorded; certified only assuming FLINT 3.6; no Λ change; no QED.',
   },

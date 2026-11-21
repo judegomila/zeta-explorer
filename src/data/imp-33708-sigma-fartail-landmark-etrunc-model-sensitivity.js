@@ -72,7 +72,7 @@
  * "halves at 3.27e9, sub-0.1 at 3.21e11" pins are model-dependent, not structural.
  *
  * ASSESSMENT ONLY. C_mb stays GUE-conditional (imp-486); no bound changes, no positivity,
- * no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-97822-sigma-knee-etrunc-floor-elasticity (imp-97822 K2: the imp-97708 sigma-ramp KNEE
  *   floor-elasticity ~ -2.099 matches this module's sigma = 0.5 halving exponent BYTE-FOR-BYTE --
@@ -246,8 +246,8 @@ export const IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY = {
     'stay ordered -- the milestones themselves are structural, only their N-coordinates move. Note ' +
     'floor-form sensitivity GROWS with depth here, opposite to the imp-33606/imp-33647 E_coll ' +
     'sub-leading swap whose band shrank with depth. Assessment only; C_mb stays GUE-conditional ' +
-    '(imp-486), no bound changes, no positivity, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '(imp-486), no bound changes, no positivity, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33582 (far-tail landmarks perturbed here); imp-33684 (SAME floor swap on the interior ' +
     'peak, exponent ~ -1.375); imp-33606 (E_coll sub-leading 1/log swap on these landmarks -- ' +
@@ -308,16 +308,16 @@ export const IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY_ASSERTIONS
       FLOOR_FACTORS.every((f, i) => LANDMARK_0_5.table[i].N_landmark < LANDMARK_0_1.table[i].N_landmark),
   },
   {
-    // Honesty gate: sensitivity/assessment only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity/assessment only, split verdict, no QED, no refereed bound is changed.
     id: 'imp33708-honesty-gate-no-qed',
-    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY.isRigorous === false &&
       /ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY/.test(
         IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY.verdict,
       ) &&
       /NO QED/.test(IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33708_SIGMA_FARTAIL_LANDMARK_ETRUNC_MODEL_SENSITIVITY.verdict),
   },
 ];
 

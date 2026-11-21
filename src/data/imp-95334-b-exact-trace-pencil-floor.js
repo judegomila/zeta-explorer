@@ -41,7 +41,7 @@
  * headroom is ~2.3 percent chart refinement (K = 4096 vs 256), ~2.8
  * percent kept-pair, and endpoint charging -- do not re-attempt
  * further pointwise trace or numerator legs. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 / imp-95329..95333 normalization,
  * verbatim). a = ln rho in (0, 6], b = ln r in (0, a), tau = b / a,
@@ -263,8 +263,8 @@ export const IMP95334_B_EXACT_TRACE_PENCIL_FLOOR = {
     "0.5 percent of the true B at the binding chart; looseness at " +
     "rho = e^6 collapses 3.957 -> 1.084). Every-octave onsets " +
     "unchanged. The pointwise pencil-floor program is EFFECTIVELY " +
-    "TERMINAL. Changes no bound; NO QED; Platt-Trudgian Lambda <= " +
-    "0.2 remains SOTA.",
+    "TERMINAL. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -966,10 +966,10 @@ export const IMP95334_ASSERTIONS = [
       "at onset scale, pointwise EXECUTED and EXHAUSTED), records " +
       "unchanged onsets, declares the pointwise program effectively " +
       "terminal, keeps floors-only scope; promotes no bound, NO QED, " +
-      "PT stays SOTA",
+      "no refereed bound is changed",
     holds: () =>
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /OBSTRUCTED at onset scale/.test(REC.verdict) &&
       /EXECUTED and EXHAUSTED/.test(REC.verdict) &&
       /EFFECTIVELY\s+TERMINAL/.test(REC.verdict) &&

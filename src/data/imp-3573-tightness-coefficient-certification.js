@@ -55,7 +55,7 @@
  *   NECESSARY-BUT-NOT-SUFFICIENT and the degree-2 face carries no feasibility comparison
  *   at all (imp-3469: D_2 = 0). The operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3546-moment-tail-bound-tightness.js (states the closed c_n; supplies the moment ladder)
  *   @see imp-3532-moment-tail-closed-error-bound.js (the sharp cosh(a T_A) bound)
@@ -248,7 +248,7 @@ export const IMP3573_TIGHTNESS_COEFFICIENT_CERTIFICATION = Object.freeze({
       'comparison at all (imp-3469: D_2 = 0). The operator-level K_a >= 0 sign-positivity (off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -290,7 +290,7 @@ export const IMP3573_TIGHTNESS_COEFFICIENT_CERTIFICATION_ASSERTIONS = [
   {
     id: 'imp3573-honest-certification-not-a-verdict',
     why: 'Mandatory honesty: measurement/derivation only, mass-feasibility necessary-but-not-sufficient ' +
-         '(no degree-2 ratio, D_2=0), operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(no degree-2 ratio, D_2=0), operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3573_TIGHTNESS_COEFFICIENT_CERTIFICATION.honestCaveat;
       return (
@@ -298,7 +298,7 @@ export const IMP3573_TIGHTNESS_COEFFICIENT_CERTIFICATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isCertificationAndMeasurement === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

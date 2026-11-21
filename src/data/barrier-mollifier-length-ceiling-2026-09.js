@@ -136,7 +136,7 @@ export const CEILING_HEIGHT_Y0 = Object.freeze([
 //       which at dΛ_ceil/dN ≈ 5.9e-9 shifts N_cross up by ≈ 1.5e5 → T_cross ≈ 1.8e13.  So the
 //       1.47e13 pin is a LOWER estimate; the truncation-robust crossing is ≈ 1.5–1.8e13, still
 //       below the 2.5e13 range top.  Pinned-value assessment only; no verified height claimed;
-//       changes no bound; PT Λ ≤ 0.2 remains SOTA; no QED.
+//       changes no bound; no refereed bound is changed; no QED.
 export function lambdaCeilCrossing() {
   // Λ where γS_A(1e8) = 1 within an [obstructed, open] Λ pair, linear in Λ.
   const cross = (La, ga, Lb, gb) => La + ((ga - 1) / (ga - gb)) * (Lb - La);
@@ -189,7 +189,7 @@ export const VERDICT = Object.freeze({
   q2_thetaNeeded: 'No θ suffices at the current height. γS_A(1e8) ≥ 1 at Λ = 0.1495–0.1525 for every y in [0.12, 0.23] (and at Λ = 0.145/0.155 for y = 0.10); at Λ = 0.1545–0.155 the X = 1e8 partial sums are 0.95–0.97 and still rising; the X = 1e9 run at y0, Λ = 0.15504 gives 0.99707 with shrinking per-decade increments (0.070, 0.044), i.e. a limit ≈ 1.03 (obstructed in the limit), while Λ = 0.15754 gives 0.896 (limit ≈ 0.95, open). Ceiling Λ_ceil(N0) ≈ 0.155–0.157 at y0 and ≈ 0.154–0.157 across y (flat in y). Realising even that needs the mollifier B^{-1} truncated at X ≳ 1e8 divisors (X ≈ N0^{1.36} ≈ x^{0.63}; the current one has 287). Universal (any-weight) torus floor at y0: obstruction at Λ = 0.14554 (t = 0.128); not found at 0.14754.',
   q3_deliverable: 'PRECISE OBSTRUCTION, no new candidate. Λ < 0.145 is unreachable through the fixed-height barrier/y-transfer machinery for every mollifier length: the TRIANGLE-weight ceiling at X = 6.0e12 is Λ ≈ 0.155 (rigorously > 0.1525 at y0 and > 0.1495 across y), and a mollifier-independent torus obstruction sits at Λ = 0.1455 (y0). The ceiling scales with height: at y0 it is ≈ 0.145 for N ≈ 1.6–1.9e6, i.e. verified zero height T = 2πN² ≈ 1.4–2.5e13 (5–8× the current 3e12) — a NECESSARY height for any 0.145 barrier candidate, not a sufficient one (finite mollifier, margins, y-transfer, tail and barrier legs all extra).',
   headroomAtCandidate: 'At the 0.1758354 parameters the infinite-length mass is 0.428 vs the certified 0.9966: a factor 2.3 of mass headroom, all of it mollifier LENGTH; spent optimally it buys Δt ≈ 0.021 (Λ → ≈ 0.155) and no more.',
-  status: 'computed, unrefereed; double-precision inversion + L-BFGS torus search; NO QED; RH open; PT Λ ≤ 0.2 remains SOTA; 0.1758354 remains an unrefereed candidate; no bound changes',
+  status: 'computed, unrefereed; double-precision inversion + L-BFGS torus search; NO QED; RH open; no refereed bound is changed; 0.1758354 remains an unrefereed candidate; no bound changes',
 });
 
 // ---------------------------------------------------------------------------
@@ -205,7 +205,7 @@ export const TORUS_CERTIFICATION_ASSESSMENT = Object.freeze({
   foundIsWitnessCertifiable: 'For y ≥ 0.14 on the Λ = 0.145 line the scan reports "found" (TORUS_LINE_0145 G2 = −0.029 at y = 0.14 down to −0.517 at y = 0.25). That is the certifiable sign: a certified obstruction needs only ONE explicit torus point z* — rational phases θ_p per prime, realised by Kronecker from the L-BFGS argmin — evaluated in interval arithmetic to show γ|A(z*)| > |B(z*)|. No global search, no mesh, no dimension penalty. Hence the y ≥ 0.14 obstruction the ticket asks about IS upgradeable to a certificate now, via a finite interval-checked witness, independent of how densely the 55,874-phase scan sampled.',
   notFoundIsTheHardSign: 'The "not found" caveat binds only on the OTHER sign — the residual y ≤ 0.12 window (G2 = +0.28 to +0.31), where inf > 0 would have to be certified globally. There the module already defers to the ℓ¹ certificate instead (γS_A(1e8) = 1.444 at y = 0.10), so no torus certificate is needed for y ≤ 0.12 either.',
   concreteObstruction: 'Certifying any "not found" (inf > 0) verdict requires a lower bound over the ~55,874-dimensional prime-phase torus. Modulus-of-continuity control is available — G is Lipschitz in each phase θ_p with slope ≤ 2π Σ_{p | n} v_p(n)(|b_n| + γ|a_n|) n^{−σ}, and the sum over p of these slopes is finite (bounded by the derivative of the ℓ¹ mass) — but a grid or branch-and-bound certificate resolving a margin of order 1e-2 against that slope costs a box count exponential in the phase dimension (~55,874). That exponential-in-dimension global-minimisation cost, not a missing analytic input, is the concrete obstruction. The Wiener lemma certifies only inf|B| > 0 (mollifier invertibility), a positive quantity that is not the signed gap G and is vacuous here (‖B − 1‖ > 1 makes the triangle lower bound negative).',
-  verdict: 'PARTIAL route, honestly split: the y ≥ 0.14 obstruction on the Λ = 0.145 line is witness-certifiable now (one interval-checked torus point per row); the "not found" verdict is confined to y ≤ 0.12, which is ℓ¹-obstructed instead, so no global torus certificate is required anywhere on this line. Assessment of a certification route only; establishes no bound; changes no bound; PT Λ ≤ 0.2 remains SOTA; RH open; no QED.',
+  verdict: 'PARTIAL route, honestly split: the y ≥ 0.14 obstruction on the Λ = 0.145 line is witness-certifiable now (one interval-checked torus point per row); the "not found" verdict is confined to y ≤ 0.12, which is ℓ¹-obstructed instead, so no global torus certificate is required anywhere on this line. Assessment of a certification route only; establishes no bound; changes no bound; no refereed bound is changed; RH open; no QED.',
 });
 
 export const BARRIER_MOLLIFIER_LENGTH_CEILING = Object.freeze({
@@ -332,9 +332,9 @@ export const BARRIER_MOLLIFIER_LENGTH_CEILING_ASSERTIONS = Object.freeze([
     },
   },
   {
-    name: 'honest framing: verdict names an obstruction (no new candidate), flags NO QED / RH open / PT SOTA, and does not call 0.1758354 a bound',
+    name: 'honest framing: verdict names an obstruction (no new candidate), flags NO QED / RH open / no refereed bound is changed, and does not call 0.1758354 a bound',
     holds: () => /PRECISE OBSTRUCTION, no new candidate/.test(VERDICT.q3_deliverable) && /NO QED/.test(VERDICT.status) && /RH open/.test(VERDICT.status)
-      && /PT Λ ≤ 0.2 remains SOTA/.test(VERDICT.status) && /unrefereed candidate/.test(VERDICT.status) && /NECESSARY height/.test(VERDICT.q3_deliverable),
+      && /refereed bound is changed/i.test(VERDICT.status) && /unrefereed candidate/.test(VERDICT.status) && /NECESSARY height/.test(VERDICT.q3_deliverable),
   },
 ]);
 

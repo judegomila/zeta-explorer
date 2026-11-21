@@ -59,7 +59,7 @@
  * imp-95287-exact confluent pencil. The imp-95212 fresnel-airy envelope
  * port, signed WEIGHT port, off-lattice rates, modulus/phase currency,
  * gammaSL map all remain OPEN. Changes no bound of the Lambda program;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 export const IMP95292_CONF_LB_FLOOR_GAP_MAP = {
@@ -122,7 +122,7 @@ export const IMP95292_CONF_LB_FLOOR_GAP_MAP = {
     "certificate, decides nothing -- it reads gaps of the proven imp-95286 " +
     "floor and imp-95251 ceiling against the imp-95287-exact confluent " +
     "pencil. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -255,13 +255,13 @@ export const IMP95292_CONF_LB_FLOOR_GAP_ASSERTIONS = [
   {
     id: "imp95292-honest-scope",
     description:
-      "honest-scope strings present: NO QED, PT SOTA, MEASUREMENT only, " +
+      "honest-scope strings present: NO QED, no refereed bound is changed, MEASUREMENT only, " +
       "remain OPEN",
     holds: () => {
       const o = IMP95292_CONF_LB_FLOOR_GAP_MAP;
       return (
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /MEASUREMENT/.test(o.verdict) &&
         /remain\s+OPEN/.test(o.subGap)
       );

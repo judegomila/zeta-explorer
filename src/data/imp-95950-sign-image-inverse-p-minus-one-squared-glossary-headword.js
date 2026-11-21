@@ -28,14 +28,14 @@
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no bound. The
  *   residue mean is STILL NOT the physical per-window theta -- the imp-95212 Fresnel-Airy
  *   envelope port remains STILL OPEN. imp-2519 no-overclaim guard preserved; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95918-residue-avg-sign-image-pk-grid (source: the (p,k) grid measurement and the two power laws)
  * @see imp-95898-single-window-sign-image-residue-average (STEP 2 exact closed form; STEP 3 qualitative statement sharpened)
  * @see imp-95212-fresnel-airy-envelope-port (the physical-theta port, STILL OPEN)
  *
  * Ticket: imp-95950 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The sign-image-decay headword, baked verbatim (no re-import of imp-95918).
@@ -80,7 +80,7 @@ export const IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD =
     '<theta_C> = (p*diagFrac - 1)/(p-1), the sign image <theta_C> decays as the SQUARE, ' +
     '1/(p-1)^2 (measured within 1.4% of 1 over p=3..23). Establishes nothing; instantiates no ' +
     'interval; moves no bound; the imp-95212 physical-theta port remains STILL OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95918 ((p,k) grid measurement; the two-line power law); imp-95898 (STEP 2 exact closed ' +
     'form; STEP 3 qualitative statement sharpened here); imp-95375 (theta range geometry; exact ' +
@@ -110,12 +110,12 @@ export const IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD_A
   },
   {
     id: 'imp95950-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, source ' +
       'ticket id recorded.',
     holds: () =>
       IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD.verdict) &&
       /imp-95918/.test(IMP95950_SIGN_IMAGE_INVERSE_P_MINUS_ONE_SQUARED_GLOSSARY_HEADWORD.glosses),
   },
 ];

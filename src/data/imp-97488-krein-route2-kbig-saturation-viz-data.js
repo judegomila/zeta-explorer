@@ -19,7 +19,7 @@
  * reused verbatim from imp-97455; the fit curves below are the same closed
  * forms evaluated at additional Kbig for rendering. Establishes no operator
  * positivity; changes no bound; interval-rigorous reach stays 2a<=0.96;
- * Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97455-krein-route2-kbig-divergence-rate.js (the measured points, fits, and floor bracket)
  * @see imp-97440-krein-route2-lambda2-lower-bound-execution.js (FINDING 3 three-point worsening this refines)

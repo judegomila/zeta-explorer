@@ -61,7 +61,7 @@
  *   evaluations of a fixed autocorrelation weight agree; it establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-
  *   positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3850-a-weight-dual-path-tau25-30-reconciliation.js (the reconciled -ln A ladder at tau in {2.5,3.0})
  *   @see imp-3736-a-weight-quadrature-convergence-assessment.js (the reconciled -ln A ladder at tau in {1.5,2.0})
@@ -227,7 +227,7 @@ export const IMP33213_MOMENT_WEIGHT_VS_DUAL_PATH_A_CROSS_VALIDATION = Object.fre
     'all four tau to < 5e-7 absolute: -ln A(1.5)=1267.788621, -ln A(2)=9365.318970, -ln A(2.5)=69198.540665, ' +
     '-ln A(3)=511309.612538. The moment machinery and the -ln A reconciliation thus rest on the same A(tau). ' +
     'CROSS-VALIDATION/CONSISTENCY, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity ' +
-    '(imp-3066) untouched; no RH verdict, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no RH verdict, no QED; no refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -287,7 +287,7 @@ export const IMP33213_MOMENT_WEIGHT_VS_DUAL_PATH_A_CROSS_VALIDATION = Object.fre
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -323,7 +323,7 @@ export const IMP33213_MOMENT_WEIGHT_VS_DUAL_PATH_A_CROSS_VALIDATION_ASSERTIONS =
   {
     id: 'imp33213-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: cross-validation/consistency only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33213_MOMENT_WEIGHT_VS_DUAL_PATH_A_CROSS_VALIDATION.honestCaveat;
       return (
@@ -332,7 +332,7 @@ export const IMP33213_MOMENT_WEIGHT_VS_DUAL_PATH_A_CROSS_VALIDATION_ASSERTIONS =
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

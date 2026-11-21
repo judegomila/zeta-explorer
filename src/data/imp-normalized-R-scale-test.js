@@ -76,8 +76,8 @@
  *   This certifies the degree-0 construction is NON-VACUOUS and scale-invariant;
  *   it is NOT a shortcut. Even a Gpass that makes ||R|| <= 1 yields an
  *   RH-EQUIVALENT statement (K_a >= 0 is the §26 hidden-square restatement, not a
- *   reduction below RH). The bare-V pilot (imp-1240) is NOT re-run. Platt-Trudgian
- *   Lambda <= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   reduction below RH). The bare-V pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-1240-volterra-norm-pilot.js (bare V, the scale-dependent pilot)
  *   @see imp-2686-mupass-construction.js (the endpoint-bridge Gpass the raw diagonal lacks)
@@ -340,7 +340,7 @@ export const IMP_NORMALIZED_R_SCALE_TEST = Object.freeze({
       '||R|| <= 1 <=> K_a >= 0 is the §26 hidden-square restatement, RH-EQUIVALENT, not a ' +
       'reduction below RH. This test certifies the degree-0 construction is scale-invariant ' +
       'and non-vacuous (it gives a definite, c-stable verdict), not that any positivity holds.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -412,7 +412,7 @@ export const IMP_NORMALIZED_R_SCALE_TEST_ASSERTIONS = [
     id: 'imp2842-honest-rh-equivalent-not-a-shortcut',
     why: 'Mandatory honesty: this is structural/diagnostic, RH-EQUIVALENT, certifies ' +
          'non-vacuousness only, raw-diagonal Gpass is NOT sufficient, the bare pilot was ' +
-         'not re-run, and PT 0.2 stays SOTA. If any flips the module is over-claiming.',
+         'not re-run, and no refereed bound is changed. If any flips the module is over-claiming.',
     holds: () => {
       const c = IMP_NORMALIZED_R_SCALE_TEST.honestCaveat;
       return (
@@ -422,7 +422,7 @@ export const IMP_NORMALIZED_R_SCALE_TEST_ASSERTIONS = [
         c.certifiesNonVacuous === true &&
         c.rawDiagonalGpassSufficient === false &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

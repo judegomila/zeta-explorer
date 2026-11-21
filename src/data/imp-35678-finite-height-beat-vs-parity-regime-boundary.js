@@ -15,7 +15,7 @@
  * nothing; changes no bound; asserts NO beat beyond the already-recorded (and
  * already-caveated) imp-452/459 finite-height one; C_mb GUE-conditional (imp-486)
  * UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE TWO READINGS (baked reference literals; no heavy import)
  * -----------------------------------------------------------------------------
@@ -91,7 +91,7 @@
  * sigma -> 0 that beat carrier vanishes and the ported barrier (PT own machinery)
  * dominates, so the finite-height beat HANDS OFF to asymptotic parity-with-PT.
  * Assessment only; asserts no beat beyond the recorded (already-caveated) one;
- * changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-35654-ported-barrier-far-tail-mixed-conditionality (F3: parity-with-PT, no beat)
  * @see imp-35419-etrunc-barrier-lemma-porting-scope (C1/C2: ported machinery IS PT own; parity)
@@ -103,7 +103,7 @@
  */
 
 // ── Baked reference literals (no heavy import) ──
-const L_PT = 0.2; // Platt-Trudgian 2021 SOTA (rigorous, unconditional)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (rigorous, unconditional)
 const L_BEAT_FINITE = 0.121; // imp-452/459 finite-height beat (roadmap currentStatus); CONDITIONAL / C_H-gated
 const L_BEAT_N1E4 = 0.02; // sibling finite-N estimate L_pt(N* = 1e4) (imp-440/963); ALSO C_H-gated
 const L_PARITY = 0.2; // imp-35654 F3 asymptotic reading: MATCHES PT, does NOT beat
@@ -207,7 +207,7 @@ export const IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY = {
     'viewed at opposite ends of sigma. Assessment only; reconciles two recorded readings; asserts NO beat ' +
     'beyond the already-recorded (and already-caveated) imp-452/459 finite-height one; ports nothing; ' +
     'discharges nothing; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-34791 E_trunc ' +
-    'reclassification UNCHANGED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'reclassification UNCHANGED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35654 (F3 parity-with-PT, no beat); imp-35419 (C1/C2 ported machinery IS PT own); imp-452/459 ' +
     '(finite-height beat L_pt ~ 0.121); imp-35334 (E_coll/E(N) = sigma); imp-486 (C_mb GUE-conditional); ' +
@@ -249,9 +249,9 @@ export const IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY_ASSERTIONS = 
       BEAT_CARRIER_FAR_TAIL_SHARE < 1e-2, // but vanishing as sigma -> 0 (hands off to parity)
   },
   {
-    // Honesty gate: assessment only, compatible/not-in-tension, no beat beyond recorded, no QED, PT SOTA.
+    // Honesty gate: assessment only, compatible/not-in-tension, no beat beyond recorded, no QED, no refereed bound is changed.
     id: 'imp35678-honesty-gate-no-qed',
-    description: 'Assessment only: compatible not-in-tension, no beat beyond the recorded imp-452/459 one, C_mb GUE-conditional (imp-486) UNTOUCHED, no QED, PT SOTA',
+    description: 'Assessment only: compatible not-in-tension, no beat beyond the recorded imp-452/459 one, C_mb GUE-conditional (imp-486) UNTOUCHED, no QED, no refereed bound is changed',
     holds: () =>
       IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.isRigorous === false &&
       /COMPATIBLE, NOT in tension/.test(IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.verdict) &&
@@ -262,7 +262,7 @@ export const IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY_ASSERTIONS = 
         IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.verdict,
       ) &&
       /NO QED/.test(IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.verdict) &&
-      /remains SOTA/.test(IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.verdict),
+      /refereed bound is changed/i.test(IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.verdict),
   },
 ];
 

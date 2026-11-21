@@ -46,7 +46,7 @@
  *   MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate. Changes NO bound;
  *   recomputes no landmark used in any bound; C_mb GUE-conditional per imp-486 is
  *   UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- *   RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-34933-inflection-offset-running-vs-fixed-ladder (the 1e6..1e13 ladder this extends)
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma_infl = 1/2 - g_prime/(2 g^2); offset ~ 1/(t-1)^2, predicted -2)
@@ -217,8 +217,8 @@ export const IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION = {
     '~8.27, ramp ~22.68 -> ~23.30, above the imp-34933 band tops) -- NOT yet flat, per-decade drift < 1.03x, a ' +
     'residual O(1/t) correction asymptoting slowly. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34933 (the 1e6..1e13 inflection-offset ladder this extends); imp-33744 (sigma_infl = 1/2 - ' +
     'g_prime/(2 g^2) closed form, offset ~ 1/(t-1)^2, predicted -2); imp-33721 (sub-decade ramp knee log10 N* ' +
@@ -279,13 +279,13 @@ export const IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION_ASSERTIONS = [
     holds: () => bandDriftSigmoid < 1.03 && bandDriftRamp < 1.03,
   },
   {
-    // Honesty gate: measurement only, no bound change, C_mb GUE-conditional, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, C_mb GUE-conditional, no QED, no refereed bound is changed.
     id: 'imp34948-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION.isRigorous === false &&
       /NO QED/.test(IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION.verdict),
   },
 ];
 

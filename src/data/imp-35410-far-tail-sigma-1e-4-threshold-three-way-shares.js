@@ -60,8 +60,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; the imp-34791
  * E_trunc = barrier-lemma reclassification is UNCHANGED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality (sigma<1e-3 landmark; parts() + bisection source)
  * @see imp-34474-far-tail-en-headline-slack-vs-lpt (sigma < 0.01 landmark; parts() + bisection source)
@@ -216,7 +215,7 @@ export const IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; the imp-34791 E_trunc = barrier-lemma reclassification is UNCHANGED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35334 (sigma<1e-3 landmark, parts() + bisection source); imp-34474 (sigma<0.01 landmark); ' +
     'imp-33620 (sigma<0.01 far-tail ladder); imp-33582 (sigma<0.1 landmark N ~ 3.213e11); imp-3444 ' +
@@ -268,9 +267,9 @@ export const IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES_ASSERTIONS 
   },
   {
     // Honesty gate: measurement only, GUE-conditional per imp-486, E_trunc barrier-lemma per imp-34791,
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp35410-honesty-gate-no-qed',
-    description: 'Measurement only: C_mb GUE-conditional (imp-486), E_trunc barrier lemma (imp-34791), no QED, PT SOTA',
+    description: 'Measurement only: C_mb GUE-conditional (imp-486), E_trunc barrier lemma (imp-34791), no QED, no refereed bound is changed',
     holds: () =>
       IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES.isRigorous === false &&
       /GUE-conditional share per imp-486 is UNTOUCHED/.test(
@@ -280,7 +279,7 @@ export const IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES_ASSERTIONS 
         IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES.verdict,
       ) &&
       /NO QED/.test(IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES.verdict) &&
-      /remains SOTA/.test(IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES.verdict),
+      /refereed bound is changed/i.test(IMP35410_FAR_TAIL_SIGMA_1E_4_THRESHOLD_THREE_WAY_SHARES.verdict),
   },
 ];
 

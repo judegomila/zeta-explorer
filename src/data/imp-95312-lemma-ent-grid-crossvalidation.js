@@ -45,7 +45,7 @@
  *
  * SCOPE. imp-95222 packet model only; the map to paper per-window quantities
  * (obligation (3) gammaSL, imp-95276) is UNCHANGED. Changes NO Lambda bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Import-light (no zeros
+ * NO QED; no refereed bound is changed. Import-light (no zeros
  * bundle, no sibling imports).
  */
 
@@ -146,7 +146,7 @@ export const IMP95312_LEMMA_ENT_GRID_CROSSVALIDATION = {
     approachR: APPROACH_R,
   },
   verdict:
-    "VALIDATION CONFIRMED: LEMMA ENT L_mn <= (1/2) e^(-y_min) M_mn holds on every one of the 400 grid cells (worst-case entrywise ratio exactly 1, attained only at co-centered/diagonal cells; worst off-center ratio 0.9610 < 1; zero violations), reproducing the imp-95254 equality clause exactly and confirming the ratio never exceeds 1. The entrywise slack is large off-center (mean 0.34, min ratio 0.0013), so the entrywise pillar of THEOREM PHASE-AM is comfortably robust away from co-centered geometry. Model-family only; changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "VALIDATION CONFIRMED: LEMMA ENT L_mn <= (1/2) e^(-y_min) M_mn holds on every one of the 400 grid cells (worst-case entrywise ratio exactly 1, attained only at co-centered/diagonal cells; worst off-center ratio 0.9610 < 1; zero violations), reproducing the imp-95254 equality clause exactly and confirming the ratio never exceeds 1. The entrywise slack is large off-center (mean 0.34, min ratio 0.0013), so the entrywise pillar of THEOREM PHASE-AM is comfortably robust away from co-centered geometry. Model-family only; changes NO Lambda bound; NO QED; no refereed bound is changed.",
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This is a validation of the imp-95254 obligation (2) phase leg (LEMMA ENT pillar of THEOREM PHASE-AM); the exact sharp frontier sup R at fixed (theta, y_min) remains OPEN as recorded in imp-95254. Obligations (1), (3), (4) UNCHANGED.",
 };
@@ -223,7 +223,7 @@ export const IMP95312_LEMMA_ENT_GRID_ASSERTIONS = [
         IMP95312_LEMMA_ENT_GRID_CROSSVALIDATION.verdict,
       ) &&
       /NO QED/.test(IMP95312_LEMMA_ENT_GRID_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP95312_LEMMA_ENT_GRID_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95312_LEMMA_ENT_GRID_CROSSVALIDATION.verdict) &&
       /STILL OPEN/.test(IMP95312_LEMMA_ENT_GRID_CROSSVALIDATION.subGap),
   },
 ];

@@ -75,7 +75,7 @@
  *
  * HONEST LIMITS. This module restates four prior measurements; it re-derives
  * none of their numerics and adds no new claim. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; the zero-side route
+ * no refereed bound is changed; RH open; the zero-side route
  * stays PCC/GRH-gated.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (sets z = 1.9234 at T = 1.5e5)
@@ -139,7 +139,7 @@ export const IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP = {
     + 'the existing ones), or an explicit decision to adopt the correlation-corrected convention.',
   honest:
     'RESTATEMENT ONLY -- no new derivation, no numerics re-run; the four source measurements are cited '
-    + 'verbatim. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; the zero-side '
+    + 'verbatim. Changes no bound; NO QED; no refereed bound is changed; RH open; the zero-side '
     + 'route stays PCC/GRH-gated.',
 };
 
@@ -176,11 +176,11 @@ export const IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP_ASSERTIONS = [
   },
   {
     id: 'imp-96522-honesty-gate-no-qed',
-    description: 'restatement-only, no bound promoted, NO QED, PT stays SOTA, RH open',
+    description: 'restatement-only, no bound promoted, NO QED, no refereed bound is changed, RH open',
     holds: () =>
       /RESTATEMENT ONLY/.test(IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP.honest)
       && /NO QED/.test(IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP.honest)
-      && /remains SOTA/.test(IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP.honest)
+      && /refereed bound is changed/i.test(IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP.honest)
       && /RH open/.test(IMP96522_EXCURSION_2SIGMA_THREAD_WRITEUP.honest),
   },
 ];

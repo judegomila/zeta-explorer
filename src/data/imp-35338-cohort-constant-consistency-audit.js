@@ -52,7 +52,7 @@
  * The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/2643) is UNTOUCHED; C_mb is
  * GUE-conditional per imp-486; imp-3066 K_a >= 0 untouched; the far-tail
  * exponent stays 1/2 (imp-3463); establishes no operator positivity; no RH
- * verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. The surrogate-
+ * verdict, NO QED; no refereed bound is changed. The surrogate-
  * fidelity sub-gap imp-35243a stays OPEN -- this audits arithmetic identity of
  * the constants, not fidelity of the surrogate to the true collapse dynamic.
  */
@@ -181,7 +181,7 @@ export const IMP35338_COHORT_CONSTANT_CONSISTENCY_AUDIT = {
     'cohort, NOT that the single-rate machine-epsilon-floored surrogate is faithful to the true collapse dynamic ' +
     '(surrogate-fidelity sub-gap imp-35243a stays OPEN). C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/2643) UNTOUCHED; ' +
     'C_mb GUE-conditional per imp-486; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); ' +
-    'establishes no operator positivity; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP35338_COHORT_CONSTANT_CONSISTENCY_AUDIT_ASSERTIONS = [

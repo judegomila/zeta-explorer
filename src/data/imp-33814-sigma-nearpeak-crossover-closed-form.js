@@ -64,7 +64,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33743-sigma-fartail-crossover-closed-form (far-tail closed form, thr = 0.1, 81x factor)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (halving-landmark closed form, thr = 1/2)
@@ -235,8 +235,8 @@ export const IMP33814_SIGMA_NEARPEAK_CROSSOVER_CLOSED_FORM = {
     'E_flow is smallest), the two extremes being mirror images. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33743 (far-tail closed form, thr = 0.1, factor 81); imp-33723 (halving-landmark closed form, ' +
     'thr = 1/2); imp-33582 (sigma > 0.9 until N ~ 2.57e7, bisected); imp-33601 (exact identity ' +
@@ -277,13 +277,13 @@ export const IMP33814_SIGMA_NEARPEAK_CROSSOVER_CLOSED_FORM_ASSERTIONS = [
     holds: () => R_FLOW_TRUNC > 1e-2 && R_FLOW_TRUNC > 1.91e-3 && REL_OFFSET > HALVING_REL_OFFSET,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33814-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33814_SIGMA_NEARPEAK_CROSSOVER_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP33814_SIGMA_NEARPEAK_CROSSOVER_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP33814_SIGMA_NEARPEAK_CROSSOVER_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP33814_SIGMA_NEARPEAK_CROSSOVER_CLOSED_FORM.verdict),
   },
 ];
 

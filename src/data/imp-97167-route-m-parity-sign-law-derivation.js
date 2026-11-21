@@ -9,7 +9,7 @@
  * derives the leading term of r(b) explicitly, proves it carries the parity of omega(b), and
  * characterizes EXACTLY when a subleading opposite-sign term dominates (the primorial-collapse
  * exceptions of imp-97140 RESULT 2). Derivation only; explains an empirical sign law; no bound moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97096 / imp-97133 / imp-97140: C = (log 2pi - gamma)/2 = 0.6303307...,
  * R_b = {a : 1 <= a <= b-1, (a,b)=1}, A(a,b) = C(a+b) + (1/2)(a-b) log(b/a),
@@ -109,8 +109,8 @@
  * subset products, with an explicit primorial-collapse threshold separating the robust region from
  * the exceptions. That quantitative non-cancellation bound is the residual of this leaf. Derivation
  * only: the leading term and its parity are derived and the collapse mechanism identified; no
- * uniform sign certificate is supplied, no bound moved, T ~ 2.594e7 anchor unchanged, PT Lambda <= 0.2
- * SOTA, RH open, NO QED.
+ * uniform sign certificate is supplied, no bound moved, T ~ 2.594e7 anchor unchanged, no refereed bound is changed
+ * , RH open, NO QED.
  *
  * @see imp-97140-route-m-fixed-omega-residual-cohorts.js (the MEASURED sign + magnitude laws)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the Moebius/Stirling remainder)
@@ -219,7 +219,7 @@ export const IMP97167_VERDICT = Object.freeze({
     'mislabeled rule string. The two sign-law exceptions are exactly the primorial moduli where the k-fold ' +
     'Moebius difference annihilates delta(1) to the floor and a subleading opposite-sign term flips r. A ' +
     'uniform quantitative non-cancellation bound for ALL non-primorial b is left as the named residual. ' +
-    'No bound moved; T ~ 2.594e7 anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No bound moved; T ~ 2.594e7 anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97167_SUBGAP = Object.freeze({
@@ -237,7 +237,7 @@ export const IMP97167_SUBGAP = Object.freeze({
 });
 
 export const IMP97167_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation of an empirical sign law: r(b) phi(b) = ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation of an empirical sign law: r(b) phi(b) = ' +
   '(1/4) Lambda(b) + Sum_{m|b} mu(b/m) delta(m) (from A(a,b) = b psi(a/b), Moebius inversion, the Euler ' +
   'telescope and mu*log = Lambda). The leading tail term (-1)^omega delta(1) with delta(1) < 0 gives ' +
   'sign(r(b)) = (-1)^(omega+1) (r>0 for omega odd) -- matching and correcting the imp-97140 data; the two ' +
@@ -383,7 +383,7 @@ const IMP97167_ASSERTIONS = [
       IMP97167_VERDICT.suppliesUniformSignCertificate === false &&
       /uniform/.test(IMP97167_SUBGAP.statement) &&
       /NO QED/.test(IMP97167_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97167_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97167_HONEST_BANNER) &&
       /RH open/.test(IMP97167_HONEST_BANNER),
     why: 'derivation of an empirical sign law with the leading term and collapse mechanism derived, but no uniform non-cancellation certificate supplied (named residual) -- no bound moved, no rigorous ceiling, no QED.',
   },

@@ -35,7 +35,7 @@
  *   A glossary-style lookup restating the imp-36155 denominator distinction and ordering for
  *   quick reference. It establishes nothing, instantiates no interval, derives no remainder,
  *   changes no bound, closes no sub-gap. imp-35337a stays OPEN; imp-2519 no-overclaim guard
- *   preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-36155-sharecoll-crossing-precedes-sole-survivor.js (source: the proved ordering and gap this glosses)
  * @see imp-36097-e-share-threshold-crossings-viz-data.js (source of the shareColl < 1% crossing)
@@ -43,7 +43,7 @@
  * @see imp-35889-e-share-decomposition-at-knees.js (the three-way split both landmarks live in)
  *
  * Ticket: imp-36282 (content, low). Documentation only; establishes no enclosure;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  */
 
 // The shareColl-vs-sole-survivor denominator distinction, baked verbatim (no re-import).
@@ -91,7 +91,7 @@ export const IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD = Object
     'versus the E_trunc sole-survivor height (E_coll / E_trunc = 0.01, N* ~ 4.7214e13), and ' +
     'why the share crossing structurally precedes the sole-survivor (E(N) > E_trunc always). ' +
     'Establishes nothing; instantiates no interval; closes no sub-gap; imp-35337a stays OPEN; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-36155 (source ordering + gap); imp-36097 (shareColl < 1% crossing); imp-35971 ' +
     '(E_trunc sole-survivor height); imp-35889 (three-way split).',
@@ -116,11 +116,11 @@ export const IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp36282-honesty-gate-no-qed',
-    why: 'Documentation only: no enclosure claimed established, imp-35337a stays OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no enclosure claimed established, imp-35337a stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.anyEnclosureEstablished === false &&
       /NO QED/.test(IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.verdict) &&
       /imp-35337a stays OPEN/.test(IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.verdict) &&
       IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.glosses === 'imp-36155' &&
       IMP36282_SHARECOLL_VS_ETRUNC_DENOMINATOR_GLOSSARY_HEADWORD.scopes === 'imp-35337a',

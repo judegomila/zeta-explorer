@@ -63,7 +63,7 @@
  *   psi that makes the true c_sharp ~ 0.582 (imp-97206) positive. The only surviving architecture remains the direct
  *   PSWF-basis compression G_{mn} = int sigma_2 phi_m phi_n with a certified t^4-weighted cross-moment tail bound
  *   (imp-97435 Reading B) -- no split, no factorisation. No operator positivity claimed; no coercivity constant; NO
- *   bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97436_FEJER_RIESZ_REMAINDER_IRREDUCIBLE_COLLAPSES_TO_SIGNED_SPLIT.
  *
  * @see imp-97435-krein-weighted-pswf-eigendecay-assessment.js (sibling spectral primitive; signed split caps <=0; Reading B is the survivor)
@@ -74,7 +74,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; pole-free Weil positivity; reach 2a<=0.96)
  *
  * Ticket: imp-97436 (proof, medium, opus-4-8). Attempt/assessment only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { w1, sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

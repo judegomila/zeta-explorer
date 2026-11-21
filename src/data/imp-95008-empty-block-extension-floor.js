@@ -140,8 +140,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are
  * not the claim. Import-light (no heavy bundle). Changes no bound; does
- * NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -407,7 +406,7 @@ export const IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR = {
     "Theorem N is elementary calculus on the exact rational function F(eps), with the strict positivity of c structural (empty block forces every pair sign positive); Corollary N1 follows directly. The baked penta floors are witness evaluations with exact correlations and exact Lemma V legality, in the sharp currency of continuations ten and eleven; optimality is NOT claimed. The saturation statements of Corollary N3 are measurements (optimizer collapse and sub-1e-7 extension gains), quoted as measurements. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step on the witness side of the far bracket (the lever the eleventh continuation declared open): NEW Theorem N proves any packet appended to an EMPTY block improves the floor to FIRST order (all pair signs structurally positive, mass cost second order), with a closed-form optimal amplitude from an exact quadratic. Consequence: the 4-packet bridge witness of continuations eight to eleven was NEVER optimal, at any theta; no finite-support witness attains the spacing-class supremum. Baked 5-packet witnesses (bridge + block-3 boundary antenna): fixed-97 theta = 2 floor rises 1.5975 percent, bracket gap 19.0996 -> 18.7993; new spacing theta = 2 bracket [0.225008, 4], gap 17.7772. HONEST: theta = 10 gains are below 1e-5 relative - the headline theta = 10 bracket [0.025882, 4] (gap 154.55) is unchanged to six figures, and boundary-chain extensions are measured saturated: the remaining closure levers are the parity alternating sum, the Lemma T constant, and multi-rate witnesses. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step on the witness side of the far bracket (the lever the eleventh continuation declared open): NEW Theorem N proves any packet appended to an EMPTY block improves the floor to FIRST order (all pair signs structurally positive, mass cost second order), with a closed-form optimal amplitude from an exact quadratic. Consequence: the 4-packet bridge witness of continuations eight to eleven was NEVER optimal, at any theta; no finite-support witness attains the spacing-class supremum. Baked 5-packet witnesses (bridge + block-3 boundary antenna): fixed-97 theta = 2 floor rises 1.5975 percent, bracket gap 19.0996 -> 18.7993; new spacing theta = 2 bracket [0.225008, 4], gap 17.7772. HONEST: theta = 10 gains are below 1e-5 relative - the headline theta = 10 bracket [0.025882, 4] (gap 154.55) is unchanged to six figures, and boundary-chain extensions are measured saturated: the remaining closure levers are the parity alternating sum, the Lemma T constant, and multi-rate witnesses. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -590,12 +589,12 @@ export const IMP95008_EBE_ASSERTIONS = [
   {
     id: "imp95008-ebe-honesty-gate",
     description:
-      "the verdict records the never-optimal reversal, the theta = 10 honesty, the quantified saturation, the still-open residuals, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the never-optimal reversal, the theta = 10 honesty, the quantified saturation, the still-open residuals, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.promotesBound === false &&
       IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.verdict) &&
       /NEVER optimal/.test(IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.verdict) &&
       /unchanged to six figures/.test(IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.verdict) &&
       /multi-RATE witnesses/.test(IMP95008_EMPTY_BLOCK_EXTENSION_FLOOR.openResiduals[4]) &&

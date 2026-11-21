@@ -88,7 +88,7 @@
  * (U) through the imp-35194 N-uniform beta and an imp-35167 M5 horizon extension
  * -- so I2 relocates onto, rather than bypasses, the binding M2/M5 obstruction.
  * Establishes NO bound; certifies NO ordering; R2 stays OPEN past N=200; C_mb
- * stays GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * stays GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * SYNTAX NOTE: avoid star-slash sequences in JSDoc; use "dt^2" / "t_c_flow" etc.
  *
@@ -183,7 +183,7 @@ export const IMP_35213_I2_ORDER_PRESERVATION_ASSESSMENT = {
     doesNotAchieve:
       'Does NOT certify any ordering; does NOT close R2 at N >= 500; does NOT extend the C_mb ' +
       'certificate; does NOT remove the imp-486 GUE conditional; changes NO Lambda bound. R2 ' +
-      'stays OPEN past N=200. Platt-Trudgian Lambda <= 0.2 SOTA.',
+      'stays OPEN past N=200. No refereed bound is changed.',
   },
 };
 
@@ -227,6 +227,6 @@ export const IMP_35213_I2_ORDER_PRESERVATION_ASSESSMENT_ASSERTIONS = [
       IMP_35213_I2_ORDER_PRESERVATION_ASSESSMENT.changesNoBound === true,
     why:
       'This ticket is assessment/scoping only: it must never assert a QED or a bound change. ' +
-      'C_mb stays GUE-conditional (imp-486); Lambda <= 0.2 stays SOTA.',
+      'C_mb stays GUE-conditional (imp-486); no refereed bound is changed.',
   },
 ];

@@ -47,7 +47,7 @@
  * significant figures (|abs diff| ~3e-18 .. 5e-18), closing the interior gap imp-97742 left open. The
  * imp-97706 extension is precision-clean end-to-end, so its sign-oscillation and "outruns every fixed
  * power <= 3" readings do not rest on a precision artifact. MCM stays refuted from omega=11; b/4 ceiling
- * untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97742-route-m-ladder-dps40-crosscheck.js (dps=40 endpoints: smallest, mid, largest)
  * @see imp-97706-route-m-deep-ladder-extension.js (dps=35 12-rung extension source; baked literals)
@@ -113,11 +113,11 @@ export const IMP97758_VERDICT = Object.freeze({
     'left open (it covered only the smallest/mid/largest rung): the imp-97706 extension is precision-clean ' +
     'end-to-end, NOT precision-limited, so its sign-oscillation and "outruns every fixed power <= 3" ' +
     'readings do not rest on a precision artifact. MCM stays refuted from omega=11; b/4 ceiling untouched; ' +
-    'kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97758_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Independent mpmath dps=40 recompute of three INTERIOR ' +
+  'RH open; no refereed bound is changed; NO QED. Independent mpmath dps=40 recompute of three INTERIOR ' +
   'rungs (omega=8.5e6/13e6/19e6) of the imp-97706 dps=35 Route M gap-law residual extension: all three ' +
   'reproduce the baked literals to ~9.8-10.2 significant figures (|abs diff| ~3e-18 .. 5e-18), closing ' +
   'the interior gap imp-97742 left open and confirming the extension is precision-clean end-to-end. ' +
@@ -171,7 +171,7 @@ const IMP97758_ASSERTIONS = [
       IMP97758_VERDICT.anyBoundMoved === false &&
       IMP97758_VERDICT.qed === false &&
       /NO QED/.test(IMP97758_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97758_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97758_HONEST_BANNER) &&
       /RH open/.test(IMP97758_HONEST_BANNER),
     why: 'cross-validation only -- the extension interior reproduces at dps=40, is not precision-limited; MCM refuted from omega=11; no bound moved, no QED.',
   },

@@ -22,8 +22,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; the C_mb
- * GUE-conditional constant (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional constant (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED CROSS ceiling fraction cross / (log2(N)*eps) across the dense ladder:
  *   N        kappa    cross        log2(N)*eps   ceilFraction
@@ -63,7 +62,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35973 / imp-36019) ---------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -309,7 +308,7 @@ export const IMP36038_CROSS_CEILING_FRACTION_LADDER = {
     'order stress; the obstruction stays the ENGINEERING of the certified length-N interval sum (MECHANICAL, ' +
     'imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; ' +
     'changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35973 (single-endpoint order-x-shape cross-term at N ~ 488602, ~0.10 ceiling fraction); imp-36019 ' +
     '(CROSS super-additivity factor over the coarse 4-rung ladder); imp-35948 (dense 7-rung [1e3, 4.886e5] ' +
@@ -371,7 +370,7 @@ export const IMP36038_CROSS_CEILING_FRACTION_LADDER_ASSERTIONS = [
   },
   {
     id: 'imp36038-honesty-gate',
-    description: 'Measurement only; ceiling fraction NOT growing toward ceiling; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; ceiling fraction NOT growing toward ceiling; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36038_CROSS_CEILING_FRACTION_LADDER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -381,7 +380,7 @@ export const IMP36038_CROSS_CEILING_FRACTION_LADDER_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36038_CROSS_CEILING_FRACTION_LADDER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36038_CROSS_CEILING_FRACTION_LADDER.verdict) &&
-      /remains SOTA/.test(IMP36038_CROSS_CEILING_FRACTION_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP36038_CROSS_CEILING_FRACTION_LADDER.verdict),
   },
 ];
 

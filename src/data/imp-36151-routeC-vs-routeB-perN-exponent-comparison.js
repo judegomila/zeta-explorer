@@ -7,7 +7,7 @@
  *   to a strictly FASTER N-exponent or only a BETTER CONSTANT / structural readiness.
  *   Assessment / derivation ONLY: closes NOTHING, discharges no gap, the per-N
  *   translation stays OPEN, respects the imp-2519 no-overclaim guard, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -136,8 +136,8 @@ export const IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON = Object.freeze(
     'structural / "better constant" (per-N by construction + unconditional + tractable residual) vs Route-B ' +
     'which owns -1/4 but only as a DEVIATION bound whose per-N upgrade re-imports GUE (imp-36082 ' +
     'CONSUMABLE-MODULO-ANCHOR). Assessment/derivation ONLY; closes NOTHING; discharges no gap; per-N translation ' +
-    'and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed' +
+    '.',
 
   routeB: Object.freeze({
     id: 'route-B-burgers',
@@ -200,7 +200,7 @@ export const IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON = Object.freeze(
       'C > B > A ranking reflects unconditional-consumability readiness, NOT a strictly faster N-exponent ' +
       '(Route-C exponent unquantified, gated on the open G3a_max_gap). Closes nothing; per-N translation and ' +
       'G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -268,7 +268,7 @@ export const IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON_ASSERTIONS = [
   {
     id: 'imp36151-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a COMPARISON that closes NOTHING, discharges no gap, does not pin the Route-C ' +
-         'exponent, keeps G3a_max_gap OPEN, carries NO RH verdict, PT 0.2 stays SOTA.',
+         'exponent, keeps G3a_max_gap OPEN, carries NO RH verdict, no refereed bound is changed.',
     holds: () => {
       const h = IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON.honestCaveat;
       return (
@@ -281,7 +281,7 @@ export const IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON_ASSERTIONS = [
         h.g3aMaxGapStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

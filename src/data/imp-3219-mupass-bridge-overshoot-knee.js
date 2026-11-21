@@ -52,8 +52,8 @@
  *   not additive. This is diagnostic only. SUB-GAP (named, still open): the exact
  *   symmetric Gpass^{-1/2} normalization anchoring the verdict 0.876 / 0.711 ||R||
  *   values (imp-3214 ported the rank-2 half) and the imp-3066 endpoint-Hankel
- *   operator step remain open. RH-equivalent residual untouched; Platt-Trudgian
- *   Lambda &lt;= 0.2 stays SOTA. No reduction, no QED.
+ *   operator step remain open. RH-equivalent residual untouched; no refereed bound is changed
+ *   . No reduction, no QED.
  *
  *   @see imp-3202-mupass-bridge-lag-cutoff-sweep.js (the coarse sweep that noted the overshoot)
  *   @see imp-3214-mupass-symmetric-normalization-port.js (the ported half of the normalization sub-gap)
@@ -246,7 +246,7 @@ export const IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE = Object.freeze({
     'the saturation band and first crosses 1, then relaxes monotonically to within 1e-4 of 1 by ' +
     'c ~ 0.42. The overshoot means the near-diagonal band alone carries marginally MORE operator norm ' +
     'than the full operator -- the far-lag tail is indefinite and partially self-cancelling, not ' +
-    'additive. Diagnostic only; RH-equivalent residual untouched; NO QED; PT Lambda <= 0.2 stays SOTA.',
+    'additive. Diagnostic only; RH-equivalent residual untouched; NO QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     bridgeOperator: 'T(u, v) = sinh(a (v - u)) * Abar(|v - u|): lag-stationary surrogate, Phi autocorrelation symbol',
@@ -304,7 +304,7 @@ export const IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE = Object.freeze({
     necessaryNotSufficient:
       'Locating the capture overshoot peak is a cutoff-localization diagnostic; it does NOT construct the ' +
       'missing operator-norm magnitude or attempt the K_a >= 0 positivity, the RH-equivalent obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -353,7 +353,7 @@ export const IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE_ASSERTIONS = [
   {
     id: 'imp3219-honest-no-qed-no-scalar-reproduction',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, RH-equivalent, does NOT reproduce the verdict ' +
-         '0.876 / 0.711 scalar ||R|| (normalization sub-gap), positivity not attempted, PT 0.2 stays SOTA.',
+         '0.876 / 0.711 scalar ||R|| (normalization sub-gap), positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE.honestCaveat;
       return (
@@ -362,7 +362,7 @@ export const IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.reproducesVerdictScalarValues === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

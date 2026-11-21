@@ -18,8 +18,7 @@
  * DOCUMENTATION ONLY. Ports nothing; discharges nothing; changes no bound;
  * establishes no operator positivity; adds no new claim beyond imp-35678
  * Reading 1 / imp-452/459 / the roadmap CORRECTION 2026-07-03; C_mb
- * GUE-conditional (imp-486) UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE BANNER (restated from imp-35678 Reading 1; no new derivation)
  * -----------------------------------------------------------------------------
@@ -36,7 +35,7 @@
  *
  * The punchline: read "L_pt ~ 0.121 < 0.2" as an honest CONDITIONAL, FINITE-N
  * ESTIMATE, NOT as an unconditional-RH beat. No bound changes; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35678-finite-height-beat-vs-parity-regime-boundary (source: Reading 1 conditionality + regime-boundary handoff)
  * @see imp-35711-postport-parity-no-beat-honest-status-banner (reciprocal: the standalone asymptotic-parity no-beat banner)
@@ -45,7 +44,7 @@
  * @see lambda-roadmap currentStatus (imp-452/459 finite-height beat L_pt ~ 0.121; CORRECTION 2026-07-03 C_H-gated)
  */
 
-const L_PT = 0.2; // Platt-Trudgian 2021 SOTA -- the threshold Reading 1 estimates falling below
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- the threshold Reading 1 estimates falling below
 const L_BEAT_FINITE = 0.121; // imp-452/459 finite-height beat (roadmap currentStatus); CONDITIONAL / C_H-gated
 const L_BEAT_N1E4 = 0.02; // sibling finite-N estimate L_pt(N* = 1e4) (imp-440/963); ALSO C_H-gated
 
@@ -83,7 +82,7 @@ export const IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER = {
     'N-uniform bound, and it holds only at a finite N -- as sigma -> 0 the GUE-conditional beat carrier ' +
     'vanishes and the reading hands off to the imp-35711 asymptotic parity-with-PT. Ports nothing; discharges ' +
     'nothing; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35678 (source: Reading 1 conditionality assessment and regime-boundary handoff); imp-452/459 ' +
     '(finite-height beat L_pt ~ 0.121); imp-2632 (measured C_mb OLS fit, C_H RH-hard); imp-35711 (reciprocal ' +
@@ -144,15 +143,15 @@ export const IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: documentation only, no QED, PT stays SOTA.
+    // Honesty gate: documentation only, no QED, no refereed bound is changed.
     id: 'imp35740-honesty-gate-no-qed',
-    description: 'Documentation only: no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER.isRigorous === false &&
       /HONEST-STATUS BANNER/.test(IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER.verdict) &&
       /NOT a new claim/.test(IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER.verdict) &&
       /NO QED/.test(IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER.verdict) &&
-      /remains SOTA/.test(IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER.verdict),
+      /refereed bound is changed/i.test(IMP35740_FINITE_HEIGHT_BEAT_HONEST_STATUS_BANNER.verdict),
   },
 ];
 

@@ -31,7 +31,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95286 / imp-95251 closed
  * forms verbatim; changes no bound, no operator positivity, no RH claim;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-95286-confluent-laguerre-floor.js (source: THEOREM CONF-LB floor,
  *   COROLLARY WINDOW-PINCH bracket, overpricingCapAtOnsets)

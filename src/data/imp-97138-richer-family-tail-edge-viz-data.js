@@ -15,8 +15,8 @@
  *   WORSENS. Higher polynomial degree (KMAX=7) settles at a similar-or-worse negative
  *   residual (and oscillates in a much wider band at 3e-5), and the alternate trig basis is
  *   also worse. This is a MEASUREMENT only: the certified interval-rigorous reach stays
- *   EXACTLY 2a<=0.96; no operator positivity is established; no bound moves; PT Lambda<=0.2
- *   remains SOTA; RH open; NO QED.
+ *   EXACTLY 2a<=0.96; no operator positivity is established; no bound moves; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97099 (parent: frozen negative fixed point -0.0043937 at t=37.809, KMAX=5, 3e-5)
  * @see imp-97090 (parent: structural tail-edge dip needs a richer design family)
@@ -79,7 +79,7 @@ export const IMP97138_VERDICT = Object.freeze({
     'basis is also worse (-0.012995). The negative fixed point PERSISTS across every enrichment ' +
     'tried, so degree/basis richness alone does not resolve the structural tail-edge dip. ' +
     'Measurement only; certified interval-rigorous reach stays EXACTLY 2a<=0.96; no operator ' +
-    'positivity; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'positivity; no bound moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export default IMP97138_VERDICT;

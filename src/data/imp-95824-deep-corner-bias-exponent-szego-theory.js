@@ -5,7 +5,7 @@
  *
  * GRADE: analytic assessment of an interior model-seam quantity. No heavy bundle;
  * no imports at all. Changes NO Lambda bound; NO operator-positivity claim on the
- * main chain; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * main chain; NO QED. No refereed bound is changed.
  *
  * BACKGROUND. imp-95803 converged the deep-corner (delta = ln 1.2, rho = 1)
  * finite-N bias ladder to N = 500 and found the local log-log slope of
@@ -92,7 +92,7 @@
  * ASSUMES a single non-degenerate interior minimum; the empirical p ~ 2 supports
  * but does not independently prove that assumption for the sech Gram. Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT and modulus/phase legs
- * stay OPEN. Changes NO bound of the Lambda program; NO QED; PT Lambda <= 0.2 SOTA.
+ * stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (the measured p ~ 2 drift this derives)
  * @see imp-95788-twin-pair-deep-corner-finite-n-bias-convergence (the N<=200 ladder)
@@ -163,7 +163,7 @@ export const IMP95824_DEEP_CORNER_BIAS_EXPONENT_SZEGO_THEORY = {
     "pin-exact-limiting-bias-power-at-deep-corner. Assessment only; no new cited " +
     "input. Model seam family only; the imp-95212 envelope port, signed WEIGHT and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95824"],
 };
 
@@ -281,7 +281,7 @@ export const IMP95824_ASSERTIONS = [
       REF.qed === false &&
       REF.prefactorNotEvaluatedForSechSymbol === true &&
       REF.subGap === "pin-exact-limiting-bias-power-at-deep-corner" &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95824-closes-self",

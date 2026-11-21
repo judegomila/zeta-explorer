@@ -62,7 +62,7 @@ export const IMP36000_ACCUMULATOR_RATIO_VIZ_DATA = {
     'derivation and changes no bound. The imp-35890 O(1) running-accumulator flatness is CONTINGENT ' +
     'on the frequencies, not generic; a certified engine must MONITOR the accumulator at run time. ' +
     'The certified length-N interval sum stays GREENFIELD (imp-35681 Part A) and MECHANICAL ' +
-    '(imp-35725). NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    '(imp-35725). NO QED. No refereed bound is changed.',
 };
 
 export const IMP36000_VIZ_ASSERTIONS = [
@@ -97,12 +97,12 @@ export const IMP36000_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp36000-honesty-gate-no-qed',
-    description: 'honest status references viz-data-only, greenfield, no bound change, NO QED, SOTA',
+    description: 'honest status references viz-data-only, greenfield, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP36000_ACCUMULATOR_RATIO_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP36000_ACCUMULATOR_RATIO_VIZ_DATA.honest) &&
       /NO QED/.test(IMP36000_ACCUMULATOR_RATIO_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP36000_ACCUMULATOR_RATIO_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP36000_ACCUMULATOR_RATIO_VIZ_DATA.honest),
   },
 ];
 

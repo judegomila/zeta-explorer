@@ -38,8 +38,8 @@
  *   ~0.513 with a tail-model band [0.508, 0.520] (conservative [0.508, 0.543]). This is a MEASUREMENT-uncertainty
  *   quantification over baked finite-section IEEE-double eigenvalues: the eigenvalues are not interval-enclosed and
  *   R_inf is an extrapolation, not a certified limit; no rigorous bound is promoted; scalar bound stays a negative
- *   floor; no operator positivity; no bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   floor; no operator positivity; no bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *   SUB-GAP IMP97626_INFINITE_LINE_FRACTION_NEEDS_CERTIFIED_EIGENVALUE_AND_ASYMPTOTIC_TAIL_LAW (unchanged from
  *   imp-97564: a certified infinite-line eigenvalue, and a proven tail law, would collapse the [0.508, 0.543] band).
  *
@@ -50,7 +50,7 @@
  *
  * Import-light: bakes the imp-97564 window ladder literals + this leaf recomputes the three linear tail fits in-JS
  *   (6 points, O(1)); no heavy import, no eigenvalue recompute. Fits cross-checked in numpy lstsq. NO QED.
- * Ticket: imp-97626 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97626 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);

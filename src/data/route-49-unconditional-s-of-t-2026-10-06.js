@@ -84,7 +84,7 @@ export const ROUTE_49 = Object.freeze({
   verdict: 'Small constant gain, no Λ lever. The sawtooth lemma (proved, elementary; numerics conditional on Trudgian 2011) improves |S(T)| by '
     + '9–17% for 1e11–1e17 and up to T ≈ 1.8e29, asymptotically weaker (0.137 vs 0.112 log T). Mirror descent cannot use it: the optimistic '
     + 'all-real model needs E ≤ 3.363 (proved 5.675) and that model is close to circular; pessimistic weights stay above 0.2 even at E = 0. '
-    + 'The lever remains the pointwise σ < 1 / NS-RIGID input. PT Lambda <= 0.2 stands; 0.1758354 and 0.1787854 remain computer-assisted '
+    + 'The lever remains the pointwise σ < 1 / NS-RIGID input. No refereed bound is changed; 0.1758354 and 0.1787854 remain computer-assisted '
     + 'candidates; RH open; NO QED.',
 });
 
@@ -130,7 +130,7 @@ export const ROUTE_49_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r49-honest-scope',
-    holds: () => /Trudgian's 2011/.test(R.headline) && /pessimistic-weight/.test(R.headline) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict),
+    holds: () => /Trudgian's 2011/.test(R.headline) && /pessimistic-weight/.test(R.headline) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict),
     why: 'Headline conditional on the quoted constant and model-dependent; no Λ change; no QED.',
   },
 ]);

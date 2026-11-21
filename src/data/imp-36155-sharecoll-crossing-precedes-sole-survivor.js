@@ -34,7 +34,7 @@
  *   remainder; discharges nothing; changes no bound; establishes no operator positivity;
  *   E_trunc = 3.06e-5 (imp-2631) and C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643,
  *   GUE-conditional, imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  * @see imp-36097-e-share-threshold-crossings-viz-data.js (source of the shareColl < 1% crossing)
  * @see imp-35971-etrunc-sole-survivor-height.js (source of the sole-survivor height)
@@ -142,7 +142,7 @@ export const IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR = Object.freeze(
     derivesRemainder: false,
     dischargesAnything: false,
     changesAnyBound: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -155,7 +155,7 @@ export const IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR = Object.freeze(
     'literals verbatim; re-derives no sub-term; derives no remainder; discharges nothing; changes ' +
     'no bound; E_trunc = 3.06e-5 (imp-2631) and C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643, ' +
     'GUE-conditional, imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR_ASSERTIONS = [
@@ -229,19 +229,19 @@ export const IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR_ASSERTIONS = [
   },
   {
     id: 'imp36155-honesty-gate',
-    why: 'Measurement only: must not claim a proof, rigor, unconditionality, or a bound change; PT stays SOTA.',
+    why: 'Measurement only: must not claim a proof, rigor, unconditionality, or a bound change; no refereed bound is changed.',
     holds: () =>
       IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.honestCaveat.isProof === false &&
       IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.honestCaveat.isRigorous === false &&
       IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.honestCaveat.sota),
   },
   {
     id: 'imp36155-verdict-no-qed',
-    why: 'The verdict must record NO QED and the standing SOTA caveat.',
+    why: 'The verdict must record NO QED and the standing no-refereed-bound-change caveat.',
     holds: () =>
       /NO QED/.test(IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.verdict) &&
-      /remains SOTA/.test(IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.verdict),
+      /refereed bound is changed/i.test(IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.verdict),
   },
 ];
 

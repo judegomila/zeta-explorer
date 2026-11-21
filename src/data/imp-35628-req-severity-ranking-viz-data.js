@@ -12,8 +12,8 @@
  *   @see imp-35538-route-i-remainder-derivation-requirements.js (enumerates the five REQs)
  *
  *   Ticket: imp-35628 (ux, medium). Presentation only of an already-established severity
- *   ranking; adds no new Lambda bound, derives no remainder. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA. NO QED.
+ *   ranking; adds no new Lambda bound, derives no remainder. No refereed bound is changed
+ *   . NO QED.
  */
 
 import { IMP35551_ROUTE_I_REQUIREMENT_SEVERITY_RANKING } from './imp-35551-route-i-requirement-severity-ranking.js';

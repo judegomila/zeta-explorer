@@ -66,7 +66,7 @@
  * It still gives NO closed-form / averaged-symbol / multiplicative-Toeplitz asymptotic for the
  * coefficient (the surrogate needs the operator itself to r matvecs). This SHARPENS
  * IMP96562_SUBGAP with a mode count; it does NOT close it. Changes no bound; no operator
- * positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96586-route-m-lammax-meanfield-cesaro-proxy.js (rank-one brackets, peak row Hilbert-Schmidt)
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (localizes IMP96562_SUBGAP)
@@ -157,7 +157,7 @@ export const IMP96612_VERDICT = Object.freeze({
     'is a collective (not single-mode / not low-rank) off-diagonal spectral-edge growth rate. ' +
     'It gives NO closed-form / averaged-symbol / multiplicative-Toeplitz asymptotic; it needs ' +
     'the operator itself to r matvecs. Sharpens IMP96562_SUBGAP with a mode count; does not ' +
-    'close it. Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'close it. Changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96612_SUBGAP = Object.freeze({
@@ -173,7 +173,7 @@ export const IMP96612_SUBGAP = Object.freeze({
 });
 
 export const IMP96612_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Heuristic assessment only: the rank-r moment ' +
+  'RH open; no refereed bound is changed; NO QED. Heuristic assessment only: the rank-r moment ' +
   'ratios are reproducible power-iteration iterates from e_1 on the same exact Vasyunin Gram as ' +
   'imp-96105 / imp-96443 / imp-96586 (tmp/imp-96612-rankr-power.py). By construction R_r -> ' +
   'lam_max, so the convergence to 0.3526 is a measurement of the coefficient collective rank, ' +
@@ -213,7 +213,7 @@ const IMP96612_ASSERTIONS = [
       IMP96612_VERDICT.independentPredictionOfCoefficient === false &&
       IMP96612_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96612_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96612_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96612_HONEST_BANNER) &&
       /RH open/.test(IMP96612_HONEST_BANNER) &&
       /6-collective-power-iteration-modes/.test(IMP96612_SUBGAP.id),
     why: 'heuristic assessment only: the rank-r ladder narrows the bracket but is not an independent coefficient prediction (R_r -> lam_max by construction), no bound moved, and the honesty markers plus the sharpened mode-count sub-gap are present.',

@@ -37,7 +37,7 @@
  * CROSS-VALIDATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95602-sigma-exponent-ramp-past-1e12 (log-space evaluator validated here across the band)
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (direct half-decade grid, ends at the 1e12 endpoint)
@@ -171,7 +171,7 @@ export const IMP95631_SIGMA_LOGSPACE_VS_DIRECT_OVERLAP_BAND = {
     'inherits the direct grid to full precision. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-95602 (log-space evaluator validated here across the band); imp-95582 (direct half-decade grid, ' +
     'ends at the 1e12 endpoint); imp-3529 (pointwise local exponent p(N)); imp-486 (C_mb GUE-conditional); ' +
@@ -221,13 +221,13 @@ export const IMP95631_SIGMA_LOGSPACE_VS_DIRECT_OVERLAP_BAND_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp95631-honesty-gate-no-qed',
-    description: 'Cross-validation only: not rigorous, no QED, PT stays SOTA',
+    description: 'Cross-validation only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP95631_SIGMA_LOGSPACE_VS_DIRECT_OVERLAP_BAND.isRigorous === false &&
       /NO QED/.test(IMP95631_SIGMA_LOGSPACE_VS_DIRECT_OVERLAP_BAND.verdict) &&
-      /remains SOTA/.test(IMP95631_SIGMA_LOGSPACE_VS_DIRECT_OVERLAP_BAND.verdict),
+      /refereed bound is changed/i.test(IMP95631_SIGMA_LOGSPACE_VS_DIRECT_OVERLAP_BAND.verdict),
   },
 ];
 

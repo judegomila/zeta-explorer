@@ -35,7 +35,7 @@
  * imp-35853 sigma -> 0 downslope locator unchanged; derives no remainder; discharges nothing;
  * changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 /
  * imp-2643) and E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35889-e-share-decomposition-at-knees (the three-way split at the two knees this extends)
  * @see imp-35950-etrunc-ecoll-crossover-height (the E_trunc = E_coll sigma = 0.5 crossover, N ~ 3.27e9)
@@ -47,7 +47,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-3529 / imp-33582 sub-terms (identical to imp-35889 / imp-35950; no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -162,8 +162,8 @@ export const IMP35971_ETRUNC_SOLE_SURVIVOR_HEIGHT = {
     'N^(-1/2) (log-corrected). Reuses the pinned imp-3406 / imp-33582 constants and the imp-35889 / imp-35853 ' +
     'downslope locator unchanged; derives no remainder; discharges nothing; changes no bound; establishes no ' +
     'operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
-    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35889 (the three-way split at the two knees this extends); imp-35950 / imp-35968 (E_trunc = E_coll ' +
     'sigma = 0.5 crossover, N ~ 3.27e9); imp-35853 (downslope locator); imp-33582 (sigma-decay model); ' +
@@ -225,7 +225,7 @@ export const IMP35971_ETRUNC_SOLE_SURVIVOR_HEIGHT_ASSERTIONS = [
       Math.abs(sigma0p1Landmark.decadesBelowSoleSurvivor - 2.17) < 0.05,
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35971-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -237,7 +237,7 @@ export const IMP35971_ETRUNC_SOLE_SURVIVOR_HEIGHT_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

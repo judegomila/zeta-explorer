@@ -58,7 +58,7 @@
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; the operator floor is a
  *   Rayleigh UPPER bound (no operator positivity established past 0.96); RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-96845-krein-kmax5-frontier-measurement.js (fresh kmax=5 solve; measured near-feasible frontier band)
  * @see imp-96868-krein-kmax5-extprec-frontier.js (extended-precision test; binding residual precision-invariant)
@@ -66,7 +66,7 @@
  * @see imp-96956-krein-kmax5-100-interval-verify.js (interval verification attempt; COLLAPSES under rigor)
  *
  * Ticket: imp-96987 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098
@@ -135,8 +135,8 @@ export const IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX = Object.freeze({
     'band as a certified extension, and should not re-run the imp-96956 interval verification on ' +
     'the same round-cap-14 iterate; the open items are a fully-converged kmax=5 iterate at 2a=1.00 ' +
     '(untested) and a genuine multi-word-precision LP re-solve past the 1.07 wall (unavailable in ' +
-    'this environment). Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'this environment). Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96845 (kmax=5 frontier measurement); imp-96868 (extended-precision refinement); ' +
     'imp-96881 (viz-data leaf); imp-96956 (interval verification, collapses under rigor); ' +
@@ -175,11 +175,11 @@ export const IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp96987-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP96987_KMAX_DEGREE_FRONTIER_COHORT_INDEX.verdict),
   },
 ];

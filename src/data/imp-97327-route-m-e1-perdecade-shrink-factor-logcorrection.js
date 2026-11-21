@@ -60,8 +60,8 @@
  * The correct reading is the b^{-1/2} law WITH a positive 1/log b multiplicative correction (res ~ b^{-1/2}
  * (A + C log b), A~0.47, C~0.0845), so the leading exponent is -1/2 but the per-decade factor reaches 0.31623
  * only as b->infinity. This refines the imp-97291 RESULT 4 / imp-97315 "~0.33-0.35 b^{-1/2}" reading into the
- * precise finite-window law. Measurement only; no bound on Lambda moves; kappa_arith unchanged; PT Lambda
- * <= 0.2 SOTA; RH open; NO QED.
+ * precise finite-window law. Measurement only; no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (RESULT 4: absolute margin ~sqrt(b), 1-r~b^{-1/2})
  * @see imp-97315-route-m-e1-direct-exact-ratio-crosscheck.js (per-decade ~0.33-0.35 reading being refined; FP window)
@@ -171,12 +171,12 @@ export const IMP97327_VERDICT = Object.freeze({
     'whose local slope -1/2 + C/(A+C log b) predicts per-decade 0.374 -> 0.345 (matching measurement). So the ' +
     'leading exponent IS -1/2 but the finite-window per-decade factor is genuinely larger, reaching 0.31623 ' +
     'only asymptotically (C/(A+C log b) ~ 1/log b -> 0). Refines the imp-97291 RESULT 4 / imp-97315 ' +
-    '"~0.33-0.35 b^{-1/2}" reading. Measurement only; no bound on Lambda moves; kappa_arith unchanged; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '"~0.33-0.35 b^{-1/2}" reading. Measurement only; no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97327_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Dense-ladder per-decade measurement of 1-r(b): the ' +
+  'RH open; no refereed bound is changed; NO QED. Dense-ladder per-decade measurement of 1-r(b): the ' +
   'shrink factor does NOT settle at 10^{-1/2}=0.31623 -- it sits above it (~0.376 -> ~0.347) and drifts ' +
   'down, because res(b) ~ b^{-1/2}(A+C log b) is the b^{-1/2} law with a positive 1/log b correction ' +
   '(leading exponent -1/2, reaching 0.31623 only asymptotically). Measurement only; no bound moved.';
@@ -237,7 +237,7 @@ const IMP97327_ASSERTIONS = [
       IMP97327_VERDICT.logCorrectionPresent === true &&
       IMP97327_VERDICT.leadingExponentIsMinusHalf === true &&
       /NO QED/.test(IMP97327_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97327_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97327_HONEST_BANNER) &&
       /RH open/.test(IMP97327_HONEST_BANNER),
     why: 'measurement only -- the per-decade factor does not reach 0.31623 in-window (log correction to a -1/2 leading exponent); no rigorous ceiling posted, no bound moved, no QED.',
   },

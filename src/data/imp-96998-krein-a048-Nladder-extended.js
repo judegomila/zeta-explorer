@@ -48,8 +48,8 @@
  * The floors stay finite-N Rayleigh UPPER bounds (monotone decreasing in N) / positive-tail-dropped
  * LOWER bounds; no operator positivity is established. The sub-gap IMP96977_TRUE_LIMIT_UNSETTLED STAYS
  * OPEN (still pre-asymptotic, conditioning-wall-limited). Interval-rigorous certificate reach stays
- * exactly 2a <= 0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * exactly 2a <= 0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96977-krein-intermediate-rungs.js (the N=[20,28,36] triple this leaf extends; a=0.48 pinned 18.636)
  * @see imp-96994-krein-floor-limit-extrapolation.js (the sub-gap this ladder feeds; it requested imp-96998)

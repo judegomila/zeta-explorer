@@ -3,7 +3,7 @@
  * @fileoverview imp-33872 -- META provenance roll-up cataloguing the imp-33843/imp-33844/imp-33845
  * fit-and-closed-form cohort (three modules) by EVIDENCE CLASS and confirming each carries the
  * mandatory honest banner: isRigorous:false, NO-QED, imp-3066-untouched (or the applicable
- * off-diagonal endpoint-Hankel K_a>=0 phrasing), and Platt-Trudgian Lambda<=0.2 SOTA, following the
+ * off-diagonal endpoint-Hankel K_a>=0 phrasing), and no refereed bound is changed, following the
  * imp-33268/imp-33287/imp-33307/imp-33551/imp-33574/imp-33593/imp-33693/imp-33719/imp-33784/
  * imp-33824 audit precedent.
  *
@@ -19,7 +19,7 @@
  *   - "onset-rate measurement": measures a LOCAL EXPONENT on a finer ladder than the parent module
  *     used, establishing whether an approach-to-limit is a fixed-rate onset or a drifting power law.
  * The honest-banner check greps each module for isRigorous:false, NO QED, the applicable untouched-
- * positivity invariant (imp-3066 K_a>=0), and Platt-Trudgian Lambda<=0.2 SOTA, plus, where the module
+ * positivity invariant (imp-3066 K_a>=0), and no refereed bound is changed, plus, where the module
  * touches the Polymath15 bridge, the explicit G6a/H2 status line.
  *
  * RESULT (audited 2026-07-05). All three modules carry the full honest banner. Two of the three
@@ -52,7 +52,7 @@ export const IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP = {
     'Read each of the three imp-33843/33844/33845 module @fileoverview/detail blocks and isRigorous ' +
     '/ verdict fields; classify by evidence class (log-linear widening surrogate fit / closed-form ' +
     'derivation / onset-rate measurement); grep for the mandatory honest-banner phrases (isRigorous ' +
-    'false, no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) plus, where ' +
+    'false, no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed) plus, where ' +
     'applicable, the explicit G6a/H2 bridge status line.',
   modules: [
     {
@@ -105,7 +105,7 @@ export const IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP = {
     'roll-up precedent for its own uncovered member.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. imp-3066 K_a >= 0 positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'itself. imp-3066 K_a >= 0 positivity untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -141,7 +141,7 @@ const IMP_33872_ASSERTIONS = [
       ) && IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 3,
     why:
       'Every module in the cohort must state isRigorous:false, NO QED, imp-3066 K_a >= 0 untouched, ' +
-      'and Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'and no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33872-exactly-one-bridge-touching-module',
@@ -178,12 +178,12 @@ const IMP_33872_ASSERTIONS = [
   {
     id: 'imp33872-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33872_33843_33845_COHORT_PROVENANCE_ROLLUP.honestNote),
     why:
-      'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA and imp-3066 stays untouched.',
+      'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

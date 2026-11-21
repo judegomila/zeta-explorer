@@ -86,7 +86,7 @@ export const TWO_VIZ_COHORT_HEAVY_IMPORT_AUDIT = {
     'imp-95697 already exports self-executing assertions and is already registered in ' +
     'run-assertions.mjs DATA_MODULES (imp-95833); imp-95737 exports no self-executing ' +
     'assertions, so registration does not apply. No gap found, no fix required. No bound ' +
-    'change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'change; NO QED; no refereed bound is changed.',
 };
 
 export const TWO_VIZ_COHORT_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
@@ -120,9 +120,9 @@ export const TWO_VIZ_COHORT_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95854-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(TWO_VIZ_COHORT_HEAVY_IMPORT_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(TWO_VIZ_COHORT_HEAVY_IMPORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(TWO_VIZ_COHORT_HEAVY_IMPORT_AUDIT.honest),
   },
 ];
 

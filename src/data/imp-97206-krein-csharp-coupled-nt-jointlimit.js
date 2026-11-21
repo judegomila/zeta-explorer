@@ -10,8 +10,8 @@
  *
  *   MEASUREMENT ONLY. Rayleigh-Ritz floors are UPPER bounds on the true infinite-dim lambda_min; a coupled
  *   extrapolant is still a measured value, NOT a certified floor. Establishes NO operator positivity and
- *   produces NO rigorous lower bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED.
+ *   produces NO rigorous lower bound; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * WHAT WAS RUN (tmp/imp-97206-coupled-NT-jointlimit.py, reusing the imp-97183 extended-precision build).
  *   The pole-free basis phi_n(x) = (a^2-x^2)^m P_n(x/a), m=3, at a=ln3/2, mpmath dps=50 entries (past

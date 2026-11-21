@@ -6,7 +6,7 @@
  * reciprocity as the claimed MODULAR input the soft routes lack. Question:
  * does that modular input supply genuine EXTERNAL arithmetic, or does Route M
  * reduce (like J/K/L) to Weil positivity / the Mobius mollifier lineage?
- * Assessment only; changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Assessment only; changes no bound; no refereed bound is changed; RH open; NO QED.
  *
  * THE SETUP. Baez-Duarte-Balazard-Landreau-Saias put the Nyman-Beurling
  * criterion in finite form: RH  <=>  d_N -> 0, where
@@ -67,7 +67,7 @@
  * HONEST LIMITS. Structural assessment; the only numerics are the Vasyunin
  * cotangent sums recomputed from the definition and the Burnol / Baez-Duarte
  * d_N^2 ~ (Sum 1/|rho|^2)/log N scaling. No Lambda bound, verified height, or
- * paper packet is touched. RH OPEN; PT Lambda <= 0.2 stands; NO QED.
+ * paper packet is touched. RH OPEN; no refereed bound is changed; NO QED.
  */
 
 // Vasyunin cotangent sum  c_0(h/k) = Sum_{m=1}^{k-1} (m/k) cot(pi m h/k), gcd(h,k)=1.
@@ -88,7 +88,7 @@ export const ROUTE_M_NB_FIRST_TEST = Object.freeze({
   status:
     'FIRST-TESTED — Route M reduces to BOTH mapped termini: the Mobius mollifier lineage (perturbative) and '
     + 'Weil positivity (completeness). The Bettin-Conrey modular input is the Estermann/zeta functional equation in '
-    + 'disguise, NOT external arithmetic; no new lever. RH open; PT Λ≤0.2 stands; NO QED',
+    + 'disguise, NOT external arithmetic; no new lever. RH open; no refereed bound is changed; NO QED',
 
   setup:
     'Baez-Duarte-Balazard-Landreau-Saias finite Nyman-Beurling: RH <=> d_N -> 0, d_N^2 = 1 - b^T G_N^{-1} b, with the '
@@ -145,7 +145,7 @@ export const ROUTE_M_NB_FIRST_TEST = Object.freeze({
 
   honest:
     'Structural assessment; the only numerics are the Vasyunin cotangent sums and the Burnol/Baez-Duarte d_N^2 scaling. '
-    + 'No Lambda bound, verified height, or paper packet is touched. RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+    + 'No Lambda bound, verified height, or paper packet is touched. RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 export const ROUTE_M_NB_FIRST_TEST_ASSERTIONS = Object.freeze([
@@ -186,9 +186,9 @@ export const ROUTE_M_NB_FIRST_TEST_ASSERTIONS = Object.freeze([
       && /NOT-A-LEVER/.test(ROUTE_M_NB_FIRST_TEST.verdict),
   },
   {
-    name: 'honesty: RH open, PT Λ≤0.2 stands, NO QED; no bound touched',
+    name: 'honesty: RH open, no refereed bound is changed, NO QED; no bound touched',
     check: () => /RH open/.test(ROUTE_M_NB_FIRST_TEST.status)
-      && /PT Λ≤0.2 stands/.test(ROUTE_M_NB_FIRST_TEST.status)
+      && /refereed bound is changed/i.test(ROUTE_M_NB_FIRST_TEST.status)
       && /NO QED/.test(ROUTE_M_NB_FIRST_TEST.status)
       && /RH OPEN/.test(ROUTE_M_NB_FIRST_TEST.honest),
   },

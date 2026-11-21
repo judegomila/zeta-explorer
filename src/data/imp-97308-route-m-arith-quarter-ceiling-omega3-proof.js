@@ -8,7 +8,7 @@
  * (squarefree, 2 <= p < q < r prime). This leaf CLOSES that class outright: it proves both the
  * SIGN condition mu(b) Delta(b) <= 0 and the MAGNITUDE condition |Delta(b)| <= b/2 of the imp-97290
  * reduction for every distinct-prime triple, hence |E1(pqr)| < pqr/4 for ALL such b. No bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  *   Notation as imp-97133 / imp-97208 / imp-97265 / imp-97290: E1(b) = L1(b) - phi(b) b((1/2)log b - 1/4),
  *   L1(b) = Sum_{a in R_b} a log a, R_b = coprime residues, omega(b) = number of distinct primes,
@@ -75,7 +75,7 @@
  * multi-level majorant of the alternating sum (the triangle bound over-charges for many-small-prime b,
  * exactly where imp-97269 measured |E1|/(b/4) -> 0). VERDICT: FULL for the squarefree omega = 3 class
  * (the ticket target), honest PARTIAL overall. kappa_arith unchanged; the cotangent first moment
- * (imp-97097) stays the separate open leaf; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * (imp-97097) stays the separate open leaf; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js (omega=2 semiprime ceiling; the class this lifts)
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (omega<=1 prime ceiling)
@@ -199,7 +199,7 @@ export const IMP97308_VERDICT = Object.freeze({
     'and g(pqr) < 0.0397 pqr. This lifts the imp-97290 semiprime ceiling to the first three-prime class, so the ' +
     'proved ladder is now omega in {0,1,2,3}. RESIDUAL: non-squarefree omega=3 (mu=0, reduction |Delta|<=b/4) and ' +
     'omega>=4 (multi-level alternating majorant). kappa_arith unchanged; the cotangent first moment (imp-97097) ' +
-    'stays open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'stays open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97308_SUBGAP = Object.freeze({
@@ -216,7 +216,7 @@ export const IMP97308_SUBGAP = Object.freeze({
 });
 
 export const IMP97308_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Proof lifting the imp-97290 uniform ceiling |E1(b)| <= b/4 from ' +
+  'RH open; no refereed bound is changed; NO QED. Proof lifting the imp-97290 uniform ceiling |E1(b)| <= b/4 from ' +
   'the semiprime class omega=2 to the three-distinct-prime class omega=3: proves both the SIGN Delta(pqr) >= g(pqr) > 0 ' +
   'and the MAGNITUDE 0 < Delta(pqr) < pqr/2 of the reduction, hence |E1(pqr)| < pqr/4 for EVERY squarefree triple. ' +
   'The uniform ceiling for non-squarefree omega=3 and for omega >= 4 stays a named residual; the cotangent first ' +
@@ -326,7 +326,7 @@ const IMP97308_ASSERTIONS = [
       IMP97308_VERDICT.uniformCeilingProved === false &&
       /omega-ge-4/.test(IMP97308_SUBGAP.id) &&
       /NO QED/.test(IMP97308_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97308_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97308_HONEST_BANNER) &&
       /RH open/.test(IMP97308_HONEST_BANNER),
     why: 'proof / full for the squarefree omega=3 class, honest partial overall -- proves the class ceiling, leaves non-squarefree omega=3 and omega>=4 open; no bound moved, no full uniform ceiling, no QED.',
   },

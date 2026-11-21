@@ -143,7 +143,7 @@
  * (9.4x safety, down from 16x) for +5e-8 of bracket width - recorded so
  * successors do not respend it; the honest lever is the family root
  * itself, not the last 8.8e-8. (e) Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * Import-light (no heavy bundle, no imports). The batteries are
  * cross-checks; the theorem is the displayed certificate.
@@ -506,7 +506,7 @@ export const IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM DW is unconditional: the witness is exhibited with exact dyadic positions (in-class membership is exact interval arithmetic: 2 - 2^-30 in [1, 2), 4 and 8 - 2^-30 in [4, 8), 16 in [16, 32); blocks all even - parity-pure; TWO packets in one block is expressly in-class per the THEOREM SA/HS/FP conventions), the certificate is sign-correct on every term (added terms lower-bounded by N = 19 odd truncations minus slack, the subtracted intra-block term upper-bounded by the N = 20 even truncation plus slack, all arguments < 21), the diagonal is exact integer arithmetic, and the margin floor 1622 dominates the < 1e-4 float-summation budget. The same-block NEGATIVE sign is the Lemma L2 cluster identity, audited in-module against the imp-95136 ground-truth form on 3000 seeded mixed-rate multi-packet draws (worst 1e-9 relative) and cross-checked by two independent E routes at the witness. Scope: parity-pure model family; witness-side step - THEOREM HS carried, not re-proved; the class/one-per-block separation is certified-vs-MEASURED (the landmark 0.2320720364 is a float literal, reproduced by two modules to 13 digits, and the certified subclass bracket [0.23206, 0.23208) overlaps the class floor); geometry optimality, rate pinning, and the family roots are measured batteries and literals, not lemmas; the imp-95140-subgap-displacement-credit leg stays OPEN (reoriented, not closed); parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM DW is unconditional: the witness is exhibited with exact dyadic positions (in-class membership is exact interval arithmetic: 2 - 2^-30 in [1, 2), 4 and 8 - 2^-30 in [4, 8), 16 in [16, 32); blocks all even - parity-pure; TWO packets in one block is expressly in-class per the THEOREM SA/HS/FP conventions), the certificate is sign-correct on every term (added terms lower-bounded by N = 19 odd truncations minus slack, the subtracted intra-block term upper-bounded by the N = 20 even truncation plus slack, all arguments < 21), the diagonal is exact integer arithmetic, and the margin floor 1622 dominates the < 1e-4 float-summation budget. The same-block NEGATIVE sign is the Lemma L2 cluster identity, audited in-module against the imp-95136 ground-truth form on 3000 seeded mixed-rate multi-packet draws (worst 1e-9 relative) and cross-checked by two independent E routes at the witness. Scope: parity-pure model family; witness-side step - THEOREM HS carried, not re-proved; the class/one-per-block separation is certified-vs-MEASURED (the landmark 0.2320720364 is a float literal, reproduced by two modules to 13 digits, and the certified subclass bracket [0.23206, 0.23208) overlaps the class floor); geometry optimality, rate pinning, and the family roots are measured batteries and literals, not lemmas; the imp-95140-subgap-displacement-credit leg stays OPEN (reoriented, not closed); parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -653,11 +653,11 @@ export const IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE_ASSERTIONS = [
   {
     id: "imp95143-honesty-gate",
     description:
-      "the verdict is scoped: witness-side only, ceiling carried, separation certified-vs-MEASURED and stated, subclass bracket overlap stated, imp-95141 color correction scoped to measured content, leg OPEN (reoriented not closed), parent OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: witness-side only, ceiling carried, separation certified-vs-MEASURED and stated, subclass bracket overlap stated, imp-95141 color correction scoped to measured content, leg OPEN (reoriented not closed), parent OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.promotesBound === false &&
       /NO QED/.test(IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.rigorScope) &&
-      /remains SOTA/.test(IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.rigorScope) &&
       /certified-vs-MEASURED/.test(IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.rigorScope) &&
       /reoriented, not closed/.test(IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.rigorScope) &&
       /overlaps the class floor/.test(IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE.rigorScope) &&

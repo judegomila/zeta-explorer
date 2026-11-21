@@ -49,7 +49,7 @@
  * MEASUREMENT ONLY. Convergence diagnostic on the inherited surrogate, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34956-pinned-product-window-sensitivity (attributed the ~1.6e-7 residual to fixed-window noise -- kernel reused here)
  * @see imp-34924-eflow-pinned-product-derivation (derived g* = m s* as algebraically m-invariant)
@@ -238,7 +238,7 @@ export const IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR = {
     'is irreducible by tolerance refinement alone. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'MEASURES that tightening the imp-34956 fixed-window bisection tolerance drives the m-ramp-invariance residual ' +
     'to an IRREDUCIBLE floor ~3.69e-7 (plateau from ~52 iters, ~9 orders above the ~1e-16 FP floor), NOT toward ' +
@@ -304,15 +304,15 @@ export const IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR_ASSERTIONS = [
     holds: () => IRREDUCIBLE_FLOOR / IMP34924_REPORTED_RESIDUAL > 0.5 && IRREDUCIBLE_FLOOR / IMP34924_REPORTED_RESIDUAL < 5,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35010-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR.isRigorous === false &&
       IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR.farTailExponent === 0.5 &&
       typeof IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR.subGap === 'string' &&
       /NO QED/.test(IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP35010_RAMP_INVARIANCE_BISECTION_TOLERANCE_FLOOR.verdict),
   },
 ];
 

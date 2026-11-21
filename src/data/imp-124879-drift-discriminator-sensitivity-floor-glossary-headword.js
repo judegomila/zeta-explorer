@@ -38,7 +38,7 @@
  *   flip under raised precision)
  *
  * Ticket: imp-124879 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The drift-discriminator sensitivity-floor headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -70,8 +70,8 @@ const DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_HEADWORD = Object.freeze({
     '(src/data/imp-124836-invariant-product-discriminator-general-test.js), which generalizes the ' +
     'imp-124811 special case (tau ~ 3.3e-14 swamped by R ~ 2.3e-12) and is cross-validated against ' +
     'the imp-124828 extended-precision regime flip. Naming / glossary headword only; supplies no ' +
-    'new bound; the C_mb GUE-conditional (imp-486) is untouched; RH open; Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA; NO QED.',
+    'new bound; the C_mb GUE-conditional (imp-486) is untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,7 +91,7 @@ export const IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD =
     'D_min = max(R/|X|_max, tau), and the round-off-limited (valid) vs truncation-limited ' +
     '(ambiguous) regime split confirmed directly by the imp-124828 precision-driven regime flip. ' +
     'No bound moved; the C_mb GUE-conditional and all pinned surrogate constants untouched; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-124836 (the general discriminator and D_min formula this glosses); imp-124811 (the ' +
     'special-case invariant product this generalizes); imp-124828 (the extended-precision regime ' +
@@ -119,11 +119,11 @@ export const IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD_A
   },
   {
     id: 'imp124879-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124836.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124836.',
     holds: () =>
       IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP124879_DRIFT_DISCRIMINATOR_SENSITIVITY_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-124836',
   },
 ];

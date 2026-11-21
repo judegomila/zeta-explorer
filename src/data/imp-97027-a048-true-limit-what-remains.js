@@ -49,7 +49,7 @@
  *
  * SCOPE. Pure content synthesis; every cited number is reproduced verbatim from its source module; no
  * new computation, no bound moved. The interval-rigorous certificate reach stays exactly 2a <= 0.96;
- * operator positivity for 0.96 < 2a < ln3 stays OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH
+ * operator positivity for 0.96 < 2a < ln3 stays OPEN; no refereed bound is changed; RH
  * open; NO QED.
  *
  * @see imp-96977-krein-intermediate-rungs.js (pins the a=0.48 endpoint at N=36; raises IMP96977_TRUE_LIMIT_UNSETTLED)

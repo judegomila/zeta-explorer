@@ -9,7 +9,7 @@
  *   total MEASURED) for a stacked-bar or two-series comparison. Presentation only: every
  *   literal is either imported verbatim from the two source modules or transcribed from
  *   their own JSDoc-documented per-b readings, no re-derivation. kappa > 0 is measured,
- *   not proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   not proved; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (source: exact kappa_arith)
  * @see imp-97097-route-m-cotangent-first-moment-reciprocity.js (source: measured kappa_cot)
@@ -74,7 +74,7 @@ export const IMP97130_VERDICT = Object.freeze({
     'the arithmetic part of the Route M first-moment kappa is EXACT ((3/2)C-3/8=0.5704960511...); ' +
     'the cotangent part is MEASURED (~+0.121, from an open varying-modulus Bettin-Conrey mean value); ' +
     'their sum kappa~0.69>0 is therefore MEASURED, not proved. Presentation only; no new Lambda bound; ' +
-    'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export default IMP97130_VERDICT;
@@ -126,10 +126,10 @@ const IMP97130_ASSERTIONS = [
       IMP97130_VERDICT.anyBoundMoved === false &&
       IMP97130_VERDICT.kappaPositive === true &&
       /MEASURED, not proved/.test(IMP97130_VERDICT.note) &&
-      /remains SOTA/.test(IMP97130_VERDICT.note) &&
+      /refereed bound is changed/i.test(IMP97130_VERDICT.note) &&
       /RH open/.test(IMP97130_VERDICT.note) &&
       /NO QED/.test(IMP97130_VERDICT.note),
-    why: 'presentation-only leaf: no bound moved, kappa>0 explicitly framed as measured not proved, PT SOTA line and NO QED present.',
+    why: 'presentation-only leaf: no bound moved, kappa>0 explicitly framed as measured not proved, no-refereed-bound-change line and NO QED present.',
   },
 ];
 

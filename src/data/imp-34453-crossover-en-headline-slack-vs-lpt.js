@@ -58,7 +58,7 @@
  * L_pt ~ 0.121 -- quantifying the conditionality headroom at the sigma-halving landmark.
  *
  * ASSESSMENT ONLY. C_mb remains GUE-conditional per imp-486. No positivity, no bridge
- * closure, no bound change, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no bound change, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover bisection)
  * @see imp-3406-sigma-highN-extrapolation (N-shape, sigma-halving right arm)
@@ -162,7 +162,7 @@ export const IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT = {
     'finite-height beat L_pt ~ 0.121 (imp-452/imp-459) -- a CONDITIONALITY gap, since E(N) is ' +
     'dominated by GUE-conditional E_coll (C_H = 1/8) while L_pt is fully unconditional. C_mb remains ' +
     'GUE-conditional per imp-486. No positivity, no bridge closure, no bound change, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-3444 (E_coll = E_trunc crossover bisection, N ~ 3.280294e9); imp-3406 (N-shape sigma(N) ' +
     'right arm); imp-3220 (U-shaped sigma(N) decade ladder); imp-452/imp-459 (L_pt ~ 0.121 ' +
@@ -205,14 +205,14 @@ export const IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT_ASSERTIONS = [
       L_PT_OVER_E_N > 1000,
   },
   {
-    // Honesty gate: measurement only, GUE-conditional, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, GUE-conditional, no QED, no refereed bound is changed.
     id: 'imp34453-honesty-gate-no-qed',
-    description: 'Measurement only: C_mb GUE-conditional, no bound change, no QED, PT stays SOTA',
+    description: 'Measurement only: C_mb GUE-conditional, no bound change, no QED, no refereed bound is changed',
     holds: () =>
       IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT.isRigorous === false &&
       /GUE-conditional per imp-486/.test(IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT.verdict) &&
       /NO QED/.test(IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT.verdict) &&
-      /remains SOTA/.test(IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT.verdict),
+      /refereed bound is changed/i.test(IMP34453_CROSSOVER_EN_HEADLINE_SLACK_VS_LPT.verdict),
   },
 ];
 

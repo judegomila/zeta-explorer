@@ -28,7 +28,7 @@
  *
  * SCOPE. Read-only audit only. No source file required correction (unlike imp-35484, which
  * found and fixed three orphans). Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35484-imp35410x-registration-reachability-audit (the audit method this ticket repeats)
  * @see imp-35472-r1s-baked-constants-reconstruction
@@ -105,7 +105,7 @@ export const IMP35545_REGISTRATION_REACHABILITY_AUDIT = {
     'visualizations-index.js/App.jsx for all six imp-35472..imp-35477 modules. Result: zero ' +
     'unwired assertions arrays, zero unrouted viz-data modules. No source file required ' +
     'correction. Changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation: 'imp-35484 (prior audit method, found and fixed three imp-34987-class orphans).',
 };
 
@@ -135,11 +135,11 @@ export const IMP35545_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35545-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35545_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35545_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35545_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35545_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

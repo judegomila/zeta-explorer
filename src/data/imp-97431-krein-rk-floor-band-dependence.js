@@ -10,8 +10,8 @@
  *
  *   Measurement only. Establishes NO operator positivity (at ln3 or anywhere), proves no concentration lower
  *   bound, moves no bound; a smaller-band positivity would not lower the binding reach in any case (pole-free
- *   Weil positivity binds at 2a = ln3). Interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA; RH open; NO QED.
+ *   Weil positivity binds at 2a = ln3). Interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * THE KEY STRUCTURAL FACT -- THE NEGATIVE AREA IS a-INDEPENDENT. The symbol
  *       sigma_2(t) = (t^2 + 1/4)^2 w_1(t),   w_1(t) = 2 theta prime(t) - sqrt2 ln2 cos(t ln2)
@@ -58,7 +58,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2, w_1; pole-free Weil positivity; reach 2a<=0.96)
  *
  * Ticket: imp-97431 (numerical, low, opus-4-8). Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

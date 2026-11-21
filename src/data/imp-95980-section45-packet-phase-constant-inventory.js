@@ -84,7 +84,7 @@
  * imp-95961 ingredient (L) gap at the SOURCE level: c_h stays available only
  * through the self-consistent identification depth = seam offset, which is
  * leg (i) itself. The sub-gap stays OPEN; no bound moves; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * HONEST LIMITS. (a) ASSESSMENT / SOURCE-INVENTORY only. (b) The inventory
  * of present constants is read directly from the committed imp-95336
@@ -221,7 +221,7 @@ export const IMP95980_SECTION45_PACKET_PHASE_CONSTANT_INVENTORY = {
     'd2Phi/dt2 (c) = 0), is not present anywhere in the committed imp-95336 ' +
     'envelopeFacts / imp-95917 buildG data. This confirms the imp-95961 ' +
     'ingredient (L) gap at the SOURCE level. The sub-gap stays OPEN; no ' +
-    'bound moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound moves; NO QED; no refereed bound is changed.',
   rigorScope:
     'The inventory of present constants is read directly from the committed ' +
     'imp-95336 envelopeFacts and imp-95917 buildG text; the absence claim is ' +
@@ -278,7 +278,7 @@ export const IMP95980_ASSERTIONS = [
     description:
       'the verdict carries the honest scope: SOURCE-INVENTORY / PRECISE ' +
       'ABSENCE RECORD, constants ABSENT, present constants location-blind, ' +
-      'sub-gap STILL OPEN, no bound, NO QED, SOTA preserved',
+      'sub-gap STILL OPEN, no bound, NO QED, no refereed bound is changed',
     holds: () =>
       /honest PARTIAL/.test(
         IMP95980_SECTION45_PACKET_PHASE_CONSTANT_INVENTORY.verdict,
@@ -293,7 +293,7 @@ export const IMP95980_ASSERTIONS = [
       /NO QED/.test(
         IMP95980_SECTION45_PACKET_PHASE_CONSTANT_INVENTORY.verdict,
       ) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95980_SECTION45_PACKET_PHASE_CONSTANT_INVENTORY.verdict,
       ),
   },

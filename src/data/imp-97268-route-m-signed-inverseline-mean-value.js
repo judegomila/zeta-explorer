@@ -9,7 +9,7 @@
  * structural identity that pins EXACTLY why the signed first moment is non-elementary and shows the
  * obstruction it hits is the SAME inverse-map equidistribution transfer already binding the absolute
  * mean-square route (imp-97225/imp-97267), not a new or harder one. c_s ~ 0.0795 stays MEASURED; no
- * bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97097/imp-97116/imp-97180/imp-97204. V(h,k) = Sum_{m=1}^{k-1} frac(m h/k) cot(pi m/k).
  * The operative varying-modulus half is S(b) = Sum_{a=2,(a,b)=1}^{b-1} V(b,a); the imp-97116 R1 identity
@@ -90,7 +90,7 @@
  * rather than exceeding it -- a downgrade of the imp-97204 "strictly harder" framing. The non-elementary
  * obstruction is NOT broken: the inverse-line equidistribution input stays the missing ingredient.
  * Measured c_s ~ 0.0795 stays measured; positivity is unaffected (absolute program dominates via
- * |S| <= A). No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * |S| <= A). No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97268-signed-inverseline-equidistribution -- the first (odd) moment
  * inverse-map equidistribution transfer for Sum_a V(b mod a, a), shared with the imp-97267 mean-square
@@ -186,7 +186,7 @@ export const IMP97268_VERDICT = Object.freeze({
     'absolute mean-square route (imp-97225/imp-97267), so the signed mean value SHARES its obstruction ' +
     'rather than exceeding it (a downgrade of the imp-97204 "strictly harder" framing). The ' +
     'non-elementary obstruction is NOT broken. Measured c_s ~ 0.0795 stays measured; positivity is ' +
-    'unaffected (|S| <= A). No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'unaffected (|S| <= A). No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97268_SUBGAP = Object.freeze({
@@ -202,7 +202,7 @@ export const IMP97268_SUBGAP = Object.freeze({
 });
 
 export const IMP97268_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Attempt + partial only: the direct signed ' +
+  'RH open; no refereed bound is changed; NO QED. Attempt + partial only: the direct signed ' +
   'inverse-line mean value is NOT evaluated and the direct signed bound is NOT proved. Proved (elementary): ' +
   'V(.,a) is exactly odd under h -> a-h, so the full-residue signed first moment T(a) = 0 at every modulus, ' +
   'and S(b) is exactly a Kloosterman-selected slice of this zero-mean family. Assessed: a direct signed ' +
@@ -285,7 +285,7 @@ const IMP97268_ASSERTIONS = [
       IMP97268_VERDICT.qed === false &&
       /signed-inverseline-equidistribution/.test(IMP97268_SUBGAP.id) &&
       /NO QED/.test(IMP97268_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97268_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97268_HONEST_BANNER) &&
       /RH open/.test(IMP97268_HONEST_BANNER),
     why: 'attempt + partial: the direct signed bound is not proved; the leaf adds the odd symmetry / zero full-moment / correlation reduction and assesses the obstruction as shared with the mean square (not harder), no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

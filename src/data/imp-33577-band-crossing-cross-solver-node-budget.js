@@ -75,7 +75,7 @@
  *   graded failure is rule-specific, not rule-invariant -- not the exact 385/513 counts. The NPHI = 10
  *   Phi-series truncation is inherited. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33560-deep-tail-graded-vs-cc-cross-solver-node-budget.js (the in-band CC cross-solver this extends)
  *   @see imp-33557-band-crossing-min-budget.js (the graded band-conditional minimum this cross-solves)
@@ -320,7 +320,7 @@ const verdict =
       'REAL-CROSS-SOLVER-REACHABLE-OBJECT-AT-n=596;-WHAT-FAILS-IS-THE-GRADED-RULE-ON-THE-<=4000-NODE-LADDER,-NOT-A(tau*).-' +
       'ACCURACY/RULE-DESIGN-CROSS-SOLVER-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-NO-LITERAL-PATCHED;-imp-3685/imp-3849/' +
       'imp-33213/imp-33316/imp-33539/imp-33557-INTACT;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33577_BAND_CROSSING_CROSS_SOLVER_NODE_BUDGET = Object.freeze({
@@ -351,7 +351,7 @@ export const IMP33577_BAND_CROSSING_CROSS_SOLVER_NODE_BUDGET = Object.freeze({
     'READING-AT-n=596. This CONFIRMS (reproduces verbatim) the imp-33557 graded band-conditional minInBandNodes ' +
     '(200/~500/Infinity) but REFINES its interpretation. ACCURACY/RULE-DESIGN CROSS-SOLVER MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; no literal patched; imp-3066 untouched; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -447,7 +447,7 @@ export const IMP33577_BAND_CROSSING_CROSS_SOLVER_NODE_BUDGET = Object.freeze({
       'smallest-clearing-grid metric (CC clears at a few-hundred-node budget at every band-crossing rung, graded ' +
       'clears at n=495/510 but not n=596 on the <= 4000-node ladder) and the QUALITATIVE rule-specific-not-rule-' +
       'invariant conclusion, not the exact 385/513 node counts or the ~0.87 ULP CC floor.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -499,7 +499,7 @@ export const IMP33577_BAND_CROSSING_CROSS_SOLVER_NODE_BUDGET_ASSERTIONS = [
   {
     id: 'imp33577-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-solver measurement only, not a certified bound, no literal ' +
-         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, PT 0.2 SOTA.',
+         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33577_BAND_CROSSING_CROSS_SOLVER_NODE_BUDGET.honestCaveat;
       return (
@@ -511,7 +511,7 @@ export const IMP33577_BAND_CROSSING_CROSS_SOLVER_NODE_BUDGET_ASSERTIONS = [
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

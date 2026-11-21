@@ -15,7 +15,7 @@
  *
  * No re-derivation: every value plotted is copied verbatim from
  * IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.rows. Presentation only; changes no bound;
- * establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96449-solver-path-spread-full-range.js (the source object this reshapes)
  * @see imp-96427-knee-crossover-solver-path-spread (knee-only precursor measurement)
@@ -47,7 +47,7 @@ export const IMP96498_LANDMARKS = Object.freeze({
 });
 
 export const IMP96498_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every point plotted here '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every point plotted here '
   + 'is copied verbatim from the imp-96449 baked rows; the only computation in this module is the '
   + 'log10 axis reshaping. Both curves are solver-path / count-model diagnostics on the inherited '
   + 'RvM main-term height inversion, not RH evidence: the crossover at N ~ 1e' + SRC.ratioCrossLog10N

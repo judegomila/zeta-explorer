@@ -64,8 +64,8 @@ export const IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT = {
     'stencil noise-floor crossover headword, its truncation-vs-round-off mechanism, and the ' +
     'pinned |E_CF|_crit/sigma_crit values in full. This module records the duplicate-ticket ' +
     'finding and pins a permanent regression guard confirming the existing headword stays ' +
-    'present and consistent. Changes no bound; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'present and consistent. Changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -104,11 +104,11 @@ export const IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp124818-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP124818_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
   },
 ];
 

@@ -64,8 +64,7 @@
  * NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34508-direct-e23-e24-margin-confirmation (the e=24 2^-53 quantization + open sub-gap resolved here)
  * @see imp-34472-margin-shrinkage-ulp-floor-extrapolation (the margin-shrinkage extrapolation)
@@ -185,7 +184,7 @@ export const IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34508 (the e=24 2^-53 quantization + open sub-gap resolved here); imp-34472 (the margin-shrinkage ' +
     'extrapolation); imp-34411 (source of the operator + marginLadder); imp-486 (C_mb GUE-conditional); ' +
@@ -218,14 +217,14 @@ export const IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR_ASSERTIONS = [
     holds: () => RUNG_DECAY_4X && ALL_RUNGS_BELOW_FLOOR,
   },
   {
-    // Honesty gate: higher-effective-precision measurement only, isRigorous false, resolves the sub-gap, no QED, PT SOTA.
+    // Honesty gate: higher-effective-precision measurement only, isRigorous false, resolves the sub-gap, no QED, no refereed bound is changed.
     id: 'imp34524-honesty-gate-no-qed',
-    description: 'Higher-effective-precision measurement only: isRigorous false, RESOLVES SUB-GAP-imp-34508-continuum-margin-at-ulp-floor (BELOW the floor), no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
+    description: 'Higher-effective-precision measurement only: isRigorous false, RESOLVES SUB-GAP-imp-34508-continuum-margin-at-ulp-floor (BELOW the floor), no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
     holds: () =>
       IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.isRigorous === false &&
       /SUB-GAP-imp-34508-continuum-margin-at-ulp-floor/.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict) &&
       /NO QED/.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR.verdict),

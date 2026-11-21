@@ -21,7 +21,7 @@
  * MEASUREMENT ONLY. Certifies no derivative floor; builds no differentiated enclosure;
  * produces no numeric M_prime; verifies no M_prime > 0; instantiates no interval; changes
  * no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * RE-WEIGHTED (DIFFERENTIATED) SUM
  * -----------------------------------------------------------------------------
@@ -74,7 +74,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35808) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -296,7 +296,7 @@ export const IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST = {
     'constraint for the differentiated enclosure; the D1 re-weighting costs one bounded log-frequency factor. ' +
     'Certifies no derivative floor; builds no differentiated enclosure; produces no numeric M_prime; verifies no ' +
     'M_prime > 0; instantiates no interval; changes no bound; the derivative floor stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35808 (D1 log-frequency re-weighting; "times ~w" model this measurement tests; D2 independent cap C_t ' +
     'prime); imp-35812 (naive/pairwise/Kahan machinery reused verbatim); imp-35761 (undifferentiated N*eps ' +
@@ -347,16 +347,16 @@ export const IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST_ASSERTIONS = [
       IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.measuredAtTPT.differentiatedVsDiffCeilingOrders > 8,
   },
   {
-    // Honesty gate: measurement only; no derivative floor; greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; no derivative floor; greenfield; no QED; no refereed bound is changed.
     id: 'imp35873-honesty-gate',
-    description: 'Measurement only; certifies no derivative floor; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; certifies no derivative floor; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /times ~w/.test(IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.conclusion.timesWConfirmed) &&
       /GREENFIELD/.test(IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.verdict) &&
-      /remains SOTA/.test(IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.verdict),
+      /refereed bound is changed/i.test(IMP35873_DIFFERENTIATED_SUM_REWEIGHTED_ROUNDING_COST.verdict),
   },
 ];
 

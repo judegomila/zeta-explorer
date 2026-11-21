@@ -62,7 +62,7 @@
  * is untouched). The imp-34085 ratio and the two convergence surrogates are descriptive, not derived; the
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34085-trough-peak-ratio-convergence (the |trough|/|peak| ratio sequence fit here)
  * @see imp-34129-widening-slope-drift-convergence-fit (the exp-vs-power convergence-fit method reused; the
@@ -264,7 +264,7 @@ export const IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT = {
     'descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34085 (the |trough|/|peak| ratio sequence fit here); imp-34129 (the exp-vs-power ' +
     'convergence-fit method reused, and the sibling widening-slope drift that DID converge); imp-34022 ' +
@@ -330,14 +330,14 @@ export const IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT_ASSERTIONS = [
       ratioConverges === false,
   },
   {
-    // Honesty gate: fit only, convergence refuted, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: fit only, convergence refuted, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34214-honesty-gate-no-qed',
-    description: 'Fit only: ratioConverges false, isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Fit only: ratioConverges false, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT.ratioConverges === false &&
       IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT.isRigorous === false &&
       /NO QED/.test(IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT.verdict) &&
-      /remains SOTA/.test(IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT.verdict),
   },
 ];

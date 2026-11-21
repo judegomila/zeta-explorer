@@ -70,7 +70,7 @@
  * (imp-96562), and now (iii) no mean-field / rank-one / averaged-symbol prediction. A
  * rigorous OR heuristic pin still requires a genuine multiplicative-Toeplitz /
  * Dirichlet-Bohr spectral-edge asymptotic for an unbounded, non-rank-one operator, which
- * is not available. Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA;
+ * is not available. Changes no bound; no operator positivity; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (localizes IMP96562_SUBGAP)
@@ -188,7 +188,7 @@ export const IMP96586_VERDICT = Object.freeze({
     'averaged-symbol prediction. A pin (rigorous or heuristic) still needs a genuine ' +
     'multiplicative-Toeplitz / Dirichlet-Bohr spectral-edge asymptotic for an unbounded, ' +
     'non-rank-one operator, not available. Changes no bound; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96586_SUBGAP = Object.freeze({
@@ -204,7 +204,7 @@ export const IMP96586_SUBGAP = Object.freeze({
 });
 
 export const IMP96586_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Heuristic assessment only: the mean-field ' +
+  'RH open; no refereed bound is changed; NO QED. Heuristic assessment only: the mean-field ' +
   'proxies are reproducible peak-row (k=1) sums on the same exact Vasyunin V-table as ' +
   'imp-96105 / imp-96443 (tmp/imp-96586-meanfield.py); no rigor is claimed for any proxy, no ' +
   'bound is moved, and no operator positivity is established. The measured 0.3526 fit stands ' +
@@ -251,7 +251,7 @@ const IMP96586_ASSERTIONS = [
       IMP96586_VERDICT.meanFieldPredictsCoefficient === false &&
       IMP96586_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96586_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96586_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96586_HONEST_BANNER) &&
       /RH open/.test(IMP96586_HONEST_BANNER) &&
       /collective-not-meanfield/.test(IMP96586_SUBGAP.id),
     why: 'heuristic assessment only: mean-field does not predict the coefficient, no bound moved, and the honesty markers plus the sharpened collective sub-gap are present.',

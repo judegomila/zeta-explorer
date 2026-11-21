@@ -29,8 +29,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96569 measurement and its headline figures for
  *   quick reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves
- *   no bound. Measurement/projection only, NOT an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   no bound. Measurement/projection only, NOT an RH bound; NO QED. No refereed bound is changed.
  *
  * @see imp-96569-route-m-window-reach-projection.js (source: the reach projection this glosses)
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (plateau 0.984564, sigmas)
@@ -38,7 +37,7 @@
  * @see imp-96436-route-m-ratio-plateau-glossary-headword.js (companion headword for imp-96105)
  *
  * Ticket: imp-96601 (content, sonnet-4-6, sonnet). Documentation only; establishes nothing; NO
- * QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * QED; no refereed bound is changed.
  */
 
 // The Route-M reach-verdict headword, baked verbatim (no re-import).
@@ -83,8 +82,8 @@ export const IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD = Object.freeze({
     'N ~ 2.7e5 (~1.4 orders beyond the N ~ 9916 ceiling) and a 3-sigma decision needs N ~ 1.6e7 ' +
     '(~3.2 orders beyond). The model-free floor (gap 0.0154 is only ~1.24x the per-rung scatter) ' +
     'is decisive on its own. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'measurement/projection only, NOT an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'measurement/projection only, NOT an RH bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96569 (reach projection and headline figures); imp-96487 (plateau centerline 0.984564 ' +
     'and fluctuation scales); imp-96352 (compute ceiling N ~ 9916); imp-96436 (companion ' +
@@ -111,11 +110,11 @@ export const IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96601-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD.verdict) &&
       IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD.glosses === 'imp-96569' &&
       IMP96601_ROUTE_M_REACH_VERDICT_GLOSSARY_HEADWORD.scopes === 'imp-96487',
   },

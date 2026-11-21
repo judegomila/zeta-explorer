@@ -51,8 +51,8 @@ export const IMP124796_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every row is reused verbatim from imp-97640 exports (a measurement, not a '
     + 'derivation), relabeled for a "q vs height" chart plus the two 1/log^2 and 1/log^3 scaled-column '
-    + 'overlays. No new computation. MCM stays refuted from omega=11; no bound moves; PT Lambda <= 0.2 '
-    + 'remains SOTA; RH open; NO QED.',
+    + 'overlays. No new computation. MCM stays refuted from omega=11; no bound moves; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

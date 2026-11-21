@@ -10,7 +10,7 @@
 // records WHAT the residual actually is. This module measures kEnd_bisected - kEnd* explicitly, so the
 // two-path agreement the gate presumes is quantified in a single published literal.
 //
-// MEASUREMENT ONLY -- no new derivation, no bound change, NO QED. Platt-Trudgian Lambda<=0.2 stays SOTA.
+// MEASUREMENT ONLY -- no new derivation, no bound change, NO QED. No refereed bound is changed.
 //
 // @see imp-34302-m2-ceiling-cohort-canonical-value-gate.js (asserts agreement <1e-2, never tabulates it)
 // @see imp-34127-m2-residual-signchange-ceiling-closed-form.js (own bisection kEnd_bisected, Part B)
@@ -54,13 +54,13 @@ export const IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL = Object.freeze({
     'MEASURED: the two independent code paths for the M2 sign-change ceiling agree to residual -5.0e-5 ' +
     '(|.|<=1.0e-4 including quantization), a two-path confirmation of the canonical kEnd*~21.28095. ' +
     'No bound changed; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
 
   honest:
     'MEASUREMENT-ONLY -- tabulates the difference between two already-published bisection literals; adds ' +
     'no new derivation and changes no bound. Both paths are surrogate-model estimator readings (the ' +
     'crossing is a 2pt-vs-5pt discretization artifact per imp-34127, not an analytic ceiling). ' +
-    'Platt-Trudgian Lambda<=0.2 stays the rigorous SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL_ASSERTIONS = [
@@ -91,11 +91,11 @@ export const IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL_ASSERTIONS = [
   },
   {
     id: 'imp-34314-measurement-only-honest',
-    description: 'explicitly MEASUREMENT-ONLY, NO QED, PT Lambda<=0.2 stays SOTA',
+    description: 'explicitly MEASUREMENT-ONLY, NO QED, no refereed bound is changed',
     holds: () => /MEASUREMENT-ONLY/.test(IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.honest)
-      && /Lambda<=0.2 stays the rigorous SOTA/.test(IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.honest)
+      && /refereed bound is changed/i.test(IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.honest)
       && /NO QED/.test(IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.verdict)
-      && /Lambda<=0.2 remains the rigorous SOTA/.test(IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.verdict),
+      && /refereed bound is changed/i.test(IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.verdict),
   },
 ];
 

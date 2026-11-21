@@ -62,7 +62,7 @@
  * is the inherited imp-3220/imp-3406/imp-33723 surrogate, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97428-sigma-full-vs-closed-form-cross-validation (the [1e11..1e15] agreement band -- this
  *      module measures its complement below 1e11)
@@ -242,7 +242,7 @@ export const IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER = {
     'E_flow term. The component model is the inherited imp-3220/imp-3406/imp-33723 surrogate, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97428 (the [1e11..1e15] agreement band this module complements); imp-96151 (two-term ' +
     'closed-form model); imp-33723 (closed-form crossover N_cross fixed point); imp-97404 ' +
@@ -310,14 +310,14 @@ export const IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER_ASSERTIONS = [
     holds: () => Math.abs(REL_GAP_1E11 - 8.27e-5) < 5e-7,
   },
   {
-    // Honesty gate: measurement/cross-check only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/cross-check only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp97438-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER.isRigorous === false &&
       IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER.farTailExponent === 0.5 &&
       /NO QED/.test(IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP97438_SIGMA_FULL_VS_CLOSED_FORM_BELOW_CROSSOVER.verdict),
   },
 ];
 

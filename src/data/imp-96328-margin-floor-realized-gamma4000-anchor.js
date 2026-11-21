@@ -55,8 +55,7 @@
  * (0.3845 at T=4000); the binding uniform-in-T obstruction remains OFF the line.
  *
  * GRADE: documentation/measurement only. Import-light (all literals baked, no
- * heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96307-anchor-confidence-gain-projection (the on-line SE projection tested here)
  * @see imp-96224-route-bd-online-margin-floor-gamma4000 (the measured rho(32,4000)=0.3845 datum)
@@ -155,7 +154,7 @@ export const IMP_96328_MARGIN_FLOOR_REALIZED_GAMMA4000_ANCHOR = {
     'documentation/measurement only; import-light baked literals; the on-line '
     + 'margin itself stays strictly positive (0.3845 at T=4000) and the binding '
     + 'uniform-in-T obstruction stays OFF the line; changes no Lambda bound; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED',
+    + 'no refereed bound is changed; NO QED',
   closesTickets: ['imp-96328'],
 };
 

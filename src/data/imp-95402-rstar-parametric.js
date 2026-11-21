@@ -41,8 +41,7 @@
  * to full displayed precision: r_star(0.05)=118.16, (0.1)=48.93, (0.2)=19.11,
  * (0.3)=10.55, (0.5)=4.587, (0.7)=2.408, (0.9)=1.342, (0.99)=1.030.
  *
- * VERDICT. DERIVATION ONLY. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * VERDICT. DERIVATION ONLY. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -120,8 +119,8 @@ export const IMP95402_RSTAR_PARAMETRIC = {
   },
   relatesTo: ["imp-95271", "imp-95231", "imp-95377", "imp-95427", "imp-95447"],
   verdict:
-    "DERIVATION ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA. Complements the imp-95377 implicit equation and the " +
+    "DERIVATION ONLY; changes no bound; NO QED; no refereed bound is changed" +
+    ". Complements the imp-95377 implicit equation and the " +
     "imp-95427/imp-95447 asymptotics with an EXACT elementary parametrization.",
 };
 
@@ -211,11 +210,11 @@ export const IMP95402_RSTAR_PARAMETRIC_ASSERTIONS = [
     id: "imp95402-record-honesty",
     description:
       "the record is derivation-only, names the parametrization, carries NO QED " +
-      "and the SOTA line, and references imp-95271 / imp-95377",
+      "and the no-refereed-bound-change line, and references imp-95271 / imp-95377",
     holds: () =>
       /DERIVATION ONLY/.test(IMP95402_RSTAR_PARAMETRIC.verdict) &&
       /NO QED/.test(IMP95402_RSTAR_PARAMETRIC.verdict) &&
-      /SOTA/.test(IMP95402_RSTAR_PARAMETRIC.verdict) &&
+      /refereed bound is changed/i.test(IMP95402_RSTAR_PARAMETRIC.verdict) &&
       IMP95402_RSTAR_PARAMETRIC.relatesTo.includes("imp-95271") &&
       IMP95402_RSTAR_PARAMETRIC.relatesTo.includes("imp-95377"),
   },

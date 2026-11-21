@@ -8,7 +8,7 @@
  * Import-light (reshapes the imp-95845 baked fit family + re-runs the same tiny
  * 8-point OLS LIVE to reproduce each row; no zeros bundle, no imports). Changes
  * NO Lambda bound; NO operator-positivity claim on the main chain; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * BACKGROUND. imp-95845 fit the imp-95803 converged deep-corner (delta = ln 1.2,
  * rho = 1) biasPct*N^2 ladder to P0 + P1/N (+P2/N^2, +P3/N^3) and read its
@@ -62,7 +62,7 @@
  * SUB-GAP wider-cell-widom-prefactors-and-exact-remainder-constant (partly
  * narrowed by imp-95856). (c) Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; PT Lambda <= 0.2 SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95845-deep-corner-biasN2-widom-fit (the fit family this cross-tabulates)
  * @see imp-95839-sech-widom-prefactor-eval (evaluated C_Widom = 50 pi^4/delta^2)
@@ -149,8 +149,8 @@ export const IMP95865_WIDOM_FIT_FAMILY_RESIDUAL_TABLE = {
     "SUB-GAP wider-cell-widom-prefactors-and-exact-remainder-constant (partly " +
     "narrowed by imp-95856). Tabulation only; no cited input imported. Model seam " +
     "family only; the imp-95212 envelope port, signed WEIGHT and modulus/phase legs " +
-    "stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95865"],
 };
 
@@ -350,7 +350,7 @@ export const IMP95865_ASSERTIONS = [
       REF.familyBracketsWidom === true &&
       REF.subGap === "wider-cell-widom-prefactors-and-exact-remainder-constant" &&
       /still the fit-family spread|STILL the fit-family spread/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95865-closes-self",

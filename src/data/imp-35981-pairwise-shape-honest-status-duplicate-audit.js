@@ -54,7 +54,7 @@ export const IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT = {
     'This module records the duplicate-ticket finding and pins a permanent regression guard ' +
     'confirming the delivered note stays present and consistent. Presentation-only; changes ' +
     'no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -80,11 +80,11 @@ export const IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT_ASSERTIONS = 
   },
   {
     id: 'imp35981-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT.verdict) &&
       /GUE-conditional/.test(IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT.verdict),
   },
 ];

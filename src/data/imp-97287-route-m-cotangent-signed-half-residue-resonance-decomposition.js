@@ -9,7 +9,7 @@
  * of S(b) -- the DIRECT (b-mod-a) companion to the imp-97181 inverse-line reframing -- and reaches the
  * precise, sharpened obstruction: the negative mass is spread as a shifted-divisor correlation across ALL
  * residue-shifts, with no sign-definite termwise split, so no elementary leading term settles the sign.
- * Derivation only; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Derivation only; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97097 / imp-97181 / imp-97204 / imp-97226).
@@ -87,7 +87,7 @@
  * is SPREAD across all shifts (low-shift share ~51%->17% as b grows), so no elementary leading term settles
  * the sign. A rigorous S(b) < 0 needs a signed shifted-divisor estimate (the direct-line twin of the
  * imp-97181 odd inverse-map bias), beyond the a <-> b-a antisymmetry and the even moments. Measured
- * S/(phi b b) ~ -0.0795 stays measured, not proved. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH
+ * S/(phi b b) ~ -0.0795 stays measured, not proved. No bound on Lambda moves; no refereed bound is changed; RH
  * open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97287-cotangent-signed-shifted-divisor-bias -- a SIGNED shifted-divisor
@@ -207,7 +207,7 @@ export const IMP97287_VERDICT = Object.freeze({
     'b grows), so no elementary leading term settles the sign. A rigorous S(b) < 0 needs a signed ' +
     'shifted-divisor estimate (the direct-line twin of the imp-97181 odd inverse-map bias), beyond the ' +
     'a <-> b-a antisymmetry (imp-97097) and the even moments (imp-97180/imp-97203). Measured ' +
-    'S/(phi b b) ~ -0.0795 stays measured, not proved. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; ' +
+    'S/(phi b b) ~ -0.0795 stays measured, not proved. No bound on Lambda moves; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -225,7 +225,7 @@ export const IMP97287_SUBGAP = Object.freeze({
 });
 
 export const IMP97287_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation of an exact decomposition + partial only: ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation of an exact decomposition + partial only: ' +
   'the sign S(b)/(phi b b) < 0 of the Route M cotangent varying-modulus leg is NOT proved. Proved: the ' +
   'exact residue-resonance decomposition S(b) = Sum_{r>=1} Sum_{a|(b-r), r<a<b, (a,b)=1} c_0(r/a) ' +
   '(machine-precision), the small-shift negativity (r=1 family Sum_{a|b-1} c_0(1/a) < 0 explicit) and the ' +
@@ -325,7 +325,7 @@ const IMP97287_ASSERTIONS = [
       /shifted-divisor-bias/.test(IMP97287_SUBGAP.id) &&
       /SIGNED shifted-divisor/.test(IMP97287_SUBGAP.statement) &&
       /NO QED/.test(IMP97287_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97287_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97287_HONEST_BANNER) &&
       /RH open/.test(IMP97287_HONEST_BANNER),
     why: 'derivation + partial: the exact decomposition, small-shift negativity and large-modulus structure are rigorous, but the sign S(b) < 0 stays measured (a global shifted-divisor correlation, invisible to the deployed antisymmetry/even-moment tools) -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

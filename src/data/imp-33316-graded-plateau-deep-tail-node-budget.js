@@ -86,7 +86,7 @@
  *   UNIFORM-FAILS, not the exact per-rung ULP. The NPHI = 10 Phi-series truncation is inherited
  *   upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no
- *   QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   QED. No refereed bound is changed.
  *
  *   @see imp-33295-graded-inner-grid-a-node-budget.js (the shallow-rung graded-vs-uniform node budget this extends)
  *   @see imp-33275-richardson-saddle-a-rung-uniformity.js (the uniform Richardson ladder that diverges in the deep tail)
@@ -301,7 +301,7 @@ const verdict =
       '~2.18-MILLION-ULP-AT-n=500).-THE-~9.3x-NOMINAL-NODE-SAVING-UNDERSTATES-THE-DEEP-TAIL-ADVANTAGE:-THE-GRADED-' +
       'PLATEAU-IS-THE-ONLY-FLOOR-REACHING-RULE-WHERE-THE-UNIFORM-LADDER-NO-LONGER-CONVERGES.-ACCURACY/RULE-DESIGN-' +
       'MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33316_GRADED_PLATEAU_DEEP_TAIL_NODE_BUDGET = Object.freeze({
@@ -330,7 +330,7 @@ export const IMP33316_GRADED_PLATEAU_DEEP_TAIL_NODE_BUDGET = Object.freeze({
     'ULP at n=500. The ~9.3x nominal node saving therefore UNDERSTATES the deep-tail advantage: the graded plateau ' +
     'is the ONLY floor-reaching rule where the uniform ladder no longer converges. VERDICT: PLATEAU-HOLDS / ' +
     'UNIFORM-FAILS. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice ' +
-    'floor; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -419,7 +419,7 @@ export const IMP33316_GRADED_PLATEAU_DEEP_TAIL_NODE_BUDGET = Object.freeze({
       'n=300 ~50-ULP spike bounces above the strict band while its neighbours sit deep inside it, and cross-platform ' +
       'libm exp/pow variation can shift the few-ULP measurements. The robust reading is PLATEAU-HOLDS / ' +
       'UNIFORM-FAILS in the deep tail, not the exact per-rung ULP.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -474,7 +474,7 @@ export const IMP33316_GRADED_PLATEAU_DEEP_TAIL_NODE_BUDGET_ASSERTIONS = [
   {
     id: 'imp33316-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33316_GRADED_PLATEAU_DEEP_TAIL_NODE_BUDGET.honestCaveat;
       return (
@@ -483,7 +483,7 @@ export const IMP33316_GRADED_PLATEAU_DEEP_TAIL_NODE_BUDGET_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

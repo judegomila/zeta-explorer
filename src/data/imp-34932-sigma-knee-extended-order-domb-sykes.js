@@ -53,7 +53,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34900-sigma-knee-analytic-derivative-domb-sykes (analytic kernel + F3 open sub-gap this closes)
  * @see imp-34882-sigma-knee-domb-sykes-radius (linear Domb-Sykes read R ~ 91 and the ill-conditioning this explains)
@@ -293,7 +293,7 @@ export const IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES = {
     'structure, so no beyond-linear real intercept exists to pin. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the imp-34900 F3 sub-gap (extend the exact recursion to more orders) with a definitive negative answer: the ' +
     'ill-conditioning is intrinsic, not a short-sequence artifact -- the high-order Neville intercept diverges with ' +
@@ -361,15 +361,15 @@ export const IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES_ASSERTIONS = [
       R_MEDIAN > 10,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34932-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.isRigorous === false &&
       IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.farTailExponent === 0.5 &&
       typeof IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.subGap === 'string' &&
       /NO QED/.test(IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.verdict) &&
-      /remains SOTA/.test(IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.verdict),
+      /refereed bound is changed/i.test(IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.verdict),
   },
 ];
 

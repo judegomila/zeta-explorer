@@ -63,8 +63,7 @@
  *   REFUTES) a crossing of a subleading correction inside a mass-feasibility diagnostic; it
  *   establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT.
  *   The operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step,
- *   imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains
- *   the rigorous SOTA.
+ *   imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3665-a-weight-superexp-decay-crosscheck.js (source: rungs, log-domain machinery)
  *   @see imp-3697-a-weight-decay-crosscheck-viz-data.js (the coarse ratio table under test)
@@ -187,7 +186,7 @@ export const IMP3716_A_WEIGHT_RATIO_CROSSING_NONEXISTENCE = Object.freeze({
     '"sign change between tau=1 and 1.5" does not survive refinement -- the same coarse-grid effect imp-3665 flagged in its ' +
     'A(1) 3e-75->2.1e-75 correction. SUB-GAP sg-3716-correction-limit: whether c(tau) -> a positive constant (~0.36) or -> 0 ' +
     'as tau -> infinity is unresolved (needs peak-adapted quadrature past tau~2.5). MEASUREMENT ONLY, RH-EQUIVALENT, ' +
-    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     correction: 'c(tau) = -ln A(tau) - pi e^{4 tau}; ratio R(tau) = -ln A(tau)/(pi e^{4 tau}); crossing = zero of c',
@@ -249,7 +248,7 @@ export const IMP3716_A_WEIGHT_RATIO_CROSSING_NONEXISTENCE = Object.freeze({
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
     openSubGap: 'sg-3716-correction-limit',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -288,7 +287,7 @@ export const IMP3716_A_WEIGHT_RATIO_CROSSING_NONEXISTENCE_ASSERTIONS = [
   {
     id: 'imp3716-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement only, mass-feasibility necessary-but-not-sufficient, operator positivity ' +
-         '(imp-3066) untouched, open sub-gap named, PT 0.2 stays SOTA.',
+         '(imp-3066) untouched, open sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP3716_A_WEIGHT_RATIO_CROSSING_NONEXISTENCE.honestCaveat;
       return (
@@ -297,7 +296,7 @@ export const IMP3716_A_WEIGHT_RATIO_CROSSING_NONEXISTENCE_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         c.openSubGap === 'sg-3716-correction-limit' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

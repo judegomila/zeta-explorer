@@ -29,7 +29,7 @@
  *
  * VERDICT. None of the ten audited Route M viz-data leaf modules imports the zeros
  * bundle, directly or transitively. Bundle-hygiene check only; no bound moved; no page
- * changed; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ * changed; NO QED; no refereed bound is changed.
  */
 
 const ZEROS_BUNDLE_MODULE = 'zeros-to-1e6.js';

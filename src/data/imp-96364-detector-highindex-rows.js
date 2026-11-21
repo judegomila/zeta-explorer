@@ -54,7 +54,7 @@
  * gamma -> infinity exponent still needs rows across further decades.
  *
  * Measurement only; changes NO bound; the verified-zero route stays cheaper; RH open;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96347-detector-reach-curvature-correction.js (SG-96347-curv, IMP96347_CURVATURE_CORRECTION)
  * @see imp-96346-route-l-largegamma-residual-tail.js (IMP96346_EXPONENT_GAP_PERSISTENCE)
@@ -114,6 +114,6 @@ export const IMP96364_VERDICT =
   + 'the +0.02295 was a small-window lower estimate. HONEST LIMIT: the rising exponent/curvature mean '
   + 'the reach is convex (no single asymptotic power over gamma <= 123 at one delta), so the certified '
   + 'result is the qualitative sign (b_det > b_C), not a fixed asymptotic exponent. Measurement only; '
-  + 'changes NO bound; verified-zero route stays cheaper; RH open; Lambda <= 0.2 SOTA; NO QED.';
+  + 'changes NO bound; verified-zero route stays cheaper; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96364_SCRIPTS = Object.freeze(['tmp/imp-96364-detector-highindex.py']);

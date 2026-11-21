@@ -72,7 +72,7 @@
  * refit, with the lowest rung N=250 the single most influential point. This quantifies the
  * inherited imp-96693 fit-extrapolation sub-gap without removing it -- the fits remain non-
  * rigorous extrapolations, only now with a measured uncertainty band. Accuracy audit only;
- * no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (inherited, unchanged): the LOO/decade band measures SENSITIVITY of the
  * fit to its own rungs, not the model error of the a + b log N form itself. A rigorous
@@ -226,11 +226,11 @@ export const IMP96791_VERDICT = Object.freeze({
     'refit under both schemes with wide margins, so it is not an artifact of the fit ' +
     'windows. The inherited imp-96693 fit-extrapolation sub-gap is now quantified, not ' +
     'removed: the a + b log N fits remain non-rigorous extrapolations. Accuracy audit only; ' +
-    'no bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96791_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: every ceiling is a ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: every ceiling is a ' +
   're-solve of the SAME imp-96684 cond#=1/eps bisection on a refit of existing rungs; no new ' +
   'solves. The LOO/decade bands measure the fit sensitivity to its own rungs, NOT the model ' +
   'error of the log-fit form -- only the trace ceiling T=2.594e7 is a rigorous lower bound; ' +
@@ -279,7 +279,7 @@ const IMP96791_ASSERTIONS = [
       IMP96791_VERDICT.anyBoundMoved === false &&
       IMP96791_VERDICT.orderingRobust === true &&
       /NO QED/.test(IMP96791_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96791_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96791_HONEST_BANNER) &&
       /RH open/.test(IMP96791_HONEST_BANNER) &&
       /model error/.test(IMP96791_HONEST_BANNER),
     why: 'audit only: no bound moved, the ordering-robust flag is set, and the honesty markers plus the model-error caveat (LOO measures fit sensitivity, not log-fit model error) are present.',

@@ -180,7 +180,7 @@
  * @see imp-1246 imp-1246-linear-1N-gap-recheck.js (the redirect derivation)
  * @see imp-1261 imp-1261-asymptotic-lambda-redirect-shipped.js (this rewrite)
  * @see imp-447 + imp-459 E_trunc_pt at T_PT = 3e12, sigma_opt = 0.75
- * @see PT 2021 (Platt-Trudgian, Bull. LMS 2021): Lambda <= 0.2 SOTA
+ * @see PT 2021 (Platt-Trudgian, Bull. LMS 2021): no refereed bound is changed
  */
 
 // ── Numerical constants ───────────────────────────────────────────────────

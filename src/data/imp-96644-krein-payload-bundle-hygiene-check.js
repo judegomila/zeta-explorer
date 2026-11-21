@@ -32,7 +32,7 @@
  * future page wiring (matching imp-96643's page-wiring residual): when a page does surface this
  * certificate, it must reach the payload via a lazy import (React.lazy / dynamic import()), never
  * a static top-level import, to avoid repeating imp-95523. This check changes no bound, establishes
- * no operator positivity, and asserts no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity, and asserts no QED; no refereed bound is changed.
  */
 
 const PAYLOAD_MODULE = 'rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js';

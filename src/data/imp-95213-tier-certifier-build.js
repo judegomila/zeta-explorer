@@ -82,8 +82,7 @@
  * Grade: BUILD rigorous + VALIDATED; slice = CERTIFICATE (sub-range,
  * continuum, both charts); price = MEASUREMENT + extrapolation. A
  * sub-range run can never set the window promotion flag (G5). Changes no
- * bound; promotes nothing; NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * bound; promotes nothing; NO QED. No refereed bound is changed.
  */
 
 // ── frozen program constants ─────────────────────────────────────────────────
@@ -281,7 +280,7 @@ export const IMP95213_TIER_CERTIFIER = Object.freeze({
     'the per-panel O(N) pass, and the measured 1.0e15 ball-ops sit ~92x above the two-level ' +
     'design budget 1.1e13 (frequency-bin second level = residual lever). Sub-range only ' +
     '(0.058% of window 1); promotion flag false; full run a separate decision. Changes no ' +
-    'bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -403,7 +402,7 @@ export const IMP95213_TIER_ASSERTIONS = [
   {
     id: 'imp95213-honesty-gate-scope-and-no-qed',
     description:
-      'fail-closed honesty: the slice is a sub-range certificate (0.058% of window 1), the full-window run was NOT launched, no bound is promoted, Tier P never fired but is implemented, NO QED and PT-SOTA stated',
+      'fail-closed honesty: the slice is a sub-range certificate (0.058% of window 1), the full-window run was NOT launched, no bound is promoted, Tier P never fired but is implemented, NO QED and no-refereed-bound-change stated',
     holds: () =>
       IMP95213_TIER_CERTIFIER.fullWindowRunLaunched === false &&
       IMP95213_TIER_CERTIFIER.promotesBound === false &&
@@ -414,7 +413,7 @@ export const IMP95213_TIER_ASSERTIONS = [
       /Sub-range only/.test(CERTIFIED_SLICE.certifiedStatement) &&
       /sets no promotion flag/.test(CERTIFIED_SLICE.certifiedStatement) &&
       /NO QED/.test(IMP95213_TIER_CERTIFIER.verdict) &&
-      /remains SOTA/.test(IMP95213_TIER_CERTIFIER.verdict),
+      /refereed bound is changed/i.test(IMP95213_TIER_CERTIFIER.verdict),
   },
 ];
 

@@ -56,7 +56,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; refines, does not
- * overturn, imp-33948; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * overturn, imp-33948; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33948-hump-apex-curvature-error-bar (the single tight-window resid double-prime fit sensitivity-tested here)
  * @see imp-33878-hump-argmax-grid-refinement (the resid_exp(k) model + central-difference resid double-prime reused)
@@ -275,7 +275,7 @@ export const IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY = {
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate ' +
     'resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33948 (single tight-window apex resid double-prime fit sensitivity-tested here); imp-33878 ' +
     '(resid_exp(k) model + central-difference resid double-prime reused); imp-33905 (R3 one broad quadratic ' +
@@ -315,14 +315,14 @@ export const IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY_ASSERTIONS = [
       TIGHTEST.biasVsCentralDiffRel < WINDOW_SWEEP[2].biasVsCentralDiffRel,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34005-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-33948, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-33948, no QED, no refereed bound is changed',
     holds: () =>
       IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.isRigorous === false &&
       /refines, does not overturn, imp-33948/.test(IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY.verdict),
   },

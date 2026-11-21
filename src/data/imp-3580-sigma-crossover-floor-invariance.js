@@ -70,8 +70,7 @@
  *        reading of an E_flow/E_trunc law, not a universal constant.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3556-sigma-threshold-crossings-rootsolve (baseline-floor half-decay <=> crossover certification)
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9)
@@ -225,7 +224,7 @@ export const IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE = {
     'imp-3556 suspected -- but the specific 0.40% is a baseline-floor READING of that law, not a ' +
     'universal constant. Measurement/certification only; no positivity, no bridge closure, no RH ' +
     'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3556 (baseline half-decay <=> crossover certification, ratio 0.996019, gap 0.40%); ' +
     'imp-3444 (E_coll=E_trunc crossover N ~ 3.280e9); imp-3443 (half-to-double E_trunc floor grid ' +
@@ -277,13 +276,13 @@ export const IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/certification only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/certification only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3580-honesty-gate-no-qed',
-    description: 'Measurement/certification only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/certification only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE.isRigorous === false &&
       /NO QED/.test(IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE.verdict) &&
+      /refereed bound is changed/i.test(IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3580_SIGMA_CROSSOVER_FLOOR_INVARIANCE.verdict),
   },
 ];

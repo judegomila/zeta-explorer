@@ -68,7 +68,7 @@
  * imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED (bare E_coll
  * prefactor); E_trunc base pin 3.06e-5 unchanged (only rescaled as a perturbation);
  * no bound moves; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97743-fold-amplitude-etrunc-floor-sensitivity (axis A: K ~ E_trunc^(+0.221) floor swap)
  * @see imp-97735-fold-amplitude-height-ladder-drift (axis B: K denominator phi_xx walked along a height ladder)
@@ -268,8 +268,8 @@ export const IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB = {
     'constant on EITHER axis. Cross-validation / measurement only on the inherited imp-3220/imp-3406 extrapolation ' +
     'surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) UNTOUCHED; E_trunc base pin 3.06e-5 unchanged (only rescaled); changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97743 (axis A: E_trunc floor swap K ~ E_trunc^(+0.221)); imp-97735 (axis B: K denominator phi_xx height ' +
     'walk); imp-97725 (the K pin whose two sensitivities are cross-tabulated); imp-97662 (square-root fold law, ' +
@@ -326,15 +326,15 @@ export const IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB_ASSERTIONS = [
       HEIGHT_S_FACTOR < 1.1, // S nearly frozen at the sigma-peak
   },
   {
-    // Honesty gate: cross-validation only, sub-gap sharpened, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, sub-gap sharpened, no QED, no refereed bound is changed.
     id: 'imp97757-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, floor-dominated/opposite-signed verdict, sub-gap, no QED, PT SOTA',
+    description: 'measurement only: isRigorous false, floor-dominated/opposite-signed verdict, sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB.isRigorous === false &&
       /FLOOR-DOMINATED, OPPOSITE-SIGNED, DIFFERENT CHANNELS/.test(IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB.verdict) &&
       /SUB-GAP/.test(IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB.verdict) &&
       /NO QED/.test(IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB.verdict) &&
-      /remains SOTA/.test(IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB.verdict),
+      /refereed bound is changed/i.test(IMP97757_FOLD_AMPLITUDE_AXIS_CROSSTAB.verdict),
   },
 ];
 

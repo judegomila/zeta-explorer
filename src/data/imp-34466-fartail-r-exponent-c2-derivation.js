@@ -67,8 +67,7 @@
  * Gronwall term (imp-2845); its vanishing here does NOT touch the divergent C_Lip
  * collision-Gronwall. The C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll
  * untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066
- * K_a >= 0 untouched; establishes no operator positivity; Platt-Trudgian
- * Lambda <= 0.2 remains the SOTA unconditional bound.
+ * K_a >= 0 untouched; establishes no operator positivity; no refereed bound is changed.
  *
  * @see imp-34407-fartail-composite-correction-constant-derivation (the refined finite-L formula, leading c = 4)
  * @see imp-34428-fartail-correction-two-term-fit (the two-term fit, measured c2 = +6.90)
@@ -224,7 +223,7 @@ export const IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION = {
     'the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent ' +
     'C_Lip collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no ' +
-    'operator positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'operator positivity; changes no bound; no refereed bound is changed.',
   citation:
     'imp-34407-fartail-composite-correction-constant-derivation.js (refined finite-L formula, leading c = 4); ' +
     'imp-34428-fartail-correction-two-term-fit.js (two-term fit, measured c2 = +6.90); ' +
@@ -287,14 +286,14 @@ export const IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION_ASSERTIONS = [
       FIT.c1 - 4 < 0.02,
   },
   {
-    // Honesty gate: derivation only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: derivation only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34466-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION.honestScope) &&
       /NO QED/.test(IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION.honestScope) &&
-      /remains the SOTA/.test(IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION.honestScope),
+      /refereed bound is changed/i.test(IMP34466_FARTAIL_R_EXPONENT_C2_DERIVATION.honestScope),
   },
 ];
 

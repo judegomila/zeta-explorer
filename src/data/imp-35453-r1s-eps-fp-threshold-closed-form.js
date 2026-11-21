@@ -58,7 +58,7 @@
  * A closed-form derivation and per-seed tabulation of the imp-35414 R1s threshold EPS_FP*(N) on the inherited
  * imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35414-r1s-zero-residue-surrogate-lemma (the lemma whose threshold this makes explicit)
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (D1 ~11.99-decade/factor-2 floor slide)
@@ -173,8 +173,8 @@ export const IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM = {
     'dynamic), which stays OPEN entangled with R2/R3; imp-35243a stays OPEN. DERIVATION ONLY on the inherited ' +
     'imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35414 (R1s lemma whose threshold this makes explicit); imp-35243 (D1 ~11.99-decade/factor-2 floor ' +
     'slide); imp-35432 (floor-slide-rate closed form); imp-35357 (R1s/R1t split); imp-35263 (D1 figure grows to ' +
@@ -248,15 +248,15 @@ export const IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: derivation only, isRigorous false, discharges nothing, R1t/imp-35243a OPEN, no QED, PT SOTA.
+    // Honesty gate: derivation only, isRigorous false, discharges nothing, R1t/imp-35243a OPEN, no QED, no refereed bound is changed.
     id: 'imp35453-honesty-gate-no-qed',
-    description: 'derivation only: isRigorous false, does not discharge R1t, imp-35243a OPEN, no QED, PT SOTA',
+    description: 'derivation only: isRigorous false, does not discharge R1t, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM.isRigorous === false &&
       /DISCHARGES NOTHING on R1t|discharges nothing/i.test(IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM.verdict) &&
       /imp-35243a/.test(IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM.residual_sub_gap) &&
       /NO QED/.test(IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP35453_R1S_EPS_FP_THRESHOLD_CLOSED_FORM.verdict),
   },
 ];
 

@@ -7,8 +7,7 @@
  *   TABULATING precisely what the still-open G6a-sub-constant valuation owes -- the
  *   numeric boundary-shock curvature |u_0_double_prime(z_0*)|. Read-only
  *   cross-validation: values NO constant, discharges NO gap, changes NO bound, G6a
- *   stays OPEN, respects the imp-2519 no-overclaim guard, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   stays OPEN, respects the imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHAT imp-36152 CONCLUDED (the verdict being cross-validated)
  *   -----------------------------------------------------------
@@ -182,7 +181,7 @@ export const IMP36220_CW_CH_BITMATCH_CROSS_VALIDATION = Object.freeze({
     'deferred Polymath15 Lemma 5.2 port -- every item OPEN. A single certified curvature flows into ' +
     'BOTH sites at once (identical placeholder), so there is no double-counting and no independent ' +
     'second constant. Values NO constant; discharges no gap; G6a stays OPEN; changes no bound; ' +
-    'respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'respects the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed.',
 
   bitMatch: Object.freeze({
     table: BITMATCH_TABLE,
@@ -224,7 +223,7 @@ export const IMP36220_CW_CH_BITMATCH_CROSS_VALIDATION = Object.freeze({
       'sqrt(2 / |u_0_double_prime(z_0*)|)), corroborating the imp-36152 SAME-MODULUS verdict, plus a ' +
       'tabulation of the still-open G6a-sub-constant valuation owed. Closes nothing; discharges no gap; ' +
       'values no constant; changes no bound; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -280,7 +279,7 @@ export const IMP36220_CW_CH_BITMATCH_CROSS_VALIDATION_ASSERTIONS = [
   {
     id: 'imp36220-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a cross-validation that closes NOTHING, discharges no gap, does NOT value ' +
-         'C_W, changes no bound, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'C_W, changes no bound, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36220_CW_CH_BITMATCH_CROSS_VALIDATION.honestCaveat;
       return (
@@ -293,7 +292,7 @@ export const IMP36220_CW_CH_BITMATCH_CROSS_VALIDATION_ASSERTIONS = [
         h.changesAnyBound === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

@@ -67,8 +67,7 @@
  * property of the inherited surrogate crossover, NOT a rigorous asymptotic and NOT an
  * RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34676-crossover-contraction-right-widening (sampled g(b) <= b; this proves it monotonically)
  * @see imp-34675-crossover-contraction-left-edge (closed-form N_star where g_prime = 1; g_prime < 1 for N > N_star)
@@ -236,7 +235,7 @@ export const IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF = {
     'imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34676 (sampled g(b) <= b on a b-ladder; sub-gap imp-34676a asks to prove g(N) < N for all N > N_cross); ' +
     'imp-34675 (closed-form left edge N_star = K(1 - 1/W(K)) ~ 1.475e8 where g_prime = 1); imp-34650 (g_prime ' +
@@ -274,14 +273,14 @@ export const IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF_ASSERTIONS = [
       Math.abs(N_CROSS / 3.280294e9 - 1) < 5e-3,
   },
   {
-    // Honesty gate: analytic proof of a surrogate property, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: analytic proof of a surrogate property, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34686-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, named sub-gap imp-34686a, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, named sub-gap imp-34686a, no QED, no refereed bound is changed',
     holds: () =>
       IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF.isRigorous === false &&
       /imp-34686a/.test(IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF.subGap) &&
       /NO QED/.test(IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF.verdict) &&
-      /remains SOTA/.test(IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF.verdict),
+      /refereed bound is changed/i.test(IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF.verdict),
   },
 ];
 

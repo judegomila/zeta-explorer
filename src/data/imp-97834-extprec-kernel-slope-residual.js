@@ -40,7 +40,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F
  * prefactor are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97823-kernel-decade-growth-sqrt10 (double-precision deep-window slope p, residual ~4e-4 floor flag)
  * @see imp-97721-diag3-peak-upslope-crossvalidation (kernel construction reused verbatim)
@@ -195,7 +195,7 @@ export const IMP97834_EXTPREC_KERNEL_SLOPE_RESIDUAL = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97823 (double-precision deep-window slope p, residual ~4e-4 floor flag); imp-97721 (kernel ' +
     'construction reused verbatim); imp-97662 (near-peak square-root fold, cubic-fold running); ' +
@@ -244,13 +244,13 @@ export const IMP97834_EXTPREC_KERNEL_SLOPE_RESIDUAL_ASSERTIONS = [
       Math.abs(EXTPREC.deeper.down.slope_p + 0.5) < Math.abs(EXTPREC.deep.down.slope_p + 0.5),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97834-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97834_EXTPREC_KERNEL_SLOPE_RESIDUAL.isRigorous === false &&
       /NO QED/.test(IMP97834_EXTPREC_KERNEL_SLOPE_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP97834_EXTPREC_KERNEL_SLOPE_RESIDUAL.verdict),
+      /refereed bound is changed/i.test(IMP97834_EXTPREC_KERNEL_SLOPE_RESIDUAL.verdict),
   },
 ];
 

@@ -71,7 +71,7 @@ export const SECTION26_VERDICT = {
   fiveThousandXArtifact: 'imp-1240 "5000x below 1" measures the bare scale-miscalibrated operator (||V||~c^2); NOT evidence for Conj 27.2',
   survivingTarget: 'prove ||R||<=1 <=> K_a>=0 for R=Gpass^{-1/2} Gshear Gpass^{-1/2} (degree-0); but this is a faithful restatement of K_a>=0, RH-equivalent',
   conj263: 'RED HERRING for the scale gap (itself scale-invariant); raw diagonal does NOT dominate at the Riemann Phi (64% of tau)',
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+  sota: 'No refereed bound is changed',
   sessionPattern: 'every route is either NOT rigorous or RH-EQUIVALENT; the project has reformulations of RH, not a shortcut',
 };
 
@@ -96,8 +96,8 @@ export const SECTION26_VERDICT_ASSERTIONS = [
   },
   {
     id: 'sec26-surviving-target-rh-equivalent-sota-unchanged',
-    description: 'Surviving target recorded as RH-equivalent (not a shortcut); PT 0.2 remains SOTA',
-    holds: () => /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /Platt-Trudgian/.test(SECTION26_VERDICT.sota),
+    description: 'Surviving target recorded as RH-equivalent (not a shortcut); no refereed bound is changed',
+    holds: () => /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /Platt-Trudgian|refereed bound is changed/.test(SECTION26_VERDICT.sota),
   },
   {
     id: 'sec26-cross-bridge-cannot-regrade-to-reduction',

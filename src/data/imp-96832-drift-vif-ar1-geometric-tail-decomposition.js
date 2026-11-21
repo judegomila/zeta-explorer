@@ -71,7 +71,7 @@
  * bound moves, and no plateau reading is overturned.
  *
  * MEASUREMENT/DIAGNOSTIC ONLY. Establishes no operator positivity, changes no
- * bound, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * bound, makes no RH claim; no refereed bound is changed. RH open.
  * NO QED.
  *
  * @see imp-96692-route-m-reach-drift-covariance-inflation.js (the AR(1) 2.578 primary this decomposes)
@@ -180,7 +180,7 @@ export const IMP96832_VERDICT = Object.freeze({
 });
 
 export const IMP96832_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy/diagnostic only: every value is a reproducible numeric from tmp/imp-96832-scratch.mjs over the baked imp-96487 21-rung ladder and the imp-96692/imp-96709 VIF constants. The ACF is a bracketed estimate from only 21 non-uniformly-spaced rungs, so its high-lag terms carry large sampling noise; the diagnostic only asserts the ROBUST qualitative mechanism (AR(1) matches the data at lag 1, extrapolates a positive geometric tail the data do not have, and the block bootstrap truncates it). No new solve, no bound is claimed, no operator positivity is established, and the qualitative VIF>1 conclusion is unchanged.';
+  'RH open; no refereed bound is changed; NO QED. Accuracy/diagnostic only: every value is a reproducible numeric from tmp/imp-96832-scratch.mjs over the baked imp-96487 21-rung ladder and the imp-96692/imp-96709 VIF constants. The ACF is a bracketed estimate from only 21 non-uniformly-spaced rungs, so its high-lag terms carry large sampling noise; the diagnostic only asserts the ROBUST qualitative mechanism (AR(1) matches the data at lag 1, extrapolates a positive geometric tail the data do not have, and the block bootstrap truncates it). No new solve, no bound is claimed, no operator positivity is established, and the qualitative VIF>1 conclusion is unchanged.';
 
 // Honest residual sub-gap.
 export const IMP96832_SUBGAP = Object.freeze({
@@ -269,7 +269,7 @@ const IMP96832_ASSERTIONS = [
     id: 'imp96832-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96832_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96832_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96832_HONEST_BANNER) &&
       /NO QED/.test(IMP96832_HONEST_BANNER) &&
       /bracketed estimate/.test(IMP96832_HONEST_BANNER) &&
       typeof IMP96832_SUBGAP.statement === 'string' &&

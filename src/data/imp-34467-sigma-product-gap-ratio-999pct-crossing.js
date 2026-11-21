@@ -58,8 +58,7 @@
  * MEASUREMENT / TABULATION ONLY. This locates the 0.999 crossing of an already-derived ratio and tests
  * a prior parenthetical; it changes NO bound. The component model is the inherited imp-3220/imp-3406/
  * imp-33816 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the SOTA unconditional bound.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34415-sigma-product-gap-ratio-99pct-crossing (F2: the 0.99 crossing at log10 N ~ 124.9; this module solves 0.999)
  * @see imp-34328-sigma-vs-product-gap-log2pi-shift (F3: the ratio (u-1)/(u+log 2pi) rising 0.89215 -> 0.99999)
@@ -138,7 +137,7 @@ export const IMP34467_SIGMA_PRODUCT_GAP_RATIO_999PCT_CROSSING = {
     'crossing at 124.9). There it closes at ~8.11e-7 per decade -- ~100x slower than the 0.99 crossing, ' +
     'the rate falling like 1/(log T0)^2. Changes no bound; component model NOT rigorous; C_mb GUE-conditional ' +
     'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP34467_ASSERTIONS = [
@@ -193,11 +192,11 @@ export const IMP34467_ASSERTIONS = [
   },
   {
     id: 'imp34467-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34467_SIGMA_PRODUCT_GAP_RATIO_999PCT_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP34467_SIGMA_PRODUCT_GAP_RATIO_999PCT_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34467_SIGMA_PRODUCT_GAP_RATIO_999PCT_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP34467_SIGMA_PRODUCT_GAP_RATIO_999PCT_CROSSING.verdict),
   },
 ];
 

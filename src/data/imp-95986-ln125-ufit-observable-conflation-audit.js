@@ -54,7 +54,7 @@
  *   is already glossed by imp-95963 / imp-95976). This module records the audit result
  *   as a standalone lookup. Changes no numeric value, moves no bound, proves NO QED;
  *   the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN.
- *   Sun arXiv:2609.04176 unrefereed. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   Sun arXiv:2609.04176 unrefereed. No refereed bound is changed.
  *
  * @see imp-95963-ln125-crossing-vs-floor-ufit-retabulation.js (authoritative two-observable separation)
  * @see imp-95976-ln125-ufit-interval-exists-correction-glossary-headword.js (do-not-substitute correction)
@@ -62,7 +62,7 @@
  * @see imp-95895-ln125-ufit-interval.js (the A_opt scalar-floor fill, +0.0846%)
  * @see imp-95939-ln125-reach340-crossing-certification.js (the crossing-constant figure, -0.7363%)
  *
- * Ticket: imp-95986 (accuracy, medium). Audit only; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * Ticket: imp-95986 (accuracy, medium). Audit only; NO QED; no refereed bound is changed.
  */
 
 // Per-consumer audit record. `conflates` is the audited verdict; `axis` is the u_fit
@@ -165,8 +165,8 @@ export const IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT = Object.freeze({
     'imp-95895) is already glossed by imp-95963 / imp-95976, so no corrective edit is ' +
     'warranted. Audit only; introduces no new cited input; changes no reported ' +
     'interval; moves no bound; NO QED; the imp-95212 envelope port, signed WEIGHT, and ' +
-    'modulus/phase legs stay OPEN. Sun arXiv:2609.04176 unrefereed. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'modulus/phase legs stay OPEN. Sun arXiv:2609.04176 unrefereed. No refereed bound is changed' +
+    '.',
   closesTickets: ['imp-95986'],
 });
 
@@ -207,12 +207,12 @@ export const IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp95986-honesty-gate-no-qed',
-    why: 'Audit only: no bound moved, no QED, PT SOTA line present, closes imp-95986.',
+    why: 'Audit only: no bound moved, no QED, no-refereed-bound-change line present, closes imp-95986.',
     holds: () =>
       IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT.anyBoundMoved === false &&
       IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT.qed === false &&
       /AUDIT CLEAN/.test(IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT.verdict) &&
       IMP95986_LN125_UFIT_OBSERVABLE_CONFLATION_AUDIT.closesTickets.includes('imp-95986'),
   },
 ];

@@ -63,8 +63,7 @@
  * at the ~1e-19 compensated floor (~2% of unit roundoff at worst, imp-36076), so precision is
  * NON-binding regardless of the toggle; the W1 certified length-N interval sum stays GREENFIELD
  * (imp-35725) and the A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A). C_mb
- * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36112-compensated-summation-storyline-crossref (flags this transient-episode mechanism as STILL OPEN)
  * @see imp-36076-kahan-kbn-separation-onset (proposed the |s| < |x| account refuted here; first separation N~1500)
@@ -80,7 +79,7 @@
 const ALPHA = 0.6180339887498949; // golden-ratio fractional part
 const BETA = 2.3999632297286533; // golden-angle (radians) -- irrational phase drift
 const TERM = (k) => Math.cos(ALPHA * k + BETA * Math.sqrt(k)) / Math.sqrt(k);
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 function clusteredOrder(N) {
   const neg = [];
@@ -303,7 +302,7 @@ export const IMP36178_TRANSIENT_SEPARATION_MECHANISM = Object.freeze({
     'the equidistributed irrational-phase fractional position of the exact-sum tail on the double grid, with ' +
     'no closed form in N. Both schemes stay at the ~1e-19 floor so precision is NON-binding; the W1 A + B - C ' +
     'certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36112 (compensated-summation storyline, flags this as STILL OPEN); imp-36076 (proposed |s|<|x| ' +
     'account, refuted here; first separation N~1500); imp-36062 (persistent-separation onset N~34000); ' +
@@ -352,13 +351,13 @@ export const IMP36178_TRANSIENT_SEPARATION_MECHANISM_ASSERTIONS = [
   },
   {
     id: 'imp36178-honesty-gate',
-    description: 'Derivation only; no clean law; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Derivation only; no clean law; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36178_TRANSIENT_SEPARATION_MECHANISM.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36178_TRANSIENT_SEPARATION_MECHANISM.staysGreenfield) &&
       /NO QED/.test(IMP36178_TRANSIENT_SEPARATION_MECHANISM.verdict) &&
-      /remains SOTA/.test(IMP36178_TRANSIENT_SEPARATION_MECHANISM.verdict),
+      /refereed bound is changed/i.test(IMP36178_TRANSIENT_SEPARATION_MECHANISM.verdict),
   },
 ];
 

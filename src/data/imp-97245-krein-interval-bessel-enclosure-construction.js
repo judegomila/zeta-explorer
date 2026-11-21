@@ -77,7 +77,7 @@
  * no rigorous numeric majorant is produced or claimed. Rayleigh floors stay UPPER bounds on true lambda_min;
  * establishes NO operator positivity; IMP96888_RAYLEIGH_TAIL_MAJORANT / IMP96749_UNIFORM_N_GAP_UNSETTLED stay
  * open; the Route C far tail [Tfar, oo) stays out of scope; interval-rigorous reach stays 2a <= 0.96;
- * Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * THE RESIDUAL (named). SUB-GAP IMP97245_CERTIFIED_GPRIME_INTERVAL (refines IMP97184_INTERVAL_BESSEL_ENCLOSURE):
  * run the interval spherical-Bessel evaluator (form (b)) on the imp-96888 solver output to produce the certified

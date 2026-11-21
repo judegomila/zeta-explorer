@@ -14,7 +14,7 @@
  * value is copied verbatim from the imp-96207 baked `anchors`/`table`/`sensitivity`
  * fields; only the log-log SAMPLING (evaluating the already-derived law at plot
  * resolution) is computed here. Changes no bound, establishes no operator
- * positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * positivity, no RH claim; no refereed bound is changed. RH open.
  * NO QED.
  *
  * @see imp-96207-verified-height-floor-law-kappa-star.js (law, anchors, table)
@@ -71,7 +71,7 @@ export const IMP96237_ANCHORS = {
 };
 
 export const IMP96237_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the three threshold rows '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the three threshold rows '
   + '(1e-5/1e-6/1e-7) and the kappa_star=0.4/prefactor=3.0 anchors are copied verbatim from the '
   + 'imp-96207 baked table/anchors/sensitivity fields; only the log-log line samples are computed '
   + 'here (evaluating the already-derived law, not re-deriving it). No bound is claimed and no '

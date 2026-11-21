@@ -60,8 +60,7 @@
  * moves with N, but does NOT instantiate the imp-34687a directed-rounding transcendental layer (the surrogate is
  * a first-order outward-rounding proxy) and does NOT discharge the conditional. imp-34714a REMAINS OPEN. C_C =
  * (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- * K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34930-breach-step-law-verification (recomputes R_margin = N*FP_LO/K from constituents; reused verbatim)
  * @see imp-34909-op-depth-newton-step-reconciliation (states the unified nStar crossing law)
@@ -201,7 +200,7 @@ export const IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N = {
     'reuses the imp-34884/imp-34889/imp-34909 literals via imp-34930 verbatim; does NOT instantiate the ' +
     'imp-34687a directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz (imp-2642/' +
     'imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34930 (recomputes R_margin = N*FP_LO/K from constituents; reused verbatim); imp-34909 (states the ' +
     'unified nStar(R) = floor(log2 R) + 1 crossing law); imp-34889 (band-invariance over the +-5% imp-34693 seed ' +
@@ -252,15 +251,15 @@ export const IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N_ASSERTIONS = [
       PIN_EDGE_SHIFT_ABS > 0,
   },
   {
-    // Honesty gate: verification/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: verification/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34953-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N.isRigorous === false &&
       /imp-34714a/.test(IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N.subGap) &&
       /REMAINS OPEN/.test(IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N.subGap) &&
       /NO QED/.test(IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N.verdict) &&
-      /remains SOTA/.test(IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N.verdict),
+      /refereed bound is changed/i.test(IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N.verdict),
   },
 ];
 

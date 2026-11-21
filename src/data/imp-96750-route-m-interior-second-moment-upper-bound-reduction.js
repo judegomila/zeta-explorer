@@ -71,8 +71,8 @@
  * two-variable Vasyunin cotangent sum with the arithmetic counter-terms kept inside the square --
  * the Bettin-Conrey cotangent second moment. It is NOT established here. No improved rigorous
  * lower ceiling can be posted: T = 2.594e7 stays the rigorous anchor. Compute (N~9916, imp-96352)
- * binds first by >2600x regardless. Changes no bound; no operator positivity; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * binds first by >2600x regardless. Changes no bound; no operator positivity; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-96750-weighted-cotangent-second-moment-upper-constant -- the one
  * uniform lemma Q(b) = Sum_{a=2,(a,b)=1}^{b-1} I(a,b)^2/a^2 <= s0* b + O(1) with an absolute s0*.
@@ -182,7 +182,7 @@ export const IMP96750_VERDICT = Object.freeze({
     'sum with the arithmetic counter-terms inside the square -- the Bettin-Conrey cotangent second ' +
     'moment, generalising the a=1 border I(1,b)=(1/2)log b+(C+1/2)+o(1) to coprime a,b>=2 -- and is ' +
     'NOT established here. No improved rigorous ceiling posted; T=2.594e7 stays the anchor; compute ' +
-    'N~9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'N~9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96750_SUBGAP = Object.freeze({
@@ -200,7 +200,7 @@ export const IMP96750_SUBGAP = Object.freeze({
 });
 
 export const IMP96750_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reduction + obstruction only: the sandwich ' +
+  'RH open; no refereed bound is changed; NO QED. Reduction + obstruction only: the sandwich ' +
   'Int(N) <= zeta(2) T(N) (imp-96708) and the exact symmetric regrouping T(M) = 2 Sum_{b<=M} ' +
   'Q(b)/b^2 (checkpoint T(250)=11.757622 reproduced) rigorously reduce the log-upper-bound to the ' +
   'one uniform lemma Q(b) <= s0* b + O(1); the arithmetic-only term-splitting route is proved to ' +
@@ -257,7 +257,7 @@ const IMP96750_ASSERTIONS = [
       IMP96750_VERDICT.exactSymmetricRegrouping === true &&
       IMP96750_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96750_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96750_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96750_HONEST_BANNER) &&
       /RH open/.test(IMP96750_HONEST_BANNER) &&
       /upper-constant/.test(IMP96750_SUBGAP.id),
     why: 'reduction + obstruction: the reduction is rigorous, term-splitting is ruled out, the residual one-sided weighted cotangent second moment is NOT proved, no bound moved, and the honesty markers plus the named residual sub-gap are present.',

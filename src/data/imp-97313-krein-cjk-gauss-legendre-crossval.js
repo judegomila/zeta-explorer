@@ -42,7 +42,7 @@
  * WHAT THIS DOES NOT DO (honest residual, unchanged bound). Cross-validation only. No committed
  * numeric v0, no degree image d = C^T v0, no interval tail majorant (Obstruction A / imp-97263),
  * no operator positivity, no L^2 normalisation. Rayleigh floors stay UPPER bounds;
- * interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97293-krein-committed-cjk-gegenbauer-overlap.js (the exact BigInt-rational matrix being cross-validated)
  * @see imp-97264-krein-cjk-exact-rational-overlap.js (FORM + rationality for monomial profiles)

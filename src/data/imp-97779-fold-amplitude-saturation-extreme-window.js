@@ -66,8 +66,7 @@
  * (NOT a rigorous asymptotic). C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED (bare E_coll prefactor); E_trunc base pin 3.06e-5 unchanged
  * (only rescaled as a perturbation); no bound moves; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97764-fold-amplitude-wide-window-power-law (the 0.1x..10x sweep and the ~0.249-by-10x drift extended here)
  * @see imp-97743-fold-amplitude-etrunc-floor-sensitivity (the ~0.221 exponent origin)
@@ -261,7 +260,7 @@ export const IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW = {
     'sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous asymptotic; C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc base pin 3.06e-5 ' +
     'unchanged (only rescaled); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97764 (the 0.1x..10x sweep and the ~0.249-by-10x drift extended here); imp-97743 (the ~0.221 exponent ' +
     'origin); imp-97725 (the K pin reproduced at factor 1.0); imp-486 (C_mb GUE-conditional); imp-2642/imp-2643 ' +
@@ -305,16 +304,16 @@ export const IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW_ASSERTIONS = [
     holds: () => K_ALL_FINITE_INTERIOR === true && K_MONOTONE_UP === true && K_MIN > 0.15 && K_MAX > 1.5,
   },
   {
-    // Honesty gate: measurement only, divergence verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, divergence verdict, no QED, no refereed bound is changed.
     id: 'imp97779-honesty-gate-no-qed',
-    description: 'Measurement only: no-saturation / high-floor-divergence verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: no-saturation / high-floor-divergence verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW.isRigorous === false &&
       /THE DRIFT DOES NOT SATURATE ON THE HIGH-FLOOR SIDE -- IT DIVERGES/.test(
         IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW.verdict,
       ) &&
       /NO QED/.test(IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW.verdict) &&
-      /remains SOTA/.test(IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW.verdict),
+      /refereed bound is changed/i.test(IMP97779_FOLD_AMPLITUDE_SATURATION_EXTREME_WINDOW.verdict),
   },
 ];
 

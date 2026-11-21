@@ -44,8 +44,8 @@
  * IMP96772_ENTRY_PRECISION_AND_TCONV (full-entry extended-precision rebuild + t-convergence to T>=3200
  * to pin the plateau value) is unchanged, as is the open uniform-in-N gap
  * lambda_min(T_a[sigma_2]) >= c > 0. Measurement only; operator positivity for 0.96 < 2a < ln3 stays
- * OPEN; interval-rigorous certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2
- * SOTA; NO QED.
+ * OPEN; interval-rigorous certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * @see imp-96772-krein-lammin-double-double-recompute.js (the double-vs-dps40 two-point agreement this verifies)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (orthogonal Gegenbauer diagonal-Gram sibling; descent = t-truncation)

@@ -40,7 +40,7 @@
  * TABULATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (locator 1: closed-form crossover)
  * @see imp-33721-sigma-ramp-inflection-subdecade (locator 2: sigmoid-knee inflection)
@@ -132,7 +132,7 @@ export const IMP34441_3P28E9_LANDMARK_CLUSTER_RECONCILIATION = {
     'entry is imported verbatim from its source module. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form crossover); imp-33721 (sigmoid-knee inflection); imp-3444 (bisected ' +
     'crossover + halving landmark); imp-33582 (halving landmark origin); imp-33767 (knee-vs-landmark ' +
@@ -190,13 +190,13 @@ export const IMP34441_3P28E9_LANDMARK_CLUSTER_RECONCILIATION_ASSERTIONS = [
     holds: () => PAIRWISE_OFFSETS.length === 12,
   },
   {
-    // Honesty gate: tabulation only, no QED, PT stays SOTA.
+    // Honesty gate: tabulation only, no QED, no refereed bound is changed.
     id: 'imp34441-honesty-gate-no-qed',
-    description: 'Tabulation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Tabulation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34441_3P28E9_LANDMARK_CLUSTER_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP34441_3P28E9_LANDMARK_CLUSTER_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34441_3P28E9_LANDMARK_CLUSTER_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP34441_3P28E9_LANDMARK_CLUSTER_RECONCILIATION.verdict),
   },
 ];
 

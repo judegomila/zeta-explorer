@@ -62,7 +62,7 @@
  *
  * Import-light (imports only the import-light imp-95026 module for the committed
  * baked values). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95026_PAPER_PACKET_CEILING_TRANSFER } from "./imp-95026-paper-packet-ceiling-transfer.js";
@@ -291,7 +291,7 @@ export const IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR = {
     "EXACT DERIVATION + MEASUREMENT: the pair-correlation inner integral at integer s=3 is evaluated in closed form via partial fractions (elementary antiderivative, no quadrature) over the committed midpoint window; it matches the corner-aware adaptive-Simpson reference to relative 5.4e-14, confirming correctness. The committed midpoint far coefficient bit-reproduces the baked WORST_SCANNED ceiling 0.8924623374689161 and its true error against the exact closed form is 1.004e-7, computed directly. No closed-form ceiling is claimed beyond the far-coefficient quadrature error; NO QED.",
   promotesBound: false,
   verdict:
-    "EXACT ANCHOR + MEASUREMENT: an independent partial-fraction closed form for the far coefficient at the low-theta EDGE theta=2, s=3 (the WORST_SCANNED transfer row). FINDING 0: the closed-form far coefficient edgeExact=0.8924624270658892 matches the imp-95097 corner-aware adaptive-Simpson reference to relative 5.4e-14, so it is a genuine SECOND independent exact anchor at s=3. FINDING 1: the committed midpoint bit-reproduces WORST_SCANNED 0.8924623374689161 and its true error against the exact closed form is 1.004e-7 - confirming DIRECTLY the ~1.0e-7 imp-95097 had only indirectly. FINDING 2: 1.004e-7 is far below every WORST_SCANNED margin (the > 3 gap below 4 and the corner-guard break separation ~0.0238), so the below-4 and s > s* verdicts are robust to quadrature error at the edge, closing imp-95097 openResiduals[0]. SUB-GAP (carried): the paper Section 4.5 packet constants remain unpinned, so the paper s-slice edge error is not evaluated here. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "EXACT ANCHOR + MEASUREMENT: an independent partial-fraction closed form for the far coefficient at the low-theta EDGE theta=2, s=3 (the WORST_SCANNED transfer row). FINDING 0: the closed-form far coefficient edgeExact=0.8924624270658892 matches the imp-95097 corner-aware adaptive-Simpson reference to relative 5.4e-14, so it is a genuine SECOND independent exact anchor at s=3. FINDING 1: the committed midpoint bit-reproduces WORST_SCANNED 0.8924623374689161 and its true error against the exact closed form is 1.004e-7 - confirming DIRECTLY the ~1.0e-7 imp-95097 had only indirectly. FINDING 2: 1.004e-7 is far below every WORST_SCANNED margin (the > 3 gap below 4 and the corner-guard break separation ~0.0238), so the below-4 and s > s* verdicts are robust to quadrature error at the edge, closing imp-95097 openResiduals[0]. SUB-GAP (carried): the paper Section 4.5 packet constants remain unpinned, so the paper s-slice edge error is not evaluated here. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────────
@@ -332,12 +332,12 @@ export const IMP95115_EXACT_ANCHOR_ASSERTIONS = [
   {
     id: "imp95115-honesty-gate",
     description:
-      "the verdict names the carried sub-gap (paper constants unpinned), reports the exact anchor agreement and the direct midpoint true error, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the carried sub-gap (paper constants unpinned), reports the exact anchor agreement and the direct midpoint true error, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR.promotesBound === false &&
       IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR.openResiduals.length === 1 &&
       /NO QED/.test(IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR.verdict) &&
-      /remains SOTA/.test(IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR.verdict) &&
       /WORST_SCANNED/.test(IMP95115_LOW_THETA_EDGE_EXACT_ANCHOR.verdict),
   },
 ];

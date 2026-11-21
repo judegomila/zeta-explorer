@@ -64,7 +64,7 @@ export const IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE = Object.freez
     'open. Until imp-34246 lands, b_inf=-1 should be read as consistent-with, not established-as, the ' +
     'true limit. Changes no bound; component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; ' +
-    'NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 export const IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE_ASSERTIONS = [
@@ -88,7 +88,7 @@ export const IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE_ASSERTIONS = [
     description: 'honest framing explicitly disclaims QED and keeps Platt-Trudgian as SOTA',
     holds: () =>
       /NO QED/.test(IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE.honest) &&
-      /remains the rigorous SOTA/.test(IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE.honest) &&
+      /refereed bound is changed/i.test(IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE.honest) &&
       /imp-3066 K_a>=0 untouched/.test(IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE.honest),
   },
 ];

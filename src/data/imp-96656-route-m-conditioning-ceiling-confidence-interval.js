@@ -69,7 +69,7 @@
  * survives the full 95% band on both subsets; the only tight spot is the dense-fit
  * lower edge sitting ~6.5% above the rigorous lower ceiling. No bound is moved:
  * propagating the fit uncertainty does not touch lam_max, lam_min, or any Lambda
- * bound. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * bound. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96570-route-m-conditioning-ceiling-crossvalidation.js (the point range replaced here)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (rigorous lower ceiling 2.59e7)
@@ -209,7 +209,7 @@ export const IMP96656_VERDICT = Object.freeze({
     '9916 (compute) < 2.59e7 (rigorous lower) < fitted-ceiling 95% lower edge holds on ' +
     'both subsets, so compute binds first robustly (>=2800x below every band edge); the ' +
     'only tight spot is the dense-fit lower edge at ~6.5% above the rigorous lower ' +
-    'ceiling. No bound moved; error-propagation only; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'ceiling. No bound moved; error-propagation only; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96656_SUBGAP = Object.freeze({
@@ -226,7 +226,7 @@ export const IMP96656_SUBGAP = Object.freeze({
 });
 
 export const IMP96656_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Error-propagation only: every cond# ' +
+  'RH open; no refereed bound is changed; NO QED. Error-propagation only: every cond# ' +
   'value is a reproducible numeric already committed in imp-96570 / imp-96443 / imp-96105; ' +
   'the OLS covariance and delta-method ceiling band are pure re-analysis ' +
   '(tmp/imp-96656-scratch.mjs); no Gram was rebuilt and no bound is claimed moved.';
@@ -280,7 +280,7 @@ const IMP96656_ASSERTIONS = [
     holds: () =>
       IMP96656_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96656_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96656_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96656_HONEST_BANNER) &&
       /RH open/.test(IMP96656_HONEST_BANNER) &&
       /inherits-lammin-extrapolation/.test(IMP96656_SUBGAP.id),
     why: 'error-propagation only: no bound moved, the honesty markers are present, and the residual sub-gap (the band inherits the non-rigorous lam_min/lam_max extrapolation and small-sample t assumption) is recorded.',

@@ -11,7 +11,7 @@
  * to close the sign by proving the small-shift families dominate the positive-leaning large-residue mass,
  * and instead REACHES THE PRECISE OBSTRUCTION: an order-of-magnitude growth separation that makes the
  * small-r dominance strategy PROVABLY FAIL. It does NOT prove S(b) < 0. Derivation only; no bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (imp-97287 residue-resonance decomposition; imp-97097/imp-97181/imp-97226).
@@ -70,8 +70,8 @@
  * out-weigh the rest. This sharpens imp-97287 Result 3b from a measured share decrease to a rigorous
  * growth-order obstruction. The irreducible input remains the imp-97287 sub-gap: a signed shifted-divisor
  * estimate over the GROWING shift range (not a fixed band), the direct-line twin of the imp-97181 odd
- * inverse-map bias. Measured S/(phi b b) ~ -0.0795 stays measured. No bound on Lambda moves; PT Lambda
- * <= 0.2 SOTA; RH open; NO QED.
+ * inverse-map bias. Measured S/(phi b b) ~ -0.0795 stays measured. No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97287-route-m-cotangent-signed-half-residue-resonance-decomposition.js (exact decomposition; small-shift negativity)
  * @see imp-97181-route-m-cotangent-firstmoment-sign-inverse-bias.js (inverse-line reframing; odd kernel)
@@ -174,12 +174,12 @@ export const IMP97314_VERDICT = Object.freeze({
     '(Theta(b log b) family vs Theta(b^2) total). The negative bulk is carried by the GROWING shift range ' +
     'r up to ~a/2, so the irreducible input is unchanged: a signed shifted-divisor estimate over the ' +
     'growing range (imp-97287 sub-gap, the direct-line twin of the imp-97181 odd inverse-map bias), NOT a ' +
-    'finite band. Measured S/(phi b b) ~ -0.0795 stays measured. No bound on Lambda moves; PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'finite band. Measured S/(phi b b) ~ -0.0795 stays measured. No bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97314_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sharpened obstruction only: the sign S(b) < 0 of the ' +
+  'RH open; no refereed bound is changed; NO QED. Sharpened obstruction only: the sign S(b) < 0 of the ' +
   'Route M cotangent varying-modulus leg is NOT proved, and the r=1 / small-r family-dominance strategy is ' +
   'REFUTED. Proved: each fixed small-shift family is O(b^{1+o(1)}) (sharp -Theta(b log b) at r=1), while ' +
   'S(b) = -Theta(b^2), so any fixed small-r band is o(|S(b)|) and its share -> 0. This explains the ' +
@@ -262,7 +262,7 @@ const IMP97314_ASSERTIONS = [
       IMP97314_VERDICT.postsRigorousCeiling === false &&
       IMP97314_VERDICT.qed === false &&
       /NO QED/.test(IMP97314_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97314_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97314_HONEST_BANNER) &&
       /RH open/.test(IMP97314_HONEST_BANNER),
     why: 'sharpened obstruction: the growth-order separation (Theta(b log b) fixed family vs Theta(b^2) total) rigorously refutes the small-r dominance strategy, but the sign S(b) < 0 stays measured -- no bound moved, no rigorous ceiling, honesty markers present.',
   },

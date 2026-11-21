@@ -38,7 +38,7 @@
  *   of R), the imp-3197/imp-3257 [0, U] window is untouched, and the binding
  *   RH-equivalent residual is the imp-3066 operator-norm magnitude (K_a >= 0),
  *   entirely unaffected. No new positivity, no reduction, no RH verdict.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3347-phi-leftmost-zero-vs-nphi.js (the leftmost-zero ladder this fits)
  *   @see imp-3257-bridge-sign-phi-nonneg-structural.js (the termwise [u_1*, inf) bound)
@@ -172,7 +172,7 @@ export const IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT = Object.freeze({
     'truncation artifact receding to -infinity (the untruncated Phi is positive on all of R), the ' +
     'imp-3197/imp-3257 [0, U] window is untouched, and the binding RH-equivalent residual is the ' +
     'imp-3066 operator-norm magnitude K_a >= 0, entirely unaffected; no positivity, no reduction, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..NPHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -240,7 +240,7 @@ export const IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT = Object.freeze({
       'The measured -0.98148 is the FINITE-NPHI drift rate over {10, 20, 40, 80}, not a claim that the ' +
       'exact asymptotic coefficient differs from -1; the +0.0185 gap is the Gaussian-curvature ' +
       'correction that shrinks as NPHI grows.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -285,7 +285,7 @@ export const IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT_ASSERTIONS = [
     id: 'imp3402-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- not a proof, not a reduction below RH, RH-equivalent, ' +
          'fits a truncation artifact, does not advance positivity / the imp-3066 magnitude obstruction, ' +
-         'PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT.honestCaveat;
       return (
@@ -293,7 +293,7 @@ export const IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.doesNotAdvancePositivity.length > 0 &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

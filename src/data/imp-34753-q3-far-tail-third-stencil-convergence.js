@@ -61,7 +61,7 @@
  *   ladder is a property of the inherited model, not an independent physical claim. The -2 asymptote
  *   and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional
  *   share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34728-q3-far-tail-stencil-crossvalidation.js (the two-stencil cross-validation extended here)
  *   @see imp-34711-q3-trust-boundary-far-tail-extension.js (the 9-point far-tail law being validated)
@@ -273,7 +273,7 @@ export const IMP34753_Q3_FAR_TAIL_THIRD_STENCIL_CONVERGENCE = Object.freeze({
     'far-tail ladder is a property of the inherited model, not an independent physical claim. The -2 ' +
     'asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34728 (two-stencil cross-validation extended here); imp-34711 (9-point far-tail law dp* ~ ' +
     '(W_max*eps/480)^(1/3)(log N)^(4/3)); imp-34691 (dp*(N) ladder + probe band); imp-34626 (inherited ' +
@@ -327,9 +327,9 @@ const IMP34753_ASSERTIONS = [
     holds: () =>
       IMP34753_Q3_FAR_TAIL_THIRD_STENCIL_CONVERGENCE.isRigorous === false &&
       /NO QED/.test(IMP34753_Q3_FAR_TAIL_THIRD_STENCIL_CONVERGENCE.verdict) &&
-      /remains SOTA/.test(IMP34753_Q3_FAR_TAIL_THIRD_STENCIL_CONVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34753_Q3_FAR_TAIL_THIRD_STENCIL_CONVERGENCE.verdict) &&
       /UNTOUCHED/.test(IMP34753_Q3_FAR_TAIL_THIRD_STENCIL_CONVERGENCE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

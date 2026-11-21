@@ -82,7 +82,7 @@
  * decay LATER by exactly as much as a tighter floor pushes it EARLIER, and the shared excess
  * past 2 (0.066) is the slowly-growing log T0 factor imp-96931 isolated. Measurement/
  * sensitivity only; C_mb stays GUE-conditional (imp-486); no bound changes, no positivity,
- * no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96931-sigma-deep-decay-crossing-etrunc-elasticity (the conjugate E_trunc leverage -2.066 this module mirrors)
  * @see imp-96936-sigma-quarter-crossing-cc-elasticity (the sigma=0.25 C_C leverage +2.087; this module pushes it to the deep arm)
@@ -270,7 +270,7 @@ export const IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY = {
     'tighter floor pushes it EARLIER, and the shared excess past 2 (0.066) is the slowly-growing ' +
     'log T0 factor imp-96931 isolated. Measurement/sensitivity only; C_mb stays GUE-conditional ' +
     '(imp-486); no bound changes, no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96931 (conjugate E_trunc leverage -2.066 at the sigma=0.01 deep-decay crossing, reused); ' +
@@ -356,14 +356,14 @@ export const IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY_ASSERTIONS = [
     holds: () => Math.max(...SWEEP_NS) / Math.min(...SWEEP_NS) > 10,
   },
   {
-    // Honesty gate: measurement/assessment only, equal-and-opposite verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, equal-and-opposite verdict, no QED, no refereed bound is changed.
     id: 'imp96950-honesty-gate-no-qed',
-    description: 'Assessment only: equal-and-opposite verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: equal-and-opposite verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY.isRigorous === false &&
       /EQUAL-AND-OPPOSITE/.test(IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY.verdict) &&
       /NO QED/.test(IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY.verdict),
   },
 ];
 

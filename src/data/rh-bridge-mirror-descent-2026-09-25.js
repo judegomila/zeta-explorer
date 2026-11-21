@@ -20,7 +20,7 @@
  * H_t, which carry no Euler product. The Euler product gives a rigorous descent RATE only at the single
  * instant t = 0, only for a globally topmost zero whose existence is unknown, and yields no Lambda bound.
  * Error-term-free models of a t > 0 version land on P15's existing Lambda = O(1/log X) curve (~0.19 at
- * X = 6e12). PT Lambda <= 0.2 stands. NO QED.
+ * X = 6e12). No refereed bound is changed. NO QED.
  *
  * CONVENTIONS (as in the lane audit). H_t(z) = int_0^oo e^{tu^2} Phi(u) cos(zu) du, d_t H_t = -d_z^2 H_t,
  * zeros of H_0 at z = 2 gamma (rho = 1/2 + i z/2, so beta - 1/2 = -Im z/2). Zeros move by
@@ -269,7 +269,7 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
   id: 'rh-bridge-mirror-descent-2026-09-25',
   date: '2026-09-25',
   status:
-    'Pair lemma, higher-neighbour lemma, Poisson domination PROVED; conditional flow-descent theorem H_desc-mirror => Lambda <= t0 + y0^2/2 PROVED modulo flagged residuals; t = 0 Euler-product rate PROVED as an implication (vacuous under RH, single instant); no new Lambda bound; hypothesis open and pointwise (NS-RIGID class); PT Lambda <= 0.2 SOTA; RH open; NO QED',
+    'Pair lemma, higher-neighbour lemma, Poisson domination PROVED; conditional flow-descent theorem H_desc-mirror => Lambda <= t0 + y0^2/2 PROVED modulo flagged residuals; t = 0 Euler-product rate PROVED as an implication (vacuous under RH, single instant); no new Lambda bound; hypothesis open and pointwise (NS-RIGID class); no refereed bound is changed; RH open; NO QED',
   target: Object.freeze({ t0: T0, y0: Y0, U: T0 + (Y0 * Y0) / 2, lnNSeam: LN_SEAM, lnN1Star: LN_N1 }),
   theorems: Object.freeze({
     pairLemma: 'For Delta > 0, a in [0,2y]: f(a) + f(2y-a) >= f(2y) = 2y/(Delta^2+4y^2), f(h) = h/(Delta^2+h^2); equality only at a in {0,2y}. PROVED (subadditivity).',
@@ -325,7 +325,7 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
     id: 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP',
     ticket: 'imp-97051',
     residual: '(a) Dini/envelope argument through collision times with uniform-in-t Ki-Kim-Lee finiteness',
-    verdict: 'HALF-CLOSED: the collision/Dini/envelope mechanics are rigorous; the remaining obstruction is the uniform-in-t finiteness / envelope-attainment on the unbounded x-strip, which Ki-Kim-Lee does not supply as stated. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+    verdict: 'HALF-CLOSED: the collision/Dini/envelope mechanics are rigorous; the remaining obstruction is the uniform-in-t finiteness / envelope-attainment on the unbounded x-strip, which Ki-Kim-Lee does not supply as stated. No new Lambda bound. No refereed bound is changed. NO QED.',
     a1_rigorous:
       'The topmost-height envelope Y(t) = sup{ y : nonreal zero of H_t with x >= X+1 } is continuous in t (Rouche/Hurwitz, zeros vary continuously). Away from collisions it is locally Lipschitz and its upper Dini derivative satisfies D+ Y(t) <= max over the active topmost zeros of dy/dt <= -1/y_top - (mirror pull), i.e. the B1 descent inequality (Danskin/envelope theorem for a max of C^1 trajectories). At a collision the corrected local picture gives the topmost member rate ~ -1/sqrt(2(t*-t)): (i) NEGATIVE (downward), so a collision is sign-favourable and only accelerates descent -- it can never push the running max UP; (ii) INTEGRABLE (int dt/sqrt(t*-t) converges; finite total drop, verified by collisionDrop). Hence across finitely many collisions Y stays absolutely continuous and the FTC-for-Dini bound Y(t0) - Y(0) <= int_0^{t0} D+ Y dt is valid. Collision times are isolated: they are zeros of the analytic-in-t discriminant, not identically zero for t > 0.',
     a2_subgap:
@@ -336,7 +336,7 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
     ticket: 'imp-97052',
     residual: '(b) the P15 localisation keeping topmost nonreal zeros at x >= X+1 throughout the flow',
     verdict:
-      'HALF-TRANSFERS: the P15 barrier supplies the LOWER-EDGE localisation t-uniformly (every nonreal zero of H_t has x > X for all t in [0, t0]); the LARGE-x half does NOT transfer and coincides with the residual (a) unbounded-strip sub-gap -- in P15 it is furnished only by the effective-approximation kill that mirror-descent is trying to replace. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+      'HALF-TRANSFERS: the P15 barrier supplies the LOWER-EDGE localisation t-uniformly (every nonreal zero of H_t has x > X for all t in [0, t0]); the LARGE-x half does NOT transfer and coincides with the residual (a) unbounded-strip sub-gap -- in P15 it is furnished only by the effective-approximation kill that mirror-descent is trying to replace. No new Lambda bound. No refereed bound is changed. NO QED.',
     b1_transfers:
       'B1 assumes P15 (ii) the barrier only, NOT the large-x effective kill (that is the piece the descent is meant to replace). The barrier is a rectangular-contour winding computation near x = X whose argument-principle count is constant in t BY CONSTRUCTION (H_t is nonzero on the contour for every t in [0, t0]); it is a genuine FLOW statement, not an endpoint one. Combined with RH verified below the barrier it forces the zero count in the box [0, X] x [y-range] to equal the full real count for every t, so no nonreal zero has x <= X during (0, t0]. The extra unit buffer to x >= X+1 is a minor strengthening (barrier placed at X+1, or a cheap Rouche estimate that [X, X+1] carries no nonreal zero) inside the same P15 framework. This lower-edge localisation transfers cleanly.',
     b2_does_not_transfer:
@@ -347,7 +347,7 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
     ticket: 'imp-97053',
     residual: '(c) the hypothesis is needed on ALL x >= X+1 for all t in (0, t0], where zeros of H_t carry no Euler product; and C_t vs H_desc are logically incomparable',
     verdict:
-      'MEASURED, NOT CLOSED: the all-x-all-t gap is essentially total -- the only UNCONDITIONAL input (the A5 Euler-product rate) covers a Lebesgue-measure-zero slice {t = 0} of the required interval (0, t0] and only a single globally topmost zero, not all x >= X+1; and the C_t <-> H_desc incomparability admits only the one direction C_t >= p/4, whose factor 4 is narrowable solely with pointwise horizontal-spacing input at sigma < 1 (NS-RIGID class), so it cannot be tightened unconditionally. Residual (c) is therefore a genuine standalone gap, coinciding with the C4 NS-RIGID wall, not a technicality. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+      'MEASURED, NOT CLOSED: the all-x-all-t gap is essentially total -- the only UNCONDITIONAL input (the A5 Euler-product rate) covers a Lebesgue-measure-zero slice {t = 0} of the required interval (0, t0] and only a single globally topmost zero, not all x >= X+1; and the C_t <-> H_desc incomparability admits only the one direction C_t >= p/4, whose factor 4 is narrowable solely with pointwise horizontal-spacing input at sigma < 1 (NS-RIGID class), so it cannot be tightened unconditionally. Residual (c) is therefore a genuine standalone gap, coinciding with the C4 NS-RIGID wall, not a technicality. No new Lambda bound. No refereed bound is changed. NO QED.',
     c1_allxallt_measured:
       'REQUIRED regime for B1: H_desc-mirror(p) at every nonreal zero of H_t with y >= y0, x >= X+1, for EVERY t in (0, t0] (t0 = 0.1314). UNCONDITIONALLY SUPPLIED: only the A5/A5-Euler instantaneous rate, which holds (i) at the single instant t = 0 (Lebesgue measure 0 inside (0, t0]) and (ii) only for a globally topmost zero whose existence is unknown, NOT for the running max over the semi-infinite strip x >= X+1. For t > 0 the zeros are zeros of H_t and carry NO Euler product, so the sigma > 1 arithmetic input (the only unconditional lever) is unavailable on the entire positive-measure set (0, t0]. Measured coverage fraction of the required t-interval = 0 (a measure-zero endpoint slice); the gap is 100 percent of the flow.',
     c2_incomparability_measured:
@@ -358,7 +358,7 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
   nextStep:
     'Prove the loss factor 2y/eta is forced: construct zero configurations satisfying every sigma > 1 (eta >= 1) wide-Poisson lower bound that H_0 satisfies, yet with pull at width y below the Palm-neutral profile near a topmost zero. This would close the mirror-descent route as a theorem (as done for Sonine / rank-one fixes) instead of leaving it to modelling.',
   verdict:
-    'The pair lemma is a proved, elementary sharpening of the de Bruijn topmost-zero argument and gives a proved conditional descent theorem whose hypothesis is formally implied by H_desc, but it does not replace "a third of nearby zeros real" by a no-shortage count: against the Palm baseline the U = 0.145 requirement is a local surplus, pointwise at sigma < 1 (NS-RIGID class), and for t > 0 it concerns zeros of H_t without Euler product. The unconditional Euler input is an instantaneous t = 0 rate only. No new Lambda bound. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    'The pair lemma is a proved, elementary sharpening of the de Bruijn topmost-zero argument and gives a proved conditional descent theorem whose hypothesis is formally implied by H_desc, but it does not replace "a third of nearby zeros real" by a no-shortage count: against the Palm baseline the U = 0.145 requirement is a local surplus, pointwise at sigma < 1 (NS-RIGID class), and for t > 0 it concerns zeros of H_t without Euler product. The unconditional Euler input is an instantaneous t = 0 rate only. No new Lambda bound. No refereed bound is changed. RH open. NO QED.',
   files: Object.freeze([
     'src/data/lane-arithmetic-input-audit-2026-09-22.js',
     'src/data/rh-supercritical-fluid-bridge-2026-09-24.js',
@@ -539,7 +539,7 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
       const a = RH_BRIDGE_MIRROR_DESCENT.residualAssessment;
       return drop < 0 && Number.isFinite(drop) && near(drop, closed, 1e-4) && finiteLimit &&
         a.id === 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP' && /HALF-CLOSED/.test(a.verdict) &&
-        /NO QED/.test(a.verdict) && /PT Lambda <= 0\.2 stands/.test(a.verdict);
+        /NO QED/.test(a.verdict) && /refereed bound is changed/i.test(a.verdict);
     },
   },
   {
@@ -551,7 +551,7 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
       const a = RH_BRIDGE_MIRROR_DESCENT.residualAssessment;
       return b.id === 'MIRROR_RESIDUAL_B_LARGEX_LOCALISATION_IS_RESIDUAL_A' &&
         b.ticket === 'imp-97052' && /HALF-TRANSFERS/.test(b.verdict) && /NO QED/.test(b.verdict) &&
-        /PT Lambda <= 0\.2 stands/.test(b.verdict) &&
+        /refereed bound is changed/i.test(b.verdict) &&
         /MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP/.test(b.b2_does_not_transfer) &&
         a.id === 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP';
     },
@@ -577,7 +577,7 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
         near(realOverMirror(s, 1), 3.462, 3e-3) &&
         c.id === 'MIRROR_RESIDUAL_C_ALLXALLT_NOEULER_AND_INCOMPARABILITY_INTRINSIC' &&
         c.ticket === 'imp-97053' && /MEASURED, NOT CLOSED/.test(c.verdict) && /NO QED/.test(c.verdict) &&
-        /PT Lambda <= 0\.2 stands/.test(c.verdict) && /NS-RIGID/.test(c.c3_subgap);
+        /refereed bound is changed/i.test(c.verdict) && /NS-RIGID/.test(c.c3_subgap);
     },
   },
   {
@@ -586,7 +586,7 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
     why: 'project rule: no false QED',
     holds: () => {
       const m = RH_BRIDGE_MIRROR_DESCENT;
-      return /PT Lambda <= 0\.2 stands/.test(m.verdict) && /NO QED/.test(m.verdict) && /NO QED/.test(m.status) &&
+      return /refereed bound is changed/i.test(m.verdict) && /NO QED/.test(m.verdict) && /NO QED/.test(m.status) &&
         /No new Lambda bound/i.test(m.verdict) && m.numbers.tPositiveModelComposite > m.numbers.p15Table1.X2e13 - 0.01 &&
         m.numbers.tPositiveModelCompositeEnhancementOff > 0.2 && m.numbers.hybridQReq.withE >= m.numbers.hybridQReq.withoutE;
     },

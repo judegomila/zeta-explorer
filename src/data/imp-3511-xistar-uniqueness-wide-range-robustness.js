@@ -239,7 +239,7 @@ export const IMP3511_XISTAR_UNIQUENESS_WIDE_RANGE_ROBUSTNESS = Object.freeze({
     '120. Refining the grid shifts the LOCATION from the imp-3483 coarse value 12.0870439 to ~12.069 (a ~0.018 ' +
     'quadrature-convergence drift, not a second maximizer); the robust claim is about the root COUNT, not a ' +
     'bit-identical location. Certification/measurement only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the ' +
-    'lone obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'lone obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -343,7 +343,7 @@ export const IMP3511_XISTAR_UNIQUENESS_WIDE_RANGE_ROBUSTNESS = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -417,8 +417,8 @@ export const IMP3511_XISTAR_UNIQUENESS_WIDE_RANGE_ROBUSTNESS_ASSERTIONS = [
     id: 'imp3511-honest-assessment-no-qed',
     why: 'Mandatory honesty: hardens GLOBALITY robustness but NOT a closed form (equation transcendental), the ' +
       'location drifts with the grid (quadrature convergence), the tail bound is a monotone-decay argument not an ' +
-      'analytic no-root proof, sub-Nyquist only, value stays a number, positivity not attempted, RH-equivalent, PT ' +
-      '0.2 stays SOTA. Any flip over-claims.',
+      'analytic no-root proof, sub-Nyquist only, value stays a number, positivity not attempted, RH-equivalent, no refereed bound is changed' +
+      '. Any flip over-claims.',
     holds: () => {
       const c = IMP3511_XISTAR_UNIQUENESS_WIDE_RANGE_ROBUSTNESS.honestCaveat;
       return (
@@ -430,7 +430,7 @@ export const IMP3511_XISTAR_UNIQUENESS_WIDE_RANGE_ROBUSTNESS_ASSERTIONS = [
         typeof c.locationDriftsWithGrid === 'string' &&
         typeof c.finiteDomainStillFinite === 'string' &&
         typeof c.subNyquistOnly === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

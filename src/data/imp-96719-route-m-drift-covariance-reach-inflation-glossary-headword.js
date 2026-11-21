@@ -49,14 +49,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96692 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96692-route-m-reach-drift-covariance-inflation.js (source: the measurement this glosses)
  * @see imp-96569-route-m-window-reach-projection.js (SE-of-mean lower-bound reach that gets inflated)
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (drift degeneracy, the 21-rung ladder)
  *
  * Ticket: imp-96719 (content, medium, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The drift-covariance reach-inflation headword, baked verbatim (no re-import).
@@ -95,7 +95,7 @@ const DRIFT_COVARIANCE_REACH_INFLATION_HEADWORD = Object.freeze({
     'non-uniformly-spaced ladder rungs. The direction is robust and one-sided -- ' +
     'honouring the measured positive serial correlation can only ENLARGE the reach ' +
     'and TIGHTEN the gap floor, never shrink either. Changes no bound; establishes ' +
-    'no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -118,8 +118,8 @@ export const IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD = Objec
     'tightens the drift-aware gap-resolution floor to only ~1.09 covariance-inflated ' +
     'sigma, below the SE-of-mean model’s 1.74 sigma. This CONFIRMS and QUANTIFIES ' +
     'the imp-96569 lower-bound caveat; it overturns no plateau reading. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96692 (the drift-covariance measurement and reach re-solve this glosses); ' +
     'imp-96569 (the SE-of-mean reach projection that gets inflated); imp-96601 ' +
@@ -149,11 +149,11 @@ export const IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp96719-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96719_DRIFT_COVARIANCE_REACH_INFLATION_GLOSSARY_HEADWORD.glosses === 'imp-96692',
   },
 ];

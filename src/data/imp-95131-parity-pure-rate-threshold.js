@@ -106,7 +106,7 @@
  * the multi-packet extension is named, not proved. (c) The threshold 2/5 is
  * a certified sufficient constant, not the sharp one (sandwich 0.127 to
  * 0.389). (d) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) Lemma RC was stress-tested on a 125000-cell
  * log grid over (rate, ratio, dimensionless separation) including ratio
@@ -321,7 +321,7 @@ export const IMP95131_PARITY_PURE_RATE_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM RT is unconditional given the sibling-chain witness conventions: Lemma RC is elementary calculus (concavity single-crossing argument, proof in full above), the row reduction is weighted AM-GM plus sameBlock >= 0, Lemma GS is exhaustive block-lattice arithmetic with a two-line general proof, and S(2/5) < 1 is certified by a rational alternating-series chain that dominates the true values. No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: one packet per block, parity-pure; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM RT is unconditional given the sibling-chain witness conventions: Lemma RC is elementary calculus (concavity single-crossing argument, proof in full above), the row reduction is weighted AM-GM plus sameBlock >= 0, Lemma GS is exhaustive block-lattice arithmetic with a two-line general proof, and S(2/5) < 1 is certified by a rational alternating-series chain that dominates the true values. No MAJ conditionality enters: the theorem BOUNDS witnesses, it does not price them against the ceiling. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: one packet per block, parity-pure; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -479,11 +479,11 @@ export const IMP95131_PARITY_PURE_RATE_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95131-rt-honesty-gate",
     description:
-      "the verdict is scoped: one packet per block, parity-pure, threshold 2/5 sufficient not sharp; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN with two named legs; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: one packet per block, parity-pure, threshold 2/5 sufficient not sharp; the parent sub-gap imp-95130-subgap-phi-conditional-odd-mass stays OPEN with two named legs; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95131_PARITY_PURE_RATE_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95131_PARITY_PURE_RATE_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95131_PARITY_PURE_RATE_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95131_PARITY_PURE_RATE_THRESHOLD.rigorScope) &&
       /stays OPEN/.test(IMP95131_PARITY_PURE_RATE_THRESHOLD.rigorScope) &&
       /remains OPEN/.test(IMP95131_PARITY_PURE_RATE_THRESHOLD.openResiduals[0]) &&
       /named, not closed/.test(IMP95131_PARITY_PURE_RATE_THRESHOLD.openResiduals[1]) &&

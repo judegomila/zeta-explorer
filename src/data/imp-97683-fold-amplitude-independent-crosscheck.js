@@ -58,7 +58,7 @@
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED and only perturbed as a probe, not
  * re-pinned; E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97662-cc-elasticity-peak-divergence (the fold law and first K route)
  * @see imp-97622-sigma-l2-cc-elasticity-closed-form (the closed form)
@@ -242,8 +242,8 @@ export const IMP97683_FOLD_AMPLITUDE_INDEPENDENT_CROSSCHECK = {
     'genuine |K| difference. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED ' +
     '(perturbed only as a probe, not re-pinned); E_trunc pinned 3.06e-5 unchanged; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97662 (the fold law and first K route ~0.423330); imp-97622 (downslope closed form); imp-97642 ' +
     '(5-point stencil verification); imp-97520 (L1 peak sigma_max ~ 0.949429); imp-2642/imp-2643 ' +
@@ -285,11 +285,11 @@ export const IMP97683_FOLD_AMPLITUDE_INDEPENDENT_CROSSCHECK_ASSERTIONS = [
   },
   {
     id: 'imp97683-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, ansatz untouched',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed, ansatz untouched',
     holds: () =>
       IMP97683_FOLD_AMPLITUDE_INDEPENDENT_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP97683_FOLD_AMPLITUDE_INDEPENDENT_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP97683_FOLD_AMPLITUDE_INDEPENDENT_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP97683_FOLD_AMPLITUDE_INDEPENDENT_CROSSCHECK.verdict),
   },
 ];
 

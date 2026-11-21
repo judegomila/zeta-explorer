@@ -62,8 +62,8 @@
  *   the section-26 Gram. It confirms the imp-3110 DERIVATION that the s = a*U collapse is
  *   a toy artifact of the scale-homogeneous bare weight; it does NOT compute the real
  *   object, does NOT attempt positivity, carries NO RH verdict, and is NOT a reduction.
- *   The bare-V pilot is not re-run. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous
- *   SOTA. No false QED.
+ *   The bare-V pilot is not re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3085-hankel-gap-aU-grid.js               (the a*U collapse this probes)
  *   @see imp-3110-section26-gram-vs-monomial-gap.js   (survivesSwap: the collapse is a toy artifact)
@@ -307,7 +307,7 @@ export const IMP3124_PHI_WINDOWED_AU_COLLAPSE_BREAK = Object.freeze({
     didNotComputeGenuineSection26Gram: true,
     didNotAttemptPositivity: true,
     didNotRerunBarePilot: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -348,8 +348,8 @@ export const IMP3124_PHI_WINDOWED_AU_COLLAPSE_BREAK_ASSERTIONS = [
   {
     id: 'imp3124-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: a representative diagnostic with a GAUSSIAN proxy (not the genuine kernel, ' +
-         'not the section-26 Gram), no positivity attempt, no RH verdict, not a proof or reduction, PT 0.2 ' +
-         'stays SOTA. If any of these flip the module is over-claiming.',
+         'not the section-26 Gram), no positivity attempt, no RH verdict, not a proof or reduction, no refereed bound is changed' +
+         '. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3124_PHI_WINDOWED_AU_COLLAPSE_BREAK.honestCaveat;
       return (
@@ -361,7 +361,7 @@ export const IMP3124_PHI_WINDOWED_AU_COLLAPSE_BREAK_ASSERTIONS = [
         c.didNotComputeGenuineSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

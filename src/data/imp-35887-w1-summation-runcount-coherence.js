@@ -22,8 +22,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity;
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * RUN-COUNT LADDER (same multiset, r = 2 m maximal same-sign runs; N = 488602)
  * -----------------------------------------------------------------------------
@@ -77,7 +76,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35852) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -381,7 +380,7 @@ export const IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE = {
     'obstruction stays the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). ' +
     'Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes ' +
     'no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35852 (five discrete orderings; clustered 2-run worst this interpolates from); imp-35812 ' +
     '(single-ordering baseline; term family + exact BigInt reference); imp-35854 (condition-number sweep ' +
@@ -460,16 +459,16 @@ export const IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE_ASSERTIONS = [
       RUNGS.every((r) => r.pairwiseNormErr < CEIL_PAIRWISE && r.kahanNormErr < CEIL_KAHAN && r.pairwiseNormErr > 0),
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35887-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /approached but/.test(IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE.conclusion.coherenceFractionInversePowerThenPlateau) &&
       /GREENFIELD/.test(IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE.verdict) &&
-      /remains SOTA/.test(IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE.verdict),
+      /refereed bound is changed/i.test(IMP35887_W1_SUMMATION_RUNCOUNT_COHERENCE.verdict),
   },
 ];
 

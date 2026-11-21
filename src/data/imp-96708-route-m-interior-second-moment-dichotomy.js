@@ -67,7 +67,7 @@
  * per-decade increment is stable/rising at ~3.53, so T_inf = infinity (divergence) and the
  * growth is genuine. No bound is moved: the log-fit ceiling ~3.78e7 remains an extrapolation
  * of an unproven slope CONSTANT, and compute (N~9916, imp-96352) still binds first by >3800x.
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): the DIVERGENCE is measured (stable per-decade increment to M=4000),
  * not proved by a closed-form lower bound, and the slope CONSTANT s (~3.53 unweighted, ~5.66
@@ -154,7 +154,7 @@ export const IMP96708_VERDICT = Object.freeze({
     'infinity and the growth is genuine. The imp-96667 weighted interior slope ~5.66 sits ' +
     'inside the forced band [3.53, 5.81], confirming consistency. No bound moved: the ~3.78e7 ' +
     'ceiling still extrapolates the unproven slope CONSTANT, and compute (N~9916) binds first ' +
-    'by >3800x. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'by >3800x. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96708_SUBGAP = Object.freeze({
@@ -171,7 +171,7 @@ export const IMP96708_SUBGAP = Object.freeze({
 });
 
 export const IMP96708_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The dichotomy reduction is RIGOROUS ' +
+  'RH open; no refereed bound is changed; NO QED. The dichotomy reduction is RIGOROUS ' +
   '(monotone convergence + the 1 <= H2 <= zeta(2) sandwich): ||G_N||_F^2 saturates iff the ' +
   'explicit positive series T_inf = Sum_{coprime a,b>=2} I(a,b)^2/(a^2 b^2) converges. Its ' +
   'DIVERGENCE (=> genuine log-N growth, no saturation) is MEASURED (tmp/imp-96708-interior-' +
@@ -229,7 +229,7 @@ const IMP96708_ASSERTIONS = [
       IMP96708_VERDICT.slopeConstantClosedForm === false &&
       IMP96708_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96708_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96708_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96708_HONEST_BANNER) &&
       /RH open/.test(IMP96708_HONEST_BANNER) &&
       /slope-constant-open/.test(IMP96708_SUBGAP.id),
     why: 'rigorous reduction + measured resolution: no bound moved, divergence is measured (not closed-form-proved), the slope constant stays open, and the honesty markers plus the residual sub-gap are present.',

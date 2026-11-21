@@ -3,8 +3,8 @@
  * (quantitative thaw 0.14 -> 0.139981915 via delta_t = 0, delta_y = -1e-4).
  *
  * GRADE: ASSESSMENT (measurement + majorant bookkeeping). Derives no bound,
- * certifies no collar, closes no gap; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA. Per the no-gain rule and the PT-floor audit, this lever
+ * certifies no collar, closes no gap; NO QED. No refereed bound is changed
+ * . Per the no-gain rule and the PT-floor audit, this lever
  * sharpens only the CONDITIONAL row target (0.14 -> 0.139981915); it cannot
  * move the rigorous frontier, which binds on verified height.
  *
@@ -239,7 +239,7 @@ export const IMP_95202_PROP43_COLLAR = {
     'My*1e-4 < m is NOT certifiable from delivered artifacts: the in-repo m-floor is 8.935e-4 while the ' +
     'only in-repo derivative route (termwise majorant) gives My ~ 4794, a ~537x shortfall. Blocking ' +
     'quantity: a directed dG/dy sweep (with cancellation) + the true min-shard L12. Changes no bound; ' +
-    'sharpens only the CONDITIONAL row; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'sharpens only the CONDITIONAL row; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (import-light; ~7e5-term sums run in milliseconds) ──────────

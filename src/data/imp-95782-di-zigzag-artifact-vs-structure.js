@@ -50,7 +50,7 @@
  * reading is an inference from the difference-order growth, not a re-quadrature certificate.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: imp-95765 dI table (dI(1/m)=J_raw(m)+5/2). SCRATCH: tmp/imp-95782-scratch.mjs.
  */
@@ -108,7 +108,7 @@ export const DI_ZIGZAG_ARTIFACT_VS_STRUCTURE = Object.freeze({
     + 'The per-modulus error at the non-anchor moduli m=18/19/21 sits at ~3e-5, far above the m=20 '
     + 'anchor 1e-9 floor, and produces the sign-flips. SUB-GAP: this is an order-growth inference, '
     + 'NOT the Nsub grid-refinement re-run (imp-95746-tightened-Nsub-at-nonanchor-moduli). G '
-    + 'irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'imp-95765 four-modulus dI table dI(1/m)=J_raw(m)+5/2 (= 1 - Q_0(m); +4 offset)',
   builtOn:
@@ -181,7 +181,7 @@ export const DI_ZIGZAG_ARTIFACT_VS_STRUCTURE = Object.freeze({
     + 'quadrature. The order-growth discriminator is a strong inference, not a re-quadrature '
     + 'certificate. Entire table CONDITIONAL on the +4 offset being exactly 4 and m-independent '
     + '(verified only at m=20). Catalan G irrationality OPEN; Sun single-author, unrefereed; NO '
-    + 'Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const DI_ZIGZAG_ARTIFACT_VS_STRUCTURE_ASSERTIONS = Object.freeze([
@@ -221,11 +221,11 @@ export const DI_ZIGZAG_ARTIFACT_VS_STRUCTURE_ASSERTIONS = Object.freeze([
       && /NOT the Nsub grid-refinement/.test(DI_ZIGZAG_ARTIFACT_VS_STRUCTURE.subGap),
   },
   {
-    name: 'honest: conditional on the +4 offset, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: conditional on the +4 offset, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /CONDITIONAL/.test(DI_ZIGZAG_ARTIFACT_VS_STRUCTURE.verdict.conclusion)
       && /G irrationality OPEN/.test(DI_ZIGZAG_ARTIFACT_VS_STRUCTURE.status)
-      && /PT Lambda<=0.2 SOTA/.test(DI_ZIGZAG_ARTIFACT_VS_STRUCTURE.status)
+      && /refereed bound is changed/i.test(DI_ZIGZAG_ARTIFACT_VS_STRUCTURE.status)
       && /NO QED/.test(DI_ZIGZAG_ARTIFACT_VS_STRUCTURE.status),
   },
 ]);

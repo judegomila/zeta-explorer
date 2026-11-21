@@ -21,7 +21,7 @@
  *
  *   STATUS: documentation only. Explains already-published measurements (imp-124772, imp-33684) in
  *   plain terms with a physics analogy and a worked numeric example; establishes nothing new; moves
- *   no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-124772-knee-floor-elasticity-multifloor-fit.js (the certified p_knee_lsq ~ -2.106 this
  *   exposition explains)
@@ -32,7 +32,7 @@
  * @see imp-97822-sigma-knee-etrunc-floor-elasticity.js (the original two-floor chord p_knee ~ -2.099)
  *
  * Ticket: imp-124943 (content, low, sonnet-4-6). Documentation only; no bound change; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const KNEE_FLOOR_ELASTICITY_EXPOSITION = Object.freeze({
@@ -226,7 +226,7 @@ export const IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION = Ob
     'and works the imp-124772 certified p_knee_lsq ~ -2.106 against the imp-33684 softer interior-peak ' +
     'exponent ~ -1.375 as the advanced contrast, attributing the gap (~0.731) to a non-negligible third ' +
     'term (E_flow ~ 4.7e-5, comparable to E_trunc = 3.06e-5) at the interior peak. Establishes nothing ' +
-    'new; no bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'new; no bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-124772 (full 10-floor OLS certification of p_knee_lsq ~ -2.106); imp-124825 (chord-to-' +
     'certification upgrade note); imp-97822 (original two-floor chord p_knee ~ -2.099); imp-33684 ' +
@@ -289,11 +289,11 @@ export const IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION_ASSE
   },
   {
     id: 'imp124943-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124772.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124772.',
     holds: () =>
       IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION.anyBoundMoved === false &&
       /NO QED/.test(IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION.verdict) &&
-      /remains SOTA/.test(IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION.verdict) &&
       IMP124943_KNEE_FLOOR_ELASTICITY_DIMENSIONAL_SCALING_EXPOSITION.glosses === 'imp-124772',
   },
 ];

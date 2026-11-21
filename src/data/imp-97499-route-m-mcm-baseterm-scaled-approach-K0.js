@@ -42,8 +42,8 @@
  * residual c*x/ln x - K0 equals M0/ln x = 0.09549610599/ln x to high precision, the base of the MCM tower stays
  * strictly positive and monotone (scaled term -> K0=1/24 from above at 1/ln x rate), and the crossing to below
  * 0.045 sits at x ~ 2.77e12 while 0.043 is astronomically remote (x ~ 1.3e31). MCM stays VERIFIED not proved
- * (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * (and FALSE from omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97478-route-m-mcm-level1-baseterm-extprec.js (extended-precision ladder to x=2e6 this leaf continues)
  * @see imp-97463-route-m-mcm-level1-baseterm-decay.js (the double-precision fit + CAVEAT)
@@ -121,11 +121,11 @@ export const IMP97499_VERDICT = Object.freeze({
     '1e6 to ~8e-32 at 1e14. The scaled term approaches K0=1/24 from above at a 1/ln x rate (still 0.044629 at ' +
     'x=1e14), never crossing; it falls below 0.045 at x~2.77e12 but below 0.043 only at x~1.3e31. The base of ' +
     'the MCM tower stays strictly positive and monotone. MCM stays VERIFIED not proved (and FALSE from ' +
-    'omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'omega=11 per imp-97432); no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97499_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-precision (mpmath 60 dps) extension of the imp-97478 ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-precision (mpmath 60 dps) extension of the imp-97478 ' +
   'level-1 base term c(x)=h(x)-h(2x) to x=1e14: the scaled quantity c*x/ln x = K0 + M0/ln x has residual equal ' +
   'to M0/ln x with M0=LN_A/2-(ln2)/24=0.095496 to high precision, approaching K0=1/24 from above at a 1/ln x ' +
   'rate (0.044629 at x=1e14). It falls below 0.045 at x~2.77e12 and below 0.043 only at x~1.3e31. MCM stays ' +
@@ -194,7 +194,7 @@ const IMP97499_ASSERTIONS = [
       IMP97499_VERDICT.qed === false &&
       IMP97499_VERDICT.mcmProved === false &&
       /NO QED/.test(IMP97499_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97499_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97499_HONEST_BANNER) &&
       /RH open/.test(IMP97499_HONEST_BANNER),
     why: 'the scaled-term limit is exactly 1/24 and the drift constant is M0=LN_A/2-(ln2)/24=0.095496; measurement only, no bound moved, no QED.',
   },

@@ -43,8 +43,8 @@ export const IMP_124942_OCT6_COHORT_IMPORT_LIGHT_AUDIT = {
     'All five cohort modules are import-light; no changes needed before page wiring lands.',
   honestNote:
     'Read-only static-import-closure audit; no pages or bounds fabricated, no code changed. ' +
-    'Changes no bound; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Changes no bound; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 };
 
 const IMP_124942_ASSERTIONS = [
@@ -59,9 +59,9 @@ const IMP_124942_ASSERTIONS = [
   {
     id: 'imp124942-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_124942_OCT6_COHORT_IMPORT_LIGHT_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_124942_OCT6_COHORT_IMPORT_LIGHT_AUDIT.honestNote) &&
       /no QED/i.test(IMP_124942_OCT6_COHORT_IMPORT_LIGHT_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only import audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only import audit, not a bound; no refereed bound is changed.',
   },
 ];
 

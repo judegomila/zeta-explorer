@@ -56,8 +56,8 @@ export const IMP95886_CAVEAT_BANNER =
   'new measurement. The N = 1e6 row is the exact ZEROS_EXTENDED anchor; every higher row is an ' +
   'RvM-asymptotic ESTIMATE (Newton inversion of N_smooth(T) = N), not a verified ordinate. Per the ' +
   'imp-95801 catalog, NO table above N = 1e6 exists in-repo, so decades bought in-repo is exactly ' +
-  '0.0. Introduces no new cited input and changes no bound; Platt-Trudgian Lambda <= 0.2 remains ' +
-  'the rigorous SOTA. NO QED.';
+  '0.0. Introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. NO QED.';
 
 export const IMP95886_DECADE_REACH_LEDGER_VIZ_DATA_ASSERTIONS = [
   {

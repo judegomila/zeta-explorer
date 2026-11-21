@@ -18,7 +18,7 @@
  *   GREENFIELD (imp-35681 Part A).
  *
  *   Ticket: imp-35964 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35852-w1-summation-adversarial-ordering (robust to worst-case term ORDER)
  *   @see imp-35893-w1-summation-pairwise-tree-shape (robust to skeptical pairing-tree SHAPE)
@@ -88,7 +88,7 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF = Object.freeze({
     changesAnyBound: false,
     dischargesAnyObligation: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -97,7 +97,7 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF = Object.freeze({
     'precision-robustness cluster, distinct from the pending summation-COST cross-ref: both skeptical ' +
     'levers and the a-priori bound leave precision NON-binding, with the interval-bounded A+B-C ' +
     'certificate at T_PT staying GREENFIELD throughout. Ports nothing; changes no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF_ASSERTIONS = [
@@ -141,14 +141,14 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF_ASSERTIONS = [
       IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.honestCaveat.dischargesAnyObligation === false &&
       IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.honestCaveat.portsAnyRoute === false &&
       IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.honestCaveat.sota),
   },
   {
     id: 'imp35964-verdict-no-qed',
-    why: 'The verdict must record NO QED and the Platt-Trudgian SOTA floor, matching every source module.',
+    why: 'The verdict must record NO QED and the no-refereed-bound-change floor, matching every source module.',
     holds: () =>
       /NO QED/.test(IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF.verdict),
   },
 ];
 

@@ -41,8 +41,7 @@
  * halving, sub-0.1 crossing) are restated consistently, to their respective
  * quoted precision, across lambda-roadmap.js and imp-33684/imp-33708/imp-33743.
  * imp-124848 carries no landmark prose to audit. Read-only consistency audit;
- * changes no bound; establishes no operator positivity; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; establishes no operator positivity; NO QED; no refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior peak origin)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (halving + sub-0.1 bisections)

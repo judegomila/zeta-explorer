@@ -100,7 +100,7 @@ export const IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS = {
     'positivity; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34524 (continuum vertex, curvature, f-independent margin bound); imp-34368 (peak-location ' +
     'evaluation-noise floor); imp-34551 (dd-observed ULP margins, residUlp); imp-486 (C_mb ' +
@@ -120,11 +120,11 @@ export const IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS_ASSERTIONS = [
   },
   {
     id: 'imp34562-honesty-gate-no-qed',
-    description: 'Presentation only: isRigorous false, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
+    description: 'Presentation only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
     holds: () =>
       IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.isRigorous === false &&
       /NO QED/.test(IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.verdict) &&
-      /remains SOTA/.test(IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.verdict) &&
+      /refereed bound is changed/i.test(IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34562_DEEP_RUNG_DOUBLING_MAP_LANDMARKS.verdict),

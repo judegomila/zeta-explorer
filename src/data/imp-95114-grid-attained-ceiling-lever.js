@@ -72,7 +72,7 @@
  * Import-light: an independent closed-form copy identical to the sibling chain,
  * cross-checked against the imp-95008 continuation-twenty baked literals. NO
  * heavy bundle. Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95008_SUBSTITUTION_CORNER_ATTAINMENT } from "./imp-95008-substitution-corner-attainment.js";
@@ -270,7 +270,7 @@ export const IMP95114_GRID_ATTAINED_CEILING_LEVER = {
     "Measurement step. Each V_97(b,j) is an exact finite enumeration over the p=97 admissible grid pairs; envE(b,j) = I(V(b,j), rhoCap(j)) is reproduced by an independent closed-form copy and cross-checked against the imp-95008 continuation-twenty baked literal envE(0,2) = 3.9197920255561178e-5 (rel 1e-12). The aggregate sums are truncated at b,j <= 40; the omitted envE tail is < 1e-15 of C_env (geometric decay in both b and j), far below the reported precision. Every non-empty-cell iExact evaluation has T >= V(0,2) = 1.26, outside the recorded small-T conditioning trap. The lever quantifies conservatism of the envE ceiling for the fixed-97 witness; it moves no bound and envE remains a valid per-pair upper bound.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT (no bracket move): the FULL applied fixed-97 grid-corner ceiling lever is assembled from the grid-attained infima V_97(b,j) over all 15 non-empty cells plus empty-block bookkeeping. C_grid = 3.34266703344263e-5 vs the current envE ceiling C_env = 4.074591641273443e-5 gives an aggregate applied lever 1 - C_grid/C_env = 0.17963140168865188 (17.96 pct), which EXCEEDS the imp-95090 dominant-cell 0.17415257650513827 by 0.005478825183513614 (0.55 pct point). The excess is small because the dominant cell (0,2) carries 96.20 pct of the envE ceiling mass, pinning the aggregate near its shortfall; the deeper and grid-edge cells (shortfalls 0.11..0.9992) pull it marginally higher. Empty-block bookkeeping is negligible: the empty cells (b+j >= 7) carry mass fraction 1.5803760529118363e-9, so the non-empty-only lever 0.17963140039216097 agrees with the full lever to the ninth decimal. Independently reproduces and cross-checks the imp-95008 continuation-twenty envE(0,2) literal. The lever is a fixed-97-lane, UNAPPLIED conservative-ceiling slack: it moves no bracket. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (no bracket move): the FULL applied fixed-97 grid-corner ceiling lever is assembled from the grid-attained infima V_97(b,j) over all 15 non-empty cells plus empty-block bookkeeping. C_grid = 3.34266703344263e-5 vs the current envE ceiling C_env = 4.074591641273443e-5 gives an aggregate applied lever 1 - C_grid/C_env = 0.17963140168865188 (17.96 pct), which EXCEEDS the imp-95090 dominant-cell 0.17415257650513827 by 0.005478825183513614 (0.55 pct point). The excess is small because the dominant cell (0,2) carries 96.20 pct of the envE ceiling mass, pinning the aggregate near its shortfall; the deeper and grid-edge cells (shortfalls 0.11..0.9992) pull it marginally higher. Empty-block bookkeeping is negligible: the empty cells (b+j >= 7) carry mass fraction 1.5803760529118363e-9, so the non-empty-only lever 0.17963140039216097 agrees with the full lever to the ninth decimal. Independently reproduces and cross-checks the imp-95008 continuation-twenty envE(0,2) literal. The lever is a fixed-97-lane, UNAPPLIED conservative-ceiling slack: it moves no bracket. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) ---------------------------
@@ -346,13 +346,13 @@ export const IMP95114_GACL_ASSERTIONS = [
   {
     id: "imp95114-gacl-honesty-gate",
     description:
-      "verdict is a measurement/no-go step: promotes no bound, names the still-unapplied fixed-97 lever and the surviving residuals, NO QED, PT stays SOTA, no bracket move",
+      "verdict is a measurement/no-go step: promotes no bound, names the still-unapplied fixed-97 lever and the surviving residuals, NO QED, no refereed bound is changed, no bracket move",
     holds: () =>
       IMP95114_GRID_ATTAINED_CEILING_LEVER.promotesBound === false &&
       IMP95114_GRID_ATTAINED_CEILING_LEVER.openResiduals.length === 4 &&
       /NOT APPLIED/.test(IMP95114_GRID_ATTAINED_CEILING_LEVER.openResiduals[0]) &&
       /NO QED/.test(IMP95114_GRID_ATTAINED_CEILING_LEVER.verdict) &&
-      /remains SOTA/.test(IMP95114_GRID_ATTAINED_CEILING_LEVER.verdict) &&
+      /refereed bound is changed/i.test(IMP95114_GRID_ATTAINED_CEILING_LEVER.verdict) &&
       /no bracket move/.test(IMP95114_GRID_ATTAINED_CEILING_LEVER.verdict) &&
       /EXCEEDS/.test(IMP95114_GRID_ATTAINED_CEILING_LEVER.verdict),
   },

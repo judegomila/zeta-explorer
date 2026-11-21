@@ -42,7 +42,7 @@
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the component model is the inherited
  *   imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per
  *   imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-34486-slowlog-t0-drift-analytic-derivation.js (closed form x = -2 g/(1-g))
  *   @see imp-34513-slowlog-drift-residual-crosscheck.js (deep-tail ladder residual cross-check)
@@ -181,7 +181,7 @@ export const IMP34526_DRIFT_LOWN = Object.freeze({
     'not a low-N breakdown of the derivation. The -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
     '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34486 (closed-form drift x = -2 g/(1-g)); imp-34513 (deep-tail ladder residual ' +
     'cross-check, extended here to low N); imp-34446 (measured -2.0664 exponent, +0.0664 excess); ' +
@@ -220,9 +220,9 @@ const IMP34526_ASSERTIONS = [
     holds: () =>
       IMP34526_DRIFT_LOWN.isRigorous === false &&
       /NO QED/.test(IMP34526_DRIFT_LOWN.verdict) &&
-      /remains SOTA/.test(IMP34526_DRIFT_LOWN.verdict) &&
+      /refereed bound is changed/i.test(IMP34526_DRIFT_LOWN.verdict) &&
       /UNTOUCHED/.test(IMP34526_DRIFT_LOWN.verdict),
-    why: 'Honesty gate: derivation/tabulation only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: derivation/tabulation only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

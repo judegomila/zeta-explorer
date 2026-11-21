@@ -13,7 +13,7 @@
  * ASSESSMENT / ORDER-OF-MAGNITUDE ESTIMATE ONLY on the inherited OOM model. Builds no
  * enclosure; differentiates no series numerically; budgets no C_t prime rigorously;
  * certifies no cap; establishes no positivity; changes no bound; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * WHY C_t prime IS AMPLIFIED BY THE LOG-FREQUENCY WEIGHT (the mechanism)
  * -----------------------------------------------------------------------------
@@ -66,7 +66,7 @@
  * evaluates no E_A prime / E_B prime / E_{C_0} prime; budgets no C_t prime rigorously;
  * certifies no cap; produces no numeric M_prime; verifies no positivity; changes no bound;
  * I3 stays GREENFIELD downstream of W1 (imp-35727); C_mb GUE-conditional (imp-486)
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35808-i3-long-edge-derivative-delivery-scope (names D2 as the NEW budget ~ w larger than C_t)
  * @see imp-35725-w1-effective-error-cap-budget (the UNDIFFERENTIATED value cap C_t = E_A+E_B+E_{C_0})
@@ -78,7 +78,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35808 / imp-35725 / imp-35761) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this estimate
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this estimate
 const N_AT_TPT = Math.floor(Math.sqrt(T_PT / (4 * Math.PI))); // ~488602 retained terms (imp-35674 Part D)
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777).
@@ -154,8 +154,8 @@ export const IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION = {
     'not a relative-budget growth; both stay ~ 9 orders below the O(1) margin, precision non-binding. Differentiates ' +
     'no series numerically; evaluates no E_A prime/E_B prime/E_{C_0} prime; budgets no C_t prime rigorously; certifies ' +
     'no cap; produces no numeric M_prime; verifies no positivity; changes no bound; I3 stays GREENFIELD downstream of ' +
-    'W1 (imp-35727); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'W1 (imp-35727); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35808 (channel D2 = C_t prime, ~ w larger than C_t); imp-35725 (undifferentiated value cap C_t = ' +
     'E_A+E_B+E_{C_0}); imp-35761 (directed-rounding relative width ~ N.eps ~ 1.08e-10); imp-35799 (object M_prime); ' +
@@ -224,9 +224,9 @@ export const IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION_ASSERTIONS 
       ABS_WIDTH_DIFF < 1e-8, // still ~ 9 orders below the O(1) margin -- precision non-binding
   },
   {
-    // Honesty gate: estimate only, no numeric cap, no positivity, no QED, PT SOTA.
+    // Honesty gate: estimate only, no numeric cap, no positivity, no QED, no refereed bound is changed.
     id: 'imp35845-honesty-gate-no-qed',
-    description: 'Estimate/OOM only; differentiates no series numerically; budgets no C_t prime; establishes no positivity; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Estimate/OOM only; differentiates no series numerically; budgets no C_t prime; establishes no positivity; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -234,7 +234,7 @@ export const IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION_ASSERTIONS 
       /budgets no C_t prime rigorously/.test(IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION.verdict) &&
       /verifies no positivity/.test(IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION.verdict) &&
       /NO QED/.test(IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION.verdict) &&
-      /remains\s+SOTA/.test(IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP35845_D2_DIFFERENTIATED_TRUNCATION_CAP_AMPLIFICATION.verdict),
   },
 ];
 

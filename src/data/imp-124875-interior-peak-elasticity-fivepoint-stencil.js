@@ -60,7 +60,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124848-sigma-interior-peak-floor-elasticity-multifloor-fit (ternary-search OLS p_peak ~ -1.412; cross-validated here)
  * @see imp-124847-knee-locator-gap-thirdgrid-stencil-form (the fourth-order 5-point stencil family, ported here to the interior peak)
@@ -257,8 +257,8 @@ export const IMP124875_INTERIOR_PEAK_ELASTICITY_FIVEPOINT_STENCIL = {
     '4.7e-5 softening) are properties of the peak locus, not of the ternary-search locator. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124848 (ternary-search OLS p_peak ~ -1.412; cross-validated here); imp-124847 (the ' +
     'fourth-order 5-point stencil family, ported here to the interior peak); imp-33684 ' +
@@ -317,13 +317,13 @@ export const IMP124875_INTERIOR_PEAK_ELASTICITY_FIVEPOINT_STENCIL_ASSERTIONS = [
       GAP_TO_FARTAIL > 0.5,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124875-honesty-gate-no-qed',
-    description: 'Cross-validation only: reproduces the imp-124848 interior-peak elasticity, no QED, PT stays SOTA',
+    description: 'Cross-validation only: reproduces the imp-124848 interior-peak elasticity, no QED, no refereed bound is changed',
     holds: () =>
       IMP124875_INTERIOR_PEAK_ELASTICITY_FIVEPOINT_STENCIL.isRigorous === false &&
       /NO QED/.test(IMP124875_INTERIOR_PEAK_ELASTICITY_FIVEPOINT_STENCIL.verdict) &&
-      /remains SOTA/.test(IMP124875_INTERIOR_PEAK_ELASTICITY_FIVEPOINT_STENCIL.verdict),
+      /refereed bound is changed/i.test(IMP124875_INTERIOR_PEAK_ELASTICITY_FIVEPOINT_STENCIL.verdict),
   },
 ];
 

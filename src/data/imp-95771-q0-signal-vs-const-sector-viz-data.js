@@ -9,7 +9,7 @@
  * series -- q0Sector(m) (varying) and constSector(m) (flat at 1.5) -- plus the spread
  * metrics that make the contrast visible on two independent y-scales.
  *
- * MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed;
  * Sun arXiv:2609.04176 remains single-author, unrefereed; Catalan G irrationality OPEN.
  *
  * @see imp-95746-sun-prop63-plus4-offset-four-moduli.js (source PER_MODULUS / mFreeSector literals)
@@ -33,7 +33,7 @@ export const CONST_SECTOR_SPREAD = 0; // exactly flat, by construction of the m-
 export const IMP95771_SUMMARY = Object.freeze({
   law: 'INT621(m) = C + Q(m) splits the (6.21) integrand into an m-free const sector C = 3/2 (carries the +4) and an m-dependent Q_0 zeta(3) sector Q(m).',
   reading: `Across m = 18..21 the Q_0 sector ranges over ${Q0_SECTOR_SPREAD.toExponential(2)} (a genuine m-signal, non-monotone in m) while the const sector sits at exactly ${CONST_SECTOR} at every modulus (spread ${CONST_SECTOR_SPREAD}) -- visual confirmation that the imp-95745 pure-rational +4 offset depends only on the flat sector, never on the moving one.`,
-  verdict: 'PRESENTATION ONLY, no new computation; re-plots imp-95746 literals. Changes no bound; NO QED; RH open; Catalan G irrationality open; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 remains single-author, unrefereed.',
+  verdict: 'PRESENTATION ONLY, no new computation; re-plots imp-95746 literals. Changes no bound; NO QED; RH open; Catalan G irrationality open; no refereed bound is changed; Sun arXiv:2609.04176 remains single-author, unrefereed.',
 });
 
 // ---------------------------------------------------------------------------
@@ -68,7 +68,7 @@ const IMP95771_VIZ_DATA_ASSERTIONS = [
     id: 'imp95771-honesty-gate-no-qed',
     description: 'summary carries NO QED / RH open / SOTA / unrefereed markers',
     holds: () => /NO QED/.test(IMP95771_SUMMARY.verdict) && /RH open/.test(IMP95771_SUMMARY.verdict)
-      && /remains SOTA/.test(IMP95771_SUMMARY.verdict) && /unrefereed/.test(IMP95771_SUMMARY.verdict),
+      && /refereed bound is changed/i.test(IMP95771_SUMMARY.verdict) && /unrefereed/.test(IMP95771_SUMMARY.verdict),
   },
 ];
 

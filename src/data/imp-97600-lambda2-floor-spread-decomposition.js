@@ -67,7 +67,7 @@
  *   corrected-tail ~ -310.87 is a measured (non-rigorous) tail estimate, not a promoted bound. The
  *   floor stays four orders below the required 0.581059, so the m=1 enclosure remains UNUSABLE at
  *   2a=ln3. Measurement/diagnosis only; no operator positivity; no bound moves; interval-rigorous
- *   reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (named): IMP97600_TAIL_MODEL_UNDECIDED_UNTIL_KBIG800 -- the geometric-vs-slow-algebraic
  *   tail model on nu_max (which sets whether the credible floor is ~ -310.87 or deeper) cannot be

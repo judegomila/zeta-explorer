@@ -35,7 +35,7 @@ export const IMP_95739_REGISTRATION_AUDIT = {
     'No action needed -- both modules are already registered in DATA_MODULES.',
   honestNote:
     'Read-only registration audit; no new bound claimed by this module itself. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -56,10 +56,10 @@ const IMP_95739_ASSERTIONS = [
   {
     id: 'imp95739-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_95739_REGISTRATION_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_95739_REGISTRATION_AUDIT.honestNote) &&
       /no QED/i.test(IMP_95739_REGISTRATION_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only registration audit, not a bound; Platt-Trudgian ' +
-      'Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only registration audit, not a bound; no refereed bound is changed' +
+      '.',
   },
 ];
 

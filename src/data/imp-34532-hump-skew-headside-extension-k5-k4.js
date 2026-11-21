@@ -62,7 +62,7 @@
  * extrapolation, NOT a rigorous asymptotic, and the k = 4,5 head rungs push it into the deep
  * collision-dominated (sigma -> 1) regime where it is least tuned; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33851-hump-envelope-symmetry-vs-k (head-heavy skew ladder j=1..3, extended here to j=4,5)
  * @see imp-33809-saturation-curvature-hump-vs-k (per-k hump amplitudes + method, reuse-gated here)
@@ -240,8 +240,8 @@ export const IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4 = {
     'dominated (sigma -> 1) regime where the inherited imp-3220/imp-3406 extrapolation is least ' +
     'trustworthy -- this is a measurement of the inherited component model, not a rigorous asymptotic. ' +
     'The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33851 (head-heavy skew ladder j = 1..3, extended here to j = 4,5); imp-33809 (per-k hump ' +
     'amplitudes + method, reuse-gated here); imp-34527 (log-linear skew-growth fit extrapolating ' +
@@ -312,14 +312,14 @@ export const IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4_ASSERTIONS = [
       Math.abs(HUMP14 - 9.0441e-4) < 5e-5,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34532-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, no refereed bound is changed',
     holds: () =>
       IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4.isRigorous === false &&
       IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4.verdict) &&
-      /remains SOTA/.test(IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4.verdict),
+      /refereed bound is changed/i.test(IMP34532_HUMP_SKEW_HEADSIDE_EXTENSION_K5_K4.verdict),
   },
 ];
 

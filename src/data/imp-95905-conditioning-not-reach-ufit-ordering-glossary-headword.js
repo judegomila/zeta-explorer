@@ -45,7 +45,7 @@
  *   A glossary-style lookup restating the imp-95885 FINDING A distinction (and its
  *   imp-95895 refinement) for quick reference. It establishes nothing, fits no new
  *   curve, and changes no reported interval. Changes no bound of the Lambda program;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-95885-per-delta-ufit-comparison-table.js (source: FINDING A this glosses)
  * @see imp-95895-ln125-ufit-interval.js (refines FINDING A: reach-to-conditioning interplay)
@@ -53,7 +53,7 @@
  * @see imp-95919 (confirms the ln 1.2 reach lever is exhausted past N=5200 -- 0.247% is a DD-floor plateau)
  *
  * Ticket: imp-95905 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The conditioning-not-reach ordering headword, baked verbatim (no re-import).
@@ -101,7 +101,7 @@ export const IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD = Object
     'alone reading is itself superseded by the imp-95895 reach-to-conditioning ' +
     'interplay once the ln 1.25 cell (tightest, at intermediate conditioning) is ' +
     'included. Establishes nothing; fits no new curve; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95885 (per-delta u_fit comparison table, FINDING A); imp-95895 (ln 1.25 ' +
     'interval derivation, refines FINDING A to a reach-to-conditioning interplay); ' +
@@ -129,11 +129,11 @@ export const IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp95905-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD.verdict) &&
       IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD.glosses === 'imp-95885' &&
       IMP95905_CONDITIONING_NOT_REACH_ORDERING_GLOSSARY_HEADWORD.scopes === 'imp-95761',
   },

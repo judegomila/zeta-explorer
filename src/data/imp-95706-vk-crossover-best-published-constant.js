@@ -40,8 +40,8 @@
 //
 // Because exp(crossover) overflows IEEE-754 double, all height factors are carried in
 // log space. Measurement / literature survey only; the operative region stays
-// classical throughout the imp-95519 window; changes no bound; NO QED; Platt-Trudgian
-// Lambda <= 0.2 remains SOTA (imp-3463 lineage).
+// classical throughout the imp-95519 window; changes no bound; NO QED; no refereed bound is changed
+//  (imp-3463 lineage).
 
 const ln = Math.log;
 const LN10 = Math.LN10;
@@ -136,7 +136,7 @@ export const IMP_95706_VK_CROSSOVER_BEST_PUBLISHED_CONSTANT = {
     + 'conclusion is insensitive to the exact digit of the newest constant because any published '
     + 'A >= 30 keeps the crossover >> the window top. The imp-95632 zero-VK-saving verdict '
     + 'STANDS under the best published constants. Survey / measurement only; changes no bound; '
-    + 'NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    + 'NO QED; no refereed bound is changed.',
   holds: () =>
     Math.abs(fordRow.crossoverLogT - 10242.2363) < 1e-2 &&
     Math.abs(WINDOW_TOP_LOG_T - 37.4832) < 1e-3 &&

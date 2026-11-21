@@ -39,7 +39,7 @@
  * @see imp-3406-sigma-highN-extrapolation.js (the inherited sigma(N) component model)
  *
  * Ticket: imp-97593 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The sigma(N) four-landmark-ladder headword, baked verbatim (no re-import).
@@ -69,7 +69,7 @@ const SIGMA_FOUR_LANDMARK_LADDER_HEADWORD = Object.freeze({
     'cross-check only on the inherited imp-3220/imp-3406 surrogate component model, not a rigorous ' +
     'asymptotic; C_mb GUE-conditional per imp-486 untouched; C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'untouched. Naming / glossary headword only; supplies no new bound; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD = Object.freeze({
@@ -88,7 +88,7 @@ export const IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD = Object.free
     'four-landmark ladder (peak ~9.22e5, below-0.9 ~2.57e7, halving ~3.27e9, below-0.1 ~3.21e11) ' +
     'and its halving-landmark cross-validation against the imp-33723 closed form N_cross, which ' +
     'agrees to ~0.4% with the residual attributed to the Gronwall E_flow term ' +
-    '(E_flow/E_trunc ~ 1.91e-3). No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(E_flow/E_trunc ~ 1.91e-3). No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97520 (the four-landmark tabulation and halving cross-validation this glosses); ' +
     'imp-33723 (closed-form N_cross fixed point); imp-33601 (E_flow offset identity); ' +
@@ -117,11 +117,11 @@ export const IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp97593-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97520.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97520.',
     holds: () =>
       IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD.verdict) &&
       IMP97593_SIGMA_FOUR_LANDMARK_LADDER_GLOSSARY_HEADWORD.glosses === 'imp-97520',
   },
 ];

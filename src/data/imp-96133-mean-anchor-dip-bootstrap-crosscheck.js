@@ -49,7 +49,7 @@
  * T = 1e4 (p ~ 0.69) and T = 3e5 (p ~ 0.94) stay firmly in the noise floor. The remaining
  * non-parametric ordinate-level bootstrap that would test the window-independence assumption itself is
  * the named sub-gap SG-96133-empirical-ordinate-bootstrap. Measurement / assessment only; changes no
- * bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the chi-square z-score verdict)
@@ -207,7 +207,7 @@ export const IMP96133_MEAN_ANCHOR_DIP_BOOTSTRAP_CROSSCHECK = {
   caveat:
     'The bootstrap p-values are seeded Monte-Carlo estimates (MC std error ~5e-4 at p ~ 0.015 for N = 60000), reproducible in Node per seed; cross-engine transcendental last-ULP differences move them only at the ~1e-4 level, far below the reported bands. Measurement / assessment only.',
   verdict:
-    'The direct parametric bootstrap of the sd(C - E) null law CONFIRMS the imp-96089 chi-square verdict without the normal approximation: T = 1.5e5 is the single significant below-envelope dip (bootstrap two-sided p ~ 0.022, one-sided ~ 0.015, vs the chi-square normal one-sided ~ 0.027), while T = 1e4 (p ~ 0.69) and T = 3e5 (p ~ 0.94) stay firmly in the noise floor. The remaining non-parametric ordinate-level bootstrap that would test the window-independence assumption itself is the named sub-gap SG-96133-empirical-ordinate-bootstrap. Changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'The direct parametric bootstrap of the sd(C - E) null law CONFIRMS the imp-96089 chi-square verdict without the normal approximation: T = 1.5e5 is the single significant below-envelope dip (bootstrap two-sided p ~ 0.022, one-sided ~ 0.015, vs the chi-square normal one-sided ~ 0.027), while T = 1e4 (p ~ 0.69) and T = 3e5 (p ~ 0.94) stay firmly in the noise floor. The remaining non-parametric ordinate-level bootstrap that would test the window-independence assumption itself is the named sub-gap SG-96133-empirical-ordinate-bootstrap. Changes no bound; RH open; NO QED; no refereed bound is changed.',
 };
 
 // --- self-executing internal-consistency assertions (wide bands: MC + cross-engine tolerant) ---
@@ -240,8 +240,8 @@ export const IMP96133_MEAN_ANCHOR_DIP_BOOTSTRAP_CROSSCHECK = {
   // honesty gates
   if (!/NO QED/.test(IMP96133_MEAN_ANCHOR_DIP_BOOTSTRAP_CROSSCHECK.verdict))
     throw new Error('imp-96133: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96133_MEAN_ANCHOR_DIP_BOOTSTRAP_CROSSCHECK.verdict))
-    throw new Error('imp-96133: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96133_MEAN_ANCHOR_DIP_BOOTSTRAP_CROSSCHECK.verdict))
+    throw new Error('imp-96133: verdict dropped the no-refereed-bound-change banner');
   if (!/SG-96133-empirical-ordinate-bootstrap/.test(IMP96133_MEAN_ANCHOR_DIP_BOOTSTRAP_CROSSCHECK.subGap))
     throw new Error('imp-96133: sub-gap name missing');
 })();

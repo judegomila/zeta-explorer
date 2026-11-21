@@ -6,8 +6,8 @@
  * deep-tail plateau jitter-spike recurrence scan, a named tau-uniform envelope constant, a
  * deep-tail minimum node-budget sweep, and a sigma far-tail overshoot two-power decomposition) by
  * EVIDENCE CLASS and confirming each module carries the mandatory honest banner: no-QED, the
- * imp-3066 K_a >= 0 operator-positivity invariant untouched, and Platt-Trudgian Lambda <= 0.2
- * SOTA, following the imp-3886/imp-33247/imp-33268/imp-33287/imp-33307/imp-3931/imp-33551 audit
+ * imp-3066 K_a >= 0 operator-positivity invariant untouched, and no refereed bound is changed
+ * , following the imp-3886/imp-33247/imp-33268/imp-33287/imp-33307/imp-3931/imp-33551 audit
  * pattern.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was
@@ -27,7 +27,7 @@
  *   - "closed-form overshoot two-power decomposition derivation": derives an exact algebraic
  *     identity splitting a previously scalar residual across two power-law factors.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and for the Polymath15 G6a/H2 bridge status line;
+ * untouched, no refereed bound is changed) and for the Polymath15 G6a/H2 bridge status line;
  * shared-caveat coverage (NPHI=10 Phi-series truncation, the imp-33249/imp-33296
  * latticeJitterCaveat, GUE-conditional C_C per imp-486) and glossary/viz-page coverage were
  * cross-checked against src/data/glossary.js and src/pages.
@@ -73,8 +73,8 @@ export const IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP = {
     'independent cross-solver baseline-relative attribution / dense-scan jitter-spike recurrence ' +
     'measurement / named conservative-envelope constant derivation / deep-tail minimum ' +
     'node-budget sweep / closed-form overshoot two-power decomposition derivation); grep for the ' +
-    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA) plus the explicit G6a/H2 bridge status and the shared-caveat phrases ' +
+    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    ') plus the explicit G6a/H2 bridge status and the shared-caveat phrases ' +
     '(NPHI=10, latticeJitterCaveat, GUE-conditional); cross-check glossary.js and src/pages for ' +
     'dedicated coverage.',
   modules: [
@@ -173,7 +173,7 @@ export const IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all six cohort members. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -202,7 +202,7 @@ const IMP_33574_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 6,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33574-zero-bridge-touching-consistent-not-referenced',
@@ -243,11 +243,11 @@ const IMP_33574_ASSERTIONS = [
   {
     id: 'imp33574-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33574_33534_33540_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

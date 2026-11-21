@@ -80,7 +80,7 @@
  * rigorous residual constant is NOT computed (that IS the sub-gap); the imp-96827 GEOM value 1.30e-3 stays a
  * heuristic. The Rayleigh floor stays an UPPER bound on the true lambda_min; establishes NO operator
  * positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach stays 2a <= 0.96; RH
- * open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * open; no refereed bound is changed; NO QED.
  *
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (GEOM/EXP envelope; rigorous-STYLE caveat; IMP96827_TRESIDUAL_GROWS_WITH_N)
  * @see imp-96806-krein-tconv-plateau-2a-ln3.js (source T-sweep IMP96806_TSWEEP_LN3; monotone climb off T=800)

@@ -66,7 +66,7 @@
  *   1e-2, imp-97460) and Bettin-Conrey-reciprocity-locked, not merely under-fitted. Pinning it
  *   needs the exact reciprocity resummation of the cotangent-sum endpoints, unavailable at finite
  *   b -- a genuinely different (non-numerical) tool, not more compute. No bound on Lambda moves;
- *   PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97437-route-m-bulk-profile-curvature-crossover.js (analytic fixed point; kappa_eff=0.0995; names the model/wobble obstruction)
  * @see imp-97441-route-m-crossover-fraction-tolerance-table.js (four-tolerance x*(eps) table; b-independence; bimodal 1% row; kappa_eff mid-band-only)
@@ -78,7 +78,7 @@
  * @see imp-97329-route-m-uniform-crossover-second-moment (bulk profile f(x) = C(1+x)+(1/2)(1-x)log x-(pi/2)w(x))
  *
  * Ticket: imp-97493 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ROUTE_M_CEILING = 0.25;
@@ -160,7 +160,7 @@ export const IMP97493_CURVATURE_CROSSOVER_COHORT_INDEX = Object.freeze({
     '(|kappa_smooth| <~ 1e-2, imp-97460) and confirmed unfittable by a richer model (imp-97464). ' +
     'No further finite-b numerical route is open; pinning it needs the exact Bettin-Conrey ' +
     'reciprocity resummation, a different tool entirely. No bound on Lambda moves; RH open; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-97437 (analytic fixed point + kappa_eff + obstruction); imp-97441 (four-tolerance table; ' +
     'bimodal 1% row); imp-97459 (1/6, 1/5 resonance mechanism); imp-97460 (exact w(x) reduction; ' +
@@ -205,11 +205,11 @@ export const IMP97493_CURVATURE_CROSSOVER_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97493-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97493_CURVATURE_CROSSOVER_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97493_CURVATURE_CROSSOVER_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97493_CURVATURE_CROSSOVER_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97493_CURVATURE_CROSSOVER_COHORT_INDEX.verdict),
   },
 ];
 

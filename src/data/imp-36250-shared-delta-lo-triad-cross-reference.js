@@ -37,7 +37,7 @@
  * no collision time. Establishes no Gronwall constant. All three obligations
  * (G-step-error imp-35058, G-interval-enclosure, G-gronwall imp-2520) stay
  * OPEN. Changes no bound. C_mb GUE-conditional (imp-486) untouched. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36192-step2-g-step-error-apriori-truncation-scope (I4)
  * @see imp-36193-step2-g-interval-enclosure-nuniform-scope (E3)
@@ -86,8 +86,8 @@ export const IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE = {
     'third leg explicitly -- G-gronwall (imp-2520) is the sole candidate supplier of delta_lo(t) and is ' +
     'the one documented as vacuous at the front -- closing the triangle so no consumer can discharge ' +
     'E3 or I4 without first discharging G-gronwall. Discharges NOTHING; all three obligations stay ' +
-    'OPEN; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'OPEN; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36192 (Step-2 G-step-error I1-I5, imp-35058); imp-36193 (Step-2 G-interval-enclosure E1-E5); ' +
     'imp-2520 (G-gronwall, backward-flow-stability-gronwall); imp-36246 (prior pairwise cross-walk); ' +
@@ -121,11 +121,11 @@ export const IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE_ASSERTIONS = [
   },
   {
     id: 'imp36250-honesty-gate-no-qed',
-    description: 'cross-reference only: not rigorous, discharges nothing, no QED, PT stays SOTA',
+    description: 'cross-reference only: not rigorous, discharges nothing, no QED, no refereed bound is changed',
     holds: () =>
       IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE.isRigorous === false &&
       /NO QED/.test(IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE.verdict) &&
-      /remains SOTA/.test(IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE.verdict),
+      /refereed bound is changed/i.test(IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE.verdict),
   },
 ];
 

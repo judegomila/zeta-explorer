@@ -58,7 +58,7 @@
  * the deeper open question. Numerics/assessment only; changes no bound.
  *
  * MEASUREMENT ONLY. Establishes no operator positivity, makes no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (the N=6000 build + subgap)
  * @see imp-96203-route-m-vasyunin-subleading-spectrum.js (restates the 1e4 subgap)
@@ -119,7 +119,7 @@ export const IMP96230_VERDICT = Object.freeze({
 });
 
 export const IMP96230_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility ASSESSMENT only: kernel times are reproducible micro-benchmarks from tmp/imp-96230-bench.py extrapolated by the fitted cubic constants; the N=1e4 ladder was NOT run; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Feasibility ASSESSMENT only: kernel times are reproducible micro-benchmarks from tmp/imp-96230-bench.py extrapolated by the fitted cubic constants; the N=1e4 ladder was NOT run; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -175,7 +175,7 @@ const IMP96230_ASSERTIONS = [
     id: 'imp96230-honest-banner-and-open-status',
     holds: () =>
       /RH open/.test(IMP96230_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96230_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96230_HONEST_BANNER) &&
       /NO QED/.test(IMP96230_HONEST_BANNER) &&
       /not run/i.test(IMP96230_HONEST_BANNER) &&
       /stay open/.test(IMP96230_VERDICT.doesNotDecide),

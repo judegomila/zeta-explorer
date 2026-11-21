@@ -53,7 +53,7 @@
  * shared structural cause.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3220-en-bridge-fidelity-frontier (the U-shaped sigma(N) decade ladder)
  * @see imp-963 (measured C_mb on the window [100, 1e4])
@@ -187,7 +187,7 @@ export const IMP3323_SIGMA_ARGMIN_LOCATOR = {
     'only 2.4e-6 above the minimum inside a broad flat basin N in ~[61.8,156.3], so the ' +
     'apparent landing "at N = 100" is flat-basin numerical proximity, not a shared ' +
     'structural cause. No positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3220 (U-shaped sigma(N) decade ladder, min "near N~100"); imp-963 (measured ' +
     'C_mb on [100,1e4]); imp-2642 (C_H = 1/8 ansatz); imp-398 (E_flow C_F prefactor); ' +
@@ -241,15 +241,15 @@ export const IMP3323_SIGMA_ARGMIN_LOCATOR_ASSERTIONS = [
       P_STAR.E_coll / P_STAR.E_flow < 7,
   },
   {
-    // Honesty gate: assessment only, no QED, PT stays SOTA, minimum NOT claimed to
+    // Honesty gate: assessment only, no QED, no refereed bound is changed, minimum NOT claimed to
     // meaningfully coincide with the imp-963 window edge.
     id: 'imp3323-honesty-gate-no-qed',
-    description: 'Assessment only: distinct-crossover verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: distinct-crossover verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP3323_SIGMA_ARGMIN_LOCATOR.isRigorous === false &&
       /NOT a meaningful/.test(IMP3323_SIGMA_ARGMIN_LOCATOR.coincidenceAssessment.verdict) &&
       /NO QED/.test(IMP3323_SIGMA_ARGMIN_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP3323_SIGMA_ARGMIN_LOCATOR.verdict),
+      /refereed bound is changed/i.test(IMP3323_SIGMA_ARGMIN_LOCATOR.verdict),
   },
 ];
 

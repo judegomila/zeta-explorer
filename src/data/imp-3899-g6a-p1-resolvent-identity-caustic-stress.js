@@ -37,7 +37,7 @@
  * All numeric fields below are computed at import; the self-executing assertions at the bottom throw if the
  * identity ever fails to survive the caustic stress. Measurement / scoping only; no positivity, no bridge
  * closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. H2 stays UNWRITTEN as a certificate, the K4 route
+ * No refereed bound is changed. H2 stays UNWRITTEN as a certificate, the K4 route
  * stays WHOLLY NEW and G6a_shock_lipschitz stays OPEN.
  *
  * @see imp-3872-g6a-h2-discrete-flux-convexity-probe (the P1 verification this extends to the caustic)
@@ -275,7 +275,7 @@ export const IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS = {
     'H2 stays UNWRITTEN as a certificate, the K4 route stays WHOLLY NEW (consistent with imp-3714 / imp-3727 / ' +
     'imp-3846 / imp-3872) and G6a_shock_lipschitz stays OPEN. Scoping / measurement only; no positivity, no ' +
     'bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3872 (the P1 exact finite-N flux identity verification extended here to the caustic and larger M); ' +
     'imp-3642 (attractive-CM RK4 flow, seed and integrator reused); imp-3846 (names H2 the dependency-chain ' +
@@ -309,16 +309,16 @@ export const IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS_ASSERTIONS = [
       BLOCKS.every((b) => b.slices.length === BUDGET_FRACS.length),
   },
   {
-    // Honesty gate: stress not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: stress not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3899-honesty-gate-no-qed',
-    description: 'STRESS not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'STRESS not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.isRigorous === false &&
       IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.h2StillUnwritten === true &&
       IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.k4ConfirmedWhollyNew === true &&
       IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.g6aStillOpen === true &&
       /NO QED/.test(IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.verdict) &&
+      /refereed bound is changed/i.test(IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3899_G6A_P1_RESOLVENT_IDENTITY_CAUSTIC_STRESS.verdict),
   },
 ];

@@ -13,7 +13,7 @@
  * but shipped no visualization: this module is presentation only.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (source ceilings + ratios + decomposition + verdict)
  * @see imp-96779-route-m-ceiling-ladder-viz-data.js (sibling viz-data leaf convention, four-rung ladder incl. compute)
@@ -111,7 +111,7 @@ const IMP96723_ASSERTIONS = [
       IMP96723_DECOMPOSITION_SUMMARY.strictlyOrdered === true &&
       IMP96723_DECOMPOSITION_SUMMARY.totalRatio > 1.57 && IMP96723_DECOMPOSITION_SUMMARY.totalRatio < 1.60 &&
       /RH open/.test(IMP96723_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96723_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96723_HONEST_BANNER) &&
       /NO QED/.test(IMP96723_HONEST_BANNER),
     why: 'the decomposition-closure and strict-ordering flags must be reused verbatim from imp-96693, the total ratio must match the ~1.58x figure, and the honesty markers must be present.',
   },

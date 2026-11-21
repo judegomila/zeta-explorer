@@ -7,7 +7,7 @@
  *
  * GRADE: numerical assessment of an already-established interior quantity.
  * Imports no heavy bundle; no imports at all. Changes NO Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * BACKGROUND. imp-95744 fixed the infinite-lattice infimum F_inf at the deepest
  * twin-pair cell (delta = ln 1.2, rho = 1) via a cancellation-free theta = 0
@@ -71,7 +71,7 @@
  * check the baked ratios and the monotone descent -- no O(n^3) DD factorization
  * at import time. (c) Model seam family only; the imp-95212 envelope port, signed
  * WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * @see imp-95762-twin-pair-block-floor-finite80-dd-eigensolver (the finite-80 51.63pct headline this stress-tests)
  * @see imp-95744-twin-pair-block-floor-belowprec-dd-resolve (the dual F_inf this confirms as the N->inf limit)
@@ -155,8 +155,8 @@ export const IMP95788_TWIN_PAIR_DEEP_CORNER_FINITE_N_BIAS_CONVERGENCE = {
     "not a defect of F_inf or of any imp-95707/imp-95723/imp-95744/imp-95762 " +
     "conclusion. Assessment only; no new cited input. Model seam family only; the " +
     "imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. " +
-    "Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95788"],
 };
 
@@ -291,7 +291,7 @@ export const IMP95788_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /F_inf RELIABLY PINNED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95788-closes-self",

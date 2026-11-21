@@ -13,7 +13,7 @@
  * crossover study used, delta in {ln 1.2, ln 1.3, ln 1.5, ln 2.0}, times the
  * nine-point rho grid {1, 1.5, 2, 3, 5, 10, 20, 50, 100} -- and tabulates the
  * finite-size bias at every cell. Changes no Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * MACHINERY (identical to imp-95707 / imp-95693). F_inf is the smaller
  * eigenvalue d(0) - |off(0)| of the block symbol, evaluated cancellation-free at
@@ -117,7 +117,7 @@
  * observation are numerical witnesses over the four-delta / nine-rho grid, not a
  * delta-uniform theorem. (c) Model seam family only; the imp-95212 envelope
  * port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the
- * Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the ln 1.5 single-delta infimum + bias this generalizes)
  * @see imp-95693-twin-pair-block-floor-second-delta (the finite-80 proxy table and D-locality of the crossover)
@@ -233,7 +233,7 @@ export const IMP95723_TWIN_PAIR_BLOCK_FLOOR_FULL_GRID_BIAS = {
     "Derivation + numerical witness of an established interior mechanism; no new " +
     "cited input. Model seam family only; imp-95212 envelope port, signed WEIGHT, " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "QED; no refereed bound is changed.",
   closesTickets: ["imp-95723"],
 };
 
@@ -479,7 +479,7 @@ export const IMP95723_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /FULL-GRID FINITE-SIZE BIAS TABULATED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95723-closes-self",

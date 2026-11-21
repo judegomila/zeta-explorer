@@ -45,7 +45,7 @@ export const IMP96861_LANDMARKS = Object.freeze({
 });
 
 export const IMP96861_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every signed leverage ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every signed leverage ' +
   'value plotted here is copied verbatim from the imp-96831 and imp-96794 signedLeverage ' +
   'objects; the only new arithmetic is packaging the two derivatives into one comparable ' +
   'series. Measurement/sensitivity audit only: the two levers push sigma_max in opposite ' +

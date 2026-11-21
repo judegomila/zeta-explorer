@@ -12,8 +12,7 @@
  *   16.7MB zeros bundle), per [[no_heavy_imports_in_pages]].
  *
  *   NO QED. Viz-data reshaping only; the imp-34434 measurement is UNCHANGED; C_mb
- *   GUE-conditional per imp-486 UNTOUCHED; changes no bound; Platt-Trudgian Lambda<=0.2
- *   remains SOTA.
+ *   GUE-conditional per imp-486 UNTOUCHED; changes no bound; no refereed bound is changed.
  *
  *   @see imp-34434-en-bridge-total-minimum-locate.js (source of the ladder and landmarks)
  */

@@ -41,8 +41,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-
  * conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (F3: q_eff ~ 0.855 per unit x)
  * @see imp-34956-pinned-product-window-sensitivity (W2: d ln P/d(dex) ~ -1.9685, d ln P/dx ~ -0.8549)
@@ -230,7 +229,7 @@ export const IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION = {
     'imp-34973 established. Conditional-share diagnostic on the inherited surrogate; the component model is ' +
     'the imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-35035: the imp-34950 F3 q_eff ~ 0.855 and the imp-34956 W2 pinned-product slope ~ -0.8549 ' +
     'are the SAME quantity (the local E_flow log-derivative -d ln R/dx at the crossing landmark), confirmed ' +
@@ -277,15 +276,15 @@ export const IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION_ASSERTION
     holds: () => SHARED_VALUE > FAR_TAIL_Q + 0.2 && CROSSVALIDATION_TABLE.length === 4,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35035-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION.isRigorous === false &&
       IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION.farTailExponent === 0.5 &&
       typeof IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION.subGap === 'string' &&
       /NO QED/.test(IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35035_EFLOW_EXPONENT_CROSSING_LANDMARK_CROSSVALIDATION.verdict),
   },
 ];
 

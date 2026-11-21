@@ -55,7 +55,7 @@ export const IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT = Object.freeze(
     + '(imp-96707: zero consumers) -- the assertions execute nowhere. All 9 are '
     + 'import-light: no direct or transitive import touches the zeros bundle, and none '
     + 'uses a dynamic import(). Audit only; changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'positivity; no refereed bound is changed; RH open; NO QED.',
   source: 'imp-96631, imp-96687, imp-96688, imp-96689, imp-96691, imp-96697, imp-96709, imp-96751, imp-96770',
 
   registrationStatus: REGISTRATION_STATUS,
@@ -76,7 +76,7 @@ export const IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT = Object.freeze(
     + 'dynamic import() search across the 9 files plus imp-96687’s 2 sibling '
     + 'imports); does not re-derive any module’s own mathematical claim, and does '
     + 'not itself register the 9 modules (a follow-up wiring ticket, not this audit, '
-    + 'should do that). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; '
+    + 'should do that). Changes no bound; no refereed bound is changed; '
     + 'NO QED.',
 });
 
@@ -97,9 +97,9 @@ export const IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT_ASSERTIONS = Obj
       && IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT.verdict.modulesPullingZerosBundle === 0,
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () => /changes no bound/.test(IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT.status)
+      && /refereed bound is changed/i.test(IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT.status)
       && /NO QED/.test(IMP96805_COHORT2_RUN_ASSERTIONS_REGISTRATION_AUDIT.status),
   },
 ]);

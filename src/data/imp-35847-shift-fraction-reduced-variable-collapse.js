@@ -50,7 +50,7 @@
  * machinery VERBATIM (identical K, delta, N_cross, band, splitAt). The imp-34714a machine certificate REMAINS
  * OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35809-krawczyk-surplus-split-band-and-height-profile (the two measured families + the a/(4 delta) law)
  * @see imp-35762-krawczyk-surplus-shift-residual-isolation (defined the split; splitAt machinery)
@@ -219,7 +219,7 @@ export const IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE = {
     'imp-35809/imp-35762/imp-35266 machinery (identical K, delta, N_cross, band, splitAt); C_C 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail ' +
     'exponent 1/2 per imp-3463 untouched; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35809 (the two measured families + the a/(4 delta) law); imp-35762 (defined the split; splitAt ' +
     'machinery); imp-35266 (D3 leading estimate S_inf . a/2); imp-35846 (delta-sweep of the crossover; 1/delta ' +
@@ -269,15 +269,15 @@ export const IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE_ASSERTIONS = [
       HEIGHT_ROWS.every((r, i) => i === 0 || r.rel_departure <= HEIGHT_ROWS[i - 1].rel_departure * 1.05),
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35847-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE.isRigorous === false &&
       /imp-34714a/.test(IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE.subGap) &&
       /REMAINS OPEN/.test(IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE.subGap) &&
       /NO QED/.test(IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE.verdict) &&
-      /remains SOTA/.test(IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE.verdict),
+      /refereed bound is changed/i.test(IMP35847_SHIFT_FRACTION_REDUCED_VARIABLE_COLLAPSE.verdict),
   },
 ];
 

@@ -132,7 +132,7 @@
  * ------------
  * No bound on Lambda, no RH claim, NO QED. The rigorous new statements are elementary: the
  * lower bound s_c >= g_min^2/8 and the algebraic identities (E1)-(E3). Everything measured is
- * finite-N numerics on Odlyzko zeros. Platt-Trudgian Lambda <= 0.2 remains the SOTA.
+ * finite-N numerics on Odlyzko zeros. No refereed bound is changed.
  *
  * @see dyson-burgers-shock.js (surrogate 2 pi / log^2, G6_per_N_bound Route A/B, G1-sub-extremal)
  * @see bridge-lambda-rh.js (Route B chain, Step B3 G6_polymath15_bridge)
@@ -289,7 +289,7 @@ export const SUPERCRITICAL_FLUID_SHOCK_SCALING = Object.freeze({
     Q3_g6ColeHopf: 'EXACT IDENTITY, SHARPER E(N), SAME WALL. Finite-N Dyson = heat flow of P~_N; H_{-s} = heat flow of P~_N T_N; truncation error obeys a Lipschitz linear-response law (measured to 4-6 digits), 9e2 .. 5e6x below the Route-B Hoelder form -- provided the tail zeros are real. That proviso IS G6: an off-line tail zero is an already-supercritical pair forcing Lambda > 0, invisible to any finite-N flow from real data. G6 = RH above T_0 restated; Platt-Trudgian\'s barrier is the only handle on it.',
   },
   sideFinding: 'PATH_C_BASELINE_FIT fixed-step t_c values are overshoot-contaminated at all N (ratio to fold-accurate: 1.50, 1.03, 1.08, 1.32, 7.21 at N = 50, 100, 200, 500, 2458). Attribution corrected 2026-09-24 (rh-bridge-route-b-overclaim-baseline-audit): fixed-step RK4 at dt = 5e-4 reproduces the N = 50 literal 0.1435 exactly while Euler at the same dt gives 0.097, so the defect is the fixed dt, not the Euler stepper; corrected values now exported as PATH_C_BASELINE_FIT_ACCURATE in src/math/dyson-scaling-N5000.js.',
-  scope: 'No Lambda bound, no RH claim, NO QED; rigorous content is elementary (E1-E3, s_c >= g_min^2/8). Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  scope: 'No Lambda bound, no RH claim, NO QED; rigorous content is elementary (E1-E3, s_c >= g_min^2/8). No refereed bound is changed.',
 });
 
 const near = (a, b, tol) => Math.abs(a - b) <= tol * Math.max(Math.abs(a), Math.abs(b), 1e-300);
@@ -373,7 +373,7 @@ export const SUPERCRITICAL_FLUID_SHOCK_SCALING_ASSERTIONS = [
   },
   {
     id: 'sfss-no-qed-scope',
-    holds: () => /NO QED/.test(SUPERCRITICAL_FLUID_SHOCK_SCALING.scope) && /Platt-Trudgian Lambda <= 0.2/.test(SUPERCRITICAL_FLUID_SHOCK_SCALING.scope)
+    holds: () => /NO QED/.test(SUPERCRITICAL_FLUID_SHOCK_SCALING.scope) && /Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(SUPERCRITICAL_FLUID_SHOCK_SCALING.scope)
       && /MONTGOMERY IN DISGUISE/.test(SUPERCRITICAL_FLUID_SHOCK_SCALING.verdicts.Q2_argminBypass)
       && /SAME WALL/.test(SUPERCRITICAL_FLUID_SHOCK_SCALING.verdicts.Q3_g6ColeHopf),
     why: 'The record must keep its honest scope: no Lambda bound, no RH claim, verdicts Montgomery-in-disguise (Q2) and same-wall (Q3).',

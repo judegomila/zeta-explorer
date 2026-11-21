@@ -183,7 +183,7 @@ export const IMP3484_P2_SPECTRAL_INTEGRAL_ENUMERATION = Object.freeze({
     'At xi* the P2 near-cancellation is dominated by C1^2 (weight ~0.39) against S S2 (weight ~0.50, opposite ' +
     'sign); the peak-slope objective P1 is dominated by C C1 (weight ~0.79), giving |P1| ~ 6.55e-5 reproducing ' +
     'the imp-3470/imp-3400 peak slope. Measurement/itemization only; RH-equivalent; imp-3066 K_a >= 0 magnitude ' +
-    'UNTOUCHED; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'UNTOUCHED; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -249,7 +249,7 @@ export const IMP3484_P2_SPECTRAL_INTEGRAL_ENUMERATION = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -303,7 +303,7 @@ export const IMP3484_P2_SPECTRAL_INTEGRAL_ENUMERATION_ASSERTIONS = [
   {
     id: 'imp3484-honest-assessment-no-qed',
     why: 'Mandatory honesty: ITEMIZES but does NOT close (equation stays transcendental), corrects the "ten" ' +
-      'count, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'count, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3484_P2_SPECTRAL_INTEGRAL_ENUMERATION.honestCaveat;
       return (
@@ -313,7 +313,7 @@ export const IMP3484_P2_SPECTRAL_INTEGRAL_ENUMERATION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.itemizesButDoesNotClose === 'string' &&
         typeof c.correctsTenCount === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

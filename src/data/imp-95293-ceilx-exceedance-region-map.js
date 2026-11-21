@@ -74,7 +74,7 @@
  * the trivial R <= 1 ceiling; the EXACT sharp frontier F(theta, y_min) at
  * fixed currencies remains the OPEN item bracketed by imp-95289 -- this map
  * quantifies the exceedance geometry, it does not close that frontier.
- * (c) Changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * (c) Changes NO Lambda bound; NO QED; no refereed bound is changed.
  */
 
 // -- baked literals (recomputed by the assertions) ---------------------------
@@ -235,7 +235,7 @@ export const IMP95293_CEILX_EXCEEDANCE_REGION_MAP = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This ticket TABULATES the imp-95254 CEIL-X exceedance region (boundary theta_max(y_min) and supremum sup R = 1 approached at y_min -> 0), it does NOT close the exact sharp frontier F(theta, y_min) = sup R at fixed currencies -- that item stays the imp-95289 two-sided bracket. Obligations (1), (3), (4) UNCHANGED. Import-light (no zeros bundle, no sibling imports).",
   verdict:
-    "NUMERICAL map of the imp-95254 PROP CEIL-X exceedance region on the two-packet signed seam: (A) the 1/2 ceiling is broken to the trivial R <= 1, with sup R -> 1 as y_min -> 0 (rigorous ceiling, numerical approach); (B) the exceedance wedge is bounded above by a rising boundary theta_max(y_min) climbing 0.111 -> 0.969 as y_min falls from ~0.8 to 0, with per-band sup R and boundary witnesses reproduced from raw geometry; (C) the wedge is bounded in y_min < ~1.62 (2e6-sample random sweep, no R > 1). Model-family only; changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NUMERICAL map of the imp-95254 PROP CEIL-X exceedance region on the two-packet signed seam: (A) the 1/2 ceiling is broken to the trivial R <= 1, with sup R -> 1 as y_min -> 0 (rigorous ceiling, numerical approach); (B) the exceedance wedge is bounded above by a rising boundary theta_max(y_min) climbing 0.111 -> 0.969 as y_min falls from ~0.8 to 0, with per-band sup R and boundary witnesses reproduced from raw geometry; (C) the wedge is bounded in y_min < ~1.62 (2e6-sample random sweep, no R > 1). Model-family only; changes NO Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "R <= 1 is exact (left tail is a subset of the full line). Every per-band witness R = lambda_max(L, M) is an exact closed-form 2x2 generalized eigenvalue at its top eigenvector; the sup R = 1 approach and the theta_max boundary and the y_min < 1.62 confinement are numerical scan results (documented full scans, re-verified only on witnesses and a cheap sweep). No claim rests on quadrature; no bound changes.",
 };
@@ -323,7 +323,7 @@ export const IMP95293_EXCEEDANCE_ASSERTIONS = [
   {
     id: "imp95293-verdict-honesty",
     description:
-      "the verdict carries the honest scope: numerical map, sub-gap STILL OPEN, sharp frontier NOT closed, no Lambda change, no QED, SOTA preserved",
+      "the verdict carries the honest scope: numerical map, sub-gap STILL OPEN, sharp frontier NOT closed, no Lambda change, no QED, no refereed bound is changed",
     holds: () =>
       /STILL OPEN/.test(IMP95293_CEILX_EXCEEDANCE_REGION_MAP.subGap) &&
       /does NOT close/.test(IMP95293_CEILX_EXCEEDANCE_REGION_MAP.subGap) &&
@@ -331,7 +331,7 @@ export const IMP95293_EXCEEDANCE_ASSERTIONS = [
         IMP95293_CEILX_EXCEEDANCE_REGION_MAP.verdict,
       ) &&
       /NO QED/.test(IMP95293_CEILX_EXCEEDANCE_REGION_MAP.verdict) &&
-      /remains SOTA/.test(IMP95293_CEILX_EXCEEDANCE_REGION_MAP.verdict),
+      /refereed bound is changed/i.test(IMP95293_CEILX_EXCEEDANCE_REGION_MAP.verdict),
   },
 ];
 

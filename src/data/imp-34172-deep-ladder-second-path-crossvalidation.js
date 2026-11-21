@@ -61,7 +61,7 @@
  * NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34106-sawtooth-phase-realignment-deep-ladder (the deep e=16..20 ladder cross-validated here)
  * @see imp-34107-resid-exp-second-path-crossvalidation (the shallow e=7..15 second-path check mirrored here)
@@ -349,7 +349,7 @@ export const IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION = {
     'NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34106 (the deep e=16..20 ladder cross-validated here); imp-34107 (the shallow e=7..15 ' +
     'second-path check mirrored here); imp-34168 (higher-precision-k* re-run of the departure); ' +
@@ -386,14 +386,14 @@ export const IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION_ASSERTIONS = [
       MAX_FRAC_ABS < 5e-6,
   },
   {
-    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-34106 deep-ladder recomputation, no QED, PT SOTA.
+    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-34106 deep-ladder recomputation, no QED, no refereed bound is changed.
     id: 'imp34172-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, PERFORMS the imp-34106 deep-ladder recomputation, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Cross-check only: isRigorous false, PERFORMS the imp-34106 deep-ladder recomputation, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.isRigorous === false &&
       /PERFORMS the deep-ladder recomputation imp-34106/.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /NO QED/.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34172_DEEP_LADDER_SECOND_PATH_CROSSVALIDATION.verdict),

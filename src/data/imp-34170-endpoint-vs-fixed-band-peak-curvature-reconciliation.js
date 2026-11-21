@@ -84,7 +84,7 @@
  * differences and span-matched control are descriptive, not derived; changes no bound; establishes no
  * operator positivity; the imp-33843 form verdict, the imp-34108 within-window SATURATES reading and the
  * imp-34109 within-window KEEPS-CLIMBING reading are all UNTOUCHED; C_mb GUE-conditional per imp-486 is
- * UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34108-endpoint-peak-saturating-ceiling-extrapolation.js (endpoint: SATURATES, a ~ 1.678095)
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit.js (fixed-band: KEEPS CLIMBING, log wins)
@@ -236,8 +236,8 @@ export const IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION = {
     'tables are the inherited imp-3220/imp-3406 model reproduced by imp-33917/imp-33987, NOT a rigorous ' +
     'asymptotic; the second differences and span-matched control are descriptive, not derived; changes no ' +
     'bound; establishes no operator positivity; the imp-33843 form verdict UNTOUCHED; C_mb GUE-conditional ' +
-    'per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap: 'SUB-GAP-imp-34170-endpoint-knee-untested',
 };
 
@@ -284,9 +284,9 @@ export const IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION_ASSER
   },
   {
     // Honesty gate: reconciliation says the split is window-confounded, not a demonstrated disagreement;
-    // isRigorous false; both within-window readings preserved; sub-gap flagged; no QED; PT SOTA.
+    // isRigorous false; both within-window readings preserved; sub-gap flagged; no QED; no refereed bound is changed.
     id: 'imp34170-honesty-gate-no-qed',
-    description: 'familiesGenuinelyDisagree false & splitIsWindowConfounded true; isRigorous false; within-window readings not overturned; sub-gap flagged; imp-486 C_mb untouched; imp-3066 K_a>=0 untouched; no QED; PT SOTA',
+    description: 'familiesGenuinelyDisagree false & splitIsWindowConfounded true; isRigorous false; within-window readings not overturned; sub-gap flagged; imp-486 C_mb untouched; imp-3066 K_a>=0 untouched; no QED; no refereed bound is changed',
     holds: () =>
       IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.familiesGenuinelyDisagree === false &&
       IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.splitIsWindowConfounded === true &&
@@ -295,7 +295,7 @@ export const IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION_ASSER
       /SUB-GAP-imp-34170-endpoint-knee-untested/.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict) &&
       /are not overturned/.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34170_ENDPOINT_VS_FIXED_BAND_PEAK_CURVATURE_RECONCILIATION.verdict),
   },

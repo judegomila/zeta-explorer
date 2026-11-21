@@ -18,7 +18,7 @@
  * @see imp-97746-mcm-dps-cap-scaling-viz-data.js (viz-data leaf charting the ladder)
  *
  * Ticket: imp-97766 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; MCM stays refuted from omega=11; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97736_CAP_JITTER, IMP97736_HONEST_BANNER } from './imp-97736-mcm-cap-jitter-dps36.js';

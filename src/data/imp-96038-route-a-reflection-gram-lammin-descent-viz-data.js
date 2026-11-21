@@ -72,7 +72,7 @@ export const ROUTE_A_CAVEAT_BANNER =
   'EQUIVALENCE (Lagarias-Pick), not a stronger route. Every plotted lambda_min ' +
   'point and the p_N^{0.45} reference exponent are copied verbatim from ' +
   'rh-route-a-reflection-positivity-primon-gas-2026-09-23.js (no re-derivation). ' +
-  'Changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'Changes no bound; RH open; no refereed bound is changed; NO QED.';
 
 const rel = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
 

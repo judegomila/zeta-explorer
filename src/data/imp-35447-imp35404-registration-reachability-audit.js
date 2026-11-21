@@ -22,8 +22,7 @@
  *
  * SCOPE. Read-only registration/reachability audit only. No source file required correction
  * -- the module was already properly wired before this audit ran. Changes no bound;
- * establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2
- * remains the rigorous SOTA.
+ * establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35645-imp3559x-registration-reachability-audit (prior sweep establishing this method)
  * @see imp-35606-imp35561-page-registration-reachability-audit (single-page precursor establishing the nav-audit check)
@@ -66,7 +65,7 @@ export const IMP35447_IMP35404_REGISTRATION_REACHABILITY_AUDIT = {
     'App.jsx route wiring, visualizations-index.js registry wiring, and the live ' +
     'audit-nav-links.mjs WARN list for the imp-35404 route. Result: fully registered and ' +
     'reachable; no source file required correction. Changes no bound; establishes no ' +
-    'operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35404 (audited viz-data module); imp-35606/imp-35545/imp-35645 (registration/' +
     'reachability method).',
@@ -101,11 +100,11 @@ export const IMP35447_IMP35404_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35447-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35447_IMP35404_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35447_IMP35404_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35447_IMP35404_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35447_IMP35404_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

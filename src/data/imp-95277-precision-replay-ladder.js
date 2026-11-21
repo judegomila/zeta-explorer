@@ -57,7 +57,7 @@
  *
  * Grade: DERIVATION / ladder over the frozen imp-95214 / imp-95238 / imp-95257
  * ledgers; NOT a wall-clock measurement (no native run). Changes no bound;
- * launches nothing; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * launches nothing; NO QED; no refereed bound is changed.
  */
 
 import { TIER2_PRICE } from './imp-95214-tier2-chirp-level.js';
@@ -137,7 +137,7 @@ export const PRECISION_REPLAY_LADDER = Object.freeze({
     'both the level-1 and tier-2 routes, so the 17.9x tier-2 dominance and the DO-NOT-run-level-1 ' +
     'recommendation are precision-invariant at every rung -- only the absolute tier-2 budget climbs. ' +
     'Ladder derived from the frozen imp-95214/95238/95257 ledgers, not a native replay; launches ' +
-    'nothing; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'nothing; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ────
@@ -247,14 +247,14 @@ export const IMP95277_ASSERTIONS = [
   {
     id: 'imp95277-dominance-preserved-and-honesty-gate',
     description:
-      'fail-closed honesty: the ladder rescales both routes by the same factor so dominance is preserved at every rung (imp-95257 dominancePreserved true), this is a limb-model derivation not a wall-clock run, it moves no bound, and the verdict states NO QED and PT-SOTA',
+      'fail-closed honesty: the ladder rescales both routes by the same factor so dominance is preserved at every rung (imp-95257 dominancePreserved true), this is a limb-model derivation not a wall-clock run, it moves no bound, and the verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       PRECISION_REPLAY_LADDER.dominancePreservedEveryRung === true &&
       PRECISION_REPLAY_LADDER.isWallClockMeasurement === false &&
       PRECISION_REPLAY_LADDER.movesBound === false &&
       /LADDER/.test(PRECISION_REPLAY_LADDER.verdict) &&
       /NO QED/.test(PRECISION_REPLAY_LADDER.verdict) &&
-      /remains SOTA/.test(PRECISION_REPLAY_LADDER.verdict),
+      /refereed bound is changed/i.test(PRECISION_REPLAY_LADDER.verdict),
   },
   {
     id: 'imp95277-imp95416-reconciliation-recorded',

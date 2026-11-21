@@ -75,8 +75,8 @@
  *   invariant is the CONSTANT-direction gap (floor pinned EXACTLY at tanh(s/2)); the
  *   max-diagonal identity is s-dependent (boundary A) and DEG &lt;= 10 numerics fail at
  *   large s (boundary B). MEASURE + EXTRAPOLATE ONLY; no positivity attempted; not a proof
- *   or a reduction; bare-V pilot (imp-1240) NOT re-run. Platt-Trudgian Lambda &lt;= 0.2
- *   REMAINS the rigorous SOTA. No false QED.
+ *   or a reduction; bare-V pilot (imp-1240) NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3125-orthogonalized-residual-gap-degree-sweep.js (imp-3125: the s = 3 DEG sweep)
  *   @see imp-3102-orthogonalized-gap-aU-grid.js (imp-3102: the DEG = 4 a x U grid sweep)
@@ -469,7 +469,7 @@ export const IMP3293_ORTHOGONALIZED_GAP_CLOSED_FORM_CROSS_CELL = Object.freeze({
       'the cover holds nor that it fails. Only that the imp-3125 closed form tanh(s) - tanh(s/2) is ' +
       'the DEG-to-infinity limit of the CONSTANT-direction gap cell-wide (in the trustworthy window).',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -552,8 +552,8 @@ export const IMP3293_ORTHOGONALIZED_GAP_CLOSED_FORM_CROSS_CELL_ASSERTIONS = [
     id: 'imp3293-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: REPRESENTATIVE diagnostic, the closed-form match carries no RH verdict, ' +
          'the clean invariant is the constant-direction gap, the max-diagonal identity is s-dependent, ' +
-         'large-s DEG = 10 is ill-conditioned, positivity not attempted, bare pilot not re-run, PT 0.2 ' +
-         'stays SOTA. If any flip the module is over-claiming.',
+         'large-s DEG = 10 is ill-conditioned, positivity not attempted, bare pilot not re-run, no refereed bound is changed' +
+         '. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3293_ORTHOGONALIZED_GAP_CLOSED_FORM_CROSS_CELL.honestCaveat;
       return (
@@ -566,7 +566,7 @@ export const IMP3293_ORTHOGONALIZED_GAP_CLOSED_FORM_CROSS_CELL_ASSERTIONS = [
         c.largeSDeg10IllConditioned === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

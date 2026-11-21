@@ -40,15 +40,14 @@
  *   A glossary-style lookup restating the imp-95637 provenance verdict and its kappa-insensitivity
  *   figures for quick reference. It establishes nothing, instantiates no interval, closes no
  *   sub-gap, moves no bound. Catalan constant G irrationality remains OPEN; Sun arXiv:2609.04176
- *   single-author and unrefereed; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   single-author and unrefereed; NO QED. No refereed bound is changed.
  *
  * @see imp-95637-kappa-provenance-assessment (source: the provenance/certification verdict and sensitivity scan this glosses)
  * @see imp-95618 (the placement-robust ">0.037" conclusion whose kappa-insensitivity this headword records)
  * @see imp-95516 (the verified anchor datum c_odd(1/20)=0.006276744725)
  * @see imp-95690-sun-s6-integrand-rho-independence-verdict (later primary-source refutation of the rho^2 shape)
  *
- * Ticket: imp-95669 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95669 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The kappa-provenance headword, baked verbatim (no re-import).
@@ -93,7 +92,7 @@ export const IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD = Object.freeze({
     'imp-95690) as a curvature off it; the imp-95618 placement-robust ">0.037" conclusion is ' +
     'kappa-INSENSITIVE regardless, since it is bound by the kappa-free placement A. Establishes ' +
     'nothing; instantiates no interval; moves no bound; G irrationality OPEN; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95637 (kappa provenance/certification verdict and sensitivity scan); imp-95516 (verified ' +
     'anchor datum c_odd(1/20)); imp-95618 (placement-robust ">0.037" conclusion this scopes); ' +
@@ -120,11 +119,11 @@ export const IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95669-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, G irrationality OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, G irrationality OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.verdict) &&
       /G irrationality OPEN/.test(IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.verdict) &&
       IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.glosses === 'imp-95637' &&
       IMP95669_KAPPA_PROVENANCE_GLOSSARY_HEADWORD.scopes === 'imp-95618',

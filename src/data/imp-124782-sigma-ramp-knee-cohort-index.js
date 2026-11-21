@@ -53,7 +53,7 @@
  *
  *   STATUS: a grouping/index note over six already-committed modules, not a new derivation. No
  *   bound changes; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066
- *   K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade.js (sub-decade knee discovery, N* ~ 3.38e9)
  * @see imp-97708-sigma-knee-bracket-width-sensitivity.js (bracket-robustness confirmation)
@@ -64,7 +64,7 @@
  * @see imp-97846-kernel-fold-diag3-cohort-index.js (sibling cohort-index this mirrors)
  *
  * Ticket: imp-124782 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const LOG10_NSTAR = 9.5291; // imp-97708 bracketing-free pointwise knee (confirms imp-33721)
@@ -165,7 +165,7 @@ export const IMP124782_SIGMA_RAMP_KNEE_COHORT_INDEX = Object.freeze({
     'sensitivity. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation; ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; ' +
     'imp-3066 K_a >= 0 untouched; establishes nothing new; moves no bound; RH open; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33721 (sub-decade knee discovery, N* ~ 3.38e9); imp-97708 (bracket-robustness, ' +
     'bracketing-free pointwise locator); imp-97781 (E_flow sensitivity, ~1000x heuristic); ' +
@@ -206,11 +206,11 @@ export const IMP124782_SIGMA_RAMP_KNEE_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp124782-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124782_SIGMA_RAMP_KNEE_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP124782_SIGMA_RAMP_KNEE_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP124782_SIGMA_RAMP_KNEE_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP124782_SIGMA_RAMP_KNEE_COHORT_INDEX.verdict),
   },
 ];
 

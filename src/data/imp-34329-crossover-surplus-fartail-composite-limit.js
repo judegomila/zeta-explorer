@@ -55,8 +55,7 @@
  * its vanishing here does NOT touch the divergent C_Lip collision-Gronwall. The
  * C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched;
- * establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains the
- * SOTA unconditional bound.
+ * establishes no operator positivity; no refereed bound is changed.
  *
  * @see imp-34248-crossover-surplus-small-thr-asymptotic (the factorisation and the thr>=0.01 ladder this extends)
  * @see imp-34174-crossover-surplus-threshold-family-decay (the closed form surplus(thr))
@@ -194,7 +193,7 @@ export const IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT = {
     'mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'positivity; changes no bound; no refereed bound is changed.',
   citation:
     'imp-34248-crossover-surplus-small-thr-asymptotic.js (the factorisation and thr>=0.01 ladder this ' +
     'extends); imp-34174-crossover-surplus-threshold-family-decay.js (closed form surplus(thr)); ' +
@@ -274,14 +273,14 @@ export const IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT_ASSERTIONS = [
       EXTENDED_LADDER[6].surplus_over_thr_r > 0.9998,
   },
   {
-    // Honesty gate: measurement/fit only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34329-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT.honestScope) &&
       /NO QED/.test(IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT.honestScope) &&
-      /remains the SOTA/.test(IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT.honestScope),
+      /refereed bound is changed/i.test(IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT.honestScope),
   },
 ];
 

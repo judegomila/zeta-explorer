@@ -190,8 +190,7 @@
  * The numerics below CROSS-CHECK the theorem statements; they are not
  * the claim. Import-light (no heavy bundle; imports only the sibling
  * verdict modules for carried constants). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -516,7 +515,7 @@ export const IMP95214_ARITHMETIC_SEPARATION_PRICING = {
     "LEMMA AG, LEMMA OC, THEOREM DR-A, COROLLARY CP-A, THEOREM LIN and LEMMA PR are unconditional closed-form statements about multi-rate lacunary exponential sums on the half-line (LEMMA AG is elementary: numerators capped by the shell width, denominators by the additive chain; THEOREM DR-A is the imp-95212 route with one constant replaced; CP-A is the CP shift argument verbatim; LIN is Stirling plus CP-A; PR is a two-line computation with prime gaps >= 2). The conditional H-LOC consequence is exactly as THEOREM HL-M with the new constant. H-DYA-A itself is NOT instantiated for the paper packets -- LEMMA PR instantiates only the in-shell clause (ii-A) on prime-block SHAPED rate sets -- and every conditional statement names it. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the arithmetic-separation pricing leg named by the imp-95213 routing consequence is delivered at model level. LEMMA AG: on an additively separated shell (the structure an arithmetic (1/p) alias grid actually supplies, hypothesis H-DYA-A(ii-A)), the in-shell Cauchy row product is <= (4/eps)^(K-1)/(i!(K-1-i)!), beating the flat-rho cap at the induced ratio rho = 1 + eps/2 by at least the middle factorial (gain 5.10 / 736.8 / 2.08e9 / 5.62e26 at K = 5/9/17/33). THEOREM DR-A: the DR-M route verbatim with A_in -> A_ar gives sqrt(LamBarA) = A_ar K C_inf^K sum P_{b-1}^K e^(-2^(b-1) x); H-LOC for m d > xStarA(K, eps); K = 1 reduces exactly to THEOREM DR. LEMMA OC: occupancy and separation are linked, (K-1) eps <= 1. THEOREM LIN: at full occupancy the per-rate amplification is bounded by the ABSOLUTE constant 8e/(1-eps), so the threshold is LINEAR in occupancy (xStarA <= xStar + ln K_f + (K_f-1) 7.9945) -- the NG rho -> 1 coalescence divergence never engages along the arithmetic family; the only remaining growth is the occupancy count. LEMMA PR: prime-block rate sets 1/p satisfy (ii-A) natively with eps = 2/p_max (instantiated on the 23 primes in (128, 256): exact worst row 1.11e26 vs cap 1.63e44). HONEST NEGATIVE, recorded: DR-R at the induced ratio also applies and is numerically sharper on the full-occupancy family (132.01 vs 167.43 at K = 33; both linear); the certified threshold is the min -- DR-A contributes the closed form and the proved linearity, not the sharpest curve. HONEST: the Fresnel-Airy envelope port and paper extraction remain OPEN (sub-gap imp-95212-subgap-fresnel-airy-envelope-port carried, further narrowed); inter-shell lacunarity (iii) is an explicit remaining extraction obligation (NOT supplied by the grid); the bound is one-sided; model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the arithmetic-separation pricing leg named by the imp-95213 routing consequence is delivered at model level. LEMMA AG: on an additively separated shell (the structure an arithmetic (1/p) alias grid actually supplies, hypothesis H-DYA-A(ii-A)), the in-shell Cauchy row product is <= (4/eps)^(K-1)/(i!(K-1-i)!), beating the flat-rho cap at the induced ratio rho = 1 + eps/2 by at least the middle factorial (gain 5.10 / 736.8 / 2.08e9 / 5.62e26 at K = 5/9/17/33). THEOREM DR-A: the DR-M route verbatim with A_in -> A_ar gives sqrt(LamBarA) = A_ar K C_inf^K sum P_{b-1}^K e^(-2^(b-1) x); H-LOC for m d > xStarA(K, eps); K = 1 reduces exactly to THEOREM DR. LEMMA OC: occupancy and separation are linked, (K-1) eps <= 1. THEOREM LIN: at full occupancy the per-rate amplification is bounded by the ABSOLUTE constant 8e/(1-eps), so the threshold is LINEAR in occupancy (xStarA <= xStar + ln K_f + (K_f-1) 7.9945) -- the NG rho -> 1 coalescence divergence never engages along the arithmetic family; the only remaining growth is the occupancy count. LEMMA PR: prime-block rate sets 1/p satisfy (ii-A) natively with eps = 2/p_max (instantiated on the 23 primes in (128, 256): exact worst row 1.11e26 vs cap 1.63e44). HONEST NEGATIVE, recorded: DR-R at the induced ratio also applies and is numerically sharper on the full-occupancy family (132.01 vs 167.43 at K = 33; both linear); the certified threshold is the min -- DR-A contributes the closed form and the proved linearity, not the sharpest curve. HONEST: the Fresnel-Airy envelope port and paper extraction remain OPEN (sub-gap imp-95212-subgap-fresnel-airy-envelope-port carried, further narrowed); inter-shell lacunarity (iii) is an explicit remaining extraction obligation (NOT supplied by the grid); the bound is one-sided; model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -704,12 +703,12 @@ export const IMP95214_ASP_ASSERTIONS = [
   {
     id: "imp95214-asp-honesty-gate",
     description:
-      "the verdict delivers the arithmetic-separation leg without closing the sub-gap: names the carried sub-gap imp-95212-subgap-fresnel-airy-envelope-port as open, the recorded DR-R honest negative, the inter-shell lacunarity obligation, the one-sided bound; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict delivers the arithmetic-separation leg without closing the sub-gap: names the carried sub-gap imp-95212-subgap-fresnel-airy-envelope-port as open, the recorded DR-R honest negative, the inter-shell lacunarity obligation, the one-sided bound; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95214_ARITHMETIC_SEPARATION_PRICING.promotesBound === false &&
       IMP95214_ARITHMETIC_SEPARATION_PRICING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95214_ARITHMETIC_SEPARATION_PRICING.verdict) &&
-      /remains SOTA/.test(IMP95214_ARITHMETIC_SEPARATION_PRICING.verdict) &&
+      /refereed bound is changed/i.test(IMP95214_ARITHMETIC_SEPARATION_PRICING.verdict) &&
       /Floors and ceilings untouched/.test(
         IMP95214_ARITHMETIC_SEPARATION_PRICING.verdict,
       ) &&

@@ -7,8 +7,7 @@
  * quantified the slack that EACH split pays individually. This module does:
  * it solves the merged 4-rate generalized eigenproblem directly and reports
  * split2/exact and splitLoo/exact separately at every surface point.
- * Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Measurement only; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECTS (imp-95226 / imp-95250 / imp-95256 normalization). Two disjoint
  * blocks of exponential rates V_1, V_2 in L2(0, inf), Cauchy Gram
@@ -145,7 +144,7 @@ export const IMP95398_SPLIT_TIGHTNESS_VS_EXACT = {
     "directly-computed exact pencil; the content is the SEPARATE slack of each " +
     "and the shared-collar attribution; Too/T2 identity is imp-95256 re-" +
     "confirmed; m = 2 only; model family only; changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "no refereed bound is changed",
   verdict:
     "MEASUREMENT: SPLIT-2 and SPLIT-LOO pay essentially the SAME absolute " +
     "slack vs the exact merged pencil -- their ratio is the bounded (<2x) " +
@@ -153,8 +152,8 @@ export const IMP95398_SPLIT_TIGHTNESS_VS_EXACT = {
     "shared angular collar 1/(1-sigma): modest (1.19..~5x) in the wide-" +
     "separation corner, unbounded (~3e6x here) on the nearby twin lattice. " +
     "Choosing the tighter (imp-95378 min) saves at most the <=2x factor and " +
-    "cannot touch the collar. Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "cannot touch the collar. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -458,7 +457,7 @@ export const IMP95398_ASSERTIONS = [
     id: "imp95398-verdict-honesty",
     description:
       "verdict and scope carry the honest labels: MEASUREMENT, same slack up " +
-      "to the <2x crossover factor, shared collar, no bound change, no QED, PT SOTA",
+      "to the <2x crossover factor, shared collar, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95398_SPLIT_TIGHTNESS_VS_EXACT.verdict) &&
       /shared angular collar/.test(
@@ -466,7 +465,7 @@ export const IMP95398_ASSERTIONS = [
       ) &&
       /Changes no bound/.test(IMP95398_SPLIT_TIGHTNESS_VS_EXACT.verdict) &&
       /NO QED/.test(IMP95398_SPLIT_TIGHTNESS_VS_EXACT.verdict) &&
-      /remains SOTA/.test(IMP95398_SPLIT_TIGHTNESS_VS_EXACT.verdict) &&
+      /refereed bound is changed/i.test(IMP95398_SPLIT_TIGHTNESS_VS_EXACT.verdict) &&
       /algebraic|identity/.test(
         IMP95398_SPLIT_TIGHTNESS_VS_EXACT.crossoverIdentity,
       ),

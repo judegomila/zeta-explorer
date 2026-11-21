@@ -59,7 +59,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (F3: sigma=1/2 ~ imp-3444 to ~0.4%)
@@ -193,7 +193,7 @@ export const IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33601 (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow, offset attribution); imp-33582 ' +
     '(F3: sigma=1/2 ~ imp-3444 crossover to ~0.4%); imp-3444 (E_coll=E_trunc crossover, bisected); ' +
@@ -237,13 +237,13 @@ export const IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM_ASSERTIONS = [
     holds: () => LOGT0_DRIFT > 0 && LOGT0_DRIFT < 0.1 * REL_OFFSET,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33723-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP33723_SIGMA_HALF_VS_CROSSOVER_CLOSED_FORM.verdict),
   },
 ];
 

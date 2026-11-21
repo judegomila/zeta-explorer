@@ -16,8 +16,7 @@
  * 6.2 - 10.7x), 1.199x at rho = 4, 1.119x at rho = 2. Every-octave
  * onsets (dyadic skeleton, r in (1, 1.3], every m): m-and-r-uniform
  * 14.302669 -> 14.242145, r = 1.3: 14.077435 -> 14.016839, r = 1.05:
- * 13.825182 -> 13.764502. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * 13.825182 -> 13.764502. Changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 / imp-95328 normalization, verbatim).
  * a = ln rho in (0, 6], b = ln r in (0, a), tau = b/a, s = sech(b/2),
@@ -228,8 +227,8 @@ export const IMP95329_BETA_TRACE_CAPPED_PENCIL_FLOOR = {
     "floor gain 6.073x at rho = e^6 (looseness 37.8 - 65.2x -> " +
     "6.2 - 10.7x), every-octave onsets 14.302669 -> 14.242145 " +
     "(m-and-r-uniform), 14.077435 -> 14.016839 (r = 1.3), 13.825182 " +
-    "-> 13.764502 (r = 1.05). Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "-> 13.764502 (r = 1.05). Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -737,13 +736,13 @@ export const IMP95329_ASSERTIONS = [
       "the verdict and scope carry the honest labels: RIGOROUS lemmas " +
       "and theorem, residual EXECUTED not oversold, floor-only " +
       "looseness recorded, surviving numerator-currency residual " +
-      "named, no bound change, no QED, PT SOTA",
+      "named, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(REC.verdict) &&
       /EXECUTED/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /floor only/i.test(REC.honestScope) &&
       /named residual/.test(REC.honestScope) &&
       /scan-selected/.test(REC.honestScope),

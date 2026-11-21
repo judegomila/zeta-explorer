@@ -74,8 +74,7 @@
  *   libm exp/pow variation, so the robust reading is the shared [150,200] REGION, NOT the exact nodes. The
  *   NPHI = 10 Phi-series truncation is inherited upstream; single-platform libm. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33641-grade6-node-budget-non-monotonicity.js (the dense grade-6 floor argmin at n=596)
  *   @see imp-33627-saturation-budget-crossover.js (the grade-4 Q-vs-floor crossover nodes_sat at n=596)
@@ -151,7 +150,7 @@ const verdict =
       'GRADE-4),-AND-THE-TWO-ONSET-NOTIONS-(FLOOR-ARGMIN-VS-BRANCH-CROSSOVER)-ARE-CONCEPTUALLY-DISTINCT-SO-' +
       'EXACT-COINCIDENCE-IS-NOT-EXPECTED.-ACCURACY/RULE-DESIGN-CROSS-CHECK-ONLY;-JITTERY-LATTICE-FLOOR;-' +
       'ROBUST-READING-IS-THE-[150,200]-REGION-NOT-THE-EXACT-NODE;-mass-feasibility-NECESSARY-BUT-NOT-' +
-      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33667_CROSSOVER_CROSS_VALIDATION = Object.freeze({
@@ -180,7 +179,7 @@ export const IMP33667_CROSSOVER_CROSS_VALIDATION = Object.freeze({
     'conceptually distinct, so exact coincidence is not expected. VERDICT: ' +
     'TWO-METHOD-ONSET-NODE-AGREES-IN-[150,200]-FLOOR-HEIGHT-DOES-NOT. ACCURACY/RULE-DESIGN CROSS-CHECK ONLY, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; robust reading is the region not the ' +
-    'exact node; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'exact node; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -272,7 +271,7 @@ export const IMP33667_CROSSOVER_CROSS_VALIDATION = Object.freeze({
       'imp-33296/imp-33537/imp-33605): cross-platform libm exp/pow variation can shift the exact onset node, ' +
       'so the robust reading is the shared [150,200] REGION, NOT the exact ~180 / ~192.5 nodes.',
     singlePlatform: 'Single-platform libm exp/pow; the few-ULP floor values are platform-sensitive.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -322,7 +321,7 @@ export const IMP33667_CROSSOVER_CROSS_VALIDATION_ASSERTIONS = [
   {
     id: 'imp33667-honest-cross-check-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-check only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33667_CROSSOVER_CROSS_VALIDATION.honestCaveat;
       return (
@@ -331,7 +330,7 @@ export const IMP33667_CROSSOVER_CROSS_VALIDATION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

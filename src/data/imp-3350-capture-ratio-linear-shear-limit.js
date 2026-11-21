@@ -54,7 +54,7 @@
  *   linear-shear limit in which imp-3346 located its constant C = lim_U r_lin U;
  *   this module supplies the missing certification that the sinh a -> 0 limit and
  *   the exactly-linear ratio are the SAME number, so C is a property of the linear
- *   kernel alone. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   kernel alone. No refereed bound is changed.
  *
  *   @see imp-3240-mupass-capture-ratio-aU-grid.js (the r ~ C/U law and the a -> 0 drift)
  *   @see imp-3346-capture-ratio-C-constant-derivation.js (derives C in the linear-shear limit)
@@ -281,7 +281,7 @@ export const IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT = Object.freeze({
     'shear weight a cancels identically in the linear ratio, so the ~3% capture is a PURE-Phi ' +
     'position-concentration ratio r_lin(U) = ||Tlin|| / sqrt(Q0 Q2 - Q1^2), FREE of a -- exactly the ' +
     'linear-shear limit in which imp-3346 located its constant C. Assessment only; RH-equivalent; ' +
-    'carries NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'carries NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -348,7 +348,7 @@ export const IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT = Object.freeze({
       'The a-free linear-shear characterization of the capture deficit is diagnostic; the imp-3066 off-diagonal ' +
       'endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -395,7 +395,7 @@ export const IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT_ASSERTIONS = [
   {
     id: 'imp3350-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-      'not attempted, the equality is numerical not symbolic, PT 0.2 stays SOTA. Any flip is over-claiming.',
+      'not attempted, the equality is numerical not symbolic, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT.honestCaveat;
       return (
@@ -404,7 +404,7 @@ export const IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.limitIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

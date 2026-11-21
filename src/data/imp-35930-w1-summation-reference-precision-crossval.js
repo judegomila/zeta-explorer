@@ -42,7 +42,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35854-w1-summation-kappa-sweep (the ~4e-17 large-kappa plateau under cross-validation)
  * @see imp-35852-w1-summation-adversarial-ordering (same 2^{-96} reference construction)
@@ -52,7 +52,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35854) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D)
 
@@ -285,7 +285,7 @@ export const IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL = {
     'imp-35854 reading stands. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies ' +
     'no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays ' +
     'GREENFIELD (imp-35681 Part A); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35854 (large-kappa ~4e-17 plateau under cross-validation); imp-35852 (same 2^{-96} reference); ' +
     'imp-35812 (term family + BigInt reference origin); imp-35681 Part A (A+B-C interval bound greenfield); ' +
@@ -324,16 +324,16 @@ export const IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL_ASSERTIONS = [
       N_AT_TPT < 4.9e5,
   },
   {
-    // Honesty gate: cross-validation only; plateau reference-independent; greenfield; no QED; PT SOTA.
+    // Honesty gate: cross-validation only; plateau reference-independent; greenfield; no QED; no refereed bound is changed.
     id: 'imp35930-honesty-gate',
-    description: 'Cross-validation only; plateau reference-independent; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Cross-validation only; plateau reference-independent; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /REFERENCE-INDEPENDENT/.test(IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL.reading.plateauReferenceIndependent) &&
       /GREENFIELD/.test(IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL.verdict),
+      /refereed bound is changed/i.test(IMP35930_W1_SUMMATION_REFERENCE_PRECISION_CROSSVAL.verdict),
   },
 ];
 

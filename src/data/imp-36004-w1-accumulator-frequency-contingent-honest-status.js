@@ -14,7 +14,7 @@
  *   MONITOR it at run time.
  *
  *   Ticket: imp-36004 (content, low). Note only; re-reads nothing new; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-35949-w1-accumulator-frequency-grid-robustness.js (source module this note restates)
  *   @see imp-35890-w1-running-accumulator-apriori-bound.js (the O(1)/flat claim imp-35949 stress-tests)
@@ -73,7 +73,7 @@ export const IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS = Object
     mustMonitorAtRuntime: true,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -84,8 +84,8 @@ export const IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS = Object
     'the running accumulator at run time rather than assume r << 1 a priori. Precision stays NOT ' +
     'the binding constraint even at full collapse; the obstruction stays the ENGINEERING of the ' +
     'certified length-N interval sum (GREENFIELD / MECHANICAL). Restatement only; changes no ' +
-    'bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS_ASSERTIONS = [
@@ -127,11 +127,11 @@ export const IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS_ASSERTIO
       IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS.honestCaveat.isGenericProperty === false &&
       IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS.honestCaveat.mustMonitorAtRuntime === true &&
       IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36004-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36004_W1_ACCUMULATOR_FREQUENCY_CONTINGENT_HONEST_STATUS.verdict),
   },
 ];

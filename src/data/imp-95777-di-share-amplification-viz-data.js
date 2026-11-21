@@ -12,7 +12,7 @@
  *
  * MEASUREMENT ONLY. dI variation is CONDITIONAL on the imp-95720/95745 +4
  * offset hypothesis (verified only at m=20). Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Catalan G irrationality OPEN.
+ * no refereed bound is changed; Catalan G irrationality OPEN.
  *
  * @see imp-95724-c-odd-J-variation-magnitude-assessment.js (exact split, anchor share)
  * @see imp-95749-di-variation-against-constant-J-null.js (conditional variation, amplification)
@@ -74,7 +74,7 @@ export const IMP95777_SUMMARY = Object.freeze({
   verdict:
     'PRESENTATION ONLY, no new computation; reshapes imp-95724 / imp-95749 literals. dI variation is '
     + 'CONDITIONAL on the +4 offset hypothesis (verified only at m=20). Changes no bound; NO QED; RH '
-    + 'open; Catalan G irrationality open; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'open; Catalan G irrationality open; no refereed bound is changed.',
 });
 
 // ---------------------------------------------------------------------------
@@ -106,11 +106,11 @@ const IMP95777_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95777-honest-status-carried',
-    description: 'summary verdict restates conditional / NO QED / SOTA honesty markers',
+    description: 'summary verdict restates conditional / NO QED / no-refereed-bound-change honesty markers',
     holds: () =>
       /CONDITIONAL/.test(IMP95777_SUMMARY.verdict)
       && /NO QED/.test(IMP95777_SUMMARY.verdict)
-      && /SOTA/.test(IMP95777_SUMMARY.verdict),
+      && /refereed bound is changed/i.test(IMP95777_SUMMARY.verdict),
   },
 ];
 

@@ -59,8 +59,7 @@
  *   trustworthy) is inherited as-is -- this cross-checks that regime, it does not rehabilitate it. The
  *   -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb
  *   GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited
- *   surrogate is NOT rigorous; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   surrogate is NOT rigorous; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34630-plateau-drift-large-dp-scaling-order.js (F3 q3-share small-dp roundoff artifact, generalised here)
  *   @see imp-34611-plateau-drift-independent-stencil-crosscheck.js (F2 ~2.2e-5 q3-share large-dp spread)
@@ -219,7 +218,7 @@ export const IMP34651_Q2_Q4_SHARE_ROUNDOFF_VALLEY_SPREAD = Object.freeze({
     'cross-checks that regime, it does not rehabilitate it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
     '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34630 (F3 q3-share small-dp roundoff artifact, generalised here); imp-34611 (F2 ~2.2e-5 ' +
     'q3-share large-dp spread; 4th-order q2/q3 stencil); imp-34592 (q4 5-point 4th difference, ' +
@@ -262,9 +261,9 @@ const IMP34651_ASSERTIONS = [
     holds: () =>
       IMP34651_Q2_Q4_SHARE_ROUNDOFF_VALLEY_SPREAD.isRigorous === false &&
       /NO QED/.test(IMP34651_Q2_Q4_SHARE_ROUNDOFF_VALLEY_SPREAD.verdict) &&
-      /remains SOTA/.test(IMP34651_Q2_Q4_SHARE_ROUNDOFF_VALLEY_SPREAD.verdict) &&
+      /refereed bound is changed/i.test(IMP34651_Q2_Q4_SHARE_ROUNDOFF_VALLEY_SPREAD.verdict) &&
       /UNTOUCHED/.test(IMP34651_Q2_Q4_SHARE_ROUNDOFF_VALLEY_SPREAD.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

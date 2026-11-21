@@ -47,7 +47,7 @@
  * MEASUREMENT/DERIVATION ONLY within the inherited imp-3220/imp-3406/imp-33810 component model, which is NOT
  * a rigorous asymptotic. Changes no bound; establishes no operator positivity; the imp-33843 log-linear
  * verdict, imp-34188 statistical finding, and imp-34246 derivation are UNTOUCHED; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34246-widening-slope-limit-analytic-derivation (the -ln10/2 + ln10*3/u correction curve this locates the -1 crossing of)
  * @see imp-34188-widening-slope-limit-exactly-minus-one (the b_inf ~ -1.003 descriptive fit)
@@ -153,7 +153,7 @@ export const IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING = {
     'Named sub-gap: naive vs mapped k* differ ~0.65; which the exponential-approach kernel sees is unresolved. ' +
     'Measurement/derivation within the inherited imp-3220/imp-3406/imp-33810 component model, NOT a rigorous ' +
     'asymptotic; imp-33843/imp-34188/imp-34246 UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 const IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING_ASSERTIONS = [
@@ -213,11 +213,11 @@ const IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING_ASSERTIONS = [
   {
     // honesty gate: measurement/derivation only, isRigorous false, no QED, SOTA + K_a untouched.
     id: 'imp34327-honesty-gate-no-qed',
-    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, PT SOTA',
+    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING.verdict) &&
+      /refereed bound is changed/i.test(IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34327_WIDENING_SLOPE_MINUS_ONE_CROSSING.verdict),
   },
 ];

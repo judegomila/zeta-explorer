@@ -78,8 +78,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the
  * imp-398 C_F prefactor are UNTOUCHED (appear only as symbolic axes); changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97689-diag3-additivity-euler-derivation (analytic three-axis derivation + L2/L3/L4 verification)
  * @see imp-97665-flow-etrunc-elasticity-identity-derivation (EXACT pair-ratio E_CF/E_ET = E_flow/E_trunc)
@@ -243,7 +242,7 @@ export const IMP124812_DIAG3_ADDITIVITY_EXACT_IDENTITY_ASSESSMENT = {
     'imp-486. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the pinned constants appear only as symbolic differentiation axes, not re-pinned; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97689 (analytic three-axis Euler derivation + L2/L3/L4 verification); imp-97665 (EXACT pair-ratio ' +
     'E_CF/E_ET = E_flow/E_trunc); imp-97644 (MEASURED DIAG3 == 0; SUM3 = O(eps^2)); imp-97668 (six-probe ' +
@@ -294,13 +293,13 @@ export const IMP124812_DIAG3_ADDITIVITY_EXACT_IDENTITY_ASSESSMENT_ASSERTIONS = [
       NONLINEAR_BREAK.partial_sum_NUM > 0 && Math.abs(NONLINEAR_BREAK.reldiff) < 1e-6,
   },
   {
-    // Honesty gate: assessment/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: assessment/derivation only, no QED, no refereed bound is changed.
     id: 'imp124812-honesty-gate-no-qed',
-    description: 'Assessment/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124812_DIAG3_ADDITIVITY_EXACT_IDENTITY_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP124812_DIAG3_ADDITIVITY_EXACT_IDENTITY_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP124812_DIAG3_ADDITIVITY_EXACT_IDENTITY_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP124812_DIAG3_ADDITIVITY_EXACT_IDENTITY_ASSESSMENT.verdict),
   },
 ];
 

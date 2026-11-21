@@ -67,8 +67,7 @@
  * the data and asserts NO physical plateau; the component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-law FORM verdict (a
  * different question) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33982-endpoint-peak-power-law-model-selection (the three-form tournament extended here)
  * @see imp-33941-endpoint-peak-growth-model-selection (the linear-vs-log selection whose margin is checked)
@@ -322,7 +321,7 @@ export const IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-law ' +
     'FORM verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33982 (the three-form tournament extended here); imp-33941 (the linear-vs-log selection whose ' +
     'margin is checked); imp-33917 (the 9 endpoint peaks scored here; the non-saturating reading); ' +
@@ -374,7 +373,7 @@ export const IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT_ASSERTIONS = [
   {
     // (R3) The win does NOT confirm saturation: the fitted cap sits far above the data; honesty gate.
     id: 'imp34043-cap-far-above-data-and-honesty-gate',
-    description: 'weights sum to ~1; cap ~3.6x max peak (no in-window plateau); log-sat Delta = n ln(RSS ratio); isRigorous false; NO QED; PT SOTA; imp-3066 K_a>=0 untouched',
+    description: 'weights sum to ~1; cap ~3.6x max peak (no in-window plateau); log-sat Delta = n ln(RSS ratio); isRigorous false; NO QED; no refereed bound is changed; imp-3066 K_a>=0 untouched',
     holds: () => {
       const target = N * Math.log(RSS.log / RSS.sat);
       return (
@@ -385,7 +384,7 @@ export const IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT_ASSERTIONS = [
         Math.abs(D_AIC_LOG_SAT - target) < 5e-3 &&
         IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.isRigorous === false &&
         /NO QED/.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict) &&
-        /remains SOTA/.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict) &&
+        /refereed bound is changed/i.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict) &&
         /imp-3066 K_a >= 0 untouched/i.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict)
       );
     },

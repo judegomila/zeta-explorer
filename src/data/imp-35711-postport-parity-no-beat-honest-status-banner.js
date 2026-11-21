@@ -17,7 +17,7 @@
  * establishes no operator positivity; adds no new claim beyond imp-35654 F3;
  * C_mb GUE-conditional (imp-486) UNTOUCHED; the imp-34791 E_trunc
  * barrier-lemma reclassification UNCHANGED; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE BANNER (restated from imp-35654 F3; no new derivation)
  * -----------------------------------------------------------------------------
@@ -34,7 +34,7 @@
  *
  * The punchline: read "unconditional up to a vanishing share" as an honest
  * ASYMPTOTIC-PARITY statement, NOT as an unconditional-RH beat. No bound
- * changes; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes; NO QED; no refereed bound is changed.
  *
  * @see imp-35654-ported-barrier-far-tail-mixed-conditionality (source: F3 "unconditional up to a vanishing GUE share" + no-beat caveat)
  * @see imp-35419-etrunc-barrier-lemma-porting-scope (C1: barrier theorem itself unconditional; C2: ported machinery IS PT own Lambda<=0.2 machinery)
@@ -42,7 +42,7 @@
  * @see imp-486 (C_mb GUE-conditional -- the surviving residual after the port)
  */
 
-const L_PT = 0.2; // Platt-Trudgian SOTA -- the value the ported bridge MATCHES, not beats
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- the value the ported bridge MATCHES, not beats
 const RESIDUAL_GUE_SHARE_SYMBOL = 'sigma'; // the only surviving conditional dependence (vanishing, never zero at finite N)
 
 export const IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER = {
@@ -78,7 +78,7 @@ export const IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER = {
     'imp-35419 C2), remains GUE-conditional on a NONZERO share for every finite N, and leaves C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED. Ports nothing; discharges nothing; changes no bound; establishes ' +
     'no operator positivity; the imp-34791 E_trunc barrier-lemma reclassification UNCHANGED; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35654 (source: F3 asymptotic-parity framing and no-beat caveat); imp-35419 (C1: barrier theorem ' +
     'itself unconditional; C2: ported machinery IS PT own Lambda<=0.2 machinery); imp-35678 (compatible ' +
@@ -127,15 +127,15 @@ export const IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER_ASSERTIONS = 
       /UNTOUCHED/.test(IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.statements.S3_c_mb_untouched.claim),
   },
   {
-    // Honesty gate: documentation only, no QED, PT stays SOTA.
+    // Honesty gate: documentation only, no QED, no refereed bound is changed.
     id: 'imp35711-honesty-gate-no-qed',
-    description: 'Documentation only: no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.isRigorous === false &&
       /HONEST-STATUS BANNER/.test(IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.verdict) &&
       /NOT a new claim/.test(IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.verdict) &&
       /NO QED/.test(IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.verdict) &&
-      /remains SOTA/.test(IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.verdict),
+      /refereed bound is changed/i.test(IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.verdict),
   },
 ];
 

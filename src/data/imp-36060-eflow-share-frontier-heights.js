@@ -34,8 +34,7 @@
  * Measurement only; reuses the pinned imp-3406 / imp-33582 constants and the imp-35889 / imp-35950 /
  * imp-35997 sub-terms unchanged; derives no remainder; discharges nothing; changes no bound; establishes
  * no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and
- * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35997-eflow-max-share-height (locates the peak flow share ~ 15.9% at N* ~ 9.65e1)
  * @see imp-35889-e-share-decomposition-at-knees (the three-way split whose flow share this tabulates)
@@ -47,7 +46,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-3529 / imp-33582 sub-terms (identical to imp-35889 / imp-35950 / imp-35997; no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -154,7 +153,7 @@ export const IMP36060_EFLOW_SHARE_FRONTIER_HEIGHTS = {
     'unchanged; derives no remainder; discharges nothing; changes no bound; establishes no operator ' +
     'positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
     'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35997 (locates the peak flow share ~ 15.9% at N* ~ 9.65e1); imp-35889 (the three-way split ' +
     'whose flow share this tabulates); imp-35950 / imp-35337 (E_trunc = E_coll sigma = 0.5 crossover, ' +
@@ -203,7 +202,7 @@ export const IMP36060_EFLOW_SHARE_FRONTIER_HEIGHTS_ASSERTIONS = [
       IMP36060_EFLOW_SHARE_FRONTIER_HEIGHTS.splitInvertsAcrossFrontier === true,
   },
   {
-    // (5) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (5) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36060-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -215,7 +214,7 @@ export const IMP36060_EFLOW_SHARE_FRONTIER_HEIGHTS_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

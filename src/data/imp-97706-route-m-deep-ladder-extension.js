@@ -55,8 +55,8 @@
  * ladder -- so it is a periodic oscillation (oscillating PNT/Mertens error), not a one-off; and (Q1) the
  * imp-97687 bootstrap band NARROWS from [8.2, 11.0] to [9.80, 11.22] on the doubled ladder while the
  * "outruns every fixed power <= 3" conclusion holds in 100% of resamples. MCM stays refuted from
- * omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 ladder p=2e6..9.9e7; single sign-change, avg ~10.18)
  * @see imp-97687-route-m-avg-exponent-robustness.js (11-rung bootstrap band [8.2,11.0])
@@ -205,11 +205,11 @@ export const IMP97706_VERDICT = Object.freeze({
     'to [9.80, 11.22] (width ~1.42), mean ~10.54, while the "outruns every fixed power <= 3" conclusion ' +
     'holds in 100% of resamples. The overlap anchor (p=98866927) reproduces the imp-97659 dps=30 literal ' +
     'across precisions. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; ' +
-    'no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97706_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extending the imp-97659 dps=35 deep Route M gap-law ' +
+  'RH open; no refereed bound is changed; NO QED. Extending the imp-97659 dps=35 deep Route M gap-law ' +
   'residual ladder past p=9.9e7 to p ~ 4.93e8: the single residual sign-change RECURS (eight ' +
   'negative-slope rungs on the combined 23-rung ladder), so it is a periodic oscillating PNT/Mertens ' +
   'error, not a one-off; and the imp-97687 bootstrap band NARROWS from [8.2,11.0] to [9.80,11.22] while ' +
@@ -288,7 +288,7 @@ const IMP97706_ASSERTIONS = [
       IMP97706_VERDICT.anyBoundMoved === false &&
       IMP97706_VERDICT.qed === false &&
       /NO QED/.test(IMP97706_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97706_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97706_HONEST_BANNER) &&
       /RH open/.test(IMP97706_HONEST_BANNER),
     why: 'measurement only -- the sign-change recurs (periodic oscillation) and the bootstrap band narrows; MCM refuted from omega=11; no bound moved, no QED.',
   },

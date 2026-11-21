@@ -60,8 +60,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-
  * conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED and is
  * only perturbed here as a sensitivity probe, not re-pinned; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed form N_cross = (C_C/E_trunc)^2 log T0)
  * @see imp-33770-crossover-contraction-cc-amplitude-sweep (C_C sweep of the CONTRACTION rate |g_prime|)
@@ -202,7 +201,7 @@ export const IMP97565_CROSSOVER_CC_SENSITIVITY_LANDMARK_SHIFT = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED (perturbed ' +
     'only as a probe, not re-pinned); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form crossover fixed point); imp-33770 (C_C sweep of the contraction rate |g_prime|); ' +
     'imp-33601 (identity sigma=1/2 <=> E_coll=E_trunc+E_flow); imp-33582 (sigma=1/2 halving landmark); ' +
@@ -265,13 +264,13 @@ export const IMP97565_CROSSOVER_CC_SENSITIVITY_LANDMARK_SHIFT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, ansatz untouched.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, ansatz untouched.
     id: 'imp97565-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97565_CROSSOVER_CC_SENSITIVITY_LANDMARK_SHIFT.isRigorous === false &&
       /NO QED/.test(IMP97565_CROSSOVER_CC_SENSITIVITY_LANDMARK_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP97565_CROSSOVER_CC_SENSITIVITY_LANDMARK_SHIFT.verdict),
+      /refereed bound is changed/i.test(IMP97565_CROSSOVER_CC_SENSITIVITY_LANDMARK_SHIFT.verdict),
   },
 ];
 

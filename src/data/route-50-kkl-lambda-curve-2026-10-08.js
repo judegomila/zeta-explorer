@@ -27,7 +27,7 @@
  *  0.1758354 → 4.729; route 3 → 3.9118 (y0 → 0) / 3.9034 (y0 = 0.025); factor 0.7076 against the method.
  * HEURISTIC: route 20's Euler-mollified floor crosses at t ≈ 0.176 at X_PT (effective c ≈ 4.73), still ≈ 21% above 3.912.
  *
- * PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. ROUTE_50_ASSERTIONS recompute L_PT, the required c values, the floor partial sums
+ * No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_50_ASSERTIONS recompute L_PT, the required c values, the floor partial sums
  * on both sides of 4.9144, D at t = 0.2163 / 0.2164, ζ(s0) = 2, c = t·log(x0/4π) on the certified rows and the step function.
  */
 
@@ -79,7 +79,7 @@ export const ROUTE_50 = Object.freeze({
   verdict: 'Λ ≤ t0 + y0²/2 from the certified KKL step function (uniform-c curve c/log((X − 0.47)/4π) as idealisation) replaces only hypothesis (ii); it '
     + 'still needs RH to X/2 and a barrier at X. Beating route P at PT height needs c ≤ 3.912 (−29% from ≈ 5.53); the triangle-inequality method cannot '
     + 'reach c ≤ 3.912 at any height (c > 4.9144 Arb-proved for x0 ≥ X_PT), so it beats route P only with verified height X ≥ 4.63e17 plus a barrier '
-    + 'there, both uncomputed. Route 50 is closed at PT height for the current technique. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'there, both uncomputed. Route 50 is closed at PT height for the current technique. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_50;
@@ -142,7 +142,7 @@ export const ROUTE_50_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r50-honest-scope',
-    holds: () => R.status === 'done' && /closed at PT height/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /closed at PT height/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /sufficient/.test(R.refereeKilled[1]) && R.heuristicMollifiedC > R.requiredC.route3,
     why: 'Method-only obstruction; X thresholds graded sufficient; even the heuristic mollified c ≈ 4.73 is above 3.912; no QED.',
   },

@@ -16,7 +16,7 @@
  *   A + B - C interval evaluator.
  *
  *   Ticket: imp-36003 (content, low). Note only; re-reads nothing new; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy.js (source module this note restates)
  *   @see imp-33923-off-axis-phase-winding-quadrature (held sampled slope -3/2 and modulus C_PS, isRigorous:false)
@@ -80,7 +80,7 @@ export const IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS = Object.freeze({
     certifiesI3Floor: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -89,8 +89,8 @@ export const IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS = Object.freeze({
     'MODEL CUSP proxy rho = |x|^{-1/2}, NOT the true H_t = A + B - C on dR at T_PT = 3e12, so it ' +
     'CERTIFIES NEITHER the I2 cap NOR the I3 floor -- both stay GREENFIELD, gated on the ' +
     'imp-35681 Part A / imp-35725 interval evaluator. Restatement only; changes no bound; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS_ASSERTIONS = [
@@ -133,11 +133,11 @@ export const IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS_ASSERTIONS = [
       IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS.honestCaveat.certifiesI2Cap === false &&
       IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS.honestCaveat.certifiesI3Floor === false &&
       IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36003-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36003_I2_I3_OFF_AXIS_PROXY_HONEST_STATUS.verdict),
   },
 ];

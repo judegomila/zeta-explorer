@@ -45,8 +45,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96850 verdict for quick reference. It
  *   establishes nothing new, instantiates no interval, closes no sub-gap beyond what
- *   imp-96850 already recorded, and moves no bound. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   imp-96850 already recorded, and moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96850-coupled-weighted-vasyunin-double-sum-decoupling.js (source: the derivation this glosses)
  * @see imp-96830-uniform-cotangent-second-moment-literature-assessment.js (the original coupling/regime obstructions)
@@ -54,7 +53,7 @@
  * @see imp-96824-route-m-mt-ratio-fit-invariant-glossary-headword.js (sibling headword pattern this follows)
  *
  * Ticket: imp-96880 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The reciprocity-decoupling headword, baked verbatim (no re-import).
@@ -92,7 +91,7 @@ const VASYUNIN_RECIPROCITY_DECOUPLING_HEADWORD = Object.freeze({
     'the growth law is derived modulo one scalar, numerically confirmed to ~0.1% ' +
     'against an independent measurement (imp-96828). Not a rigorous asymptotic for ' +
     'beta and not a new bound. Establishes no operator positivity; moves no bound; ' +
-    'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD = Object.freeze({
@@ -113,7 +112,7 @@ export const IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD = Object
     'c = 2 beta (6/pi^2) ~ 3.542 (matching imp-96828). The lone surviving gap is a ' +
     'closed form for the scalar beta (~73% cotangent-fluctuation variance). ' +
     'Establishes nothing new; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96850 (the reciprocity-decoupling derivation this glosses); imp-96830 (the ' +
     'original coupling/wrong-regime obstructions); imp-96828 (measured T(N) ~ 3.542 ' +
@@ -141,11 +140,11 @@ export const IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp96880-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD.verdict) &&
       IMP96880_VASYUNIN_RECIPROCITY_DECOUPLING_GLOSSARY_HEADWORD.glosses === 'imp-96850',
   },
 ];

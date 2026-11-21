@@ -57,7 +57,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and appear only symbolically as differentiation axes; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97821-diag3-sixth-landmark-crossvalidation (L6 non-monotone eps-ladder reported qualitatively)
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (the far-downslope L5 clean O(eps^2) quartering)
@@ -258,7 +258,7 @@ export const IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER = {
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (appear only symbolically as ' +
     'differentiation axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97821 (L6 non-monotone eps-ladder, qualitative); imp-97710 (L5 clean O(eps^2) quartering); imp-97689 ' +
     '(Euler-additivity derivation + L2/L3/L4 verification); imp-97665 (EXACT pair-ratio E_CF/E_ET = ' +
@@ -321,13 +321,13 @@ export const IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER_ASSERTIONS = [
     holds: () => SIGMA_CRIT > 0.005 && SIGMA_CRIT < 0.02,
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124769-honesty-gate-no-qed',
-    description: 'Measurement/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER.isRigorous === false &&
       /NO QED/.test(IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER.verdict),
   },
 ];
 

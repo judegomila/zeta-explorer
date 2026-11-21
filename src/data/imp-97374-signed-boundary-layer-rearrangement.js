@@ -82,8 +82,8 @@
  * series is only conditionally convergent, rigorously explaining why imp-97353 sup-majorant had to fail;
  * RESULT 3 reframes the interchange as a non-Agnew reordering (the precise obstruction); RESULT 4 measures
  * the signed defect decaying (cancellation real) but sub-geometrically (not decisive). No general theorem
- * closes it; the specific arithmetic of mu must be used. RH open; no bound on Lambda moves; PT Lambda <= 0.2
- * SOTA; NO QED.
+ * closes it; the specific arithmetic of mu must be used. RH open; no bound on Lambda moves; no refereed bound is changed
+ * ; NO QED.
  *
  * -------------------------------------------------------------------------------
  * RESIDUAL (refined sub-gap; sharpens the imp-97353 one).
@@ -226,11 +226,11 @@ export const IMP97374_VERDICT = Object.freeze({
     'needs the arithmetic of mu. A closed-form ladder to k=25 shows the SIGNED defect |D_k| decaying ' +
     '(sub-geometrically, ratio -> 1) while sup_t |M_k| ~ 1.71^k grows -- the cancellation is genuine but the ' +
     'numerics are not decisive. Obstruction relocated to IMP97374_FRIABLE_REARRANGEMENT_SUBGAP. No bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97374_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97332 weight g is Binet second ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97332 weight g is Binet second ' +
   'kernel, so the signed boundary-layer integral is the Moebius-Stirling series Sum mu(n) mu_B(n-1) (closed ' +
   'form J = mu_B). That series is CONDITIONALLY (not absolutely) convergent -- rigorously explaining the ' +
   'imp-97353 sup-majorant death -- so the interchange is a largest-prime-factor re-ordering of a conditionally ' +
@@ -329,7 +329,7 @@ const IMP97374_ASSERTIONS = [
       IMP97374_VERDICT.residualSubgap === 'IMP97374_FRIABLE_REARRANGEMENT_SUBGAP' &&
       /IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP/.test(IMP97374_FRIABLE_REARRANGEMENT_SUBGAP.refinesSubgap) &&
       /NO QED/.test(IMP97374_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97374_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97374_HONEST_BANNER) &&
       /RH open/.test(IMP97374_HONEST_BANNER),
     why: 'honest partial: reframed the signed sub-gap as a conditional reordering problem -- no bound moved, no rigorous ceiling, no QED.',
   },

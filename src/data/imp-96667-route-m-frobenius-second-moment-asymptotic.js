@@ -63,7 +63,7 @@
  * measured composed 4.11e7. But this rests on the UNPROVEN interior slope, so the 3.75e7
  * accessible-rung figure stays the rigorously-anchored value: no bound is proved rigorous here.
  * Compute ceiling N~9916 (imp-96352) still binds first by >3900x. Changes no bound; no operator
- * positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (the 3.75e7 Frobenius lower ceiling this refines)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (trace bound + off-diagonal Szego sub-gap)
@@ -162,7 +162,7 @@ export const IMP96667_VERDICT = Object.freeze({
     '-- the OBSTRUCTION, not reduced to closed form. By-product: the correct functional form is ' +
     'sqrt(s log N), which re-solves the ceiling to ~3.98e7 (vs the imp-96648 log-linear 3.75e7, ' +
     '+6.1%, within ~3.3% of the measured 4.11e7) but rests on the unproven interior slope, so ' +
-    'no bound is proved rigorous. Compute 9916 binds first by >3900x. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no bound is proved rigorous. Compute 9916 binds first by >3900x. No refereed bound is changed; RH open; NO QED.',
 });
 
 // Residual open piece carried forward: the interior second-moment leading coefficient.
@@ -180,7 +180,7 @@ export const IMP96667_SUBGAP = Object.freeze({
 });
 
 export const IMP96667_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + obstruction only: the exact ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + obstruction only: the exact ' +
   'g-sum reduction, the diagonal closed form, and the border convergence are rigorous (border ' +
   'rests on the standard Vasyunin cotangent asymptotic, confirmed numerically to -1/pi); the ' +
   'interior second-moment slope is measured (tmp/imp-96667-frobenius-asymptotic.py, dense-Gram ' +
@@ -237,7 +237,7 @@ const IMP96667_ASSERTIONS = [
       IMP96667_VERDICT.rigorousSlopeObtained === false &&
       IMP96667_VERDICT.exactReductionEstablished === true &&
       /NO QED/.test(IMP96667_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96667_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96667_HONEST_BANNER) &&
       /RH open/.test(IMP96667_HONEST_BANNER) &&
       /second-moment-coefficient/.test(IMP96667_SUBGAP.id),
     why: 'derivation + obstruction: exact reduction + diagonal/border settled, interior slope NOT proved, no bound moved, honesty markers and the residual interior second-moment sub-gap present.',

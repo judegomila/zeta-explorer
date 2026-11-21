@@ -76,13 +76,13 @@ export const IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT = Object.freeze({
   verdict: NO_DRIFT
     ? 'NO DRIFT -- the imp-34200 baked literals reproduce the live imp-34110 measurement exactly across ' +
       'all 36 folds and the summary block. AUDIT-ONLY; no bound changed; imp-3066 K_a >= 0 untouched; ' +
-      'C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.'
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; no refereed bound is changed.'
     : 'DRIFT DETECTED -- imp-34200 baked literals no longer reproduce the live imp-34110 measurement; ' +
-      're-bake required. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      're-bake required. NO QED; no refereed bound is changed.',
 
   honest:
     'AUDIT-ONLY -- reads and diffs the two existing modules; changes neither the baked viz table nor the ' +
-    'live imp-34110 measurement; adds no new bound. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+    'live imp-34110 measurement; adds no new bound. No refereed bound is changed.',
 });
 
 export const IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT_ASSERTIONS = [
@@ -105,12 +105,12 @@ export const IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp34222-honest-audit-only',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT.honest) &&
-      /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT.honest) &&
+      /refereed bound is changed/i.test(IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT.honest) &&
       /NO QED/.test(IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT.verdict) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP34222_34200_LTO_VIZ_LITERALS_DRIFT_AUDIT.verdict),
   },
 ];
 

@@ -62,8 +62,7 @@
  * Grade: DERIVATION / model-extension over the frozen imp-95214/95238/95257/95277
  * ledgers using the standard GMP schoolbook->Karatsuba cost law; NOT a wall-clock
  * measurement (no native run) and NOT a probe of the exact per-platform
- * MUL_TOOM22_THRESHOLD. Changes no bound; launches nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * MUL_TOOM22_THRESHOLD. Changes no bound; launches nothing; NO QED; no refereed bound is changed.
  */
 
 import { TIER2_PRICE } from './imp-95214-tier2-chirp-level.js';
@@ -155,7 +154,7 @@ export const KARATSUBA_CROSSOVER_LADDER = Object.freeze({
     'across the crossover -- only the absolute far-precision budget drops below the schoolbook ' +
     'extrapolation. Model extension over the frozen imp-95214/95277 ledgers using the standard GMP ' +
     'cost law, not a native replay and not a probe of the exact per-platform threshold; launches ' +
-    'nothing; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'nothing; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // -- self-executing assertions (import-light; recomputable arithmetic only) ----
@@ -224,7 +223,7 @@ export const IMP95380_ASSERTIONS = [
   {
     id: 'imp95380-dominance-margin-invariant-and-honesty-gate',
     description:
-      'fail-closed honesty: the crossover rescales both routes by the same multiply cost so the 17.9x dominance margin is unchanged (dominancePreserved true, marginUnchanged true), this is a model extension not a wall-clock run and not a probe of the exact platform threshold, it moves no bound, and the verdict states NO QED and PT-SOTA',
+      'fail-closed honesty: the crossover rescales both routes by the same multiply cost so the 17.9x dominance margin is unchanged (dominancePreserved true, marginUnchanged true), this is a model extension not a wall-clock run and not a probe of the exact platform threshold, it moves no bound, and the verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       KARATSUBA_CROSSOVER_LADDER.dominancePreservedEveryRung === true &&
       KARATSUBA_CROSSOVER_LADDER.dominanceMarginUnchangedAcrossCrossover === true &&
@@ -233,7 +232,7 @@ export const IMP95380_ASSERTIONS = [
       KARATSUBA_CROSSOVER_LADDER.movesBound === false &&
       /KARATSUBA/i.test(KARATSUBA_CROSSOVER_LADDER.verdict) &&
       /NO QED/.test(KARATSUBA_CROSSOVER_LADDER.verdict) &&
-      /remains SOTA/.test(KARATSUBA_CROSSOVER_LADDER.verdict),
+      /refereed bound is changed/i.test(KARATSUBA_CROSSOVER_LADDER.verdict),
   },
 ];
 

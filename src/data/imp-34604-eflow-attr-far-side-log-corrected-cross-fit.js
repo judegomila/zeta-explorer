@@ -52,7 +52,7 @@
  *   far side, reusing the imp-34572 rungs verbatim. Descriptive surrogate fit, NOT a rigorous
  *   asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb
  *   GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- *   imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34585-eflow-attr-log-corrected-fit.js (the NEAR-side log-corrected fit this cross-checks)
  *   @see imp-34572-eflow-attr-far-side-pole-smoothness.js (the 7 far-side rungs, k=21.30..21.60)
@@ -233,8 +233,8 @@ export const IMP34604_EFLOW_ATTR_FAR_SIDE_LOG_CORRECTED_CROSS_FIT = {
     'both sides of k* recover the analytic E_flow ~ log^3(N)/N structure. Descriptive surrogate fit, ' +
     'NOT a rigorous asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34604_ASSERTIONS = [
@@ -278,13 +278,13 @@ export const IMP34604_ASSERTIONS = [
       IMP34604_Q_OFFSET_FROM_ANALYTIC < 0.45,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34604-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34604_EFLOW_ATTR_FAR_SIDE_LOG_CORRECTED_CROSS_FIT.isRigorous === false &&
       /NO QED/.test(IMP34604_EFLOW_ATTR_FAR_SIDE_LOG_CORRECTED_CROSS_FIT.honest) &&
-      /remains SOTA/.test(IMP34604_EFLOW_ATTR_FAR_SIDE_LOG_CORRECTED_CROSS_FIT.honest),
+      /refereed bound is changed/i.test(IMP34604_EFLOW_ATTR_FAR_SIDE_LOG_CORRECTED_CROSS_FIT.honest),
   },
 ];
 

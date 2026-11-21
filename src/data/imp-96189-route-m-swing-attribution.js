@@ -64,7 +64,7 @@
  * IMP96189_SUBGAP.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96163-route-m-residual-gamma1-alias-refute.js (aliasing refuted)
  * @see imp-96147-route-m-ratio-const-oscillation-fit.js (residual rows + fit)
@@ -158,7 +158,7 @@ export const IMP96189_SUBGAP = Object.freeze({
 });
 
 export const IMP96189_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/imp-96189-attribution.mjs fitting the imp-96147 residual rows and imp-96105 ratio/lam_min; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/imp-96189-attribution.mjs fitting the imp-96147 residual rows and imp-96105 ratio/lam_min; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -207,7 +207,7 @@ const IMP96189_ASSERTIONS = [
     id: 'imp96189-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96189_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96189_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96189_HONEST_BANNER) &&
       /NO QED/.test(IMP96189_HONEST_BANNER) &&
       typeof IMP96189_SUBGAP.statement === 'string' &&
       /band-vs-drift-non-unique/.test(IMP96189_SUBGAP.id),

@@ -58,8 +58,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34837-sigmoid-inflection-d2-eflow-reinstatement (the D2 inflection +9.03e-3 UP shift and the flipped -3.61e-3 endpoint gap reused here)
  * @see imp-34858-sigma-knee-d3-eflow-reinstatement (the D3 knee -7.32e-3 DOWN shift and -7.34e-3 first-order slope reused here)
@@ -282,7 +281,7 @@ export const IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING = {
     'root. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34886: the imp-34837 (inflection UP) and imp-34858 (knee DOWN) opposite-signed E_flow shifts ' +
     'cross at a PHYSICAL strength s* ~ 0.78 in [0,1], where X*_knee = X*_infl at log10 N* ~ 9.531, with a ' +
@@ -351,15 +350,15 @@ export const IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING_ASSERTIONS = [
       Math.abs(DGAP_DS - (DKNEE_DS0 - DINFL_DS0)) < 2e-3,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34886-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING.isRigorous === false &&
       IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING.farTailExponent === 0.5 &&
       typeof IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING.subGap === 'string' &&
       /NO QED/.test(IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING.verdict),
   },
 ];
 

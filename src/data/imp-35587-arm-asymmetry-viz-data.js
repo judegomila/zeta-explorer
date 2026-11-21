@@ -20,7 +20,7 @@
  *
  *   Ticket: imp-35587 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Discharges nothing; imp-35337a stays OPEN. C_C = (1/8) sqrt(3 pi)
- *   ansatz (imp-2642/imp-2643) UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   ansatz (imp-2642/imp-2643) UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 import { IMP35451_SIGMA_PEAK_ARM_ASYMMETRY } from './imp-35451-sigma-peak-arm-asymmetry.js';

@@ -10,7 +10,7 @@
  * own, for a reader who has not read imp-95213 in full.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95213-tier-certifier-build (source: sliceCertified/promotesBound/fullWindowRunLaunched)
  * @see imp-95238-fullwindow-run-decision (the separate full-window launch decision: DO NOT launch)
@@ -41,7 +41,7 @@ export const IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER = {
     S3_no_bound_promoted: {
       claim:
         'No bound is promoted by this certificate. A sub-range run can never set the window ' +
-        'promotion flag (G5); Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+        'promotion flag (G5); no refereed bound is changed.',
     },
   },
   sliceCertified: IMP95213_TIER_CERTIFIER.sliceCertified,
@@ -52,7 +52,7 @@ export const IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER = {
     'HONEST-STATUS BANNER (documentation, not a new claim). The imp-95213 tier certifier is ' +
     'SLICE-CERTIFIED ONLY (0.058% of window 1, hardest stretch); the full-window run is a deferred ' +
     'separate decision and was NOT launched; no bound is promoted. Ports nothing; measures nothing ' +
-    'new; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'new; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95213-tier-certifier-build (sliceCertified/promotesBound/fullWindowRunLaunched fields); ' +
     'imp-95238-fullwindow-run-decision (the separate full-window launch decision).',
@@ -92,13 +92,13 @@ export const IMP95245_HONEST_STATUS_BANNER_ASSERTIONS = [
   },
   {
     id: 'imp95245-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER.isRigorous === false &&
       /HONEST-STATUS BANNER/.test(IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER.verdict) &&
       /not a new claim/.test(IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER.verdict) &&
       /NO QED/.test(IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER.verdict) &&
-      /remains SOTA/.test(IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER.verdict),
+      /refereed bound is changed/i.test(IMP95245_TIER_CERTIFIER_HONEST_STATUS_BANNER.verdict),
   },
 ];
 

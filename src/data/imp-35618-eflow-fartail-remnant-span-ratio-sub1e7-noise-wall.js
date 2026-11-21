@@ -64,7 +64,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate extrapolation, NOT a rigorous
  * asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched;
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35553-eflow-fartail-remnant-decade-span-growth-fit (the two-ratio fit + sub-1e-6 crossing this extends)
  * @see imp-35534-eflow-fartail-remnant-sub1e5-crossing (the log-space channel + two-span note)
@@ -281,8 +281,8 @@ export const IMP35618_EFLOW_FARTAIL_REMNANT_SPAN_RATIO_SUB1E7_NOISE_WALL = {
     'imp-35534/imp-35553 double-precision channel, not a converged constant. Measurement only on the inherited ' +
     'imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35553 (two-ratio fit + sub-1e-6 crossing 10^1467.7351, extended here); imp-35534 (log-space channel + ' +
     'two-span note); imp-35552 (remnant ~ 2 loglogN/(logN)^2 leading form -> sqrt(10) asymptote); imp-35473 ' +
@@ -344,13 +344,13 @@ export const IMP35618_EFLOW_FARTAIL_REMNANT_SPAN_RATIO_SUB1E7_NOISE_WALL_ASSERTI
       R67_COARSE > SQRT10,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35618-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35618_EFLOW_FARTAIL_REMNANT_SPAN_RATIO_SUB1E7_NOISE_WALL.isRigorous === false &&
       /NO QED/.test(IMP35618_EFLOW_FARTAIL_REMNANT_SPAN_RATIO_SUB1E7_NOISE_WALL.verdict) &&
-      /remains SOTA/.test(IMP35618_EFLOW_FARTAIL_REMNANT_SPAN_RATIO_SUB1E7_NOISE_WALL.verdict),
+      /refereed bound is changed/i.test(IMP35618_EFLOW_FARTAIL_REMNANT_SPAN_RATIO_SUB1E7_NOISE_WALL.verdict),
   },
 ];
 

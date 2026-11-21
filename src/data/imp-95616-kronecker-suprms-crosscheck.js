@@ -17,7 +17,7 @@
  * (denser dt = 0.02 and longer tMax = 5e4, versus imp-95604 dt = 0.05, tMax = 2e4)
  * and confirms every leg. It changes NO bound, closes NO gap, and asserts NO new
  * theorem: the transfer route stays CLOSED and the contract at the anchor stays
- * UNDECIDED / PCC-gated. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED; RH open.
+ * UNDECIDED / PCC-gated. No refereed bound is changed. NO QED; RH open.
  *
  * RESULTS (this module, doubles, verified below; independent grid):
  *  - measured rms matches sqrt(sum a_p^2) to < 5e-5 rel in every row
@@ -128,7 +128,7 @@ export const IMP95616_KRONECKER_SUPRMS_CROSSCHECK = Object.freeze({
   reading:
     'On the independent grid, rms/l2 -> 1 to < 5e-5 (equidistribution), sup/triangle -> 1 to < 1e-9 (Kronecker), and sup/rms tracks the theoretical transfer constant to < 5e-5, growing with N toward sqrt(N) from below (unequal amplitudes). The anchor-floor sqrt(H) transfer loss exactly cancels the H^{-1/2} mean-square saving. This confirms the imp-95604 numerical claim.',
   scope:
-    'Numerical cross-check only. The transfer-route foreclosure it supports changes NO bound; the contract at the anchor T-star = heightT(690988) stays UNDECIDED / PCC-gated on pointwise zero-location (the same RH-hard wall as imp-95519 / imp-95581). NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'Numerical cross-check only. The transfer-route foreclosure it supports changes NO bound; the contract at the anchor T-star = heightT(690988) stays UNDECIDED / PCC-gated on pointwise zero-location (the same RH-hard wall as imp-95519 / imp-95581). NO QED; no refereed bound is changed; RH open.',
   promotesBound: false,
   isRigorous: true,
 });
@@ -166,11 +166,11 @@ export const IMP95616_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95616-honesty-gate-no-qed',
-    description: 'verification only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'verification only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95616_KRONECKER_SUPRMS_CROSSCHECK.promotesBound === false &&
       /NO QED/.test(IMP95616_KRONECKER_SUPRMS_CROSSCHECK.scope) &&
-      /remains SOTA/.test(IMP95616_KRONECKER_SUPRMS_CROSSCHECK.scope),
+      /refereed bound is changed/i.test(IMP95616_KRONECKER_SUPRMS_CROSSCHECK.scope),
   },
 ]);
 

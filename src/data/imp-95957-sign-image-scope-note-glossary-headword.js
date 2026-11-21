@@ -37,15 +37,14 @@
  *
  *   STATUS: both images are exact/well-defined AS IMAGES (the closed form <theta_C> is
  *   exact; theta_phys is exact given a choice of |K_k| proxy and its sign hypothesis).
- *   Neither closes the imp-95212 port. No bound moves; NO QED; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   Neither closes the imp-95212 port. No bound moves; NO QED; no refereed bound is changed.
  *
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
  *   A glossary-style scope note preventing conflation of "physical weighted" (imp-95917's
  *   label for its proxy-evaluated image) with "the true physical per-window theta". It
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no bound.
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95917-vonmangoldt-weighted-sign-image (theta_phys under a nonnegative |K_k| proxy)
  * @see imp-95918-residue-avg-sign-image-pk-grid (<theta_C>, the residue-uniform mean, wider grid)
@@ -53,7 +52,7 @@
  * @see imp-95970-sign-reconciliation-glossary-headword (K_k >= 0 iff d >= a_1/mu, unestablished)
  *
  * Ticket: imp-95957 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The scope-note headword, baked verbatim (no re-import).
@@ -102,7 +101,7 @@ export const IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD = Object.freeze({
     'genuine signed Fresnel-Airy kernel. Both are images of the residue-mean/kernel-sign ' +
     'object under different substitutions; the imp-95212 envelope port stays OPEN. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95917 (theta_phys under a nonnegative |K_k| proxy, conditional on K_k >= 0); ' +
     'imp-95918 (<theta_C>, the exact residue-uniform mean, wider grid); imp-95212 (the still-open ' +
@@ -131,11 +130,11 @@ export const IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95957-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD.verdict) &&
       IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD.glosses.includes('imp-95917') &&
       IMP95957_SIGN_IMAGE_SCOPE_NOTE_GLOSSARY_HEADWORD.glosses.includes('imp-95918'),
   },

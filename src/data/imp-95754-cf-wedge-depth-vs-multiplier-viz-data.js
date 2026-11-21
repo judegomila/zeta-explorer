@@ -49,8 +49,8 @@ export const IMP95754_CAVEAT_BANNER =
   'box-min gap values, not a new measurement. The curve shows minGap deepening monotonically from -0.004682 ' +
   '(nominal cf=1) to -0.184642 (imp-95747 GUE-saturated converged r_eff=9.5831x, ~39.4x deeper) as the ' +
   'honest C_F provenance multiplier cf rises; the box-min corner stays fixed at (C_C 0.5x, E_trunc 1.5x) ' +
-  'throughout. Model seam family only; introduces no new cited input and changes no bound; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'throughout. Model seam family only; introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. No QED.';
 
 export const IMP95754_CF_WEDGE_DEPTH_VIZ_DATA_ASSERTIONS = [
   {

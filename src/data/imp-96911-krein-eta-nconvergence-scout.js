@@ -51,7 +51,7 @@
  * and SHARPENS imp-96889 SUB-GAP IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE rather than resolving it
  * into a clean rate. SUB-GAP IMP96911_ETA_DRIFT_IS_COUPLED_NT_NOT_A_STANDALONE_NBIG_RATE.
  * Ritz value is an UPPER bound (this floor is an upper estimate, not a certified LB); interval-
- * rigorous certificate reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96889-krein-shiftinvert-katotemple-scout.js (Finding 3a eta drift measured at two Nbig points; this leaf fits it)
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (the open t-truncation (N,T) rate the floor here couples to)

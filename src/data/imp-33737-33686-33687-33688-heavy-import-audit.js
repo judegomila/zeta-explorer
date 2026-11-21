@@ -30,7 +30,7 @@
  * three target modules are therefore heavy-import-safe.
  *
  * This is a read-only audit: it changes no bound, establishes no operator positivity, imp-3066
- * K_a >= 0 stays untouched, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 stays untouched, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33720 (the imp-33679..imp-33682 cohort audit this note mirrors), imp-33695, imp-33763
  */
@@ -77,7 +77,7 @@ export const IMP_33737_HEAVY_IMPORT_AUDIT = {
     'work is queued.',
   honestNote:
     'Read-only audit; no new pages fabricated, no new bound claimed by this module itself. ' +
-    'imp-3066 K_a >= 0 positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'imp-3066 K_a >= 0 positivity untouched. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -113,11 +113,11 @@ const IMP_33737_ASSERTIONS = [
   {
     id: 'imp33737-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33737_HEAVY_IMPORT_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33737_HEAVY_IMPORT_AUDIT.honestNote) &&
       /no QED/i.test(IMP_33737_HEAVY_IMPORT_AUDIT.honestNote) &&
       /imp-3066/.test(IMP_33737_HEAVY_IMPORT_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

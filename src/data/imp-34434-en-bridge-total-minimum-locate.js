@@ -51,7 +51,7 @@
  * MEASUREMENT ONLY. E(N) are bridge constants not the headline inequality (imp-2564);
  * the component model is the imp-3220/imp-3406 extrapolation which is NOT a rigorous
  * asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (sigma share N-shape, interior max ~9.22e5)
  * @see imp-3220-en-bridge-fidelity-frontier (U-shaped sigma decade ladder)
@@ -156,7 +156,7 @@ export const IMP34434_EN_BRIDGE_TOTAL_MINIMUM = {
     ratio_PT_over_infEN: +SLACK_VS_PT.toFixed(1), // ~6536
     interpretation:
       'The E(N) infimum 3.06e-5 sits ~3954x below L_pt ~ 0.121 and ~6536x below the PT ' +
-      'Lambda <= 0.2 SOTA -- but per imp-2564 the E(N) are BRIDGE CONSTANTS, not the ' +
+      'no refereed bound is changed -- but per imp-2564 the E(N) are BRIDGE CONSTANTS, not the ' +
       'headline Lambda inequality. The floor E_trunc = 3.06e-5 is exactly the E_trunc_pt ' +
       'that imp-459 ADDS to L_cond to BUILD L_pt = 0.121; it is an ingredient of that ' +
       'beat, not a competitor. So the apparent 3954x headroom is a category confusion: ' +
@@ -175,7 +175,7 @@ export const IMP34434_EN_BRIDGE_TOTAL_MINIMUM = {
     'CONSTANTS not the headline inequality: the floor IS the E_trunc_pt imp-459 folds INTO ' +
     'L_pt, so the apparent headroom is a category confusion, not a Lambda beat. C_mb ' +
     'GUE-conditional per imp-486 untouched; no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (sigma share N-shape, interior max ~9.22e5); imp-3220 (U-shaped sigma ' +
     'ladder); imp-452/459 (L_pt ~ 0.121 finite-height beat); imp-2564 (E(N) are bridge ' +
@@ -232,14 +232,14 @@ export const IMP34434_EN_BRIDGE_TOTAL_MINIMUM_ASSERTIONS = [
       Math.abs(SLACK_VS_LPT - 3954) < 10 && SLACK_VS_PT > SLACK_VS_LPT,
   },
   {
-    // Honesty gate: measurement only, bridge-constant caveat present, no QED, PT SOTA.
+    // Honesty gate: measurement only, bridge-constant caveat present, no QED, no refereed bound is changed.
     id: 'imp34434-honesty-gate-no-qed',
-    description: 'Measurement only: bridge-constant caveat (imp-2564), no QED, PT stays SOTA',
+    description: 'Measurement only: bridge-constant caveat (imp-2564), no QED, no refereed bound is changed',
     holds: () =>
       IMP34434_EN_BRIDGE_TOTAL_MINIMUM.isRigorous === false &&
       /bridge CONSTANTS/.test(IMP34434_EN_BRIDGE_TOTAL_MINIMUM.verdict) &&
       /NO QED/.test(IMP34434_EN_BRIDGE_TOTAL_MINIMUM.verdict) &&
-      /remains SOTA/.test(IMP34434_EN_BRIDGE_TOTAL_MINIMUM.verdict),
+      /refereed bound is changed/i.test(IMP34434_EN_BRIDGE_TOTAL_MINIMUM.verdict),
   },
 ];
 

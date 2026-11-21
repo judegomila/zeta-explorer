@@ -56,7 +56,7 @@
  * extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33810-eflow-resid-ratio-N-ladder (the ratio ladder cross-validated here)
  * @see imp-33773-ecoll-sigma-offset-eflow-attribution (M2 refutation source of the decade rungs)
@@ -218,8 +218,8 @@ export const IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate ' +
     'resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33810 (the ratio ladder cross-validated here); imp-33773 (M2 refutation source of the ' +
     'decade rungs); imp-34107 (second-path check of the resid/eflow endpoints); imp-33884/imp-33926/' +
@@ -247,14 +247,14 @@ export const IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION_ASSERTIONS = [
     holds: () => ALL_DISPLAY_MATCH === true,
   },
   {
-    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-33810 recomputation, no QED, PT SOTA.
+    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-33810 recomputation, no QED, no refereed bound is changed.
     id: 'imp33852-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, PERFORMS the imp-33810 recomputation, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Cross-check only: isRigorous false, PERFORMS the imp-33810 recomputation, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.isRigorous === false &&
       /PERFORMS the cross-recomputation imp-33810/.test(IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.verdict) &&
       /NO QED/.test(IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP33852_M2_DECADE_RATIO_INDEPENDENT_CROSSVALIDATION.verdict),
   },

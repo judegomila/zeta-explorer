@@ -44,8 +44,8 @@
  * 0.0749) agree to full double precision, the shared definition z = relErr / sqrt(2 / n_w) and shared
  * sd literals are confirmed, and the ~4.6175e5 clip threshold places all dip-table heights in the
  * unclipped interior. The two ledgers are two windows onto the same excursion measurement, not two
- * conflicting estimates. Cross-validation only; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * conflicting estimates. Cross-validation only; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96493-excursion-2sigma-interior-scan (the ten-height interior z-scan reconciled here)
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the below-envelope dip significance table)
@@ -140,12 +140,12 @@ export const IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION = {
   allOverlapAgree, // true
   maxDeltaZ, // 0: bit-for-bit z agreement on both overlapping heights
   verdict:
-    'The imp-96493 z-scan and the imp-96115 / imp-96089 below-envelope dip table are CONSISTENT where they overlap. At the two shared heights T = 1.5e5 and T = 3.0e5 the window counts (291, 411) and the z-scores (1.9234, 0.0749) agree to full double precision (max delta z = 0); the shared definition z = relErr / sqrt(2 / n_w), the imp-95562 tiling window counts, and the ~4.6175e5 clip threshold all reconcile, with every dip-table height (1e4, 1.5e5, 3e5) sitting below the clip in the unclipped interior. The T = 1e4 dip is dip-table-only (below the imp-96493 interior floor T > 1.5e5) and the imp-96129 dense heights above 3e5 are scan-only; neither ledger contradicts the other. Cross-validation only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96493 z-scan and the imp-96115 / imp-96089 below-envelope dip table are CONSISTENT where they overlap. At the two shared heights T = 1.5e5 and T = 3.0e5 the window counts (291, 411) and the z-scores (1.9234, 0.0749) agree to full double precision (max delta z = 0); the shared definition z = relErr / sqrt(2 / n_w), the imp-95562 tiling window counts, and the ~4.6175e5 clip threshold all reconcile, with every dip-table height (1e4, 1.5e5, 3e5) sitting below the clip in the unclipped interior. The T = 1e4 dip is dip-table-only (below the imp-96493 interior floor T > 1.5e5) and the imp-96129 dense heights above 3e5 are scan-only; neither ledger contradicts the other. Cross-validation only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96512_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation only: the imp-96493 z-scan and the '
+  'RH open; no refereed bound is changed; NO QED. Cross-validation only: the imp-96493 z-scan and the '
   + 'imp-96089 below-envelope dip table are byte-consistent only at their two shared heights (T = 1.5e5, '
   + '3.0e5); the T = 1e4 dip and the nine imp-96129 scan-only heights are not cross-checked against the '
   + 'other ledger, they simply do not conflict; changes no bound.';
@@ -179,9 +179,9 @@ export const IMP96512_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION.verdict))
     throw new Error('imp-96512: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION.verdict))
-    throw new Error('imp-96512: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96512_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96512_HONEST_BANNER) && /NO QED/.test(IMP96512_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION.verdict))
+    throw new Error('imp-96512: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96512_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96512_HONEST_BANNER) && /NO QED/.test(IMP96512_HONEST_BANNER)))
     throw new Error('imp-96512: IMP96512_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

@@ -60,7 +60,7 @@
  * Measurement/derivation only: the enclosure does not establish operator positivity; the Rayleigh floor
  * stays an UPPER bound on the true lambda_min; IMP96749_UNIFORM_N_GAP_UNSETTLED and
  * IMP96888_RAYLEIGH_TAIL_MAJORANT stay open; interval-rigorous certificate reach stays 2a <= 0.96;
- * RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96973-krein-tailtrace-vacuity-factorisation.js (the three-factor factorisation; step 3 = this slack)
  * @see imp-96990-rayleigh-tail-majorant-envelope.js (the FULLY rigorous modulus envelope, vacuous by ~39 orders)

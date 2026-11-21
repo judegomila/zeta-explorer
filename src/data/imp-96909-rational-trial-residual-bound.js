@@ -52,7 +52,7 @@
  * rigorous UPPER bounds on the residual, NOT operator positivity; the "valid=False" reference rows are
  * rounding catching a Rayleigh quotient just below the reference floor, not a min-max violation; the interval
  * tail majorant stays OPEN; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (IMP96888_RAYLEIGH_TAIL_MAJORANT; the min-max bound this leaf tests)
  * @see imp-96876-krein-tresidual-crossval-measurement.js (IMP96876_TRACE_VACUOUS)

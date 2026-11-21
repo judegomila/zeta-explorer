@@ -57,7 +57,7 @@
  *
  *   Measurement only; no coefficient value certified; no bound moves; the rigorous anchor stays the
  *   trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by > 2600x; no operator
- *   positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97349-route-m-diagonal-remainder-profile-separation (IMP97349_SUBGAP: exact coeff unpinned)
  * @see imp-97330-route-m-smalla-intercept-closed-form (Ihat = (a/2) log(b/a) + a(C+1/2); the skeleton)
@@ -178,11 +178,11 @@ export const IMP97371_VERDICT = Object.freeze({
     'fluctuating function over the b-window plus the Qcross log^2 b piece (the imp-97116 ' +
     'Estermann/Kloosterman small-inverse input). Measurement only; no coefficient certified; no bound ' +
     'moves; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first by > 2600x; no ' +
-    'operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97371_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the coprime log^2 b coefficient ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the coprime log^2 b coefficient ' +
   'of Qhat (via A2c = Sum_{(a,b)=1} log^2(b/a)) is an ARITHMETIC FUNCTION of b, bracketed [-1/8, ~0] ' +
   'for Qhat -- prime b keeps -1/8 (A2c = A2full exactly), primorial b collapses to ~0 (A2c = 2 phi(b) ' +
   '+ O(5e-3), Sum_{d|b} mu(d) = 0). Windowed regression does not converge, so there is no stable ' +
@@ -249,7 +249,7 @@ const IMP97371_ASSERTIONS = [
       IMP97371_VERDICT.computeBindsFirst === true &&
       /SHARPENS IMP97349_SUBGAP/.test(IMP97371_VERDICT.conclusion) &&
       /NO QED/.test(IMP97371_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97371_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97371_HONEST_BANNER) &&
       /RH open/.test(IMP97371_HONEST_BANNER),
   },
 ];

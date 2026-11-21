@@ -41,14 +41,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96346 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96346-route-l-largegamma-residual-tail.js (source: the closed-form tail this glosses)
  * @see imp-96291-route-l-low-index-correction-test.js (source: sign-changing residual, k=5 = +1.430%)
  * @see imp-96269-route-l-reach-law-crosscheck.js (source power-law literals)
  *
  * Ticket: imp-96375 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The diverging-not-constant headword, baked verbatim (no re-import).
@@ -76,7 +76,7 @@ const ROUTE_L_K5_RESIDUAL_DIVERGING_HEADWORD = Object.freeze({
     'higher-gamma detector rows past gamma_5, left OPEN by imp-96346.',
   verificationStatus:
     'Closed-form extrapolation on baked literals only (reproduces the k=1..5 column ' +
-    'exactly). Establishes nothing new; changes no bound; PT Lambda <= 0.2 SOTA; RH open; ' +
+    'exactly). Establishes nothing new; changes no bound; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -99,7 +99,7 @@ export const IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD = Object.f
     '<0.74-decade fit window) being real rather than noise -- a gap of exactly 0 would ' +
     'flip the verdict to a constant -8.198% offset -- so confirmation needs real ' +
     'higher-gamma detector rows, left OPEN. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96346 (the closed-form residual-tail analysis this glosses); imp-96291 (source ' +
     'of the k=5 +1.430% residual); imp-96269 (the power-law literals for both reach laws).',
@@ -127,11 +127,11 @@ export const IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96375-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD.verdict) &&
       IMP96375_ROUTE_L_K5_RESIDUAL_DIVERGING_GLOSSARY_HEADWORD.glosses === 'imp-96346',
   },
 ];

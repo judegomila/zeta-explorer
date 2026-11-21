@@ -35,7 +35,7 @@
  * NOT A BOUND. This EXTRAPOLATES the gap between two already-established quantities and solves an
  * elementary crossing equation; it certifies no W1 bound, instantiates no directed-rounding interval,
  * evaluates no true H_0, verifies no inequality, changes no bound, establishes no positivity; C_mb
- * GUE-conditional (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED / EXTRAPOLATED (certified rung normalized by Sum|t_k|; KBN floor N-flat ~1.89e-20):
  *   N          certRung        source        headroom log10(cert/KBN)
@@ -59,7 +59,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36083 / imp-36134) ----------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 const HEIGHT_FOR_N = (N) => 4 * Math.PI * N * N; // inverse of N_TERMS: verified height a term count maps to
@@ -312,7 +312,7 @@ export const IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION = {
     'already-established quantities and solves a crossing equation: certifies no W1 bound; evaluates no true ' +
     'H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the ' +
     'W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36083 (the sqrt(N)-widening headroom ladder this extrapolates); imp-36134 (order-invariance of the ' +
     'KBN floor); imp-36023 (the DETERMINISTIC KBN N-flat floor); imp-35890 (CERTIFIED deterministic ' +
@@ -382,14 +382,14 @@ export const IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION_ASSERTIONS = [
   },
   {
     id: 'imp36135-honesty-gate',
-    description: 'Extrapolation only; no physical crossing; channel non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Extrapolation only; no physical crossing; channel non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /NO physical N/.test(IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION.conclusion.noHeightMeetsFloor) &&
       /GREENFIELD/.test(IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION.verdict),
+      /refereed bound is changed/i.test(IMP36135_KBN_FLOOR_HEADROOM_EXTRAPOLATION.verdict),
   },
 ];
 

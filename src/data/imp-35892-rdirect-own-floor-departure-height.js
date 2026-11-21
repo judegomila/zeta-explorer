@@ -40,7 +40,7 @@
  * Measurement/diagnostic only, double precision, on the imp-35855 surrogate. Instantiates NO interval,
  * ports nothing, derives no remainder, changes no bound. imp-34714a REMAINS OPEN (F(m)=0 stays a
  * double-precision artifact). C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35855-rclean-interval-de-cancellation-assessment (de-cancelled the dG node; swept only to N~1e21)
  * @see imp-35810-cancellation-onset-height (eps_mach/a departure envelope of R_measured)
@@ -201,7 +201,7 @@ export const IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE = {
     ' at the cliff, still a normal double). Reuses the imp-35855 machinery (identical K, delta, S_inf, ' +
     'aOf, effectiveHeightForN). imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb ' +
     'GUE-conditional (imp-486) UNTOUCHED; instantiates no interval; changes no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35855 (de-cancelled dG node; R_direct = R_clean to machine floor to N~1e21); imp-35810 ' +
     '(eps_mach/a envelope of R_measured); imp-34996 (S_inf = 1/(2 delta) floor); imp-34714a (OPEN ' +
@@ -229,14 +229,14 @@ export const IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE_ASSERTIONS = [
     holds: () => A_STILL_NORMAL_AT_CLIFF === true && OVERFLOW_IS_HEIGHT_INVERSE === true,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35892-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE.subGap) &&
       /NO QED/.test(IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE.verdict) &&
-      /remains SOTA/.test(IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE.verdict),
+      /refereed bound is changed/i.test(IMP35892_RDIRECT_OWN_FLOOR_DEPARTURE.verdict),
   },
 ];
 

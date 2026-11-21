@@ -46,7 +46,7 @@
  *   A glossary-style lookup restating the imp-95659 rho-monotonicity tabulation and the
  *   imp-95693 delta-robustness verdict for quick reference. It establishes nothing,
  *   instantiates no interval, closes no sub-gap, moves no bound. imp-2519 no-overclaim
- *   guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (source: the single-delta interior rho sweep this glosses)
  * @see imp-95693-twin-pair-block-floor-second-delta (source: the delta-robustness verdict and D_cross stability this glosses)
@@ -54,7 +54,7 @@
  * @see imp-95642-twin-pair-symbol-offlattice-obstruction (the two-endpoint bracket that rho interpolates between)
  *
  * Ticket: imp-95714 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The rho-monotonicity + delta-stable D_cross headword, baked verbatim (no re-import).
@@ -100,7 +100,7 @@ export const IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD = Object.freeze({
     'the imp-95642 endpoints; (2) the half-retention crossover drifts in rho across delta ' +
     'but is nearly delta-stable when measured in the absolute cross-pair gap D_cross ' +
     '(~3.6-4.0). Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95659 (single-delta rho interior tabulation); imp-95693 (delta-robustness check, ' +
     'D_cross stability); imp-95689 (rho = 1 exact-limit cross-check); imp-95642 (two-endpoint ' +
@@ -125,11 +125,11 @@ export const IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95714-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD.verdict) &&
       IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD.glosses === 'imp-95659,imp-95693' &&
       IMP95714_RHO_MONOTONICITY_GLOSSARY_HEADWORD.scopes === 'imp-95642',
   },

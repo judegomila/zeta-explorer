@@ -82,7 +82,7 @@
  * C_F prefactor and the imp-3406 Gronwall/A1 factor (TC_A1_TRAP = 2.37e-4) are UNTOUCHED and are perturbed
  * here only as sensitivity probes, not re-pinned; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; interval-rigorous reach stays 2a <= 0.96; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97644-three-axis-additivity-flow-prefactor (three-axis DIAG3 == 0 scaling symmetry; E_CC+E_ET+E_CF=0)
  * @see imp-97623-additivity-residual-multi-landmark-crosscheck (two-axis C_C/E_trunc additivity, r ~ eps^2)
@@ -244,8 +244,8 @@ export const IMP97760_FOUR_AXIS_ADDITIVITY_GRONWALL_A1 = {
     'asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned ' +
     'E_trunc 3.06e-5, the imp-398 C_F prefactor and the imp-3406 Gronwall/A1 factor (TC_A1_TRAP = ' +
     '2.37e-4) are UNTOUCHED (perturbed only as probes, not re-pinned); changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97644 (three-axis DIAG3 == 0 scaling symmetry, E_CC+E_ET+E_CF=0, E_CF linearity); imp-97623 ' +
     '(two-axis C_C/E_trunc additivity residual ~ eps^2); imp-97565 (C_C-axis elasticity); imp-97584 ' +
@@ -296,13 +296,13 @@ export const IMP97760_FOUR_AXIS_ADDITIVITY_GRONWALL_A1_ASSERTIONS = [
     holds: () => PER_LANDMARK.every((r) => Math.abs(r.diagonal4_corrected) < 1e-9),
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp97760-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97760_FOUR_AXIS_ADDITIVITY_GRONWALL_A1.isRigorous === false &&
       /NO QED/.test(IMP97760_FOUR_AXIS_ADDITIVITY_GRONWALL_A1.verdict) &&
-      /remains SOTA/.test(IMP97760_FOUR_AXIS_ADDITIVITY_GRONWALL_A1.verdict),
+      /refereed bound is changed/i.test(IMP97760_FOUR_AXIS_ADDITIVITY_GRONWALL_A1.verdict),
   },
 ];
 

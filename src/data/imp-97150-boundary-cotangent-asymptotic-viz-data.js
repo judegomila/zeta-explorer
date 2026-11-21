@@ -14,7 +14,7 @@
  *   @see imp-97097 (parent: Route M first-moment reduction that needed the boundary o(phi(b) b) fact)
  *
  *   Ticket: imp-97150 (ux, low). Presentation of an already-established derivation; adds no new
- *   Lambda bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- baked from imp-97119 IMP97119_TABLE --

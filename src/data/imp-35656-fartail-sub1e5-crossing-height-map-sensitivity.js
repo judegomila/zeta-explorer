@@ -62,7 +62,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35577-fartail-crossings-height-map-sensitivity (the sub-1e-3 / sub-1e-4 swap, extended here)
  * @see imp-35534-eflow-fartail-remnant-sub1e5-crossing (the surrogate sub-1e-5 crossing 10^410, log-space channel)
@@ -248,7 +248,7 @@ export const IMP35656_FARTAIL_SUB1E5_CROSSING_HEIGHT_MAP_SENSITIVITY = {
     'surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35577 (sub-1e-3 / sub-1e-4 height-map swaps, extended here); imp-35534 (surrogate sub-1e-5 ' +
     'crossing 10^410, log-space channel); imp-35497 (original sub-1e-3 swap); imp-35473 (sub-1e-4 ' +
@@ -321,13 +321,13 @@ export const IMP35656_FARTAIL_SUB1E5_CROSSING_HEIGHT_MAP_SENSITIVITY_ASSERTIONS 
       Math.abs(DIV_SUB1E5 - 8.3752e-3) < 5e-4,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35656-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35656_FARTAIL_SUB1E5_CROSSING_HEIGHT_MAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35656_FARTAIL_SUB1E5_CROSSING_HEIGHT_MAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35656_FARTAIL_SUB1E5_CROSSING_HEIGHT_MAP_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35656_FARTAIL_SUB1E5_CROSSING_HEIGHT_MAP_SENSITIVITY.verdict),
   },
 ];
 

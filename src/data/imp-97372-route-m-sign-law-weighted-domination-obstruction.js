@@ -74,7 +74,7 @@
  *     one-to-one injection fails at exactly omega = 5, Hall); this module closes the UPPER end of the
  *     domination family (no WEIGHTED level-2-by-level-1 injection can exist for large omega, since
  *     L2/L1 ~ (1/2) log log b -> infinity). A proof for all omega must use genuine inter-level
- *     cancellation. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *     cancellation. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97352-route-m-sign-law-omega4-proof.js (omega<=4 domination proof; Hall wall at omega=5; flags weighted domination)
  * @see imp-97333-route-m-sign-law-proof-attempt.js (peel identity RESULT 1; Upos divergence (1/24)(loglog b)^2; IMP97333_SIGN_TAIL_SUBGAP)
@@ -198,11 +198,11 @@ export const IMP97372_VERDICT = Object.freeze({
     '-> infinity: the necessary condition fails for all large omega and the route is ANALYTICALLY DEAD, ' +
     'not merely Hall-blocked at omega = 5. The sign law nonetheless holds (U(m) < 0 measured), so the true ' +
     'mechanism is genuine cross-level cancellation between divergent alternating sums -- exactly ' +
-    'IMP97333_SIGN_TAIL_SUBGAP. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'IMP97333_SIGN_TAIL_SUBGAP. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97372_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97352-flagged WEIGHTED ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97352-flagged WEIGHTED ' +
   'domination of the level-2 positive peel terms by the level-1 negative terms requires L2 <= L1, but ' +
   'L2/L1 ~ (1/2) log log b -> infinity (L1 ~ loglog b, L2 ~ (loglog b)^2), so the route is analytically ' +
   'dead for large omega -- closing the UPPER end of the domination family (imp-97352 closed the one-to-one ' +
@@ -276,7 +276,7 @@ const IMP97372_ASSERTIONS = [
       IMP97372_VERDICT.weightedDominationDeadForLargeOmega === true &&
       IMP97372_VERDICT.residualSubgap === 'IMP97333_SIGN_TAIL_SUBGAP' &&
       /NO QED/.test(IMP97372_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97372_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97372_HONEST_BANNER) &&
       /RH open/.test(IMP97372_HONEST_BANNER),
     why: 'honest partial: weighted domination shown analytically dead for large omega and the tail reduced to IMP97333_SIGN_TAIL_SUBGAP -- no proof for all omega, no bound moved, no rigorous ceiling, no QED.',
   },

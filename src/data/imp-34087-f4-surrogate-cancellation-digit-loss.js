@@ -51,7 +51,7 @@
  * ratio, NOT an RH bound. Reuses the imp-33773/imp-33810 sub-terms verbatim; the inherited imp-3220/
  * imp-3406 component model is NOT a rigorous asymptotic; the digit-loss profile is descriptive within that
  * model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the divergence + 21.281 ceiling quantified here)
  * @see imp-33969-eflow-decay-widening-ratio-kend-sweep (the 9-window kEnd=11..13 F4 collapse)
@@ -242,8 +242,8 @@ export const IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS = {
     'near-vertical cliff at the root, so the divergence region is numerically usable right up to the ' +
     'ceiling. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the ' +
     'digit-loss profile is descriptive within the model only; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34023 (the F4-surrogate divergence and the kEnd~21.281 catastrophic-cancellation ceiling ' +
     'quantified here); imp-33969 (the 9-window F4 collapse); imp-33810 (the quarter-decade rungs); ' +
@@ -308,13 +308,13 @@ export const IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS_ASSERTIONS = [
     holds: () => Number.isFinite(RESID_ZERO_KEND) && RESID_ZERO_KEND > 21.27 && RESID_ZERO_KEND < 21.29,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34087-honesty-gate-no-qed',
-    description: 'Significance-loss diagnostic only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Significance-loss diagnostic only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS.isRigorous === false &&
       /NO QED/.test(IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS.verdict) &&
-      /remains SOTA/.test(IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS.verdict) &&
+      /refereed bound is changed/i.test(IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS.verdict),
   },
 ];

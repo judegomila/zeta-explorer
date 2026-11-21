@@ -93,7 +93,7 @@
  *       integral Integral_0^tau g(t) e^t [M - M_k] dt -> 0), thereby JUSTIFYING part (a) of
  *       IMP97309_CANCELLATION_SUBGAP and identifying the plateau L = |Integral_0^inf g(t)(e^t M(t)-1) dt|
  *       ~ 0.13947 with the tail constant of IMP97289_TAIL_O1_SUBGAP. Part (b) (rigorous evaluation of
- *       the constant) stays open. OPEN. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open;
+ *       the constant) stays open. OPEN. No bound on Lambda moves; no refereed bound is changed; RH open;
  *       NO QED.
  *
  * @see imp-97309-route-m-arith-tail-cancellation-assessment.js (RESULT 5 conjecture assessed here)
@@ -251,11 +251,11 @@ export const IMP97332_VERDICT = Object.freeze({
     'and neither DCT nor MCT applies; the interchange plausibly holds iff sup_t |M_k(t)| = o(p_k) (a ' +
     'friable-Mertens bound), unproven. RESULT 5: |T_k| climbs 0.0811 -> 0.1277 toward the recomputed limit ' +
     '|Integral| = 0.13947 -- consistent, not decisive. Refined sub-gap IMP97332_INTERCHANGE_SUBGAP. ' +
-    'No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97332_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97309 RESULT 5 interchange is ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97309 RESULT 5 interchange is ' +
   'ASSESSED, neither justified nor refuted. Exact finite form T_k = Integral g(t)(e^t M_k(t)-1) dt with M_k ' +
   'the P_k-friable partial sum of M; pointwise rate |M - M_k| <= e^{-p_{k+1} t}/(1-e^{-t}); the entire ' +
   'defect localizes to the t -> 0 boundary layer; the obstruction is the exact non-uniformity M_k(0)=0 vs ' +
@@ -337,7 +337,7 @@ const IMP97332_ASSERTIONS = [
       IMP97332_VERDICT.residualSubgap === 'IMP97332_INTERCHANGE_SUBGAP' &&
       /IMP97309_CANCELLATION_SUBGAP/.test(IMP97332_INTERCHANGE_SUBGAP.refinesSubgap) &&
       /NO QED/.test(IMP97332_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97332_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97332_HONEST_BANNER) &&
       /RH open/.test(IMP97332_HONEST_BANNER),
     why: 'honest partial: assessed the interchange (exact finite form + pointwise rate + boundary-layer localization + precise obstruction) without justifying or refuting it -- no bound moved, no rigorous ceiling, no QED.',
   },

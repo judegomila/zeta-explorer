@@ -60,7 +60,7 @@
  * log-linear verdict is untouched). The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the OLS surrogate is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (base/ext115/ext12 fits reused verbatim here)
  * @see imp-33858-widening-fit-residual-localization (the k=11 far-tail excursion imp-33877 tested)
@@ -222,7 +222,7 @@ export const IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY = {
     'untouched. The OLS surrogate is descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33877 (base/ext115/ext12 fits reused verbatim); imp-33858 (the k=11 far-tail excursion); ' +
     'imp-33843 (the log-linear OLS whose residuals are contrasted); imp-33810 (the k=6..11 ladder); ' +
@@ -282,14 +282,14 @@ export const IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY_ASSERTIONS = [
       IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.interiorAfterStrippingBothEdges.boundaryInvariant === false,
   },
   {
-    // Honesty gate: asymmetric-migration + boundary-dependent-interior verdict, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: asymmetric-migration + boundary-dependent-interior verdict, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34022-honesty-gate-no-qed',
-    description: 'Measurement only: migrationIsSymmetric false, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: migrationIsSymmetric false, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.migrationIsSymmetric === false &&
       IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.isRigorous === false &&
       /NO QED/.test(IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.verdict) &&
-      /remains SOTA/.test(IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.verdict) &&
+      /refereed bound is changed/i.test(IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.verdict),
   },
 ];

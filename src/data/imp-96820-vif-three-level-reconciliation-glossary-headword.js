@@ -49,7 +49,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96593 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment.js (source: the three-level split this glosses)
  * @see imp-96571-vif-rho1-bound-rigor-assessment (confined the softness to the z >= 13.71 level)
@@ -57,7 +57,7 @@
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (the three-level certificate and OBSTRUCTION)
  *
  * Ticket: imp-96820 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The VIF three-level reconciliation headword, baked verbatim (no re-import).
@@ -94,7 +94,7 @@ const VIF_THREE_LEVEL_HEADWORD = Object.freeze({
     'calibration to numerical enclosure -- full rigor on levels (2)/(3) still needs ' +
     'an interval-certified Sigma^2(L), a certified one-sided bound that the closed ' +
     'form is >= the true finite-L box correlation, and GUE throughout. Changes no ' +
-    'unconditional bound; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'unconditional bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -120,8 +120,8 @@ export const IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD = Object.
     'tail is z ~ 26.0 (VIF ~ 0.0055). Ordering VIF_ACTUAL < VIF_SOFT < ' +
     'VIF_RIGOROUS_2LAG shows the soft level was never a genuine bracket midpoint, ' +
     'just an artifact of two partially-cancelling calibration errors. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96593 (the three-level split this glosses); imp-96571 (confined the ' +
     'softness to z >= 13.71); imp-96567 (the exact closed-form tail and Sigma^2(L)); ' +
@@ -151,11 +151,11 @@ export const IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp96820-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96820_VIF_THREE_LEVEL_RECONCILIATION_GLOSSARY_HEADWORD.glosses === 'imp-96593',
   },
 ];

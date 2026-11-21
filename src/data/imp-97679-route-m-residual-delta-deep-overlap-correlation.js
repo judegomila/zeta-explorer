@@ -61,7 +61,7 @@
  * the imp-97640 PNT/Mertens attribution at the level of magnitude tracking -- the residual and the
  * Mertens-error delta share the same finite-height wiggle -- while confirming (imp-97667 RESULT 3) that the
  * residual carries a second competing correction, so it is not a rescaled delta. MCM stays refuted from
- * omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA;
+ * omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97667-route-m-residual-delta-sign-correlation.js (single-overlap test; sub-gap raised here)
@@ -209,12 +209,12 @@ export const IMP97679_VERDICT = Object.freeze({
     'still NOT proportional to delta (overshoot 2.82 .. 3.80, positive competing gap self-correction on every ' +
     'rung), corroborating imp-97667 RESULT 3. Net: the imp-97640 PNT/Mertens attribution is CORROBORATED at ' +
     'the magnitude level while the residual carries a second competing correction. MCM stays refuted from ' +
-    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; ' +
+    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97679_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Re-run of the imp-97667 residual-vs-delta test on the ' +
+  'RH open; no refereed bound is changed; NO QED. Re-run of the imp-97667 residual-vs-delta test on the ' +
   'imp-97659 dps=30 deep ladder: the ladders now overlap at FIVE heights (was one), resolving the imp-97667 ' +
   'sub-gap. The residual MAGNITUDE tracks the imp-97639 delta magnitude wiggle rung-by-rung (4/4 direction ' +
   'agreement, rise coincident at p ~ 3.2e7, Pearson +0.993). The SIGN relationship stays a FIXED structural ' +
@@ -299,7 +299,7 @@ const IMP97679_ASSERTIONS = [
       IMP97679_VERDICT.anyBoundMoved === false &&
       IMP97679_VERDICT.qed === false &&
       /NO QED/.test(IMP97679_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97679_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97679_HONEST_BANNER) &&
       /RH open/.test(IMP97679_HONEST_BANNER),
     why: 'measurement only -- five-rung overlap, magnitude tracks the delta wiggle, sign anti-correlation structural, residual not proportional to delta; MCM refuted from omega=11; no bound moved, no QED.',
   },

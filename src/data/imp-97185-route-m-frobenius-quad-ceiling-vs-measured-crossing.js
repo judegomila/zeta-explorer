@@ -50,8 +50,8 @@
  * quad extrapolant stays strictly below the measured/fit rung (4.1089e7) and the ladder ordering is
  * reinforced, not broken. The refit quad ceiling remains a model-dependent fit -- and per imp-97081
  * the quad top end is anyway rejected as an unphysical curvature over-run -- so no rigorous ceiling
- * is posted; the rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; PT Lambda
- * <= 0.2 remains SOTA; RH open; NO QED.
+ * is posted; the rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96918-route-m-ceiling-ladder-concave-reconciliation.js (the ~0.145% tight spot this measures)
  * @see imp-96912-route-m-frobenius-ladder-extension-above-16000.js (the exact 24-rung extended ladder + refit)
@@ -113,12 +113,12 @@ export const IMP97185_VERDICT = Object.freeze({
     'cross the measured/fit rung (4.1089e7) and the strict ordering trace < line < tail < quad < ' +
     'measured is reinforced, not broken. The refit quad ceiling stays a model-dependent fit (and ' +
     'imp-97081 rejects the quad top end as an unphysical curvature over-run); no rigorous ceiling ' +
-    'is posted; the rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; PT Lambda ' +
-    '<= 0.2 remains SOTA; RH open; NO QED.',
+    'is posted; the rigorous trace-lower ceiling T~2.594e7 is unaffected; no bound moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97185_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: reads the committed imp-96912 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: reads the committed imp-96912 ' +
   'extended 24-rung exact Vasyunin-Gram ladder refit concave-quad ceiling and scores it against the ' +
   'imp-96443 measured/fit rung to resolve the imp-96918 ~0.145% tight spot. No new heavy compute; ' +
   'no rigorous ceiling is posted; no bound is claimed moved; the rigorous trace-lower ceiling ' +
@@ -165,7 +165,7 @@ const IMP97185_ASSERTIONS = [
       IMP97185_VERDICT.quadCrossesMeasured === false &&
       IMP97185_VERDICT.marginWidens === true &&
       /NO QED/.test(IMP97185_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97185_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97185_HONEST_BANNER) &&
       /RH open/.test(IMP97185_HONEST_BANNER),
     why: 'measurement only: no rigorous ceiling is posted, no bound moves, the quad ceiling does not cross the measured rung, the margin widens, and the honesty markers are present.',
   },

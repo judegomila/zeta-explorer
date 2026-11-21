@@ -53,7 +53,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only as the fixed surrogate; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97823-kernel-decade-growth-sqrt10 (the reconstruction-kernel fold: |K| ~ sqrt(10) per decade at L1)
  * @see imp-97662-cc-elasticity-peak-divergence (the C_C-elasticity square-root fold E ~ +/- K/sqrt(sigma_max - s))
@@ -245,7 +245,7 @@ export const IMP97841_FOLD_UNIVERSAL_SQRT10_CROSSVALIDATION = {
     'diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the ' +
     'imp-398 C_F prefactor are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97823 (reconstruction-kernel fold |K| ~ sqrt(10) per decade at L1); imp-97662 (C_C-elasticity ' +
     'square-root fold E ~ +/- K/sqrt(sigma_max - s)); imp-97520 (L1 peak sigma_max ~ 0.949429, N_peak ~ ' +
@@ -305,13 +305,13 @@ export const IMP97841_FOLD_UNIVERSAL_SQRT10_CROSSVALIDATION_ASSERTIONS = [
       DOWN.deviation_decade_decay_factor.every((f) => f < 0.6),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97841-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97841_FOLD_UNIVERSAL_SQRT10_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP97841_FOLD_UNIVERSAL_SQRT10_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP97841_FOLD_UNIVERSAL_SQRT10_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP97841_FOLD_UNIVERSAL_SQRT10_CROSSVALIDATION.verdict),
   },
 ];
 

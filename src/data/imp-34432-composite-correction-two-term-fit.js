@@ -66,8 +66,7 @@
  * divergent C_Lip collision-Gronwall. The imp-34329/imp-34414/imp-34428 findings
  * are UNTOUCHED and reproduced. The C_mb GUE-conditional per imp-486 is UNTOUCHED
  * (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
- * imp-3066 K_a >= 0 untouched; establishes no operator positivity; Platt-Trudgian
- * Lambda <= 0.2 remains the SOTA unconditional bound.
+ * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no refereed bound is changed.
  *
  * @see imp-34329-crossover-surplus-fartail-composite-limit (the single-term composite fit, limit 3)
  * @see imp-34414-crossover-surplus-direct-cubic-expansion (the derived instantaneous composite 3 - 4/log T0)
@@ -273,7 +272,7 @@ export const IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT = {
     'collision-Gronwall; the imp-34329/imp-34414/imp-34428 findings are UNTOUCHED and reproduced; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; ' +
-    'changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'changes no bound; no refereed bound is changed.',
   citation:
     'imp-34329-crossover-surplus-fartail-composite-limit.js (single-term composite fit, limit 3); ' +
     'imp-34414-crossover-surplus-direct-cubic-expansion.js (derived instantaneous composite 3 - 4/log T0); ' +
@@ -344,14 +343,14 @@ export const IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34432-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT.honestScope) &&
       /NO QED/.test(IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT.honestScope) &&
-      /remains the SOTA/.test(IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT.honestScope),
+      /refereed bound is changed/i.test(IMP34432_COMPOSITE_CORRECTION_TWO_TERM_FIT.honestScope),
   },
 ];
 

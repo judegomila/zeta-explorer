@@ -51,7 +51,7 @@
  *   originally reduced to MCM)
  *
  * Ticket: imp-97494 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The two-edge decomposition headword, baked verbatim (no re-import).
@@ -87,7 +87,7 @@ const QUARTER_CEILING_TWO_EDGE_HEADWORD = Object.freeze({
     'consolidated up-to-date status is imp-97544 ' +
     '(src/data/imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js): the b/4 ' +
     'ceiling is REFUTED and a dead route, harmless to kappa_arith. Naming / glossary headword only; ' +
-    'supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'supplies no new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD = Object.freeze({
@@ -107,7 +107,7 @@ export const IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD = Obje
     'LOWER edge extremized over primorial/large-prime window sets -- while explicitly correcting ' +
     'imp-97461s own now-superseded "survives" verdict: imp-97481 refuted the lower edge outright, ' +
     'and imp-97544 records the consolidated status that the whole ceiling is a DEAD ROUTE, harmless ' +
-    'to kappa_arith (imp-97516). No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'to kappa_arith (imp-97516). No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97461 (the two-edge decomposition this glosses); imp-97481 (refutes imp-97461s survival ' +
     'verdict); imp-97544 (consolidated dead-route status); imp-97432 (the MCM refutation at ' +
@@ -137,14 +137,14 @@ export const IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp97494-honesty-gate-no-qed-and-supersession-recorded',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses ' +
       'imp-97461, and explicitly records the imp-97544 supersession so no future consumer treats ' +
       'the "lower edge survives" claim as current.',
     holds: () =>
       IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.supersededBy === 'imp-97544' &&
       /NO QED/.test(IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.verdict) &&
       /DEAD ROUTE/.test(IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.verdict) &&
       IMP97494_QUARTER_CEILING_TWO_EDGE_SURVIVAL_GLOSSARY_HEADWORD.glosses === 'imp-97461',
   },

@@ -88,7 +88,7 @@ export const IMP96442_THROW_ANTI_PATTERN_SCAN = {
     + 'either an exact-copied literal or a plain Math.min/max recomputation, with no '
     + 'transcendental function and no near-zero derivative sign flip -- the shape that caused '
     + 'the imp-96294 browser-only blank-page incident. No fix applied. Changes no bound; NO QED; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'no refereed bound is changed.',
   citation:
     'imp-96294 (pattern-switch precedent); imp-96410, imp-96413, imp-96422, imp-96438, '
     + 'imp-96439 (scanned modules); imp-96417 (audit-module structure precedent).',
@@ -112,12 +112,12 @@ export const IMP96442_THROW_ANTI_PATTERN_SCAN_ASSERTIONS = [
   },
   {
     id: 'imp96442-no-fragile-instance-and-no-qed',
-    description: 'no fragile throwing module found (fragileModules empty); audit only, no bound changed, no QED, PT stays SOTA',
+    description: 'no fragile throwing module found (fragileModules empty); audit only, no bound changed, no QED, no refereed bound is changed',
     holds: () =>
       IMP96442_THROW_ANTI_PATTERN_SCAN.fragileModules.length === 0
       && IMP96442_THROW_ANTI_PATTERN_SCAN.isRigorous === false
       && /NO QED/.test(IMP96442_THROW_ANTI_PATTERN_SCAN.verdict)
-      && /remains SOTA/.test(IMP96442_THROW_ANTI_PATTERN_SCAN.verdict),
+      && /refereed bound is changed/i.test(IMP96442_THROW_ANTI_PATTERN_SCAN.verdict),
   },
 ];
 

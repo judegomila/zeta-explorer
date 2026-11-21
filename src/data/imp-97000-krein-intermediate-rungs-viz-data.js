@@ -20,8 +20,8 @@
  * every tabulated floor is a positive-tail-dropped Rayleigh LOWER bound on
  * the finite-N value and a finite-N UPPER bound on the true infinite-dim
  * lambda_min (sub-gap IMP96977_TRUE_LIMIT_UNSETTLED stays open); the
- * interval-rigorous certificate reach stays exactly 2a<=0.96; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous certificate reach stays exactly 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96977-krein-intermediate-rungs.js (source table, reused verbatim)
  * @see imp-96985-bessel-onset-finer-ladder-viz-data.js (sibling leaf convention)
@@ -74,7 +74,7 @@ export const IMP97000_HONEST_BANNER =
   '[12.0089,21.0155]. Every tabulated floor is a positive-tail-dropped Rayleigh LOWER bound on the ' +
   'finite-N value and a finite-N UPPER bound on the true infinite-dim lambda_min; sub-gap ' +
   'IMP96977_TRUE_LIMIT_UNSETTLED stays open. No operator positivity established; interval-rigorous ' +
-  'certificate reach stays 2a<=0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -107,7 +107,7 @@ export const IMP97000_VALIDATION = Object.freeze({
     IMP96977_VERDICT.qed === false,
   honestBannerPresent:
     /RH open/.test(IMP97000_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP97000_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97000_HONEST_BANNER) &&
     /NO QED/.test(IMP97000_HONEST_BANNER),
 });
 

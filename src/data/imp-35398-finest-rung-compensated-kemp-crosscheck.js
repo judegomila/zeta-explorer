@@ -60,8 +60,7 @@
  * storage / coarse-quadrature floor artifact, exactly as imp-35264 diagnosed from grain arithmetic. It
  * certifies no constant, supplies no error bar or N-uniform inequality, establishes no operator positivity,
  * changes no bound, and does NOT discharge O3 / H3 / H4 or G6a. imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck (found the lone finest-rung kEmp=0.4182 outlier)
  * @see imp-35240-rho-prefactor-finer-grid-remeasurement (the compensated finite-cutoff route re-used here)
@@ -234,7 +233,7 @@ export const IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK = {
     'artifact, exactly as imp-35264 diagnosed from grain arithmetic. It certifies no constant, supplies no error ' +
     'bar or N-uniform inequality, establishes no operator positivity, changes no bound, and does NOT discharge ' +
     'O3 / H3 / H4 or G6a. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains ' +
-    'GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'GUE-conditional (imp-486); NO QED. No refereed bound is changed.',
 };
 
 export const IMP35398_FINEST_RUNG_COMPENSATED_KEMP_ASSERTIONS = [
@@ -274,17 +273,17 @@ export const IMP35398_FINEST_RUNG_COMPENSATED_KEMP_ASSERTIONS = [
       IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.compensatedAllBelowClosedForm === true,
   },
   {
-    // Honesty gate: cross-validation only; discharges nothing, G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: cross-validation only; discharges nothing, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35398-honesty-gate-no-qed',
     description:
-      'Cross-validation only: departure closed but discharges nothing, G6a OPEN, no QED, PT SOTA, imp-3066 untouched',
+      'Cross-validation only: departure closed but discharges nothing, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.isRigorous === false &&
       IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.dischargesAnything === false &&
       IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.consistent === true &&
       /NO QED/.test(IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.verdict) &&
       /STAYS OPEN/.test(IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.verdict) &&
-      /rigorous SOTA/.test(IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35398_FINEST_RUNG_COMPENSATED_KEMP_CROSSCHECK.verdict,
       ),

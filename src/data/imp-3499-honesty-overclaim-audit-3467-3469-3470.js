@@ -65,7 +65,7 @@ export const IMP_3499_HONESTY_OVERCLAIM_AUDIT = {
   leaksFound: 0,
   honestNote:
     'Read-only audit; no leak found in any of the three modules or their consumers. ' +
-    'No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -102,9 +102,9 @@ const IMP_3499_ASSERTIONS = [
   {
     id: 'imp3499-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3499_HONESTY_OVERCLAIM_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3499_HONESTY_OVERCLAIM_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3499_HONESTY_OVERCLAIM_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

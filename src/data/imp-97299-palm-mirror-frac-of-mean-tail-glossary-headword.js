@@ -35,7 +35,7 @@
  *   the deficit dwarfs)
  *
  * Ticket: imp-97299 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Palm-mirror frac-of-mean tail headword, baked verbatim (no re-import).
@@ -62,7 +62,7 @@ const PALM_MIRROR_FRAC_OF_MEAN_TAIL_HEADWORD = Object.freeze({
     '(src/data/imp-97189-palm-mirror-frac-of-mean-extended-ladder.js), which recomputes the ladder ' +
     'in-module (7 rungs to ln N = 1e6, exact bisection table to frac = 0.999) and asserts the fixed ' +
     'additive deficit equals 1/y0 to 1e-3. Naming / glossary headword only; no bound moved; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD = Object.freeze({
@@ -81,7 +81,7 @@ export const IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD = Object.f
     '1/y0 = 6.0606 at every height, giving frac(ln N) = 1 - 12.1212/ln N -- an infinitely-slow ' +
     '1 - O(1/ln N) approach to 1 that sharpens (not replaces) the imp-97127 height-effect verdict. ' +
     'No coefficient value newly pinned beyond the re-cited measurement; no bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97189 (the tail law this glosses: fixed additive deficit 1/y0, the frac-target bisection ' +
     'table); imp-97127 (the frac < 1 height-effect verdict being sharpened); imp-97101 (the 2-slot ' +
@@ -107,12 +107,12 @@ export const IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp97299-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, PT SOTA line present, correctly glosses ' +
+    why: 'Documentation only: no bound claimed moved, no-refereed-bound-change line present, correctly glosses ' +
       'imp-97189.',
     holds: () =>
       IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD.verdict) &&
       IMP97299_PALM_MIRROR_FRAC_OF_MEAN_TAIL_GLOSSARY_HEADWORD.glosses === 'imp-97189',
   },
 ];

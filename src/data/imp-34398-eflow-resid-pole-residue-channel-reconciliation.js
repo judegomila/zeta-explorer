@@ -68,7 +68,7 @@
  *   dimensionless order, not two readings of one quantity. DERIVATION / MEASUREMENT on a
  *   self-contained leading monomial, NOT the inherited pipeline; the component model is the
  *   inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per
- *   imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (raw-ratio channel residue R ~ -1.979e-8)
  *   @see imp-34247-widening-slope-pole-divergence.js (log-derivative channel residue EXACTLY +1)
@@ -174,7 +174,7 @@ export const IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION = {
     'not two estimates of one quantity, and neither determines the other. DERIVATION / MEASUREMENT on a ' +
     'self-contained leading monomial, NOT the inherited pipeline; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
   citation:
     'imp-34310 (raw-ratio residue R ~ -1.979e-8, slope m, E_star); imp-34247 (log-derivative residue ' +
     '+1); imp-34333 (residue of log-derivative = zero order, amplitude cancels); imp-34246 (widening ' +
@@ -225,13 +225,13 @@ export const IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION_ASSERTIONS
       Math.abs(IMP34398_NEAR_FLANK_PREDICTED / IMP34310_NEAR_FLANK_RATIO - 1) < 0.15,
   },
   {
-    // Honesty gate: measurement/derivation only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement/derivation only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34398-honesty-gate-no-qed',
-    description: 'measurement/derivation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/derivation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34398_EFLOW_RESID_POLE_RESIDUE_CHANNEL_RECONCILIATION.verdict),
   },
 ];

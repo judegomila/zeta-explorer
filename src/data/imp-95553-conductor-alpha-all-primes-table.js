@@ -46,8 +46,8 @@
  * is a RELABELING, not a rescue: the binding walls (mean-square-vs-pointwise,
  * GRH-height-boundedness, and the alpha_C = 1 boundary degeneracy at the floor
  * alias) survive the rescaling untouched. This module only extends the alpha_C
- * table from one prime to all 25; it changes no bound. NO QED; PT Lambda <= 0.2
- * remains SOTA; RH open.
+ * table from one prime to all 25; it changes no bound. NO QED; no refereed bound is changed
+ * ; RH open.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived
  * from the imp-95519 stationary-point equation and the imp-95534 alpha formulas.
@@ -146,7 +146,7 @@ export const IMP95553_CONDUCTOR_ALPHA_ALL_PRIMES = Object.freeze({
   },
 
   netVerdict:
-    'The imp-95534 conductor rescaling generalizes cleanly: across all 25 sieving primes p <= 97, at both window endpoints, 156 k = 1 aliases sit at alpha_T > 1 under the zeta scale and ALL 156 move to alpha_C <= 1 under the analytic-conductor scale, the floor alias of every prime landing at alpha_C = 1 to machine precision (u_{1,p-1} = p v exactly). The residual majorant-mass share still above alpha_C = 1 is 0 for every prime. As imp-95534 records this is a RELABELING, not a rescue - the mean-square-vs-pointwise gap, the GRH height deficit, and the alpha_C = 1 boundary degeneracy survive untouched. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'The imp-95534 conductor rescaling generalizes cleanly: across all 25 sieving primes p <= 97, at both window endpoints, 156 k = 1 aliases sit at alpha_T > 1 under the zeta scale and ALL 156 move to alpha_C <= 1 under the analytic-conductor scale, the floor alias of every prime landing at alpha_C = 1 to machine precision (u_{1,p-1} = p v exactly). The residual majorant-mass share still above alpha_C = 1 is 0 for every prime. As imp-95534 records this is a RELABELING, not a rescue - the mean-square-vs-pointwise gap, the GRH height deficit, and the alpha_C = 1 boundary degeneracy survive untouched. No bound changes; NO QED; no refereed bound is changed; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -191,11 +191,11 @@ export const IMP95553_CONDUCTOR_ALPHA_ALL_PRIMES_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95553-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95553_CONDUCTOR_ALPHA_ALL_PRIMES.promotesBound === false &&
       /NO QED/.test(IMP95553_CONDUCTOR_ALPHA_ALL_PRIMES.netVerdict) &&
-      /remains SOTA/.test(IMP95553_CONDUCTOR_ALPHA_ALL_PRIMES.netVerdict),
+      /refereed bound is changed/i.test(IMP95553_CONDUCTOR_ALPHA_ALL_PRIMES.netVerdict),
   },
 ]);
 

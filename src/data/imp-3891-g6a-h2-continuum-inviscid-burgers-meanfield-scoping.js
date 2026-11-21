@@ -77,8 +77,7 @@
  * is split into a written algebraic half and an open analytic half; the K4 caustic-regularity route stays
  * WHOLLY NEW (consistent with imp-3714 / imp-3727 / imp-3846 / imp-3872) and G6a_shock_lipschitz stays
  * OPEN. Scoping / derivation only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066
- * off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA.
+ * off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3872-g6a-h2-discrete-flux-convexity-probe (the empirical probe whose unwritten certificate this scopes)
  * @see imp-3846-g6a-k4-caustic-regularity-toolkit-assessment (names H2 the dependency-chain root)
@@ -315,7 +314,7 @@ export const IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING = {
     'half-written (H2a) and half-open (H2b); the K4 route stays WHOLLY NEW (consistent with imp-3714 / ' +
     'imp-3727 / imp-3846 / imp-3872) and G6a_shock_lipschitz stays OPEN. Scoping / derivation only; no ' +
     'positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'positivity UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3872 (the empirical probe whose unwritten certificate this scopes); imp-3846 (names H2 the dependency ' +
     'root); imp-3727 (H1..H6 hypothesis map, H2 = convex flux); imp-3642 (attractive-CM RK4 flow, seed and ' +
@@ -355,15 +354,15 @@ export const IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING_ASSERTI
       IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.openSubGap === 'sg-3891-attractive-mean-field-convergence',
   },
   {
-    // Honesty gate: scoping only, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3891-honesty-gate-no-qed',
-    description: 'scoping/derivation only: K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'scoping/derivation only: K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.isRigorous === false &&
       IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.k4ConfirmedWhollyNew === true &&
       IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.g6aStillOpen === true &&
       /NO QED/.test(IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3891_G6A_H2_CONTINUUM_INVISCID_BURGERS_MEANFIELD_SCOPING.verdict),
   },
 ];

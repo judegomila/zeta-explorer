@@ -5,7 +5,7 @@
  * so the low-C_C / high-E_trunc inversion wedge, the rising inversion contour, and the pinned point's
  * multiplier-space margin from it can be shaded and marked on an SVG heatmap.
  *
- * MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95617-transition-knee-ordering-joint-2d (source sweep this re-plots)
  */
@@ -181,7 +181,7 @@ export const IMP95646_SUMMARY = {
   pinnedDistanceToContour: IMP95646_PINNED_DISTANCE_TO_CONTOUR.distance,
   boxInversionOnsetETruncMult: IMP95646_BOX_INVERSION_ONSET_E_TRUNC_MULT,
   verdict:
-    'MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. ' +
+    'MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed. ' +
     'Re-plots the imp-95617 joint 2-D sweep at a denser render-friendly resolution.',
 };
 
@@ -218,7 +218,7 @@ const IMP95646_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95646-honesty-gate-no-qed',
-    holds: () => /NO QED/.test(IMP95646_SUMMARY.verdict) && /remains SOTA/.test(IMP95646_SUMMARY.verdict),
+    holds: () => /NO QED/.test(IMP95646_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP95646_SUMMARY.verdict),
   },
 ];
 

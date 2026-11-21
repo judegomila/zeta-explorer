@@ -71,7 +71,7 @@
  *        percent; the few-percent-or-better reconciliation rests on the full rational (C).
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. The imp-3066 off-diagonal
+ * No refereed bound is changed. The imp-3066 off-diagonal
  * endpoint-Hankel obstruction is UNTOUCHED.
  *
  * @see imp-3446-nmax-closed-form (the implicit stationarity equation (*) this reconciles)
@@ -231,7 +231,7 @@ export const IMP3466_NMAX_NEXTORDER_CORRECTION = {
     'The leading order-1/l truncation g ~ 1 + 4 l/(l^2-1) cuts the miss from ~73% to ~18%. ' +
     'HONEST SUB-GAP: one analytic order lands ~18%, not a few percent; the few-percent ' +
     'reconciliation rests on the full rational g. Derivation/measurement only; no positivity, ' +
-    'no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3446 (implicit stationarity equation (*), crude form misses by ~73%); imp-3406 ' +
     '(interior max N_max ~ 9.22e5 by ternary search); imp-3462 (implicit differentiation of ' +
@@ -273,13 +273,13 @@ export const IMP3466_NMAX_NEXTORDER_CORRECTION_ASSERTIONS = [
       LEADING_REL_ERR < CRUDE_REL_ERR && LEADING_REL_ERR > 0.1 && LEADING_REL_ERR < 0.25,
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA, honest sub-gap named.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed, honest sub-gap named.
     id: 'imp3466-honesty-gate-no-qed',
-    description: 'Derivation only: no QED, PT stays SOTA, one-order sub-gap named',
+    description: 'Derivation only: no QED, no refereed bound is changed, one-order sub-gap named',
     holds: () =>
       IMP3466_NMAX_NEXTORDER_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP3466_NMAX_NEXTORDER_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP3466_NMAX_NEXTORDER_CORRECTION.verdict) &&
+      /refereed bound is changed/i.test(IMP3466_NMAX_NEXTORDER_CORRECTION.verdict) &&
       /SUB-GAP/.test(IMP3466_NMAX_NEXTORDER_CORRECTION.verdict),
   },
 ];

@@ -65,8 +65,7 @@
  * constants C_C_PINNED and E_trunc = 3.06e-5 as the component-model inputs (the object under
  * cross-validation is the ladder, not those constants); the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (F1 ladder being cross-validated)
  * @see imp-33723 (closed-form crossover N_cross fixed point)
@@ -231,7 +230,7 @@ export const IMP96168_SIGMA_CLOSED_FORM_LADDER_INDEPENDENT_RECOMPUTE = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays ' +
     'GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96151 (F1 ladder cross-validated here); imp-33723 (closed-form crossover N_cross); ' +
     'imp-33582 (per-decade ramp, stopped at 1e12); imp-35036 (1/2 - p_dec ~ 1/(2 ln N)); imp-3463 ' +
@@ -269,13 +268,13 @@ export const IMP96168_SIGMA_CLOSED_FORM_LADDER_INDEPENDENT_RECOMPUTE_ASSERTIONS 
     holds: () => F1_ANCHOR_REPRODUCTION.every((r) => Math.abs(r.p_full_indep - r.imp96151_F1) < 1e-3),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96168-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96168_SIGMA_CLOSED_FORM_LADDER_INDEPENDENT_RECOMPUTE.isRigorous === false &&
       /NO QED/.test(IMP96168_SIGMA_CLOSED_FORM_LADDER_INDEPENDENT_RECOMPUTE.verdict) &&
-      /remains SOTA/.test(IMP96168_SIGMA_CLOSED_FORM_LADDER_INDEPENDENT_RECOMPUTE.verdict),
+      /refereed bound is changed/i.test(IMP96168_SIGMA_CLOSED_FORM_LADDER_INDEPENDENT_RECOMPUTE.verdict),
   },
 ];
 

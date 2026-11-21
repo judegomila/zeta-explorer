@@ -51,7 +51,7 @@
  *
  * GRADE: documentation/measurement only. Import-light (arrays baked from imp-96224,
  * recompute-and-check, no heavy bundle). Changes no Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open. The genuine uniform-in-T
+ * no refereed bound is changed; RH open. The genuine uniform-in-T
  * obstruction (a uniform OFF-line LP, Weil-positivity strength) stays inaccessible to
  * this on-line construction, unchanged.
  *
@@ -164,7 +164,7 @@ export const IMP_96345_ROUTE_BD_OFFLINE_MARGIN_ENVELOPE = {
     + 'recompute-and-check; the binding envelope stays strictly positive (0.3791 at '
     + 'gamma_4000) and the genuine uniform-in-T obstruction (a uniform off-line LP, '
     + 'Weil-positivity strength) stays inaccessible to this on-line construction; '
-    + 'changes no Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED',
+    + 'changes no Lambda bound; no refereed bound is changed; RH open; NO QED',
   closesTickets: ['imp-96345'],
 };
 

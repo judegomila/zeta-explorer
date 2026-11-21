@@ -61,7 +61,7 @@
  * results into one comparison object; introduces no new cited input and no new
  * bound. Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95823-rho1-szego-direct-dd-eigensolve (DIRECT DD-Jacobi column, as published)
  * @see imp-95841-ln13-shift-invert-direct-exponent (CONVERGED shift-invert direct column)
@@ -152,8 +152,8 @@ export const IMP95844_RHO1_SZEGO_DIRECT_VS_DUAL_CROSSVAL_TABLE = Object.freeze({
     'only for the cancellation floor. Assembles three already-committed results into one ' +
     'comparison object; introduces no new cited input and no new bound. Model seam family ' +
     'only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. ' +
-    'Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; Sun arXiv:2609.04176 unrefereed.',
+    'Changes no bound of the Lambda program; NO QED; no refereed bound is changed' +
+    '; Sun arXiv:2609.04176 unrefereed.',
   closesTickets: ['imp-95844'],
 });
 
@@ -266,7 +266,7 @@ export const IMP95844_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: 'imp95844-closes-self',

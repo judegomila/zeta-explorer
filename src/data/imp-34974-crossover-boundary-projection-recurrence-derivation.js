@@ -59,7 +59,7 @@
  * asserted) and two new interior closed forms plus a two-sided interior bound are established, all in
  * exact integer arithmetic. Establishes NO RH-level result, NO operator positivity, and changes NO
  * bound. The C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066
- * K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34957-crossover-deriv-p11-p12-extension (P_11/P_12 table + asserted boundary recurrences)
  * @see imp-34922-crossover-deriv-p9-p10-extension (P_9/P_10 + first statement of the boundary recurrences)
@@ -266,8 +266,8 @@ export const IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION = {
     'in exact integer arithmetic. This is a DERIVATION/VERIFICATION of the INHERITED ' +
     'imp-3220/imp-3406 surrogate-map derivative structure ONLY: the C_mb GUE-conditional per imp-486, ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no ' +
-    'operator positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'operator positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34957 (P_11/P_12 extension + asserted boundary recurrences); imp-34922 (P_9/P_10 + first ' +
     'statement of the boundary recurrences); imp-34880 (all-orders coefficient-positivity induction); ' +
@@ -328,14 +328,14 @@ export const IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION_ASSERT
       IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION.derivationVerificationPasses,
   },
   {
-    // Honesty gate: surrogate-map derivation, changes no bound, no QED, PT stays SOTA.
+    // Honesty gate: surrogate-map derivation, changes no bound, no QED, no refereed bound is changed.
     id: 'imp34974-honesty-gate-no-qed',
     description:
-      'derivation scope is the surrogate-map numerator structure only: changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'derivation scope is the surrogate-map numerator structure only: changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION.changesBound === false &&
       /NO QED/.test(IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION.verdict) &&
       /surrogate/.test(IMP34974_CROSSOVER_BOUNDARY_PROJECTION_RECURRENCE_DERIVATION.rigorousScope),
   },
 ];

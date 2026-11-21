@@ -6,8 +6,7 @@
  * leg (kept-pair numerator {0, +-1} -> {-2..2}, X -> X7, imp-95333
  * LEMMA PAIR-2) and the b-UNIFORM t3-WEIGHT leg (b-uniform trace charge
  * t3 -> b-exact chartwise weight, T6 -> T8, imp-95334 LEMMA T-EXACT).
- * MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <=
- * 0.2 remains SOTA.
+ * MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed.
  *
  * WHY. imp-95333 pairCurrencyNearExhausted and imp-95334
  * pointwiseProgramTerminal both assert the surviving RZ-PEN6 looseness
@@ -196,7 +195,7 @@ export const IMP95337_PENCIL_LEG_ATTRIBUTION = {
     "~25 percent and identically inert at the twin-symmetric end. This " +
     "quantifies the imp-95333 pairCurrencyNearExhausted and imp-95334 " +
     "pointwiseProgramTerminal qualitative claims. Changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -562,13 +561,13 @@ export const IMP95337_ASSERTIONS = [
   {
     id: "imp95337-honesty-gate",
     description:
-      "the record is measurement-only: no bound changed, NO QED, PT " +
-      "stays SOTA, the t3 leg is named dominant and the pair leg named " +
+      "the record is measurement-only: no bound changed, NO QED, no refereed bound is changed" +
+      ", the t3 leg is named dominant and the pair leg named " +
       "secondary/inert at the twin end",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /measurement only/.test(REC.honestScope) &&
       /dominant/.test(REC.verdict) &&

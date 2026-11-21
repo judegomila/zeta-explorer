@@ -40,8 +40,7 @@
  * imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no interval enclosure (compare imp-34693a;
  * imp-34845 showed the honest interval is too narrow to matter here). The C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
- * untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34887-iters-to-floor-residual-sign (parent: -1 sign on [1e9,1e12]; fixed-offset corollary refuted)
  * @see imp-34862-iters-to-floor-two-rate-law (two-rate law fails; residual lives in terminal ceil)
@@ -201,7 +200,7 @@ export const IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND = {
     'double precision; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34887 (parent: -1 residual sign on [1e9,1e12]; fixed-offset corollary refuted); imp-34862 (two-rate ' +
     'law fails; residual lives in the terminal ceil); imp-34845 (off-by-one is INTRINSIC, not a ceil-rounding ' +
@@ -244,13 +243,13 @@ export const IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND_ASSERTIONS = [
       SUB_ABOVE.plusOne === 0,
   },
   {
-    // Honesty gate: band-width measurement of a surrogate count, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: band-width measurement of a surrogate count, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34903-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND.isRigorous === false &&
       /NO QED/.test(IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND.verdict) &&
-      /remains SOTA/.test(IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND.verdict),
+      /refereed bound is changed/i.test(IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND.verdict),
   },
 ];
 

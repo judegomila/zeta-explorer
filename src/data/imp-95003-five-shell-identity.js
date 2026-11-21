@@ -46,7 +46,7 @@
  * telescoping, the live/killed splitting under A97, and the closed E97 form.
  *
  * E-status finite linear-algebra / Fourier identity. It changes no bound and
- * closes no gap (NO QED); Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closes no gap (NO QED); no refereed bound is changed.
  */
 
 // ── the 25 primes p <= 97 and the (0,5,10,17,25) block cuts ─────────────────
@@ -203,7 +203,7 @@ export const IMP_95003_FIVE_SHELL_IDENTITY = {
     'telescoping v = Y_4 + sum Z_g, and the closed cocycle ' +
     'E97 = (1-A97) Y_4(0) - A97 sum Z_g(0) = Y4(0) - sum Z_g(0) = 2 Y4(0) - v(0). ' +
     'Every clause holds exactly. Changes no bound; closes no gap; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // ── assertions (import-light; no heavy bundle) ─────────────────────────────

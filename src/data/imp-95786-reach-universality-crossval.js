@@ -69,7 +69,7 @@
  * follow a clean R* = 250 - c*delta form, and does the fully-DD side ln 1.35 / ln 1.25
  * cross at the extrapolated R*?). (c) Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-95761-szego-coefficient-larger-grid-subpct (the reach-universality law cross-validated here)
  * @see imp-95779-on2-dd-toeplitz-lambda-min-ln12 (the O(N^2) DD solver for the sub-ln1.4 side)
@@ -148,7 +148,7 @@ export const IMP95786_REACH_UNIVERSALITY_CROSSVAL = {
     "side crosses at the extrapolated R* (SUB-GAP imp-95786-Rstar-delta-drift-secondorder-fit). " +
     "Numerical cross-validation of an established law; model seam family only; the imp-95212 envelope " +
     "port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of the Lambda program; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95786"],
 };
 
@@ -290,7 +290,7 @@ export const IMP95786_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       REF.lawConfirmedOnFourthDelta === true &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95786"),
   },
 ];

@@ -47,7 +47,7 @@
  *   A glossary-style lookup restating the imp-95750 dead-zone extent and the
  *   imp-95766 r_cap coverage of it for quick reference. It establishes nothing,
  *   instantiates no interval, closes no sub-gap, moves no bound. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95750-number-variance-deadzone-measurement-reach (source: the dead-zone extent this glosses)
  * @see imp-95766-number-variance-cap-crossover-deadzone (source: the r_cap coverage this glosses)
@@ -55,7 +55,7 @@
  * @see imp-95519-localized-barrier-sum-prime-zero-nogo (window bottom T = 3.0e12)
  *
  * Ticket: imp-95795 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The number-variance dead-zone headword, baked verbatim (no re-import).
@@ -106,7 +106,7 @@ export const IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD = Object.freeze
     'that the imp-95722 derived r_cap(T) envelope stays conservative (r_cap < 1) ' +
     'and MONOTONICALLY strengthens across the entire band (0.4322 -> 0.3237 -> ' +
     '0.2599). Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-95750 (dead-zone extent and direct-measurement ceiling this glosses); ' +
     'imp-95766 (r_cap measured across the dead zone); imp-95722 (the derived ' +
@@ -135,11 +135,11 @@ export const IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95795-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD.verdict) &&
       IMP95795_NUMBER_VARIANCE_DEADZONE_GLOSSARY_HEADWORD.glosses === 'imp-95750, imp-95766',
   },
 ];

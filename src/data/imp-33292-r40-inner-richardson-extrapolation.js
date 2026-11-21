@@ -70,7 +70,7 @@
  *   (a converged literal would be proposed separately, if at all). It changes NO bound and
  *   establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. The reported converged value is a
+ *   No refereed bound is changed. The reported converged value is a
  *   grid-CONVERGENCE floor of this truncated-kernel model, not a certified error bound; the shared
  *   finite NPHI = 10 kernel truncation remains the residual model floor.
  *
@@ -279,7 +279,7 @@ export const IMP33292_R40_INNER_RICHARDSON = Object.freeze({
     'D_40 = C_42 - C_40 cancellation, NOT literally sub-1-ULP. So the ~1.21e-5 imp-3888 residual is a ' +
     'REMOVABLE inner O(h^4) artefact, converted here into a converged R_40 pinned to the machinery floor. ' +
     'MEASUREMENT ONLY; no literal patched; imp-3685/imp-3849 left intact; imp-3066 untouched; ' +
-    'necessary-but-not-sufficient; no QED; PT Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; no QED; no refereed bound is changed.',
 
   method: Object.freeze({
     ratio: 'R_40 = |D_40| / |D_40^saddle|, D_n = C_(n+2) - C_n, C_n = M_(n+2)/((n+1)(n+2)M_n), C_n^saddle = tau*(n)^2/((n+1)(n+2))',
@@ -343,7 +343,7 @@ export const IMP33292_R40_INNER_RICHARDSON = Object.freeze({
       'The converged R_40 is a grid-CONVERGENCE floor of this truncated-kernel model; the shared finite ' +
       'NPHI = 10 kernel truncation remains the residual model floor, so this is a located value, not a ' +
       'certified error bound.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -387,7 +387,7 @@ export const IMP33292_R40_INNER_RICHARDSON_ASSERTIONS = [
   {
     id: 'imp33292-honest-measurement-only',
     why: 'Mandatory honesty: measurement only, reaches the arithmetic floor (not sub-1-ULP), no literal ' +
-      'patched, source modules intact, no bound changed, imp-3066 untouched, PT 0.2 stays SOTA.',
+      'patched, source modules intact, no bound changed, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33292_R40_INNER_RICHARDSON.honestCaveat;
       return (
@@ -399,7 +399,7 @@ export const IMP33292_R40_INNER_RICHARDSON_ASSERTIONS = [
         c.changesAnyBound === false &&
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

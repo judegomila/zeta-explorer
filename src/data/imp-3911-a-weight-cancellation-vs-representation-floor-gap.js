@@ -60,7 +60,7 @@
  *   autocorrelation weight used inside a mass-feasibility diagnostic; it establishes NO operator
  *   positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-3897-a-weight-substitution-simpson-tau35-40-precision-floor.js (asserts, but never measures, the gap)
  *   @see imp-3730-a-weight-correction-limit.js (the c(tau)->c_inf ladder and its cancellation floor)
@@ -199,7 +199,7 @@ export const IMP3911_A_WEIGHT_CANCELLATION_VS_REPRESENTATION_FLOOR_GAP = Object.
     'The gap is tau_abs-tau_cancel~3.03 tau units: the cancellation floor is the TIGHTER, binding constraint on ' +
     'reading the O(1) correction (the window imp-3897 meant), while the raw magnitude is bound only ~3 tau later. ' +
     'ACCURACY/PROVENANCE MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066) ' +
-    'untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -270,7 +270,7 @@ export const IMP3911_A_WEIGHT_CANCELLATION_VS_REPRESENTATION_FLOOR_GAP = Object.
       'This locates FLOATING-POINT floors, not mathematical ones. The cancellation floor is a property of ' +
       'differencing -ln A against pi e^{4 tau}; an extended-precision -ln A would push both floors outward but ' +
       'cannot change c_inf > 0 nor the ~3-tau separation structure (both scale with the mantissa width).',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -321,7 +321,7 @@ export const IMP3911_A_WEIGHT_CANCELLATION_VS_REPRESENTATION_FLOOR_GAP_ASSERTION
   {
     id: 'imp3911-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: precision measurement only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3911_A_WEIGHT_CANCELLATION_VS_REPRESENTATION_FLOOR_GAP.honestCaveat;
       return (
@@ -329,7 +329,7 @@ export const IMP3911_A_WEIGHT_CANCELLATION_VS_REPRESENTATION_FLOOR_GAP_ASSERTION
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

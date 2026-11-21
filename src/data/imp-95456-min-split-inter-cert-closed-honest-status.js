@@ -9,7 +9,7 @@
  * read imp-95378 in full.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -79,8 +79,8 @@ export const IMP95456_MIN_SPLIT_INTER_CERT_CLOSED_HONEST_STATUS = {
     'of imp-95256 (residual exactly zero) but leaves a large, UNBOUNDED ' +
     'residual wedge against the EXACT joint pencil as sigma -> 1, driven by ' +
     'the angular collar shared by both splits. Ports nothing; measures ' +
-    'nothing new; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'nothing new; changes no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95378-min-split-certificate (source derivation, measurement, and verdict).',
 };
@@ -122,7 +122,7 @@ export const IMP95456_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95456-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95456_MIN_SPLIT_INTER_CERT_CLOSED_HONEST_STATUS.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(
@@ -132,7 +132,7 @@ export const IMP95456_HONEST_STATUS_NOTE_ASSERTIONS = [
         IMP95456_MIN_SPLIT_INTER_CERT_CLOSED_HONEST_STATUS.verdict,
       ) &&
       /NO QED/.test(IMP95456_MIN_SPLIT_INTER_CERT_CLOSED_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95456_MIN_SPLIT_INTER_CERT_CLOSED_HONEST_STATUS.verdict,
       ),
   },

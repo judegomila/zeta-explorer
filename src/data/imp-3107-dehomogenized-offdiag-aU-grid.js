@@ -52,8 +52,8 @@
  *   off-diagonal magnitude varies with the shear weight a and lag window U, and a
  *   confirmation that (like ||R|| and the gap) it is governed by the single a*U scale
  *   while the raw |H_jk| is not. Positivity is NOT attempted. The bare-V pilot
- *   (imp-1240) is NOT re-run. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous
- *   SOTA. No false QED.
+ *   (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3085-hankel-gap-aU-grid.js (imp-3085: the gap + raw |H_jk| contrast)
  *   @see imp-3066-offdiagonal-hankel-obstruction.js (imp-3066: the single-cell gap)
@@ -239,7 +239,7 @@ export const IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID = Object.freeze({
       'section-26 Gram, so they neither claim the cover fails nor that it holds. Only the ' +
       'a*U-scaling of the off-diagonal magnitude is asserted.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -322,7 +322,7 @@ export const IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID_ASSERTIONS = [
     id: 'imp3107-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic tabulation, the off-diagonal ' +
          'entries carry no RH verdict, positivity was not attempted, it is not a proof or a ' +
-         'reduction, and PT 0.2 stays SOTA. If any of these flip the module is over-claiming.',
+         'reduction, and no refereed bound is changed. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID.honestCaveat;
       return (
@@ -332,7 +332,7 @@ export const IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

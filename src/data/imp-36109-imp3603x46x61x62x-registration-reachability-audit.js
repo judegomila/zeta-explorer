@@ -33,7 +33,7 @@
  * imp-36068-clustered-order-shape-sweep-viz-data.js and
  * imp-36077-tc-rk4-dp5-gap-dt-n-scaling.js so their assertions now run under `npm run assert`.
  * Otherwise read-only. Changes no bound; establishes no operator positivity; no RH verdict; NO
- * QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-36034-imp3596x97x-registration-reachability-audit.js (registration/reachability + import-light guard method, sibling audit)
  * @see imp-35982-imp3589x-registration-reachability-audit.js (registration/reachability method)
@@ -95,7 +95,7 @@ export const IMP36109_IMP3603X46X61X62X_REGISTRATION_REACHABILITY_AUDIT = {
     'seventeen of nineteen reachable pre-audit (all direct), two orphaned modules never ' +
     'exercised by `npm run assert` -- closed by adding their direct DATA_MODULES entries in this ' +
     'commit. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36034/imp-35982/imp-35905 (registration/reachability + import-light guard audit ' +
     'method); verify-zeros-importers.mjs (import-light guard method, imp-2880).',

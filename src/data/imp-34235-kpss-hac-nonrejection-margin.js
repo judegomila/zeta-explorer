@@ -59,7 +59,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive;
  * the KPSS critical values are the KPSS-1992 asymptotic tabulated values applied on N=21; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34024-kpss-stationarity-bracket (the HAC-corrected l=2 eta_mu ~0.149 primary reading; kpss reused)
  * @see imp-34155-kpss-l0-borderline-margin (the fragile l=0 single-rung ~0.00201 this measurement mirrors)
@@ -410,7 +410,7 @@ export const IMP34235_KPSS_HAC_NONREJECTION_MARGIN = {
     'asymptotic tabulated values applied on N=21; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34024 (the HAC-corrected l=2 eta_mu ~0.149 primary reading; kpss reused); imp-34155 (the fragile ' +
     'l=0 single-rung ~0.00201 this measurement mirrors); imp-34231 (the l=0 joint floor ~0.00146 this HAC ' +
@@ -481,13 +481,13 @@ export const IMP34235_KPSS_HAC_NONREJECTION_MARGIN_ASSERTIONS = [
       FLOOR_ROBUSTNESS_RATIO < 210,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 clause.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 clause.
     id: 'imp34235-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 untouched',
     holds: () =>
       IMP34235_KPSS_HAC_NONREJECTION_MARGIN.isRigorous === false &&
       /NO QED/.test(IMP34235_KPSS_HAC_NONREJECTION_MARGIN.verdict) &&
-      /remains SOTA/.test(IMP34235_KPSS_HAC_NONREJECTION_MARGIN.verdict) &&
+      /refereed bound is changed/i.test(IMP34235_KPSS_HAC_NONREJECTION_MARGIN.verdict) &&
       /12% multiplicative/.test(IMP34235_KPSS_HAC_NONREJECTION_MARGIN.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34235_KPSS_HAC_NONREJECTION_MARGIN.verdict),
   },

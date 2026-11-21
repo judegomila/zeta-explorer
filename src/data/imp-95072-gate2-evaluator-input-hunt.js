@@ -1,7 +1,7 @@
 /**
  * imp-95072 - Hunt the five missing Gate-2 Lane-A arithmetic evaluator inputs
  * against the committed paper/repo source. ASSESS/MEASURE ONLY; no surrogate
- * substitution; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * substitution; NO QED; no refereed bound is changed.
  *
  * CONTEXT. imp-95013 declared the native Lane-A E97/C_E,17 scanner
  * BLOCKED-ON-SPEC and flatly recorded all five arithmetic evaluator inputs as
@@ -121,7 +121,7 @@ export const IMP95072_EVALUATOR_INPUT_HUNT = Object.freeze({
   isRigorous: false,
   promotesBound: false,
   verdict:
-    'Hunt result (assess only): the committed paper recovers the structural FORM (carrier eq (10)) and the external CITATION (Polymath [4]) for the Gate-2 evaluator, and corrects imp-95013 by exposing a SECOND ladder exponent sA(x) and the gamma(x) ratio; but none of the five inputs is yet an evaluable arithmetic function in-repo, so imp-95013 BLOCKED-ON-SPEC still stands. The unlock is precisely scoped: transcribe the external Polymath-15 landmark map + s<->x relation (recovers inputs 1,2,3), transcribe the window/seam kernel sweeps (input 4); the reference C file (input 5) is genuinely absent everywhere and must be written, not found. Runs no scan, emits no E97 measurement, makes no surrogate substitution. Changes no bound; closes no gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Hunt result (assess only): the committed paper recovers the structural FORM (carrier eq (10)) and the external CITATION (Polymath [4]) for the Gate-2 evaluator, and corrects imp-95013 by exposing a SECOND ladder exponent sA(x) and the gamma(x) ratio; but none of the five inputs is yet an evaluable arithmetic function in-repo, so imp-95013 BLOCKED-ON-SPEC still stands. The unlock is precisely scoped: transcribe the external Polymath-15 landmark map + s<->x relation (recovers inputs 1,2,3), transcribe the window/seam kernel sweeps (input 4); the reference C file (input 5) is genuinely absent everywhere and must be written, not found. Runs no scan, emits no E97 measurement, makes no surrogate substitution. Changes no bound; closes no gap; NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ────────────
@@ -187,7 +187,7 @@ export const IMP95072_EVALUATOR_INPUT_HUNT_ASSERTIONS = [
   },
   {
     id: 'imp95072-no-surrogate-no-scan-no-qed',
-    description: 'ticket protocol honored: no scan, no measurement, no surrogate, no QED, PT stays SOTA',
+    description: 'ticket protocol honored: no scan, no measurement, no surrogate, no QED, no refereed bound is changed',
     holds: () =>
       IMP95072_EVALUATOR_INPUT_HUNT.ranScan === false &&
       IMP95072_EVALUATOR_INPUT_HUNT.emittedE97Measurement === false &&
@@ -195,7 +195,7 @@ export const IMP95072_EVALUATOR_INPUT_HUNT_ASSERTIONS = [
       IMP95072_EVALUATOR_INPUT_HUNT.promotesBound === false &&
       IMP95072_EVALUATOR_INPUT_HUNT.isRigorous === false &&
       /NO QED/.test(IMP95072_EVALUATOR_INPUT_HUNT.verdict) &&
-      /remains SOTA/.test(IMP95072_EVALUATOR_INPUT_HUNT.verdict),
+      /refereed bound is changed/i.test(IMP95072_EVALUATOR_INPUT_HUNT.verdict),
   },
 ];
 

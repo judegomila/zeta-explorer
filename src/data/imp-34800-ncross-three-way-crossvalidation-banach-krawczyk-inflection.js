@@ -67,8 +67,7 @@
  * the inherited imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; the Krawczyk enclosure
  * is the imp-34774 double-precision SURROGATE (sub-gap imp-34714a REMAINS OPEN, no machine certificate); the
  * C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no
- * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (R1 Banach closed form, K ~ 1.5727e8, N_cross ~ 3.280294e9)
  * @see imp-34774-krawczyk-fixed-point-map-enclosure (R2 Krawczyk enclosure of the same fixed point; sub-gap imp-34714a)
@@ -209,7 +208,7 @@ export const IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTIO
     'a rigorous asymptotic; the Krawczyk enclosure is the imp-34774 double-precision SURROGATE with sub-gap ' +
     'imp-34714a REMAINS OPEN (no machine certificate); the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (Banach closed-form crossover, K ~ 1.5727e8, N_cross ~ 3.280294e9); imp-34774 (Krawczyk ' +
     'fixed-point-map enclosure; sub-gap imp-34714a); imp-33721 (sub-decade sigmoid-inflection knee ~3.38e9); ' +
@@ -253,14 +252,14 @@ export const IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTIO
     holds: () => INFL_INSIDE_ENCLOSURE === false && INFL_HALFWIDTHS_ABOVE_HI > 100,
   },
   {
-    // Honesty gate: cross-validation / surrogate only, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation / surrogate only, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34800-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION.isRigorous === false &&
       /imp-34714a/.test(IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION.verdict) &&
       /NO QED/.test(IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION.verdict) &&
-      /remains SOTA/.test(IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION.verdict),
+      /refereed bound is changed/i.test(IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION.verdict),
   },
 ];
 

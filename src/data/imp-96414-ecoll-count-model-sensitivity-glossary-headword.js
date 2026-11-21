@@ -38,7 +38,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96387 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96387-ecoll-anchor-count-model-sensitivity-n1e4 (source: the measurement this glosses)
  * @see imp-96363-ecoll-independent-second-anchor (the N = 1e6 reconstructed-anchor sensitivity, -3.00e-8)
@@ -46,7 +46,7 @@
  * @see imp-96311-ecoll-rate-ch-independence-tabulation (rate factor R(N) definition)
  *
  * Ticket: imp-96414 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The count-model ~1/N sensitivity headword, baked verbatim (no re-import).
@@ -77,8 +77,8 @@ const ECOLL_COUNT_MODEL_SENSITIVITY_HEADWORD = Object.freeze({
   verificationStatus:
     'Measurement (accuracy audit), not a rigorous derivation of the 1/N law’s ' +
     'coefficient. Changes no bound; the conditional C_H <= 0.127 stays UNPROVEN; ' +
-    'C_H isRigorousUpperBound remains false (imp-2642/imp-2701); PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'C_H isRigorousUpperBound remains false (imp-2642/imp-2701); no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -98,8 +98,8 @@ export const IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD = Object.f
     'constant -- it SCALES AS ~1/N with the anchor height, measuring -4.11e-6 ' +
     '(~137x larger) at the N = 1e4 anchor versus -3.00e-8 at the N = 1e6 anchor, ' +
     'while remaining absolutely tiny (~4.5e-8) at both. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96387 (the N = 1e4 measurement and finding this glosses); imp-96363 (the ' +
     'N = 1e6 reconstructed-anchor sensitivity, -3.00e-8); imp-96290 (the ONE ' +
@@ -127,11 +127,11 @@ export const IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96414-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96414_ECOLL_COUNT_MODEL_SENSITIVITY_GLOSSARY_HEADWORD.glosses === 'imp-96387',
   },
 ];

@@ -63,7 +63,7 @@ export const IMP95810_CAVEAT_BANNER =
   'imp-95761 ln14PrecisionWall verbatim (no re-derivation, no fresh solve); ' +
   'the reach-universality is an interior model-seam finite-grid diagnostic, ' +
   'not an RH bound. Changes no bound of the Lambda program; NO QED; ' +
-  'Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'no refereed bound is changed.';
 
 // imp-95813: the imp-95786 R*-delta-drift sub-gap previously lived only as
 // prose in the imp-95786 module's header comment / verdict string. Surfaced

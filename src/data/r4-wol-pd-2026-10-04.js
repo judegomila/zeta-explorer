@@ -50,7 +50,7 @@ export const R4_WOL_PD = Object.freeze({
   verdict: 'WOL-C certified for 263 entries by the positive-definite majorant (257 of 630 band-path entries). With the referee 1e-9 padding the '
     + 'certified-only route-P value is 0.146843097785455, below the b145 PT value 0.147273668782792. P47 is not reached by the implemented '
     + 'majorants (measured); the general obstruction is heuristic. Conditional on the shared inputs and on the unaudited single implementation. '
-    + 'PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No refereed bound is changed. RH open. NO QED.',
 });
 
 const W = R4_WOL_PD;
@@ -87,7 +87,7 @@ export const R4_WOL_PD_ASSERTIONS = Object.freeze([
     why: 'hybrid (conditional) < 0.145 < certified-only r4 < b145 PT < previous certified-only route P.',
   },
   {
-    id: 'r4-wolpd-honest', holds: () => /NO QED/.test(W.status) && /PT Lambda <= 0\.2 stands/.test(W.verdict) && /heuristic/.test(W.verdict) && /CONDITIONAL/.test(W.values.hybrid.note),
+    id: 'r4-wolpd-honest', holds: () => /NO QED/.test(W.status) && /refereed bound is changed/i.test(W.verdict) && /heuristic/.test(W.verdict) && /CONDITIONAL/.test(W.values.hybrid.note),
     why: 'P47 general obstruction is heuristic; sub-0.145 value conditional; no QED.',
   },
 ]);

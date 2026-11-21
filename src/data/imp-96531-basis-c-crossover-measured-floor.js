@@ -54,7 +54,7 @@
  * anchor range and ~2.7 decades past the PT anchor L = 5.9e6, but only ~2.7 decades, not the ~5-6 the
  * model extrapolation claimed; and the anchor headroom is the measured ~642, not the model ~3.7e5.
  * Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no
- * bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * @see imp-96430-basis-c-corroboration-reach-crossover (the model-floor crossover band this recomputes)
@@ -173,12 +173,12 @@ export const IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. The recomputed crossover is an even coarser extrapolation than imp-96430: the imp-96448 measured anchor floor is Simpson-truncation-set at the collapsed optimum ppp ~ 3, a different mechanism from the cancellation-set floor of the small-L rungs, so re-anchoring a single L-linear form to it is a conservative modeling choice, not a mechanism-consistent interpolation. L* is a projected reach of an independence property, not a measured one. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Recomputing the basis-C corroboration-reach crossover from the imp-96448 MEASURED anchor floor (~2.84e-5, ~573x above the imp-96430 L-linear model floor) instead of the model floor moves the crossover from L* ~ 1.32e12 down to L* ~ 2.86e9 -- a ~460x reduction -- where rho ~ -0.4862 and floor = signal ~ 1.38e-2. Basis C still independently corroborates basis A across the accessible-to-anchor range and ~2.7 decades past the PT anchor L = 5.9e6, but only ~2.7 decades, not the ~5-6 the model extrapolation claimed; and the anchor headroom is the measured ~642, not the model ~3.7e5. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Recomputing the basis-C corroboration-reach crossover from the imp-96448 MEASURED anchor floor (~2.84e-5, ~573x above the imp-96430 L-linear model floor) instead of the model floor moves the crossover from L* ~ 1.32e12 down to L* ~ 2.86e9 -- a ~460x reduction -- where rho ~ -0.4862 and floor = signal ~ 1.38e-2. Basis C still independently corroborates basis A across the accessible-to-anchor range and ~2.7 decades past the PT anchor L = 5.9e6, but only ~2.7 decades, not the ~5-6 the model extrapolation claimed; and the anchor headroom is the measured ~642, not the model ~3.7e5. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96531_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation / '
+  'RH open; no refereed bound is changed; NO QED. Cross-validation / '
   + 'extrapolation numerics only: rho is the theoretical GUE two-interval '
   + 'correlation, not computed from real zeros. Recomputed crossover L* ~ 2.86e9 '
   + 'uses the imp-96448 MEASURED anchor floor (~2.84e-5) re-anchored as an '
@@ -213,11 +213,11 @@ export const IMP96531_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR.verdict))
     throw new Error('imp-96531: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR.verdict))
-    throw new Error('imp-96531: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR.verdict))
+    throw new Error('imp-96531: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96448/.test(IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR.source))
     throw new Error('imp-96531: source dropped the imp-96448 measured-floor reference');
-  if (!(/RH open/.test(IMP96531_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96531_HONEST_BANNER) && /NO QED/.test(IMP96531_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96531_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96531_HONEST_BANNER) && /NO QED/.test(IMP96531_HONEST_BANNER)))
     throw new Error('imp-96531: IMP96531_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

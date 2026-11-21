@@ -48,7 +48,7 @@ export const IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT = {
     'AUDIT ONLY. No new glossary content added -- imp-35818 already supplies it verbatim. This ' +
     'module records the duplicate-ticket finding and pins a permanent regression guard confirming ' +
     'the imp-35777 I2<->I3 coupling headword stays present in glossary.js. Changes no bound; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT_ASSERTIONS = [
@@ -74,11 +74,11 @@ export const IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35839-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35839_GLOSSARY_DUPLICATE_TICKET_AUDIT.verdict),
   },
 ];
 

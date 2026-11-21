@@ -70,7 +70,7 @@
  *   phase-resolving ~1.1e10 cell count via decomposition -- the residual is
  *   handled instead by the tier-P/B/S batching design (imp-95213), not by
  *   any further per-term ledger split. No new certificate fires here;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  * @see imp-95210-window1-pilot-certificate.js (source: EXACT STRUCTURE USED,
  *   FINDING 1/2)
@@ -80,7 +80,7 @@
  *   decomposition)
  *
  * Ticket: imp-95246 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95210).
@@ -143,8 +143,8 @@ export const IMP95246_REFLECTED_LADDER_RESIDUAL_CONCEPT_NOTE = Object.freeze({
     'reflected-ladder residual rr_j = q_p RefG_j - RefH_j, why it does not ' +
     'telescope, why it is the fastest-varying and largest piece driving ' +
     'FINDING 1/2, and why it is left out of the 44.476493 alias-decomposed ' +
-    'ledger. Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'ledger. Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95210-window1-pilot-certificate.js (EXACT STRUCTURE USED, FINDING ' +
     '1/2); imp-95244-alias-decomposed-lipschitz-ledger-concept-note.js ' +
@@ -178,12 +178,11 @@ export const IMP95246_REFLECTED_LADDER_RESIDUAL_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95246-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95246_REFLECTED_LADDER_RESIDUAL_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95246_REFLECTED_LADDER_RESIDUAL_CONCEPT_NOTE.verdict
       ) &&
       IMP95246_REFLECTED_LADDER_RESIDUAL_CONCEPT_NOTE.glosses === 'imp-95210' &&

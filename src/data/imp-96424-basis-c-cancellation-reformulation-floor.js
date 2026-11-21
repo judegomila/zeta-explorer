@@ -58,8 +58,8 @@
  * ~ 6.7e-10 in rho there (~1 order below the ~1e-8 original), and the two-term form only sidesteps that
  * subtraction by evaluating its tail Int_L^inf Y through the Si special function, so it re-imports basis
  * A and is no longer the fully-independent pure-quadrature third basis. Cross-validation only;
- * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96389-three-basis-rho-crossvalidation-table (basis-C L-linear floor is the binding floor)
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (the L-linear cancellation floor model + untried levers)
@@ -216,7 +216,7 @@ export const IMP96424_BASIS_C_CANCELLATION_REFORMULATION_FLOOR = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; no computed Riemann zeros stand behind it. This is a cross-validation roundoff audit of three ways to evaluate the same envelope, not a measurement of actual zeros. It changes no bound, establishes no operator positivity, and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'YES, both reformulations lower the imp-96389 basis-C floor at accessible L: Kahan compensated summation of the Simpson sum alone drops it from the L-growing ~3.4e-12 (L=960) to ~machine epsilon (~5e-16..5e-15) and removes the L-growth -- proving the accessible-L floor was accumulation-roundoff dominated, not final-subtraction dominated -- and the exact two-positive-term reformulation Var = 2 Int_0^L r Y + 2L Int_L^inf Y holds the floor near ~1e-14 flat (a ~360x cut at L=480/960) by never subtracting two ~L quantities. But NEITHER makes basis C reach machine epsilon at the PT anchor L=5.9148e6: Kahan leaves the residual L - 2 Int subtraction rounding to ~ eps*L/Sigma2 ~ 6.7e-10 in rho there (~1 order below the ~1e-8 original), and the two-term form only sidesteps that subtraction by evaluating its tail Int_L^inf Y through the Si special function, so it re-imports basis A and is no longer the fully-independent pure-quadrature third basis. Cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'YES, both reformulations lower the imp-96389 basis-C floor at accessible L: Kahan compensated summation of the Simpson sum alone drops it from the L-growing ~3.4e-12 (L=960) to ~machine epsilon (~5e-16..5e-15) and removes the L-growth -- proving the accessible-L floor was accumulation-roundoff dominated, not final-subtraction dominated -- and the exact two-positive-term reformulation Var = 2 Int_0^L r Y + 2L Int_L^inf Y holds the floor near ~1e-14 flat (a ~360x cut at L=480/960) by never subtracting two ~L quantities. But NEITHER makes basis C reach machine epsilon at the PT anchor L=5.9148e6: Kahan leaves the residual L - 2 Int subtraction rounding to ~ eps*L/Sigma2 ~ 6.7e-10 in rho there (~1 order below the ~1e-8 original), and the two-term form only sidesteps that subtraction by evaluating its tail Int_L^inf Y through the Si special function, so it re-imports basis A and is no longer the fully-independent pure-quadrature third basis. Cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (accessible-L re-measurement only) ---
@@ -260,8 +260,8 @@ export const IMP96424_BASIS_C_CANCELLATION_REFORMULATION_FLOOR = {
   // honesty gates
   if (!/NO QED/.test(IMP96424_BASIS_C_CANCELLATION_REFORMULATION_FLOOR.verdict))
     throw new Error('imp-96424: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96424_BASIS_C_CANCELLATION_REFORMULATION_FLOOR.verdict))
-    throw new Error('imp-96424: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96424_BASIS_C_CANCELLATION_REFORMULATION_FLOOR.verdict))
+    throw new Error('imp-96424: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96424_BASIS_C_CANCELLATION_REFORMULATION_FLOOR;

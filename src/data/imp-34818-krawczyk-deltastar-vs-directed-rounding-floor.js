@@ -67,7 +67,7 @@
  * ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous asymptotic
  * and NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34794-krawczyk-tightest-certified-bracket (the tightest surrogate delta* and its k-ladder this compares against)
  * @see imp-34799-krawczyk-directed-rounding-width-bound (the a-priori directed-rounding image half-width and n_op^max/k* = 2 FP_LO bridge)
@@ -236,7 +236,7 @@ export const IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR = {
     'directed-rounding layer, and F(m) = 0 remains a double-precision artifact. Assessment only on the ' +
     'inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34794 (tightest surrogate delta* and its k-ladder); imp-34799 (a-priori directed-rounding image ' +
     'half-width and n_op^max/k* = 2 FP_LO bridge); imp-34817 (complementary contraction-validity op ' +
@@ -302,15 +302,15 @@ export const IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR_ASSERTIONS =
       DELTASTAR_IN_PER_OP_UNITS < 8.5,
   },
   {
-    // Honesty gate: assessment / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: assessment / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34818-honesty-gate-no-qed',
-    description: 'delta* vs directed-rounding floor: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'delta* vs directed-rounding floor: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR.isRigorous === false &&
       /imp-34714a/.test(IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR.subGap) &&
       /REMAINS OPEN/.test(IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR.subGap) &&
       /NO QED/.test(IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR.verdict),
   },
 ];
 

@@ -58,7 +58,7 @@
  * SCOPE. Extrapolation/analysis only; consumes the imp-96977 baked floors, computes no new spectra,
  * moves no bound. The sub-gap IMP96977_TRUE_LIMIT_UNSETTLED STAYS OPEN pending the wider N-ladder
  * (imp-96998). Interval-rigorous certificate reach stays exactly 2a <= 0.96; operator positivity for
- * 0.96 < 2a < ln3 stays OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * 0.96 < 2a < ln3 stays OPEN; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96977-krein-intermediate-rungs.js (the finite-N floor table + the sub-gap this leaf attacks)
  * @see imp-96749-krein-lammin-N-trend-measurement.js (analyticObstruction: the uniform-in-N spectral gap)

@@ -78,7 +78,7 @@
  * the decay LATER by exactly as much as a tighter floor pushes it EARLIER, and the small
  * excess past 2 is the shared slowly-growing log T0 factor. Measurement/sensitivity only;
  * C_mb stays GUE-conditional (imp-486); no bound changes, no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96916-sigma-quarter-crossing-etrunc-elasticity (the conjugate E_trunc leverage -2.087 this module mirrors)
  * @see imp-96794-etrunc-reduction-peak-share-leverage (peak-share leverage; this module adds the decay-arm C_C leverage)
@@ -258,7 +258,7 @@ export const IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY = {
     'pushes the decay LATER by exactly as much as a tighter floor pushes it EARLIER, and the small ' +
     'excess past 2 is the shared slowly-growing log T0 factor. Measurement/sensitivity only; C_mb ' +
     'stays GUE-conditional (imp-486); no bound changes, no positivity, no bridge closure, no RH ' +
-    'claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'claim, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96916 (conjugate E_trunc leverage -2.087 at the sigma=0.25 crossing, reused); imp-96794 ' +
@@ -331,14 +331,14 @@ export const IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY_ASSERTIONS = [
     holds: () => Math.max(...SWEEP_NS) / Math.min(...SWEEP_NS) > 10,
   },
   {
-    // Honesty gate: measurement/assessment only, equal-and-opposite verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, equal-and-opposite verdict, no QED, no refereed bound is changed.
     id: 'imp96936-honesty-gate-no-qed',
-    description: 'Assessment only: equal-and-opposite verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: equal-and-opposite verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY.isRigorous === false &&
       /EQUAL-AND-OPPOSITE/.test(IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY.verdict) &&
       /NO QED/.test(IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP96936_SIGMA_QUARTER_CROSSING_CC_ELASTICITY.verdict),
   },
 ];
 

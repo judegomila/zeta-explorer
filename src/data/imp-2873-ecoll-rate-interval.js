@@ -44,7 +44,7 @@
  * quantity, genuinely rigorous as an interval). It does NOT touch the coefficient
  * C_C = C_H sqrt(pi C_Selberg): C_H = 1/8 remains an unproven ANSATZ (imp-2642), so
  * the assembled E_coll = C_C * bracket stays NON-rigorous. NO-GO retained;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. No Lambda value changes.
+ * no refereed bound is changed. No Lambda value changes.
  *
  * @see imp-2694-ecoll-rate-reconciliation (which rate E_coll uses: Holder N^{-1/2})
  * @see imp-2867-t0-certified-enclosure (shared T0 enclosure primitive at N*=1e4)
@@ -61,7 +61,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
 const N_STAR = 1e4;
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // ── Shared certified T0 enclosure (the imp-2867 primitive, mirrored inline) ───
 // [T0_lo, T0_hi] encloses the Riemann-von Mangoldt root N(T)=N* via the SAME
@@ -164,8 +164,8 @@ export const IMP2873_ECOLL_RATE_INTERVAL = {
     + 'The N-exponent is exactly 1/2 (4-fold ratio = 2), matching the imp-2694 binding Holder rate, so '
     + 'the dominant term no longer carries the rate factor as an un-bracketed point. HONEST: this '
     + 'certifies the rate FACTOR only -- the coefficient C_C rests on the C_H = 1/8 ANSATZ (imp-2642), '
-    + 'so the assembled E_coll = C_C * bracket stays NON-rigorous. NO-GO retained; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA. No false QED; no Lambda value changes.',
+    + 'so the assembled E_coll = C_C * bracket stays NON-rigorous. NO-GO retained; no refereed bound is changed'
+    + '. No false QED; no Lambda value changes.',
   citation:
     'imp-2694 (which rate: binding Holder N^{-1/2}); imp-2867 (shared certified T0 enclosure); '
     + 'imp-2643 (E_COLL = C_C sqrt(L/N) point carrier); imp-2860 (whole-E(N) worst-case bracket); '
@@ -223,13 +223,13 @@ export const IMP2873_ECOLL_RATE_INTERVAL_ASSERTIONS = [
     id: 'imp2873-rate-factor-only-no-false-qed',
     description:
       'HONESTY: certifies the rate FACTOR only; isRigorous false, scope names C_C/C_H ansatz as '
-      + 'unchanged, changes no bound, NO-GO retained, Platt-Trudgian stays SOTA (no false QED).',
+      + 'unchanged, changes no bound, NO-GO retained, no refereed bound is changed (no false QED).',
     holds: () =>
       IMP2873_ECOLL_RATE_INTERVAL.isRigorous === false &&
       IMP2873_ECOLL_RATE_INTERVAL.changesAnyBound === false &&
       /C_H/.test(IMP2873_ECOLL_RATE_INTERVAL.scope) &&
       /NO-GO/.test(IMP2873_ECOLL_RATE_INTERVAL.verdict) &&
-      /remains SOTA/.test(IMP2873_ECOLL_RATE_INTERVAL.verdict),
+      /refereed bound is changed/i.test(IMP2873_ECOLL_RATE_INTERVAL.verdict),
   },
 ];
 

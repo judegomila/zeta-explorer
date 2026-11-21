@@ -50,8 +50,8 @@
  *   cap 0.72, consistent with ch-lip-basin-conditional-2026-06-30.
  *
  * HONEST: this QUANTIFIES why the reconditioning is only basin-conditional; it does
- *   NOT close the off-basin divergence. Platt-Trudgian Lambda <= 0.2 stays the
- *   rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.
+ *   NOT close the off-basin divergence. No refereed bound is changed
+ *   ; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.
  *
  * @see ch-wall-frontier-verdict-2026-06-26 (GENUINE POSITIVE (c) -- the off-basin blowup)
  * @see ch-lip-basin-conditional-2026-06-30 (the basin-conditional C_Lip this scaling sits under)
@@ -104,7 +104,7 @@ export const CTHETA_BASIN_SCALING = {
   thresholdRhoStar: RHO_STAR,
   thresholdNote: 'regimes separate exactly at rho* = 2/3 where Theta hits the Theorem-A trap 1/4 (just below the Theorem-C operating cap 0.72)',
   table: buildTable(),
-  honest: 'quantifies WHY the reconditioning is only basin-conditional; does NOT close the off-basin divergence. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+  honest: 'quantifies WHY the reconditioning is only basin-conditional; does NOT close the off-basin divergence. No refereed bound is changed; finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
 // ---------------------------------------------------------------------------
@@ -147,7 +147,7 @@ export const CTHETA_FLAT_INVARIANT = {
   maxDeviationFrom16over27: FLAT_INVARIANT_MAX_DEV,
   table: FLAT_INVARIANT_TABLE,
   conclusion: 'the measured product is pinned at 16/27 to machine precision over every decade, certifying dTheta/dW_1 ~ 1/g0 -- the 1/g0-law signature of the off-basin C_Theta blowup is scale-free, not an artefact of the chosen g0',
-  honest: 'certifies the scale-law SIGNATURE of the off-basin divergence; does NOT close it. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+  honest: 'certifies the scale-law SIGNATURE of the off-basin divergence; does NOT close it. No refereed bound is changed; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
 // ---------------------------------------------------------------------------
@@ -193,7 +193,7 @@ export const CTHETA_RHO_STAR_ROOT = {
   operatingCap: C_OPERATING_CAP,
   capMargin: RHO_STAR_CAP_MARGIN,
   conclusion: 'the independently solved root equals 2/3 to machine precision and sits 0.0533... below the 0.72 Theorem-C operating cap, certifying the exact regime split is consistent with ch-lip-basin-conditional-2026-06-30',
-  honest: 'numerical confirmation of an exact constant; no new bound. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+  honest: 'numerical confirmation of an exact constant; no new bound. No refereed bound is changed; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
 // ---------------------------------------------------------------------------
@@ -250,7 +250,7 @@ export const CTHETA_ON_BASIN_VANISHING = {
   finalHalvingSensitivityRatio: ON_BASIN_LAST_HALVING,
   table: ON_BASIN_TABLE,
   conclusion: 'dTheta/dW_1 halves at every halving (ratio -> 1/2) and the ratio dTheta/dW_1 / g0 converges monotonically to 2N/D^2 = ' + ON_BASIN_LIMIT + ' to ~1e-7, certifying the on-basin C_Theta is bounded+vanishing -- the scale-flat companion to the off-basin 16/27 blowup signature',
-  honest: 'tabulates the on-basin VANISHING that keeps C_Theta finite on the basin; does NOT close the off-basin divergence. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+  honest: 'tabulates the on-basin VANISHING that keeps C_Theta finite on the basin; does NOT close the off-basin divergence. No refereed bound is changed; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
 export const CTHETA_BASIN_SCALING_ASSERTIONS = [
@@ -329,9 +329,9 @@ export const CTHETA_BASIN_SCALING_ASSERTIONS = [
   },
   {
     id: 'ctheta-no-false-qed-pt-stays-sota',
-    description: 'this is a diagnosis of the basin-conditional limit, NOT a closure; PT 0.2 stays SOTA and the beat stays an ESTIMATE',
+    description: 'this is a diagnosis of the basin-conditional limit, NOT a closure; no refereed bound is changed and the beat stays an ESTIMATE',
     holds: () => /does NOT close/.test(CTHETA_BASIN_SCALING.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CTHETA_BASIN_SCALING.honest)
+      && /refereed bound is changed/i.test(CTHETA_BASIN_SCALING.honest)
       && /ESTIMATE/.test(CTHETA_BASIN_SCALING.honest),
   },
 ];
@@ -372,7 +372,7 @@ for (const a of CTHETA_BASIN_SCALING_ASSERTIONS) {
 //   on-basin ratio limit 2N/D^2 = 2 (CTHETA_ON_BASIN_VANISHING.limitTwoNoverDsq),
 //   trap ceiling 4/3 at Theta = 1/4, off-basin flat product 16/27 (= OFF_PRODUCT) and
 //   first off-basin sensitivity ~11.97 (CTHETA_BASIN_SCALING.table[0].offDW).
-// MEASURE ONLY: no RH verdict. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA;
+// MEASURE ONLY: no RH verdict. No refereed bound is changed;
 // the finite-N*=1e4 beat stays an ESTIMATE. No false QED.
 // ---------------------------------------------------------------------------
 const LADDER_CEILING = 4 / 3;                                   // imp-3090 trap ceiling 1/(1-1/4)
@@ -442,7 +442,7 @@ export const CTHETA_UNIFIED_LADDER = {
   discontinuity: 'the sensitivity scale-law exponent flips +1 (on-basin, dTheta/dW_1 ~ g0 vanishes) -> -1 (off-basin, dTheta/dW_1 ~ 1/g0 blows up) across the basin boundary; the discontinuity is in the SCALING, not the trap variable',
   ladder: UNIFIED_LADDER,
   anchors: LADDER_ANCHORS,
-  honest: 'A single-axis tabulation that places the three separately-measured Theta-channel regimes (on-basin vanishing, Theta=1/4 trap ceiling 4/3, off-basin 1/g0 blowup) on one rho axis and reproduces each modules published anchor. It MEASURES the basin transition; it does NOT close the off-basin divergence and carries no RH verdict. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+  honest: 'A single-axis tabulation that places the three separately-measured Theta-channel regimes (on-basin vanishing, Theta=1/4 trap ceiling 4/3, off-basin 1/g0 blowup) on one rho axis and reproduces each modules published anchor. It MEASURES the basin transition; it does NOT close the off-basin divergence and carries no RH verdict. No refereed bound is changed; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
 export const CTHETA_UNIFIED_LADDER_ASSERTIONS = [
@@ -490,9 +490,9 @@ export const CTHETA_UNIFIED_LADDER_ASSERTIONS = [
   },
   {
     id: 'ladder-no-false-qed-pt-stays-sota',
-    description: 'the ladder MEASURES the basin transition only: no RH verdict, PT 0.2 stays SOTA, the beat stays an ESTIMATE',
+    description: 'the ladder MEASURES the basin transition only: no RH verdict, no refereed bound is changed, the beat stays an ESTIMATE',
     holds: () => /does NOT close/.test(CTHETA_UNIFIED_LADDER.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CTHETA_UNIFIED_LADDER.honest)
+      && /refereed bound is changed/i.test(CTHETA_UNIFIED_LADDER.honest)
       && /ESTIMATE/.test(CTHETA_UNIFIED_LADDER.honest),
   },
 ];

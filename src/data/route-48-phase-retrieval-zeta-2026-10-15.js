@@ -44,7 +44,7 @@
  *
  * Verdict: mapped. Without symmetry |ζ| on the critical line fixes ζ up to independent off-line flips ρ ↔ 1 − ρ̄ and e^{iα + λ(s − 1/2)} — the
  * Hilbert-transform wall stated exactly; FE + reality make phase retrieval trivial (±ξ); a second line right of the zeros locates them without
- * the FE. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_48_ASSERTIONS recompute live: the DH zero-free
+ * the FE. No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_48_ASSERTIONS recompute live: the DH zero-free
  * threshold (Hurwitz–Euler–Maclaurin + bisection), the phase-defect constant, the flip factor, the BSY sensitivity, the B̃ identities behind
  * Thm 48.1/48.2, the sharpened pair bound and the configuration count.
  */
@@ -93,7 +93,7 @@ export const ROUTE_48 = Object.freeze({
     + 'FE, off-line zeros appear only as zero-count deficits with Lehmer-pair-sized margins. A second line right of every zero locates the zeros without '
     + 'the FE (DH: 8 off-line zeros below 400, completeness corroborated, not proved). Hilbert phase on the critical line: ≲ 1.48e-12·t for t ≪ 3e12 '
     + '(unconditional modulo cited theorems); exact on σ ≥ 7/8 conditional on the 003 half-plane. The conditional value stays 0.116091488672439. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R48 = ROUTE_48;
@@ -157,7 +157,7 @@ export const ROUTE_48_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r48-honesty',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R48.verdict) && /NO QED/.test(R48.verdict) && /not proved/.test(R48.verdict)
+    holds: () => /refereed bound is changed/i.test(R48.verdict) && /NO QED/.test(R48.verdict) && /not proved/.test(R48.verdict)
       && /0\.116091488672439/.test(R48.verdict) && R48.refereeKilled.length === 7,
     why: 'Verdict: map, completeness of the DH zero list corroborated not proved, conditional value unchanged, no QED; seven referee corrections recorded.',
   },

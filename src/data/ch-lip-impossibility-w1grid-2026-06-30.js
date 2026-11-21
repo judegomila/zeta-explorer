@@ -41,8 +41,8 @@
  * HONEST SCOPE. This is the route-1 IMPOSSIBILITY certificate: it confirms a
  * candidate N-uniform global-W_1 Lipschitz constant CANNOT exist (the lower bound
  * diverges). It is NOT a beat and must NOT be reinterpreted as one — it forecloses
- * the Lipschitz route rather than closing C_H. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA; no QED.
+ * the Lipschitz route rather than closing C_H. No refereed bound is changed
+ * ; no QED.
  *
  * @see ch-wall-frontier-verdict-2026-06-26 (route 1 lower bound C_Lip >= C_shock/(2 sqrt(W_1)))
  * @see imp-2786-c-shock-cusp-constant (C_shock pinned to sqrt(2/(3 log gamma_N)) < 1/3)
@@ -159,7 +159,7 @@ export const CH_LIP_IMPOSSIBILITY_W1GRID_IMP3047 = {
   honestNote:
     'No false QED. This is the route-1 IMPOSSIBILITY certificate: the lower bound DIVERGES, foreclosing a ' +
     'finite N-uniform global-W_1 C_Lip. It must NOT be reinterpreted as a beat — it closes the Lipschitz ' +
-    'route, it does not close C_H. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'route, it does not close C_H. No refereed bound is changed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -211,14 +211,14 @@ export const CH_LIP_IMPOSSIBILITY_W1GRID_ASSERTIONS = [
       return (
         r.isBeat === false &&
         r.isImpossibilityCertificate === true &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /IMPOSSIBILITY/.test(r.honestNote)
       );
     },
     why:
       'VERDICT LOCK: this is an impossibility certificate (the lower bound DIVERGES), NOT a beat. Blocks any ' +
-      'future edit from reinterpreting the divergent C_Lip lower bound as a C_H closure. Platt-Trudgian ' +
-      'Lambda <= 0.2 stays SOTA.',
+      'future edit from reinterpreting the divergent C_Lip lower bound as a C_H closure. No refereed bound is changed' +
+      '.',
   },
 ];
 

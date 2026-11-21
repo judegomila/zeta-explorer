@@ -55,7 +55,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-95614-sigma-exponent-ramp-crosscheck (X4, the measured ~0.508 plateau)
  * @see imp-95602-sigma-exponent-ramp-past-1e12 (single log-space evaluator)
@@ -189,7 +189,7 @@ export const IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT = {
     'to ~2e-6 across 1e24..1e300. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95614 X4 (measured ~0.508 plateau); imp-95602 (single log-space evaluator); imp-3463 ' +
     '(far-tail exponent -> 1/2); imp-3529 (pointwise local exponent p(N)); imp-3406 (component ' +
@@ -240,14 +240,14 @@ export const IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: derivation/measurement only, limit = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, limit = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp95638-honesty-gate-no-qed',
-    description: 'derivation only: far-tail limit = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'derivation only: far-tail limit = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT.isRigorous === false &&
       IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT.limit === 0.5 &&
       /NO QED/.test(IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT.verdict),
   },
 ];
 

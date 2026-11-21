@@ -9,7 +9,7 @@
  * is the operative rejector). This ticket attacks the three routes the parent named -- a
  * positive-density coprime-a averaging argument, a Bettin-Conrey cotangent mean-square lower bound,
  * and a reciprocity identity -- and reports a genuine REDUCTION plus its precise residual. No bound
- * is proved rigorous; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * is proved rigorous; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-96750/imp-97054. I(a,b) = C(a+b) + (1/2)(a-b) log(b/a) - (pi/2)(V(a,b) + V(b,a)),
  * symmetric, C = (log 2pi - gamma)/2; V(a,q) = Sum_{m=1}^{q-1} frac(m a/q) cot(pi m/q). The interior
@@ -110,7 +110,7 @@
  * imp-96750 term-splitting overshoot -- a squaring artifact -- does NOT recur). But it does NOT close:
  * the first-moment lower bound with an absolute kappa > 0 is measured, not proved. No rigorous ceiling
  * posted; the trace ceiling T ~ 2.594e7 stays the rigorous anchor; compute (N~9916) binds first
- * regardless. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * regardless. No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97071-first-moment-lower-bound-kappa-positive -- the first-moment
  * lower bound F(b) >= kappa phi(b) b with an absolute kappa > 0 (a Bettin-Conrey cotangent MEAN VALUE,
@@ -210,7 +210,7 @@ export const IMP97071_VERDICT = Object.freeze({
     'parts positive, kappa ~ 0.696 stable across primes and primorials). But it does NOT close: the ' +
     'first-moment lower bound with an absolute kappa > 0 is MEASURED, not proved (the arithmetic part ' +
     'is elementary; the open piece is a Bettin-Conrey cotangent MEAN VALUE lower bound). No rigorous ' +
-    'ceiling posted; T ~ 2.594e7 stays the anchor; compute N~9916 binds first. PT Lambda <= 0.2 SOTA; ' +
+    'ceiling posted; T ~ 2.594e7 stays the anchor; compute N~9916 binds first. No refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -230,7 +230,7 @@ export const IMP97071_SUBGAP = Object.freeze({
 });
 
 export const IMP97071_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reduction + partial only: the Cauchy-Schwarz ' +
+  'RH open; no refereed bound is changed; NO QED. Reduction + partial only: the Cauchy-Schwarz ' +
   'inequality Q(b) >= F(b)^2/S(b) is EXACT (no hypothesis) and REDUCES the imp-97054 mean-SQUARE lower ' +
   'companion to a strictly weaker first-MOMENT lower bound F(b) >= kappa phi(b) b, transferring to a ' +
   'positive interior slope Int(N) >= (36 kappa^2/pi^2) log N (measured CS slope 1.76, below the true ' +
@@ -299,7 +299,7 @@ const IMP97071_ASSERTIONS = [
       IMP97071_VERDICT.csReductionIsRigorous === true &&
       Math.abs(IMP97071_MEASURED.qOverBWindowMean - 1.75127) < 1e-4 &&
       /NO QED/.test(IMP97071_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97071_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97071_HONEST_BANNER) &&
       /RH open/.test(IMP97071_HONEST_BANNER),
     why: 'reduction + partial: the Cauchy-Schwarz reduction is rigorous and the first moment is measured positive, but kappa > 0 is NOT proved -- no bound moved, no rigorous ceiling posted, honesty markers and the named residual sub-gap present (Q(b)/b window mean reproduces imp-96750 1.75127).',
   },

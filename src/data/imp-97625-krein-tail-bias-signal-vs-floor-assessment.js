@@ -37,7 +37,7 @@
  * edge-amplitude floor ~1e-9), not numerical noise; it does not endanger the imp-97497 < 1e-3 tail
  * bar (sits 36.7x below it). Only the sign-change RADIUS at Rc stays below the floor (unresolvable
  * there), consistent with imp-97605. Assessment only; the m=1/m=2 Krein enclosure stays unusable at
- * 2a = ln 3; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; no
+ * 2a = ln 3; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; no
  * bound moves; RH open; NO QED.
  *
  * @see imp-97605-krein-tail-bias-direct-ct-crossvalidation.js (direct IBP-free relBias cross-validation)
@@ -45,7 +45,7 @@
  * @see imp-97497-krein-welloptimum-tail-converged.js (far-field cost tail-converged; R* ~ 3.36; < 1e-3 bar)
  *
  * Ticket: imp-97625 (numerical, medium, opus-4-8). Assessment only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);

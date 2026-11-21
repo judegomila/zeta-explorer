@@ -35,7 +35,7 @@
 // imp-97520 carries almost NO structured honesty boolean fields (only
 // `isRigorous`; no `operatorPositivityProved`, no `boundMoves`, no `qed`
 // property) -- its tripwire gates the NO-QED claim entirely on a regex test
-// of its prose `note` string for "NO QED" and "remains SOTA". This still
+// of its prose `note` string for "NO QED" and "no refereed bound is changed". This still
 // throws at import if the honest framing is removed (so it is a real
 // tripwire, not a gap), but it is a lighter convention than every other
 // module audited here and in imp-97529. imp-97563 sits between the two: it
@@ -132,20 +132,20 @@ export const IMP97595_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
     'gaps, matching the imp-97529 imp-97499 precedent. imp-97520 is a GENUINE coverage-depth ' +
     'divergence: unlike every other audited module (here and in imp-97529), it exposes almost no ' +
     'structured honesty boolean fields, gating the NO-QED claim largely on a regex match against its ' +
-    '`note` prose for "NO QED" and "remains SOTA"; imp-97563 shares the qed-specific half of this gap ' +
+    '`note` prose for "NO QED" and "no refereed bound is changed"; imp-97563 shares the qed-specific half of this gap ' +
     '(no boolean `qed` field, regex-only on its honest banner) despite otherwise being well-structured. ' +
     '4 of 5 (all but imp-97538, an externally ' +
     'run mpmath/Python sweep) independently recompute a key literal from scratch -- imp-97518 via finite ' +
     'differences and the exact cosine transform, imp-97519 via the closed-form drift law, imp-97520 via ' +
     'a LIVE ternary-search/bisection re-derivation of the whole landmark ladder from the inherited model, ' +
     'imp-97563 via its own from-scratch Vasyunin cotangent sum. No bound changed; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by reading each of the five ' +
     'modules; does not modify any module and does not add structured honesty boolean fields to ' +
-    'imp-97520 (left as a follow-up gap, not performed here). Platt-Trudgian Lambda <= 0.2 stays the ' +
-    'rigorous SOTA.',
+    'imp-97520 (left as a follow-up gap, not performed here). No refereed bound is changed' +
+    '.',
 });
 
 export const IMP97595_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -185,11 +185,11 @@ export const IMP97595_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-97595-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP97595_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP97595_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP97595_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP97595_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP97595_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP97595_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

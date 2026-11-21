@@ -46,7 +46,7 @@
  *   hence the Gpass = |Gshear| partial-isometry ||R|| = 1.0000 tautology -- is
  *   forced purely by the rank-2 hollow antisymmetry at every cell, so the binding
  *   RH-equivalent K_a >= 0 residual (the imp-3066 off-diagonal endpoint-Hankel
- *   step) is untouched. Platt-Trudgian Lambda <= 0.2 stays SOTA. No QED.
+ *   step) is untouched. No refereed bound is changed. No QED.
  *
  *   @see imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js (the single-cell N-scaling this generalizes)
  *   @see imp-3103-orthogonalized-opnorm-aU-grid.js (same imp-3085 A_GRID x U_GRID sweep)
@@ -305,7 +305,7 @@ export const IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID = Object.freeze({
       'Cell-independence of min eig = -||Gshear|| confirms the partial-isometry tautology is structural at every ' +
       'cell; the off-diagonal endpoint-Hankel operator magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -344,7 +344,7 @@ export const IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID_ASSERTIONS = [
   {
     id: 'imp3351-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity not ' +
-         'attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID.honestCaveat;
       return (
@@ -352,7 +352,7 @@ export const IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

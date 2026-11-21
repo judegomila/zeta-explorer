@@ -57,8 +57,7 @@
  *      at the nearest-pair scale. No current repo object supplies it; S2 is not escaped by any reading.
  *
  * ASSESSMENT / DERIVATION ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3671-mesoscopic-v0-vs-g6a-shock-lipschitz-assessment (parent: names S1 and S2; this drills S2)
  * @see imp-3693-microscopic-xdiff-route-scoping (the sibling that scopes the S1 x-difference structure)
@@ -173,7 +172,7 @@ export const IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT = {
     'the y -> 0 limit and the escape is a named, still-missing object (sub-gap ' +
     'G6a_shock_lipschitz::y2-adapted-flow-depth). Assessment/derivation only; no positivity, no bridge ' +
     'closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3671 (parent assessment: S1 type mismatch and S2 Gronwall-vacuous nearest-pair scale); imp-3642 ' +
     '(direct RK4 attractive-Dyson flow; worst mesoscopic Gronwall floor 0.991 at y_star = 4 d); imp-2520 ' +
@@ -234,13 +233,13 @@ export const IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT_ASSERTIONS = [
       /y2-adapted-flow-depth/.test(IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT.namedSubGap),
   },
   {
-    // Honesty gate: assessment/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: assessment/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3708-honesty-gate-no-qed',
-    description: 'Assessment/derivation only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Assessment/derivation only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3708_S2_GRONWALL_VACUITY_INTRINSIC_ASSESSMENT.verdict),
   },
 ];

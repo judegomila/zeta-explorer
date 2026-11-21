@@ -49,7 +49,7 @@
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual (M3: ~9% location / <1e-3 height first-order recovery)
  * @see imp-96286-eflow-peak-location-error-order (E_flow^2 / x^2 correction closes location ~21x)
@@ -251,7 +251,7 @@ export const IMP96403_EFLOW_PEAK_LOCATION_EFLOWSQ_VS_DEDN = {
     'algebraic E_flow^2/x^2 Taylor tail of 1/(1+x). Measurement on the inherited sub-terms only; the ' +
     'C_mb GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96266 (M3 first-order recovery ~9% location); imp-96286 (E_flow^2/x^2 correction closes ' +
     'location ~21x); imp-96308 (third Taylor order); imp-96329 (global reconstruction-tail law); ' +
@@ -291,13 +291,13 @@ export const IMP96403_EFLOW_PEAK_LOCATION_EFLOWSQ_VS_DEDN_ASSERTIONS = [
       Math.abs(PEAK_FULL.N / 9.22e5 - 1) < 5e-3 && Math.abs(PEAK_FULL.sigma - 0.9494) < 1e-3,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96403-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96403_EFLOW_PEAK_LOCATION_EFLOWSQ_VS_DEDN.isRigorous === false &&
       /NO QED/.test(IMP96403_EFLOW_PEAK_LOCATION_EFLOWSQ_VS_DEDN.verdict) &&
-      /remains SOTA/.test(IMP96403_EFLOW_PEAK_LOCATION_EFLOWSQ_VS_DEDN.verdict),
+      /refereed bound is changed/i.test(IMP96403_EFLOW_PEAK_LOCATION_EFLOWSQ_VS_DEDN.verdict),
   },
 ];
 

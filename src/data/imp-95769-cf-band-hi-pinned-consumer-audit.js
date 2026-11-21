@@ -43,8 +43,8 @@
  * (1.29615, 1.914x, or 6.1-8.6x) AS the current honest representative, and no consumer computes a
  * bound / wedge-depth / box-min figure off a superseded value as if it were final. One completeness
  * gap is flagged (the imp-95754 viz omits the imp-95747 9.583x endpoint). This audit changes no
- * bound, establishes no operator positivity, and asserts no QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. NO heavy imports.
+ * bound, establishes no operator positivity, and asserts no QED; no refereed bound is changed
+ * . NO heavy imports.
  */
 
 // carried literals of the supersession chain (imp-95691 / imp-95705 / imp-95721 / imp-95747)
@@ -127,7 +127,7 @@ export const CF_BAND_HI_PINNED_CONSUMER_AUDIT = Object.freeze({
     + 'omits the imp-95747 9.583x landmark (minGap -0.184642), so its visible curve endpoint is the '
     + 'intermediate imp-95721 6.1-8.6x band -- a completeness gap, not a bound error, for a follow-up '
     + 'content ticket. Accuracy/consistency audit only; changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED',
+    + 'positivity; no refereed bound is changed; NO QED',
   source: 'imp-95691 (pin), imp-95705 (measured reach), imp-95721 (density band), imp-95747 (converged 9.583x), imp-95754 (viz)',
 
   supersessionChain: Object.freeze({
@@ -163,7 +163,7 @@ export const CF_BAND_HI_PINNED_CONSUMER_AUDIT = Object.freeze({
     'Static consumer enumeration with carried literals only; performs no re-derivation of any box-min '
     + 'gap or reach multiplier. The whole imp-95617/imp-95691/imp-95705/imp-95721/imp-95747 chain rests '
     + 'on the inherited imp-3220/imp-3406 model and is NOT a rigorous asymptotic; it changes no bound. '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'No refereed bound is changed; NO QED.',
 });
 
 export const CF_BAND_HI_PINNED_CONSUMER_AUDIT_ASSERTIONS = Object.freeze([
@@ -197,10 +197,10 @@ export const CF_BAND_HI_PINNED_CONSUMER_AUDIT_ASSERTIONS = Object.freeze([
       && /9.583/.test(CF_BAND_HI_PINNED_CONSUMER_AUDIT.verdict.flaggedCompletenessGaps[0]),
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () =>
       /changes no bound/.test(CF_BAND_HI_PINNED_CONSUMER_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(CF_BAND_HI_PINNED_CONSUMER_AUDIT.status)
+      && /refereed bound is changed/i.test(CF_BAND_HI_PINNED_CONSUMER_AUDIT.status)
       && /NO QED/.test(CF_BAND_HI_PINNED_CONSUMER_AUDIT.status),
   },
 ]);

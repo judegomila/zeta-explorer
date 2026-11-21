@@ -61,7 +61,7 @@
  * GB) could, and that overshoots the repo's role. The zero-side direct-measurement route to the
  * crossover therefore stays out of reach; the analytic r_cap envelope remains the only in-repo
  * lever above gamma_1e6. Assessment/estimate only; changes no bound; NO QED; the zero-side route
- * stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays PCC / GRH-gated; no refereed bound is changed.
  *
  * @see imp-95750-number-variance-deadzone-measurement-reach (F2 dead-zone: ~2.4% reached, ~3.36-decade gap)
  * @see imp-95863-intermediate-ordinate-table-reach-ledger (complementary ledger to the 3e12 window bottom)
@@ -147,7 +147,7 @@ export const IMP95947_CROSSOVER_ORDINATE_COUNT_REACH_ASSESSMENT = {
     'crossover), so the crossover is reachable IN PRINCIPLE by an external Odlyzko/Gourdon-scale ' +
     'dataset but not by the repo. Consistent with imp-95863: the only in-repo lever above gamma_1e6 ' +
     'is the imp-95722 analytic r_cap envelope, not a bigger ordinate table. Changes no bound; NO ' +
-    'QED; the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED; the zero-side route stays PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95750 (direct-measurement dead-zone, ~2.4% reached, ~3.36-decade gap to the crossover); ' +
     'imp-95863 (complementary ordinate-table reach ledger to T = 3.0e12); imp-95801 (in-repo ' +

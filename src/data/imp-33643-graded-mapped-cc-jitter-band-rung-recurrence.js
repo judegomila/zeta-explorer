@@ -74,8 +74,7 @@
  *   &lt; 64 ULP band is a coarse-grid artifact that FAILS at deeper rungs n &gt;= 510; the rungs here
  *   (n in {325,425,450}) sit firmly inside the band. The NPHI = 10 Phi-series truncation is inherited.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
- *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33605-graded-mapped-cc-jitter-band.js (the n=350/375/400 scan whose ~360 ULP spike this tests)
  *   @see imp-33580-graded-mapped-cc-abscissa-artifact.js (the coarse-ladder floor)
@@ -325,7 +324,7 @@ const verdict =
       'THE-STRUCTURE:-~360-IS-A-LONE-n=375-ACCIDENT,-A-SMALLER->64-BOUNCE-RECURS,-FLOORS-INSIDE-THE-BAND,-' +
       'NOT-THE-EXACT-COUNTS);-imp-33537/imp-33557-BOUND-THE-<64-BAND-AT-n>=510;-NO-LITERAL-PATCHED;-' +
       'imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33560/imp-33580/imp-33605-INTACT;-mass-' +
-      'feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33643_GRADED_MAPPED_CC_JITTER_BAND_RUNG_RECURRENCE = Object.freeze({
@@ -353,7 +352,7 @@ export const IMP33643_GRADED_MAPPED_CC_JITTER_BAND_RUNG_RECURRENCE = Object.free
     'corroborate the band without widening it and the flat-budget edge survives. VERDICT: THE-~360-ULP-SPIKE-' +
     'IS-n=375-SPECIFIC-NOT-A-RECURRING-DEEP-TAIL-HAZARD. ACCURACY/RULE-DESIGN LATTICE-JITTER MEASUREMENT, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; imp-33537/imp-33557 bound the < 64 ' +
-    'band at n >= 510; no literal patched; imp-3066 untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'band at n >= 510; no literal patched; imp-3066 untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -454,7 +453,7 @@ export const IMP33643_GRADED_MAPPED_CC_JITTER_BAND_RUNG_RECURRENCE = Object.free
       'The exact dense-floor / stable-floor / bounce counts are single lattice hits on a jittery arithmetic ' +
       'floor; the robust reading is the structure (~360 is a lone n=375 accident, a smaller >64-ULP bounce ' +
       'recurs, floors inside the imp-33605 band), not the exact 99/101/99/115/... counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -509,7 +508,7 @@ export const IMP33643_GRADED_MAPPED_CC_JITTER_BAND_RUNG_RECURRENCE_ASSERTIONS = 
     id: 'imp33643-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design lattice-jitter measurement only, not a certified bound, no ' +
          'literal patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 ' +
-         'untouched, PT 0.2 SOTA.',
+         'untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33643_GRADED_MAPPED_CC_JITTER_BAND_RUNG_RECURRENCE.honestCaveat;
       return (
@@ -521,7 +520,7 @@ export const IMP33643_GRADED_MAPPED_CC_JITTER_BAND_RUNG_RECURRENCE_ASSERTIONS = 
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

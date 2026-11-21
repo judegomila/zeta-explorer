@@ -46,7 +46,7 @@
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED (E_coll stays GUE-conditional); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; the imp-398 C_F is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual (E_flow suppression identity; same sub-term wiring)
  * @see imp-398 (C_F = (log(T0/2pi)+1)/(2pi) pinned from the RvM density integral)
@@ -179,8 +179,8 @@ export const IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR = {
     'inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; the imp-398 C_F is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96266 (E_flow suppression identity; same sub-term wiring); imp-398 (C_F pinned from the RvM ' +
     'density integral); imp-486 (C_mb GUE-conditional); lambda-rh-height-mapping (effectiveHeightForN).',
@@ -220,13 +220,13 @@ export const IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR_ASSERTIONS = [
       inRegimeParts.C_F * IN_REGIME_MIN.kappa > 5 * inRegimeParts.C_F,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, E_coll stays GUE-conditional.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, E_coll stays GUE-conditional.
     id: 'imp96409-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR.isRigorous === false &&
       /NO QED/.test(IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR.verdict) &&
-      /remains SOTA/.test(IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR.verdict),
+      /refereed bound is changed/i.test(IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR.verdict),
   },
 ];
 

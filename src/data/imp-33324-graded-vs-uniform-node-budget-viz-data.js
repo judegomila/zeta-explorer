@@ -18,7 +18,7 @@
  * @see imp-33275-richardson-saddle-a-rung-uniformity.js (the uniform Richardson ladder baseline)
  *
  * Ticket: imp-33324 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33324_FLOOR_ULP = 30;

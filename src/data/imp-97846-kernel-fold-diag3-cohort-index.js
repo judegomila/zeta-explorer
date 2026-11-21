@@ -43,7 +43,7 @@
  *
  *   STATUS: a grouping/index note over three already-committed modules, not a new derivation.
  *   No bound changes; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066
- *   K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97662-cc-elasticity-peak-divergence.js (fold discovery: E ~ +/-K/sqrt(sigma_max-s))
  * @see imp-97721-diag3-peak-upslope-crossvalidation.js (DIAG3 cancellation survives the fold)
@@ -51,7 +51,7 @@
  * @see imp-97092-polefree-to-weil-obstruction-cohort-index.js (sibling cohort-index this mirrors)
  *
  * Ticket: imp-97846 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const N_PEAK = 9.218633e5; // imp-97520 L1 interior peak (shared across the cohort)
@@ -119,8 +119,8 @@ export const IMP97846_KERNEL_FOLD_DIAG3_COHORT_INDEX = Object.freeze({
     'and should not read a far-field decade-ratio deviation as a distinct exponent. Conditional-' +
     'share diagnostic on the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97662 (near-peak individual-elasticity square-root fold); imp-97721 (DIAG3 cancellation ' +
     'survives the fold, straddling both arms); imp-97823 (deep-limit kernel decade-ratio pinned ' +
@@ -157,11 +157,11 @@ export const IMP97846_KERNEL_FOLD_DIAG3_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97846-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97846_KERNEL_FOLD_DIAG3_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97846_KERNEL_FOLD_DIAG3_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97846_KERNEL_FOLD_DIAG3_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97846_KERNEL_FOLD_DIAG3_COHORT_INDEX.verdict),
   },
 ];
 

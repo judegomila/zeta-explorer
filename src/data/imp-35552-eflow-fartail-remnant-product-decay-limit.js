@@ -80,7 +80,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35535-eflow-fartail-remnant-product-decay-ladder (the 1e26..1e200 ladder whose limit this settles)
  * @see imp-35534-eflow-fartail-remnant-sub1e5-crossing (the log-space channel this continues past 1e200)
@@ -246,7 +246,7 @@ export const IMP35552_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LIMIT = {
     'window saw only steepening). Measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
     'rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35535 (the 1e26..1e200 product ladder whose limit this settles); imp-35534 (log-space channel ' +
     'continued here); imp-35473 (remnant*log N product datapoints); imp-35496 (both components vanish ' +
@@ -301,13 +301,13 @@ export const IMP35552_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LIMIT_ASSERTIONS = [
     holds: () => Math.abs(Q_AT_1E200 - -0.738987) < 5e-4,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35552-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35552_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LIMIT.isRigorous === false &&
       /NO QED/.test(IMP35552_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP35552_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP35552_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LIMIT.verdict),
   },
 ];
 

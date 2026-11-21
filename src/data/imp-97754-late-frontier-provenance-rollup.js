@@ -3,7 +3,7 @@
  * @fileoverview imp-97754 -- META provenance roll-up cataloguing the recent imp-97722/imp-97723/
  * imp-97724/imp-97725 measurement/cross-validation cohort by EVIDENCE CLASS and confirming each
  * module carries the mandatory honest banner: no-QED, isRigorous-false (or its textual
- * equivalent), and Platt-Trudgian Lambda <= 0.2 SOTA -- following the imp-34218/imp-33307/
+ * equivalent), and no refereed bound is changed -- following the imp-34218/imp-33307/
  * imp-3931 provenance-roll-up pattern.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block and
@@ -24,7 +24,7 @@
  *
  * RESULT (audited 2026-09-27). All four modules carry a full honest banner: imp-97723 and
  * imp-97725 use the explicit `isRigorous: false` field; imp-97722 and imp-97724 do not export an
- * `isRigorous` field but state the equivalent textual banner ("NO QED", "PT Lambda <= 0.2 SOTA")
+ * `isRigorous` field but state the equivalent textual banner ("NO QED", "No refereed bound is changed")
  * directly in their exported verdict/banner strings. All four state no bound on Lambda moves and
  * no operator-positivity claim. No module in this cohort references the Polymath15 G6a/H2
  * bridge.
@@ -45,7 +45,7 @@
  * @see imp-34218-34146-34151-cohort-provenance-rollup.js (the provenance-roll-up pattern this follows)
  *
  * Ticket: imp-97754 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing new;
- * no bound moves; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound moves; NO QED; no refereed bound is changed.
  */
 
 export const IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP = {
@@ -102,13 +102,13 @@ export const IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP = {
   anyBoundMoved: false,
   recommendation:
     'No action needed on the honest-banner side -- all four modules already disclose the ' +
-    'no-QED / no-bound-moved / PT-SOTA content, either as an explicit `isRigorous: false` field ' +
+    'no-QED / no-bound-moved / no-refereed-bound-change content, either as an explicit `isRigorous: false` field ' +
     '(imp-97723, imp-97725) or as an equivalent prose banner (imp-97722, imp-97724). Optional ' +
     'future tidy: add an explicit `isRigorous: false` field to imp-97722 and imp-97724 for ' +
     'format consistency across the cohort -- not required, since the disclosure is already present.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. No operator-positivity claim touched. Platt-Trudgian Lambda <= 0.2 remains SOTA. ' +
+    'itself. No operator-positivity claim touched. No refereed bound is changed. ' +
     'RH open. NO QED.',
 };
 
@@ -139,7 +139,7 @@ const IMP_97754_ASSERTIONS = [
       IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP.modules.every(
         (x) => x.noQED === true && x.plattTrudgianSOTA === true && x.honestBannerInProse === true,
       ) && IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 4,
-    why: 'Every module in the cohort must carry the no-QED / PT-SOTA disclosure, whether as a ' +
+    why: 'Every module in the cohort must carry the no-QED / no-refereed-bound-change disclosure, whether as a ' +
       'structured field or as prose -- grep-verified against the source files.',
   },
   {
@@ -157,9 +157,9 @@ const IMP_97754_ASSERTIONS = [
     holds: () =>
       IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP.anyBoundMoved === false &&
       /NO QED/.test(IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP.honestNote) &&
-      /remains SOTA/.test(IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and no bound moves.',
+      /refereed bound is changed/i.test(IMP_97754_LATE_FRONTIER_PROVENANCE_ROLLUP.honestNote),
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and no bound moves.',
   },
 ];
 

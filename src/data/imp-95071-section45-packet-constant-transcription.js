@@ -82,7 +82,7 @@
  * "paper text not carried" to the specific, in-repo, missing inputs listed here.
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── recoverable arithmetic (all re-derived by the assertions) ────────────────
@@ -176,7 +176,7 @@ export const IMP95071_SECTION45_TRANSCRIPTION = {
     "The paper-source location and the Section 4.5 eq (14)-(16) structure are verbatim facts. The model-to-paper name mapping is read off imp-95008-far-coefficient-floor.js and eq (15). beta = 1/3 recoverability is an exact reading of the Airy cube-root scaling; Q at the model normalization is an exact evaluation. (sigma, theta) not-pinned is a structural observation (no power-law in Section 4.5). No paper ceiling number is CLAIMED. NO QED.",
   promotesBound: false,
   verdict:
-    "TRANSCRIPTION of the Section 4.5 packet constants off the in-repo paper source (research-inputs/...revised.pdf). CORRECTION: the paper IS carried here (imp-95026 said it was not). Of the six named constants exactly ONE, beta = 1/3, is RECOVERABLE (Airy cube-root, matches the model). A_d is SETTLED (cancels, imp-95026 Finding 0). (v, D, c) are STRUCTURAL-PER-WINDOW (eq 15 / Section 4.6) and enter only through the isolation group Q = 2^(-2/3) at the model normalization. (sigma, theta) are NOT-PINNED: Section 4.5 defines Fresnel-Airy transition packets, not power-law envelopes, so no (sigma, theta) is stated. The paper MUST supply the Fresnel-Airy -> MAJ(sigma, theta) legality reduction plus the per-window Q at the pilot cell N = 690988. The imp-95026 result therefore remains a sensitivity MAP, its residual sharpened from 'paper text not carried' to the specific in-repo missing inputs. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "TRANSCRIPTION of the Section 4.5 packet constants off the in-repo paper source (research-inputs/...revised.pdf). CORRECTION: the paper IS carried here (imp-95026 said it was not). Of the six named constants exactly ONE, beta = 1/3, is RECOVERABLE (Airy cube-root, matches the model). A_d is SETTLED (cancels, imp-95026 Finding 0). (v, D, c) are STRUCTURAL-PER-WINDOW (eq 15 / Section 4.6) and enter only through the isolation group Q = 2^(-2/3) at the model normalization. (sigma, theta) are NOT-PINNED: Section 4.5 defines Fresnel-Airy transition packets, not power-law envelopes, so no (sigma, theta) is stated. The paper MUST supply the Fresnel-Airy -> MAJ(sigma, theta) legality reduction plus the per-window Q at the pilot cell N = 690988. The imp-95026 result therefore remains a sensitivity MAP, its residual sharpened from 'paper text not carried' to the specific in-repo missing inputs. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -223,13 +223,13 @@ export const IMP95071_TRANSCRIPTION_ASSERTIONS = [
   {
     id: "imp95071-honesty-gate",
     description:
-      "the verdict names the correction of fact, the paper source, what the paper must supply, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the correction of fact, the paper source, what the paper must supply, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95071_SECTION45_TRANSCRIPTION.promotesBound === false &&
       IMP95071_SECTION45_TRANSCRIPTION.whatThePaperMustSupply.length === 2 &&
       IMP95071_SECTION45_TRANSCRIPTION.openResiduals.length === 2 &&
       /NO QED/.test(IMP95071_SECTION45_TRANSCRIPTION.verdict) &&
-      /remains SOTA/.test(IMP95071_SECTION45_TRANSCRIPTION.verdict) &&
+      /refereed bound is changed/i.test(IMP95071_SECTION45_TRANSCRIPTION.verdict) &&
       /RECOVERABLE/.test(IMP95071_SECTION45_TRANSCRIPTION.verdict) &&
       /NOT-PINNED/.test(IMP95071_SECTION45_TRANSCRIPTION.verdict),
   },

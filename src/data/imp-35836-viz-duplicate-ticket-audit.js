@@ -49,7 +49,7 @@ export const IMP35836_VIZ_DUPLICATE_TICKET_AUDIT = {
     'AUDIT ONLY. No new viz-data module or page added -- imp-35823 already supplies both in full. ' +
     'This module records the duplicate-ticket finding and pins a permanent regression guard ' +
     'confirming the imp-35823 six-rung ladder stays present and complete. Changes no bound; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 };
 
 const IMP35836_ASSERTIONS = [
@@ -72,11 +72,11 @@ const IMP35836_ASSERTIONS = [
   },
   {
     id: 'imp35836-honesty-gate-no-qed',
-    description: 'audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35836_VIZ_DUPLICATE_TICKET_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35836_VIZ_DUPLICATE_TICKET_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35836_VIZ_DUPLICATE_TICKET_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35836_VIZ_DUPLICATE_TICKET_AUDIT.verdict),
   },
 ];
 

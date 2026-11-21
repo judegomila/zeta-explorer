@@ -125,7 +125,7 @@
  * The numerics below CROSS-CHECK the theorem statements; they are not the
  * claim. Import-light (imports the imp-95221 sibling for carried
  * constants and measured truths). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import FA from "./imp-95221-positive-amplitude-seam-certificate.js";
@@ -213,7 +213,7 @@ export const IMP95222_DIAGONAL_EXACT_SEAM_SHARPENING = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: the imp-95221 recorded-open sharpening is CLOSED (exact deficit identity, diagonal-exact pair cap, factor >= 2 on every bound). Obligation ledger: (1) per-window Q extraction DOWNGRADED from the pass-fail gate Q < 0.9088 to margin-sizing -- every finite Q yields a positive wrong-side-minority margin (1/2)(1 - e^(-2^(-2/3)/Q)), uniformly in (p, D), so the D >= 2 non-coverage is gone at the minority level; (2) the per-window amplitude-sign (or modulus-reduction) certificate for the true Fresnel-Airy packets -- UNCHANGED and load-bearing (mediant needs the positive cone); (3) the envelope-shape port and the seam-convention to chain-gate (gammaSL-form) map -- UNCHANGED; (4) paper constants (c, v, D -- equivalently Q) per window -- UNCHANGED, now sizing rather than gating. Leg (alpha) unchanged.",
   verdict:
-    "RIGOROUS step: the sharpening imp-95221 attempted and recorded open is delivered and exceeded. LEMMA PW-E (exact closed form of the full-line-Gram deficit against twice the single-region bound: 2a (e^(-b tau) - e^(-a tau))/(a^2 - b^2), manifestly nonnegative, vanishing iff tau = 0) upgrades the pairwise seam inequality to H_mn <= (1/2) e^(-(mu_m + mu_n) min(u_m, u_n)) G_mn -- diagonal-exact, subsuming both prior caps, and holding with 5 percent slack on the very deep-slow vs shallow-fast row that defeated the two-region attempt. THEOREM FA-2 halves the family certificate to R <= (1/2) e^(-y_min) <= (1/2) e^(-x_min) with the sandwich x_min <= y_min <= 2 x_min, exact on singletons. COROLLARY QG-2 dissolves the minority gate: R <= (1/2) e^(-2^(-2/3)/Q) < 1/2 for EVERY Q and (p, D) -- the O(1) test Q < 0.908840925297475 becomes an O(1) margin size, and the model D >= 2 non-coverage disappears (D = 2 certifies 0.2663, margin 0.2337). HONEST: positivity still load-bearing (signed sups untouched, the Fresnel-Airy phase obligation unchanged); the family bound stays one-sided (2.3-5.6x measured coverage gap); margin is O(1/Q) at large Q so the per-window Q still matters for SIZE; the gammaSL-form chain-gate map, envelope shape and paper constants remain OPEN; nothing here touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the sharpening imp-95221 attempted and recorded open is delivered and exceeded. LEMMA PW-E (exact closed form of the full-line-Gram deficit against twice the single-region bound: 2a (e^(-b tau) - e^(-a tau))/(a^2 - b^2), manifestly nonnegative, vanishing iff tau = 0) upgrades the pairwise seam inequality to H_mn <= (1/2) e^(-(mu_m + mu_n) min(u_m, u_n)) G_mn -- diagonal-exact, subsuming both prior caps, and holding with 5 percent slack on the very deep-slow vs shallow-fast row that defeated the two-region attempt. THEOREM FA-2 halves the family certificate to R <= (1/2) e^(-y_min) <= (1/2) e^(-x_min) with the sandwich x_min <= y_min <= 2 x_min, exact on singletons. COROLLARY QG-2 dissolves the minority gate: R <= (1/2) e^(-2^(-2/3)/Q) < 1/2 for EVERY Q and (p, D) -- the O(1) test Q < 0.908840925297475 becomes an O(1) margin size, and the model D >= 2 non-coverage disappears (D = 2 certifies 0.2663, margin 0.2337). HONEST: positivity still load-bearing (signed sups untouched, the Fresnel-Airy phase obligation unchanged); the family bound stays one-sided (2.3-5.6x measured coverage gap); margin is O(1/Q) at large Q so the per-window Q still matters for SIZE; the gammaSL-form chain-gate map, envelope shape and paper constants remain OPEN; nothing here touches any Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "LEMMA PW-E is exact algebra: the three-region evaluation of the full-line Gram, a two-term telescope to the closed-form deficit, and a sign inspection; the pair cap follows by division and the exponent identity x_m + x_n - a tau = (a + b) u_n. THEOREM FA-2 uses only the mediant inequality on nonnegative weights, LEMMA PW-E, and the two-line sandwich for y_min. COROLLARY QG-2 uses the carried monotonicity x(d) decreasing and x(D/2) = 1/Q. All numerics below CROSS-CHECK these statements; the theorems consume no numerics.",
 };
@@ -380,7 +380,7 @@ export const IMP95222_SHARPENING_ASSERTIONS = [
         IMP95222_DIAGONAL_EXACT_SEAM_SHARPENING.verdict,
       ) &&
       /NO QED/.test(IMP95222_DIAGONAL_EXACT_SEAM_SHARPENING.verdict) &&
-      /remains SOTA/.test(IMP95222_DIAGONAL_EXACT_SEAM_SHARPENING.verdict) &&
+      /refereed bound is changed/i.test(IMP95222_DIAGONAL_EXACT_SEAM_SHARPENING.verdict) &&
       /OPEN/.test(IMP95222_DIAGONAL_EXACT_SEAM_SHARPENING.propFENC2),
   },
 ];

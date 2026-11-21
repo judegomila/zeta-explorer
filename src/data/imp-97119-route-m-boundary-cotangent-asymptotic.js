@@ -49,7 +49,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program)
  *
  * Ticket: imp-97119 (proof, opus-4-8, low). Derivation only; NO bound moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED (this is an elementary asymptotic of
+ * no refereed bound is changed; RH open; NO QED (this is an elementary asymptotic of
  * a classical cotangent sum, not a claim about the zeros). No self-executing throw
  * (the imp-96294/imp-96819 convention) -- values are checked via a plain object below.
  */
@@ -83,7 +83,7 @@ export const IMP97119_VERDICT = Object.freeze({
 });
 
 export const IMP97119_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: the exact leading ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation only: the exact leading ' +
   'asymptotic V(1,b) = -(b/pi)(log(b/(2pi)) + gamma) - 1/pi + O(1/b) of the classical ' +
   'cotangent sum c_0(1/b) is elementary (endpoint Laurent expansion + the ' +
   'prod 2 sin = b identity), verified numerically to b=1025. It confirms the imp-97097 ' +

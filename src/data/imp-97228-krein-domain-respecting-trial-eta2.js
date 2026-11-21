@@ -15,7 +15,7 @@
  *   Gegenbauer-Galerkin build verbatim. Script: tmp/imp-97228-domain-respecting-trial-eta2.py.
  *
  *   Measurement only; mu stays an UPPER bound; no operator positivity; no lower-bound certificate;
- *   no bound moves; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   no bound moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * FINDING 1 -- TAPERING REDUCES eta2 BY AT MOST ~1 ORDER OF MAGNITUDE, NEVER TO A SMALL VALUE. Narrowing
  *   the smooth cutoff from w=100 (no damping) down to w=8 (only ~8 active modes) drives eta2 from the

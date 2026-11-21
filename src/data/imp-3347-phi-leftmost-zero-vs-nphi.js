@@ -53,7 +53,7 @@
  *   this far-left truncation zero never touches it -- the bridge-sign result is
  *   unaffected. Diagnostic only; measures the conservatism of the termwise bound,
  *   adds no new positivity, does not advance the imp-3066 K_a &gt;= 0 magnitude
- *   obstruction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   obstruction. No refereed bound is changed.
  *
  *   @see imp-3257-bridge-sign-phi-nonneg-structural.js (the termwise [u_1*, inf) bound this quantifies below u_1*)
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (the [0, U] usage this leaves untouched)
@@ -172,7 +172,7 @@ export const IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI = Object.freeze({
     'u_1*. The imp-3197/imp-3257 [0, U] window sits entirely inside [u_1*, infinity), so this far-left ' +
     'truncation zero never touches it and the bridge-sign result is unaffected. Diagnostic only; ' +
     'RH-equivalent; adds no new positivity and does not advance the imp-3066 K_a >= 0 magnitude ' +
-    'obstruction; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'obstruction; NO QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..NPHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -233,7 +233,7 @@ export const IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI = Object.freeze({
     truncationArtifactNotClassicalStatement:
       'The leftmost zero is a property of the FINITE truncation Phi_NPHI, not of the full de Bruijn-Newman ' +
       'Phi (which is positive on all of R); the zero recedes to -infinity as NPHI -> infinity.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -277,7 +277,7 @@ export const IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI_ASSERTIONS = [
     id: 'imp3347-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- not a proof, not a reduction below RH, RH-equivalent, a ' +
          'truncation artifact not a classical statement, does not advance positivity / the imp-3066 magnitude ' +
-         'obstruction, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'obstruction, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI.honestCaveat;
       return (
@@ -285,7 +285,7 @@ export const IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.doesNotAdvancePositivity.length > 0 &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

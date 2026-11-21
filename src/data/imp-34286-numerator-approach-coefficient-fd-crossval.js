@@ -41,7 +41,7 @@
  * derivative), not in the numerator's internal estimators. Cross-validation / measurement only. The inherited
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the coefficient is descriptive within that
  * model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486
- * untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34210-numerator-approach-rate-to-unity (the OLS log-log intercept a ~ 0.4293 cross-validated here)
  * @see imp-34151-cancellation-numerator-past-crossing (the monotone numerator -> 1.0 tabulated)
@@ -201,7 +201,7 @@ export const IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL = {
     'numerator internals. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the ' +
     'coefficient is descriptive within the model only; changes no bound; establishes no operator positivity; ' +
     'C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34210 (the OLS log-log intercept a ~ 0.4293 cross-validated here); imp-34151 (the monotone ' +
     'numerator -> 1.0); imp-34087 (the reciprocal identity and ~0.978 O(1) numerator); imp-33810 (the ' +
@@ -243,13 +243,13 @@ export const IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL_ASSERTIONS = [
     holds: () => OLS_INTERCEPT_A.exponent > 0.995 && OLS_INTERCEPT_A.exponent < 1.0,
   },
   {
-    // Honesty gate: cross-validation only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: cross-validation only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34286-honesty-gate-no-qed',
-    description: 'Coefficient cross-validation only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Coefficient cross-validation only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34286_NUMERATOR_APPROACH_COEFFICIENT_FD_CROSSVAL.verdict),
   },
 ];

@@ -26,8 +26,7 @@
  * truncated: the two legs are COUPLED through the discriminant
  * B^2 - A C. Every-octave onsets UNCHANGED (13.297836 / 13.071303 /
  * 12.817538): the certificate anchor rho = 2 is below the activation
- * crossover. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * crossover. Changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 / imp-95329 / imp-95330 normalization,
  * verbatim). a = ln rho in (0, 6], b = ln r in (0, a), tau = b / a,
@@ -251,8 +250,8 @@ export const IMP95331_SPLIT_WEIGHT_EXACT_ROOT_PENCIL_FLOOR = {
     "-> 6.09); the det/tr half is EXECUTED AND REFUTED as a standalone " +
     "lever (<= 1.006x alone, <= 1.025x coupled). Every-octave onsets " +
     "unchanged; the truncation, c3n tail, and interior t3 legs remain " +
-    "OPEN. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "OPEN. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -840,7 +839,7 @@ export const IMP95331_ASSERTIONS = [
       "the verdict and scope carry the honest labels: RIGOROUS lemmas " +
       "and theorem, side-weight leg EXECUTED, det/tr leg EXECUTED AND " +
       "REFUTED as standalone, onsets unchanged, surviving legs OPEN, " +
-      "no bound change, no QED, PT SOTA",
+      "no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(REC.verdict) &&
       /EXECUTED/.test(REC.verdict) &&
@@ -849,7 +848,7 @@ export const IMP95331_ASSERTIONS = [
       /remain OPEN/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /floor only/i.test(REC.honestScope) &&
       /model family only/.test(REC.honestScope) &&
       /NOT a standalone/.test(REC.refutationRecord),

@@ -6,7 +6,7 @@
  * who has not read imp-95451 in full.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -95,7 +95,7 @@ export const IMP95473_SPLITLOO_S1_PIPELINE_VERDICT_HONEST_STATUS = {
     'CLOSED by imp-95479; the only surviving open boundary is U1, which IS ' +
     'the pre-existing imp-95376 LEG B cross-family obligation, not a new gap. ' +
     'Ports nothing; measures nothing new; changes no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95451-splitloo-sigma-direction-pipeline-audit (source audit); ' +
     'imp-95479-u2-corner-highprec-angle-crosscheck (closes U2).',
@@ -141,7 +141,7 @@ export const IMP95473_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95473-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95473_SPLITLOO_S1_PIPELINE_VERDICT_HONEST_STATUS.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(
@@ -151,7 +151,7 @@ export const IMP95473_HONEST_STATUS_NOTE_ASSERTIONS = [
         IMP95473_SPLITLOO_S1_PIPELINE_VERDICT_HONEST_STATUS.verdict,
       ) &&
       /NO QED/.test(IMP95473_SPLITLOO_S1_PIPELINE_VERDICT_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95473_SPLITLOO_S1_PIPELINE_VERDICT_HONEST_STATUS.verdict,
       ),
   },

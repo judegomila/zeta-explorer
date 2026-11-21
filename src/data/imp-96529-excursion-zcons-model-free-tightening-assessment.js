@@ -59,7 +59,7 @@
  * argument forces the effective variance down; the admissible VIF interval straddles 1. The imp-96509
  * "strict lower bound" and the z_eff climb to 3.18/4.33/5.43 are model-contingent (AR(p) / sine-kernel
  * decay), and the best guaranteed model-free improvement over the independent floor is ZERO. Assessment
- * only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * @see imp-96509-excursion-effective-significance-ar2 (the AR-2/AR-3 model this assesses)
@@ -160,12 +160,12 @@ export const IMP96529_EXCURSION_ZCONS_MODEL_FREE_TIGHTENING = {
       'The guaranteed model-free floor stays at z_cons = 1.9234 (the independence value); the best rigorous model-free improvement over it is ZERO. The whole climb to z_eff = 3.18/4.33/5.43 is model-contingent (AR(p) resummation, equivalently the GUE sine-kernel theorem that all box correlations are negative and decay like O(1/k^2), i.e. no spectral mass at frequency 0), which the three measurements cannot certify.',
   },
   verdict:
-    'The measured strictly-negative lag-1..3 autocorrelations CANNOT rigorously tighten z_cons = 1.9234 above the naive independent-window floor: an explicit positive-semidefinite completion matching all four measured moments exactly has finite-window VIF_291 = 14.55 > 1 (n_eff = 20.0, z = 0.50 < 1.9234), so no PSD-only argument forces the effective variance down, and the admissible VIF interval straddles 1. Consequently z_cons is not even a model-free strict lower bound; it is the independence value, and the imp-96509 "strict lower bound" plus the z_eff climb to 3.18/4.33/5.43 are model-contingent (AR(p) / sine-kernel decay). The best guaranteed model-free improvement over the independent floor is ZERO. Assessment only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The measured strictly-negative lag-1..3 autocorrelations CANNOT rigorously tighten z_cons = 1.9234 above the naive independent-window floor: an explicit positive-semidefinite completion matching all four measured moments exactly has finite-window VIF_291 = 14.55 > 1 (n_eff = 20.0, z = 0.50 < 1.9234), so no PSD-only argument forces the effective variance down, and the admissible VIF interval straddles 1. Consequently z_cons is not even a model-free strict lower bound; it is the independence value, and the imp-96509 "strict lower bound" plus the z_eff climb to 3.18/4.33/5.43 are model-contingent (AR(p) / sine-kernel decay). The best guaranteed model-free improvement over the independent floor is ZERO. Assessment only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96529_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: three measured cosine moments cannot '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: three measured cosine moments cannot '
   + 'certify the tail (k >= 4), so a PSD-admissible completion with VIF_291 = 14.55 > 1 (z = 0.50 < 1.9234) '
   + 'exists and the admissible VIF interval straddles 1; the naive z_cons = 1.9234 stays the guaranteed floor '
   + '(best rigorous model-free improvement over independence = ZERO), and the imp-96509 climb to 3.18/4.33/5.43 '
@@ -198,9 +198,9 @@ export const IMP96529_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96529_EXCURSION_ZCONS_MODEL_FREE_TIGHTENING.verdict))
     throw new Error('imp-96529: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96529_EXCURSION_ZCONS_MODEL_FREE_TIGHTENING.verdict))
-    throw new Error('imp-96529: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96529_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96529_HONEST_BANNER) && /NO QED/.test(IMP96529_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96529_EXCURSION_ZCONS_MODEL_FREE_TIGHTENING.verdict))
+    throw new Error('imp-96529: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96529_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96529_HONEST_BANNER) && /NO QED/.test(IMP96529_HONEST_BANNER)))
     throw new Error('imp-96529: IMP96529_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

@@ -10,7 +10,7 @@
  *
  * PRESENTATION ONLY. Reuses the imp-97404 extendedLadder / pointwise arrays
  * verbatim (no re-derivation, no recomputation); establishes no new bound;
- * measurement/fit diagnostic, NOT an RH bound; PT Lambda <= 0.2 remains SOTA;
+ * measurement/fit diagnostic, NOT an RH bound; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97404-sigma-fartail-exponent-ladder-past-1e12.js (source: extendedLadder, pointwise, farTailExponent)
@@ -31,7 +31,7 @@ export const IMP97427_HONEST_BANNER =
   'Presentation only: the per-decade and pointwise exponent ladders are reused verbatim from the ' +
   'imp-97404 measurement (itself extending imp-33582 on the inherited imp-3406/imp-33582 three-term ' +
   'sigma(N) model). The climb toward the imp-3463 far-tail 1/2 is a measured monotone limit, not a ' +
-  'proved asymptotic. No new bound established; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'proved asymptotic. No new bound established; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -69,7 +69,7 @@ const IMP97427_ASSERTIONS = [
     id: 'imp97427-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97427_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97427_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97427_HONEST_BANNER) &&
       /NO QED/.test(IMP97427_HONEST_BANNER),
     why: 'every sigma(N) far-tail viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

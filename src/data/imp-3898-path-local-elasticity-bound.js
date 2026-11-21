@@ -87,8 +87,8 @@
  *  - This SHARPENS the elasticity characterization; it does NOT close the ticket
  *    to a certified unconditional C/Dmin^2 upper bound (that needs the tail
  *    profile, sub-gap below). LEMMA 3854 (global) stays a valid over-bound.
- *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; Platt-Trudgian
- *    Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; no refereed bound is changed
+ *    ; NO QED.
  *
  * OPEN SUB-GAP
  * ------------
@@ -210,7 +210,7 @@ export const IMP_3898_PATH_LOCAL_ELASTICITY_BOUND = Object.freeze({
       'with small path-local gaps carry above-Dmin elasticity at tiny weight. The ' +
       'certified bound is the weighted path-local majorant; collapsing it to an ' +
       'explicit C/Dmin^2 needs the tail profile (open sub-gap). Necessary sharpening, ' +
-      'not sufficient; Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 untouched; NO QED.',
+      'not sufficient; no refereed bound is changed; imp-3066 untouched; NO QED.',
   },
 
   sharpensImp3854:
@@ -244,7 +244,7 @@ export const IMP_3898_PATH_LOCAL_ELASTICITY_BOUND = Object.freeze({
     derivationPlusLiveCertification: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -336,7 +336,7 @@ export const IMP_3898_PATH_LOCAL_ELASTICITY_BOUND_ASSERTIONS = [
       'Honesty guard: this derives a sharper path-local majorant and certifies the Dmin ' +
       'effective constant, but does not close the certified C/Dmin^2 upper bound. It must ' +
       'not assert a new Lambda bound or a QED, imp-3066 stays untouched, and the ' +
-      'tail-weight sub-gap stays named open; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'tail-weight sub-gap stays named open; no refereed bound is changed.',
   },
 ];
 

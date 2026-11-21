@@ -63,7 +63,7 @@
  *   WHAT THIS IS AND IS NOT. A measurement extending imp-96695 to larger intermediate L and
  *   pinning the dataset ceiling relative to the reach rungs. It recomputes no crossover, moves
  *   no L*, instantiates no interval, closes no sub-gap, changes no bound. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see imp-96690-basis-c-above-anchor-rung-ladder (the GUE-only floor ladder / reach L* ~ 8.1e7 this tests)
  * @see imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation (the L = 30..960 real-zero rho measurement this extends)
@@ -75,7 +75,7 @@
  * literals are baked from the offline run.
  *
  * Ticket: imp-96733 (numerical, medium). Measurement only; establishes nothing; moves no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 const PI = Math.PI;
@@ -197,14 +197,14 @@ export const IMP96733_BASIS_C_REAL_ZERO_INTERMEDIATE_SIGNAL = Object.freeze({
   floorHasNoRealZeroAnalog: true,
   anyBoundMoved: false,
   verdict:
-    'MEASUREMENT. Pushing the real-zero two-interval box correlation to intermediate L (1e3..3e4) shows the GUE-only imp-96690 reach ladder is NOT corroborated by real zeros: at every tractable L finite-height number-variance saturation pins Sigma2_emp at ~0.386 and rho_emp at the rigidity limit -1/2, so the empirical signal |rho + 1/2| is 15x..520x SMALLER than the GUE ladder signal. The measurement breaks down at L ~ 1e5 (~9 windows) and the reach rungs themselves (5.9e6..8.1e7) need 2L windows 6x..81x the whole 2e6-zero dataset span, so they are structurally unreachable. The discrepancy is in the SAFE direction (real-zero signal even smaller than GUE, as in imp-96695) and the basis-C floor is a quadrature artifact with no real-zero analog, so only the signal side is measurable. Moves no bound; instantiates no interval; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+    'MEASUREMENT. Pushing the real-zero two-interval box correlation to intermediate L (1e3..3e4) shows the GUE-only imp-96690 reach ladder is NOT corroborated by real zeros: at every tractable L finite-height number-variance saturation pins Sigma2_emp at ~0.386 and rho_emp at the rigidity limit -1/2, so the empirical signal |rho + 1/2| is 15x..520x SMALLER than the GUE ladder signal. The measurement breaks down at L ~ 1e5 (~9 windows) and the reach rungs themselves (5.9e6..8.1e7) need 2L windows 6x..81x the whole 2e6-zero dataset span, so they are structurally unreachable. The discrepancy is in the SAFE direction (real-zero signal even smaller than GUE, as in imp-96695) and the basis-C floor is a quadrature artifact with no real-zero analog, so only the signal side is measurable. Moves no bound; instantiates no interval; NO QED. No refereed bound is changed; RH open.',
   citation:
     'imp-96690 (GUE-only floor ladder / reach L* ~ 8.1e7); imp-96695 (L = 30..960 real-zero rho, finite-height saturation); imp-96712 (reach bracket); Odlyzko zeros6 dataset; Berry semiclassical number-variance saturation.',
 });
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96733_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the GUE-only imp-96690 '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the GUE-only imp-96690 '
   + 'reach ladder is NOT corroborated by real Odlyzko zeros. At tractable intermediate L (1e3..3e4) '
   + 'finite-height number-variance saturation pins the empirical rho at the rigidity limit -1/2, so '
   + 'the real-zero signal |rho + 1/2| is 15x..520x smaller than the GUE ladder signal; the '
@@ -246,8 +246,8 @@ export default IMP96733_BASIS_C_REAL_ZERO_INTERMEDIATE_SIGNAL;
     throw new Error('imp-96733: measurement must not move any bound');
   if (!/NO QED/.test(IMP96733_BASIS_C_REAL_ZERO_INTERMEDIATE_SIGNAL.verdict))
     throw new Error('imp-96733: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96733_BASIS_C_REAL_ZERO_INTERMEDIATE_SIGNAL.verdict))
-    throw new Error('imp-96733: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96733_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96733_HONEST_BANNER) && /NO QED/.test(IMP96733_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96733_BASIS_C_REAL_ZERO_INTERMEDIATE_SIGNAL.verdict))
+    throw new Error('imp-96733: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96733_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96733_HONEST_BANNER) && /NO QED/.test(IMP96733_HONEST_BANNER)))
     throw new Error('imp-96733: IMP96733_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();

@@ -53,7 +53,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; E_trunc fixed
  * strip (imp-2631) UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35100-surrogate-total-E-fartail-floor (M3: E_flow/E_coll -> 0, ~8e-5 by 1e13; same model)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (E_flow offset identity; same model)
@@ -178,8 +178,8 @@ export const IMP35154_EFLOW_NEGLIGIBLE_THRESHOLD = {
     'neighborhood. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz ' +
     '(imp-2642) UNTOUCHED; E_trunc fixed strip (imp-2631) UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35100 (M3: E_flow/E_coll -> 0, ~8e-5 by 1e13, same model); imp-33601 (E_flow offset ' +
     'identity); imp-33723 (N_cross = 3.280294e9 closed form); imp-3406 (component model source); ' +
@@ -227,13 +227,13 @@ export const IMP35154_EFLOW_NEGLIGIBLE_THRESHOLD_ASSERTIONS = [
     holds: () => N_1PCT < N_CROSS && N_CROSS < N_0P1PCT,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35154-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35154_EFLOW_NEGLIGIBLE_THRESHOLD.isRigorous === false &&
       /NO QED/.test(IMP35154_EFLOW_NEGLIGIBLE_THRESHOLD.verdict) &&
-      /remains SOTA/.test(IMP35154_EFLOW_NEGLIGIBLE_THRESHOLD.verdict),
+      /refereed bound is changed/i.test(IMP35154_EFLOW_NEGLIGIBLE_THRESHOLD.verdict),
   },
 ];
 

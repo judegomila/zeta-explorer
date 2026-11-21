@@ -74,7 +74,7 @@
  * Changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED and SEPARATE from the R3
  * verified-height input; imp-2631 fixed strip UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35149-vanishing-etrunc-strip-scope (Knob A named the only vanishing lever; law unscoped)
  * @see imp-35100-surrogate-total-E-fartail-floor (E(N) floors at the constant E_trunc)
@@ -248,7 +248,7 @@ export const IMP35169_KNOBA_GROWTH_LAW_CROSSOVER = {
     'bound; discharges none of imp-35149 R1..R5; changes no bound; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED and SEPARATE from the R3 verified-height input; imp-2631 fixed strip UNTOUCHED; C_C ' +
     '1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35149 (Knob A named only vanishing lever, law unscoped); imp-35100 (E(N) floors at ' +
     'constant E_trunc); imp-2631 (E_trunc = (2e/kappa) T_v^{-kappa}, fixed strip); imp-33723 ' +
@@ -303,14 +303,14 @@ export const IMP35169_KNOBA_GROWTH_LAW_CROSSOVER_ASSERTIONS = [
     holds: () => CF_1E9.E_flow > 0 && CF_1E9.E_flow < CF_1E9.E_coll,
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA, imp-486 GUE-conditional noted, R3 open.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed, imp-486 GUE-conditional noted, R3 open.
     id: 'imp35169-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, GUE-conditional noted, R3 stays binding, PT SOTA',
+    description: 'Derivation only: isRigorous false, no QED, GUE-conditional noted, R3 stays binding, no refereed bound is changed',
     holds: () =>
       IMP35169_KNOBA_GROWTH_LAW_CROSSOVER.isRigorous === false &&
       /NO QED/.test(IMP35169_KNOBA_GROWTH_LAW_CROSSOVER.verdict) &&
       /imp-486/.test(IMP35169_KNOBA_GROWTH_LAW_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP35169_KNOBA_GROWTH_LAW_CROSSOVER.verdict) &&
+      /refereed bound is changed/i.test(IMP35169_KNOBA_GROWTH_LAW_CROSSOVER.verdict) &&
       /binding/.test(IMP35169_KNOBA_GROWTH_LAW_CROSSOVER.sharpensR3),
   },
 ];

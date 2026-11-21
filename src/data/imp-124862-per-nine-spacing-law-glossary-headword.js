@@ -33,7 +33,7 @@
  * @see imp-97814-fartail-diagnostic-landmark-cohort-index (ROLE 1: reported only 0.99/0.995)
  *
  * Ticket: imp-124862 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The per-nine spacing-law headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -60,7 +60,7 @@ const PER_NINE_SPACING_LAW_HEADWORD = Object.freeze({
     '0.9999 heights reproduce the independent imp-97744 pins to round-off; the consecutive ' +
     'spacing ratio climbs 9.7655 -> 9.9769, each below the exact limit of 10. Naming / glossary ' +
     'headword only; supplies no new bound; conditional-share diagnostic, not a rigorous ' +
-    'asymptotic; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'asymptotic; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD = Object.freeze({
@@ -79,8 +79,8 @@ export const IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD = Object.freeze({
     'costs a ten-fold jump in the required log10 N (spacing ratio 9.7655 -> 9.9769 -> exactly 10), ' +
     'the closed-form geometric signature of the logarithmic approach of the diagnostic to 1. No bound ' +
     'moved; reuses the inherited imp-97723/imp-97744 bare-slope inversion and Riemann-von Mangoldt ' +
-    'relation; conditional-share diagnostic, not an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'relation; conditional-share diagnostic, not an RH bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124793 (the per-nine ladder and spacing law this glosses); imp-97723 (diagnostic = ' +
     '1 - 1/log(T0/2pi)); imp-97744 (0.999/0.9999 heights independently cross-checked); imp-97814 ' +
@@ -109,11 +109,11 @@ export const IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124862-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124793.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124793.',
     holds: () =>
       IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP124862_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.glosses === 'imp-124793',
   },
 ];

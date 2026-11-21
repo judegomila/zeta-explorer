@@ -26,7 +26,7 @@
  * @see imp-97380-route-m-interior-second-moment-log2b-honest-status.js (later structural decision: log^2 b)
  *
  * Ticket: imp-97319 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97292_DEFAULT, { IMP97292_VERDICT, IMP97292_HONEST_BANNER } from './imp-97292-route-m-cq-subleading-extended-ladder.js';
@@ -56,7 +56,7 @@ export const IMP97319_HONEST_BANNER =
   'discriminating signal g(b)/b shrinks below the O(1) arithmetic-fluctuation noise floor faster ' +
   'than feasible window averaging can recover it. The intercept constituent (B*) needs the analytic ' +
   'Bettin-Conrey small-a asymptotic, not a longer ladder. No coefficient pinned; no bound moved; ' +
-  'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97319_ASSERTIONS = [
@@ -84,10 +84,10 @@ const IMP97319_ASSERTIONS = [
       IMP97319_STATUS.rhResolved === false &&
       IMP97319_STATUS.qed === false &&
       /NO QED/.test(IMP97319_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97319_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97319_HONEST_BANNER) &&
       /RH open/.test(IMP97319_HONEST_BANNER) &&
       /NO QED/.test(IMP97292_HONEST_BANNER),
-    why: 'documentation only: collinearity-not-broken recorded, no coefficient pinned, no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: collinearity-not-broken recorded, no coefficient pinned, no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

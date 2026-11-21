@@ -63,7 +63,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33744-sigma-inflection-vs-half-closed-form (closed form sigma_infl = 1/2 - g_prime/(2 g^2))
  * @see imp-33721-sigma-ramp-inflection-subdecade (direct sub-decade D2-zero knee N* ~ 3.38e9)
@@ -302,7 +302,7 @@ export const IMP33771_INFLECTION_CLOSED_FORM_VS_D2_ZERO_CROSSCHECK = {
     'sigma = 1/2 (halving < cf < D2-knee). The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33744 (closed form sigma_infl = 1/2 - g_prime/(2 g^2)); imp-33721 (direct sub-decade ' +
     'D2-zero knee N* ~ 3.38e9); imp-33582 (sigma=1/2 halving landmark ~3.27e9); imp-33701 ' +
@@ -375,13 +375,13 @@ export const IMP33771_INFLECTION_CLOSED_FORM_VS_D2_ZERO_CROSSCHECK_ASSERTIONS = 
     holds: () => Math.abs(NSTAR_RAMP_CONT / NSTAR_D2 - 1) < 0.01,
   },
   {
-    // Honesty gate: measurement/cross-validation only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no bound change, no QED, no refereed bound is changed.
     id: 'imp33771-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33771_INFLECTION_CLOSED_FORM_VS_D2_ZERO_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP33771_INFLECTION_CLOSED_FORM_VS_D2_ZERO_CROSSCHECK.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP33771_INFLECTION_CLOSED_FORM_VS_D2_ZERO_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP33771_INFLECTION_CLOSED_FORM_VS_D2_ZERO_CROSSCHECK.verdict),
   },
 ];
 

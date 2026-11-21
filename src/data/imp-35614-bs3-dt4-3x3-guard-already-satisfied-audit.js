@@ -28,7 +28,7 @@
  * status is auditable. Changes no bound; adopts no new slack denominator (imp-35412
  * keeps the endpoint DP45 dt/2 worst-case); does not advance the R2 ladder; does not
  * extend the C_mb certificate; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH
- * verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/4" and "g_curr".
  *
@@ -80,7 +80,7 @@ export const IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT = {
     'run-assertions guard already added by imp-35602; no further module needed. ' +
     'Changes no bound; adopts no new slack denominator (imp-35412 keeps the endpoint ' +
     'DP45 dt/2 worst-case); C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35573 (the baked BS3 dt/4 endpoint-positivity cell); imp-35506 (the 3x2 ' +
     'endpoint-positivity matrix this cell completed to 3x3); imp-35452 (DP45/RK4 signs ' +
@@ -127,12 +127,12 @@ export const IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT_ASSERTIONS = [
   {
     id: 'imp35614-honesty-gate-no-qed',
     description:
-      'Audit only: no bound changed, no new slack denominator, C_mb GUE-conditional per imp-486, no RH verdict, no QED, PT stays SOTA',
+      'Audit only: no bound changed, no new slack denominator, C_mb GUE-conditional per imp-486, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT.isRigorous === false &&
       /imp-486 UNTOUCHED/.test(IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT.verdict) &&
       /NO QED/.test(IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35614_BS3_DT4_3x3_GUARD_ALREADY_SATISFIED_AUDIT.verdict),
   },
 ];
 

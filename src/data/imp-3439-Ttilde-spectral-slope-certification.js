@@ -273,7 +273,7 @@ export const IMP3439_TTILDE_SPECTRAL_SLOPE_CERTIFICATION = Object.freeze({
     '"ratio -> 1 tighter as U grows" phrasing is sharpened: the ratio is stable at ~0.998 FROM BELOW, the ' +
     'residual being the Szego section deficit. CERTIFICATION only; RH-equivalent; measures the ratio not ' +
     'positivity; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude remains the lone obstruction, ' +
-    'UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -344,7 +344,7 @@ export const IMP3439_TTILDE_SPECTRAL_SLOPE_CERTIFICATION = Object.freeze({
       'The spectral-slope identity is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator magnitude ' +
       'remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -381,7 +381,7 @@ export const IMP3439_TTILDE_SPECTRAL_SLOPE_CERTIFICATION_ASSERTIONS = [
   {
     id: 'imp3439-honest-assessment-no-qed',
     why: 'Mandatory honesty: CERTIFICATION only -- numerical cross-check of the numerator-norm closed form to ~0.2%, ' +
-      'value stays transcendental, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'value stays transcendental, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3439_TTILDE_SPECTRAL_SLOPE_CERTIFICATION.honestCaveat;
       return (
@@ -391,7 +391,7 @@ export const IMP3439_TTILDE_SPECTRAL_SLOPE_CERTIFICATION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.certifiesClosedFormToRelativePrecision === 'string' &&
         typeof c.agreementIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

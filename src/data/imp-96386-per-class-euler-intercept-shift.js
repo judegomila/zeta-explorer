@@ -9,7 +9,7 @@
  * 235) and reports the slope + intercept of each, then shows the pooled sub-1 slope is EXACTLY explained
  * by the correlation between class Euler constant and rung size. It diagonalizes nothing, establishes NO
  * operator positivity, moves NO Lambda bound / verified height, and does NOT touch the finitely-many top
- * confined states. RH open; PT Lambda <= 0.2 stands; NO QED.
+ * confined states. RH open; no refereed bound is changed; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * WHY A PER-CLASS SLOPE IS EXACTLY 1. Within a fixed prime-content class the Euler factor is CONSTANT:
@@ -52,8 +52,8 @@
  * HONEST LIMITS. A MEASUREMENT of a combinatorial multiplicity model, not a diagonalization. The
  * "eigenspace dimension" of the true operator A_S235 is NOT computed (fractal Zygmund eigenfunctions
  * block exact diagonalization). Nothing establishes operator positivity, moves a Lambda bound /
- * verified height, or touches the finitely-many top confined states (the real residual). RH open; PT
- * Lambda <= 0.2 stands; NO QED.
+ * verified height, or touches the finitely-many top confined states (the real residual). RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * Import-light: pure integer/float arithmetic, no imports, no zeros bundle. Reproduction inline.
  */
@@ -155,7 +155,7 @@ export const IMP_96386_PER_CLASS_EULER_INTERCEPT = Object.freeze({
     classInterceptVsSizeCorrFull: -0.2507586457515837,      // negative: more-prime (smaller c) classes live at larger u
     identity: '0.9856682016114385 = 1 + (-0.014331798388566382)',   // exact to ~1e-15
   }),
-  verdict: 'MEASUREMENT only: the imp-96366 pooled sub-1 totient slope is CONFIRMED a prime-class-mixing artifact, not sub-linear growth. Fitting ln(phi_u) on ln(u) SEPARATELY within each of the seven prime-content classes (2, 3, 5, 23, 25, 35, 235) gives slope EXACTLY 1.000000 (R^2 = 1) in every class, with the intercept equal to ln(class Euler constant) exactly (ln(1/2), ln(2/3), ln(4/5), ln(1/3), ln(2/5), ln(8/15), ln(4/15)). The pooled sub-1 slope is explained EXACTLY by the OLS identity pooledSlope = 1 + slope[ ln(c_class) on ln(u) ] = 1 + (-0.014331798) = 0.985668202, matching the imp-96366 full-ladder 0.985668 to ~1e-15 -- because more-prime classes carry a smaller Euler constant AND populate larger u (corr = -0.2508). Establishes NO operator positivity, moves NO Lambda bound, does NOT touch the top confined states. RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'MEASUREMENT only: the imp-96366 pooled sub-1 totient slope is CONFIRMED a prime-class-mixing artifact, not sub-linear growth. Fitting ln(phi_u) on ln(u) SEPARATELY within each of the seven prime-content classes (2, 3, 5, 23, 25, 35, 235) gives slope EXACTLY 1.000000 (R^2 = 1) in every class, with the intercept equal to ln(class Euler constant) exactly (ln(1/2), ln(2/3), ln(4/5), ln(1/3), ln(2/5), ln(8/15), ln(4/15)). The pooled sub-1 slope is explained EXACTLY by the OLS identity pooledSlope = 1 + slope[ ln(c_class) on ln(u) ] = 1 + (-0.014331798) = 0.985668202, matching the imp-96366 full-ladder 0.985668 to ~1e-15 -- because more-prime classes carry a smaller Euler constant AND populate larger u (corr = -0.2508). Establishes NO operator positivity, moves NO Lambda bound, does NOT touch the top confined states. RH open; no refereed bound is changed; NO QED',
 });
 
 // ---- assertions

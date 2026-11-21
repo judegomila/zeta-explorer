@@ -47,8 +47,7 @@
  * VERIFICATION / INTERPRETATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes
- * no bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33767-sigma-inflection-offset-reconciliation (F3: N_half below N_cross, inline)
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma=1/2 halving landmark denominator)
@@ -175,7 +174,7 @@ export const IMP33796_NHALF_BELOW_NCROSS_INDEPENDENT_RECOMPUTE = {
     'artifact of the offset-residual bookkeeping. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ' +
     'ansatz (imp-2642) are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33767 (F3 N_half below N_cross, inline); imp-33744 (sigma=1/2 halving landmark); imp-33723 ' +
     '(E_flow puts N_half just below N_cross); imp-33582 (sigma=1/2 halving landmark); imp-3444 ' +
@@ -223,13 +222,13 @@ export const IMP33796_NHALF_BELOW_NCROSS_INDEPENDENT_RECOMPUTE_ASSERTIONS = [
       SEPARATION > 0 && Math.abs(SEPARATION / EFLOW_DISPLACEMENT_PRED - 1) < 0.1,
   },
   {
-    // Honesty gate: verification/interpretation only, no QED, PT stays SOTA.
+    // Honesty gate: verification/interpretation only, no QED, no refereed bound is changed.
     id: 'imp33796-honesty-gate-no-qed',
-    description: 'Verification only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Verification only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33796_NHALF_BELOW_NCROSS_INDEPENDENT_RECOMPUTE.isRigorous === false &&
       /NO QED/.test(IMP33796_NHALF_BELOW_NCROSS_INDEPENDENT_RECOMPUTE.verdict) &&
-      /remains SOTA/.test(IMP33796_NHALF_BELOW_NCROSS_INDEPENDENT_RECOMPUTE.verdict),
+      /refereed bound is changed/i.test(IMP33796_NHALF_BELOW_NCROSS_INDEPENDENT_RECOMPUTE.verdict),
   },
 ];
 

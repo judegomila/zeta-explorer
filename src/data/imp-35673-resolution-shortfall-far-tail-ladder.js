@@ -23,8 +23,7 @@
  * derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643),
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are
- * UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (two-row source table extended here)
  * @see imp-35685-resolution-shortfall-literal-guard (pins the two imp-35652 anchor literals)
@@ -35,7 +34,7 @@
 
 import { IMP35652_REQ3_OPTION_A_RESTRICTED_SUPPORT_SURROGATE_SCOPE } from './imp-35652-req3-option-a-restricted-support-surrogate-scope.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const RESOLUTION_FLOOR = 1; // band-limited |alpha| < 1 resolution floor ~ one mean spacing
 
 // Minimal-collision scale in mean-spacing units (Ben Arous-Bourgade 2013):
@@ -103,7 +102,7 @@ export const IMP35673_RESOLUTION_SHORTFALL_FAR_TAIL_LADDER = {
     'nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; ' +
     'route-(ii) (imp-35488 two-height spot check) remains the only viable partial; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35652 (two-row resolutionScaleTable extended here); imp-35685 (pins the two anchor literals); ' +
     'imp-35337/imp-35475 (interior peak and crossover landmarks); imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi)); ' +
@@ -165,7 +164,7 @@ export const IMP35673_RESOLUTION_SHORTFALL_FAR_TAIL_LADDER_ASSERTIONS = [
     },
   },
   {
-    // (5) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (5) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35673-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -177,7 +176,7 @@ export const IMP35673_RESOLUTION_SHORTFALL_FAR_TAIL_LADDER_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

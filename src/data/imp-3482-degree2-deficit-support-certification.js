@@ -60,7 +60,7 @@
  *   SUFFICIENT, and the degree-2 face carries no feasibility comparison at all
  *   (D_2 = 0). The operator-level K_a >= 0 sign-positivity (off-diagonal
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3469-degree2-bridge-mass-scaling.js (the claim certified here)
  *   @see imp-2686-mupass-construction.js (the degree-2 / absolute measure A(tau))
@@ -252,7 +252,7 @@ export const IMP3482_DEGREE2_DEFICIT_SUPPORT_CERTIFICATION = Object.freeze({
       'comparison at all (D_2 = 0). The operator-level K_a >= 0 sign-positivity (off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -309,7 +309,7 @@ export const IMP3482_DEGREE2_DEFICIT_SUPPORT_CERTIFICATION_ASSERTIONS = [
   {
     id: 'imp3482-honest-certification-not-a-verdict',
     why: 'Mandatory honesty: support-separation certification only, mass-feasibility necessary-but-not- ' +
-         'sufficient (no degree-2 ratio), operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'sufficient (no degree-2 ratio), operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3482_DEGREE2_DEFICIT_SUPPORT_CERTIFICATION.honestCaveat;
       return (
@@ -317,7 +317,7 @@ export const IMP3482_DEGREE2_DEFICIT_SUPPORT_CERTIFICATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

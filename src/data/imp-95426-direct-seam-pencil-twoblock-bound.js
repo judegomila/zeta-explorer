@@ -4,7 +4,7 @@
  * sharper than the imp-95378 pointwise min(SPLIT-2, SPLIT-LOO), and an honest
  * measurement of whether it closes the collar-limited nearby-cluster residual
  * wedge imp-95378 named (it does NOT). Derive/measure only; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * MOTIVATION (imp-95378 VERDICT). imp-95378 showed min(SPLIT-2, SPLIT-LOO)
  * absorbs the imp-95256 <=2x INTER-certificate wedge completely but leaves a
@@ -86,7 +86,7 @@
  * the two DIFFERENT quadratic forms (L2(0,inf) vs L2(x,inf)) that the exact
  * pencil couples. Named residual (carried forward): the collar wedge closes
  * only with the full joint pencil, which is NOT reducible to a 2x2 form.
- * Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes no bound; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) THEOREM DIRECT-2 is elementary (rank-one 2x2 Rayleigh
  * quotient); the content is the ordering DIRECT <= MIN, the measurement of the
@@ -152,7 +152,7 @@ export const IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND = {
     "THEOREM DIRECT-2 is elementary (rank-one 2x2 Rayleigh quotient); content = " +
     "the ordering DIRECT <= MIN, the ~12% asymmetric gain, and the symmetric- " +
     "collapse proof that the collar survives; m = 2 only; model family only; " +
-    "changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "changes no bound; NO QED; no refereed bound is changed",
   verdict:
     "DERIVATION + MEASUREMENT: the direct imp-95249 seam pencil reduces to the " +
     "2x2 eigenproblem (c c^T, M), giving DIRECT = (L1+L2+2 sigma sqrt(L1 L2))/" +
@@ -161,7 +161,7 @@ export const IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND = {
     "the imp-95378 collar-limited nearby-cluster wedge (same 1/(1-sigma^2) " +
     "collar; collapses to SPLIT-2 at L1=L2); the wedge is intrinsic to the angle " +
     "relaxation of the denominator, closable only by the full joint pencil. " +
-    "Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -465,7 +465,7 @@ export const IMP95426_ASSERTIONS = [
     description:
       "verdict and scope carry the honest labels: DERIVATION + MEASUREMENT, " +
       "uniformly sharper than the min, does NOT close the collar wedge, no bound " +
-      "change, no QED, PT SOTA",
+      "change, no QED, no refereed bound is changed",
     holds: () =>
       /DERIVATION \+ MEASUREMENT/.test(
         IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND.verdict,
@@ -480,7 +480,7 @@ export const IMP95426_ASSERTIONS = [
         IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND.verdict,
       ) &&
       /NO QED/.test(IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND.verdict) &&
-      /remains SOTA/.test(IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP95426_DIRECT_SEAM_PENCIL_TWOBLOCK_BOUND.verdict),
   },
 ];
 

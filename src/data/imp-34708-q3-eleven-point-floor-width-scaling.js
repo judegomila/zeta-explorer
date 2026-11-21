@@ -39,7 +39,7 @@
  *   as-is; this characterizes the STENCIL conditioning, it does not rehabilitate the surrogate. The -2
  *   asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb
  *   GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity;
- *   no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34690-q3-share-cancellation-stencil-width-scaling.js (the 7->9 floor ratio + closed form)
  *   @see imp-34654-sixth-order-stencil-reference-weight-crossvalidation.js (9-point stencil / conditioning)
@@ -262,7 +262,7 @@ export const IMP34708_Q3_ELEVEN_POINT_FLOOR_WIDTH_SCALING = Object.freeze({
     'inherited as-is -- this characterizes the STENCIL conditioning, it does not rehabilitate the ' +
     'surrogate. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; ' +
     'the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34690 (7->9 floor ratio + closed form F ~ eps*(maxNum/denom)/(dp^3*|q3|)); imp-34684 (F3/F4 ' +
     'exactly-representable-weights effect); imp-34654 (9-point reference-weight cross-validation); ' +
@@ -318,9 +318,9 @@ const IMP34708_ASSERTIONS = [
     holds: () =>
       IMP34708_Q3_ELEVEN_POINT_FLOOR_WIDTH_SCALING.isRigorous === false &&
       /NO QED/.test(IMP34708_Q3_ELEVEN_POINT_FLOOR_WIDTH_SCALING.verdict) &&
-      /remains SOTA/.test(IMP34708_Q3_ELEVEN_POINT_FLOOR_WIDTH_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP34708_Q3_ELEVEN_POINT_FLOOR_WIDTH_SCALING.verdict) &&
       /UNTOUCHED/.test(IMP34708_Q3_ELEVEN_POINT_FLOOR_WIDTH_SCALING.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

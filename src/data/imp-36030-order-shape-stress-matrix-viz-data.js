@@ -17,7 +17,7 @@
  *   @see imp-35761-w1-certified-rounding-cost-scope.js (log2(N)*eps pairwise ceiling this matrix normalizes against)
  *
  *   Ticket: imp-36030 (ux, low). Presentation only of an already-established measurement;
- *   adds no new Lambda bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   adds no new Lambda bound. NO QED. No refereed bound is changed.
  */
 
 export const IMP36030_N_AT_TPT = 488602; // floor(sqrt(T_PT/4 pi)), T_PT = 3e12

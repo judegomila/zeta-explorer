@@ -49,7 +49,7 @@
  * cost moves. The far-field positivity margin t0 = 10.531 is R-INDEPENDENT (|psi|^2 >= 0 makes the
  * integrand sign follow sigma_2 alone). The m=1/m=2 Krein enclosure stays unusable at 2a = ln 3.
  * Measurement only; no operator positivity; no coercivity constant; no bound moves; interval-rigorous
- * reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (g_pp, g_ppp closed forms; sign change at 1/a)
  * @see imp-97579-krein-edge-derivatives-fd-crossvalidation.js (finite-difference cross-validation of the same)
@@ -57,7 +57,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2 = (t^2+1/4)^2 w_1; reach 2a <= 0.96)
  *
  * Ticket: imp-97580 (numerical, medium, opus-4-8). Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

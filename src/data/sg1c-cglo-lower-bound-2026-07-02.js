@@ -82,7 +82,7 @@
  *     is a statement about the deterministic CM-flow rate sign, not RH.
  *   - It comfortably re-derives (and exceeds) the Theorem-C basin reference 0.72:
  *     the basin-conditional C_Lip (imp-3006) was already independent of c_glob and
- *     is unaffected. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA;
+ *     is unaffected. No refereed bound is changed;
  *     nothing here touches the finite-N Lambda estimate.
  *
  * @see sg1c-asym-onset-bracket-ledger-2026-06-30 (the ledger noting no lower bound existed)
@@ -193,7 +193,7 @@ export const SG1C_CGLO_LOWER_BOUND = {
   globalConstantStatus:
     'c_glob remains OPEN in the narrowed interval (0.86566, 0.89802]; this module PROVES the lower end for the first time (previously only trivial lower references existed)',
   honest:
-    'RIGOROUS lower bound c_glob >= 0.86566 under the isolated-globally-minimal-pair hypothesis; it does NOT close c_glob (gap (0.86566, 0.89802] to the located ceiling remains OPEN); basin-conditional C_Lip unaffected; Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; NO false QED.',
+    'RIGOROUS lower bound c_glob >= 0.86566 under the isolated-globally-minimal-pair hypothesis; it does NOT close c_glob (gap (0.86566, 0.89802] to the located ceiling remains OPEN); basin-conditional C_Lip unaffected; no refereed bound is changed; NO false QED.',
 };
 
 export const SG1C_CGLO_LOWER_BOUND_ASSERTIONS = [
@@ -284,7 +284,7 @@ export const SG1C_CGLO_LOWER_BOUND_ASSERTIONS = [
     description: 'honesty gate: rigorous lower bound only, c_glob explicitly OPEN in the narrowed interval, does NOT close the constant, PT Lambda <= 0.2 cited as SOTA, NO false QED',
     holds: () => /does NOT close c_glob/.test(SG1C_CGLO_LOWER_BOUND.honest)
       && /remains OPEN/.test(SG1C_CGLO_LOWER_BOUND.globalConstantStatus)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_CGLO_LOWER_BOUND.honest)
+      && /refereed bound is changed/i.test(SG1C_CGLO_LOWER_BOUND.honest)
       && /NO false QED/.test(SG1C_CGLO_LOWER_BOUND.honest),
   },
 ];

@@ -57,7 +57,7 @@
  * (local exponent 3.97->9.60) with no closed smooth law, so no envelope forward-PREDICTS the crossover
  * from the pre-crossover rungs (they under-predict by ~2x). Modelling only; the floor is a Rayleigh
  * UPPER bound; no operator positivity; interval-rigorous certificate reach stays 2a<=0.96;
- * Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96974-bessel-onset-crossover-viz-data.js (measured crossover N_cross=145.34, {136,148,160})
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (weightedTailFrac ladder {88..124})

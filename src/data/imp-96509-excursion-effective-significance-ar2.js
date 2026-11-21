@@ -60,7 +60,7 @@
  * every figure clears the 2-sigma target, and every fitted correlation stays negative -- sign-forbidden
  * from the rho_crit = +0.57443 flip threshold. The headline conservative z_cons = 1.9234 floor is
  * unchanged and remains a strict lower bound. Measurement/reconciliation only; changes no bound; RH
- * open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96489-excursion-effective-significance-direct-rho (the AR-1 model this extends)
  * @see imp-96452-excursion-confidence-2sigma-reach (carries z_cons = 1.9234 and the baked rho literal)
@@ -193,12 +193,12 @@ export const IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2 = {
   caveat:
     'The lag-2/lag-3 values -0.020/-0.008 are the APPROXIMATE theoretical sine-process (GUE, universality) box correlations from the imp-96489 caveat, not the empirical adjacent-box covariance of the actual Riemann zeros (which would need the zeros bundle). Because rho_1 is large, the AR-2/AR-3 factors are sensitive to the exact higher-lag inputs, so the >4-sigma effective figures are indicative, not precise; the robust takeaway is the DIRECTION (each added negative lag raises n_eff and z_eff) and the SIGN safety. Measurement/reconciliation only; changes no bound; the headline ~1.9-sigma floor is untouched.',
   verdict:
-    'Extending the imp-96489 AR-1 effective-count model to AR-2 (Yule-Walker on the true sine-process lag-2 ~ -0.020) raises n_eff from 794.78 to 1475.43 and z_eff from 3.1787 to 4.3310; the AR-3 lag-3 refinement pushes them to 2321.70 and 5.4329. The higher-lag corrections push strictly in the SAFE direction, every figure clears the 2-sigma target, and every fitted correlation stays negative -- sign-forbidden from the rho_crit = +0.57443 flip threshold. The headline conservative z_cons = 1.9234 floor is unchanged and remains a strict lower bound. Measurement/reconciliation only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Extending the imp-96489 AR-1 effective-count model to AR-2 (Yule-Walker on the true sine-process lag-2 ~ -0.020) raises n_eff from 794.78 to 1475.43 and z_eff from 3.1787 to 4.3310; the AR-3 lag-3 refinement pushes them to 2321.70 and 5.4329. The higher-lag corrections push strictly in the SAFE direction, every figure clears the 2-sigma target, and every fitted correlation stays negative -- sign-forbidden from the rho_crit = +0.57443 flip threshold. The headline conservative z_cons = 1.9234 floor is unchanged and remains a strict lower bound. Measurement/reconciliation only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96509_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/reconciliation only: the lag-2/lag-3 inputs '
+  'RH open; no refereed bound is changed; NO QED. Measurement/reconciliation only: the lag-2/lag-3 inputs '
   + '(-0.020/-0.008) are the theoretical GUE sine-process box correlations, not empirical zero covariances, '
   + 'so the >4-sigma AR-2/AR-3 effective figures are indicative, not precise; the robust takeaway is direction '
   + '(each added lag raises n_eff/z_eff) and sign safety, not the exact numbers; the conservative z_cons = '
@@ -233,9 +233,9 @@ export const IMP96509_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2.verdict))
     throw new Error('imp-96509: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2.verdict))
-    throw new Error('imp-96509: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96509_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96509_HONEST_BANNER) && /NO QED/.test(IMP96509_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2.verdict))
+    throw new Error('imp-96509: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96509_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96509_HONEST_BANNER) && /NO QED/.test(IMP96509_HONEST_BANNER)))
     throw new Error('imp-96509: IMP96509_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

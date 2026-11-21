@@ -32,7 +32,7 @@
  *   at the operator level, and the RESULT 4(iii) sup-majorant ingredient this recursion feeds into)
  *
  * Ticket: imp-97387 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The dilation recursion headword, baked verbatim (no re-import).
@@ -57,8 +57,8 @@ const DILATION_RECURSION_HEADWORD = Object.freeze({
     'Re-cited from the imp-97353 measurement module ' +
     '(src/data/imp-97353-friable-mertens-sup-refutation.js), where the recursion is verified ' +
     'exactly (to 7e-16) by direct comparison against signed-divisor enumeration at k = 1..10. ' +
-    'Naming / glossary headword only; supplies no new bound; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'Naming / glossary headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD = Object.freeze({
@@ -76,7 +76,7 @@ export const IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD = Obj
     'dilation recursion M_k = (I - D_{p_k}) M_{k-1}, M_0(t) = e^{-t}, equivalently ' +
     'M_k = prod_{j=1}^k (I - D_{p_j}) e^{-t}: peeling the largest prime from the primorial ' +
     'divisor set recasts the friable partial sum as a k-fold dilation-difference of a single ' +
-    'seed. No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'seed. No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97353 (the dilation recursion, slope identity, and TV reduction this glosses); ' +
     'imp-97332 (the friable reformulation the recursion recasts at the operator level).',
@@ -102,11 +102,11 @@ export const IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp97387-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97353.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97353.',
     holds: () =>
       IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD.verdict) &&
       IMP97387_FRIABLE_MERTENS_DILATION_RECURSION_GLOSSARY_HEADWORD.glosses === 'imp-97353',
   },
 ];

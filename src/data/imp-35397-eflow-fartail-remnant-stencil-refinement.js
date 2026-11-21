@@ -57,7 +57,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate extrapolation, NOT a rigorous
  * asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35377-eflow-fartail-remnant-interior-peak (finer-N-grid half; stencil caveat closed here)
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (the coarse three-point ladder)
@@ -222,7 +222,7 @@ export const IMP35397_EFLOW_FARTAIL_REMNANT_STENCIL_REFINEMENT = {
     'stencil artifact. Measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous ' +
     'asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35377 (finer-N-grid peak location, stencil caveat closed here); imp-35280 (coarse three-point ' +
     'ladder); imp-35371 (same remnant, deep extension, pure-Math channel); imp-35198 (analytic ' +
@@ -268,13 +268,13 @@ export const IMP35397_EFLOW_FARTAIL_REMNANT_STENCIL_REFINEMENT_ASSERTIONS = [
     holds: () => FD_VS_EXACT_AT_PEAK < 1e-6,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35397-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35397_EFLOW_FARTAIL_REMNANT_STENCIL_REFINEMENT.isRigorous === false &&
       /NO QED/.test(IMP35397_EFLOW_FARTAIL_REMNANT_STENCIL_REFINEMENT.verdict) &&
-      /remains SOTA/.test(IMP35397_EFLOW_FARTAIL_REMNANT_STENCIL_REFINEMENT.verdict),
+      /refereed bound is changed/i.test(IMP35397_EFLOW_FARTAIL_REMNANT_STENCIL_REFINEMENT.verdict),
   },
 ];
 

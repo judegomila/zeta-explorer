@@ -50,7 +50,7 @@
  * NOT discharge the GUE conditional (imp-486): it treats C_mb as a free knob to measure its
  * N-profile of leverage, it does not tighten C_mb. Changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34734-sigma-peak-cmb-elasticity (measured dsigma/dC_mb ~ 0.048 ONLY at the peak)
  * @see imp-3406-sigma-highN-extrapolation (interior max N_max ~ 9.22e5, sigma_max ~ 0.94943)
@@ -190,7 +190,7 @@ export const IMP34748_CMB_LEVERAGE_N_PROFILE = {
     'asymptotic; this does NOT discharge the GUE conditional (imp-486) -- it treats C_mb as a ' +
     'free knob to measure its N-profile of leverage; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the N-profile question imp-34734 left open: the C_mb leverage is not a single ' +
     'number but the N-varying function sigma(1-sigma), ranging ~0.048..0.25 over {2..1e12}, with ' +
@@ -240,15 +240,15 @@ export const IMP34748_CMB_LEVERAGE_N_PROFILE_ASSERTIONS = [
       N_MAX_LEVERAGE < 1e10,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2, no QED, no refereed bound is changed.
     id: 'imp34748-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34748_CMB_LEVERAGE_N_PROFILE.isRigorous === false &&
       IMP34748_CMB_LEVERAGE_N_PROFILE.farTailExponent === 0.5 &&
       typeof IMP34748_CMB_LEVERAGE_N_PROFILE.subGap === 'string' &&
       /NO QED/.test(IMP34748_CMB_LEVERAGE_N_PROFILE.verdict) &&
-      /remains SOTA/.test(IMP34748_CMB_LEVERAGE_N_PROFILE.verdict),
+      /refereed bound is changed/i.test(IMP34748_CMB_LEVERAGE_N_PROFILE.verdict),
   },
 ];
 

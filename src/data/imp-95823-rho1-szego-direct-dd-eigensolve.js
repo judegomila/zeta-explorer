@@ -76,7 +76,7 @@
  * result, with the delta = ln 1.3 direct window pre-asymptotic (named sub-gap).
  * (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95677-rho1-szego-finite-size-convergence (the float64-floor sub-gap)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the Poisson-dual resolution this cross-checks)
@@ -157,8 +157,8 @@ export const IMP95823_RHO1_SZEGO_DIRECT_DD_EIGENSOLVE = {
     "the exponent stays an imp-95689 dual + delta = 3 control result. Measures an " +
     "established endpoint; no new cited input. Model seam family only; the " +
     "imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. " +
-    "Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA; Sun arXiv:2609.04176 unrefereed.",
+    "Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    "; Sun arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95823"],
 };
 
@@ -345,7 +345,7 @@ export const IMP95823_ASSERTIONS = [
       REF.exponentDirectAtLn13 === false &&
       /CONFIRMED/.test(REF.verdict) &&
       /SUB-GAP/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95823-closes-self",

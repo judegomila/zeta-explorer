@@ -42,7 +42,7 @@
  *   headword, already carries the withdrawal inline)
  *
  * Ticket: imp-97085 (meta, medium, sonnet-4-6). Documentation/bookkeeping only; no bound moves;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 export const IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT = Object.freeze({
@@ -75,7 +75,7 @@ export const IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT = Object.freeze({
     'headword) already state the withdrawal inline at the point of citation. All other numeric ' +
     'hits are unrelated coincidental decimals from other measurements. No file needed patching. ' +
     'Documentation/bookkeeping only; establishes nothing new; no bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'rh-bridge-mirror-descent-2026-09-25 (source of the withdrawal, section C1); ' +
     'imp-97061-mirror-pair-lemma-flow-descent-glossary-headword (downstream glossary headword, ' +
@@ -96,11 +96,11 @@ export const IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp97085-honesty-gate-no-qed',
-    why: 'Documentation/bookkeeping only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/bookkeeping only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT.anyBoundMoved === false &&
       /NO QED/.test(IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP97085_MIRROR_DESCENT_WITHDRAWN_CITATION_AUDIT.verdict),
   },
 ];
 

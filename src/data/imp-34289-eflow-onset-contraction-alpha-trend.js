@@ -67,8 +67,7 @@
  * asymptotic. E_flow is the benign mesoscopic-Gronwall term (imp-2845), NOT the
  * divergent C_Lip collision-Gronwall; its onset here does NOT touch C_Lip. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); imp-3066 K_a >= 0
- * untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * untouched; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34213-eflow-onset-closed-form (the height fixed point and its |h_prime| ~ 0.095..0.15 note)
  * @see imp-34134-eflow-etrunc-ratio-decay-onset (the bisected E_flow = alpha E_trunc onsets)
@@ -239,7 +238,7 @@ export const IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow is the benign mesoscopic-Gronwall ' +
     'term (imp-2845), NOT the divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED (E_coll untouched); imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34213 (E_flow onset height fixed point; noted |h_prime| ~ 0.095..0.15); imp-34134 (bisected ' +
     'E_flow = alpha E_trunc onsets); imp-3444 (E_flow flow sub-term); imp-2631 (E_trunc floor); imp-2845 ' +
@@ -289,14 +288,14 @@ export const IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND_ASSERTIONS = [
       ACTUAL_ITERS_TREND_DOWN === true,
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, C_mb GUE-conditional untouched, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, C_mb GUE-conditional untouched, no refereed bound is changed.
     id: 'imp34289-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED named, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED named, no refereed bound is changed',
     holds: () =>
       IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND.isRigorous === false &&
       /NO QED/.test(IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND.verdict) &&
-      /remains SOTA/.test(IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND.verdict),
+      /refereed bound is changed/i.test(IMP34289_EFLOW_ONSET_CONTRACTION_ALPHA_TREND.verdict),
   },
 ];
 

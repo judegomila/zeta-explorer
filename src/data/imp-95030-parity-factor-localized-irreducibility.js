@@ -71,8 +71,8 @@
  * irreducible by any reweighting or non-AM-GM treatment localized to the b = 0
  * near-tie; the sole escape is an adjacent (j = 1) block-correlation cap
  * rho_adj < 1/2, a new arithmetic ingredient outside the far-envelope MAJ class,
- * whose payoff is the exact ceiling 1 + 2 rho_adj. NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Import-light (no heavy bundle).
+ * whose payoff is the exact ceiling 1 + 2 rho_adj. NO QED; no refereed bound is changed
+ * . Import-light (no heavy bundle).
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -165,7 +165,7 @@ export const IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY = {
     "The assessment composes three checkable facts: (1) V(b, 1) = 0 for every b (the adjacent separation floor vanishes, closed form), so adjacent pairs are uncapped in MAJ; (2) the exact expansion || x + y ||^2 = sum || w_b ||^2 + 2 <x, y> localizes the whole factor-2 slack in the adjacent cross term; (3) imp-95018 Gram-sharpness (textbook tridiagonal Toeplitz spectrum) attains lambda_max = 2 by the near-constant balanced-parity mode, which is admissible precisely because the adjacent entry is free. Together these show the factor 2 is a hard floor for any treatment inside the current MAJ far-envelope model, and the ceiling 1 + 2 rho_adj cos(pi/(K+1)) is the exact payoff of a hypothetical adjacent cap rho_adj. This is an ASSESSMENT/classification, not a new bound; optimality of the witness is not claimed; NO QED.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT: the outer parity AM-GM factor 2 is a HARD FLOOR within the current model family. It handles the ADJACENT (j = 1) cross-block correlation, whose Lemma X separation floor VANISHES (V(b,1) = 0 for every b), so adjacent pairs are uncapped in the MAJ envelope class; the two-coloring routes them into the cross term and AM-GM discards them at price 2. A non-AM-GM treatment localized to the b = 0 near-tie keeps that cross term exact, but the localized cross term IS the uncapped adjacent (0,1)/(1,2) correlation, so keeping it needs a new adjacent cap rho_adj < 1/2 - an ingredient outside the far-envelope class. The b = 0/b = 2 near-tie is intra-class (both even b) and does not drive the parity balance, and the imp-95018 equality mode (near-constant, balanced 2-coloring, rho* -> 1/2) is admissible because V(b,1) = 0, so no reweighting or localized move beats 2. The SOLE lever is a proven adjacent cap rho_adj < 1/2 (new arithmetic input, sub-gap imp-95030-sub-adjacent-correlation-cap), whose exact payoff is the ceiling 1 + 2 rho_adj cos(pi/(K+1)) -> 1 + 2 rho_adj (rho_adj = 1/4 gives 3/2, 1/10 gives 6/5). Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT: the outer parity AM-GM factor 2 is a HARD FLOOR within the current model family. It handles the ADJACENT (j = 1) cross-block correlation, whose Lemma X separation floor VANISHES (V(b,1) = 0 for every b), so adjacent pairs are uncapped in the MAJ envelope class; the two-coloring routes them into the cross term and AM-GM discards them at price 2. A non-AM-GM treatment localized to the b = 0 near-tie keeps that cross term exact, but the localized cross term IS the uncapped adjacent (0,1)/(1,2) correlation, so keeping it needs a new adjacent cap rho_adj < 1/2 - an ingredient outside the far-envelope class. The b = 0/b = 2 near-tie is intra-class (both even b) and does not drive the parity balance, and the imp-95018 equality mode (near-constant, balanced 2-coloring, rho* -> 1/2) is admissible because V(b,1) = 0, so no reweighting or localized move beats 2. The SOLE lever is a proven adjacent cap rho_adj < 1/2 (new arithmetic input, sub-gap imp-95030-sub-adjacent-correlation-cap), whose exact payoff is the ceiling 1 + 2 rho_adj cos(pi/(K+1)) -> 1 + 2 rho_adj (rho_adj = 1/4 gives 3/2, 1/10 gives 6/5). Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -216,14 +216,14 @@ export const IMP95030_ASSERTIONS = [
   {
     id: "imp95030-honesty-gate",
     description:
-      "the verdict states the factor 2 is a HARD FLOOR within the current model, names the adjacent-cap sole lever and its exact payoff, keeps the residual 1.4044x witness-side, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict states the factor 2 is a HARD FLOOR within the current model, names the adjacent-cap sole lever and its exact payoff, keeps the residual 1.4044x witness-side, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.promotesBound === false &&
       IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.openResiduals.length === 2 &&
       /HARD FLOOR/.test(IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.verdict) &&
       /adjacent/.test(IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.soleLever) &&
       /NO QED/.test(IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.verdict) &&
-      /remains SOTA/.test(IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.verdict) &&
       typeof IMP95030_PARITY_FACTOR_LOCALIZED_IRREDUCIBILITY.subGap === "string",
   },
 ];

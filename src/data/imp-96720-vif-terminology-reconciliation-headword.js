@@ -53,7 +53,7 @@
  *   ------------------------
  *   A glossary-style lookup preventing conflation of two same-named but unrelated
  *   quantities. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96638-box-sine-kernel-two-sided-approx-glossary-headword.js (VIF sense (a): one-sided-bound question, still open)
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment.js (source of the number-variance VIF_291 convention)
@@ -61,7 +61,7 @@
  * @see imp-96719-route-m-drift-covariance-reach-inflation-glossary-headword.js (glossary headword for VIF sense (b))
  *
  * Ticket: imp-96720 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The VIF-terminology reconciliation headword, baked verbatim (no re-import).
@@ -105,7 +105,7 @@ const VIF_TERMINOLOGY_RECONCILIATION_HEADWORD = Object.freeze({
     'Terminology disambiguation only; no new computation. Sense (a) one-sided-bound ' +
     'question remains OPEN (imp-96638 unresolved); sense (b) drift-covariance ' +
     'measurement remains CLOSED (imp-96692/imp-96719 complete). Changes no bound; ' +
-    'establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; ' +
+    'establishes no operator positivity; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -128,8 +128,8 @@ export const IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD = Object.freeze({
     'measurement; imp-96692s Route M drift-covariance VIF ~ 2.578 (values > 1) is ' +
     'a separate, already-closed empirical measurement from a different ladder. ' +
     'Neither resolves, updates, or bears on the other. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96638 (box sine-kernel two-sided-approximation headword, VIF sense (a)); ' +
     'imp-96617 (the underlying sign measurement); imp-96593 (names the one-sided-' +
@@ -159,11 +159,11 @@ export const IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96720-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD.verdict) &&
       IMP96720_VIF_TERMINOLOGY_RECONCILIATION_HEADWORD.glosses === 'imp-96638,imp-96692',
   },
 ];

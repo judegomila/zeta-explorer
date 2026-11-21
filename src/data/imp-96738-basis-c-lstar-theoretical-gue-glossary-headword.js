@@ -38,7 +38,7 @@
  *   in double precision.
  *
  *   STATUS: a glossary restatement of a caveat already present in five committed
- *   modules, not a new measurement. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   modules, not a new measurement. NO QED. No refereed bound is changed.
  *
  * @see imp-96690-basis-c-above-anchor-rung-ladder.js (source: L* ~ 8.1e7 OLS reach + caveat)
  * @see imp-96712-basis-c-accelerating-exponent-model.js (source: [7.6e7, 8.2e7] bracket + caveat)
@@ -47,7 +47,7 @@
  * @see imp-96448-direct-basis-c-anchor-floor.js (PT-anchor floor + caveat)
  *
  * Ticket: imp-96738 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The theoretical-GUE-not-real-zeros headword, baked verbatim (no re-import).
@@ -84,8 +84,8 @@ const BASIS_C_LSTAR_THEORETICAL_GUE_HEADWORD = Object.freeze({
     'Restates the HONEST CAVEAT already stated inline in five committed modules ' +
     '(imp-96448/96568/96690/96712/96716); no new computation. Changes no bound, ' +
     'establishes no operator positivity, and does not touch the separate ~1.9-sigma ' +
-    'excursion confidence (the actual empirical-vs-GUE comparison). Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'excursion confidence (the actual empirical-vs-GUE comparison). No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD = Object.freeze({
@@ -108,8 +108,8 @@ export const IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD = Object.f
     'the shrinking theoretical signal -- no computed Riemann zero enters at any ' +
     'stage. Restates a caveat already present in five committed modules; changes no ' +
     'bound and does not touch the ~1.9-sigma excursion confidence. Establishes ' +
-    'nothing; instantiates no interval; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'nothing; instantiates no interval; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96690 (L* ~ 8.1e7 OLS reach + caveat); imp-96712 (bracket [7.6e7, 8.2e7] + ' +
     'caveat); imp-96716 (mechanism-transition context); imp-96568, imp-96448 (earlier ' +
@@ -136,11 +136,11 @@ export const IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96738-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD.verdict) &&
       IMP96738_BASIS_C_LSTAR_THEORETICAL_GUE_GLOSSARY_HEADWORD.glosses === 'imp-96690',
   },
 ];

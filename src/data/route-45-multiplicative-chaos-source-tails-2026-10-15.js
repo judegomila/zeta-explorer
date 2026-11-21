@@ -41,7 +41,7 @@
  *
  * Verdict: the random model does not explain the certified-floor vs Kronecker gap (certification slack on the same free-phase torus sup); it
  * does measure a second gap, Kronecker value vs what real heights reach, which (corrected by the referee) is relevant in principle at t > 0
- * because of L-damping, but only through a deterministic finite-window argument. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free.
+ * because of L-damping, but only through a deterministic finite-window argument. No refereed bound is changed; RH open; NO QED. Import-free.
  * ROUTE_45_ASSERTIONS recompute live: the L-band window, the trial count exponent, z-scores, the pinning model fit, monotone damping,
  * the gap ordering and the corrected cell-0 real-axis gap.
  */
@@ -97,7 +97,7 @@ export const ROUTE_45 = Object.freeze({
     + '(Raymond 0.09–0.32, TA 0.21 at cell 300, conditional P47 −0.02 to +0.03): that is certification slack on one free-phase torus supremum. The '
     + 'model measures a different gap — real heights near X reach 0.05–0.12 below the Kronecker lower bounds — and, because the source damps with '
     + 'L = log(x/4π) at t > 0 (referee), that gap is relevant in principle through a deterministic finite-window bound, not through probabilities. '
-    + 'Not usable now; the conditional value stays 0.116091488672439. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'Not usable now; the conditional value stays 0.116091488672439. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R45 = ROUTE_45;
@@ -146,7 +146,7 @@ export const ROUTE_45_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r45-honesty',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R45.verdict) && /NO QED/.test(R45.verdict) && /0\.116091488672439/.test(R45.verdict)
+    holds: () => /refereed bound is changed/i.test(R45.verdict) && /NO QED/.test(R45.verdict) && /0\.116091488672439/.test(R45.verdict)
       && /MAJOR/.test(R45.refereeKilled[0]) && /finite-window/.test(R45.verdict),
     why: 'Verdict records the major referee correction, keeps PT Λ ≤ 0.2 and the conditional value, and claims no QED.',
   },

@@ -24,7 +24,7 @@
  * @see imp-124789-route-m-shallow-ladder-extprec.js (direct dps=40 re-materialization of THIS ladder: q unchanged)
  *
  * Ticket: imp-124803 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97640_LOCAL_EXPONENTS, IMP97640_RESULTS } from './imp-97640-route-m-gap-law-residual-decay-exponent.js';

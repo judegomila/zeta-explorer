@@ -64,7 +64,7 @@
  * SHARPENING why: the one form that genuinely closes (C2) closes onto the collision, not onto a
  * separation certificate. Assessment only; discharges nothing; establishes no operator positivity;
  * changes no bound; the imp-2563 sandwich stays a valid CONDITIONAL bracket; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35214-min-gap-field-lipschitz-surrogate-assessment (Q3 named this OPEN piece; parent)
  * @see imp-35167-g-min-non-collision-certificate-scope (M1..M5 machinery; M2/M5 the OPEN pieces)
@@ -238,8 +238,8 @@ export const IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT = {
     'SHARPENING why -- the one form that genuinely closes (C2) closes onto the collision, not onto a ' +
     'separation certificate. Assessment only; discharges nothing; establishes no operator positivity; ' +
     'changes no bound; the imp-2563 sandwich stays a valid CONDITIONAL bracket; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'per imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35214-min-gap-field-lipschitz-surrogate-assessment (Q3 named this OPEN piece; parent); ' +
     'imp-35167-g-min-non-collision-certificate-scope (M1..M5; M2/M5 OPEN); ' +
@@ -314,16 +314,16 @@ export const IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: relocates M5, supplies no a-priori bound, assessment only, NO QED, PT SOTA.
+    // Honesty gate: relocates M5, supplies no a-priori bound, assessment only, NO QED, no refereed bound is changed.
     id: 'imp35284-honesty-gate-no-qed',
-    description: 'Assessment only: relocatesM5 true, self-referential form reproduces front true, supplies a-priori g_min bound FALSE, isRigorous false, NO QED, PT SOTA',
+    description: 'Assessment only: relocatesM5 true, self-referential form reproduces front true, supplies a-priori g_min bound FALSE, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.relocatesM5Obstruction === true &&
       IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.selfReferentialFormReproducesFront === true &&
       IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.suppliesAprioriGminBound === false &&
       IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35284_APRIORI_GMIN_BOUND_FORMS_ASSESSMENT.verdict),
   },
 ];
 

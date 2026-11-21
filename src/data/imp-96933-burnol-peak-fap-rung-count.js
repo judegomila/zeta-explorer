@@ -43,7 +43,7 @@
  * remaining coherent -- the same coherence the longer ladder would test. SUB-GAP
  * IMP96933_FIVE_RUNGS_CLEAR_FAP_UNDER_COHERENT_MODEL. Measurement only; the qualitative VIF>1 conclusion
  * is untouched; interval-rigorous certificate reach stays 2a<=0.96; C_mb GUE-conditional (imp-486);
- * Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96915-burnol-oscillation-frequency-periodogram.js (pinned the genuine peak w=0.70, power z=5.18, FAP~0.11 at 21 rungs -- FINDING 4)
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (the 21-rung ratio(N) ladder N=250..10000)

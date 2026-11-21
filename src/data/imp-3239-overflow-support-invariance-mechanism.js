@@ -10,7 +10,7 @@
  *   a-cancellation mechanism for the LOWER endpoint.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE QUESTION (imp-3199 F3, re-pointed by imp-3216 / imp-3315)
  *   ------------------------------------------------------------
@@ -84,7 +84,7 @@
  *   deficit magnitude. A nonzero overflow fraction is necessary-but-NOT-
  *   sufficient at operator order; the off-diagonal endpoint-Hankel operator step
  *   (imp-3066) remains the lone obstruction. No RH verdict. No false QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3199-overflow-fraction-cell-sweep.js (finding F3, the invariance measured)
  *   @see imp-3216-overflow-support-length-closed-form.js (the underflow-horizon finding)
@@ -463,7 +463,7 @@ export const IMP3239_OVERFLOW_SUPPORT_INVARIANCE_MECHANISM = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -521,7 +521,7 @@ export const IMP3239_OVERFLOW_SUPPORT_INVARIANCE_MECHANISM_ASSERTIONS = [
     id: 'imp3239-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC that CONFIRMS the imp-3216/imp-3315 underflow-horizon re-point, ' +
          'overflow-support geometry only, necessary-but-not-sufficient at operator order, positivity not ' +
-         'attempted, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'attempted, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3239_OVERFLOW_SUPPORT_INVARIANCE_MECHANISM.honestCaveat;
       return (
@@ -529,7 +529,7 @@ export const IMP3239_OVERFLOW_SUPPORT_INVARIANCE_MECHANISM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

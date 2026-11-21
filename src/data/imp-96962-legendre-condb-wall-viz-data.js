@@ -16,8 +16,8 @@
  *
  * PRESENTATION ONLY. Changes no bound; establishes no operator positivity;
  * the Rayleigh floor stays an UPPER-bound measurement, not a certificate;
- * interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96932-krein-ln3-legendre-recondition-assessment.js (source table, reused verbatim)
  * @see imp-96894-krein-ln3-legendre-gegenbauer-crossbasis.js (original N=76-capped cross-check)
@@ -62,8 +62,8 @@ export const IMP96962_HONEST_BANNER =
   'tail to <=3.6e-5 through N=112 with no reconditioning, extending the matched-N cross-check three ' +
   'rungs past the prior N=76 cap; the true double-precision wall for this matched comparison sits ' +
   'between N=112 and N=124 (condB crosses 1/eps, drift jumps to 1.42e-3), not at N=76. No operator ' +
-  'positivity established; interval-rigorous certificate reach stays 2a<=0.96; PT Lambda <= 0.2 ' +
-  'remains SOTA; RH open; NO QED.';
+  'positivity established; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -89,7 +89,7 @@ export const IMP96962_VALIDATION = Object.freeze({
     IMP96932_VERDICT.qed === false,
   honestBannerPresent:
     /RH open/.test(IMP96962_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96962_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96962_HONEST_BANNER) &&
     /NO QED/.test(IMP96962_HONEST_BANNER),
 });
 

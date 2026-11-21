@@ -16,7 +16,7 @@
  *       infinity, t^4-unbounded dip depth, a positive far field sharing the same t^4 envelope).
  *   Off-the-shelf tools supply no c>0; the object actually required is exactly c_sharp itself
  *   (= lambda_min(P_a M_{sigma_2} P_a)), a restatement of the target, not an independent bound.
- *   Documentation only; no bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA;
+ *   Documentation only; no bound moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed;
  *   RH open; NO QED.
  *
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (source of every verdict flag below)
@@ -24,7 +24,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (pole-free Weil positivity; w_1, sigma_2; reach 2a<=0.96)
  *
  * Ticket: imp-97195 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97161_VERDICT, { IMP97161_RIGOROUS_REACH_2A, IMP97161_BINDING_2A } from './imp-97161-krein-concentration-lower-bound-assessment.js';
@@ -59,7 +59,7 @@ export const IMP97195_HONEST_BANNER =
   'bounded dip of bounded depth against a uniform positive far field, which sigma_2 violates on all three ' +
   'counts (recurring negativity bands, unbounded t^4 dip depth, a shared t^4 far envelope). The object ' +
   'actually required is c_sharp itself -- a restatement, not a bound. No bound moves; interval-rigorous ' +
-  'reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97195_ASSERTIONS = [
@@ -83,9 +83,9 @@ const IMP97195_ASSERTIONS = [
       IMP97195_STATUS.rhResolved === false &&
       IMP97195_STATUS.qed === false &&
       /NO QED/.test(IMP97195_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97195_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97195_HONEST_BANNER) &&
       /RH open/.test(IMP97195_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

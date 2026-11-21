@@ -42,7 +42,7 @@
  * imp-35266/imp-35396/imp-35762/imp-35241/imp-34996 machinery (identical K, delta, N_cross, band, headroom form).
  * The imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8
  * (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no operator positivity;
- * changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35396-krawczyk-surplus-offset-vs-curvature (split the ~1.2 into curvature ~1.1908 + offset ~0.023)
  * @see imp-35762-krawczyk-surplus-shift-residual-isolation (isolated the ~1.2 shift residual numerically)
@@ -185,7 +185,7 @@ export const IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT = {
     'artifact. Measurement/derivation only on the inherited imp-3220/imp-3406/imp-33723 surrogate; reproduces the ' +
     'imp-35266/imp-35396/imp-35762/imp-35241/imp-34996 machinery (identical K, delta, N_cross, band); the C_C 1/8 ' +
     'ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; establishes no operator positivity; ' +
-    'changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35396 (split the ~1.2 into curvature ~1.1908 + offset ~0.023; curvature = S_inf.a^2/(2(2-a))); imp-35762 ' +
     '(isolated the ~1.2 shift residual); imp-35266 (D3 leading-order S_inf.a/2); imp-34996 (M_G = 2G/(1+G) safety ' +
@@ -222,15 +222,15 @@ export const IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT_ASSERTIONS = [
       CROSS.tailEqualsGap < 1e-9,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35828-honesty-gate-no-qed',
-    description: 'derivation: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'derivation: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT.isRigorous === false &&
       /imp-34714a/.test(IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT.subGap) &&
       /REMAINS OPEN/.test(IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT.subGap) &&
       /NO QED/.test(IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT.verdict) &&
-      /remains SOTA/.test(IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT.verdict),
+      /refereed bound is changed/i.test(IMP35828_KRAWCZYK_SURPLUS_O3_COEFFICIENT.verdict),
   },
 ];
 

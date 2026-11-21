@@ -50,7 +50,7 @@
  * beyond 2600 is left as an explicit sub-gap -- see IMP96094_SUBGAP.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96069-route-m-mellin-residual-extended-n1000-n2000.js (3-rung baseline)
  * @see imp-96075-route-m-vasyunin-dn-ladder-viz-data.js (Vasyunin d_N ladder viz)
@@ -130,7 +130,7 @@ export const IMP96094_IMP96113_VERIFY = Object.freeze({
 });
 
 export const IMP96094_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m8-dense-ladder.py; the N=500/1000/2000 rows match imp-96069 bit-for-bit; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m8-dense-ladder.py; the N=500/1000/2000 rows match imp-96069 bit-for-bit; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -209,7 +209,7 @@ const IMP96094_ASSERTIONS = [
     id: 'imp96094-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96094_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96094_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96094_HONEST_BANNER) &&
       /NO QED/.test(IMP96094_HONEST_BANNER) &&
       typeof IMP96094_SUBGAP.statement === 'string' &&
       /beyond-2600/.test(IMP96094_SUBGAP.id),

@@ -12,7 +12,7 @@
  *   into measured numbers on that same executed A2.
  *
  *   EXECUTION / MEASUREMENT only. No unconditional lower bound on lambda_2 is produced; no operator
- *   positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA;
+ *   positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed;
  *   RH open; NO QED. Runner: tmp/imp-97440-route2-lambda2-lowerbound.py (mpmath dps=50; pole-free basis
  *   phi_n(x)=(a^2-x^2)^3 P_n(x/a); N=28, T=200, panel=1.0; Kbig sweep {28,44,60,76}; the run below).
  *

@@ -172,7 +172,7 @@ export const IMP_CTHETA_UNIFORM_BOUND = {
     'This certifies ONLY the contraction constant of Theorem A (the level-driving inequality inside ' +
     'the Theta <= 1/4 trap). It does NOT close the divergent W_1-Lipschitz modulus (imp-2680), nor ' +
     'does it claim the trap hypothesis Theta(0) <= 1/4 holds for all configs (that is the separate ' +
-    'reachability residual of sg1c R1-T4). Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'reachability residual of sg1c R1-T4). No refereed bound is changed.',
 };
 
 // ── Build-time assertions (recompute the load-bearing algebra) ─────────────

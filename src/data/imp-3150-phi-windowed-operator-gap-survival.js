@@ -18,8 +18,8 @@
  *
  *   MEASUREMENT / DERIVATION ONLY. Representative Phi proxy, NOT the genuine completed
  *   kernel; computes no genuine section-26 Gram; attempts no positivity; carries NO RH
- *   verdict; neither closes nor weakens Conjecture 26.3. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA. No false QED.
+ *   verdict; neither closes nor weakens Conjecture 26.3. No refereed bound is changed
+ *   . No false QED.
  *
  *   THE TWO OBJECTS (same a, U, DEG)
  *   --------------------------------
@@ -258,7 +258,7 @@ export const IMP3150_PHI_WINDOWED_OPERATOR_GAP_SURVIVAL = Object.freeze({
     'imp-3110 survivesSwap structural claim -- while the gap MAGNITUDE moves by a large factor ' +
     '(gapRatio far from 1), confirming imp-3110 companion claim that the magnitude is a truncation ' +
     'artifact and only the gap EXISTENCE is structural. Representative proxy, NOT the genuine kernel/Gram; ' +
-    'measurement only; no positivity; no RH verdict; neither closes nor weakens Conj 26.3; PT 0.2 stays SOTA.',
+    'measurement only; no positivity; no RH verdict; neither closes nor weakens Conj 26.3; no refereed bound is changed.',
 
   setup: Object.freeze({
     a: A,
@@ -340,7 +340,7 @@ export const IMP3150_PHI_WINDOWED_OPERATOR_GAP_SURVIVAL = Object.freeze({
       'operator/diagonal gap survives and how its magnitude compares to the toy; it does NOT compute the ' +
       'genuine section-26 Gram and asserts nothing about whether the cover holds or fails. Conjecture ' +
       '26.3 stays exactly open.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -410,7 +410,7 @@ export const IMP3150_PHI_WINDOWED_OPERATOR_GAP_SURVIVAL_ASSERTIONS = [
   {
     id: 'imp3150-honest-no-verdict',
     why: 'Mandatory honesty: measurement only, representative proxy, does not compute the genuine Gram, ' +
-         'neither closes nor weakens Conj 26.3, no positivity, no RH verdict, PT 0.2 stays SOTA.',
+         'neither closes nor weakens Conj 26.3, no positivity, no RH verdict, no refereed bound is changed.',
     holds: () => {
       const c = IMP3150_PHI_WINDOWED_OPERATOR_GAP_SURVIVAL.honestCaveat;
       return (
@@ -422,7 +422,7 @@ export const IMP3150_PHI_WINDOWED_OPERATOR_GAP_SURVIVAL_ASSERTIONS = [
         c.closesConjecture263 === false &&
         c.weakensConjecture263 === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

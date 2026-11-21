@@ -46,7 +46,7 @@
  * vector is real but nowhere near binding anywhere on [1e4, 1e6].
  *
  * MEASUREMENT ONLY. No new bound on Lambda; imp-3066 K_a >= 0 positivity
- * UNTOUCHED; Platt-Trudgian Lambda <= 0.2 REMAINS SOTA; NO QED.
+ * UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-3725-fmb-plateau-domination-lemma.js (source of the live rows)
  * @see imp-3729-gap-domination-below-1e4-regime.js (named this risk vector)
@@ -143,7 +143,7 @@ export const IMP_3847_NEAR_DEGENERACY_MARGIN = Object.freeze({
     measurementOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -218,7 +218,7 @@ export const IMP_3847_NEAR_DEGENERACY_MARGIN_ASSERTIONS = [
     why:
       'Honesty guard: this is a measurement of an existing lemma. It must not ' +
       'assert a new Lambda bound or a QED, and imp-3066 stays untouched; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
   },
 ];
 

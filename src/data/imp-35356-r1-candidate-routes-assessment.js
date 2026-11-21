@@ -92,7 +92,7 @@
  * imp-34997a / imp-35243a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35330-reentry-band-fidelity-requirement-dependency (R1 is the DAG root; R4 vacuous, R2/R3 dominated)
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (enumerates R1-R4; D1 floor-sensitivity; D2 gap)
@@ -217,7 +217,7 @@ export const IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT = {
     'ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail ' +
     'exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35330 (R1 is the DAG root; routes not enumerated); imp-35243 (R1-R4 checklist; D1 floor-sensitivity; ' +
     'D2 extrapolation gap); imp-35357 (charters the pure-artifact formalization = route ii); imp-35263 (R1 ' +
@@ -275,15 +275,15 @@ export const IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT_ASSERTIONS = [
       Math.abs(EXIT_EXP - REENTRY_EXP - BAND_WIDTH_DECADES) < 1e-9,
   },
   {
-    // Honesty gate: assessment only, disposal-direction, no QED, sub-gaps OPEN, PT SOTA.
+    // Honesty gate: assessment only, disposal-direction, no QED, sub-gaps OPEN, no refereed bound is changed.
     id: 'imp35356-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, one self-contained route in disposal direction, no QED, PT SOTA, sub-gaps OPEN',
+    description: 'Assessment only: isRigorous false, one self-contained route in disposal direction, no QED, no refereed bound is changed, sub-gaps OPEN',
     holds: () =>
       IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.isRigorous === false &&
       /SELF-CONTAINED/.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.route_ii_verdict) &&
       /DISPOSAL/.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.route_ii_verdict) &&
       /NO QED/.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.verdict) &&
       /imp-35243a/.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.residual_sub_gap) &&
       /imp-35357/.test(IMP35356_R1_CANDIDATE_ROUTES_ASSESSMENT.residual_sub_gap),
   },

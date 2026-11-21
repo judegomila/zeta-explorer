@@ -45,7 +45,7 @@
  * inverses defined here are LOCAL to this measurement -- they do NOT replace effectiveHeightForN in the
  * live mapping. Instantiates NO interval, ports nothing, derives no remainder, changes no bound.
  * imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) (imp-2642/2643) and C_mb GUE-conditional (imp-486)
- * UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-35892-rdirect-own-floor-departure-height (located the 10^307.46 NaN cliff as the seed overflow)
  * @see imp-35855-rclean-interval-de-cancellation-assessment (de-cancelled the dG node; swept to N~1e21)
@@ -246,7 +246,7 @@ export const IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL = {
     DECADES_GAINED.toFixed(2) +
     ' decade. Reuses the imp-35855/imp-35892 machinery (same K, C_C, E_trunc, RvM root). imp-34714a ' +
     'REMAINS OPEN; C_C = (1/8) sqrt(3 pi) (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-35892 (R_direct NaN cliff at 10^307.46 = the 2 pi . N seed overflow); imp-35855 (de-cancelled ' +
     'dG node; R_direct = R_clean to machine floor to N~1e21); lambda-rh-height-mapping (stock ' +
@@ -281,14 +281,14 @@ export const IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL_ASSERTIONS = [
       DECADES_GAINED < 1.5,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35947-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL.subGap) &&
       /NO QED/.test(IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL.verdict) &&
-      /remains SOTA/.test(IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL.verdict),
+      /refereed bound is changed/i.test(IMP35947_LOG_DOMAIN_HEIGHT_SEED_CLIFF_DEFERRAL.verdict),
   },
 ];
 

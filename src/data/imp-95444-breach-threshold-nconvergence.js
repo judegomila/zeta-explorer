@@ -8,7 +8,7 @@
  * "T-conditional worst-case estimate, NOT an infimum -- larger T finds worse
  * configurations and lowers delta*". This ticket QUANTIFIES that N-dependence
  * over N = 50..12800 and characterizes the convergence. MEASUREMENT ONLY;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  *
  * SETUP (reuses the imp-95430 consistently-scaled protocol verbatim). m = 8
  * octave-twin blocks. A fixed jitter pattern pool is drawn ONCE from the
@@ -86,8 +86,7 @@
  * A_unif4(2) = 1.9975337e-9, so the finite-m headroom is part of the absorbed
  * margin. (d) Dyadic numerator held fixed (the imp-95253 numerator-drift leg is
  * priced separately). (e) gammaSL obligation (3), signed WEIGHT / modulus-phase
- * legs and the imp-95212 envelope port all remain OPEN. NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * legs and the imp-95212 envelope port all remain OPEN. NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -172,7 +171,7 @@ export const IMP95444_BREACH_THRESHOLD_NCONVERGENCE = {
     "~5.09% rather than sharply. This confirms the imp-95430 delta* = 5.199% " +
     "is the stable plateau of the ladder, not a T = 400 artifact, and turns " +
     "its honestScope NOT-an-infimum caveat into a measured cost. Changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -470,12 +469,12 @@ export const IMP95444_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT, worst-of-N " +
       "not provably converged, no off-lattice floor theorem, changes no bound, " +
-      "open legs named, no QED, PT SOTA",
+      "open legs named, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /worst-of-N estimate/i.test(REC.honestScope) &&
       /NOT provably converged/i.test(REC.honestScope) &&
       /NO off-lattice floor theorem/i.test(REC.honestScope) &&

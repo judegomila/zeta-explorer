@@ -18,7 +18,7 @@
  * DERIVATION ON THE SHARED NORMALISED OOM MODEL ONLY (imp-35777 / imp-35778 / imp-35800 /
  * imp-35801). Evaluates no true |H_t| or |H_t prime| on any edge; fixes no Delta or h for
  * any real rectangle; certifies no cap; certifies no delta > 0; establishes no positivity;
- * changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE COUPLED REQUIREMENT, EDGE BY EDGE
  * -----------------------------------------------------------------------------
@@ -113,7 +113,7 @@
  * no true |H_t| or |H_t prime|; lower-bounds no inf|H_t prime|; fixes no Delta or h for any real
  * rectangle; positions no rectangle; verifies no strict inequality; certifies no cap; certifies
  * no delta > 0; establishes no positivity; changes no bound; C_mb GUE-conditional (imp-486)
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35777-i2-logderivative-panel-cap-scope (L_panel < pi.delta/B; I2/I3 coupling flagged, joint placement not derived)
  * @see imp-35778-i3-edge-type-floor-decomposition-scope (delta = min(delta_short, delta_long); two-knob prescription)
@@ -127,7 +127,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35777 / imp-35778 / imp-35800 / imp-35801) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777).
 const windingRate = (T) => 0.5 * Math.log(T / (2 * Math.PI));
@@ -235,8 +235,8 @@ export const IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION = {
     'every floor and the scale B are the SAME I1/W1 interval-enclosure quantities (imp-35681 Part A). Evaluates no ' +
     'true |H_t| or |H_t prime|; lower-bounds no inf|H_t prime|; fixes no Delta or h for any real rectangle; positions ' +
     'no rectangle; verifies no strict inequality; certifies no cap; certifies no delta > 0; establishes no positivity; ' +
-    'changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35777 (L_panel < pi.delta/B; I2/I3 coupling flagged); imp-35778 (delta = min(delta_short, delta_long)); ' +
     'imp-35800 (floor-only argmax: saturation corner h = 1/w, Delta = integer gaps); imp-35801 (1/d panel-budget ' +
@@ -315,9 +315,9 @@ export const IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION_ASSERTIONS = [
       /GRAZING \/ pinned-endpoint regime/.test(IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.couplingResolution),
   },
   {
-    // Honesty gate: derivation on OOM model only, no positivity, no cap, no delta>0, no QED, PT SOTA.
+    // Honesty gate: derivation on OOM model only, no positivity, no cap, no delta>0, no QED, no refereed bound is changed.
     id: 'imp35806-honesty-gate-no-qed',
-    description: 'OOM derivation only; certifies no cap; certifies no delta>0; establishes no positivity; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'OOM derivation only; certifies no cap; certifies no delta>0; establishes no positivity; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -325,7 +325,7 @@ export const IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION_ASSERTIONS = [
       /certifies no delta > 0/.test(IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.verdict) &&
       /establishes no positivity/.test(IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.verdict) &&
       /NO QED/.test(IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP35806_I2_I3_COUPLED_PLACEMENT_DERIVATION.verdict),
   },
 ];
 

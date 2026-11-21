@@ -49,8 +49,8 @@
  * consistency certificate, not a sharper measurement (it is WIDER than the point
  * estimate, as an honest error budget must be). Model seam family only; the
  * imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN.
- * Changes NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * Changes NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * . Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95743-szego-coefficient-double-double-crosscheck (the point agreement certified here)
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (the dual A_opt)
@@ -108,7 +108,7 @@ export const IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL = {
     "agreement; the interval is a consistency certificate, wider than the point estimate, " +
     "not a sharper measurement. No new cited input; model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of " +
-    "the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95767"],
 };
 
@@ -272,7 +272,7 @@ export const IMP95767_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /CERTIFIED as an interval/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95767-closes-self",

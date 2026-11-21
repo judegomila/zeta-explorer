@@ -49,7 +49,7 @@ export const R4_PACKET = Object.freeze({
   }),
   verdict: 'The consumer layer of the three PT-height values is persisted, SHA-256 pinned and replayed by one offline command; the referee reproduced '
     + 'it under an OS sandbox (44/44, 7/7). Reproducibility only — no analytic input is refereed by the packet. The packet replays the r3 values; the '
-    + 'r4 merged admission (synthesis) is not yet inside it. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'r4 merged admission (synthesis) is not yet inside it. No refereed bound is changed. RH open. NO QED.',
 });
 
 const P = R4_PACKET;

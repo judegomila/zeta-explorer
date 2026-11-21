@@ -19,7 +19,7 @@
  * 27.035582 (SPLIT-LOO m-and-r-uniform) -> 15.689897, and the fixed-r
  * SPLIT-RZ onsets drop too (15.981584 -> 15.466164 at r = 1.3,
  * 17.517735 -> 15.215651 at r = 1.05). Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95252 normalization, verbatim). a = ln rho in (0, 6],
  * b = ln r in (0, a), tau = b/a in (0, 1), s = sech(b/2),
@@ -230,7 +230,7 @@ export const IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR = {
     "as cited inputs. The imp-95288 r-uniform question is DECIDED both " +
     "ways: uniform on the coalescence half in closed form, necessarily " +
     "collapsing at the cross-block end at exact order 2. Changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -634,13 +634,13 @@ export const IMP95288_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: RIGOROUS theorems, " +
       "DECIDED both ways, floor-only looseness recorded, no bound " +
-      "change, no QED, PT SOTA",
+      "change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.verdict) &&
       /DECIDED both ways/.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.verdict) &&
       /Changes no bound/.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.verdict) &&
       /NO QED/.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.verdict) &&
       /floor only/i.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.honestScope) &&
       /named residual/.test(IMP95288_RUNIFORM_BLOCK_PENCIL_FLOOR.honestScope),
   },

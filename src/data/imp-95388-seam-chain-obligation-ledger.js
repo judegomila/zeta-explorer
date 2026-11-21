@@ -20,7 +20,7 @@
  * map is REDUCED: the gate-side pipeline is closed by identity and
  * monotonicity, so it now reduces entirely to obligation (1) plus the
  * still-open imp-95212 Fresnel-Airy envelope port (imp-95276). NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * Source: imp-95255 (currency per-window map assessment, y_min MAPS /
  * theta OBSTRUCTED), imp-95276 (seam-to-chain-gate map, gate-side
@@ -200,7 +200,7 @@ export const IMP_95388_ASSERTIONS = [
       SEAM_CHAIN_OBLIGATION_SUMMARY.boundChange === false &&
       SEAM_CHAIN_OBLIGATION_SUMMARY.qed === false &&
       SEAM_CHAIN_OBLIGATION_SUMMARY.openCount > 0,
-    why: 'with obligation (2) still open, nothing here derives or moves a Lambda bound; Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark.',
+    why: 'with obligation (2) still open, nothing here derives or moves a Lambda bound; no refereed bound is changed.',
   },
   {
     id: 'imp-95798-open-legs-note-matches-non-closed',

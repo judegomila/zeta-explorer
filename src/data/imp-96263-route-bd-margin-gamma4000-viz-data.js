@@ -14,8 +14,8 @@
  * MEASUREMENT / PRESENTATION ONLY. Every column value and fit parameter is copied verbatim from
  * the imp-96224 baked `validation` and `extendedT`/`extendedRho`/`refit` fields; only the curve
  * SAMPLING (evaluating the two already-fitted formulas at plot-resolution T values) is computed
- * here. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * here. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96224-route-bd-online-margin-floor-gamma4000.js (column data, refit parameters)
  *
@@ -79,7 +79,7 @@ export const IMP96263_ENVELOPE = {
 export const IMP96263_FLOOR_BY_DEPTH = { ...SRC.refit.floorByDepth };
 
 export const IMP96263_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the 34-point column and both '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the 34-point column and both '
   + 'fit parameters (a, b, c, d) are copied verbatim from the imp-96224 baked validation/extendedT/'
   + 'extendedRho/refit fields; only the two curves’ sample points across the observed T range are '
   + 'computed here (evaluating the already-fitted formulas, not re-fitting). No bound is claimed and '

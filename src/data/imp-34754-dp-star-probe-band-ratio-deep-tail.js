@@ -56,7 +56,7 @@
  *   1e100 window that certifies nothing about the true q3. The -2 asymptote and C_C = (1/8)sqrt(3 pi)
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
  *   imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34735-dp-star-probe-band-crossover-N.js (exact ratio ladder to 1e100 + closed-form crossover)
  *   @see imp-34711-q3-trust-boundary-far-tail-extension.js (F1/F3 dp-star(N) ~ (log N)^(4/3), 1e13..1e100)
@@ -221,8 +221,8 @@ export const IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL = Object.freeze({
     'not an independent physical claim; the crossover N is an asymptotic extrapolation that certifies ' +
     'nothing about the true q3. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz ' +
     'are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34735 (exact-model ratio ladder to 1e100 + closed-form crossover log10 N ~ 374.6/630.1); ' +
     'imp-34711 (F1/F3 dp-star(N) ~ (log N)^(4/3) far-tail ladder, 1e13..1e100, validated to < 2%); ' +
@@ -272,10 +272,10 @@ const IMP34754_ASSERTIONS = [
     holds: () =>
       IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL.isRigorous === false &&
       /NO QED/.test(IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL.verdict) &&
-      /remains SOTA/.test(IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL.verdict) &&
+      /refereed bound is changed/i.test(IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL.verdict) &&
       /UNTOUCHED/.test(IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL.verdict) &&
       /extrapolation/.test(IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL.verdict),
-    why: 'Honesty gate: measurement/derivation only, crossover is an extrapolation, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement/derivation only, crossover is an extrapolation, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

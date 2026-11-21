@@ -57,7 +57,7 @@
  *   digit floor (named sub-gap). Assessment / model read on the self-contained near-pole expansion,
  *   NOT the inherited pipeline; component model is the inherited imp-3220/imp-3406 extrapolation,
  *   NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0
- *   untouched; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   untouched; changes no bound; NO QED; no refereed bound is changed.
  *
  *   @see imp-34454-bridge-slope-three-rung-tabulation.js (the three m-reads, [-2.510e-7,-2.316e-7] band, ~8% flank gap)
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (residue R, slope m, E_star, flank +5.9e-7; F4 near-pole digit loss)
@@ -172,7 +172,7 @@ export const IMP34492_NEARER_FLANK_GAP_NARROWING = {
     '/ model read on the self-contained near-pole expansion, NOT the inherited pipeline; component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE- ' +
     'conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-34454 (three m-reads, [-2.510e-7,-2.316e-7] band, ~8% flank gap); imp-34310 (residue R, ' +
     'slope m, E_star, flank +5.9e-7, F4 near-pole digit loss); imp-34397 (no finer near-pole sub- ' +
@@ -258,13 +258,13 @@ export const IMP34492_NEARER_FLANK_GAP_NARROWING_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment only, isRigorous false, NO QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: assessment only, isRigorous false, NO QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34492-honesty-gate-no-qed',
-    description: 'assessment only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'assessment only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34492_NEARER_FLANK_GAP_NARROWING.isRigorous === false &&
       /NO QED/.test(IMP34492_NEARER_FLANK_GAP_NARROWING.verdict) &&
-      /remains SOTA/.test(IMP34492_NEARER_FLANK_GAP_NARROWING.verdict) &&
+      /refereed bound is changed/i.test(IMP34492_NEARER_FLANK_GAP_NARROWING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34492_NEARER_FLANK_GAP_NARROWING.verdict),
   },
 ];

@@ -59,7 +59,7 @@
  * denominator (imp-35412 KEEPS the endpoint DP45 dt/2 worst-case 1.1999384320e-3);
  * changes NO bound; does NOT advance the R2 ladder (certified at N=1000 per
  * imp-35221/imp-35324); does NOT extend the C_mb certificate; does NOT remove the
- * imp-486 GUE conditional. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * imp-486 GUE conditional. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2".
  *
@@ -177,7 +177,7 @@ export const IMP_35474_DENSE_ENVELOPE_MAX_REVERIFY_REFERENCE = {
       'denominator (imp-35412 KEEPS the endpoint DP45 dt/2 worst-case); does NOT ' +
       'advance the R2 ladder past N=1000; does NOT extend the C_mb certificate; ' +
       'does NOT remove the imp-486 GUE conditional; changes NO Lambda bound. ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'No refereed bound is changed.',
   },
 };
 
@@ -274,7 +274,7 @@ export const IMP_35474_DENSE_ENVELOPE_MAX_REVERIFY_REFERENCE_ASSERTIONS = [
     why:
       'Verification only: confirms the imp-35412 R2 selection but adopts NO new ' +
       'slack denominator, advances NO ladder past N=1000, changes NO bound. C_mb ' +
-      'stays GUE-conditional (imp-486); Lambda <= 0.2 stays SOTA. Never a QED.',
+      'stays GUE-conditional (imp-486); no refereed bound is changed. Never a QED.',
   },
 ];
 

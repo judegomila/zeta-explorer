@@ -47,7 +47,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * SUPERSEDED (imp-35011): W0 above was checked here only INDIRECTLY, via PROD_OVER_R0_MAX_REL_DIFF =
  * productAtDex(dex)/r0OfDex(dex), which is IDENTICALLY G_STAR by construction (productAtDex is DEFINED as
@@ -315,7 +315,7 @@ export const IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY = {
     'only because the nominal window happens to sit on the physical crossing point. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'MEASURES the window sensitivity of the imp-34924 pinned product P = g* r0: g* is window-independent so P ' +
     'is exactly proportional to r0 = r(X_CROSS); the ~1.6e-7 across-m residual is fixed-window bisection noise ' +
@@ -388,15 +388,15 @@ export const IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34956-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.isRigorous === false &&
       IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.farTailExponent === 0.5 &&
       typeof IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.subGap === 'string' &&
       /NO QED/.test(IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.verdict),
   },
 ];
 

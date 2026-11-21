@@ -48,14 +48,14 @@
  * imp-35602) both resolve to real commits (9dc3d750, 5c17aaba respectively); repeated landmark
  * literals (N_max ~9.2186e5, N_cross ~3.280294352e9) are byte-consistent with their imp-35337
  * source across every citing file (imp-35596, imp-35611); every audited file carries an explicit
- * NO-QED / Platt-Trudgian-Lambda-remains-SOTA disclaimer.
+ * NO-QED / Platt-Trudgian-Lambda-no-refereed-bound-change disclaimer.
  *
  * SCOPE. Read-only cross-reference audit only. Per the established convention in this series
  * (imp-35186 found and flagged; imp-35309 later fixed as a separate ticket; imp-35629 repeated the
  * pattern), this audit FLAGS the dangling reference but does not itself edit imp-35606 -- that
  * correction, and the still-open imp-35545/imp-35531/imp-35536/imp-35561 corrections from prior
  * batches, are left to a follow-up ticket. Changes no bound; establishes no operator positivity;
- * no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35629-imp3554x-imp3558x-frontier-crossref-integrity-audit (prior batch in the same series, [35539,35590])
@@ -144,8 +144,8 @@ export const IMP35644_FRONTIER_CROSSREF_INTEGRITY_AUDIT = {
     'dangling @see reference found -- flagged here per the imp-35186/imp-35309/imp-35629 ' +
     'convention (audit flags, a follow-up ticket fixes); no source file was edited by this audit. ' +
     'No misnamed exports, no missing files, no landmark-literal drift otherwise. Changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35186 (prior audit method), imp-35327/imp-35401/imp-35424/imp-35543/imp-35589/imp-35629 ' +
     '(prior batches in the same series), imp-35309 (precedent: audit-flags / ' +
@@ -174,11 +174,11 @@ export const IMP35644_FRONTIER_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35644-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35644_FRONTIER_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35644_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35644_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35644_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

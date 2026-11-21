@@ -54,8 +54,7 @@
  * estimator onto an inherited pole, NOT an RH bound. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural
  * observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34529-recovered-pole-convergence-vs-inherited (the seven-rung ladder this extends; ~1/3 shrink, R2/R3)
  * @see imp-34512-pole-leakage-fit-15-20-percent-crossings (invLeakRoot reused VERBATIM)
@@ -309,8 +308,8 @@ export const IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS = {
     'near the pole before the precision floor binds. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural ' +
     'observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34529 (the seven-rung ladder extended; ~1/3 shrink R2/R3); imp-34512 (invLeakRoot reused); ' +
     'imp-34368 (resid_exp peak-location floor dk ~ 7.2e-8); imp-34247 (R3 contaminationLadder devPct -- the ' +
@@ -369,13 +368,13 @@ export const IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS_ASSERTIONS = [
       RESIDEXP_NOISE_FLOOR_DK === 7.2e-8,
   },
   {
-    // Honesty gate: cross-validation / measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: cross-validation / measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34550-honesty-gate-no-qed',
-    description: 'measurement/cross-validation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/cross-validation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS.isRigorous === false &&
       /NO QED/.test(IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS.verdict) &&
-      /remains SOTA/.test(IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS.verdict) &&
+      /refereed bound is changed/i.test(IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34550_RECOVERED_POLE_LADDER_TWO_TIGHTER_RUNGS.verdict),
   },
 ];

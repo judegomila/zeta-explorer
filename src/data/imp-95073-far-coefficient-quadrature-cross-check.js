@@ -65,7 +65,7 @@
  *
  * Import-light (imports only the import-light imp-95026 module for the committed
  * baked values). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95026_PAPER_PACKET_CEILING_TRANSFER } from "./imp-95026-paper-packet-ceiling-transfer.js";
@@ -229,7 +229,7 @@ export const IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK = {
     "MEASUREMENT: the adaptive-Simpson reference is validated against the exact partial-fraction closed form at the model point (relative 7.5e-9) and then used to bound the committed midpoint evaluator error at the non-model integer-s thetaScan points. The uniform bound ~1.3e-5 and its monotone growth in s are computed directly. No closed-form ceiling is claimed at any non-model point (none is baked in the repo); only the midpoint error is bounded. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT cross-check of the imp-95026 midpoint far-coefficient evaluator. FINDING 0: the independent adaptive-Simpson reference reproduces the exact closed form at the model point to 7.5e-9 (vs midpoint 2.8e-6), validating it. FINDING 1: across the integer-s thetaScan the midpoint quadrature error is uniformly bounded by ~1.3e-5 but GROWS monotonically with s (1.8e-6 at s=9 up to 1.23e-5 at s=21) - the model-point 2.8e-6 is a mid-range figure, not a uniform bound. FINDING 2: ~1.3e-5 is far below every margin the imp-95026 transfer findings turn on, so those conclusions are unaffected and only ceiling digits past the fifth carry quadrature noise. SUB-GAP: the exact-closed-form anchor exists only on the integer-s thetaScan; the sigmaScan/isolationScan error is controlled by converged Simpson-vs-midpoint agreement, and the paper constants remain unpinned. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT cross-check of the imp-95026 midpoint far-coefficient evaluator. FINDING 0: the independent adaptive-Simpson reference reproduces the exact closed form at the model point to 7.5e-9 (vs midpoint 2.8e-6), validating it. FINDING 1: across the integer-s thetaScan the midpoint quadrature error is uniformly bounded by ~1.3e-5 but GROWS monotonically with s (1.8e-6 at s=9 up to 1.23e-5 at s=21) - the model-point 2.8e-6 is a mid-range figure, not a uniform bound. FINDING 2: ~1.3e-5 is far below every margin the imp-95026 transfer findings turn on, so those conclusions are unaffected and only ceiling digits past the fifth carry quadrature noise. SUB-GAP: the exact-closed-form anchor exists only on the integer-s thetaScan; the sigmaScan/isolationScan error is controlled by converged Simpson-vs-midpoint agreement, and the paper constants remain unpinned. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -278,12 +278,12 @@ export const IMP95073_CROSS_CHECK_ASSERTIONS = [
   {
     id: "imp95073-honesty-gate",
     description:
-      "the verdict names the sub-gap (exact anchor only on the integer-s thetaScan; paper constants unpinned), reports the uniform bound and its growth in s, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (exact anchor only on the integer-s thetaScan; paper constants unpinned), reports the uniform bound and its growth in s, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK.promotesBound === false &&
       IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK.openResiduals.length === 2 &&
       /NO QED/.test(IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK.verdict) &&
-      /remains SOTA/.test(IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK.verdict) &&
       /GROWS/.test(IMP95073_FAR_COEFFICIENT_QUADRATURE_CROSS_CHECK.verdict),
   },
 ];

@@ -64,7 +64,7 @@
  * = +0.2006346034029 + dQ/dm(m). The aggregate slope is now pinned; the per-locus split is not."
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO Lambda
- * movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the offline-converged C_1 literal and the
+ * movement; no refereed bound is changed; NO QED. Import-light: bakes the offline-converged C_1 literal and the
  * imp-95822/95861 Q0_RECON values; no heavy quadrature at import.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95900-scratch.mjs,
@@ -128,7 +128,7 @@ export const TIER3_PER_LOCUS_CANCELLATION = Object.freeze({
     + 'aggregate TIER-3 m-slope to +0.2006346034029 (a transcribable check on any candidate law), but does '
     + 'NOT attribute it per-family/per-locus -- the greedy lowest-mass K_v multiset selection still has no '
     + 'symbolic-in-m form per fractional-part locus j/(am+b). G irrationality OPEN; Sun unrefereed; changes '
-    + 'no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -219,7 +219,7 @@ export const TIER3_PER_LOCUS_CANCELLATION = Object.freeze({
     + 'offline-converged literal and D_3 is solved from the imp-95822 Q0_RECON. The cancellation identity '
     + 'is a NECESSARY condition on the aggregate TIER-3 slope, not a per-locus construction; the greedy '
     + 'multiset selection closed form stays open. Catalan G irrationality OPEN; Sun single-author, '
-    + 'unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const TIER3_PER_LOCUS_CANCELLATION_ASSERTIONS = Object.freeze([
@@ -292,7 +292,7 @@ export const TIER3_PER_LOCUS_CANCELLATION_ASSERTIONS = Object.freeze([
         && /per-family\/per-locus attribution/.test(v.remainingObstruction)
         && /greedy lowest-mass/.test(v.remainingObstruction)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

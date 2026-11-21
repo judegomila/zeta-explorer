@@ -42,7 +42,7 @@
  * (6.26) B24 Euler-Maclaurin certificate) remains open.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.23). SCRATCH: tmp/imp-95822-scratch.mjs.
  */
@@ -83,7 +83,7 @@ export const Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB = Object.freeze({
     + 'quadrature error (the quadrature carries no ~3e-5 grid uncertainty; it is stable to ~1e-11) '
     + 'but a genuine grid-converged per-modulus fine structure. RESIDUAL: settles quadrature only; '
     + 'only m=20 has a certified kappa, so the 238-cell Q_0 reconstruction is uncertified at m>20. '
-    + 'Conditional on the +4 offset; G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'Conditional on the +4 offset; G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.23)',
   builtOn:
@@ -143,8 +143,8 @@ export const Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB = Object.freeze({
     'Faithful 238-cell machinery re-used verbatim; new work is the tightened-Nsub re-quadrature at the '
     + 'wide moduli. Entire table CONDITIONAL on the +4 offset being exactly 4 and m-independent '
     + '(certified only at m=20). Grid refinement bounds quadrature error, not model faithfulness. '
-    + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; PT '
-    + 'Lambda<=0.2 SOTA; NO QED.',
+    + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB_ASSERTIONS = Object.freeze([
@@ -188,11 +188,11 @@ export const Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB_ASSERTIONS = Object.fre
       ),
   },
   {
-    name: 'honest: conditional on +4 offset, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: conditional on +4 offset, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /CONDITIONAL on the \+4 offset/.test(Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB.verdict.conclusion)
       && /G irrationality OPEN/.test(Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB.status)
-      && /PT Lambda<=0.2 SOTA/.test(Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB.status)
+      && /refereed bound is changed/i.test(Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB.status)
       && /NO QED/.test(Q0_WIDE_MODULUS_REQUADRATURE_TIGHTENED_NSUB.status),
   },
 ]);

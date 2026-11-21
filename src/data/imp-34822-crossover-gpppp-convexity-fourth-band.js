@@ -52,7 +52,7 @@
  * imp-3220/imp-3406 surrogate crossover map on one extra decade; it introduces NO new bound and
  * changes none. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34793-crossover-gpppp-convexity (g_quadruple_prime closed form; convexity on [1e9,1e12])
  * @see imp-34792-crossover-gpp-fourth-band-envelope-extension (2nd-derivative collapse on [1e12,1e13])
@@ -177,7 +177,7 @@ export const IMP34822_CROSSOVER_GPPPP_CONVEXITY_FOURTH_BAND = {
     'value at the shared boundary N=1e12 reproduces the imp-34793 published literal to ~1e-6 relative. ' +
     'Assessment only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34793 (g_quadruple_prime closed form; convexity on [1e9,1e12]); imp-34792 (second-derivative ' +
     'curvature-envelope collapse on [1e12,1e13]); imp-34768 (g_triple_prime closed form; global ' +
@@ -227,13 +227,13 @@ export const IMP34822_CROSSOVER_GPPPP_CONVEXITY_FOURTH_BAND_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/assessment only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, no QED, no refereed bound is changed.
     id: 'imp34822-honesty-gate-no-qed',
-    description: 'Measurement/assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34822_CROSSOVER_GPPPP_CONVEXITY_FOURTH_BAND.isRigorous === false &&
       /NO QED/.test(IMP34822_CROSSOVER_GPPPP_CONVEXITY_FOURTH_BAND.verdict) &&
-      /remains SOTA/.test(IMP34822_CROSSOVER_GPPPP_CONVEXITY_FOURTH_BAND.verdict),
+      /refereed bound is changed/i.test(IMP34822_CROSSOVER_GPPPP_CONVEXITY_FOURTH_BAND.verdict),
   },
 ];
 

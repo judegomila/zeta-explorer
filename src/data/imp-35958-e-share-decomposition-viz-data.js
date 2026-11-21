@@ -78,8 +78,8 @@ export const IMP35958_E_SHARE_VIZ_DATA = {
     'decomposition at the two imp-35853 knees; adds no new derivation and changes no bound. ' +
     'Measurement only; certifies no W1 bound; establishes no operator positivity; C_C = ' +
     '(1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
-    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED. Platt-Trudgian ' +
-    'Lambda<=0.2 remains SOTA.',
+    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35958_VIZ_ASSERTIONS = [
@@ -134,12 +134,12 @@ export const IMP35958_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35958-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, imp-486 kept, imp-35337a OPEN, NO QED, SOTA',
+    description: 'honest status references measurement-only, imp-486 kept, imp-35337a OPEN, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35958_E_SHARE_VIZ_DATA.honest) &&
       /imp-486/.test(IMP35958_E_SHARE_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35958_E_SHARE_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35958_E_SHARE_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35958_E_SHARE_VIZ_DATA.honest),
   },
 ];
 

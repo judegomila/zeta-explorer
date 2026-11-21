@@ -76,7 +76,7 @@
  * over B=200..800) is consistent with a finite limit but is not a proof of boundedness. So the
  * obstruction is unmoved: the sub-gap is now the cleaner pointwise envelope (E) in place of the
  * mean-square, but still open. No improved rigorous ceiling posted: T = 2.594e7 stays the anchor;
- * compute (N ~ 9916, imp-96352) binds first by >2600x regardless. PT Lambda <= 0.2 remains SOTA;
+ * compute (N ~ 9916, imp-96352) binds first by >2600x regardless. No refereed bound is changed;
  * RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-96770-pointwise-homogeneous-log-envelope -- the uniform pointwise
@@ -162,8 +162,8 @@ export const IMP96770_VERDICT = Object.freeze({
     'slow upward creep of the measured sup (1.245 -> 1.256 over B=200..800) is consistent with a finite ' +
     'limit but not a proof of boundedness. So the obstruction is unmoved: the sub-gap is now the ' +
     'cleaner pointwise envelope (E) in place of the mean-square, still open. No improved rigorous ' +
-    'ceiling posted; T = 2.594e7 stays the anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'ceiling posted; T = 2.594e7 stays the anchor; compute N ~ 9916 binds first. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96770_SUBGAP = Object.freeze({
@@ -182,7 +182,7 @@ export const IMP96770_SUBGAP = Object.freeze({
 });
 
 export const IMP96770_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Non-term-splitting re-reduction + obstruction only: ' +
+  'RH open; no refereed bound is changed; NO QED. Non-term-splitting re-reduction + obstruction only: ' +
   'the imp-96750 mean-square sub-gap Q(b) <= s0* b + O(1) is re-reduced to the pointwise homogeneous ' +
   'log-envelope (E) |I(a,b)| <= K a (1 + log(b/a)) via the exact integral Int_0^1 (1 - log x)^2 dx = 5, ' +
   'which keeps the O(b log b) cancellation inside I (evading the term-splitting overshoot). (E) is ' +
@@ -241,7 +241,7 @@ const IMP96770_ASSERTIONS = [
       IMP96770_VERDICT.envelopeKeepsCancellationIntact === true &&
       IMP96770_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96770_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96770_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96770_HONEST_BANNER) &&
       /RH open/.test(IMP96770_HONEST_BANNER) &&
       /pointwise-homogeneous-log-envelope/.test(IMP96770_SUBGAP.id),
     why: 'non-term-splitting re-reduction + obstruction: the reduction to the pointwise envelope is exact (via Int=5), the envelope keeps the cancellation intact, but the envelope itself is NOT proved, no bound moved, and the honesty markers plus the named residual sub-gap are present.',

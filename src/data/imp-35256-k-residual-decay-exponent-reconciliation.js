@@ -62,7 +62,7 @@
  * (imp-35244); the imp-35240 O(eps) is a conjugate-symmetric surrogate artifact. This reconciles the two
  * module verdicts but does NOT certify a uniform modulus, does NOT discharge O3 or G6a, establishes no
  * operator positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb
- * remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35240-rho-prefactor-finer-grid-remeasurement (reads K-residual O(eps) on the symmetric finite-cutoff route)
  * @see imp-35244-rho-eps52-coefficient-measurement (eps^{5/2} slot EMPTY, next term eps^{7/2}; the mis-pairing diagnosis)
@@ -267,8 +267,8 @@ export const IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION = {
     'conjugate-symmetric finite-cutoff surrogate artifact that reproduces the leading amplitude but injects a ' +
     'spurious eps^{5/2} tail. This reconciles the two module verdicts but does NOT certify a uniform modulus, ' +
     'does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35256_K_RESIDUAL_DECAY_EXPONENT_ASSERTIONS = [
@@ -299,16 +299,16 @@ export const IMP35256_K_RESIDUAL_DECAY_EXPONENT_ASSERTIONS = [
       Math.abs(DIRECT_ROWS[DIRECT_ROWS.length - 1].resid) < 1e-4,
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35256-honesty-gate-no-qed',
     description:
-      'Measurement only: exponents reconciled but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: exponents reconciled but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.isRigorous === false &&
       IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.verdict) &&
       /STAYS OPEN/.test(IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.verdict) &&
-      /rigorous SOTA/.test(IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35256_K_RESIDUAL_DECAY_EXPONENT_RECONCILIATION.verdict,
       ),

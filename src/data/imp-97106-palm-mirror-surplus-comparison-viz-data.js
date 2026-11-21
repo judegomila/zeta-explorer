@@ -75,7 +75,7 @@ export const IMP97106_VERDICT = Object.freeze({
     'every bar falls short of p_req except the far-height N1* / 1e22 baselines, which reach ' +
     'approximate parity (~1.0x) -- a height effect from the mirror mean ln N / 2, not a ' +
     'relaxation at the binding y0 = 0.165 window. Presentation only; no new Lambda bound; ' +
-    'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export default IMP97106_VERDICT;
@@ -125,10 +125,10 @@ const IMP97106_ASSERTIONS = [
       IMP97106_VERDICT.hypothesisHolds === false &&
       IMP97106_VERDICT.anyBoundMoved === false &&
       /No new Lambda bound/i.test(IMP97106_VERDICT.note) &&
-      /remains SOTA/.test(IMP97106_VERDICT.note) &&
+      /refereed bound is changed/i.test(IMP97106_VERDICT.note) &&
       /RH open/.test(IMP97106_VERDICT.note) &&
       /NO QED/.test(IMP97106_VERDICT.note),
-    why: 'presentation-only leaf: no bound moved, PT SOTA line and NO QED present.',
+    why: 'presentation-only leaf: no bound moved, no-refereed-bound-change line and NO QED present.',
   },
 ];
 

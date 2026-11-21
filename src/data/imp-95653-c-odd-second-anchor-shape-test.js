@@ -62,7 +62,7 @@
  * shown robust to any second-anchor kappa in a wide band. Assessment + sensitivity, not a
  * primary-source Section 6 re-derivation. Catalan G irrationality OPEN; Sun
  * arXiv:2609.04176 single-author and unrefereed; changes no bound; NO Lambda movement;
- * PT Lambda<=0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures baked as literals / recomputed from the ledger.
  */
@@ -112,7 +112,7 @@ export const C_ODD_SECOND_ANCHOR_SHAPE_TEST = Object.freeze({
     + 'executed; the rho^2-shape sub-gap REMAINS OPEN, now sharpened to the single '
     + 'structural claim "Section 6 integrand rho-independent". Downstream interior optimum '
     + 'is kappa-INSENSITIVE across [0.5x,2.0x]. G irrationality OPEN; Sun unrefereed; '
-    + 'changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
 
   soleAnchor: {
@@ -162,7 +162,7 @@ export const C_ODD_SECOND_ANCHOR_SHAPE_TEST = Object.freeze({
   caveats:
     'Assessment + sensitivity, not a primary-source re-derivation of Sun Section 6. Uses the '
     + 'imp-95600/95618 LOCAL parabola model of an unpublished Lambda_mid(rho). Catalan G '
-    + 'irrationality OPEN; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'irrationality OPEN; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_SECOND_ANCHOR_SHAPE_TEST_ASSERTIONS = Object.freeze([
@@ -184,11 +184,11 @@ export const C_ODD_SECOND_ANCHOR_SHAPE_TEST_ASSERTIONS = Object.freeze([
     holds: () => MARGIN_MAX - MARGIN_MIN < 0.002,
   },
   {
-    name: 'honest: PARTIAL, sub-gap OPEN, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: PARTIAL, sub-gap OPEN, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /REMAINS OPEN/.test(C_ODD_SECOND_ANCHOR_SHAPE_TEST.status)
       && /G irrationality OPEN/.test(C_ODD_SECOND_ANCHOR_SHAPE_TEST.status)
-      && /PT Lambda<=0.2 SOTA/.test(C_ODD_SECOND_ANCHOR_SHAPE_TEST.status)
+      && /refereed bound is changed/i.test(C_ODD_SECOND_ANCHOR_SHAPE_TEST.status)
       && /NO QED/.test(C_ODD_SECOND_ANCHOR_SHAPE_TEST.status),
   },
 ]);

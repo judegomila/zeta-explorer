@@ -33,7 +33,7 @@
  *  extra support filling [−a, a + log N] with shifts of g; detection appears once A ≈ 2.0. Mollification adds no arithmetic input beyond
  *  the plain Weil form at the enlarged support: Route 19 merges into Route I and the flow-blindness wall.
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_19_ASSERTIONS recompute A = a + ½ log N for every onset,
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_19_ASSERTIONS recompute A = a + ½ log N for every onset,
  * the support-bound consistency (A above the certified plain a*), the savings and excess-support ranges, the inherited-certificate
  * thresholds, homotopy monotonicity and the referee's onset correction live.
  */
@@ -92,7 +92,7 @@ export const ROUTE_19 = Object.freeze({
     + '0–0.37 more. All negative witnesses were reproduced independently and the Euler arm is positive on them. Mollified positivity inherits the certified '
     + 'Euler-blindness of the plain form for 2a + log N ≤ ln 11. In the DH zero-displacement homotopy (not the de Bruijn–Newman flow) shrinking the '
     + 'displacement by 25% moves the Levinson nmax = 19 onset from 1.44 to (1.52, 1.60]. No new arithmetic input: merges into Route I. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_19;
@@ -148,7 +148,7 @@ export const ROUTE_19_ASSERTIONS = Object.freeze([
   {
     id: 'r19-honest-scope',
     holds: () => R.status === 'done' && /proved/.test(R.verdict) && /not the de Bruijn–Newman flow/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /merges into Route I/.test(R.verdict),
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /merges into Route I/.test(R.verdict),
     why: 'Reduction proved (elementary); softness inherited/certified; homotopy is not the dB–N flow; no Λ change; no QED.',
   },
 ]);

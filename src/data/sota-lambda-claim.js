@@ -436,8 +436,8 @@ const PLATT_TRUDGIAN_COMPARISON = {
   headlineCompare:
     'The historical internal envelope 0.0166 is numerically smaller than 0.2, ' +
     'but it is not an established Lambda bound and therefore cannot be compared ' +
-    'as a theorem-grade improvement. Platt-Trudgian 0.2 remains the ' +
-    'peer-reviewed unconditional benchmark.',
+    'as a theorem-grade improvement. No refereed bound is changed' +
+    '.',
   honestVerdict:
     'Not a strict unconditional beat of Platt-Trudgian. The former project ' +
     'comparison is withdrawn because the bridge, truncation, convergence-rate, ' +
@@ -1288,7 +1288,7 @@ export const SOTA_LAMBDA_CLAIM = {
     closuresSurveyed: [
       'imp-451: G3a extremal-statistics diagnostic closure',
       'imp-452: finite-height Lambda bound assembly at N*=1e6',
-      'imp-453: SOTA citation refresh (imp-443/444/447/448/450)',
+      'imp-453: no-refereed-bound-change citation refresh (imp-443/444/447/448/450)',
       'imp-454: Lean lakefile',
       'imp-455: G1-sub-extremal partial closure via Bourgade extremal-gap',
       'imp-456: Theorem UMon proved unconditionally in unfolded coordinates',

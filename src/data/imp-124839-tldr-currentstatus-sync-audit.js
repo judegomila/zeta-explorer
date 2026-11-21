@@ -21,7 +21,7 @@
  * Not treated as drift.
  *
  * DOCUMENTATION/AUDIT ONLY. Changes no bound; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 import { LAMBDA_ROADMAP } from './lambda-roadmap.js';
@@ -99,7 +99,7 @@ export const IMP124839_SYNC_AUDIT = {
     'Steps 1-5 framing, Route A GUE conditional) has a matching claim in the currentStatus ' +
     'opening paragraph. The one sentence present only in the TLDR (seam-chain program pointer) ' +
     'is a documented, deliberate exception, not drift. Changes no bound; imp-3066 K_a >= 0 ' +
-    'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP124839_SYNC_AUDIT_ASSERTIONS = [

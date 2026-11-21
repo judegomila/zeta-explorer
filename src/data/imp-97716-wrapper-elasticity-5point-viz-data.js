@@ -61,8 +61,8 @@ export const IMP97716_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every residual, digit count, and improvement factor is reused verbatim from ' +
     'imp-97686 (a measurement, not a new computation). Conditional-share diagnostic on the inherited ' +
-    'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

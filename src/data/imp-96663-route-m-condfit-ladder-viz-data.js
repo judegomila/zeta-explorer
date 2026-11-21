@@ -11,8 +11,8 @@
  * MEASUREMENT / PRESENTATION ONLY. All rows, the power-fit coefficients,
  * and the three ceiling values are reused verbatim from imp-96570; no new
  * measurement or Gram rebuild here. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96570-route-m-conditioning-ceiling-crossvalidation.js (source ladder, fit, ceilings)
  * @see imp-96581-route-m-lammax-rigorous-vs-measured-viz-data.js (same viz-page convention)
@@ -66,7 +66,7 @@ export const IMP96663_CEILINGS = Object.freeze({
 });
 
 export const IMP96663_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ladder row, the ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every ladder row, the ' +
   'power-fit coefficients, and the three ceiling values are reused verbatim from imp-96570; no ' +
   'new measurement or Gram rebuild. Changes no bound and establishes no operator positivity. ' +
   'Per imp-96731 FINDING 2: of the three ceilings only the rigorous trace lower ceiling ' +
@@ -111,7 +111,7 @@ const IMP96663_ASSERTIONS = [
     id: 'imp96663-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96663_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96663_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96663_HONEST_BANNER) &&
       /NO QED/.test(IMP96663_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

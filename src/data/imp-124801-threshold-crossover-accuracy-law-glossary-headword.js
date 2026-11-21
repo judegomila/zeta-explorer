@@ -33,8 +33,7 @@
  *   component model stays the inherited imp-3220/imp-3406 extrapolation, C_C's 1/8 ansatz
  *   (imp-2642/imp-2643) and the C_mb GUE-conditional (imp-486) are untouched, and no operator
  *   positivity or RH verdict is established.
- *   (e) STATUS: documentation only. No bound moved; no new derivation; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   (e) STATUS: documentation only. No bound moved; no new derivation; NO QED. No refereed bound is changed.
  *
  * @see imp-97838-threshold-landmark-residual-trend.js (source: the four-threshold residual trend
  *   and the 2*E_flow/E_trunc predictor this headword names)
@@ -42,7 +41,7 @@
  * @see imp-33723-sigma-half-vs-crossover-closed-form.js (thr = 0.5 halving landmark, the other anchor)
  *
  * Ticket: imp-124801 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The threshold-crossover accuracy-law headword, baked verbatim (no re-import).
@@ -74,7 +73,7 @@ const THRESHOLD_CROSSOVER_ACCURACY_LAW_HEADWORD = Object.freeze({
     '(thr = 0.9, 0.5, 0.1, 0.01) via Banach-iterated fixed points against downslope bisection of ' +
     'sigma(N), with the residual-falls-monotonically and predictor-tracking claims covered by ' +
     'tripwire assertions in that module. Naming / glossary headword only; supplies no new bound; ' +
-    'the E_trunc/C_C/C_mb inputs are untouched; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+    'the E_trunc/C_C/C_mb inputs are untouched; RH open; no refereed bound is changed; ' +
     'NO QED.',
 });
 
@@ -94,7 +93,7 @@ export const IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD = Obje
     'order, by the single ratio 2*E_flow/E_trunc at the crossing -- falling 0.24584 -> 0.003997 -> ' +
     '7.3777e-5 -> 8.793e-7 across thr = 0.9/0.5/0.1/0.01, tracking the predictor to within 3-13% ' +
     'and closing to < 6e-15 once E_flow is restored. No bound moved; component model and C_C/C_mb ' +
-    'inputs untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'inputs untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-97838 (the four-threshold residual trend this glosses); imp-33743 (the thr = 0.1 far-tail ' +
     'closed form being extended); imp-33723 (the thr = 0.5 halving landmark, the other original anchor).',
@@ -120,11 +119,11 @@ export const IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp124801-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97838.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97838.',
     holds: () =>
       IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP124801_THRESHOLD_CROSSOVER_ACCURACY_LAW_GLOSSARY_HEADWORD.glosses === 'imp-97838',
   },
 ];

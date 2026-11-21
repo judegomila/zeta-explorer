@@ -84,7 +84,7 @@
  * percent apart with different b; (ii) the >= 1500x wall-clock-binds-first HEADROOM is fragile,
  * breaking at ~2.9x machine eps. What DOES survive robustly is the qualitative "wall-clock binds
  * first" (trace ceiling > compute reach) up to eps ~ 8e-10, ~3.6e6x machine eps. Sensitivity /
- * measurement only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open;
+ * measurement only; no bound moved; no operator positivity; no refereed bound is changed; RH open;
  * NO QED.
  *
  * RESIDUAL SUB-GAP (IMP96914_ACC_EPS_MODEL_UNCALIBRATED): the conservative edge uses c = 1 and the
@@ -227,11 +227,11 @@ export const IMP96914_VERDICT = Object.freeze({
     '>=1500x wall-clock-binds-first HEADROOM is fragile (breaks at ~2.9x machine eps). What survives ' +
     'robustly is the qualitative "wall-clock binds first" (trace ceiling > compute reach) up to eps ' +
     '~ 8e-10 (~3.6e6x machine eps). Sensitivity only; no bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96914_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity / measurement only: the ceilings, p ' +
+  'RH open; no refereed bound is changed; NO QED. Sensitivity / measurement only: the ceilings, p ' +
   'and A are reproduced from imp-96833 / imp-96428 and every band is pure re-analysis ' +
   '(tmp/imp-96914-scratch.mjs); no Gram was rebuilt. The conservative eps edge uses a generic ' +
   'c sqrt(N) eps model (c = 1), a plausible upper edge, NOT a certified breakdown eps ' +
@@ -286,7 +286,7 @@ const IMP96914_ASSERTIONS = [
     holds: () =>
       IMP96914_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96914_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96914_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96914_HONEST_BANNER) &&
       /RH open/.test(IMP96914_HONEST_BANNER),
     why: 'sensitivity only: no bound moved and the honesty markers (RH open, PT Lambda <= 0.2, NO QED) are present.',
   },

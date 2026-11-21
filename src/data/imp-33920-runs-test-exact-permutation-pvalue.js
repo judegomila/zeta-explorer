@@ -59,7 +59,7 @@
  * selection. The residual signs come from the inherited imp-3220/imp-3406 extrapolation via imp-33810
  * and the imp-33843 OLS, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-33886-widening-residual-significance-test (the normal-approximation runs test made exact here)
  * @see imp-33858-widening-fit-residual-localization (the eyeballed "structured" verdict)
@@ -217,7 +217,7 @@ export const IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE = {
     'untouched, and the residual stays small (~12% multiplicative); the residual signs come from the ' +
     'inherited imp-3220/imp-3406 extrapolation via imp-33810, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33886 (the normal-approximation runs test made exact here); imp-33858 (the eyeballed ' +
     '"structured" verdict); imp-33843 (the log-linear fit); imp-33810 (the 21-rung ladder); imp-486 ' +
@@ -274,13 +274,13 @@ export const IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE_ASSERTIONS = [
       EXACT_INSIDE_NORMAL_BRACKET,
   },
   {
-    // (R3) Honesty gate: isRigorous false, no QED, PT SOTA, residual still small (bound untouched).
+    // (R3) Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual still small (bound untouched).
     id: 'imp33920-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, residual still small',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, residual still small',
     holds: () =>
       IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE.isRigorous === false &&
       /NO QED/.test(IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE.verdict) &&
-      /remains SOTA/.test(IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE.verdict) &&
+      /refereed bound is changed/i.test(IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE.verdict) &&
       /12% multiplicative/.test(IMP33920_RUNS_TEST_EXACT_PERMUTATION_PVALUE.verdict),
   },
 ];

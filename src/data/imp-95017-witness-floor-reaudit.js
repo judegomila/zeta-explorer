@@ -65,8 +65,7 @@
  * machinery it stands on is now independently confirmed.
  *
  * Import-light (no heavy bundle). Changes no bound; re-audit only; does
- * NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── independent conventions (re-declared, not imported) ──────────────────────
@@ -289,7 +288,7 @@ export const IMP95017_WITNESS_FLOOR_REAUDIT = {
     "The kernel K is an elementary exact integral re-derived by an independent three-piece decomposition and cross-checked against independent Simpson quadrature; the excess E is cross-checked against an independent full-line Gram quadrature; the mass M and legality amplitude h are recomputed with independent loop structure; the base four-packet floors reproduce to rel < 1e-6 through this independent path. This re-audits the floor MACHINERY and the BASE floors only; the append-chain lift to the terminal carried literals is the named residual sub-gap. Re-audit changes no bound.",
   promotesBound: false,
   verdict:
-    "INDEPENDENT RE-AUDIT of the referee-unverified floor side: the multi-rate floor machinery (cross-rate kernel K, exact excess E, far mass M, sharp-MAJ legality h, tail Tx) is re-derived through a code path that shares no helper with the sibling modules, and the BASE four-packet floors reproduce - headline spacing theta = 10 floor 0.092871808411129783 (independent rel 1.2e-10) and fixed-97 theta = 10 floor 0.0012038255978826329 (independent rel 1.3e-14) - with the closed-form excess matching an independent full-line Gram quadrature to rel 5.2e-7, so floorMultiRate carries no coding bug in E, M, K, or h. The Tx underflow-truncation is characterized: it drops positive tail terms at the double denormal floor (theta = 2 at j = 807, theta = 10 at j = 162), which makes the reported floor larger than true - floor-UNSAFE in DIRECTION but with a first-dropped-term magnitude ~1e-324, negligible against the ~1e-8 float rounding already priced. RESIDUAL sub-gap imp-95017-subgap-append-lift: the append lift from the base floors to the carried terminal HEAD_FLOOR = 0.096745062937484763 and F97_FLOOR = 0.0012054673720820889 is not independently re-derived here. Re-audit only; changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "INDEPENDENT RE-AUDIT of the referee-unverified floor side: the multi-rate floor machinery (cross-rate kernel K, exact excess E, far mass M, sharp-MAJ legality h, tail Tx) is re-derived through a code path that shares no helper with the sibling modules, and the BASE four-packet floors reproduce - headline spacing theta = 10 floor 0.092871808411129783 (independent rel 1.2e-10) and fixed-97 theta = 10 floor 0.0012038255978826329 (independent rel 1.3e-14) - with the closed-form excess matching an independent full-line Gram quadrature to rel 5.2e-7, so floorMultiRate carries no coding bug in E, M, K, or h. The Tx underflow-truncation is characterized: it drops positive tail terms at the double denormal floor (theta = 2 at j = 807, theta = 10 at j = 162), which makes the reported floor larger than true - floor-UNSAFE in DIRECTION but with a first-dropped-term magnitude ~1e-324, negligible against the ~1e-8 float rounding already priced. RESIDUAL sub-gap imp-95017-subgap-append-lift: the append lift from the base floors to the carried terminal HEAD_FLOOR = 0.096745062937484763 and F97_FLOOR = 0.0012054673720820889 is not independently re-derived here. Re-audit only; changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -365,13 +364,13 @@ export const IMP95017_REAUDIT_ASSERTIONS = [
   {
     id: "imp95017-honesty-gate",
     description:
-      "the verdict records the re-audit scope, the named append-lift sub-gap, the floor-unsafe Tx direction, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the re-audit scope, the named append-lift sub-gap, the floor-unsafe Tx direction, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95017_WITNESS_FLOOR_REAUDIT.promotesBound === false &&
       IMP95017_WITNESS_FLOOR_REAUDIT.txUnderflowNote.direction === "floor-UNSAFE" &&
       /imp-95017-subgap-append-lift/.test(IMP95017_WITNESS_FLOOR_REAUDIT.subGap) &&
       /NO QED/.test(IMP95017_WITNESS_FLOOR_REAUDIT.verdict) &&
-      /remains SOTA/.test(IMP95017_WITNESS_FLOOR_REAUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95017_WITNESS_FLOOR_REAUDIT.verdict) &&
       /INDEPENDENT RE-AUDIT/.test(IMP95017_WITNESS_FLOOR_REAUDIT.verdict),
   },
 ];

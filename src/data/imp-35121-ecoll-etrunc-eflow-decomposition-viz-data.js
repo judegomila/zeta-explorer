@@ -31,7 +31,7 @@
  *   Ticket: imp-35121 (ux, medium). Visualization only on the inherited
  *   imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; changes
  *   no bound; establishes no operator positivity; imp-3066 K_a >= 0
- *   untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   untouched; NO QED. No refereed bound is changed.
  */
 
 // One point per decade, N = 1e6 .. 1e13, from the imp-33601 parts(N) model.

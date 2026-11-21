@@ -46,7 +46,7 @@
  * d_8..d_105 whose O(t^-4) constant still needs two-sided interval control of the c_{jk} (imp-97164
  * Obstruction 2 / IMP97015_ARB_INTERVAL_BESSEL). Assessment / measurement only: produces no committed v0, no
  * interval majorant, no operator positivity; Rayleigh floors stay UPPER bounds; interval-rigorous reach stays
- * 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97293-krein-committed-cjk-gegenbauer-overlap.js (EXACT rational overlap matrix; support { j+k even AND k<=j+6 })
  * @see imp-97164-krein-v0-overlap-inversion-interval-obstruction.js (Obstruction 1 generic rank + Obstruction 2 interval-Bessel)

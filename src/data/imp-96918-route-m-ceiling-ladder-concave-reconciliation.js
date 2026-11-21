@@ -59,7 +59,7 @@
  * ladder, tighter even than the imp-96682 dense-subset 95% CI tight spot
  * (~6.5%). No bound moved anywhere in this reconciliation; no operator
  * positivity established; wall-clock compute still binds first by
- * >=1500x; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * >=1500x; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96682-route-m-conditioning-ceiling-ladder-status.js (the four-rung ladder being reconciled)
  * @see imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js (the concave-refit F band folded in)
@@ -123,7 +123,7 @@ export const IMP96918_VERDICT = Object.freeze({
     'concave-band < measured/fit survives with the band inserted, but the quadratic upper edge ' +
     'leaves only a ~0.145% margin to the measured/fit rung, the tightest gap anywhere in the ' +
     'ladder. No bound moved; no operator positivity established; wall-clock compute still binds ' +
-    'first by >=1500x; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'first by >=1500x; no refereed bound is changed; RH open; NO QED.',
 });
 
 // LATER CORRECTION (imp-97081, not folded into the reconciliation math above -- it postdates
@@ -148,7 +148,7 @@ export const IMP96918_LATER_CORRECTION = Object.freeze({
 });
 
 export const IMP96918_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation status object only: every value ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciliation status object only: every value ' +
   'below is imported unchanged from imp-96682 and imp-96890; no Gram was rebuilt, no new fit was ' +
   'run, and no bound is claimed moved. The imp-96682 Frobenius rung is re-framed as the low end of ' +
   'a widening fitted-ceiling band, not a settled value.';
@@ -182,7 +182,7 @@ const IMP96918_ASSERTIONS = [
     holds: () =>
       IMP96918_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96918_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96918_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96918_HONEST_BANNER) &&
       /RH open/.test(IMP96918_HONEST_BANNER),
     why: 'reconciliation only: no bound moved, and the honesty markers are present in the banner.',
   },

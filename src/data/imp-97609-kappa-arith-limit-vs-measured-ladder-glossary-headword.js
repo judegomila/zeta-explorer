@@ -36,7 +36,7 @@
  *   ladder samples approach but do not equal 0.5704960511308594 at any finite b.
  *
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
- *   Establishes nothing new; moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   Establishes nothing new; moves no bound. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (source: the exact limit and the
  *   genuine finite-b ladder samples this headword names)
@@ -47,7 +47,7 @@
  *   (5) example list this module corrects; its core verdict on citation consistency is unaffected)
  *
  * Ticket: imp-97609 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97096_KAPPA_ARITH } from './imp-97096-route-m-arith-first-moment-evaluation.js';
@@ -100,7 +100,7 @@ const KAPPA_ARITH_LIMIT_HEADWORD = Object.freeze({
     'F_arith(b)/(phi(b) b) samples at all -- 0.570766 is a Krein c_sharp lambda_min Ritz floor ' +
     'from an unrelated cohort, and 0.5709852 is a coincidental digit-substring inside an unrelated ' +
     'zero-ordinate literal. Corrected here rather than repeated; imp-97543s core citation-' +
-    'consistency verdict is unaffected. No bound moved; NO QED; PT Lambda <= 0.2 remains SOTA; ' +
+    'consistency verdict is unaffected. No bound moved; NO QED; no refereed bound is changed; ' +
     'RH open.',
 });
 
@@ -123,7 +123,7 @@ export const IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD = Object.fre
     'Corrects two of the three example decimals in imp-97543 finding (5) -- 0.570766 and ' +
     '0.5709852 belong to unrelated cohorts, not the Route-M ladder -- without altering imp-97543s ' +
     'core no-drift verdict on the constant itself. Establishes nothing new; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97096 (the limit and the genuine ladder samples); imp-97122 (the certified convergence ' +
     'rate); imp-97124 (the limits own headword); imp-97543 (the audit whose example list this ' +
@@ -163,11 +163,11 @@ export const IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp97609-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97096.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97096.',
     holds: () =>
       IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD.verdict) &&
       IMP97609_KAPPA_ARITH_LIMIT_VS_LADDER_GLOSSARY_HEADWORD.glosses === 'imp-97096',
   },
 ];

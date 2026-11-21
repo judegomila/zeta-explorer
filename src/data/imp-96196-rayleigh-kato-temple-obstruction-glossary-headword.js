@@ -37,20 +37,20 @@
  *   diagonalizing. The strict gap stays with the analytic no-modulus-1 route (imp-96164,
  *   residual SG-96164-boundary), a genuinely different and currently tighter handle.
  *   Nothing here diagonalizes A_S23, moves a Lambda bound, or a verified height. RH open;
- *   PT Lambda <= 0.2 stands; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
  *   A glossary-style lookup restating the imp-96169 Rayleigh/Kato-Temple obstruction for
  *   quick reference. It establishes nothing, instantiates no interval, closes no sub-gap
- *   on its own, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   on its own, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96169-route-i-rayleigh-variational-topstate-assessment (source: the obstruction this glosses)
  * @see imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability (the residual (I) this attacks)
  * @see imp-96164-route-i-mixed-group-no-modulus1-overdetermination (the analytic route the gap defers to)
  *
  * Ticket: imp-96196 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Rayleigh/Kato-Temple obstruction headword, baked verbatim (no re-import).
@@ -95,7 +95,7 @@ const RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_HEADWORD = Object.freeze({
     'U = 1.0001485). The DIRECTION fact is exact and basis-free for any self-adjoint ' +
     'A_S23; the Kato-Temple threshold value is model-calibrated and widens with the gap ' +
     'but never removes the rate-controlled-approximation requirement. Changes no bound; ' +
-    'nothing diagonalizes A_S23; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'nothing diagonalizes A_S23; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -116,8 +116,8 @@ export const IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD = Objec
     'lam_max < 1; the Kato-Temple gap rescue gets a free anchor from the ladder reduction ' +
     'but needs sigma^2 small, which requires resolving the fractal top eigenfunction to ' +
     '~1% accuracy -- the blocked diagonalization step re-encountered. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96169 (the Rayleigh/Kato-Temple obstruction this glosses); imp-96143 (the ' +
     'residual (I) this attacks); imp-96164 (the analytic route the strict gap defers to).',
@@ -143,11 +143,11 @@ export const IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp96196-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
       IMP96196_RAYLEIGH_KATO_TEMPLE_OBSTRUCTION_GLOSSARY_HEADWORD.glosses === 'imp-96169',
   },
 ];

@@ -27,7 +27,7 @@
  *  comparison output below. CONDITIONAL: Λ ≤ 74481734750429/5e14 given Raymond’s analytic chain (G0), Lemma R, C_g lemma,
  *  PT Theorem 1 and the regenerated wall/probe floors at X = 6000000185827. MEASURED: binding pair class, window sensitivity,
  *  uniform-shift requirement, free-label relaxation. HEURISTIC: Track-A ceiling ≈ 0.1485 at the fixed schedule.
- * Verdict: Track A cannot reach 0.145 at PT height. PT Lambda <= 0.2 stands. RH open. NO QED.
+ * Verdict: Track A cannot reach 0.145 at PT height. No refereed bound is changed. RH open. NO QED.
  * Files: tmp/b145-A-{gains,basepairs,assemble,path,spotcheck}.py, tmp/b145-A-out/{RESULT,PATH}.json, tmp/b145-A-scout/,
  *  referee tmp/b145-refA-*.py + tmp/b145-refA-out/; large artifacts /tmp/b145-A-archive/ (outside the repo).
  * Import-free. ASSERTIONS recompute the rationals, the ablation order, ΔΛ, the 4- vs 128-substep gap, the uniform-shift
@@ -100,7 +100,7 @@ export const B145_FLOOR = Object.freeze({
     'Λ ≤ 74481734750429/500000000000000 = 0.148963469500858 at PT height, CONDITIONAL on Raymond’s analytic chain (G0 open externally), '
     + 'Lemma R and the C_g lemma (one internal referee pass each), PT Theorem 1 and the regenerated floors. Track A tops out near 0.1485 at '
     + 'the fixed schedule; 0.145 at PT height would need certified floors within about 0.05 of the Kronecker torus. The “barrier above model '
-    + 'zeros” criterion is withdrawn. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'zeros” criterion is withdrawn. No refereed bound is changed. RH open. NO QED.',
 });
 
 const A = B145_FLOOR;
@@ -161,7 +161,7 @@ export const B145_FLOOR_ASSERTIONS = Object.freeze([
   },
   {
     id: 'b145-floor-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(A.verdict) && /NO QED/.test(A.verdict) && /NO QED/.test(A.status)
+    holds: () => /refereed bound is changed/i.test(A.verdict) && /NO QED/.test(A.verdict) && /NO QED/.test(A.status)
       && A.lemmas.every((l) => /refereed once internally/.test(l.grade)) && /LOWER bounds/.test(A.costsT0075.note),
     why: 'New lemmas graded as refereed-once conditional inputs; ascent values labelled lower bounds; no bound below 0.2 proved.',
   },

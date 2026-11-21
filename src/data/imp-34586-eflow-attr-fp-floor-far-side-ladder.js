@@ -60,7 +60,7 @@
  *   gate). Descriptive surrogate, NOT a rigorous asymptotic; the component model is the
  *   inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is
  *   UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- *   untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34572-eflow-attr-far-side-pole-smoothness.js (the far-side ladder k=21.30..21.60 this extends; handoff rung reused)
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (near-side bracket k=21.00..21.50)
@@ -191,8 +191,8 @@ export const IMP34586_EFLOW_ATTR_FP_FLOOR_FAR_SIDE_LADDER = {
     'resid_exp DENOMINATOR at k*, not in eflow_attr. Descriptive surrogate, NOT a rigorous ' +
     'asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34586_ASSERTIONS = [
@@ -266,13 +266,13 @@ export const IMP34586_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34586-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34586_EFLOW_ATTR_FP_FLOOR_FAR_SIDE_LADDER.isRigorous === false &&
       /NO QED/.test(IMP34586_EFLOW_ATTR_FP_FLOOR_FAR_SIDE_LADDER.honest) &&
-      /remains SOTA/.test(IMP34586_EFLOW_ATTR_FP_FLOOR_FAR_SIDE_LADDER.honest) &&
+      /refereed bound is changed/i.test(IMP34586_EFLOW_ATTR_FP_FLOOR_FAR_SIDE_LADDER.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34586_EFLOW_ATTR_FP_FLOOR_FAR_SIDE_LADDER.honest),
   },
 ];

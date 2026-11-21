@@ -63,8 +63,7 @@
  * eps^{3/2} coefficient is K = 4/(3 A_2) = 8 sqrt(2)/(9 pi) ~ 0.40014, NOT 2/5; this identifies the closed
  * form imp-35193 flagged but does NOT certify a uniform modulus, does NOT discharge O3 or G6a, establishes
  * no operator positivity, changes no bound. G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35193-rho-convergence-rate-modulus-measurement (measured theta ~ 3/2, K ~ 0.400 flagged near 2/5)
  * @see imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (the finite-ladder 2/3 margin)
@@ -177,8 +176,8 @@ export const IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT = {
     'coefficient, a coincidence. K matches the imp-35193 measured tail (0.4001) CLOSER than 2/5 does. This ' +
     'identifies the closed form imp-35193 flagged but does NOT certify a uniform modulus, does NOT discharge ' +
     'O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'the rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35216_RHO_PREFACTOR_ASSERTIONS = [
@@ -220,16 +219,16 @@ export const IMP35216_RHO_PREFACTOR_ASSERTIONS = [
       Math.abs(TWO_THIRDS - 2 / 3) < 1e-12,
   },
   {
-    // Honesty gate: assessment only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: assessment only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35216-honesty-gate-no-qed',
     description:
-      'Assessment only: closed form identified but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Assessment only: closed form identified but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.isRigorous === false &&
       IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.verdict) &&
       /STAYS OPEN/.test(IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35216_RHO_PREFACTOR_CLOSED_FORM_ASSESSMENT.verdict,
       ),

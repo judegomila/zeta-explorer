@@ -3,7 +3,7 @@
  * A–G of the roadmap (rh-novel-routes-roadmap-2026-09-23.js) were worked to a
  * verdict with real derivations + numerics. This module records the convergence
  * and the single structural opening it triangulated. Import-light; holds()
- * assertions. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO false QED.
+ * assertions. NOT a bound; no refereed bound is changed; RH open; NO false QED.
  *
  * THE CONVERGENCE: all seven physically-distinct routes independently reduce to
  * ONE object — Weil positivity (equivalently the Carathéodory–Pick positivity of
@@ -27,7 +27,7 @@
 export const RH_SWEEP_SYNTHESIS = Object.freeze({
   id: 'rh-novel-routes-sweep-synthesis',
   date: '2026-09-23',
-  status: 'SWEEP COMPLETE (A–G worked); all reduce to Weil positivity; one opening = Connes–Consani scaling site. PT Λ≤0.2 SOTA; RH open; NO QED',
+  status: 'SWEEP COMPLETE (A–G worked); all reduce to Weil positivity; one opening = Connes–Consani scaling site. No refereed bound is changed; RH open; NO QED',
   commonTerminus: 'Weil positivity = Carathéodory–Pick positivity of ξ′/ξ on Re s>½ (Lagarias 1999; imp-95520 PICK-WEIL)',
 
   verdicts: [
@@ -91,8 +91,8 @@ export const RH_SWEEP_SYNTHESIS = Object.freeze({
     'The creative sweep did its job: seven distinct framings triangulated the exact '
     + 'target (Weil positivity) and one opening with new structure (the scaling site). '
     + 'This is a mapped convergence, not scattered no-gos. Nothing here is a bound or a '
-    + 'proof; the scaling-site route is hard and external-structure-dependent. PT Λ≤0.2 '
-    + 'SOTA; RH open; NO QED.',
+    + 'proof; the scaling-site route is hard and external-structure-dependent. No refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // imp-96076: cross-route wall map for all thirteen 2026-09-23 novel routes A-M
@@ -172,7 +172,7 @@ export const RH_SWEEP_SYNTHESIS_ASSERTIONS = Object.freeze([
   {
     id: 'honest-no-qed',
     holds: () => /NO QED/.test(RH_SWEEP_SYNTHESIS.status) && /RH open/.test(RH_SWEEP_SYNTHESIS.honest),
-    why: 'No false QED; RH stays open; PT Λ≤0.2 SOTA.',
+    why: 'No false QED; RH stays open; no refereed bound is changed.',
   },
   {
     id: 'named-open-residual-registered',

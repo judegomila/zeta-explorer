@@ -59,7 +59,7 @@
  * sensitive point.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3324-sigma-CH-sensitivity (semi-elasticity sigma(1-sigma) measured ONLY at 10^6)
  * @see imp-3323-sigma-argmin-locator (the sigma U-minimum N* ~ 97.80, same formulas)
@@ -178,8 +178,8 @@ export const IMP3388_SIGMA_SEMIELASTICITY_ARGMAX = {
     'NOT at the headline 10^6 point where imp-3324 measured it. Yet the peak semi-elasticity ' +
     '~0.134 is still an order below unity, so the imp-3324 robustness verdict (E_coll ' +
     'dominance survives any plausible C_H) holds even at the share most sensitive point. ' +
-    'No positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'No positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3324 (semi-elasticity sigma(1-sigma) measured only at 10^6); imp-3323 (sigma ' +
     'U-minimum N* ~ 97.80, same formulas); imp-3220 (U-shaped sigma(N) decade ladder); ' +
@@ -232,13 +232,13 @@ export const IMP3388_SIGMA_SEMIELASTICITY_ARGMAX_ASSERTIONS = [
     holds: () => SE_MAX > 0 && SE_MAX < 0.2,
   },
   {
-    // Honesty gate: assessment only, no QED, PT stays SOTA, complement-of-imp-3324 verdict.
+    // Honesty gate: assessment only, no QED, no refereed bound is changed, complement-of-imp-3324 verdict.
     id: 'imp3388-honesty-gate-no-qed',
-    description: 'Assessment only: interior-argmax verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: interior-argmax verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP3388_SIGMA_SEMIELASTICITY_ARGMAX.isRigorous === false &&
       /NO QED/.test(IMP3388_SIGMA_SEMIELASTICITY_ARGMAX.verdict) &&
-      /remains SOTA/.test(IMP3388_SIGMA_SEMIELASTICITY_ARGMAX.verdict),
+      /refereed bound is changed/i.test(IMP3388_SIGMA_SEMIELASTICITY_ARGMAX.verdict),
   },
 ];
 

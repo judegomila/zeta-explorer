@@ -55,7 +55,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34694-sigma-exponent-knee-closed-form-location (the ~7.4e-3 dex gap this decomposes; its OPEN sub-gap)
  * @see imp-34111-sigma-inflection-knee-vs-crossover-tightgrid (tight-grid bisection log10 N* ~ 9.52903)
@@ -272,7 +272,7 @@ export const IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION = {
     'the residual lives in the DROPPED E_flow term, not the v-expansion order. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES imp-34694s residual-attribution sub-gap: the ~7.4e-3 dex gap is ~99% the dropped E_flow term ' +
     'and ~1% the slowly-varying-v truncation, so no higher-order delta expansion tightens it. What remains ' +
@@ -333,15 +333,15 @@ export const IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION_ASSERTIONS = [
       LOG10_N_STAR_EXACTF - LOG10_N_STAR_FULL > 5e-3,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34710-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION.isRigorous === false &&
       IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION.farTailExponent === 0.5 &&
       typeof IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION.subGap === 'string' &&
       /NO QED/.test(IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION.verdict),
   },
 ];
 

@@ -28,7 +28,7 @@
  * capped trace overshoots the true B by 2.449x there -- the surviving
  * large-rho looseness (2.3 - 4.0x) now lives DOMINANTLY in the
  * b-uniform t3 weight, the last named leg. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 / imp-95329 / imp-95330 / imp-95331 /
  * imp-95332 normalization, verbatim). a = ln rho in (0, 6], b = ln r
@@ -261,8 +261,8 @@ export const IMP95333_PAIR_EXTENDED_PENCIL_FLOOR = {
     "looseness 5.060 -> 3.957; at most 2.8 percent numerator headroom " +
     "remains at the binding chart); the b-uniform t3-weight leg " +
     "remains OPEN and now carries the residual. Every-octave onsets " +
-    "unchanged. Changes no bound; NO QED; Platt-Trudgian Lambda <= " +
-    "0.2 remains SOTA.",
+    "unchanged. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -887,10 +887,10 @@ export const IMP95333_ASSERTIONS = [
       "the verdict names the executed-and-near-exhausted pair leg, " +
       "keeps the b-uniform t3 leg open, records unchanged onsets, the " +
       "tau = 1/2 vanishing weight, and floors-only scope; promotes no " +
-      "bound, NO QED, PT stays SOTA",
+      "bound, NO QED, no refereed bound is changed",
     holds: () =>
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /EXECUTED and NEAR-EXHAUSTED/.test(REC.verdict) &&
       /remains OPEN/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&

@@ -46,7 +46,7 @@
  * Sun 6.23); this fits the RECONSTRUCTION, not a Prop-6.3-certified per-m quantity (imp-95966 PIECE-A
  * obstruction unchanged). RSS values compare fit quality on 7 points; they are not evidence any form
  * is "correct". Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; NO
- * Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the imp-95925 Q0_RECON literals +
+ * Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the imp-95925 Q0_RECON literals +
  * the certified kappa, runs 7-point linear algebra at import (no heavy quadrature).
  *
  * SOURCE: arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.19)-(6.23).
@@ -141,7 +141,7 @@ export const C_ODD_DEPARTURE_TWO_TERM_CLOSED_FORM_ASSESSMENT = Object.freeze({
     + 'two-term closed form; dI is reconstruction-borne (imp-95982/96007 parity-split power law '
     + 'Q0_RECON=L-c.m^-p, p~1.96), confirming the imp-95878 sub-gap. Fits the reconstruction (m=20-only '
     + 'certified, imp-95966 PIECE-A unchanged); changes no bound. G irrationality OPEN; Sun unrefereed; '
-    + 'PT Lambda<=0.2 SOTA; NO QED',
+    + 'no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.19)-(6.23)',
   builtOn:
@@ -205,7 +205,7 @@ export const C_ODD_DEPARTURE_TWO_TERM_CLOSED_FORM_ASSESSMENT = Object.freeze({
     + 'linear algebra at import. Q0_RECON is certified only at m=20 (imp-95966 PIECE-A obstruction '
     + 'unchanged), so this fits the reconstruction, not a Prop-6.3-certified per-m quantity. RSS '
     + 'compares fit quality on 7 points; it is not evidence any form is correct. Catalan G '
-    + 'irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_DEPARTURE_TWO_TERM_CLOSED_FORM_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -244,13 +244,13 @@ export const C_ODD_DEPARTURE_TWO_TERM_CLOSED_FORM_ASSESSMENT_ASSERTIONS = Object
       && /reconstruction-borne/.test(C_ODD_DEPARTURE_TWO_TERM_CLOSED_FORM_ASSESSMENT.finding.genuineStructure),
   },
   {
-    name: 'honest: fit only, m=20-only certified, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: fit only, m=20-only certified, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => {
       const s = C_ODD_DEPARTURE_TWO_TERM_CLOSED_FORM_ASSESSMENT.status;
       return /MEASURED\/FIT/.test(s)
         && /m=20-only certified/.test(s)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

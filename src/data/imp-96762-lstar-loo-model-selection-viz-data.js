@@ -14,7 +14,7 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96735
  * IMP96735_BASIS_C_LSTAR_BRACKET_LOO export; only the flat chart-ready
  * reshape is new. Changes no bound, establishes no operator positivity, no
- * RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96735-basis-c-lstar-bracket-leave-one-out-robustness.js (source: 15 LOO refits + AIC/BIC/AICc)
  * @see imp-96712-basis-c-accelerating-exponent-model.js (the +/-6% bracket this stress-tests)
@@ -101,7 +101,7 @@ const IMP96762_ASSERTIONS = [
     id: 'imp96762-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96762_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96762_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96762_HONEST_BANNER) &&
       /NO QED/.test(IMP96762_HONEST_BANNER),
     why: 'every Route I/basis-C viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

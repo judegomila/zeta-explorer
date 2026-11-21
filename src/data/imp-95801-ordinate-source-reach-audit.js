@@ -56,7 +56,7 @@
  * Odlyzko-derived ordinate bundle exists (S5). This is the verified-height bottleneck: the
  * only lever that would push past it is more verified ordinate data (RH-free HPC), which is
  * out of reach in-repo. Assessment only; changes no bound; NO QED; the zero-side route
- * stays PCC/GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays PCC/GRH-gated; no refereed bound is changed.
  *
  * @see imp-95750-number-variance-deadzone-measurement-reach (direct-measurement ceiling)
  * @see imp-95783-rtrue-vs-rcap-gap-deadzone (F4 obstruction this audit backs)
@@ -169,7 +169,7 @@ export const IMP95801_ORDINATE_SOURCE_REACH_AUDIT = {
     'window bottom T = 3.0e12 stay unreached by verified ordinates. This is the verified-height ' +
     'bottleneck; the only lever past it is more verified ordinate data (RH-free HPC), out of ' +
     'reach in-repo. Changes no bound; NO QED; the zero-side route stays PCC/GRH-gated; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-95750 (direct-measurement ceiling); imp-95783 F4 (dead-zone obstruction this backs); ' +
     'imp-95729 (crossover T0 = 1.14e9); imp-95519 (window bottom T = 3.0e12); ' +
@@ -198,13 +198,13 @@ export const IMP95801_ORDINATE_SOURCE_REACH_AUDIT = {
   const ceilingSources = IMP95801_ORDINATE_SOURCE_REACH_AUDIT.sources.filter((s) => s.isReachCeiling);
   if (ceilingSources.length !== 1 || ceilingSources[0].id !== 'S1')
     throw new Error('imp-95801: exactly S1 must be the reach ceiling');
-  // honesty gate: assessment only, no QED, PT stays SOTA.
+  // honesty gate: assessment only, no QED, no refereed bound is changed.
   if (IMP95801_ORDINATE_SOURCE_REACH_AUDIT.isRigorous !== false)
     throw new Error('imp-95801: isRigorous must be false');
   if (!/NO QED/.test(IMP95801_ORDINATE_SOURCE_REACH_AUDIT.verdict))
     throw new Error('imp-95801: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95801_ORDINATE_SOURCE_REACH_AUDIT.verdict))
-    throw new Error('imp-95801: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95801_ORDINATE_SOURCE_REACH_AUDIT.verdict))
+    throw new Error('imp-95801: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95801_ORDINATE_SOURCE_REACH_AUDIT;

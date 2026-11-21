@@ -11,7 +11,7 @@
  *   ASSESSMENT / DERIVATION only. No operator positivity is established; no certified positive lower bound on
  *   c_sharp is produced; the m>1 window enclosure is shown to be NOT less vacuous than m=1 (indeed strictly
  *   worse in error magnitude); no bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96;
- *   Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * SETUP -- WHAT AN m=2 WINDOW GATE ACTUALLY REQUIRES. The left-definite Lehmann-Maehly method lower-brackets
  *   the m lowest eigenvalues of a self-adjoint A that sit BELOW a chosen shift rho, and the number m of
@@ -171,8 +171,8 @@ export const IMP97514_HONEST_BANNER =
   'and recursing to lambda_3 shares the same concentration wall (cannot cross zero); and the unbounded-above ' +
   'sigma_2 ~ t^4 log t amplifies the pencil rho^2*tr(A2) error by ~4322x at the ~66x larger required window ' +
   'shift. The turtles-all-the-way-up regress and the unbounded-above operator close the m=2 window identically. ' +
-  'No operator positivity; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 ' +
-  'remains SOTA; RH open; NO QED.';
+  'No operator positivity; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97514_ASSERTIONS = [
@@ -229,9 +229,9 @@ const IMP97514_ASSERTIONS = [
       Math.abs(IMP97514_BINDING_2A - LN3) < 1e-12 &&
       IMP97514_VERDICT.qed === false &&
       /NO QED/.test(IMP97514_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97514_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97514_HONEST_BANNER) &&
       /RH open/.test(IMP97514_HONEST_BANNER),
-    why: 'assessment/derivation only: no rigorous positive lower bound on c_sharp, no operator positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; PT SOTA line present; RH open; NO QED.',
+    why: 'assessment/derivation only: no rigorous positive lower bound on c_sharp, no operator positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; no-refereed-bound-change line present; RH open; NO QED.',
   },
 ];
 

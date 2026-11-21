@@ -55,8 +55,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ramp 0.0105 -> 0.4310 by [1e11,1e12])
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (FAR-tail sliding window, p_eff -> 1/2)
@@ -375,7 +374,7 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
     'fast, the final approach glacial. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (per-decade ramp 0.0105 -> 0.4310 by [1e11,1e12]); imp-33274 (FAR-tail sliding ' +
     'window p_eff -> 1/2); imp-3529 (LOCAL pointwise exponent p(N)); imp-3463 (far-tail leading ' +
@@ -505,14 +504,14 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE_ASSERTIONS = [
       Math.abs((CROSS_p375_LOG10 - CROSS_p25_LOG10) - 1.07) < 0.05,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp33816-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.isRigorous === false &&
       IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.verdict) &&
-      /remains SOTA/.test(IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.verdict),
+      /refereed bound is changed/i.test(IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.verdict),
   },
 ];
 

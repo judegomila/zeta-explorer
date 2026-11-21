@@ -61,8 +61,7 @@
  * MEASUREMENT / ROBUSTNESS DIAGNOSTIC ONLY. Conditional-share curvature diagnostic, NOT an RH
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (whole-decade ladder: single D2 knee)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee LOCATION N* ~ 3.38e9, width-robust)
@@ -270,8 +269,8 @@ export const IMP34291_SIGMA_INFLECTION_UNIQUENESS_ROBUSTNESS = {
     'never doubled); widening the domain restores exactly one crossing at every coarse width. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33701 (whole-decade single D2 knee); imp-33721 (sub-decade knee location N* ~ 3.38e9, ' +
     'width-robust across {0.1..0.25}); imp-33582 (six-decade exponent ladder); imp-486 (C_mb ' +
@@ -332,13 +331,13 @@ export const IMP34291_SIGMA_INFLECTION_UNIQUENESS_ROBUSTNESS_ASSERTIONS = [
     holds: () => OFFSET_SWEEP.some((r) => r.offsetDecades > 0) && OFFSET_SWEEP.length >= 12,
   },
   {
-    // Honesty gate: robustness diagnostic only, no QED, PT stays SOTA.
+    // Honesty gate: robustness diagnostic only, no QED, no refereed bound is changed.
     id: 'imp34291-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34291_SIGMA_INFLECTION_UNIQUENESS_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP34291_SIGMA_INFLECTION_UNIQUENESS_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP34291_SIGMA_INFLECTION_UNIQUENESS_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP34291_SIGMA_INFLECTION_UNIQUENESS_ROBUSTNESS.verdict),
   },
 ];
 

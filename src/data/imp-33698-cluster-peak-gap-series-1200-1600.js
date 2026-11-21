@@ -69,8 +69,7 @@
  *   reading is the QUALITATIVE conclusion -- the clustered spacing statistic changes regime rather than
  *   continuing -- not the exact coefficients. The NPHI = 10 Phi-series truncation is inherited upstream.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
- *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the SOTA.
+ *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33679-cluster-peak-envelope-height-1200-1600.js (the four [1200,1600] peaks whose spacing this measures)
  *   @see imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200.js (the [400,1200] fifteen-gap baseline)
@@ -297,7 +296,7 @@ const verdict =
       'PERSISTS-NOR-SATURATES-;-THE-CLUSTERED-SPACING-STATISTIC-REGIME-CHANGES-INTO-A-BROAD-ELEVATED-FLOOR.-' +
       'CONSISTENT-WITH-THE-imp-33679-NEAR-CONTINUOUS-CLEARING-AND-THE-imp-33599/imp-33621/imp-33638/imp-33660/' +
       'imp-33661-latticeJitterCaveat.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-' +
-      'feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600 = Object.freeze({
@@ -325,7 +324,7 @@ export const IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600 = Object.freeze({
     'discrete clustered lattice dissolves; on only three gaps the CV drop is not a robust regularization signal, ' +
     'and the imp-33661 irregularity neither cleanly persists nor saturates. ACCURACY/RULE-DESIGN MEASUREMENT, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) ' +
-    'untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -439,7 +438,7 @@ export const IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600 = Object.freeze({
       'the ~123-rung mean, the ~31.0-rung sd, and the ~0.25 CV. The robust reading is the QUALITATIVE conclusion ' +
       '-- the clustered spacing statistic regime-changes rather than persisting/saturating/regularizing -- not ' +
       'the exact coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -495,7 +494,7 @@ export const IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600_ASSERTIONS = [
   {
     id: 'imp33698-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600.honestCaveat;
       return (
@@ -504,7 +503,7 @@ export const IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

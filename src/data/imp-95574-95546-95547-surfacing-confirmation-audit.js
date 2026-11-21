@@ -12,8 +12,8 @@
  * src/pages/Imp95547AlphaKhHeatScatterViz.jsx) end to end. Both open with
  * a red-bordered "Honest status" banner and close with a "Status" banner,
  * each stating: changes no Lambda bound, establishes no operator
- * positivity, RH does not follow, Platt-Trudgian Lambda <= 0.2 remains
- * SOTA, NO QED. Both banners are present verbatim in both files.
+ * positivity, RH does not follow, no refereed bound is changed
+ * , NO QED. Both banners are present verbatim in both files.
  *
  * METHOD for (b): grepped src/data/visualizations-index.js for both
  * ticket ids. Both have a row with route, dataModule, paperSourcePath,
@@ -27,8 +27,7 @@
  * banner and both visualizations-index.js rows are present and correctly
  * wired. This closes out the imp-95407 orphan finding for imp-95333 /
  * imp-95334: they are now genuinely SURFACED, not merely routed.
- * AUDIT-ONLY: no bound change; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * AUDIT-ONLY: no bound change; NO QED; no refereed bound is changed.
  */
 
 const SUBJECT_PAGES = [
@@ -59,9 +58,9 @@ export const IMP95574_SURFACING_CONFIRMATION_AUDIT = {
     'AUDIT-ONLY -- confirms imp-95546 and imp-95547, the two viz pages shipped to close the ' +
     'imp-95407 orphan finding for imp-95333 (RZ-PEN7) / imp-95334 (RZ-PEN8), each carry a ' +
     'complete honest-status banner (no bound change, no operator positivity, RH does not ' +
-    'follow, Platt-Trudgian Lambda<=0.2 remains SOTA, NO QED) and each has a correctly wired ' +
+    'follow, no refereed bound is changed, NO QED) and each has a correctly wired ' +
     'visualizations-index.js row matching its registered App.jsx route. No defect found; no ' +
-    'page or row was altered by this ticket. NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'page or row was altered by this ticket. NO QED; no refereed bound is changed.',
 };
 
 export const IMP95574_SURFACING_CONFIRMATION_AUDIT_ASSERTIONS = [
@@ -81,10 +80,10 @@ export const IMP95574_SURFACING_CONFIRMATION_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95574-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP95574_SURFACING_CONFIRMATION_AUDIT.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP95574_SURFACING_CONFIRMATION_AUDIT.honest),
+      /refereed bound is changed/i.test(IMP95574_SURFACING_CONFIRMATION_AUDIT.honest),
   },
 ];
 

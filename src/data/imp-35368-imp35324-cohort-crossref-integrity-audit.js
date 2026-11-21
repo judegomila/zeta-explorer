@@ -39,7 +39,7 @@
  * here and are picked up by subsequent cohort audits (e.g. imp-35424, which explicitly covers
  * imp-35370/imp-35371/imp-35355/imp-35356/imp-35357 and notes this imp-35368 audit covers only
  * the four files below). Changes no bound; establishes no operator positivity; no RH verdict;
- * NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35327-imp352xx-frontier-crossref-integrity-audit (prior repetition, imp-35245..imp-35323)
@@ -114,7 +114,7 @@ export const IMP35368_IMP35324_COHORT_CROSSREF_INTEGRITY_AUDIT = {
     'still carries its GUE-conditional caveat and NO-QED disclaimer. Result: zero dangling ' +
     'references, zero misnamed exports, no missing files, no missing honesty caveats. No source ' +
     'file required correction. Changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35186 (prior audit method), imp-35327 (adjacent range audit, imp-35245..imp-35323), ' +
     'imp-35424 (next cohort audit), imp-35324/imp-35278/imp-35330/imp-35284 (the audited cohort).',
@@ -143,11 +143,11 @@ export const IMP35368_IMP35324_COHORT_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35368-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35368_IMP35324_COHORT_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35368_IMP35324_COHORT_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35368_IMP35324_COHORT_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35368_IMP35324_COHORT_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

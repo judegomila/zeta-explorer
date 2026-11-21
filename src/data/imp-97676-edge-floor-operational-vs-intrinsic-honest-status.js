@@ -34,14 +34,14 @@
  * amplitudes -- and both certify relBias(3.36) = -2.727e-5's sign as a genuine signal, with imp-97643
  * showing the imp-97625 estimate was conservative. Read-only reconciliation; changes no bound; the
  * m=1/m=2 Krein enclosure stays unusable at 2a = ln 3; interval-rigorous reach stays 2a <= 0.96;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97625-krein-tail-bias-signal-vs-floor-assessment.js (operational IEEE-double floor, SNR ~1e4x)
  * @see imp-97643-krein-edge-floor-hiprec-crosscheck.js (intrinsic dps=40 floor, SNR ~1e7x-1e9x)
  * @see imp-97605-krein-tail-bias-direct-ct-crossvalidation.js (the IEEE-double direct measurement both cross-check)
  *
  * Ticket: imp-97676 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97625_FLOOR_ASSESSMENT, IMP97625_VERDICT } from './imp-97625-krein-tail-bias-signal-vs-floor-assessment.js';
@@ -85,7 +85,7 @@ export const IMP97676_FLOOR_RECONCILIATION_HONEST_STATUS = Object.freeze({
 });
 
 export const IMP97676_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note reconciles the imp-97625 operational ' +
+  'RH open; no refereed bound is changed; NO QED. This note reconciles the imp-97625 operational ' +
   'IEEE-double edge-amplitude floor (~1e-9, arithmetic/Simpson-noise-limited) with the imp-97643 ' +
   'intrinsic dps=40 floor (3.76e-13, truncation-limited): they measure different things and are not ' +
   'in conflict. Both certify the relBias(3.36) = -2.727e-5 negative sign as a genuine resolvable signal ' +
@@ -110,7 +110,7 @@ if (
     IMP97676_FLOOR_RECONCILIATION_HONEST_STATUS.isRigorous === false &&
     IMP97676_FLOOR_RECONCILIATION_HONEST_STATUS.qed === false &&
     /NO QED/.test(IMP97676_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP97676_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97676_HONEST_BANNER) &&
     /RH open/.test(IMP97676_HONEST_BANNER)
   )
 ) {

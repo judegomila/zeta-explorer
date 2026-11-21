@@ -59,7 +59,7 @@
  * band (~[8.2, 11.0]). Read it as a coarse average trend confirming "faster than any fixed 1/log^q,
  * q <= 3", consistent with the RESULT-1 oscillating PNT/Mertens fingerprint -- not as a determined
  * exponent. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on
- * Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97659-route-m-gap-law-decay-extprec.js (deep dps=30 ladder; RESULT 1 oscillation, RESULT 2 ~10.18)
  * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (shallow ladder; two-rung climb was a sparse artifact)
@@ -191,11 +191,11 @@ export const IMP97687_VERDICT = Object.freeze({
     'as a coarse average trend confirming "faster than any fixed 1/log^q, q <= 3", consistent with the ' +
     'imp-97659 RESULT-1 oscillating PNT/Mertens fingerprint -- not as a determined exponent. MCM stays ' +
     'refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97687_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Robustness of the imp-97659 ~10.18 average decay ' +
+  'RH open; no refereed bound is changed; NO QED. Robustness of the imp-97659 ~10.18 average decay ' +
   'exponent: leave-one-out keeps it in [9.99, 10.33] and a 20000-draw bootstrap keeps "outruns every ' +
   'fixed power <= 3" at ~99.99%, but the value depends on the p-window (~11 -> ~15) and the abscissa/model ' +
   'choice (10.18 vs 0.62 for 1/log^q vs 1/p^s), with a wide 95% band ~[8.2, 11.0]. A coarse average ' +
@@ -251,7 +251,7 @@ const IMP97687_ASSERTIONS = [
       IMP97687_VERDICT.anyBoundMoved === false &&
       IMP97687_VERDICT.qed === false &&
       /NO QED/.test(IMP97687_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97687_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97687_HONEST_BANNER) &&
       /RH open/.test(IMP97687_HONEST_BANNER),
     why: 'measurement only -- the ~10.18 exponent is robust qualitatively (leave-one-out + bootstrap ">3") but is a coarse average, not a determined constant; MCM refuted from omega=11; no bound moved, no QED.',
   },

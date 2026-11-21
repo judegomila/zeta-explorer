@@ -60,7 +60,7 @@
  * IMP96772_ENTRY_PRECISION_AND_TCONV: a full-entry extended-precision rebuild of A,B (exact Gram +
  * extended-precision t-quadrature) with t-convergence to T>=3200 is needed to pin the plateau value
  * itself. Measurement only; operator positivity for 0.96 < 2a < ln3 stays OPEN; interval-rigorous
- * certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96749-krein-lammin-N-trend-measurement.js (Legendre ladder + condB wall; SUB-GAP IMP96749_UNIFORM_N_GAP_UNSETTLED)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (orthogonal Gegenbauer diagonal-Gram sibling; descent = t-truncation)

@@ -20,8 +20,7 @@
  * MEASUREMENT ONLY. Instantiates no directed-rounding interval; evaluates no true H_0;
  * verifies no inequality; changes no bound; establishes no positivity; the certified
  * length-N interval sum stays MECHANICAL / GREENFIELD (imp-35725 / imp-35681 Part A);
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * FINDING -- the OUTWARD peak does NOT drift in LOCATION between the two contours; only
  * its HEIGHT rises
@@ -62,7 +61,7 @@
 
 import { IMP36096_W1_ACCUMULATOR_JOINT_RECOVERY_CONTOUR } from './imp-36096-w1-accumulator-joint-recovery-contour.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 // -- Locate the interior peak (max u+v) of a baked normalized contour ---------------------------
 // Interior drops the two axis endpoints (fixed at u+v = 1 by construction, as in imp-36096).
@@ -210,7 +209,7 @@ export const IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT = {
     'ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Instantiates no ' +
     'directed-rounding interval; evaluates no true H_0; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36096 (the joint recovery contour whose peak this locates); imp-36133 (N-stability of the same ' +
     'lobed contour); imp-36061 (the single-axis edges normalizing the contour); imp-35890 (O(1) ' +
@@ -271,15 +270,15 @@ export const IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT_ASSERTIONS = [
       EDGE_RESCALE_RESIDUAL < 1e-5,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36158-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT.verdict) &&
-      /remains SOTA/.test(IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT.verdict),
+      /refereed bound is changed/i.test(IMP36158_JOINT_RECOVERY_PEAK_LOCATION_DRIFT.verdict),
   },
 ];
 

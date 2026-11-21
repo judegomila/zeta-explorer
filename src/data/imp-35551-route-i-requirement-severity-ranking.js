@@ -13,8 +13,7 @@
  * bound; tightens no bound; establishes no operator positivity; no RH verdict,
  * NO QED. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643, C_H = 1/8), the
  * E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED;
- * C_mb GUE-conditional per imp-486 UNTOUCHED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * C_mb GUE-conditional per imp-486 UNTOUCHED. No refereed bound is changed.
  *
  * THE RANKING QUESTION
  * -----------------------------------------------------------------------------
@@ -67,8 +66,7 @@
  * conditional ceiling. Route-(ii) (the imp-35488 two-height data-anchored spot
  * check, both landmark heights below T_PT = 3e12) therefore remains the only
  * viable partial for the OPEN imp-35337a. Assessment/scoping only; discharges
- * nothing; changes no bound; no positivity; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * nothing; changes no bound; no positivity; NO QED. No refereed bound is changed.
  *
  * @see imp-35538-route-i-remainder-derivation-requirements (enumerates the five REQs this module ranks)
  * @see imp-35493-route-i-remainder-literature-scope (survey CONFIRMS route-(i) absent)
@@ -78,7 +76,7 @@
  * @see imp-486 (GUE-conditional caveat inherited by any pair-correlation remainder)
  */
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any route-(i) requirements ranking)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any route-(i) requirements ranking)
 
 // Actual landmark / anchor log-heights from imp-35538 (taken as given; no recompute).
 const LOG_T0_CROSS = 20.8576; // crossover landmark log-height
@@ -181,8 +179,8 @@ export const IMP35551_ROUTE_I_REQUIREMENT_SEVERITY_RANKING = {
     'both landmark heights below T_PT = 3e12) remains the only viable partial for the OPEN imp-35337a. ' +
     'Derives NO remainder; discharges NOTHING; changes no bound; establishes no operator positivity; ' +
     'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), the imp-398 C_F prefactor ' +
-    'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35538 (enumerates the five REQs ranked here); imp-35493 (literature survey CONFIRMS route-(i) ' +
     'absent); imp-35475 (Part B route-(i), Part C budgets, Part D imp-486); imp-35488 (route-(ii) ' +
@@ -232,7 +230,7 @@ export const IMP35551_ROUTE_I_REQUIREMENT_SEVERITY_RANKING_ASSERTIONS = [
     },
   },
   {
-    // (3) honesty gate: not rigorous, inherits imp-486, no bound moves, PT SOTA, imp-35337a named; NO QED.
+    // (3) honesty gate: not rigorous, inherits imp-486, no bound moves, no refereed bound is changed, imp-35337a named; NO QED.
     id: 'imp35551-conditional-no-bound-moves-no-qed',
     description: 'the ranking is not rigorous / not unconditional, inherits imp-486, changes no bound, PT 0.2 unchanged, imp-35337a named, NO QED',
     holds: () => {
@@ -244,7 +242,7 @@ export const IMP35551_ROUTE_I_REQUIREMENT_SEVERITY_RANKING_ASSERTIONS = [
         /imp-486/.test(o.singleDischargeVerdict) &&
         /imp-35337a/.test(o.citation) &&
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict)
+        /refereed bound is changed/i.test(o.verdict)
       );
     },
   },

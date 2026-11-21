@@ -55,7 +55,7 @@
  * extrapolation, NOT a rigorous asymptotic, and the k = 3,2,1 head rungs push it into the deep
  * collision-dominated (sigma -> 1) regime where it is least tuned; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34532-hump-skew-headside-extension-k5-k4 (head re-rise noted at k=5,4; minimum never located)
  * @see imp-33809-saturation-curvature-hump-vs-k (per-k hump amplitudes + method, reuse-gated here)
@@ -247,7 +247,7 @@ export const IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2 = {
     'imp-3220/imp-3406 component model is LEAST trustworthy -- this is a measurement of that model, not ' +
     'a rigorous asymptotic. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34532 (head re-rise at k = 5,4, minimum never located); imp-33809 (per-k hump amplitudes + ' +
     'method, reuse-gated here); imp-33851 (head-heavy skew ladder); imp-3444 (E_coll = E_trunc ' +
@@ -313,14 +313,14 @@ export const IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2_ASSERTIONS = [
       Math.abs(OVERSHOOT_RATIO - 1.1055) < 5e-4,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34544-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, no refereed bound is changed',
     holds: () =>
       IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2.isRigorous === false &&
       IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2.verdict) &&
-      /remains SOTA/.test(IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2.verdict),
+      /refereed bound is changed/i.test(IMP34544_HUMP_HEADSIDE_MINIMUM_LOCATE_DEEPHEAD_K3_K2.verdict),
   },
 ];
 

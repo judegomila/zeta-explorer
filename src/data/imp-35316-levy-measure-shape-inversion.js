@@ -52,7 +52,7 @@
  * the RH operator; establishes NO operator positivity and NO spectral consequence. The C_mb
  * GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are
  * UNTOUCHED. Changes NO bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35114-bernstein-ingredients-extraction (drift/killing extraction; sign-only dmu>=0)
  * @see imp-35172-killing-term-resolution (killing term a = K log(2 pi e))
@@ -256,8 +256,8 @@ export const IMP35316_LEVY_MEASURE_SHAPE_INVERSION = {
     'nine decades N in {1e3 .. 1e12} -- the representation is numerically COMPLETE (no missing drift/atom). ' +
     'MEASUREMENT ONLY on the surrogate map: the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; ' +
-    'changes no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35114 (Bernstein ingredient extraction; sign-only dmu >= 0); imp-35172 (killing term ' +
     'a = K log(2 pi e)); imp-35012 (Bernstein classification); imp-33723 (surrogate g = K log T0, ' +
@@ -309,13 +309,13 @@ export const IMP35316_LEVY_MEASURE_SHAPE_INVERSION_ASSERTIONS = [
     id: 'imp35316-honesty-gate-no-qed',
     description:
       'measurement scope is the surrogate-map Levy density shape only: establishes no operator positivity, ' +
-      'changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35316_LEVY_MEASURE_SHAPE_INVERSION.changesBound === false &&
       IMP35316_LEVY_MEASURE_SHAPE_INVERSION.isRigorous === false &&
       /NO QED/.test(IMP35316_LEVY_MEASURE_SHAPE_INVERSION.verdict) &&
       /no operator positivity/.test(IMP35316_LEVY_MEASURE_SHAPE_INVERSION.verdict) &&
-      /remains SOTA/.test(IMP35316_LEVY_MEASURE_SHAPE_INVERSION.verdict) &&
+      /refereed bound is changed/i.test(IMP35316_LEVY_MEASURE_SHAPE_INVERSION.verdict) &&
       /surrogate/i.test(IMP35316_LEVY_MEASURE_SHAPE_INVERSION.rigorousScope),
   },
 ];

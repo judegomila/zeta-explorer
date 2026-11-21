@@ -56,7 +56,7 @@
  * RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation; the C_C = (1/8) sqrt(3 pi)
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066
  * K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34845-iters-to-floor-interval-ceil (parent: +/-1 is intrinsic, not a ceil-rounding ambiguity)
  * @see imp-34798-iters-to-floor-log-law-higher-N (grandparent: dense higher-N re-measure, bounded +/-1)
@@ -267,8 +267,8 @@ export const IMP34862_ITERS_TO_FLOOR_TWO_RATE_LAW = {
     'herring for the COUNT. IEEE-754 double precision, point rate estimates (no interval enclosure); the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34845 (parent: the +/-1 is intrinsic, not a ceil-rounding ambiguity, via interval-ceil enclosure); ' +
     'imp-34798 (grandparent: dense higher-N re-measure, bounded +/-1 off-by-one, baseline 10/31 & 21/61); ' +
@@ -325,13 +325,13 @@ export const IMP34862_ITERS_TO_FLOOR_TWO_RATE_LAW_ASSERTIONS = [
       EXACT_PEEL.m1.band_61.maxAbsError === 1,
   },
   {
-    // Honesty gate: two-rate measurement of a surrogate count, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: two-rate measurement of a surrogate count, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34862-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34862_ITERS_TO_FLOOR_TWO_RATE_LAW.isRigorous === false &&
       /NO QED/.test(IMP34862_ITERS_TO_FLOOR_TWO_RATE_LAW.verdict) &&
-      /remains SOTA/.test(IMP34862_ITERS_TO_FLOOR_TWO_RATE_LAW.verdict),
+      /refereed bound is changed/i.test(IMP34862_ITERS_TO_FLOOR_TWO_RATE_LAW.verdict),
   },
 ];
 

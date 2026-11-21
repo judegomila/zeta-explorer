@@ -7,7 +7,7 @@
  * side, which is only half closed.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -84,7 +84,7 @@ export const IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE = {
     'HONEST-STATUS NOTE (documentation, not a new claim). The imp-95276 gate-side dissolution narrows ' +
     'obligation (3) but does not close it: obligation (1) is closed, the imp-95212 port is not, and ' +
     'obligation (3) inherits that open port as its sole remaining residual. Ports nothing; measures nothing ' +
-    'new; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'new; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95276-seam-to-chain-gate-map (gate-side dissolution, M1/M2 monotonicity); ' +
     'imp-95388-seam-chain-obligation-ledger (three-obligation CLOSED/OPEN/REDUCED ledger); ' +
@@ -125,13 +125,13 @@ export const IMP95412_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95412-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE.verdict) &&
       /not a new claim/.test(IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE.verdict) &&
       /NO QED/.test(IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE.verdict) &&
-      /remains SOTA/.test(IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE.verdict),
+      /refereed bound is changed/i.test(IMP95412_OBLIGATION3_INPUT_SIDE_HONEST_STATUS_NOTE.verdict),
   },
 ];
 

@@ -82,7 +82,7 @@
  *     no proven lower bound other than trivial ones; the Theorem-C basin
  *     constant 0.72 keeps its load-bearing role with margin c_half - 0.72 =
  *     0.178 (basin-conditional C_Lip of imp-3006 unaffected).
- *   - Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. Deterministic
+ *   - no refereed bound is changed. Deterministic
  *     CM-flow algebra only; nothing here touches the finite-N Lambda estimate.
  *
  * @see sg1c-theta-trap-theorems (SG1C_R2T2_HALFLATTICE_LSWEEP -- the imp-3194 sweep this closes)
@@ -202,7 +202,7 @@ export const SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM = {
   status:
     'CLOSED-FORM (transcendental digamma-difference root) closure of the imp-3194 half-lattice lone-neighbour L -> infinity onset; rigorous uniqueness; O(1/L^2) convergence order proven, not just measured',
   honest:
-    'TRANSCENDENTAL closed form for THIS class onset (the class infimum, approached as L -> infinity, not attained at finite L); NOT proven to be the GLOBAL asymmetric infimum -- c_glob stays OPEN with c_half as the tightest located ceiling (imp-3201 structured-search evidence, not proof, that nothing beats the class); BASIN-CONDITIONAL consequences only; PT Lambda <= 0.2 stays the rigorous SOTA. NO false QED.',
+    'TRANSCENDENTAL closed form for THIS class onset (the class infimum, approached as L -> infinity, not attained at finite L); NOT proven to be the GLOBAL asymmetric infimum -- c_glob stays OPEN with c_half as the tightest located ceiling (imp-3201 structured-search evidence, not proof, that nothing beats the class); BASIN-CONDITIONAL consequences only; no refereed bound is changed. NO false QED.',
 };
 
 export const SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM_ASSERTIONS = [
@@ -282,7 +282,7 @@ export const SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM_ASSERTIONS = [
     holds: () => /NOT proven to be the GLOBAL/.test(SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM.honest)
       && /stays OPEN/.test(SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM.honest)
       && /not attained at finite L/.test(SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM.honest)
+      && /refereed bound is changed/i.test(SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM.honest)
       && /NO false QED/.test(SG1C_HALFLATTICE_LONE_LIMIT_CLOSED_FORM.honest),
   },
 ];

@@ -54,7 +54,7 @@
  *
  * Ticket: imp-97139 (accuracy, opus-4-8, low). Derivation/accuracy check only; an
  * elementary asymptotic of a classical cotangent sum. NO bound moves; the boundary
- * term stays O(b log b) = o(phi(b) b) (imp-97119); PT Lambda <= 0.2 remains SOTA;
+ * term stays O(b log b) = o(phi(b) b) (imp-97119); no refereed bound is changed;
  * RH open; NO QED (this says nothing about kappa > 0 or about the zeros). No
  * self-executing throw (the imp-96294/imp-96819 convention) -- checked via a plain
  * object below.
@@ -94,7 +94,7 @@ export const IMP97139_VERDICT = Object.freeze({
 });
 
 export const IMP97139_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy/derivation only: the exact ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy/derivation only: the exact ' +
   'O(1/b) sub-leading coefficient of the classical cotangent sum V(1,b) = c_0(1/b) is ' +
   '-pi/36, derived by Euler-Maclaurin with singular-endpoint subtraction and confirmed ' +
   'against the imp-97119 residual table. It refines the imp-97119 leading form to ' +

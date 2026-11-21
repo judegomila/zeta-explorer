@@ -63,7 +63,7 @@
  * DERIVATION / ASSESSMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity; the A + B - C
  * certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb
- * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35854-w1-summation-kappa-sweep (reported the drop empirically; supplies the naiveNorm anchors)
  * @see imp-35886-w1-summation-kappa-crossover (located ~9.4 crossover, -1.03 descent slope, empirically)
@@ -75,7 +75,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35854) ---------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D)
 
@@ -307,7 +307,7 @@ export const IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION = {
     '(imp-35760); precision is NOT binding at any conditioning. Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C ' +
     'certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional ' +
-    '(imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35854 (reported the drop empirically; naiveNorm anchors); imp-35886 (empirical ~9.4 crossover, -1.03 slope); ' +
     'imp-35890 (a-priori running-accumulator max_i|S_i| bound); imp-35812 (term family; random-walk reading); ' +
@@ -359,16 +359,16 @@ export const IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION_ASSERTIONS = [
     holds: () => CROSSOVER_KAPPA !== null && CROSSOVER_KAPPA > 1 && CROSSOVER_KAPPA < 100,
   },
   {
-    // Honesty gate: heuristic (not certified) derivation; greenfield; no QED; PT Lambda<=0.2 SOTA.
+    // Honesty gate: heuristic (not certified) derivation; greenfield; no QED; no refereed bound is changed.
     id: 'imp35926-honesty-gate',
-    description: 'Derivation only; heuristic not a bound; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Derivation only; heuristic not a bound; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /HEURISTIC/.test(IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION.conclusion.heuristicNotBound) &&
       /GREENFIELD/.test(IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP35926_W1_ACCUMULATOR_MAGNITUDE_DERIVATION.verdict),
   },
 ];
 

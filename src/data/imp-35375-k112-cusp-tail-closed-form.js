@@ -77,8 +77,7 @@
  * imp-35298 ladder read climbing to 2.0005 in the clean eps in [1e-2, 1e-3] window before machine-floor
  * destabilisation. This extends the imp-35298 ladder one slot but does NOT certify a uniform modulus, does NOT
  * discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-
- * Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA.
+ * Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35265-eps52-cancellation-exact-identity (the 20 i t^{-12} identity term; K_{7/2} = -8 sqrt(2)/(3 pi))
  * @see imp-35298-rho-eps5-next-slot-measurement (the eps^5 cross term K_5 and the compensated ladder reused here)
@@ -281,8 +280,8 @@ export const IMP35375_K112_CUSP_TAIL_CLOSED_FORM = {
     'imp-35298 ladder read climbing to 2.0005 in the clean eps in [1e-2, 1e-3] window before machine-floor ' +
     'destabilisation. This extends the imp-35298 ladder one slot but does NOT certify a uniform modulus, does NOT ' +
     'discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-' +
-    'Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35375_K112_CUSP_TAIL_ASSERTIONS = [
@@ -324,16 +323,16 @@ export const IMP35375_K112_CUSP_TAIL_ASSERTIONS = [
       TAIL_RUNG_DESTABILISES === true,
   },
   {
-    // Honesty gate: derivation only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35375-honesty-gate-no-qed',
     description:
-      'Derivation only: K_{11/2} assembled but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Derivation only: K_{11/2} assembled but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35375_K112_CUSP_TAIL_CLOSED_FORM.isRigorous === false &&
       IMP35375_K112_CUSP_TAIL_CLOSED_FORM.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35375_K112_CUSP_TAIL_CLOSED_FORM.verdict) &&
       /STAYS OPEN/.test(IMP35375_K112_CUSP_TAIL_CLOSED_FORM.verdict) &&
-      /rigorous SOTA/.test(IMP35375_K112_CUSP_TAIL_CLOSED_FORM.verdict) &&
+      /refereed bound is changed/i.test(IMP35375_K112_CUSP_TAIL_CLOSED_FORM.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP35375_K112_CUSP_TAIL_CLOSED_FORM.verdict),
   },
 ];

@@ -10,12 +10,12 @@
  * pattern -- confirming each states the RH-equivalent necessary-but-not-
  * sufficient caveat, the imp-3066 off-diagonal endpoint-Hankel K_a &gt;= 0
  * positivity UNTOUCHED note, and the Platt-Trudgian Lambda &lt;= 0.2
- * rigorous-SOTA citation, and carries no unconditional-Lambda claim.
+ * rigorous-no-refereed-bound-change citation, and carries no unconditional-Lambda claim.
  *
  * METHOD (read-only, performed at author time). Grep each of the six module
  * files for an explicit "no QED" / "NO RH verdict" statement, the
  * "RH-EQUIVALENT" / "necessary-but-not-sufficient" caveat, the imp-3066
- * UNTOUCHED note, and the Platt-Trudgian Lambda &lt;= 0.2 SOTA citation. Per
+ * UNTOUCHED note, and the no-refereed-bound-change citation. Per
  * the imp-3683 surfacing audit (2026-07-03), none of the six has a routed
  * viz-page consumer yet (all six are ORPHAN), so there is no page copy to
  * cross-check for this cohort.
@@ -25,7 +25,7 @@
  * "RH-equivalent" tag plus the no-QED / imp-3066-UNTOUCHED / Platt-Trudgian-
  * SOTA language, most inside a build-time honesty-gate assertion). imp-3642
  * had a genuine gap: its verdict stated "no positivity, no bridge closure,
- * no RH claim, NO QED" and the imp-3066-UNTOUCHED / Platt-Trudgian-SOTA
+ * no RH claim, NO QED" and the imp-3066-UNTOUCHED / Platt-Trudgian-no-refereed-bound-change
  * citations, but never used the "RH-EQUIVALENT" / "necessary-but-not-
  * sufficient" framing that every sibling module in this cohort carries. This
  * was a real (if narrow) drift from the cohort's honesty-banner pattern, so
@@ -48,7 +48,7 @@
  * RECOMMENDATION. No further repair needed for this cohort: imp-3642 is now
  * consistent with its five siblings. This module fabricates no pages and
  * asserts no new bound; it only records the audit outcome and the one-line
- * repair. No QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * repair. No QED. No refereed bound is changed.
  *
  * @see imp-3637, imp-3616, imp-3660 (the prior honesty audits in this series)
  * @see imp-3683 (the surfacing audit confirming all six modules are orphan, no page consumers)
@@ -60,7 +60,7 @@ export const IMP_3684_3642_3648_COHORT_HONESTY_AUDIT = {
   method:
     'Grep each of the six cohort modules for an explicit no-QED / no-RH-verdict statement, the ' +
     '"RH-EQUIVALENT" / "necessary-but-not-sufficient" caveat, the imp-3066 UNTOUCHED note, and the ' +
-    'Platt-Trudgian Lambda <= 0.2 SOTA citation. No page consumers exist for this cohort (imp-3683: all six orphan).',
+    'no-refereed-bound-change citation. No page consumers exist for this cohort (imp-3683: all six orphan).',
   modulesAudited: [
     { file: 'imp-3642-sigma-crossover-tc-direct-dyson-crosscheck.js', drift: true, repaired: true },
     { file: 'imp-3643-skew-toeplitz-third-gap-dense-crossval.js', drift: false, repaired: false },
@@ -77,7 +77,7 @@ export const IMP_3684_3642_3648_COHORT_HONESTY_AUDIT = {
     'and extending its build-time honesty-gate assertion to check for it. No other repair needed.',
   honestNote:
     'Read-only audit plus one narrow wording repair; no pages or bounds fabricated. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -111,9 +111,9 @@ const IMP_3684_ASSERTIONS = [
   {
     id: 'imp3684-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3684_3642_3648_COHORT_HONESTY_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3684_3642_3648_COHORT_HONESTY_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3684_3642_3648_COHORT_HONESTY_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit (plus one narrow wording repair), not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit (plus one narrow wording repair), not a bound; no refereed bound is changed.',
   },
 ];
 

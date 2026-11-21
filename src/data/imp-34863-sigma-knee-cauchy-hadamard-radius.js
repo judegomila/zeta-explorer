@@ -58,7 +58,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34836-sigma-knee-sixth-seventh-order-v-expansion (delta_6/delta_7 and the raw-ratio-ladder verdict this sharpens)
  * @see imp-34821-sigma-knee-fifth-order-v-expansion (fifth order delta_5)
@@ -309,7 +309,7 @@ export const IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS = {
     'sub-gap), which changes no bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   subGap:
     'SHARPENS the imp-34836 convergent-vs-asymptotic verdict with a Cauchy-Hadamard root-test radius estimate ' +
     'R ~ 139 >> 1 (limsup |delta_k|^(1/k) ~ 7.21e-3 over nine orders) and extends the recursion to delta_8/delta_9, ' +
@@ -382,15 +382,15 @@ export const IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS_ASSERTIONS = [
     holds: () => LOG10_N_CROSS > 9.5158 && LOG10_N_CROSS < 9.5161,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34863-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS.isRigorous === false &&
       IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS.farTailExponent === 0.5 &&
       typeof IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS.subGap === 'string' &&
       /NO QED/.test(IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS.verdict) &&
-      /remains SOTA/.test(IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS.verdict),
+      /refereed bound is changed/i.test(IMP34863_SIGMA_KNEE_CAUCHY_HADAMARD_RADIUS.verdict),
   },
 ];
 

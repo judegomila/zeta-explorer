@@ -74,8 +74,7 @@
  * its vanishing here does NOT touch the divergent C_Lip collision-Gronwall. The
  * C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes
- * no operator positivity; Platt-Trudgian Lambda <= 0.2 remains the SOTA
- * unconditional bound.
+ * no operator positivity; no refereed bound is changed.
  *
  * @see imp-34329-crossover-surplus-fartail-composite-limit (the exactly-3 limit this cross-checks, via extrapolation)
  * @see imp-34407-fartail-composite-correction-constant-derivation (c = 4 EXACTLY; this recovers 3 - 4/log T0 directly)
@@ -215,7 +214,7 @@ export const IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION = {
     'mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; ' +
-    'changes no bound; Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'changes no bound; no refereed bound is changed.',
   citation:
     'imp-34329-crossover-surplus-fartail-composite-limit.js (exactly-3 limit via extrapolation, cross-checked ' +
     'here); imp-34407-fartail-composite-correction-constant-derivation.js (c = 4 EXACTLY); ' +
@@ -287,14 +286,14 @@ export const IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION_ASSERTIONS = [
     holds: () => Math.abs(A_R / 5.2647e-6 - 1) < 1e-3,
   },
   {
-    // Honesty gate: cross-check only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: cross-check only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34414-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION.honestScope) &&
       /NO QED/.test(IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION.honestScope) &&
-      /remains the SOTA/.test(IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION.honestScope),
+      /refereed bound is changed/i.test(IMP34414_CROSSOVER_SURPLUS_DIRECT_CUBIC_EXPANSION.honestScope),
   },
 ];
 

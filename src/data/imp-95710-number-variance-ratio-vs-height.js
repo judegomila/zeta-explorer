@@ -37,7 +37,7 @@
  * the mean-square envelope stays conservative in the measured window. Extending that
  * conservatism to the imp-95519 window bottom T = 3.0e12 is a NAMED sub-gap (window
  * reach), not something these six heights decide. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the six sd(C - E) values are
  * baked measured literals (from imp-95562 over the verified ordinates); every derived
@@ -143,7 +143,7 @@ export const IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT = {
       'WINDOW REACH: the six heights span only ~1.7 decades (T = 1e4..5e5), about 6.8 decades below the imp-95519 window bottom T = 3.0e12. The log-linear extrapolation (r -> 0.04) is NOT warranted from six noise-dominated points (R^2 ~ 0.30); whether the finite-height suppression persists, deepens, or reverts toward the GUE value 1 at 3e12 is UNMEASURED.',
   },
   verdict:
-    'TABULATED per height, the imp-95562 number-variance ratio r(T) = measured pointwise variance / GUE Sigma^2(L) does NOT trend toward the GUE asymptote 1. It sits in a narrow band r in [0.35, 0.48] (mean 0.40) across T = 1e4..5e5 with a WEAK negative log-linear slope (d r / d(log T) ~ -2.1e-2, R^2 ~ 0.30, non-monotone), so over the measured window the mean-square/GUE envelope stays CONSERVATIVE and the finite-height arithmetic suppression does not close upward with height. HONEST SUB-GAP: the sampled window spans only ~1.7 decades and is ~6.8 decades below the imp-95519 bottom T = 3.0e12, so extending the conservatism to the window bottom is a named window-reach gap, not something these six heights decide (the log-linear extrapolation r -> 0.04 is not a warranted forecast). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'TABULATED per height, the imp-95562 number-variance ratio r(T) = measured pointwise variance / GUE Sigma^2(L) does NOT trend toward the GUE asymptote 1. It sits in a narrow band r in [0.35, 0.48] (mean 0.40) across T = 1e4..5e5 with a WEAK negative log-linear slope (d r / d(log T) ~ -2.1e-2, R^2 ~ 0.30, non-monotone), so over the measured window the mean-square/GUE envelope stays CONSERVATIVE and the finite-height arithmetic suppression does not close upward with height. HONEST SUB-GAP: the sampled window spans only ~1.7 decades and is ~6.8 decades below the imp-95519 bottom T = 3.0e12, so extending the conservatism to the window bottom is a named window-reach gap, not something these six heights decide (the log-linear extrapolation r -> 0.04 is not a warranted forecast). Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -169,8 +169,8 @@ export const IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT = {
   // honesty gate: measurement, not a bound change
   if (!/NO QED/.test(IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT.verdict))
     throw new Error('imp-95710: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT.verdict))
-    throw new Error('imp-95710: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT.verdict))
+    throw new Error('imp-95710: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT;

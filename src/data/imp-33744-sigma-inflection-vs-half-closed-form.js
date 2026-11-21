@@ -57,7 +57,7 @@
  * DERIVATION / MEASUREMENT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee N* ~ 3.38e9, F3 coincidence claim)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma=1/2 halving landmark ~3.27e9)
@@ -259,7 +259,7 @@ export const IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM = {
     'dominated by the log-factor curvature (a structural E_coll term), NOT the residual E_flow term. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33721 (sub-decade ramp-inflection knee N* ~ 3.38e9, F3 coincidence claim); imp-33582 ' +
     '(sigma=1/2 halving landmark ~3.27e9); imp-33708 (E_flow negligible on the far tail); imp-3444 ' +
@@ -320,13 +320,13 @@ export const IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: derivation/measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp33744-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM.verdict) &&
-      /Lambda <= 0\.2 SOTA/.test(IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM.verdict),
   },
 ];
 

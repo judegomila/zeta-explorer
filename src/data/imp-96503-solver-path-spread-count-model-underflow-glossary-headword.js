@@ -41,14 +41,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96449 verdict for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96449-solver-path-spread-full-range (source: F1/F2 this glosses)
  * @see imp-96427-knee-crossover-solver-path-spread (knee-only precursor comparison)
  * @see imp-96363-ecoll-independent-second-anchor (Lambert-W closed form)
  *
  * Ticket: imp-96503 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The false-but-benign crossing headword, baked verbatim (no re-import of the
@@ -83,8 +83,8 @@ const FALSE_BUT_BENIGN_CROSSING_HEADWORD = Object.freeze({
     'Measurement classification (accuracy audit), not a rigorous derivation. ' +
     'Changes no bound; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
-    'is UNTOUCHED; C_H isRigorousUpperBound remains false (imp-2642/imp-2701); PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'is UNTOUCHED; C_H isRigorousUpperBound remains false (imp-2642/imp-2701); no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD = Object.freeze({
@@ -103,7 +103,7 @@ export const IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD = Object.freez
     'shift has underflowed below one ULP of gamma_N, so its nominal excess over the ' +
     'floating-point solver-path noise floor (imp-96449 F1) is numerically moot, not ' +
     'a real divergence. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96449 (F1/F2 this glosses: solver-path spread ~1e-16..3.5e-15 machine ' +
     'floor across N = 1e2..1e22, count-model shift crossing at N ~ 1e15); ' +
@@ -131,11 +131,11 @@ export const IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96503-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD.verdict) &&
       IMP96503_FALSE_BUT_BENIGN_CROSSING_GLOSSARY_HEADWORD.glosses === 'imp-96449',
   },
 ];

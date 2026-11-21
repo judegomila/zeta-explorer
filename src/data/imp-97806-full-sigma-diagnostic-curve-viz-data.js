@@ -83,7 +83,7 @@ export const IMP97806_SUMMARY = Object.freeze({
     'closed form purely to show the continuous shape; the three marked landmarks are reused ' +
     'verbatim from their pinning modules (imp-97782 hump, imp-97777 minimum, imp-97723 crossing). ' +
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous ' +
-    'asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

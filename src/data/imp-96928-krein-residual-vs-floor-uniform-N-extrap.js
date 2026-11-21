@@ -42,7 +42,7 @@
  * climbs ~N^3.27 while the floor saturates, so a fixed T-ladder ceiling (T<=12800) loses resolution
  * power near N~307-621 -- keeping IMP96749_UNIFORM_N_GAP_UNSETTLED open. Extrapolation only; the
  * floor is a Rayleigh UPPER bound; no operator positivity; interval-rigorous certificate reach
- * stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96917-krein-tladder-plateau-viz-data.js (the T ladder + residuals fitted here)
  * @see imp-96814-krein-t-truncation-deficit-viz-data.js (the T=800 vs T=3200 deficit)

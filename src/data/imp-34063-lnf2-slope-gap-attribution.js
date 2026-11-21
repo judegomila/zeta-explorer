@@ -53,7 +53,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Exact WITHIN the inherited imp-3220/imp-3406 component model, which
  * is NOT a rigorous asymptotic. Descriptive attribution, NOT a derived bound; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share
- * per imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * per imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34004-lnf2-saturation-law-fit (the fitted slope 0.27583 and closed form 0.28782 this attributes)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21 quarter-decade rungs)
@@ -209,7 +209,7 @@ export const IMP34063_LNF2_SLOPE_GAP_ATTRIBUTION = {
     'three add back to the 4.17% gap exactly. Exact WITHIN the inherited imp-3220/imp-3406 component ' +
     'model, which is NOT a rigorous asymptotic; attribution NOT a bound; changes no bound; establishes ' +
     'no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34004 (the fitted slope 0.27583 and closed form 0.28782 this attributes); imp-33810 (the 21 ' +
     'quarter-decade rungs); lambda-rh-height-mapping (RvM height law); polymath15-constant-C-C ' +
@@ -254,13 +254,13 @@ export const IMP34063_LNF2_SLOPE_GAP_ATTRIBUTION_ASSERTIONS = [
     holds: () => Math.abs(RESIDUAL) < 1e-12,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34063-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34063_LNF2_SLOPE_GAP_ATTRIBUTION.isRigorous === false &&
       /NO QED/.test(IMP34063_LNF2_SLOPE_GAP_ATTRIBUTION.verdict) &&
-      /remains SOTA/.test(IMP34063_LNF2_SLOPE_GAP_ATTRIBUTION.verdict),
+      /refereed bound is changed/i.test(IMP34063_LNF2_SLOPE_GAP_ATTRIBUTION.verdict),
   },
 ];
 

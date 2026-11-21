@@ -40,7 +40,7 @@
  *   certification pending)
  *
  * Ticket: imp-97491 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97136_VERDICT } from './imp-97136-krein-temple-lower-bound-feasibility.js';

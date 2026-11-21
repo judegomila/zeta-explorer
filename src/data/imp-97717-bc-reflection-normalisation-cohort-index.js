@@ -59,7 +59,7 @@
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
  *   changes: kappa_smooth stays measured-not-pinned, no operator positivity or Lambda bound moves;
- *   RH open; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97617-route-m-bettin-conrey-kernel-gamma-factor-reconstruction.js (pins the gamma-factor half; surfaces the reflection-index sub-gap)
  * @see imp-97663-route-m-kappa-smooth-measured-band-reflection-constraint.js (feeds the measured band into the kappaK_period order-of-magnitude cap)
@@ -67,7 +67,7 @@
  * @see imp-97692-kappa-smooth-suppression-constraint-honest-status.js (standalone restatement of the imp-97663 cap)
  *
  * Ticket: imp-97717 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const BC_REFLECTION_NORMALISATION_COHORT = Object.freeze([
@@ -141,7 +141,7 @@ export const IMP97717_BC_REFLECTION_NORMALISATION_COHORT_INDEX = Object.freeze({
     '(imp-97681) -- but the exact functional-equation reflection index stays uncomputed throughout. ' +
     'So the cohort as a whole is a SINGLE-UNKNOWN-NARROWED-NOT-CLOSED family: nothing in it pins ' +
     'kappaK or kappa_smooth. Establishes nothing new; moves no bound; RH open; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97617 (gamma-factor reconstruction; reflection-index sub-gap); imp-97663 (measured-band ' +
     'constraint); imp-97681 (gamma-ratio factorisation; W_refl cap); imp-97692 (standalone ' +
@@ -187,11 +187,11 @@ export const IMP97717_BC_REFLECTION_NORMALISATION_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97717-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97717_BC_REFLECTION_NORMALISATION_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97717_BC_REFLECTION_NORMALISATION_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97717_BC_REFLECTION_NORMALISATION_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97717_BC_REFLECTION_NORMALISATION_COHORT_INDEX.verdict),
   },
 ];
 

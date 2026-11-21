@@ -53,7 +53,7 @@
  * NOT ESTABLISHED as a feature of the true dynamic (R1/R4 binding). MEASUREMENT ONLY; the C_C = (1/8) sqrt(3 pi)
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35608-two-rate-census-exit-edge-location (the three located edges p=1,2,3 this fits)
  * @see imp-35572-reentry-band-terminal-width-rate-robustness (in-band zero change; census exit lower bound)
@@ -234,8 +234,8 @@ export const IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW = {
     'imp-35111a / imp-35174a / imp-35243a stay OPEN; the reentry band stays NOT ESTABLISHED as a feature of the ' +
     'true dynamic (R1/R4 binding); the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35608 (the three located edges p=1,2,3 this fits); imp-35572 (in-band zero change; census exit lower ' +
     'bound); imp-34862 (the two-rate law and exact-peel control); imp-35111 (single-rate frac-window and ' +
@@ -297,14 +297,14 @@ export const IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW_ASSERTIONS = [
       ASYMPTOTE_FIT < 222,
   },
   {
-    // Honesty gate: measurement only, extends imp-35608, discharges nothing, sub-gap OPEN, no QED, PT SOTA.
+    // Honesty gate: measurement only, extends imp-35608, discharges nothing, sub-gap OPEN, no QED, no refereed bound is changed.
     id: 'imp35634-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW.isRigorous === false &&
       /imp-35243a stay OPEN/.test(IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW.verdict) &&
       /NO QED/.test(IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW.verdict) &&
-      /remains SOTA/.test(IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW.verdict),
+      /refereed bound is changed/i.test(IMP35634_TWO_RATE_CENSUS_EXIT_EDGE_P_LAW.verdict),
   },
 ];
 

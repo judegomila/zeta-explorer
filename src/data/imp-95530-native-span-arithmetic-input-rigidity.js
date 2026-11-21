@@ -3,7 +3,7 @@
  * no-go? Candidate-by-candidate reduction + THEOREM NS-RIGID (native-span
  * softness dichotomy) + THEOREM RES-T (fixed-support Weil-positivity
  * resolution law, which CORRECTS the imp-95520 Class II reading). RH OPEN;
- * PT Lambda <= 0.2 stands; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * SETUP (taken as given): flow-blindness-no-go.js (SL2: no flow-stable
  * hypothesis on Phi proves RH; Rodgers-Tao Lambda >= 0); imp-95520 (on the
@@ -155,7 +155,7 @@
  *
  * Import-free; assertions recompute phi_0 vs baked, the flowed-Pick stability
  * at eps in {1e-6, 1, 100}, the exact dZ closed form, and T_X(3e12). Changes no
- * bound; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.
+ * bound; NO QED; no refereed bound is changed; RH open.
  */
 
 function Phi(u) {
@@ -259,7 +259,7 @@ export const IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY = Object.freeze({
     d_differentIdentityForXi: 'class properties are flow-invariant (soft); specific-function data reduce to phi(s_i) on the native span (A1) or to catalogued RH-equivalences off it',
   },
   loophole: 'Dirichlet-coefficient inputs on the critical line (Levinson-Conrey mollifiers, Selberg proportion, near-line density): flow-critical, non-circular, not RH-equivalent, outside NS-RIGID; they give proportion / mean-value statements, and the pointwise upgrade is wall (b). Not hostable on the twin-ladder span.',
-  verdict: 'NEGATIVE, well-characterized: every arithmetic input expressible on the machinery\'s native span is either flow-stable (useless) or RH; the in-repo program is closed on its own span. The general problem remains open through the Dirichlet-coefficient class. RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'NEGATIVE, well-characterized: every arithmetic input expressible on the machinery\'s native span is either flow-stable (useless) or RH; the in-repo program is closed on its own span. The general problem remains open through the Dirichlet-coefficient class. RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -301,7 +301,7 @@ export const IMP95530_ASSERTIONS = [
     holds: () => /hat-basis/.test(IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY.correction)
       && /Levinson/.test(IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY.loophole)
       && /RH OPEN/.test(IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY.verdict)
+      && /refereed bound is changed/i.test(IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY.verdict)
       && /NO QED/.test(IMP95530_NATIVE_SPAN_ARITHMETIC_INPUT_RIGIDITY.verdict),
   },
 ];

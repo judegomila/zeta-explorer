@@ -43,7 +43,7 @@
  * weaken) the imp-96768 t-converged positive-plateau reading near ln3. This is a lower bound on the
  * true t-truncation deficit (T=3200 may still slightly under-resolve). Measurement only; the floor is
  * a Rayleigh UPPER bound; no operator positivity; interval-rigorous certificate reach stays
- * 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (the T=800 and T=3200 ladders this bakes)
  * @see imp-96772-krein-lammin-double-double-recompute.js (FINDING 3: fixed-T=800 under-resolves the t-tail)

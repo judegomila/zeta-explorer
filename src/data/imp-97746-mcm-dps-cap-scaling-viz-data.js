@@ -92,7 +92,7 @@ export const IMP97746_SUMMARY = Object.freeze({
     'Presentation only: every cap value and fitted slope is reused verbatim from imp-97724 (a measured ' +
     'multi-precision fit, not a new computation). The extended cap does not alter the omega=10 gap or the ' +
     'omega=11 MCM onset -- the cap-independent tail budget dwarfs any cap-to-infinity shift. Changes no ' +
-    'bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

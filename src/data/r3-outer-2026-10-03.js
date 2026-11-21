@@ -73,7 +73,7 @@ export const R3_OUTER = Object.freeze({
     + 'route-P band-path entries). The box method does not reach the 0.0223 margin for prefixes P ≥ 13 at cells ≳ 140 (central-box excess 0.033–1.29). '
     + 'Route-P Λ ≤ 0.1448843462793 stays conditional. With only certified floors the exact consumer gives 73770784989943/(5·10^14) = 0.147541569979886, '
     + 'above the b145 PT value 0.147273668782792. Certifying the 628 S = {2,3,5} floors (≈480 CPU-h, heuristic estimate) would give 0.145737084009444, '
-    + 'not below 0.145. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'not below 0.145. No refereed bound is changed. RH open. NO QED.',
   nextStep:
     'For Λ < 0.145 at PT height: a Φ-specific structural argument (or label factorisation a_j Π F_q(ρz_q)/F_q(z_q)(1 + E_j) with exact defect '
     + 'expansion) for P ≥ 13 late cells; the box search does not reach them. Independent line-by-line audit of r3core4.c before any r2 floor is consumed.',
@@ -142,7 +142,7 @@ export const R3_OUTER_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r3-outer-honest-scope',
-    holds: () => /NOT PROVED/.test(O.verdict) && /PT Lambda <= 0\.2 stands/.test(O.verdict) && /NO QED/.test(O.verdict) && /NOT PROVED/.test(O.status),
+    holds: () => /NOT PROVED/.test(O.verdict) && /refereed bound is changed/i.test(O.verdict) && /NO QED/.test(O.verdict) && /NOT PROVED/.test(O.status),
     why: 'The outer lemma is not proved; no bound below 0.2 is proved.',
   },
 ]);

@@ -54,8 +54,8 @@
  *
  * SCOPE: DIAGNOSTIC / MEASUREMENT ONLY. Does NOT extend the R2 ladder (stays at
  * N=1000, imp-35221); does NOT extend the C_mb certificate; does NOT remove the
- * imp-486 GUE conditional; changes NO bound. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. NO QED.
+ * imp-486 GUE conditional; changes NO bound. No refereed bound is changed
+ * . NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "2/diff" prose.
  *
@@ -166,8 +166,8 @@ export const IMP_35325_N2000_SIGNED_CROSSING_DIAGNOSTIC = {
     doesNotAchieve:
       'Does NOT extend the R2 ladder to N=2000 (this is a diagnostic, not a new ' +
       'flow certificate); does NOT extend the C_mb certificate; does NOT remove ' +
-      'the imp-486 GUE conditional; changes NO Lambda bound. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'the imp-486 GUE conditional; changes NO Lambda bound. No refereed bound is changed' +
+      '.',
     informsId: 'imp-35278 (gate-free signed-crossing route) / imp-35324 (finer-grid remedy)',
   },
 };
@@ -236,6 +236,6 @@ export const IMP_35325_N2000_SIGNED_CROSSING_DIAGNOSTIC_ASSERTIONS = [
       'Diagnostic only: never a QED or a bound change. It explains the imp-35235 ' +
       'gate-skip but does NOT itself certify R2 at N=2000, so the R2 ladder ' +
       'largest-N-tested-and-met STAYS at 1000. C_mb stays GUE-conditional ' +
-      '(imp-486); Lambda <= 0.2 stays SOTA.',
+      '(imp-486); no refereed bound is changed.',
   },
 ];

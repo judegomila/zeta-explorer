@@ -13,7 +13,7 @@
  * PRESENTATION ONLY. Every number here is reused verbatim from
  * GMIN_LADDER_REACH_FRONTIER. Changes no bound, establishes no operator
  * positivity, no RH claim; measurement/scoping only; conditional on GUE;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96754-gmin-ladder-reach-frontier.js (the source measurement/scoping module)
  *
@@ -99,7 +99,7 @@ const IMP96822_ASSERTIONS = [
     id: 'imp96822-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96822_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96822_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96822_HONEST_BANNER) &&
       /NO QED/.test(IMP96822_HONEST_BANNER),
     why: 'every measurement/scoping viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -39,13 +39,13 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96149 power-law reach refinement for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves
- *   no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96149-route-l-detector-reach-law-fit (source: the power-law refit this glosses)
  * @see imp-96059-detector-reach-ladder-viz-data (the stale linear-reach string this corrects)
  *
  * Ticket: imp-96179 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Route L power-law reach headword, baked verbatim (no re-import).
@@ -76,7 +76,7 @@ const ROUTE_L_POWER_LAW_REACH_HEADWORD = Object.freeze({
     'reach vs N), correcting the stale linear-reach string. Cross-checked at N = 400: the ' +
     'first undetected zero (index 40, gamma = 122.9468) sits 0.4 past the fitted ' +
     'clean-prefix reach (122.482), consistent with the power law, not a positivity ' +
-    'failure. Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'failure. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD = Object.freeze({
@@ -97,7 +97,7 @@ export const IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD = Object.freeze(
     'stale imp-96059 linear string. Extrapolating to Platt-Trudgian height needs N ~ 3.3e15 ' +
     'to ~7.5e30, so Route L remains a fixed-cost, verified-height-dominated detector, not a ' +
     'lever. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96149 (the power-law refit this glosses); imp-96059 (the stale linear-reach ' +
     'string this corrects).',
@@ -123,11 +123,11 @@ export const IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96179-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD.verdict) &&
       IMP96179_ROUTE_L_POWER_LAW_REACH_GLOSSARY_HEADWORD.glosses === 'imp-96149',
   },
 ];

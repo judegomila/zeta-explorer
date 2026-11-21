@@ -56,7 +56,7 @@
  * MEASUREMENT ONLY. Same inherited imp-3220/imp-3406/imp-33582/imp-33602 component model as
  * imp-33854/imp-33925; same sub-terms; changes no bound; the C_mb GUE-conditional share per imp-486
  * is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_C = 1/8 ansatz
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA. Realized round-off
+ * untouched; no RH verdict, NO QED. No refereed bound is changed. Realized round-off
  * magnitudes are platform-dependent, so the fitted coefficient is asserted only to order (log-log
  * slope near +1 and C_fit within one decade of C_pred), not to a tight literal.
  *
@@ -208,7 +208,7 @@ export const IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT = {
     'cancellation attribution is quantitatively, not just qualitatively, correct. Same inherited ' +
     'imp-3220/imp-3406 component model; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33925 (R2: r grows ~1/DL, attributes to eps*|ln N|/(2 DL), never fit); imp-33854 (I1 ' +
     'identity); imp-33887 (R1 leans on I1); imp-486 (C_mb GUE-conditional); lambda-rh-height-mapping.',
@@ -234,13 +234,13 @@ export const IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT_ASSERTIONS = [
     holds: () => DOMINANT_RUNG_IS_1e200,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33960-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT.isRigorous === false &&
       /NO QED/.test(IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT.verdict) &&
-      /remains SOTA/.test(IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT.verdict),
+      /refereed bound is changed/i.test(IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT.verdict),
   },
 ];
 

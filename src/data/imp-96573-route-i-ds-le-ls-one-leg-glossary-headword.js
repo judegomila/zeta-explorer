@@ -38,13 +38,13 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96544 verdict for quick reference. It establishes
  *   nothing, instantiates no interval, closes no sub-gap, moves no bound. Fixed-window positivity
- *   implies nothing about RH. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   implies nothing about RH. NO QED. No refereed bound is changed.
  *
  * @see imp-96544-route-i-ds-le-ls-interval-port-triage (source: the triage this glosses)
  * @see rh-route-i-uncertainty-concentration-certificate-2026-09-24 (the double-precision certificate)
  *
  * Ticket: imp-96573 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The double-precision / one-remaining-leg headword, baked verbatim (no re-import).
@@ -80,7 +80,7 @@ const ROUTE_I_DS_LE_LS_ONE_LEG_HEADWORD = Object.freeze({
   verificationStatus:
     'Documentation/triage restatement of imp-96544, not a new interval enclosure. The overall ' +
     'Route I D_S<=L_S certificate remains a double-precision result pending leg (E); nothing ' +
-    'here localises a zero or moves the conditional bound. PT Lambda <= 0.2 SOTA; RH open; ' +
+    'here localises a zero or moves the conditional bound. No refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -101,7 +101,7 @@ export const IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD = Object.freeze
     'whole, but after imp-96544’s mpmath.iv port of legs (B) floor constant and (D) ' +
     'Bernstein tail, it rests on EXACTLY ONE un-enclosed leg (E): the constrained Galerkin ' +
     'smallest eigenvalue lambda_min(K_N|V_N). Establishes nothing new; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96544 (the interval-port triage this glosses, source of the four-leg factoring ' +
     'and the leg-(E) residual); rh-route-i-uncertainty-concentration-certificate-2026-09-24 ' +
@@ -129,11 +129,11 @@ export const IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96573-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD.verdict) &&
       IMP96573_ROUTE_I_DS_LE_LS_ONE_LEG_GLOSSARY_HEADWORD.glosses === 'imp-96544',
   },
 ];

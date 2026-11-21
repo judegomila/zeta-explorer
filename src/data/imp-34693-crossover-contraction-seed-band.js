@@ -68,7 +68,7 @@
  * surrogate crossover, NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched;
  * changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34676-crossover-contraction-right-widening (the far-seed a-priori degradation this module fixes by seeding near N_cross)
  * @see imp-34650-crossover-banach-contraction-certificate (the L-contraction certificate on I = [1e9, 1e10])
@@ -233,7 +233,7 @@ export const IMP34693_CROSSOVER_CONTRACTION_SEED_BAND = {
     'quantifies the seed placement for a property of the inherited imp-3220/imp-3406 surrogate crossover map, ' +
     'NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per ' +
     'imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34676 (right-widening; far-seed a-priori degradation; "seed near N_cross" qualitative); imp-34650 ' +
     '(Banach contraction certificate on I = [1e9, 1e10]); imp-34675 (closed-form left edge N_star); imp-33723 ' +
@@ -279,14 +279,14 @@ export const IMP34693_CROSSOVER_CONTRACTION_SEED_BAND_ASSERTIONS = [
       L_CONTRACTION < 1,
   },
   {
-    // Honesty gate: measurement of a surrogate property, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: measurement of a surrogate property, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34693-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, named sub-gap, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, named sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP34693_CROSSOVER_CONTRACTION_SEED_BAND.isRigorous === false &&
       /imp-34693a/.test(IMP34693_CROSSOVER_CONTRACTION_SEED_BAND.subGap) &&
       /NO QED/.test(IMP34693_CROSSOVER_CONTRACTION_SEED_BAND.verdict) &&
-      /remains SOTA/.test(IMP34693_CROSSOVER_CONTRACTION_SEED_BAND.verdict),
+      /refereed bound is changed/i.test(IMP34693_CROSSOVER_CONTRACTION_SEED_BAND.verdict),
   },
 ];
 

@@ -15,8 +15,7 @@
  * computed here for the chart axis.
  *
  * PRESENTATION ONLY. No new zeros, no Gram build, no bound changes, no operator
- * positivity established; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96150-number-variance-two-interval-covariance-heldout-heights.js (source census, derivation)
  * @see imp-96128-number-variance-two-interval-covariance-exact (single-height T = 1.5e5 census this extends)
@@ -47,7 +46,7 @@ export const IMP96279_UNIFORMITY_SUMMARY = Object.freeze({
 });
 
 export const IMP96279_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every Tc, rhoExact, factor, nEff and '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every Tc, rhoExact, factor, nEff and '
   + 'gapToFlip value is copied verbatim from the imp-96150 held-out-height census (itself extending the '
   + 'imp-96128 single-height T = 1.5e5 census); only lnTc is computed here for the chart axis. No new zeros, '
   + 'no Gram build, no bound changes, no operator positivity established.';
@@ -88,8 +87,8 @@ const IMP96279_ASSERTIONS = [
   },
   {
     id: 'imp96279-honest-banner-present',
-    holds: () => /RH open/.test(IMP96279_HONEST_BANNER) && /NO QED/.test(IMP96279_HONEST_BANNER) && /SOTA/.test(IMP96279_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96279_HONEST_BANNER) && /NO QED/.test(IMP96279_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96279_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

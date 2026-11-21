@@ -103,8 +103,7 @@
  * modified cover run), NO new full-class rate constant; every statement
  * is conditional on the carried imp-95154 frame reduction. Class
  * sandwich [0.2320723, 0.24502] and the k <= 4 ladder floor 47/200
- * carried UNCHANGED. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * carried UNCHANGED. Changes no bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, well under 1 s.
  */
@@ -488,7 +487,7 @@ export const IMP95160_MIXED_PAIR_SAMESIDE_REDUCTION = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

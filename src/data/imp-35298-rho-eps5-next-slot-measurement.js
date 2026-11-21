@@ -61,8 +61,7 @@
  * K_5 = -2/(7 b^2) = -32/(7 A_2^2) = -256/(63 pi^2) = -0.41172 (b = A_2/4), matched by sqrt(eps) Richardson
  * extrapolation of the clean-rung reads to ~1e-4. It does NOT certify a uniform modulus, does NOT discharge
  * O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35244-rho-eps52-coefficient-measurement (pinned the expansion through eps^{7/2}; left r2 order open)
  * @see imp-35261-k72-compensated-deep-rung-confirmation (the difference-form compensated ladder reused here)
@@ -272,8 +271,8 @@ export const IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT = {
     'the clean-rung reads to ~1e-4 (RICH_HEAD -0.41176, RICH_MID -0.41163 bracketing it). This locates the ' +
     'previously-unmeasured next slot and sharpens the remainder shape but does NOT certify a uniform modulus, ' +
     'does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35298_RHO_EPS5_NEXT_SLOT_ASSERTIONS = [
@@ -310,16 +309,16 @@ export const IMP35298_RHO_EPS5_NEXT_SLOT_ASSERTIONS = [
     holds: () => RICH_MATCHES_K5 === true && Math.abs(BEST_RICH - -0.41172) < 5e-3,
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35298-honesty-gate-no-qed',
     description:
-      'Measurement only: eps^5 next slot located but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: eps^5 next slot located but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.isRigorous === false &&
       IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.verdict) &&
       /STAYS OPEN/.test(IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35298_RHO_EPS5_NEXT_SLOT_MEASUREMENT.verdict,
       ),

@@ -87,7 +87,7 @@ export const ROUTE_1 = Object.freeze({
   verdict: 'Λ < 0.145 by route P is NOT certified. Certified route P at PT height: 0.145694083872924 (from 0.146660920737233), conditional on the '
     + 'shared ledger as in r6; single engine, internal referee only. Measured: missing floors at target give 0.145015; adding the 13 '
     + 'budget-stopped floors at target gives 0.144995; missing floors alone suffice only at ≈ 0.9× target or better. Nothing new is proved. '
-    + 'PT Lambda <= 0.2 stands; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
+    + 'No refereed bound is changed; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
 });
 
 const R = ROUTE_1;
@@ -136,7 +136,7 @@ export const ROUTE_1_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r1-honest-scope',
-    holds: () => R.status === 'partial' && /NOT certified/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'partial' && /NOT certified/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /not an independent implementation/.test(R.refereeKilled[1]) && /driver-level/.test(R.referee.independence),
     why: 'Λ < 0.145 not certified; referee independence is driver-level only; no QED.',
   },

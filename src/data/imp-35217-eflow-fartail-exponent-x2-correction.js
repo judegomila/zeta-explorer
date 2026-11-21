@@ -42,7 +42,7 @@
  * model is the imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow > 0
  * strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll
  * far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35198-eflow-fartail-exponent-logn-correction (leading +3/log N term; named-but-unevaluated x^-2 term)
  * @see imp-35135-eflow-fartail-decay-exponent-positivity-reconciliation (measured exponents checked against)
@@ -186,7 +186,7 @@ export const IMP35217_EFLOW_FARTAIL_EXPONENT_X2_CORRECTION = {
     'power of log N. Derivation/measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
     'rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35198 (leading +3/log N term and the named x^-2 term evaluated here); imp-35135 (measured ' +
     'exponents checked against); imp-486 (C_mb GUE-conditional, UNTOUCHED); imp-3463 (E_coll far-tail ' +
@@ -232,13 +232,13 @@ export const IMP35217_EFLOW_FARTAIL_EXPONENT_X2_CORRECTION_ASSERTIONS = [
       TOP_LEAD_RESIDUAL < 0.02,
   },
   {
-    // Honesty gate: derivation/measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35217-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35217_EFLOW_FARTAIL_EXPONENT_X2_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP35217_EFLOW_FARTAIL_EXPONENT_X2_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP35217_EFLOW_FARTAIL_EXPONENT_X2_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP35217_EFLOW_FARTAIL_EXPONENT_X2_CORRECTION.verdict),
   },
 ];
 

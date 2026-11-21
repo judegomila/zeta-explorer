@@ -52,8 +52,7 @@
  * n = 160 ratio still varies smoothly with delta (0.9576 .. 0.9963) and this
  * sweep does not establish a delta-independent convergence RATE. (c) Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase
- * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95846-finite-section-upper-companion-bound (the four-delta table this reproduces + extends)
  * @see imp-95825-finite-section-positivity-certificate (the lower companion)
@@ -116,8 +115,8 @@ export const IMP95864_UPPER_COMPANION_DELTA_SWEEP = {
     "ln 1.3 anchor; no new cited input, no new bound. Qualitative uniformity " +
     "only -- no delta-independent convergence rate is claimed. Model seam family " +
     "only; imp-95212 envelope port, signed WEIGHT, modulus/phase legs stay OPEN. " +
-    "Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= " +
-    "0.2 remains SOTA.",
+    "Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95864"],
 };
 
@@ -302,7 +301,7 @@ export const IMP95864_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /VERIFIED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95864-closes-self",

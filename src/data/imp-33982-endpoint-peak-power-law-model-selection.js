@@ -65,7 +65,7 @@
  * optimum); the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the imp-33843 log-linear-vs-power-law FORM verdict (a different question) is UNTOUCHED; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33941-endpoint-peak-growth-model-selection (the linear-vs-log two-form selection extended here)
  * @see imp-33917-endpoint-residual-growth-law (the 9 endpoint peaks scored here)
@@ -277,7 +277,7 @@ export const IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-law ' +
     'FORM verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33941 (the linear-vs-log two-form selection extended here); imp-33917 (the 9 endpoint peaks ' +
     'scored here); imp-33980 (the same scoring on the neighbour rung); imp-33843 (the log-linear OLS ' +
@@ -332,7 +332,7 @@ export const IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION_ASSERTIONS = [
     // (R3) Weights sum to 1; log-vs-power contrast equals n ln(RSS ratio) and IS decisive (> 10),
     // while log-vs-linear is NOT; honesty gate.
     id: 'imp33982-decisive-over-power-and-honesty-gate',
-    description: 'weights sum to ~1; log-vs-pow Delta = n ln(RSS ratio) and > 10 (decisive); log-vs-lin not decisive; isRigorous false; NO QED; PT SOTA',
+    description: 'weights sum to ~1; log-vs-pow Delta = n ln(RSS ratio) and > 10 (decisive); log-vs-lin not decisive; isRigorous false; NO QED; no refereed bound is changed',
     holds: () => {
       const target = N * Math.log(RSS.pow / RSS.log);
       return (
@@ -342,7 +342,7 @@ export const IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION_ASSERTIONS = [
         LOG_VS_LIN_DECISIVE === false &&
         IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION.isRigorous === false &&
         /NO QED/.test(IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION.verdict) &&
-        /remains SOTA/.test(IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION.verdict)
+        /refereed bound is changed/i.test(IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION.verdict)
       );
     },
   },

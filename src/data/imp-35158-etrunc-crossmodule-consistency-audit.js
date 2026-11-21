@@ -53,7 +53,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the imp-2631 E_trunc fixed strip is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-2631-honest-truncation-route-assessment (E_trunc = 3.06e-5 canonical N-independent strip)
  * @see imp-34791 (the prior two-E_trunc PT-anchor-vs-strip name collision + prefactor bug)
@@ -132,7 +132,7 @@ export const IMP35158_ETRUNC_CROSSMODULE_CONSISTENCY_AUDIT = {
     'Accuracy audit only; conditional-share diagnostic on the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the imp-2631 E_trunc fixed strip is UNTOUCHED; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 // Self-executing THROWing assertions (pass under plain node and vite).

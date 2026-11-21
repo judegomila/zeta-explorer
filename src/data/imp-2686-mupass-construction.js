@@ -86,8 +86,8 @@
  *   NECESSARY but NOT sufficient for the operator positivity K_a >= 0 (the
  *   degree-0 R = Gpass^{-1/2} Gshear Gpass^{-1/2} still must be a contraction).
  *   So this carries FULL RH strength and is NOT a reduction below RH. The
- *   bare-V pilot (imp-1240) is NOT re-run here. Platt-Trudgian Lambda <= 0.2
- *   REMAINS the rigorous SOTA. No false QED.
+ *   bare-V pilot (imp-1240) is NOT re-run here. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see section26-verdict-volterra-not-a-reduction-2026-06-18.js (THE_REAL_GAP_REVISED)
  *   @see imp-1240-volterra-norm-pilot.js (the downgraded bare-V pilot -- NOT re-run)
@@ -237,7 +237,7 @@ export const IMP2686_MUPASS_CONSTRUCTION = Object.freeze({
       'K_a >= 0; the degree-0 operator R must still be a contraction. The cosh-completion ' +
       'w^pass = cosh(a*tau) IS the even part of the no-ghost kernel, so this carries full ' +
       'RH strength and is a faithful restatement, not a shortcut.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -300,7 +300,7 @@ export const IMP2686_MUPASS_CONSTRUCTION_ASSERTIONS = [
   {
     id: 'imp2686-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: the construction is RH-EQUIVALENT, necessary-but-not-' +
-         'sufficient, not a proof, not a reduction below RH, and PT 0.2 stays SOTA. ' +
+         'sufficient, not a proof, not a reduction below RH, and no refereed bound is changed. ' +
          'If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP2686_MUPASS_CONSTRUCTION.honestCaveat;
@@ -309,7 +309,7 @@ export const IMP2686_MUPASS_CONSTRUCTION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -28,7 +28,7 @@
  * standalone module exists so the correction is independently indexable (glossary/audit sweeps that
  * grep for honest-status modules by filename, per imp-36209's finding that inline-only corrections
  * are not reliably discoverable). Read-only record; changes no bound; establishes no operator
- * positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-97315-route-m-e1-direct-exact-ratio-crosscheck.js (the direct-vs-fast cross-check this note records)
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (the fast Gasymp evaluator and the original "6 decimals to 2.5e9" claim)
@@ -70,8 +70,8 @@ export const IMP97348_E1_FP_PRECISION_HONEST_STATUS = {
     `by b = ${WORST_MEASURED_B}. The imp-97291 "trustworthy to ~6 decimals for b <~ ${ORIGINAL_CLAIM_REACH_B.toExponential(1)}" ` +
     'figure is optimistic for the last decimals past ~1e7. The qualitative monotone climb of r(b) ' +
     'toward 1 is unaffected -- it is a coarse trend both evaluators agree on, not a last-decimal claim. ' +
-    'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97315-route-m-e1-direct-exact-ratio-crosscheck.js (IMP97315_RESULTS.honestRefinement, the ' +
     'source finding this note records); imp-97291-route-m-e1-wide-composite-ratio-sweep.js (the ' +
@@ -100,12 +100,12 @@ export const IMP97348_E1_FP_PRECISION_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp97348-no-fix-honesty-gate',
-    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, PT stays SOTA',
+    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97348_E1_FP_PRECISION_HONEST_STATUS.fixApplied === false &&
       IMP97348_E1_FP_PRECISION_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP97348_E1_FP_PRECISION_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP97348_E1_FP_PRECISION_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP97348_E1_FP_PRECISION_HONEST_STATUS.verdict),
   },
 ];
 

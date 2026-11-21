@@ -46,7 +46,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96568 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (source: the measured floor ladder and growth law this glosses)
  * @see imp-96531-basis-c-crossover-measured-floor (the L-linear re-anchored crossover L* ~ 2.86e9 this tightens)
@@ -64,7 +64,7 @@
  * best-available projection.
  *
  * Ticket: imp-96599 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The super-linear-floor headword, baked verbatim (no re-import).
@@ -96,7 +96,7 @@ const BASIS_C_SUPERLINEAR_FLOOR_HEADWORD = Object.freeze({
     'above-anchor exponent p ~ 1.81 rests on only two ppp-pinned rungs (anchor, 1e7), so ' +
     'L* ~ 1.9e8 remains a tightened PROJECTION past 1e7, not a measured reach. rho is the ' +
     'theoretical GUE (sine-kernel) two-interval correlation, not computed from real ' +
-    'zeros. Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'zeros. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -118,7 +118,7 @@ export const IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD = Object.freez
     'L* ~ 1.90e8 (~1.5 decades past the anchor) -- ~15x tighter. Still a two-point ' +
     'extrapolation past L = 1e7, not a measured reach; theoretical GUE quantity, not real ' +
     'zeros. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96568 (the measured floor ladder and above-anchor growth law this glosses); ' +
     'imp-96531 (the L-linear re-anchored crossover L* ~ 2.86e9 this tightens); imp-96448 ' +
@@ -155,11 +155,11 @@ export const IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96599-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-96568',
   },
   {

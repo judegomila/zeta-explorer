@@ -38,7 +38,7 @@
  * an RH bound. Reuses the imp-33773/imp-33810 sub-terms verbatim; the inherited imp-3220/imp-3406 component
  * model is NOT a rigorous asymptotic; the crossing is descriptive within that model only; changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the F4 sign-flip crossing ~21.281 cross-validated here)
  * @see imp-34087-f4-surrogate-cancellation-digit-loss (the C=1/|resid| reciprocal crossing ~21.28095 cross-validated here)
@@ -213,7 +213,7 @@ export const IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL = {
     'NOT an artifact of the F4 or C=1/|resid| derivation. The inherited imp-3220/imp-3406 component model ' +
     'is NOT a rigorous asymptotic; the crossing is descriptive within that model only; changes no bound; ' +
     'establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34023 (the F4 sign-flip crossing ~21.281 cross-validated here); imp-34087 (the C=1/|resid| ' +
     'crossing ~21.28095 cross-validated here); imp-33810 (the quarter-decade rungs); imp-33773 (the M2 ' +
@@ -270,13 +270,13 @@ export const IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL_ASSERTIONS 
     },
   },
   {
-    // Honesty gate: numerical/cross-validation only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: numerical/cross-validation only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34150-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34150_M2_RESIDUAL_CROSSING_DIRECT_BISECTION_CROSSVAL.verdict),
   },
 ];

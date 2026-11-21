@@ -33,8 +33,7 @@
  * SCOPE. Assessment/audit only. No source file was modified as a result of this check beyond
  * this report module; wiring any dangling module into a page is separate future work (already
  * queued individually for several, e.g. low-priority tickets targeting imp-36138's siblings).
- * Changes no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * Changes no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-36261 (the imp-36138 wiring fix this audit confirms landed)
  * @see imp-36264-imp36135-160-36246-251-cross-reference-integrity-audit.js (audit method template, citation integrity variant)
@@ -90,7 +89,7 @@ export const IMP36270_S_FRONTIER_VIZ_DATA_DANGLING_AUDIT = {
     'import of each module’s export, and confirmed each hit’s page is registered in ' +
     'App.jsx routing. Result: 7 consumed, 8 dangling. No source file required correction; ' +
     'wiring the dangling 8 into pages is separate future work. Changes no bound; establishes ' +
-    'no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-36261 (the imp-36138 wiring fix this audit confirms landed); imp-36264/imp-36189 ' +
     '(sibling audit-family templates); imp-36104..imp-36251 (the audited viz-data cohort).',
@@ -123,11 +122,11 @@ export const IMP36270_S_FRONTIER_VIZ_DATA_DANGLING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36270-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36270_S_FRONTIER_VIZ_DATA_DANGLING_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36270_S_FRONTIER_VIZ_DATA_DANGLING_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36270_S_FRONTIER_VIZ_DATA_DANGLING_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36270_S_FRONTIER_VIZ_DATA_DANGLING_AUDIT.verdict),
   },
 ];
 

@@ -56,7 +56,7 @@
  * imp-34997a / imp-35243a (R1) stay OPEN. MEASUREMENT / ASSESSMENT ONLY; the C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched;
  * far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35263-reentry-band-eps-floor-sweep (note (3): near-doubling increments 8.72/17.29/34.39; sweep k=-1..2)
  * @see imp-35259-two-rate-band-edges-direct-rootfind (the direct-bisection root-finder reproduced here)
@@ -241,8 +241,8 @@ export const IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO = {
     'OPEN. MEASUREMENT / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 double surrogate, IEEE-754 double ' +
     'precision, point rate estimates; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35263 (note (3): near-doubling increments 8.72/17.29/34.39; sweep k=-1..2); imp-35259 (the direct-' +
     'bisection root-finder reproduced here); imp-35332 (drift decays ~ 1/L, the reciprocal of the ratio->2 ' +
@@ -305,13 +305,13 @@ export const IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO_ASSERTIONS = [
       Math.abs(K_OVER_NCROSS - 0.047944) < 1e-4,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap stays OPEN and named.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap stays OPEN and named.
     id: 'imp35399-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, R1/imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, R1/imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO.isRigorous === false &&
       /NO QED/.test(IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO.verdict) &&
-      /remains SOTA/.test(IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO.verdict) &&
+      /refereed bound is changed/i.test(IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO.verdict) &&
       /imp-35243a/.test(IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO.residual_sub_gap) &&
       /stay OPEN/.test(IMP35399_REENTRY_EDGE_SLIDE_GEOMETRIC_RATIO.residual_sub_gap),
   },

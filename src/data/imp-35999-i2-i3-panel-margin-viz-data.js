@@ -54,7 +54,7 @@ export const IMP35999_PANEL_MARGIN_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-35951 sizing exactly; adds no new derivation ' +
     'and changes no bound. Both the panel count and the modulus floor are PROXIES on the off-axis model ' +
     'cusp rho = |x|^{-1/2}, NOT the true H_t = A + B - C on dR at T_PT = 3e12; I2 and I3 stay GREENFIELD ' +
-    '(imp-35681 Part A / imp-35725). NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    '(imp-35681 Part A / imp-35725). NO QED. No refereed bound is changed.',
 };
 
 export const IMP35999_VIZ_ASSERTIONS = [
@@ -82,12 +82,12 @@ export const IMP35999_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35999-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, SOTA',
+    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35999_PANEL_MARGIN_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP35999_PANEL_MARGIN_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35999_PANEL_MARGIN_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35999_PANEL_MARGIN_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35999_PANEL_MARGIN_VIZ_DATA.honest),
   },
 ];
 

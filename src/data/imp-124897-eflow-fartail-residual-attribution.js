@@ -43,8 +43,7 @@
  * MEASUREMENT / DECISION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643); changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33743-sigma-fartail-crossover-closed-form (far-tail closed form; residual ~7.4e-5 attributed to E_flow)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (halving-landmark closed form, thr = 1/2)
@@ -189,8 +188,8 @@ export const IMP124897_EFLOW_FARTAIL_RESIDUAL_ATTRIBUTION = {
     '(~1.3e-9) negligible -- a direct A/B confirmation of the imp-33743 D2 attribution. Component model ' +
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33743 (far-tail closed form; residual ~7.4e-5 attributed to E_flow); imp-33723 (halving-landmark ' +
     'closed form, thr = 1/2); imp-33601 (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow); imp-97838 ' +
@@ -232,13 +231,13 @@ export const IMP124897_EFLOW_FARTAIL_RESIDUAL_ATTRIBUTION_ASSERTIONS = [
       LOGT0_DRIFT_PART > 100 * CURVATURE_PRED,
   },
   {
-    // Honesty gate: measurement/decision only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/decision only, no QED, no refereed bound is changed.
     id: 'imp124897-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124897_EFLOW_FARTAIL_RESIDUAL_ATTRIBUTION.isRigorous === false &&
       /NO QED/.test(IMP124897_EFLOW_FARTAIL_RESIDUAL_ATTRIBUTION.verdict) &&
-      /remains SOTA/.test(IMP124897_EFLOW_FARTAIL_RESIDUAL_ATTRIBUTION.verdict),
+      /refereed bound is changed/i.test(IMP124897_EFLOW_FARTAIL_RESIDUAL_ATTRIBUTION.verdict),
   },
 ];
 

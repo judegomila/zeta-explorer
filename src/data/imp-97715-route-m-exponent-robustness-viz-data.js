@@ -68,7 +68,7 @@ export const IMP97715_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every band and exponent value is reused verbatim from imp-97687 (a measurement, '
     + 'not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

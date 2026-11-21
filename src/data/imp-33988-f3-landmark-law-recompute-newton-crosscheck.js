@@ -57,7 +57,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Conditional-share diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (F3 landmarks 1e44 / 1e434; gap ~ 1/(2 log T0))
  * @see imp-33859 (log-space direct within-0.1% crossing at N ~ 1e436.06, via ln N = u + log(u-1))
@@ -218,7 +218,7 @@ export const IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK = {
     'finite-log-T0 shortfall of the leading law -- no new mechanism. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33816 (F3 landmarks 1e44/1e434, gap ~ 1/(2 log T0)); imp-33859 (log-space within-0.1% ' +
     'crossing 1e436.06); imp-33949 (log T0 * gap -> 1/2 from below); imp-3463 (far-tail exponent ' +
@@ -274,13 +274,13 @@ export const IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: measurement/cross-check only, no bound changed, no QED, PT SOTA.
+    // Honesty gate: measurement/cross-check only, no bound changed, no QED, no refereed bound is changed.
     id: 'imp33988-honesty-gate-no-qed',
-    description: 'Measurement/cross-check only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/cross-check only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK.verdict),
   },
 ];
 

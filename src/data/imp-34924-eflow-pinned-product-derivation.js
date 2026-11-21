@@ -46,8 +46,7 @@
  * MEASUREMENT/DERIVATION ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34899-eflow-crossing-strength-ramp-position-sweep (reported the ~1.4366e-3 invariant product this module derives)
  * @see imp-34886-eflow-strength-knee-inflection-crossing (the s* ~ 0.78 = g* crossing on Gap(s)=0)
@@ -274,7 +273,7 @@ export const IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION = {
     'matching the imp-34899 reported value. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
     'no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   subGap:
     'DERIVES the imp-34899 F2 product invariance from Gap(s*)=0: (s,m) enter only via g = m s, so the crossing ' +
     'pins g* = m s* and the product g* r0 is exactly m-independent -- the argument s*ratio is what is fixed, not ' +
@@ -325,15 +324,15 @@ export const IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34924-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION.isRigorous === false &&
       IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION.farTailExponent === 0.5 &&
       typeof IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION.subGap === 'string' &&
       /NO QED/.test(IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP34924_EFLOW_PINNED_PRODUCT_DERIVATION.verdict),
   },
 ];
 

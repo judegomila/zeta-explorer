@@ -65,7 +65,7 @@
  * SURROGATE map g, NOT of the RH operator: it establishes NO operator positivity and NO spectral
  * consequence. Changes NO bound. The C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz
  * (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. Far-tail exponent stays 1/2 (imp-3463).
- * No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  *
@@ -231,7 +231,7 @@ export const IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT = {
     'than required for the classification. This is an ASSESSMENT of the INHERITED surrogate-map ' +
     'derivative signs ONLY: the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; ' +
-    'changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34957 (P_11/P_12 extension, all-positive coefficients, sign (-1)^(n+1)); imp-34880 ' +
     '(all-orders coefficient-positivity induction); imp-34922 (dual-route recurrence + boundary ' +
@@ -291,14 +291,14 @@ export const IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT_ASSER
     id: 'imp35012-honesty-gate-no-qed',
     description:
       'assessment scope is the surrogate-map derivative signs only: establishes no operator ' +
-      'positivity, changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'positivity, changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT.changesBound === false &&
       /NO QED/.test(IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT.verdict) &&
       /no operator positivity/.test(
         IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT.verdict,
       ) &&
-      /remains SOTA/.test(IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT.verdict) &&
       /surrogate/i.test(IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT.rigorousScope),
   },
 ];

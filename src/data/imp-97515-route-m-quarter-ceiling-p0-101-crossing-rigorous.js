@@ -64,8 +64,8 @@
  * would be a "smaller-omega" witness is REFUTED: it is ~30x LARGER than the P0=379 witness b* (shallower limit =>
  * longer descent => larger Y); smaller witnesses require HIGHER P0 (imp-97500 optimum ~1409). The b/4-ceiling line
  * was already an explicitly-witnessed dead route (imp-97496); it stays exploratory Route-M, load-bearing for
- * nothing. kappa_arith unchanged; cotangent first moment (imp-97097) open; no bound on Lambda moves; PT Lambda
- * <= 0.2 SOTA; RH open; NO QED. Referee-worthy.
+ * nothing. kappa_arith unchanged; cotangent first moment (imp-97097) open; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED. Referee-worthy.
  *
  * @see imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js (named the P0=379 witness; P0=101 was an estimate)
  * @see imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js (P0 sweep; interior size-optimum at P0~1409)
@@ -162,7 +162,7 @@ export const IMP97515_VERDICT = Object.freeze({
     '~30.7x MORE prime factors and ~37.3x MORE digits than the P0=379 witness b* -- the shallower limit forces a ' +
     'longer descent, so smaller witnesses require HIGHER P0 (imp-97500 optimum ~1409). The b/4-ceiling line stays ' +
     'an explicitly-witnessed dead route (exploratory Route-M, load-bearing for nothing). kappa_arith unchanged; ' +
-    'cotangent first moment (imp-97097) open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'cotangent first moment (imp-97097) open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97515_SUBGAP = Object.freeze({
@@ -179,7 +179,7 @@ export const IMP97515_SUBGAP = Object.freeze({
 });
 
 export const IMP97515_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97496 P0=101 crossing is now RIGOROUSLY located: an ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97496 P0=101 crossing is now RIGOROUSLY located: an ' +
   'exact segmented sieve to 2.85e9 puts the boundary at Y=2,634,715,019 (confirming the two-term-law estimate ' +
   'Y~2.63e9 exactly), cross-checked by the Rosser-Schoenfeld effective-Mertens enclosure. Named robust witness ' +
   'b_101 = Prod_{101<=p<=2,742,754,087} p (omega=132,637,743, ~10^{1.191e9}, ~1.19 billion digits), ' +
@@ -263,7 +263,7 @@ const IMP97515_ASSERTIONS = [
       IMP97515_VERDICT.smallerOmegaPremiseHolds === false &&
       /p0-101-crossing/.test(IMP97515_SUBGAP.id) &&
       /NO QED/.test(IMP97515_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97515_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97515_HONEST_BANNER) &&
       /RH open/.test(IMP97515_HONEST_BANNER),
     why: 'proof leaf rigorizing an exploratory-ceiling crossing (load-bearing for nothing) and refuting a ticket premise; no bound moved, no QED.',
   },

@@ -42,7 +42,7 @@
  * RECOMMENDATION. No new surfacing tickets are needed for this cohort: all
  * six viz-data modules are already fully wired (data -> page -> route).
  * This module fabricates no pages; it only records the audit. No new
- * bound, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498, imp-3517, imp-3539, imp-3568, imp-3593, imp-3615, imp-3636, imp-3659, imp-3683, imp-3705 (the prior audits in this series)
  */
@@ -71,7 +71,7 @@ export const IMP_3717_3695_3700_COHORT_MODULE_SURFACING_AUDIT = {
     'src/App.jsx). The only related open item is an improvements.js ledger bookkeeping collision ' +
     'at id 3695 (already logged separately in commit 4722ecf8), not a surfacing defect.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -103,9 +103,9 @@ const IMP_3717_ASSERTIONS = [
   },
   {
     id: 'imp3717-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3717_3695_3700_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3717_3695_3700_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3717_3695_3700_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

@@ -8,7 +8,7 @@
  *   sigma_2 = (t^2+1/4)^2 w_1 -- i.e. the half-pole-free CC Q-trick tested with no polynomial weight.
  *
  *   MEASUREMENT ONLY. No bound on Lambda moves; no operator positivity established; interval-rigorous
- *   reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * WHAT WAS MEASURED (tmp/imp-97336-w1-sign-profile.mjs, tmp/imp-97336-w1-band.mjs; float, dx = 1e-5,
  *   reproduced coarse dx = 2e-3 in the self-executing assertions below):
@@ -104,7 +104,7 @@ export const IMP97336_BANNER =
   '6.73x at 2a = 1.16). So imp-97256 residual (2) is NOT a pointwise ambiguity: pointwise w_1 is definitively ' +
   'negative; the only open positivity is the truncated cancellation one whose margin equals c_sharp. The ' +
   'half-pole-free CC Q-trick via the bare residual cannot be salvaged pointwise. No bound on Lambda moves; ' +
-  'interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import (coarse recompute) --
 
@@ -164,8 +164,8 @@ const IMP97336_ASSERTIONS = [
       IMP97336_W1_SIGN_PROFILE.qed === false &&
       IMP97336_W1_SIGN_PROFILE.halfPoleFreeQTrickSalvageableByPointwise === false &&
       IMP97336_W1_SIGN_PROFILE.intervalRigorousReach2a === 0.96 &&
-      /NO QED/.test(IMP97336_BANNER) && /remains SOTA/.test(IMP97336_BANNER) && /RH open/.test(IMP97336_BANNER),
-    why: 'measurement only: no bound moved, no operator positivity, the CC Q-trick pointwise salvage is refuted, interval-rigorous reach stays 2a <= 0.96, PT SOTA line present, RH stated open, NO QED.',
+      /NO QED/.test(IMP97336_BANNER) && /refereed bound is changed/i.test(IMP97336_BANNER) && /RH open/.test(IMP97336_BANNER),
+    why: 'measurement only: no bound moved, no operator positivity, the CC Q-trick pointwise salvage is refuted, interval-rigorous reach stays 2a <= 0.96, no-refereed-bound-change line present, RH stated open, NO QED.',
   },
 ];
 

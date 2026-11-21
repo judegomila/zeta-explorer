@@ -40,7 +40,7 @@
  * machinery (identical K, delta, N_cross, band). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0
  * stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34996-krawczyk-headroom-safety-factor-asymptote (the S_inf = 1/(2 delta) large-N floor this pairs)
  * @see imp-34929-krawczyk-headroom-monotonicity-derivative (closed-form dS/dN < 0; strictly decreasing S)
@@ -202,7 +202,7 @@ export const IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE = {
     'on the inherited imp-3220/imp-3406 surrogate; reproduces the imp-34996 machinery (identical K, delta, ' +
     'N_cross, band); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; ' +
     'imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; far-tail exponent ' +
-    'stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34996 (S_inf = 1/(2 delta) large-N floor, small-N heuristic); imp-34929 (closed-form dS/dN < 0); ' +
     'imp-34817 (n_op* = G/((1+G) eps) contraction-validity ceiling); imp-34799 ((H2)-margin ceiling); ' +
@@ -250,15 +250,15 @@ export const IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE_ASSERTIONS = [
       MIN_S_PHYSICAL > SAFETY_FACTOR,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35110-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE.isRigorous === false &&
       /imp-34714a/.test(IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE.subGap) &&
       /REMAINS OPEN/.test(IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE.subGap) &&
       /NO QED/.test(IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE.verdict) &&
-      /remains SOTA/.test(IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE.verdict),
+      /refereed bound is changed/i.test(IMP35110_KRAWCZYK_HEADROOM_SMALL_N_EDGE.verdict),
   },
 ];
 

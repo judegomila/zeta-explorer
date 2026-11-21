@@ -16,8 +16,8 @@
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
  * the floor is a Rayleigh-Ritz UPPER bound; the uniform-in-N spectral gap
  * remains open (IMP96749_UNIFORM_N_GAP_UNSETTLED); interval-rigorous
- * certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * certificate reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96876-krein-tresidual-crossval-measurement.js (source floor sweep + residual table)
  * @see imp-96856-krein-tresidual-envelope-viz-data.js (sibling viz-data leaf convention)
@@ -82,7 +82,7 @@ export const IMP96896_HONEST_BANNER =
   'operator positivity proof. GEOM and TRACE are both valid upper bounds on the actual residual (that is ' +
   'why all three sit on the SAME side of the measured value on the log10 axis); TRACE is numerically ' +
   'vacuous (~3e15x actual). The uniform-in-N spectral gap lambda_min(T_a[sigma_2]) >= c > 0 stays OPEN; ' +
-  'interval-rigorous certificate reach stays 2a<=0.96; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 //    leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page. Checked
@@ -105,7 +105,7 @@ export const IMP96896_VALIDATION = Object.freeze({
   ),
   honestBannerPresent:
     /RH open/.test(IMP96896_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96896_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96896_HONEST_BANNER) &&
     /NO QED/.test(IMP96896_HONEST_BANNER),
 });
 

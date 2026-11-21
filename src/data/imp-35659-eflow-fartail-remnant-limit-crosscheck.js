@@ -63,7 +63,7 @@
  * magnitude. It changes no bound. E_flow > 0 strictness (imp-33848) untouched; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35552-eflow-fartail-remnant-product-decay-limit (the closed-form limit this cross-verifies)
  * @see imp-35534-eflow-fartail-remnant-sub1e5-crossing (the log-space channel and finite-difference reference)
@@ -238,7 +238,7 @@ export const IMP35659_EFLOW_FARTAIL_REMNANT_LIMIT_CROSSCHECK = {
     'surrogate, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35552 (the closed-form remnant limit this cross-verifies); imp-35534 (log-space channel and ' +
     'finite-difference reference); imp-35473 (remnant*log N product datapoints); imp-35198 (analytic ' +
@@ -284,13 +284,13 @@ export const IMP35659_EFLOW_FARTAIL_REMNANT_LIMIT_CROSSCHECK_ASSERTIONS = [
     holds: () => Math.abs(leadingRatioComplexStep(3e4) - 1) < 2e-4,
   },
   {
-    // Honesty gate: cross-check only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: cross-check only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35659-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35659_EFLOW_FARTAIL_REMNANT_LIMIT_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP35659_EFLOW_FARTAIL_REMNANT_LIMIT_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP35659_EFLOW_FARTAIL_REMNANT_LIMIT_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP35659_EFLOW_FARTAIL_REMNANT_LIMIT_CROSSCHECK.verdict),
   },
 ];
 

@@ -10,7 +10,7 @@
  *
  * ESTIMATE / SIZING ONLY. Certifies no cap; certifies no delta > 0; instantiates no
  * interval enclosure; counts no zeros; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * HOW THIS DIFFERS FROM imp-35757
  * -----------------------------------------------------------------------------
@@ -70,7 +70,7 @@
  * gated on the greenfield imp-35681 Part A / imp-35725 A + B - C interval evaluator
  * (I1 / W1). This module instantiates no interval enclosure, certifies no cap,
  * certifies no delta > 0, counts no zeros, changes no bound; I2 and I3 stay
- * GREENFIELD. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * GREENFIELD. NO QED. No refereed bound is changed.
  *
  * @see imp-33923-off-axis-phase-winding-quadrature (held sampled slope -3/2 and modulus C_PS, isRigorous:false)
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I1-I5 enumerated, all GREENFIELD)
@@ -82,7 +82,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35727 / imp-35757) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this sizing
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this sizing
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
 // Held imp-33923 sampled proxy (reference literals; the module confirms both to ~1e-13):
@@ -178,7 +178,7 @@ export const IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY = {
     'bound on the LOCAL rate of the true f and a certified I3 floor an interval LOWER bound on |H_t|, both gated ' +
     'on the greenfield imp-35681 Part A / imp-35725 evaluator (I1 / W1). Instantiates no interval enclosure; ' +
     'certifies no cap; certifies no delta > 0; counts no zeros; changes no bound; I2 and I3 stay GREENFIELD; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33923 (off-axis phase-winding quadrature, sampled slope -3/2 and modulus C_PS, isRigorous:false); ' +
     'imp-35727 (I1-I5 enumerated, all GREENFIELD); imp-35757 (I2 sized from the SMOOTH Riemann-Siegel mean rate); ' +
@@ -226,9 +226,9 @@ export const IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY_ASSERTIONS = [
       /\|Delta arg f\| < pi/.test(IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.i2PanelSizing.cap),
   },
   {
-    // Honesty gate: sizing only, both are proxies on the model cusp, no certification, no QED, PT SOTA.
+    // Honesty gate: sizing only, both are proxies on the model cusp, no certification, no QED, no refereed bound is changed.
     id: 'imp35951-honesty-gate-no-qed',
-    description: 'Sizing only; PROXY on the model cusp; certifies no cap; certifies no delta>0; I2/I3 GREENFIELD; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Sizing only; PROXY on the model cusp; certifies no cap; certifies no delta>0; I2/I3 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -237,7 +237,7 @@ export const IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY_ASSERTIONS = [
       /certifies no cap/.test(IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.verdict) &&
       /stay GREENFIELD/.test(IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.verdict) &&
       /NO QED/.test(IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.verdict) &&
-      /remains SOTA/.test(IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.verdict),
+      /refereed bound is changed/i.test(IMP35951_I2_I3_SIZING_FROM_IMP33923_SAMPLED_PROXY.verdict),
   },
 ];
 

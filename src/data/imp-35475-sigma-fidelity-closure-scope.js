@@ -16,7 +16,7 @@
  * bound; establishes no operator positivity; no RH verdict, NO QED. The C_C =
  * (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor
  * (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; C_mb GUE-conditional per
- * imp-486 UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED. No refereed bound is changed.
  *
  * PART A -- THE SURROGATE MAP TO BE REPLACED (three inputs, three classes)
  * -----------------------------------------------------------------------------
@@ -116,7 +116,7 @@ const E_TRUNC_PT = 3.06e-5; // fixed floor (imp-2631); a separate barrier artifa
 const TC_A1_TRAP = 2.37e-4;
 const GRONWALL = Math.exp(1.0 * TC_A1_TRAP); // matches imp-3220/imp-3406/imp-3444/imp-35337 exactly
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any sigma-fidelity closure)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any sigma-fidelity closure)
 
 // The two interior landmark N values (imp-35337 / imp-3406 / imp-3444), taken as given.
 const N_PEAK = 9.2186e5; // interior flat-cap sigma PEAK
@@ -240,8 +240,8 @@ export const IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE = {
     'check is unconditional (and checks two points, not the map). Either way sigma is a diagnostic share, ' +
     'not a Lambda lever, so NO bound moves. Discharges NOTHING; changes no bound; establishes no operator ' +
     'positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), the imp-398 C_F ' +
-    'prefactor and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'prefactor and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35337 (dd arithmetic certification; names imp-35337a); imp-35411/imp-35417 (cite+assert ' +
     'imp-35337a); imp-35470 (peak curvature k ~ 6.43e-3); imp-3406/imp-3444 (the two landmarks on double); ' +
@@ -274,7 +274,7 @@ export const IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE_ASSERTIONS = [
       Math.abs(CROSS_ECOLL_BUDGET_FOR_1PCT_N - 0.005) < 1e-12, // 0.5% E_coll fidelity pins N_cross to 1%
   },
   {
-    // Part D honesty gate: modeled closure inherits imp-486, no bound moves, PT stays SOTA, sub-gap named; NO QED.
+    // Part D honesty gate: modeled closure inherits imp-486, no bound moves, no refereed bound is changed, sub-gap named; NO QED.
     id: 'imp35475-inherits-imp486-no-bound-moves-no-qed',
     description: 'a modeled closure INHERITS imp-486, sigma is not a Lambda lever so no bound moves, PT 0.2 unchanged, imp-35337a named, NO QED',
     holds: () =>
@@ -284,7 +284,7 @@ export const IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE_ASSERTIONS = [
       /NO bound moves/.test(IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE.verdict) &&
       /imp-35337a/.test(IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE.citation) &&
       /NO QED/.test(IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35475_SIGMA_FIDELITY_CLOSURE_SCOPE.verdict),
   },
 ];
 

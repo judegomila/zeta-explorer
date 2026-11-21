@@ -16,7 +16,7 @@
  * residual (law minus exact, in percentage points) at each rung and the RMS over the fit window.
  * No new fit, no Gram rebuilt, no O(N^3) rung computed: the decay fit and the exact spread ladder
  * are imported verbatim from imp-97033. Only the trace ceiling T ~ 2.594e7 stays rigorous; F, M
- * inherit non-rigorous extrapolations; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * inherit non-rigorous extrapolations; no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * (1) THE CONFIDENCE TABLE (invert the imp-97033 decay law at each target spread).
@@ -57,7 +57,7 @@
  * spread to <= 0.042 pp everywhere and to +0.009 / -0.037 pp at the two imp-96912 anchors. This does
  * not move any bound: it only certifies that the near-field fit is faithful, so the honest obstruction
  * stays the ~49-percent-of-N* far reach (imp-97033 sub-gap). Measurement/tabulation only; only the
- * trace ceiling T ~ 2.594e7 is rigorous; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * trace ceiling T ~ 2.594e7 is rigorous; no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97033-route-m-fm-discriminant-reach-threshold.js (the inverted decay law + threshold ladder)
  * @see imp-96912-route-m-frobenius-ladder-extension-above-16000.js (the 24-rung exact ||G||_F ladder + anchors)
@@ -156,11 +156,11 @@ export const IMP97060_VERDICT = Object.freeze({
     'and to +0.009 / -0.037 pp at the two imp-96912 anchors (N=16000, 24000). The near-field fit is ' +
     'therefore faithful; the honest obstruction stays the ~49-percent-of-N* far reach, not any anchor ' +
     'misfit. Measurement/tabulation only; only the trace ceiling T ~ 2.594e7 is rigorous; no bound ' +
-    'moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97060_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/tabulation only: no fit was rerun, no ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement/tabulation only: no fit was rerun, no ' +
   'Gram was rebuilt and no O(N^3) rung was computed -- the imp-97033 decay law and exact spread ladder ' +
   'are imported verbatim and only tabulated against the imp-96912 anchors. Only the trace ceiling ' +
   'T ~ 2.594e7 is rigorous; F and M inherit non-rigorous lam_min N^-p / ||G||_F log-fit extrapolations; ' +
@@ -203,7 +203,7 @@ const IMP97060_ASSERTIONS = [
       IMP97060_VERDICT.postsRigorousCeiling === false &&
       IMP97060_VERDICT.qed === false &&
       /NO QED/.test(IMP97060_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97060_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97060_HONEST_BANNER) &&
       /RH open/.test(IMP97060_HONEST_BANNER),
     why: 'measurement/tabulation only: no bound moved, no rigorous ceiling posted, and the honesty markers are present.',
   },

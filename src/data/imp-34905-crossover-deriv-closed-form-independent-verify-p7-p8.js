@@ -47,8 +47,7 @@
  * and a two-order extension of its explicit table -- a VERIFICATION on the inherited imp-3220/imp-3406
  * / imp-33723 surrogate crossover-map derivative SIGNS ONLY. It establishes NO RH-level result, NO
  * operator positivity, and changes NO bound. The C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz
- * (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34880-crossover-deriv-all-orders-sign-induction (the all-orders induction being verified)
  * @see imp-34859-crossover-gpppppp6-sixth-deriv-fourth-band (g_sixth_deriv < 0; order-by-order)
@@ -228,7 +227,7 @@ export const IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8 = {
     'orders beyond the imp-34880 explicit table. This is a VERIFICATION of the INHERITED ' +
     'imp-3220/imp-3406 surrogate-map derivative signs ONLY: the C_mb GUE-conditional per imp-486, the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator ' +
-    'positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34880 (all-orders coefficient-positivity induction + (n-1)!/(2n-3)!! cross-checks); ' +
     'imp-34859 (g_sixth_deriv < 0; order-by-order); imp-34842 (g_fifth_deriv > 0); imp-34731 ' +
@@ -280,15 +279,15 @@ export const IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8_ASSER
       IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8.independentVerificationPasses,
   },
   {
-    // Honesty gate: surrogate-map verification, changes no bound, no QED, PT stays SOTA.
+    // Honesty gate: surrogate-map verification, changes no bound, no QED, no refereed bound is changed.
     id: 'imp34905-honesty-gate-no-qed',
     description:
       'verification scope is the surrogate-map derivative signs only: changes no bound, no QED, ' +
-      'Platt-Trudgian stays SOTA',
+      'no refereed bound is changed',
     holds: () =>
       IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8.changesBound === false &&
       /NO QED/.test(IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8.verdict) &&
-      /remains SOTA/.test(IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8.verdict) &&
+      /refereed bound is changed/i.test(IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8.verdict) &&
       /surrogate/.test(IMP34905_CROSSOVER_DERIV_CLOSED_FORM_INDEPENDENT_VERIFY_P7_P8.rigorousScope),
   },
 ];

@@ -68,7 +68,7 @@ export const IMP_35349_VIZ_PAGE_CLAIM_AUDIT = {
     '"incidental-mention-only") until a dedicated route imports its own module.',
   honestNote:
     'Read-only cross-reference audit; no new pages created, no bound changed. imp-3066 K_a >= 0 ' +
-    'untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'untouched. No refereed bound is changed. No QED.',
 };
 
 const IMP_35349_ASSERTIONS = [
@@ -104,9 +104,9 @@ const IMP_35349_ASSERTIONS = [
     id: 'imp35349-honest-banner',
     holds: () => {
       const n = IMP_35349_VIZ_PAGE_CLAIM_AUDIT.honestNote;
-      return /no QED/i.test(n) && /imp-3066/.test(n) && /SOTA/.test(n);
+      return /no QED/i.test(n) && /imp-3066/.test(n) && /refereed bound is changed/i.test(n);
     },
-    why: 'This audit module must carry the standard no-QED / imp-3066-untouched / SOTA honesty banner.',
+    why: 'This audit module must carry the standard no-QED / imp-3066-untouched / no-refereed-bound-change honesty banner.',
   },
 ];
 

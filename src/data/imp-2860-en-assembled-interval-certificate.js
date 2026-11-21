@@ -51,7 +51,7 @@
  * below the Platt-Trudgian SOTA 0.2 under interval rounding. E_coll remains a
  * C_H-ansatz term (C_H = 0.127 is NOT a proven Holder-modulus upper bound,
  * imp-2642/imp-2701), so Lambda <= E(N) stays NON-rigorous. The NO-GO verdict is
- * retained; Platt-Trudgian Lambda <= 0.2 remains SOTA. No Lambda value changes.
+ * retained; no refereed bound is changed. No Lambda value changes.
  *
  * @see imp-2643-honest-assembled-EN (the point-float64 capstone this brackets)
  * @see imp-2704-cf-interval-certificate (C_F / E_flow upper bracket reused here)
@@ -67,7 +67,7 @@ import { IMP2643_HONEST_ASSEMBLED_EN } from './imp-2643-honest-assembled-EN.js';
 
 const N_STAR = 1e4;
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // ── Certified enclosure of T0 = effectiveHeightForN(N*) (mirror imp-2704) ──────
 // gamma_N ~ 9.879e3 displayed to 4 sig figs => displayed-digit half-width 0.5.
@@ -185,7 +185,7 @@ export const IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE = {
     'the headline E(N) clearance is now certified against rounding, not a point sum. This is a ' +
     'NUMERIC bracket only: E_coll rests on C_H = 0.127, an ANSATZ endpoint NOT a proven ' +
     'Holder-modulus upper bound (imp-2642/imp-2701), so Lambda <= E(N) stays NON-rigorous. ' +
-    'NO-GO retained; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO false QED; no Lambda value changes.',
+    'NO-GO retained; no refereed bound is changed. NO false QED; no Lambda value changes.',
   citation:
     'imp-2643 (point-float64 capstone); imp-2704 (C_F/E_flow bracket); imp-2709 (kappa_T floor, ' +
     'asymptotic endpoint); imp-2715 (worst-case readings, non-co-additivity); imp-2642/2701 (C_H ' +
@@ -235,12 +235,12 @@ export const IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE_ASSERTIONS = [
   {
     id: 'imp2860-not-rigorous-no-false-qed',
     description:
-      'The certificate is NUMERIC only: isRigorous false, verdict NO-GO naming C_H as blocker, Platt-Trudgian stays SOTA (no false QED).',
+      'The certificate is NUMERIC only: isRigorous false, verdict NO-GO naming C_H as blocker, no refereed bound is changed (no false QED).',
     holds: () =>
       IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE.isRigorous === false &&
       /NO-GO/.test(IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE.verdict) &&
       /C_H/.test(IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE.blockingConstant) &&
-      /remains SOTA/.test(IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE.verdict),
+      /refereed bound is changed/i.test(IMP2860_EN_ASSEMBLED_INTERVAL_CERTIFICATE.verdict),
   },
 ];
 

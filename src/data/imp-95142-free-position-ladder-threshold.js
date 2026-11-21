@@ -119,7 +119,7 @@
  * float and REJECTED: the binding-cell margin 6.3e-6 thins toward zero for
  * < 5e-6 of bracket width - recorded so successors do not respend it.
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) The NAIVE independent facing-edge cap matrix was tried FIRST and
@@ -448,7 +448,7 @@ export const IMP95142_FREE_POSITION_LADDER_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM FP is unconditional given the carried Lemma RC (imp-95131, full calculus proof): the reduction is entrywise domination with nonnegative amplitudes plus weighted AM-GM at explicit positive vectors (valid for ANY positive vector - the float Perron iterations need no certification), the entry caps are N = 60 even-truncation upper bounds with explicit float budgets (62 * 2^{-52} * e^15 < 5e-8 << the 1e-6 slack) and the elementary Lemma EC g(z) <= exp(-z/2) for z >= 3, the u_1 cell cover is a deterministic exact cover of [4, 8] recomputed at build, and the tail is closed by Lemma TR and the TAILSLACK head-row absorption with explicit constants. Every approximation inflates caps or ratios - the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, AT MOST ONE PACKET PER BLOCK; the full-class sandwich [0.23206, 0.24502] is carried unchanged; the subclass bracket does not determine the class threshold; float landmarks 0.2320730, 0.2320720, 0.2320685 measured only; the imp-95140-subgap-displacement-credit leg stays OPEN (localized, not closed); parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM FP is unconditional given the carried Lemma RC (imp-95131, full calculus proof): the reduction is entrywise domination with nonnegative amplitudes plus weighted AM-GM at explicit positive vectors (valid for ANY positive vector - the float Perron iterations need no certification), the entry caps are N = 60 even-truncation upper bounds with explicit float budgets (62 * 2^{-52} * e^15 < 5e-8 << the 1e-6 slack) and the elementary Lemma EC g(z) <= exp(-z/2) for z >= 3, the u_1 cell cover is a deterministic exact cover of [4, 8] recomputed at build, and the tail is closed by Lemma TR and the TAILSLACK head-row absorption with explicit constants. Every approximation inflates caps or ratios - the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, AT MOST ONE PACKET PER BLOCK; the full-class sandwich [0.23206, 0.24502] is carried unchanged; the subclass bracket does not determine the class threshold; float landmarks 0.2320730, 0.2320720, 0.2320685 measured only; the imp-95140-subgap-displacement-credit leg stays OPEN (localized, not closed); parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -577,11 +577,11 @@ export const IMP95142_FREE_POSITION_LADDER_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95142-honesty-gate",
     description:
-      "the verdict is scoped: one packet per block only, class sandwich carried unchanged, displacement-credit leg OPEN (localized not closed), parent sub-gap OPEN, float landmarks measured only, attribution states the FR-constant reuse plainly; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: one packet per block only, class sandwich carried unchanged, displacement-credit leg OPEN (localized not closed), parent sub-gap OPEN, float landmarks measured only, attribution states the FR-constant reuse plainly; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95142_FREE_POSITION_LADDER_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95142_FREE_POSITION_LADDER_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95142_FREE_POSITION_LADDER_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95142_FREE_POSITION_LADDER_THRESHOLD.rigorScope) &&
       /localized, not closed/.test(IMP95142_FREE_POSITION_LADDER_THRESHOLD.rigorScope) &&
       /measured only/.test(IMP95142_FREE_POSITION_LADDER_THRESHOLD.rigorScope) &&
       /AT MOST ONE PACKET PER BLOCK/.test(IMP95142_FREE_POSITION_LADDER_THRESHOLD.rigorScope) &&

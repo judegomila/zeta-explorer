@@ -67,7 +67,7 @@
  *   NOT touch the operator step. The imp-3007 scalar cover residual stays EXACTLY
  *   0 and is necessary-but-NOT-sufficient for K_a >= 0; the off-diagonal
  *   endpoint-Hankel contraction remains the lone open obstruction. No reduction,
- *   no RH verdict. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   no RH verdict. No refereed bound is changed.
  *
  *   @see imp-3007-mupass-overflow-cover.js (imp-3007: E(a) at the single cell a=0.5,U=6)
  *   @see imp-2686-mupass-construction.js (the cosh-completion + pointwise margin)
@@ -208,7 +208,7 @@ export const IMP3148_FORCED_EXCESS_MASS_SWEEP = Object.freeze({
       'measures only the forced-excess MASS; the imp-3007 scalar cover residual ' +
       'stays exactly 0 and is necessary-but-NOT-sufficient for K_a >= 0; the ' +
       'off-diagonal endpoint-Hankel contraction remains the lone open obstruction',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -270,8 +270,8 @@ export const IMP3148_FORCED_EXCESS_MASS_SWEEP_ASSERTIONS = [
   {
     id: 'imp3148-honest-diagnostic-only',
     why: 'Mandatory honesty: this is a structural/diagnostic mass sweep, not a proof or reduction; ' +
-         'the imp-3007 scalar cover residual stays 0, the operator step is untouched, and PT 0.2 ' +
-         'stays SOTA. If any flip the module is over-claiming.',
+         'the imp-3007 scalar cover residual stays 0, the operator step is untouched, and no refereed bound is changed' +
+         '. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3148_FORCED_EXCESS_MASS_SWEEP.honestCaveat;
       return (
@@ -280,7 +280,7 @@ export const IMP3148_FORCED_EXCESS_MASS_SWEEP_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.scalarCoverResidualStaysZero === true &&
         c.operatorStepNotAttempted === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

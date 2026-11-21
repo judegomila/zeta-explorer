@@ -4,7 +4,7 @@
  * and re-fit, to test whether the strictly-positive reciprocal-log floor c~0.143 and the
  * decelerating per-segment slope persist, or whether the floor is an artifact of the
  * limited T range. Import-light (literals baked, no zeros bundle); holds() assertions;
- * self-executing. Measurement only. NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * self-executing. Measurement only. NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. imp-96148 fit the worst-support (N=32) on-line margin column rho(32,T) over a
  * SEVEN-point grid that stops at T=395.98 (gamma_200) to a reciprocal-log-with-floor law
@@ -48,7 +48,7 @@
  * So imp-96148 is CONFIRMED at higher height: the on-line worst-support signed-force Gram-law
  * surrogate flattens to a strictly positive margin floor, it does not cross zero, and the
  * uniform-in-T obstruction is not an on-line margin-crossing (it lives OFF the line, Weil
- * strength -- unchanged). Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * strength -- unchanged). Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const ROUTE_BD_ONLINE_MARGIN_FLOOR_EXTENDED = Object.freeze({
@@ -60,7 +60,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_EXTENDED = Object.freeze({
     + 'CONFIRMS the imp-96148 finding: the reciprocal-log-with-floor law still wins (R2 gap WIDENS to 0.99483 vs '
     + '0.96691) and the fitted floor stays strictly positive (0.14256 -> 0.16030, does NOT drift to zero). The '
     + 'positive on-line margin floor is NOT a range artifact; the margin flattens, it does not cross zero. '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED',
 
   // Consumer correction (imp-96211 re-point): imp-96186 EXTENDS this column from gamma_500 to
   // gamma_1000 and PARTLY CORRECTS the "positive asymptote" reading recorded below. On the full
@@ -160,7 +160,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_EXTENDED = Object.freeze({
     + 'floor stays strictly positive and rises slightly (0.14256 -> 0.16030) rather than drifting toward zero. So '
     + 'the strictly-positive on-line margin floor is NOT an artifact of the limited T range -- the on-line surrogate '
     + 'flattens to a positive margin, it does not cross zero, and the uniform-in-T obstruction remains off the line. '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED.',
 
   subGap: {
     name: 'OFF-line uniform LP (Weil-positivity strength) remains the binding wall (inherited, unchanged)',
@@ -234,7 +234,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_EXTENDED_ASSERTIONS = Object.freeze([
     name: 'honest status: measurement only, no bound change, no QED',
     holds: () => /MEASURED/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

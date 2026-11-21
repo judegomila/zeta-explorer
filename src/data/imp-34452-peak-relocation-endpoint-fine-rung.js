@@ -40,7 +40,7 @@
  * sigma = E_coll / (E_trunc + E_flow + E_coll) is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the imp-33843 log-linear form verdict is UNTOUCHED; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34369-peak-relocation-regime-width (the (9.25, 9.5] half-open bracket sharpened here)
  * @see imp-34288-trough-peak-ratio-ceiling-extension (the ~0.907 max, w ~ 9.25 migration)
@@ -270,7 +270,7 @@ export const IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG = {
     'reproduced on the finer grids. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the imp-33843 log-linear form verdict is UNTOUCHED; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34369 (the (9.25, 9.5] half-open endpoint bracket sharpened here, coarse rows reproduced by the ' +
     'reuse gate); imp-34288 (the ~0.907 max, w ~ 9.25 migration); imp-34085 (the |trough|/|peak| ratio ' +
@@ -326,13 +326,13 @@ export const IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG_ASSERTIONS = [
       ) && IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.migrationStaysRungQuantizedStep === true,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, imp-3066 & imp-33843 untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, imp-3066 & imp-33843 untouched.
     id: 'imp34452-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT SOTA, imp-33843 form verdict & imp-3066 K_a>=0 untouched',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed, imp-33843 form verdict & imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.isRigorous === false &&
       /NO QED/.test(IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.verdict) &&
-      /remains SOTA/.test(IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.verdict) &&
+      /refereed bound is changed/i.test(IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.verdict) &&
       /imp-33843 log-linear form verdict is UNTOUCHED/.test(IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34452_PEAK_RELOCATION_ENDPOINT_FINE_RUNG.verdict),
   },

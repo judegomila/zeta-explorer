@@ -156,8 +156,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -393,7 +392,7 @@ export const IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS = {
     'Theorem Y is the sibling parity roll-up with the per-pair floor of Lemma X kept b-resolved instead of relaxed to its b = 0 infimum - every inequality in the chain is one already proved by the fifth and tenth continuations, applied pairwise-sharp; Lemma Z and Lemma M are elementary exponent algebra. The sup evaluations and the counter-case scan are per-parameter corollaries. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS aggregation step (the exact lever the tenth continuation pointed at): the achieved parity roll-up consumed the SHARP b-resolved pair floor V(b, j) = 2^{b(1-beta)} Gx(j) only through its b = 0 infimum, charging every block the worst-case toll 2 Tx_even in both ladder directions. NEW Theorem Y re-prices the far term with closed-form block weights omega_b: block 0 has no incoming pairs (omega_0 = Tx_even exactly), block 2 carries the single dominant V(0,2) toll (omega_2 = sup_b omega_b), and deep blocks are asymptotically FREE (Lemma Z, geometric decay). The achieved far coefficient drops 8/(2 sigma - 1) -> 4/(2 sigma - 1) inside the same bracket class (Lemma M: omega_2 <= Tx(2)), so the far bracket gap EXACTLY halves: [0.025882, 8] -> [0.025882, 4], gap 309.09 -> 154.55 at theta = 10 (19.0996 at the fixed-97 theta = 2 bracket); the Theorem F near-floor evaluation tightens 1.91607 -> 1.92825. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS aggregation step (the exact lever the tenth continuation pointed at): the achieved parity roll-up consumed the SHARP b-resolved pair floor V(b, j) = 2^{b(1-beta)} Gx(j) only through its b = 0 infimum, charging every block the worst-case toll 2 Tx_even in both ladder directions. NEW Theorem Y re-prices the far term with closed-form block weights omega_b: block 0 has no incoming pairs (omega_0 = Tx_even exactly), block 2 carries the single dominant V(0,2) toll (omega_2 = sup_b omega_b), and deep blocks are asymptotically FREE (Lemma Z, geometric decay). The achieved far coefficient drops 8/(2 sigma - 1) -> 4/(2 sigma - 1) inside the same bracket class (Lemma M: omega_2 <= Tx(2)), so the far bracket gap EXACTLY halves: [0.025882, 8] -> [0.025882, 4], gap 309.09 -> 154.55 at theta = 10 (19.0996 at the fixed-97 theta = 2 bracket); the Theorem F near-floor evaluation tightens 1.91607 -> 1.92825. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -554,12 +553,12 @@ export const IMP95008_BRFW_ASSERTIONS = [
   {
     id: 'imp95008-brfw-honesty-gate',
     description:
-      'the verdict records the halved coefficient, the class membership, the untouched near constant 2, the still-open bracket and residuals, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict records the halved coefficient, the class membership, the untouched near constant 2, the still-open bracket and residuals, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.promotesBound === false &&
       IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.verdict) &&
-      /remains SOTA/.test(IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.verdict) &&
       /EXACTLY halves/.test(IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.verdict) &&
       /asymptotically FREE/.test(IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.verdict) &&
       /154.55/.test(IMP95008_BLOCK_RESOLVED_FAR_WEIGHTS.openResiduals[4]) &&

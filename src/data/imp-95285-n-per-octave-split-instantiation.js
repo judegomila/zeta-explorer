@@ -10,7 +10,7 @@
  * signed seam configurations carrying up to N rates in EVERY octave of
  * a dyadic skeleton, coalescence-uniform, at finite and at unbounded
  * octave count. Twenty-ninth leg of the seam chain. Changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 normalization). Rates nu_i > 0 all distinct, depth
  * d = x > 0, E_V = span{e^(-nu t)}, Lambda(V, x) = sup over F in E_V of
@@ -246,8 +246,8 @@ export const IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION = {
     "all constants closed form; onsets bisected and bracket-asserted; " +
     "the N = 2 specialization is recorded as WEAKER than the existing " +
     "pair certificates (honesty anchor). Majorant only. Changes no bound " +
-    "of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -812,7 +812,7 @@ export const IMP95285_ASSERTIONS = [
       "the verdict and sub-gap carry the honest labels: sub-gap STILL " +
       "OPEN, residual DELIVERED not the dominance conjecture, majorant " +
       "only, N = 2 anchor recorded as weaker, paper packets not " +
-      "certified, no bound change, no QED, PT SOTA",
+      "certified, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /STILL OPEN/.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.subGap) &&
       /DELIVERED/.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.subGap) &&
@@ -825,7 +825,7 @@ export const IMP95285_ASSERTIONS = [
       /Majorant only/.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.verdict) &&
       /WEAKER/.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.verdict) &&
       /NO QED/.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.verdict) &&
-      /remains SOTA/.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.verdict),
+      /refereed bound is changed/i.test(IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.verdict),
   },
 ];
 

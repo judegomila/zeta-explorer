@@ -45,8 +45,7 @@
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover ~3.28e9, the halving landmark's independent twin)
  *
  *   Ticket: imp-36184 (content, low). Note only; imports all four source
- *   records verbatim; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   records verbatim; changes no bound; NO QED; no refereed bound is changed.
  */
 
 import { IMP33582_SIGMA_POSTPEAK_NEARPEAK_THRESHOLD_DECAY } from './imp-33582-sigma-postpeak-nearpeak-threshold-decay.js';
@@ -140,7 +139,7 @@ export const IMP36184_SIGMA_FARTAIL_DECAY_RAMP_STORYLINE_CROSS_REFERENCE = Objec
       'Read-only cross-reference narrative assembling the imp-33582/imp-33701/imp-33721/imp-33744 ' +
       'records verbatim into one four-stage arc. Derives nothing new; every stage stays ' +
       'measurement/derivation-only within the inherited imp-3220/imp-3406 extrapolation model.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -187,7 +186,7 @@ export const IMP36184_SIGMA_FARTAIL_DECAY_RAMP_STORYLINE_CROSS_REFERENCE_ASSERTI
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

@@ -82,7 +82,7 @@
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED (it enters only as a bare prefactor and
  * is not re-pinned); E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97662-cc-elasticity-peak-divergence (the fold law and first K route ~0.423330)
  * @see imp-97683-fold-amplitude-independent-crosscheck (second route: even-poly fit + 5-point)
@@ -214,8 +214,8 @@ export const IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN = {
     'inherits the surrogate curvature; the analytic pin is the structure, not a pure number. Component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; E_trunc pinned 3.06e-5 unchanged; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97662 (fold law, first K route ~0.423330); imp-97683 (second route: even-poly fit + 5-point); imp-97700 ' +
     '(implicit-differentiation route, differentiate the smooth model); imp-97668 (amplitude structure); imp-97520 ' +
@@ -248,11 +248,11 @@ export const IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN_ASSERTIONS = [
   },
   {
     id: 'imp97725-honesty-gate-no-qed',
-    description: 'derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA, ansatz untouched',
+    description: 'derivation only: isRigorous false, no QED, no refereed bound is changed, ansatz untouched',
     holds: () =>
       IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN.isRigorous === false &&
       /NO QED/.test(IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN.verdict) &&
-      /remains SOTA/.test(IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN.verdict) &&
+      /refereed bound is changed/i.test(IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN.verdict) &&
       /SUB-GAP/.test(IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN.verdict),
   },
 ];

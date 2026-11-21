@@ -45,7 +45,7 @@
  *   H2-weight residual) is O(1) small (nominal -1.10, band [-1.41, +1.75] across the cQ fit) and,
  *   with the tiny measured 2R ~ +0.019, is essentially the unpinned H2-weight correction. The sign
  *   is not pinned at this fit resolution. Nothing is evaluated; the far-field value stays OLS-fit;
- *   compute (N ~ 9916, imp-96352) binds first by >2600x; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   compute (N ~ 9916, imp-96352) binds first by >2600x; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97207-route-m-farfield-intercept-derivation (the derived c1_T constituents (A),(B),(C))
  * @see imp-97160-route-m-farfield-additive-term-spread (the OLS interior intercept a_int = -14.929)
@@ -116,11 +116,11 @@ export const IMP97250_VERDICT = Object.freeze({
     'band [-17,-13] gives gap in [-1.408, +1.752], so the two readings are CONSISTENT IN MAGNITUDE ' +
     'but the residual SIGN is not pinned at this fit resolution. Cross-check / consistency only; no ' +
     'value evaluated; far-field value stays OLS-fit; compute N ~ 9916 binds first by >2600x; changes ' +
-    'no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97250_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-check only: the imp-97207 derived interior ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-check only: the imp-97207 derived interior ' +
   'intercept (A)+(B) = -13.82 and the imp-96667 / imp-97160 OLS interior intercept a_int = -14.93 ' +
   'are CONSISTENT IN MAGNITUDE -- their difference (the combined 2R + H2-weight correction) is O(1) ' +
   'small (nominal -1.10, ~7.4% of |a_int|; band [-1.41,+1.75] across the coarse cQ fit). The ' +
@@ -173,7 +173,7 @@ const IMP97250_ASSERTIONS = [
       IMP97250_VERDICT.anyBoundMoved === false &&
       IMP97250_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97250_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97250_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97250_HONEST_BANNER) &&
       /RH open/.test(IMP97250_HONEST_BANNER),
   },
 ];

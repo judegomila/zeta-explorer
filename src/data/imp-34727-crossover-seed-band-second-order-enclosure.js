@@ -70,7 +70,7 @@
  * certificate for the INHERITED imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic and
  * NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34693-crossover-contraction-seed-band (the first-order band this module encloses; sub-gap imp-34693a)
  * @see imp-34676-crossover-contraction-right-widening (far-seed a-priori degradation; "seed near N_cross")
@@ -246,7 +246,7 @@ export const IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE = {
     'interval library. This bounds a property of the inherited imp-3220/imp-3406 surrogate crossover map, NOT a ' +
     'rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34693 (first-order admissible seed band; sub-gap imp-34693a); imp-34676 (right-widening; seed near ' +
     'N_cross); imp-34650 (Banach contraction certificate + analytic g_prime on I = [1e9,1e10]); imp-34692 ' +
@@ -283,14 +283,14 @@ export const IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE_ASSERTIONS = [
       Math.abs(M_SUP / 1.480193e-10 - 1) < 5e-3,
   },
   {
-    // Honesty gate: measurement of a surrogate property, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: measurement of a surrogate property, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34727-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, residual sub-gap imp-34727a, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, residual sub-gap imp-34727a, no QED, no refereed bound is changed',
     holds: () =>
       IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE.isRigorous === false &&
       /imp-34727a/.test(IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE.subGap) &&
       /NO QED/.test(IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE.verdict) &&
-      /remains SOTA/.test(IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE.verdict),
+      /refereed bound is changed/i.test(IMP34727_CROSSOVER_SEED_BAND_SECOND_ORDER_ENCLOSURE.verdict),
   },
 ];
 

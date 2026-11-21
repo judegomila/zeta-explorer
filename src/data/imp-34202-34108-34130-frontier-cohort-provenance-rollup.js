@@ -4,7 +4,7 @@
  * imp-34126/imp-34127/imp-34128/imp-34129/imp-34130 frontier-direction cohort (eight modules) by
  * EVIDENCE CLASS and confirming each carries the mandatory honest banner: isRigorous:false, NO-QED,
  * the C_mb GUE-conditional (imp-486) untouched clause, the imp-3066 K_a>=0 untouched clause, and
- * Platt-Trudgian Lambda<=0.2 SOTA, following the imp-33872/imp-33890 roll-up precedent.
+ * no refereed bound is changed, following the imp-33872/imp-33890 roll-up precedent.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block and its
  * `isRigorous` / `verdict` fields were read and classified into the evidence class it earns on its
@@ -27,8 +27,8 @@
  *   - "close-vs-floor measurement": measures whether a local-exponent residual keeps closing toward
  *     zero or asymptotes to a nonzero floor, on a finer ladder than any prior module used (imp-34130).
  * The honest-banner check greps each module for isRigorous:false, NO QED, the C_mb GUE-conditional
- * per imp-486 untouched clause, the imp-3066 K_a>=0 untouched clause, and Platt-Trudgian Lambda<=0.2
- * SOTA, plus whether it touches the Polymath15 G6a_shock_lipschitz/H2 bridge.
+ * per imp-486 untouched clause, the imp-3066 K_a>=0 untouched clause, and no refereed bound is changed
+ * , plus whether it touches the Polymath15 G6a_shock_lipschitz/H2 bridge.
  *
  * RESULT (audited 2026-07-05). All eight modules carry the full honest banner. None of the eight
  * references the Polymath15 G6a_shock_lipschitz/H2 bridge -- correct, since this cohort sits
@@ -65,8 +65,8 @@ export const IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP = {
     '(saturating-ceiling extrapolation / saturation-onset fit / LTO per-pair influence ranking / ' +
     'span-scaling fit / closed-form derivation / sub-rung crossing locator / convergence fit / ' +
     'close-vs-floor measurement); grep for the mandatory honest-banner phrases (isRigorous false, ' +
-    'no QED, C_mb GUE-conditional per imp-486 untouched, imp-3066 K_a >= 0 untouched, Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA) plus the Polymath15 G6a_shock_lipschitz/H2 bridge status.',
+    'no QED, C_mb GUE-conditional per imp-486 untouched, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    ') plus the Polymath15 G6a_shock_lipschitz/H2 bridge status.',
   modules: [
     {
       file: 'imp-34108-endpoint-peak-saturating-ceiling-extrapolation.js',
@@ -188,7 +188,7 @@ export const IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. C_mb stays GUE-conditional (imp-486). imp-3066 K_a >= 0 positivity untouched. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -227,7 +227,7 @@ const IMP_34202_ASSERTIONS = [
       ) && IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 8,
     why:
       'Every module in the cohort must state isRigorous:false, NO QED, C_mb GUE-conditional per ' +
-      'imp-486 untouched, imp-3066 K_a >= 0 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA -- ' +
+      'imp-486 untouched, imp-3066 K_a >= 0 untouched, and no refereed bound is changed -- ' +
       'grep-verified against the source files.',
   },
   {
@@ -261,13 +261,13 @@ const IMP_34202_ASSERTIONS = [
   {
     id: 'imp34202-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /GUE-conditional/.test(IMP_34202_FRONTIER_COHORT_PROVENANCE_ROLLUP.honestNote),
     why:
-      'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA, C_mb stays GUE-conditional, and imp-3066 stays untouched.',
+      'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ', C_mb stays GUE-conditional, and imp-3066 stays untouched.',
   },
 ];
 

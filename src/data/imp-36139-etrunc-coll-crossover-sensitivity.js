@@ -42,7 +42,7 @@
  * remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C =
  * (1/8) sqrt(3 pi) (imp-2642 / imp-2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED; the
  * nominal E_trunc = 3.06e-5 (imp-2631) baseline is unchanged -- only swept for sensitivity;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35968-e-trunc-coll-crossover-location (located N_cross at the single nominal E_trunc)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (the N_cross ~ (C_C/E_trunc)^2 logT0 fixed point)
@@ -54,7 +54,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (identical to imp-35968), but with E_trunc PARAMETERIZED.
 const TWO_PI = 2 * Math.PI;
@@ -195,7 +195,7 @@ export const IMP36139_ETRUNC_COLL_CROSSOVER_SENSITIVITY = {
     '/ imp-33582 constants and the imp-35968 bisector unchanged (only E_trunc is swept); derives no remainder; ' +
     'discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / ' +
     'imp-2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED; the nominal E_trunc = 3.06e-5 (imp-2631) baseline ' +
-    'is unchanged; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'is unchanged; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35968 (located N_cross at the single nominal E_trunc, reused bisector); imp-33723 (N_cross ~ (C_C/E_trunc)^2 ' +
     'logT0 closed form -> E_trunc^{-2}); imp-3443 (interior-MAX floor-sensitivity power law, same half-to-double ' +
@@ -246,7 +246,7 @@ export const IMP36139_ETRUNC_COLL_CROSSOVER_SENSITIVITY_ASSERTIONS = [
     holds: () => ROWS.every((r) => Math.abs(r.sigma_at_cross - 0.5) < 2e-3 && r.sigma_at_cross < 0.5),
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36139-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -258,7 +258,7 @@ export const IMP36139_ETRUNC_COLL_CROSSOVER_SENSITIVITY_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

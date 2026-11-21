@@ -60,7 +60,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34270-eflow-gronwall-crossover-offset-correction (F2: the exact division form, derived at halving)
  * @see imp-33743-sigma-fartail-crossover-closed-form (D2: E_flow-restored far-tail thr=0.1 fixed point)
@@ -189,7 +189,7 @@ export const IMP34351_EFLOW_DIVISION_FORM_FARTAIL_CROSSVALIDATION = {
     'tuned to sigma = 1/2. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/' +
     'imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34270 (F2: exact division form, derived at the halving landmark); imp-33743 (D2: E_flow-' +
     'restored far-tail thr=0.1 fixed point to ~1.3e-15); imp-33723 (closed-form N_cross); imp-33601 ' +
@@ -231,13 +231,13 @@ export const IMP34351_EFLOW_DIVISION_FORM_FARTAIL_CROSSVALIDATION_ASSERTIONS = [
     holds: () => N_WF < N_CF && Math.abs(N_CF / 3.2134e11 - 1) < 5e-4,
   },
   {
-    // Honesty gate: cross-validation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation/measurement only, no QED, no refereed bound is changed.
     id: 'imp34351-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34351_EFLOW_DIVISION_FORM_FARTAIL_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP34351_EFLOW_DIVISION_FORM_FARTAIL_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34351_EFLOW_DIVISION_FORM_FARTAIL_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP34351_EFLOW_DIVISION_FORM_FARTAIL_CROSSVALIDATION.verdict),
   },
 ];
 

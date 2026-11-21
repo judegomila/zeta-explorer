@@ -63,7 +63,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33858-widening-fit-residual-localization (the k=11 far-tail excursion tested here)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS fit re-run on the extended ladder)
@@ -268,7 +268,7 @@ export const IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST = {
     'descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33858 (the k=11 far-tail excursion tested here); imp-33843 (the log-linear OLS re-run on the ' +
     'extended ladder); imp-33810 (the k=6..11 ladder extended here, reused verbatim); imp-33773 (M2 ' +
@@ -341,14 +341,14 @@ export const IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST_ASSERTIONS = [
       EXT12.r2 > 0.994,
   },
   {
-    // Honesty gate: endpoint-artifact verdict, isRigorous false, form verdict untouched, no QED, PT SOTA.
+    // Honesty gate: endpoint-artifact verdict, isRigorous false, form verdict untouched, no QED, no refereed bound is changed.
     id: 'imp33877-honesty-gate-no-qed',
-    description: 'Measurement only: endpoint-artifact verdict, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: endpoint-artifact verdict, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST.verdictIsEndpointArtifact === true &&
       IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST.isRigorous === false &&
       /NO QED/.test(IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST.verdict) &&
-      /remains SOTA/.test(IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST.verdict),
+      /refereed bound is changed/i.test(IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST.verdict),
   },
 ];
 

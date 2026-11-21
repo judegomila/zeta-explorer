@@ -62,7 +62,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-96467-offset-drift-slope-vs-Ldrift-prediction (leading L-drift offset, ~1.21x over-predict)
  * @see imp-96431-knee-crossover-tracking-wide-range (measured -0.00143/decade monotone offset drift)
@@ -190,7 +190,7 @@ export const IMP96508_NEXT_ORDER_CORRECTION_LDRIFT_OFFSET_RESIDUAL = Object.free
     'does NOT overturn it. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96467 (leading L-drift offset, ~1.21x over-predict, ~17-21% residual); imp-96431 (measured ' +
     '-0.00143/decade monotone offset drift); imp-33744 (exact sigma_infl = 1/2 - g_prime/(2 g^2) = 1/2 - ' +
@@ -227,11 +227,11 @@ const IMP96508_ASSERTIONS = [
   },
   {
     id: 'imp96508-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96508_NEXT_ORDER_CORRECTION_LDRIFT_OFFSET_RESIDUAL.isRigorous === false &&
       /NO QED/.test(IMP96508_NEXT_ORDER_CORRECTION_LDRIFT_OFFSET_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP96508_NEXT_ORDER_CORRECTION_LDRIFT_OFFSET_RESIDUAL.verdict),
+      /refereed bound is changed/i.test(IMP96508_NEXT_ORDER_CORRECTION_LDRIFT_OFFSET_RESIDUAL.verdict),
   },
 ];
 

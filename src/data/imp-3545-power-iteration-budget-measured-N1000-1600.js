@@ -59,7 +59,7 @@
  *   three untested budget rungs and reports their deviation from the imp-3530 K N^2
  *   predictor. Does NOT construct the missing magnitude and does NOT attempt the
  *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -180,7 +180,7 @@ export const IMP3545_POWER_ITERATION_BUDGET_MEASURED_N1000_1600 = Object.freeze(
     'the rate is set by rho=lambda_3/lambda_1; the per-N direct rho is mildly non-monotone (0.99938/0.99957/' +
     '0.99935) so the smooth N^2 agreement comes from the FITTED power law, not the per-N gap. Measurement/' +
     'validation only; does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 ' +
-    'positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -257,7 +257,7 @@ export const IMP3545_POWER_ITERATION_BUDGET_MEASURED_N1000_1600 = Object.freeze(
       'The gap rho(N), the budgets, and the fit are numerical at finite N; the operator norm ||Ttilde|| ~ 6.49e-5 ' +
       'stays a determined number at each section size, not a symbolic identity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -308,7 +308,7 @@ export const IMP3545_POWER_ITERATION_BUDGET_MEASURED_N1000_1600_ASSERTIONS = [
   {
     id: 'imp3545-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- three budget rungs vs the imp-3530 predictor, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3545_POWER_ITERATION_BUDGET_MEASURED_N1000_1600.honestCaveat;
       return (
@@ -318,7 +318,7 @@ export const IMP3545_POWER_ITERATION_BUDGET_MEASURED_N1000_1600_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresBudgetNotConstructs === 'string' &&
         typeof c.perNGapIsNonMonotone === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

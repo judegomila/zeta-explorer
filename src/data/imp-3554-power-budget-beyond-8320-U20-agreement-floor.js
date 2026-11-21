@@ -63,8 +63,7 @@
  *   Ticket: imp-3554 (numerical, medium). Measurement only: pushes the power budget
  *   past 8320 at N = 800 and isolates the residual as pure power under-convergence.
  *   Does NOT construct the missing magnitude and does NOT attempt the imp-3066
- *   K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -149,7 +148,7 @@ export const IMP3554_POWER_BUDGET_BEYOND_8320_U20_AGREEMENT_FLOOR = Object.freez
     'confirming imp-3525s attribution exactly. The N=800 power run to 33280 steps (~33k O(N^2) matvecs, ~38 s) was ' +
     'run offline and the norms BAKED as import-light literals; every ratio is recomputed from them. Measurement ' +
     'only; does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; ' +
-    'RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -232,7 +231,7 @@ export const IMP3554_POWER_BUDGET_BEYOND_8320_U20_AGREEMENT_FLOOR = Object.freez
       'This concerns the numerator norm of the capture RATIO only; the imp-3066 off-diagonal endpoint-Hankel ' +
       'operator magnitude remains the lone obstruction, UNTOUCHED.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -284,7 +283,7 @@ export const IMP3554_POWER_BUDGET_BEYOND_8320_U20_AGREEMENT_FLOOR_ASSERTIONS = [
   {
     id: 'imp3554-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- pushes the power budget past 8320 and isolates the residual, ' +
-      'positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3554_POWER_BUDGET_BEYOND_8320_U20_AGREEMENT_FLOOR.honestCaveat;
       return (
@@ -294,7 +293,7 @@ export const IMP3554_POWER_BUDGET_BEYOND_8320_U20_AGREEMENT_FLOOR_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresBudgetNotConstructs === 'string' &&
         typeof c.bakedOfflineLiterals === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

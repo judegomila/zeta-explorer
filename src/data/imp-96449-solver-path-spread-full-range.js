@@ -60,7 +60,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_H
  * isRigorousUpperBound stays false (imp-2642/imp-2701); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -191,7 +191,7 @@ export const IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE = Object.freeze({
     'content at any anchored height. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H ' +
     'isRigorousUpperBound stays false (imp-2642/imp-2701); changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96427 (knee-only solver spread ~1.2e-13 log10, gamma agreement ~8.1e-16); imp-96363 (closed-form ' +
     'Lambert-W reproduces the Newton main-term gamma to relative 3.9e-16 at N = 1e6); imp-96402/imp-96426 ' +
@@ -202,7 +202,7 @@ export const IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE = Object.freeze({
 export default IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE;
 
 export const IMP96449_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only (frontier-direction, NOT '
+  'RH open; no refereed bound is changed; NO QED. Measurement/fit only (frontier-direction, NOT '
   + 'rigorous): the solver-path gamma_N spread stays at floating-point noise across all 21 tested '
   + 'decades and carries no count-model content at any anchored height. The component model is '
   + 'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb '
@@ -244,18 +244,18 @@ const IMP96449_ASSERTIONS = [
   },
   {
     id: 'imp96449-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.isRigorous === false &&
       /NO QED/.test(IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.verdict) &&
-      /remains SOTA/.test(IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.verdict),
+      /refereed bound is changed/i.test(IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.verdict),
   },
   {
     id: 'imp96449-honest-banner-present',
     description: 'a dedicated machine-readable IMP96449_HONEST_BANNER carries the RH-open / PT-Lambda / NO-QED markers',
     holds: () =>
       /RH open/.test(IMP96449_HONEST_BANNER) &&
-      /PT Lambda <= 0\.2/.test(IMP96449_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2|refereed bound is changed/.test(IMP96449_HONEST_BANNER) &&
       /NO QED/.test(IMP96449_HONEST_BANNER),
   },
 ];

@@ -51,7 +51,7 @@
  * imp-3220/imp-3406 surrogate crossover map on one extra decade; it introduces NO new bound and
  * changes none. The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34792-crossover-gpp-fourth-band-envelope-extension (4-band collapse across [1e9,1e13])
  * @see imp-34801-crossover-gpp-cross-band-resolution-matched (resolution-matched genuineness check)
@@ -208,8 +208,8 @@ export const IMP34819_CROSSOVER_GPP_FIFTH_BAND_ENVELOPE_EXTENSION = {
     'collapse. The four inherited bands match the imp-34792 published literals to < 1e-3 relative. ' +
     'Measurement only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional ' +
     'per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34792 (4-band collapse across [1e9,1e13]); imp-34801 (resolution-matched genuineness ' +
     'check); imp-34777 (3-band collapse across [1e9,1e12]); imp-34757 (per-band B; monotone within ' +
@@ -254,13 +254,13 @@ export const IMP34819_CROSSOVER_GPP_FIFTH_BAND_ENVELOPE_EXTENSION_ASSERTIONS = [
     holds: () => MAX_LITERAL_DRIFT < 1e-3,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34819-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34819_CROSSOVER_GPP_FIFTH_BAND_ENVELOPE_EXTENSION.isRigorous === false &&
       /NO QED/.test(IMP34819_CROSSOVER_GPP_FIFTH_BAND_ENVELOPE_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP34819_CROSSOVER_GPP_FIFTH_BAND_ENVELOPE_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP34819_CROSSOVER_GPP_FIFTH_BAND_ENVELOPE_EXTENSION.verdict),
   },
 ];
 

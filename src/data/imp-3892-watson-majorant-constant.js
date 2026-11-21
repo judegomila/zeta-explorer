@@ -62,7 +62,7 @@
  *   closed sum) and the certified envelope K0 = 3.46 close |rho| &lt;= K0 e^{-4 tau} into one explicit
  *   inequality on tau &gt;= 2. This is a diagnostic-limit asymptotic constant; the NPHI=10 kernel
  *   truncation is an upstream modeling choice and operator positivity (imp-3066 K_a &gt;= 0) is
- *   UNTOUCHED. No QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   UNTOUCHED. No QED. No refereed bound is changed.
  *
  *   @see imp-3866-watson-tail-bound-assessment.js (named this sub-gap; measured rho/e^{-4tau} ~ -3.406)
  *   @see imp-3844-a-weight-correction-limit-closed-form.js (c_inf, B; source of the Watson split)
@@ -167,7 +167,7 @@ export const IMP3892_WATSON_MAJORANT_CONSTANT = Object.freeze({
     + 'term, |rho e^{4 tau}| stays below |K_lead| + |K6| e^{-4} = 3.451 on tau >= 2, giving the single '
     + 'explicit majorant K0 = 3.46 and the closed inequality |rho(tau)| <= K0 e^{-4 tau} the sub-gap '
     + 'asked for. NPHI=10 truncation is upstream; operator positivity (imp-3066) UNTOUCHED; '
-    + 'diagnostic-limit asymptotic, necessary-but-not-sufficient, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    + 'diagnostic-limit asymptotic, necessary-but-not-sufficient, no QED. No refereed bound is changed.',
 
   derivation: Object.freeze({
     watsonCoefficients:
@@ -243,7 +243,7 @@ export const IMP3892_WATSON_MAJORANT_CONSTANT = Object.freeze({
       'The pinned K0 = 3.46 is a numerically-certified envelope on tau >= 2 built from the exact '
       + 'Watson coefficients; a machine-checked all-tau symbolic Cauchy-majorant inequality '
       + '(sg-3892-symbolic-cauchy-majorant) is not written here. NPHI=10 kernel truncation is upstream.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -276,7 +276,7 @@ export const IMP3892_WATSON_MAJORANT_CONSTANT_ASSERTIONS = [
   {
     id: 'imp3892-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: pin/assessment only, mass-feasibility necessary-but-not-sufficient, '
-      + 'operator positivity (imp-3066) untouched, a residual sub-gap named, PT 0.2 SOTA.',
+      + 'operator positivity (imp-3066) untouched, a residual sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP3892_WATSON_MAJORANT_CONSTANT.honestCaveat;
       return (
@@ -285,7 +285,7 @@ export const IMP3892_WATSON_MAJORANT_CONSTANT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         /sg-3892-symbolic-cauchy-majorant/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

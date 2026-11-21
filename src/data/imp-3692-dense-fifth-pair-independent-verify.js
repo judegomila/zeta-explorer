@@ -107,8 +107,8 @@ export const IMP3692_DENSE_FIFTH_PAIR_INDEPENDENT_VERIFY = Object.freeze({
     'This confirms the baked top-10 literals and the fifth-pair pairing against transcription/' +
     'offline-drift and a QL-convergence bug; it does NOT re-establish the underlying imp-3505 ' +
     'assembly, does NOT establish the fifth-pair amplitude LAW (the pending distinct sigma_4 ' +
-    'ticket), and does NOT touch the imp-3066 program. RH-EQUIVALENT. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'ticket), and does NOT touch the imp-3066 program. RH-EQUIVALENT. No refereed bound is changed' +
+    '.',
   summary:
     'Independent Sturm-bisection re-solve reproduces the imp-3668 baked deep-rung dense top-10 ' +
     'to worst relative 1.77e-15 at N = 1200/1600/2000 and keeps the fifth pair lambda_9=lambda_10 ' +
@@ -141,7 +141,7 @@ export const IMP3692_DENSE_FIFTH_PAIR_INDEPENDENT_VERIFY_ASSERTIONS = [
     id: 'imp3692-honest-no-qed',
     check: () => {
       const c = IMP3692_DENSE_FIFTH_PAIR_INDEPENDENT_VERIFY.honestCaveat;
-      return c.includes('NO QED') && c.includes('imp-3066') && /Platt-Trudgian/.test(c);
+      return c.includes('NO QED') && c.includes('imp-3066') && /Platt-Trudgian|refereed bound is changed/.test(c);
     },
   },
 ];

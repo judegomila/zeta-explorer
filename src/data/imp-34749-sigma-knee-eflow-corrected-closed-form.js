@@ -60,7 +60,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34710-sigma-exponent-knee-residual-decomposition (F1: ~99% of the residual is the dropped E_flow term; posed this OPEN sub-gap)
  * @see imp-34729-sigma-knee-cf-elasticity (knee is C_F-robust; inherited the same OPEN closed-form sub-gap)
@@ -240,8 +240,8 @@ export const IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM = {
     'confirming (imp-34710 F3) the imp-34694 gap is an E_flow OMISSION, not an expansion-order error. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'CLOSES the imp-34710/imp-34729 OPEN sub-gap -- an analytic closed form for the E_flow-corrected knee: it ' +
     'is the imp-34710 logistic knee condition F=0 evaluated on the exact corrected log-odds u_full = u_0 - ' +
@@ -302,15 +302,15 @@ export const IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM_ASSERTIONS = [
       LOG10_N_STAR_FULL < LOG10_N_STAR_NOFLOW,
   },
   {
-    // Honesty gate: derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34749-honesty-gate-no-qed',
-    description: 'Derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM.isRigorous === false &&
       IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM.farTailExponent === 0.5 &&
       typeof IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM.subGap === 'string' &&
       /NO QED/.test(IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP34749_SIGMA_KNEE_EFLOW_CORRECTED_CLOSED_FORM.verdict),
   },
 ];
 

@@ -75,8 +75,8 @@
  *
  * SCOPE. Measurement of an existing bound's slack; NO bound is changed, no
  * new bound is claimed. The EV-OCT-N onsets (33.50 / 58.11 finite m=6,
- * 61.31 / 107.26 m-uniform) stand. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. Import-light (no imports, no zeros bundle); all numerics below are
+ * 61.31 / 107.26 m-uniform) stand. No refereed bound is changed
+ * . Import-light (no imports, no zeros bundle); all numerics below are
  * self-contained recomputations.
  */
 
@@ -302,7 +302,7 @@ export const IMP95310_TAILN_LOO_TIGHTNESS = {
     "deliberate price of coalescence-uniformity. On true adjacent octaves " +
     "the exact angle is below float64 resolution (named honest gap, needs " +
     "extended precision). Measurement only; no bound changed; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   subGap:
     "the exact-angle over-pricing on genuine adjacent octaves (n=1) is " +
     "UNRESOLVABLE at float64 (1 - sigma^2 ~ 1e-13..1e-22); an " +
@@ -438,12 +438,12 @@ export const IMP95310_ASSERTIONS = [
     description:
       "verdict and sub-gap carry the honest labels: measurement only, no " +
       "bound changed, adjacent-octave float64 resolution gap named, NO QED, " +
-      "PT SOTA",
+      "no refereed bound is changed",
     holds: () =>
       /Measurement only/.test(IMP95310_TAILN_LOO_TIGHTNESS.verdict) &&
       /no bound changed/.test(IMP95310_TAILN_LOO_TIGHTNESS.verdict) &&
       /NO QED/.test(IMP95310_TAILN_LOO_TIGHTNESS.verdict) &&
-      /remains SOTA/.test(IMP95310_TAILN_LOO_TIGHTNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP95310_TAILN_LOO_TIGHTNESS.verdict) &&
       /UNRESOLVABLE at float64/.test(IMP95310_TAILN_LOO_TIGHTNESS.subGap),
   },
 ];

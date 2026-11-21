@@ -10,7 +10,7 @@
  * @see imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck.js (source module: crosscheck, kClosedForm)
  *
  * Ticket: imp-35386 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  */
 
 import { IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK } from './imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck.js';

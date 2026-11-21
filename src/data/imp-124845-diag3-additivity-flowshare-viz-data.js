@@ -70,7 +70,7 @@ export const IMP124845_SUMMARY = {
     'algebra of the degree-0 homogeneous sigma=E_coll/E_N model, independent of the flow share; ' +
     'the SOLE load-bearing hypothesis (B1) is the linear-in-amplitude prefactor structure, ' +
     'verified numerically (imp-97668/imp-97720), not proven. No bound moves; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP124845_FLOWSHARE_COMPARISON_ASSERTIONS = [

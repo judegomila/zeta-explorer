@@ -78,7 +78,7 @@ export const INTERVAL_ARITHMETIC_SUBGAP_TOLERANCE_AUDIT = {
     'reconstructs a value from a toFixed/toExponential(N) display literal and re-checks it below the ~1e-6 ' +
     'storage floor that rounding discarded, so the imp-2546/imp-2539 storage-precision assertion-tolerance ' +
     'trap does not apply to this family. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per ' +
-    'imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const INTERVAL_ARITHMETIC_SUBGAP_TOLERANCE_AUDIT_ASSERTIONS = [
@@ -107,9 +107,9 @@ export const INTERVAL_ARITHMETIC_SUBGAP_TOLERANCE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34741-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(INTERVAL_ARITHMETIC_SUBGAP_TOLERANCE_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(INTERVAL_ARITHMETIC_SUBGAP_TOLERANCE_AUDIT.honest),
+      && /refereed bound is changed/i.test(INTERVAL_ARITHMETIC_SUBGAP_TOLERANCE_AUDIT.honest),
   },
 ];
 

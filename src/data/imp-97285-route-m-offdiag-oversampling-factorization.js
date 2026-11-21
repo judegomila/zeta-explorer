@@ -5,7 +5,7 @@
  * imp-97267 OFFDIAG twisted second moment, aiming to establish OFFDIAG comparable to DIAG so the inverse-line
  * mean square M2w stays below the squared target kappa_arith^2 = 0.32546. The evaluation is NOT completed,
  * but the attempt refactors the object into a form that isolates the single open scalar and REFUTES one
- * candidate evaluation route. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * candidate evaluation route. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97267/imp-97225/imp-97203. c_0(h/a) = Sum_{n=1}^{a-1} (n/a) cot(pi n h/a) is the
  * Vasyunin/Bettin-Conrey cotangent sum; h_a = b-inverse mod a. imp-97267 wrote the exact character-detection
@@ -86,7 +86,7 @@
  * harder" framing -- the off-diagonal is the same bounded oversampling, not a new co-leading object; (iii)
  * REFUTES a resonance-main-term evaluation (the m == +-h_a terms carry ~1% of OFFDIAG); (iv) gives the
  * concrete sufficient target Rw < ~2.5 with 2x measured headroom. Rw and Mbar stay MEASURED. No bound on
- * Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open;
+ * Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. No refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97267-route-m-inverse-map-kloosterman-transfer.js (parent: DIAG + OFFDIAG detection identity)
@@ -220,7 +220,7 @@ export const IMP97285_VERDICT = Object.freeze({
     'imp-97267 strictly-harder reclassification), not a new co-leading object. A resonance-main-term ' +
     'evaluation is REFUTED: the m == +-h_a resonant terms carry only ~1% of OFFDIAG. Sufficient condition ' +
     'Rw < ~2.5 (given Mbar ~ 0.13) has ~2x measured headroom. Rw and Mbar stay MEASURED. No bound on ' +
-    'Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97285_SUBGAP = Object.freeze({
@@ -236,7 +236,7 @@ export const IMP97285_SUBGAP = Object.freeze({
 });
 
 export const IMP97285_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Attempt + partial only: the imp-97267 OFFDIAG ' +
+  'RH open; no refereed bound is changed; NO QED. Attempt + partial only: the imp-97267 OFFDIAG ' +
   'evaluation is NOT completed. It is factored EXACTLY as M2w = Rw * Mbar (Mbar = residue-averaged ' +
   'full-residue surrogate, Bettin-Conrey-bounded; Rw = X/Xbar the single open oversampling scalar, ' +
   'measured ~1.2 and level with the imp-97271 OVR ~1.254 plateau), identifying the off-diagonal with the ' +
@@ -324,7 +324,7 @@ const IMP97285_ASSERTIONS = [
       /oversampling-scalar-Rw-uniform-bound/.test(IMP97285_SUBGAP.id) &&
       /uniform bound Rw/.test(IMP97285_SUBGAP.statement) &&
       /NO QED/.test(IMP97285_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97285_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97285_HONEST_BANNER) &&
       /RH open/.test(IMP97285_HONEST_BANNER),
     why: 'attempt + partial: the OFFDIAG evaluation is not completed; it is factored into a bounded surrogate Mbar times a single open oversampling scalar Rw, a resonance-main-term evaluation is refuted, and no bound moved -- honesty markers and the named residual sub-gap present.',
   },

@@ -374,7 +374,7 @@ export const RESULTS = [
     date: '2026-09',
   },
   {
-    statement: 'Localized-barrier sum no-go on both sides: the last quantitative lever of the sub-0.14 program closes — prime side, the Fresnel packet width sits below the unconditional zero-free-region barrier at the paper heights (even GRH for L(s,χ mod p≤97) gives zero cancellation); zero side, 59.26% of the p=97 majorant mass sits at α_{k,h} > 1, outside Montgomery’s proven pair-correlation range, gating on the conjecture proper. Assessment only — changes no bound; PT Λ ≤ 0.2 stands; RH open.',
+    statement: 'Localized-barrier sum no-go on both sides: the last quantitative lever of the sub-0.14 program closes — prime side, the Fresnel packet width sits below the unconditional zero-free-region barrier at the paper heights (even GRH for L(s,χ mod p≤97) gives zero cancellation); zero side, 59.26% of the p=97 majorant mass sits at α_{k,h} > 1, outside Montgomery’s proven pair-correlation range, gating on the conjecture proper. Assessment only — changes no bound; no refereed bound is changed; RH open.',
     grade: 'no-go',
     verification: ['module imp-95519-localized-barrier-sum-prime-zero-nogo', 'Gauss–Plancherel alias lemma verified to 1e-12 at p = 7, 13, 97'],
     thread: 'gate-2',

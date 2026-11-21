@@ -54,15 +54,15 @@
  *   the first surviving edge term, give psi_R(t) ~ -(1/pi) g''(a) sin(a t)/t^3 with g''(a) = (8/a^2)exp(-(Ra)^2/2)
  *   EXACTLY. The next-order 1/t^4 bias is -(1/pi) g'''(a) cos(a t)/t^4 with g'''(a) = (24/a)(1/a^2 - R^2)exp(-(Ra)^2/2),
  *   which is why the peak validation is so tight and why the tail-integral bias sits below 1e-3. Derivation only;
- *   measurement stays measurement; no bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   measurement stays measurement; no bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97497-krein-welloptimum-tail-converged.js (numerically-validated tail model this module proves)
  * @see imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js (the confinement family)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2, w_1; reach 2a <= 0.96)
  *
  * Ticket: imp-97518 (numerical, medium, opus-4-8). Derivation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const PI = Math.PI;

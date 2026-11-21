@@ -22,7 +22,7 @@
  * This reconstruction is cross-checked at import against the imp-97293 offline-swept total (2850).
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97293-krein-committed-cjk-gegenbauer-overlap.js (source: exact overlap matrix, sparsity census, anchors)
  * @see imp-97264-krein-cjk-exact-rational-overlap.js (the monomial-profile predecessor of the sparsity rule)
@@ -71,7 +71,7 @@ export const IMP97316_SUMMARY = Object.freeze({
 });
 
 export const IMP97316_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the sparsity census and anchor ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the sparsity census and anchor ' +
   'values are copied verbatim from imp-97293 (no re-derivation of the BigInt-rational overlap sweep). ' +
   'The per-row band reconstruction is a direct combinatorial reading of the proved support rule ' +
   '(j+k even AND k <= j+6), cross-checked here against the imp-97293 offline-swept total.';
@@ -119,7 +119,7 @@ const IMP97316_ASSERTIONS = [
     id: 'imp97316-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97316_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97316_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97316_HONEST_BANNER) &&
       /NO QED/.test(IMP97316_HONEST_BANNER),
     why: 'every Krein-route viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

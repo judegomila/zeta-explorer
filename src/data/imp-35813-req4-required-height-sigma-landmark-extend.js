@@ -35,8 +35,7 @@
  * log-heights and forms new ratio columns on the same surrogate; derives no remainder;
  * discharges nothing; changes no bound; establishes no operator positivity; C_C =
  * (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb
- * GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35763-req4-required-height-sigma-landmark-fill (the 6-rung filled ladder this extends)
  * @see imp-35722-req4-required-height-landmark-ladder (the base peak/crossover/PT ladder)
@@ -51,7 +50,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS } from './imp-35538-route-i-remainder-derivation-requirements.js';
 import { IMP35763_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_FILL } from './imp-35763-req4-required-height-sigma-landmark-fill.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // The REQ-4 binding log-height: 1/log T0 <= 0.005 => log T0 >= 200, inherited from imp-35538.
 const HR = IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.heightRegime;
@@ -181,7 +180,7 @@ export const IMP35813_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_EXTEND = {
     'Re-reads the imp-33582 model and the imp-35763/imp-35722/imp-35538 log-heights on the same surrogate; derives ' +
     'no remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a ' +
-    'stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35763 (six-rung filled REQ-4 required-height ladder extended here); imp-35722 (base peak/crossover/PT ' +
     'ladder); imp-35538 (REQ 4; binding log-height 200); imp-33582 (sigma-decay model; peak sigma_max ~ 0.9494); ' +
@@ -254,7 +253,7 @@ export const IMP35813_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_EXTEND_ASSERTIONS = [
     },
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, imp-486 kept, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, imp-486 kept, NO QED.
     id: 'imp35813-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -266,7 +265,7 @@ export const IMP35813_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_EXTEND_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

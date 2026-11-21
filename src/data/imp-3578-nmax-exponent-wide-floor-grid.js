@@ -48,7 +48,7 @@
  * limit p = 1 (floor -> 0), which it approaches only logarithmically slowly in l.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3462-nmax-turnover-exponent-derivation (the closed exponent (**) re-evaluated here)
  * @see imp-3446-nmax-closed-form (the implicit stationarity equation F = 0 root-solved here)
@@ -247,7 +247,7 @@ export const IMP3578_NMAX_EXPONENT_WIDE_FLOOR_GRID = {
     '(l ~ 11.67 .. 11.07), which p exits monotonically -- down to ~1.27 at 0.1x and up to ~1.64 ' +
     'at 10x; (W3) as l grows p keeps drifting down monotonically toward the structural limit ' +
     'p -> 1 (still ~1.10 at l ~ 32), never plateauing in reach. Measurement only; no positivity, ' +
-    'no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3462 (closed exponent (**) re-evaluated here); imp-3446 (implicit stationarity root); ' +
     'imp-3443 (measured p ~ 1.376, half-to-double grid); imp-3406 (interior MAX N_max ~ 9.22e5); ' +
@@ -301,13 +301,13 @@ export const IMP3578_NMAX_EXPONENT_WIDE_FLOOR_GRID_ASSERTIONS = [
       ASYMPTOTIC[0].p > P_SMALLEST,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, not rigorous.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, not rigorous.
     id: 'imp3578-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, PT stays SOTA, not rigorous',
+    description: 'Measurement only: no QED, no refereed bound is changed, not rigorous',
     holds: () =>
       IMP3578_NMAX_EXPONENT_WIDE_FLOOR_GRID.isRigorous === false &&
       /NO QED/.test(IMP3578_NMAX_EXPONENT_WIDE_FLOOR_GRID.verdict) &&
-      /remains SOTA/.test(IMP3578_NMAX_EXPONENT_WIDE_FLOOR_GRID.verdict),
+      /refereed bound is changed/i.test(IMP3578_NMAX_EXPONENT_WIDE_FLOOR_GRID.verdict),
   },
 ];
 

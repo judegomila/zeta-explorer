@@ -58,7 +58,7 @@
  *   VALUE of the one Phi-shape constant D2 is measured, not derived. Measurement /
  *   derivation only; RH-equivalent; carries NO RH verdict and NO QED. The imp-3066
  *   off-diagonal endpoint-Hankel K_a >= 0 magnitude obstruction is untouched.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3442-sinh-residual-coefficient-U-scaling.js (MEASURED c(U)*U ~9.5e-5 near-constant)
  *   @see imp-3409-capture-ratio-sinh-residual-order.js (the O(a^2) drift r = r_lin + c a^2)
@@ -147,7 +147,7 @@ export const IMP3464_SINH_DRIFT_PRODUCT_CLOSED_FORM = Object.freeze({
     'U-invariance and closed-form STRUCTURE are derived, but the single scalar D2 is CALIBRATED from the ' +
     'measured relative drift (cross-checked against the Phi lag band), NOT computed ab initio from the cubic ' +
     'operators T3, G3 (imp-3447 territory). Measurement/derivation only; RH-equivalent; NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 
   derivation: Object.freeze({
     sinhExpansion: 'sinh(a Delta) = a Delta [1 + (a Delta)^2/6 + O(a^4)],  Delta = v - u the shear displacement',
@@ -216,7 +216,7 @@ export const IMP3464_SINH_DRIFT_PRODUCT_CLOSED_FORM = Object.freeze({
       'Deriving the drift-product closed form is diagnostic; the imp-3066 off-diagonal endpoint-Hankel magnitude ' +
       'remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -262,7 +262,7 @@ export const IMP3464_SINH_DRIFT_PRODUCT_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3464-honest-derivation-no-qed',
     why: 'Mandatory honesty: DERIVATION of the closed-form structure with D2 CALIBRATED not derived ab initio -- ' +
-      'not a proof, not a reduction below RH, RH-equivalent, positivity not attempted, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not a proof, not a reduction below RH, RH-equivalent, positivity not attempted, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3464_SINH_DRIFT_PRODUCT_CLOSED_FORM.honestCaveat;
       return (
@@ -271,7 +271,7 @@ export const IMP3464_SINH_DRIFT_PRODUCT_CLOSED_FORM_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.d2NotDerivedAbInitio === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

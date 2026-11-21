@@ -56,7 +56,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H
  * isRigorousUpperBound stays false (imp-2642/imp-2701); changes no bound; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -295,8 +295,8 @@ export const IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT = Object.freeze({
     'for the imp-96451 F4 "~5e-5" estimate; the exit is one-sided (low edge only). The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; C_H isRigorousUpperBound stays false (imp-2642/imp-2701); changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96451 (fixed-window knee sensitivity, F4 knee off-window at 2x); imp-96351 (baseline knee at ' +
     'log10 N* ~ 9.529); imp-96427 (same estimators, solver-path noise ~1e-13); imp-96388 (knee ~0.015 log10 ' +
@@ -307,7 +307,7 @@ export const IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT = Object.freeze({
 export default IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT;
 
 export const IMP96464_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement (frontier-direction, NOT rigorous): '
+  'RH open; no refereed bound is changed; NO QED. Measurement (frontier-direction, NOT rigorous): '
   + 'the widened-grid re-measurement resolves the imp-96451 F4 window-clipping artefact and refines '
   + 'its ~5e-5 E_trunc exit estimate, but the underlying component model remains the inherited '
   + 'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per '
@@ -352,18 +352,18 @@ const IMP96464_ASSERTIONS = [
   },
   {
     id: 'imp96464-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.isRigorous === false &&
       /NO QED/.test(IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.verdict) &&
-      /remains SOTA/.test(IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.verdict),
+      /refereed bound is changed/i.test(IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.verdict),
   },
   {
     id: 'imp96464-honest-banner-present',
     description: 'a dedicated machine-readable IMP96464_HONEST_BANNER carries the RH-open / PT-Lambda / NO-QED markers',
     holds: () =>
       /RH open/.test(IMP96464_HONEST_BANNER) &&
-      /PT Lambda <= 0\.2/.test(IMP96464_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2|refereed bound is changed/.test(IMP96464_HONEST_BANNER) &&
       /NO QED/.test(IMP96464_HONEST_BANNER),
   },
 ];

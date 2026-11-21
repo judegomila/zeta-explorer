@@ -19,7 +19,7 @@
  * @see imp-3253-overflow-degree-reconcile.js (source module: degreeMap, measured, verdict)
  *
  * Ticket: imp-3374 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  */
 
 const A = 0.5;

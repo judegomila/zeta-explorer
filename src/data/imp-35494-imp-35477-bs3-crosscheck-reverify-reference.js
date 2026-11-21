@@ -44,7 +44,7 @@
  * slack denominator (imp-35412 KEEPS the endpoint DP45 dt/2 worst-case), does
  * NOT advance the R2 ladder (certified at N=1000 per imp-35221/imp-35324), does
  * NOT extend the C_mb certificate, does NOT remove the imp-486 GUE conditional.
- * Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2".
  *
@@ -123,7 +123,7 @@ export const IMP_35494_IMP_35477_BS3_CROSSCHECK_REVERIFY_REFERENCE = {
       'the DERIVED relatives only); does NOT advance the R2 ladder past N=1000; ' +
       'does NOT adopt a new slack denominator (imp-35412 keeps the endpoint DP45 ' +
       'dt/2 worst-case); does NOT extend the C_mb certificate; does NOT remove ' +
-      'the imp-486 GUE conditional; changes NO Lambda bound. Lambda <= 0.2 SOTA.',
+      'the imp-486 GUE conditional; changes NO Lambda bound. No refereed bound is changed.',
   },
 };
 
@@ -175,7 +175,7 @@ export const IMP_35494_IMP_35477_BS3_CROSSCHECK_REVERIFY_REFERENCE_ASSERTIONS = 
     why:
       'Verification / literal-consistency only: recomputes the imp-35477 derived ' +
       'relatives from the baked t_c literals but advances NO ladder past N=1000 ' +
-      'and changes NO bound. C_mb stays GUE-conditional (imp-486); Lambda <= 0.2 ' +
-      'stays SOTA. Never a QED.',
+      'and changes NO bound. C_mb stays GUE-conditional (imp-486); no refereed bound is changed' +
+      '. Never a QED.',
   },
 ];

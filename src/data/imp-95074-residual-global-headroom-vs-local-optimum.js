@@ -120,7 +120,7 @@
  * line), not the full 1.40x. This is a CHARACTERIZATION, conditional on the
  * model family and on the sqrt(2) inner-structure reading; the block-resolved
  * discrimination is the named sub-gap. Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * The numerics below CROSS-CHECK the assessment arithmetic; they are not the
  * claim. Import-light (no heavy bundle).
@@ -184,7 +184,7 @@ export const IMP95074_RESIDUAL_HEADROOM = {
     "RIGOROUS parts: (1) residual = sup_b OmegaE_b / <OmegaE>_M is the exact Hoelder sup-pullout identity, so the residual is structurally a second sup-pullout twin to the parity 2 (Finding 1); (2) sup_b OmegaE_b >= mass-weighted average is exact; (3) residual < sqrt(2) and the ratios sqrt(2)/residual = 1.006975..., residual/sqrt(2) = 0.993072... are exact numerics (Finding 3). HEURISTIC / NON-proved parts: the SCENARIO reading of the sqrt(2) signature (that the near-sqrt(2) residual signals an excess-forced even 2-coloring / scenario B) is a plausibility argument, NOT a proof; it could be a coincidence of the model point. The A-vs-B discrimination is explicitly deferred to the sub-gap (needs the block-resolved profile). No bound, floor, or ceiling literal is derived or changed; optimality is not claimed; the parity factor unrecoverability is carried from imp-95045/the eleventh continuation, not re-proved.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT: the imp-95045 3.4e-10 rigidity is a SAME-FAMILY perturbative fact and does NOT settle genuine-headroom vs local-optimum. Structurally the residual is a SECOND sup-pullout (Hoelder sup/mass-weighted-average), twin to the ceiling-side parity factor 2, and the genuine-headroom scenario (A: flat profile, re-weightable) and certification-artifact scenario (B: excess-pinned, loose) are INDISTINGUISHABLE by any local step. The single MEASURED discriminator - the residual pinned 0.70% below the even two-block sup-vs-RMS value sqrt(2), amid the forced even 2-coloring and the near-tie at b=0 - LEANS toward scenario (B): the 1.40x is MORE consistent with a fixed certification-side sup-pullout than with realizable global witness headroom, and a different-family witness would plausibly recover only ~0.70% (to the sqrt(2) line), not the full 1.40x. A non-perturbative witness capturing the full 1.40x would have to DECOUPLE the argmax-block envelope from the cross-block excess (flatten OmegaE_b with E fixed), categorically beyond imp-95031 local re-optimization. SUB-GAP: imp-95074-subgap-block-mass-concentration-vs-excess (measure the block-resolved OmegaE_b profile and M_b, test E-preserving re-weighting). Conditional on the model family and the heuristic sqrt(2) reading. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT: the imp-95045 3.4e-10 rigidity is a SAME-FAMILY perturbative fact and does NOT settle genuine-headroom vs local-optimum. Structurally the residual is a SECOND sup-pullout (Hoelder sup/mass-weighted-average), twin to the ceiling-side parity factor 2, and the genuine-headroom scenario (A: flat profile, re-weightable) and certification-artifact scenario (B: excess-pinned, loose) are INDISTINGUISHABLE by any local step. The single MEASURED discriminator - the residual pinned 0.70% below the even two-block sup-vs-RMS value sqrt(2), amid the forced even 2-coloring and the near-tie at b=0 - LEANS toward scenario (B): the 1.40x is MORE consistent with a fixed certification-side sup-pullout than with realizable global witness headroom, and a different-family witness would plausibly recover only ~0.70% (to the sqrt(2) line), not the full 1.40x. A non-perturbative witness capturing the full 1.40x would have to DECOUPLE the argmax-block envelope from the cross-block excess (flatten OmegaE_b with E fixed), categorically beyond imp-95031 local re-optimization. SUB-GAP: imp-95074-subgap-block-mass-concentration-vs-excess (measure the block-resolved OmegaE_b profile and M_b, test E-preserving re-weighting). Conditional on the model family and the heuristic sqrt(2) reading. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) -------------------------
@@ -228,13 +228,13 @@ export const IMP95074_ASSERTIONS = [
   {
     id: "imp95074-honesty-gate",
     description:
-      "the verdict names both scenarios, records the sqrt(2) discriminator leaning to (B), defers the block-resolved discrimination to the named sub-gap, flags isRigorous=false (heuristic scenario reading), promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names both scenarios, records the sqrt(2) discriminator leaning to (B), defers the block-resolved discrimination to the named sub-gap, flags isRigorous=false (heuristic scenario reading), promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95074_RESIDUAL_HEADROOM.promotesBound === false &&
       IMP95074_RESIDUAL_HEADROOM.isRigorous === false &&
       IMP95074_RESIDUAL_HEADROOM.openResiduals.length === 3 &&
       /NO QED/.test(IMP95074_RESIDUAL_HEADROOM.verdict) &&
-      /remains SOTA/.test(IMP95074_RESIDUAL_HEADROOM.verdict) &&
+      /refereed bound is changed/i.test(IMP95074_RESIDUAL_HEADROOM.verdict) &&
       /sup-pullout/.test(IMP95074_RESIDUAL_HEADROOM.verdict) &&
       /scenario \(B\)/.test(IMP95074_RESIDUAL_HEADROOM.verdict) &&
       /SUB-GAP/.test(IMP95074_RESIDUAL_HEADROOM.verdict) &&

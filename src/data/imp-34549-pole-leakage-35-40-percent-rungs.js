@@ -51,7 +51,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * residExp simple-pole structure is a numerical/structural observation, not a derivation; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34530-pole-leakage-spacing-compression-fit (the cubic-law fit + 25%/30% rungs extended here)
  * @see imp-34512-pole-leakage-fit-15-20-percent-crossings (the {1,3,8,15,20}% ladder + per-pp compression)
@@ -307,7 +307,7 @@ export const IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-pole structure is a ' +
     'numerical/structural observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34530 (the cubic-law fit + 25%/30% rungs extended here); imp-34512 (the {1,3,8,15,20}% ladder + ' +
     'per-pp compression); imp-34468 (the 1%/3%/8% ladder); imp-34247 (R3 contaminationLadder devPct -- the ' +
@@ -371,13 +371,13 @@ export const IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS_ASSERTIONS = [
       GAP_35_40 < GAP_30_35, // steps keep compressing toward the pole
   },
   {
-    // Honesty gate: measurement + extrapolation only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement + extrapolation only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34549-honesty-gate-no-qed',
-    description: 'measurement/extrapolation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/extrapolation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS.isRigorous === false &&
       /NO QED/.test(IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS.verdict) &&
-      /remains SOTA/.test(IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS.verdict) &&
+      /refereed bound is changed/i.test(IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34549_POLE_LEAKAGE_35_40_PERCENT_RUNGS.verdict),
   },
 ];

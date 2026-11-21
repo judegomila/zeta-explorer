@@ -18,7 +18,7 @@
  * verdict, NO QED. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the
  * tangency coefficient 8 / the reading 1/8 (imp-2690/imp-366/imp-2563), the
  * E_trunc = 3.06e-5 floor (imp-2631) and C_mb GUE-conditional (imp-486) are
- * UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. No refereed bound is changed.
  *
  * THE OBJECT REQ-1 DEMANDS
  * -----------------------------------------------------------------------------
@@ -88,7 +88,7 @@
  * the two provenances are unbridged. REQ-1 therefore remains the definitional
  * floor beneath REQ-2 (imp-35551 ranks it below the REQ-2 crux, but it is prior).
  * Assessment / scoping only; discharges nothing; changes no bound; no positivity;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35538-route-i-remainder-derivation-requirements (REQ-1 stated as the definitional prerequisite; this module expands it)
  * @see imp-35551-route-i-requirement-severity-ranking (ranks REQ-1 below the REQ-2 crux, but REQ-1 is prior/definitional)
@@ -106,7 +106,7 @@
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (imp-2642/imp-2643 ansatz)
 const CUBIC_CURVATURE = (Math.PI * Math.PI) / 3; // pi^2/3 ~ 3.2898681, GUE small-gap density coefficient p(s) ~ (pi^2/3) s^2
 const TANGENCY_COEFF = 8; // d(g^2)/ds = -8 (imp-2690); the tangency reading 1/8 = 1/8
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any REQ-1 provenance scoping)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any REQ-1 provenance scoping)
 
 // The amplitude mismatch: the repo-reachable local coefficient vs the ansatz constant.
 const CURVATURE_TO_CC_RATIO = CUBIC_CURVATURE / C_C; // ~8.573 (imp-35680/imp-35696)
@@ -190,7 +190,7 @@ export const IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE = {
     'remains the definitional floor beneath the imp-35538 REQ-2 crux. Derives NO remainder; discharges NOTHING; ' +
     'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), the ' +
     'tangency 8 / reading 1/8 (imp-2690) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-35538 (REQ-1 stated as the definitional prerequisite; this module expands it); imp-35551 (severity ' +
     'ranking); imp-35652 (small-gap density + M^{-1/3}; collision scale inaccessible inside |alpha|<1); ' +
@@ -242,7 +242,7 @@ export const IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE_ASSERTIONS = [
       PREFACTOR_RATIO > 2.04 && PREFACTOR_RATIO < 2.05,
   },
   {
-    // (4) honesty gate: the two 1/8 provenances are distinct/unbridged, not rigorous, PT SOTA, tangency untouched; NO QED.
+    // (4) honesty gate: the two 1/8 provenances are distinct/unbridged, not rigorous, no refereed bound is changed, tangency untouched; NO QED.
     id: 'imp35718-two-eighths-distinct-no-qed',
     description: 'the tangency 1/8 (gap-to-TIME, d(g^2)/ds=-8) and the amplitude 1/8 (C_C = (1/8) sqrt(3 pi)) are distinct/unbridged, the module is not rigorous, PT 0.2 unchanged, tangency coefficient 8 untouched, NO QED',
     holds: () =>
@@ -253,7 +253,7 @@ export const IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE_ASSERTIONS = [
       /UN-BRIDGED/.test(IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE.twoDistinctEighths) &&
       /isRigorousUpperBound = false/.test(IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE.twoDistinctEighths) &&
       /NO QED/.test(IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35718_REQ1_EFFECTIVE_CH_PROVENANCE_SCOPE.verdict),
   },
 ];
 

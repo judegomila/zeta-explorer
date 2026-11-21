@@ -63,7 +63,7 @@
  *    maxBj is baked from scripts/imp-33290-far-term-tighter-majorant-assess.mjs,
  *    which also runs the term-by-term B_j <= 1/s_min^2 guard.
  *  - No new Lambda bound. imp-3910 C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED;
- *    Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *    no refereed bound is changed; NO QED.
  *
  * @see imp-33273-majorant-overcharge-decomposition.js (quantified the 84.70% over-charge this assesses removing)
  * @see imp-33269-all-plateaus-majorant-ratio-scan.js (source of the realisedScan / Dmin aggregates; R_tight == K_real)

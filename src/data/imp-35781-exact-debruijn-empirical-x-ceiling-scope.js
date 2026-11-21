@@ -15,7 +15,7 @@
  *
  * MEASUREMENT + OOM CROSS-CHECK ONLY. Extends no evaluator; runs no arbitrary-
  * precision code; certifies nothing at T_PT; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHAT WAS MEASURED (t = 0, Kahan-Simpson quadrature, M = 2000 panels on u in [0,1])
  * -----------------------------------------------------------------------------
@@ -64,18 +64,18 @@
  * Measures ONLY the t = 0 underflow ceiling of the existing evaluator and cross-checks
  * the imp-35759 digit law. It extends no evaluator, runs no arbitrary-precision
  * arithmetic, certifies no value at any height, and changes no bound. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35759-exact-debruijn-precision-digit-cost-scope (the theoretical digit law this measurement confirms)
  * @see imp-35726-w1-sign-reconciliation-cost-scope (Part D(2): names the x ~< 104 cap, |H_0| ~ exp(-pi x/8) under 1e-17)
  * @see scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104], roundoff floor ~1e-17)
  * @see project_winding_thread_closed_corrected (imp-34813: Gaussian conv proxy = EXACT de Bruijn flow at t = -4 tau_repo)
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35759) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified zero-ordinate (gamma) height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const X_TPT = 2 * T_PT; // x = 2 gamma convention; T_PT ordinate maps to x = 6e12
 const PI = Math.PI;
 const EPS = 2.220446049250313e-16; // IEEE double machine epsilon
@@ -178,11 +178,11 @@ export const IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE = {
     'the height to x ~ 199; a T_PT-scale lift (x = 6e12) needs ~1.0e12 digits (~425 GB per value), a categorical ' +
     'wall. The evaluator is a t <= 0 calibration instrument on a ~10-zero window, not a T_PT tool. It extends no ' +
     'evaluator, runs no high-precision arithmetic, certifies no value, and changes no bound. NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35759 (the theoretical digit law this measurement confirms); imp-35726 Part D(2) (names the x ~< 104 cap); ' +
     'scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104], floor ~1e-17); ' +
-    'Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE_ASSERTIONS = [
@@ -227,15 +227,15 @@ export const IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement + OOM cross-check only, no evaluator extension, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: measurement + OOM cross-check only, no evaluator extension, no QED, no refereed bound is changed.
     id: 'imp35781-honesty-gate-no-qed',
-    description: 'Measurement only; extends no evaluator; certifies nothing at T_PT; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; extends no evaluator; certifies nothing at T_PT; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE.verdict) &&
       /NO QED/.test(IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35781_EXACT_DEBRUIJN_EMPIRICAL_X_CEILING_SCOPE.verdict),
   },
 ];
 

@@ -50,12 +50,12 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96110 verdict for quick reference. It establishes
  *   nothing, instantiates no interval, closes no sub-gap, moves no bound. imp-2519 no-overclaim
- *   guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-96110-route-i-p3-cusp-allocation-fixed-fraction-assessment (source: the f_out = 1 - 1/rho finding and obstruction verdict this glosses)
  *
  * Ticket: imp-96241 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The p = 3 cusp-allocation-generalization headword, baked verbatim (no re-import).
@@ -101,7 +101,7 @@ export const IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD = Obje
     'inherited across a DENSE family of log^2 cusps (one order worse than the isolated p = 2 log ' +
     'cusp) -- the excess obstruction is AMPLIFIED and made dense, not removed. corr23 continuity ' +
     'ASSUMED, not proved. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96110 (the f_out = 1 - 1/rho finding and obstruction verdict this glosses); imp-96208 ' +
     '(confirms the from-below convergence is uniform, not a truncation artifact); imp-96226 ' +
@@ -127,11 +127,11 @@ export const IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp96241-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD.verdict) &&
       IMP96241_P3_CUSP_ALLOCATION_FIXED_FRACTION_GLOSSARY_HEADWORD.glosses === 'imp-96110',
   },
 ];

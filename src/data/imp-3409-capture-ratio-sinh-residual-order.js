@@ -40,8 +40,7 @@
  *   2. The fitted leading coefficient is c = e(a) / a^2 -> a small positive constant
  *   (~1.58e-5 at U = 6), confirming the imp-3350 "vanishing sinh-nonlinearity" is
  *   precisely a positive O(a^2) drift.
- *   Measurement only; RH-equivalent; NO RH verdict. Platt-Trudgian Lambda &lt;= 0.2
- *   remains SOTA.
+ *   Measurement only; RH-equivalent; NO RH verdict. No refereed bound is changed.
  *
  *   @see imp-3350-capture-ratio-linear-shear-limit.js (the a -> 0 limit = linear ratio, unquantified residual)
  *   @see imp-3240-mupass-capture-ratio-aU-grid.js (the r ~ C/U law and the a -> 0 drift)
@@ -275,7 +274,7 @@ export const IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER = Object.freeze({
     '(1 + (a Delta)^2/6 + ...) expansion (the common a factor cancels in the ratio, leaving a first-order a^2 ' +
     'largest-singular-value correction). The fitted leading coefficient c = e(a) / a^2 is a small positive ' +
     'constant (~1.58e-5 at U = 6). Measurement only; ' +
-    'RH-equivalent; carries NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'RH-equivalent; carries NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -351,7 +350,7 @@ export const IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER = Object.freeze({
       'Quantifying the residual rate is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator ' +
       'magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -398,7 +397,7 @@ export const IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER_ASSERTIONS = [
   {
     id: 'imp3409-honest-measurement-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-      'not attempted, the rate is numerical not symbolic, PT 0.2 stays SOTA. Any flip is over-claiming.',
+      'not attempted, the rate is numerical not symbolic, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER.honestCaveat;
       return (
@@ -407,7 +406,7 @@ export const IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.orderIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

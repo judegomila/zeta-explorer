@@ -49,8 +49,7 @@
  *   MEASUREMENT/SENSITIVITY ONLY on the inherited imp-3220/imp-3406 extrapolation
  *   surrogate, NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); C_H
  *   remains UNPROVEN; this closes no gap, changes no bound, proves no constant, and
- *   does not close G6_polymath15_bridge. RH open. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   does not close G6_polymath15_bridge. RH open. NO QED. No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -67,7 +66,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // Same C_C-free sub-terms as imp-3220 / imp-3406 (identical repo formulas).
 const E_TRUNC_PT = 3.06e-5; // fixed-strip Platt-Trudgian route, N-independent.
@@ -209,7 +208,7 @@ export const IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY = {
     'constant, elastic to the amplitude only at the level of its own unsaturated ' +
     'remainder. C_mb stays GUE-conditional (imp-486); C_H remains UNPROVEN; no gap ' +
     'closed, no bound changed, no closure of G6_polymath15_bridge. RH open. NO QED. ' +
-    'Platt-Trudgian Lambda <= ' + PT_BOUND + ' remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3220 (sigma(N) U-shape, same repo E(N) formulas); imp-3406 (interior peak ' +
     'N_max ~ 9.22e5, sigma_max ~ 0.9494); imp-96370 (peak spread over the narrow ' +
@@ -272,12 +271,12 @@ export const IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY_ASSERTIONS = [
   },
   {
     id: 'imp124833-honesty-gate-no-qed',
-    description: 'Measurement only: names the C_H/C_mb conditional, no QED, PT stays SOTA',
+    description: 'Measurement only: names the C_H/C_mb conditional, no QED, no refereed bound is changed',
     holds: () =>
       IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY.isRigorous === false &&
       /C_H remains UNPROVEN/.test(IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY.verdict) &&
       /NO QED/.test(IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP124833_SIGMA_PEAK_CC_AMPLITUDE_ELASTICITY.verdict),
     why:
       'This ticket is measurement/sensitivity only: it must not assert closure of ' +
       'G6_polymath15_bridge, must not change any bound, and must not reclassify the ' +

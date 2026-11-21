@@ -49,7 +49,7 @@
  *   Changes NO bound; recomputes no landmark used in any bound; C_mb GUE-conditional
  *   per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; establishes no
  *   operator positivity; imp-3066 K_a >= 0 untouched; imp-34687a/imp-34714a stay OPEN;
- *   no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35036-sigma-decay-exponent-ladder-extension (the 1/(2 ln N) gap-closure envelope tested here)
  * @see imp-35132-split-attribution (the ~0.064 split; C3 definitional attribution confirmed here)
@@ -230,8 +230,8 @@ export const IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT = {
     'ramp-vs-sigmoid definitional attribution from a third independent angle. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'far-tail exponent 1/2 per imp-3463; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; imp-34687a/imp-34714a stay OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; imp-34687a/imp-34714a stay OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35036 (the 1/(2 ln N) gap-closure envelope tested here); imp-35132 (the ~0.064 split; C3 ' +
     'definitional attribution confirmed here); imp-35028 (running-g gap ~1.45e-5, same micro-scale); ' +
@@ -284,13 +284,13 @@ export const IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT_ASSERTIONS = [
     holds: () => IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT.verdictSplitIsDistinctStructural === true,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35175-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT.isRigorous === false &&
       /NO QED/.test(IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT.verdict),
+      /refereed bound is changed/i.test(IMP35175_LOG_ENVELOPE_VS_LANDMARK_SPLIT.verdict),
   },
 ];
 

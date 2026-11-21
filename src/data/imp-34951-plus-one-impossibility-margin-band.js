@@ -53,7 +53,7 @@
  * ONLY on the inherited imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no interval enclosure. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34926-iters-to-floor-ceil-boundary-geometry (parent: +1 structurally impossible; single band-wide max penult)
  * @see imp-34903-iters-to-floor-residual-sign-wide-band (-1 sign band-wide on [1e6,1e15])
@@ -255,7 +255,7 @@ export const IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND = {
     'imp-34926a). IEEE-754 double precision; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34926 (parent: +1 structurally impossible; single band-wide max penultimate distance); imp-34903 ' +
     '(-1 residual sign band-wide on [1e6,1e15]); imp-34775 (derives the closed-form log law and the ceil ' +
@@ -303,13 +303,13 @@ export const IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND_ASSERTIONS = [
       SUB_WINDOW.offByOne === 21,
   },
   {
-    // Honesty gate: measurement of a surrogate proxy, not rigorous, no QED, PT stays SOTA, sub-gap named.
+    // Honesty gate: measurement of a surrogate proxy, not rigorous, no QED, no refereed bound is changed, sub-gap named.
     id: 'imp34951-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gap named',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, sub-gap named',
     holds: () =>
       IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND.isRigorous === false &&
       /NO QED/.test(IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND.verdict) &&
-      /remains SOTA/.test(IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND.verdict) &&
+      /refereed bound is changed/i.test(IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND.verdict) &&
       /imp-34951a/.test(IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND.summary.residual_sub_gap_imp_34951a),
   },
 ];

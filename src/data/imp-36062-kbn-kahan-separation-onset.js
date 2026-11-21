@@ -17,7 +17,7 @@
  * (same fixed oscillatory family, same clustered same-sign worst ORDER). MEASUREMENT ONLY.
  * Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no
  * inequality; changes no bound; establishes no positivity; the C_mb GUE-conditional constant
- * (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED normalized errors on the CLUSTERED worst order across the finer ladder:
  *   N        kappa    Kahan        KBN          KBN < Kahan?
@@ -60,7 +60,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36023) ----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -274,8 +274,8 @@ export const IMP36062_KBN_KAHAN_SEPARATION_ONSET = {
     'binding constraint anywhere on the ladder; the obstruction stays the ENGINEERING of the certified length-N ' +
     'interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval; ' +
     'verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT ' +
-    'stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36023 (KBN=classic-Kahan at N<=1e4 but ~10x tighter by N~488602; onset never located); imp-35973 ' +
     '(single-endpoint combined worst-case compensated floor ~2.31e-19 at N~488602); imp-35852 (clustered worst ' +
@@ -331,7 +331,7 @@ export const IMP36062_KBN_KAHAN_SEPARATION_ONSET_ASSERTIONS = [
   },
   {
     id: 'imp36062-honesty-gate',
-    description: 'Measurement only; onset tracks N not a hard kappa cutoff; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; onset tracks N not a hard kappa cutoff; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36062_KBN_KAHAN_SEPARATION_ONSET.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -341,7 +341,7 @@ export const IMP36062_KBN_KAHAN_SEPARATION_ONSET_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36062_KBN_KAHAN_SEPARATION_ONSET.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36062_KBN_KAHAN_SEPARATION_ONSET.verdict) &&
-      /remains SOTA/.test(IMP36062_KBN_KAHAN_SEPARATION_ONSET.verdict),
+      /refereed bound is changed/i.test(IMP36062_KBN_KAHAN_SEPARATION_ONSET.verdict),
   },
 ];
 

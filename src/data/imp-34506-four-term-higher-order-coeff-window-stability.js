@@ -47,7 +47,7 @@
  * component model is NOT a rigorous asymptotic; the coefficients are descriptive within that model only; the
  * condition number confirms the high-order coefficients are ill-determined; changes no bound; establishes no
  * operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34489-numerator-approach-four-term-curvature-crossval (the four-term fit whose b, c, c4 are tabulated here)
  * @see imp-34450-numerator-approach-three-term-curvature-crossval (the three-term fit a-stability)
@@ -297,8 +297,8 @@ export const IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY = {
     'this module only READS the higher-order coefficients and the condition number of the imp-34489 solve. The ' +
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the coefficients are descriptive ' +
     'within the model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34489 (the four-term fit whose b, c, c4 are tabulated here); imp-34450 (the three-term fit); ' +
     'imp-34286 (the bias-corrected band and windows); imp-33810 (the quarter-decade rungs); ' +
@@ -331,13 +331,13 @@ export const IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY_ASSERTIONS =
     holds: () => TABLE.every((r) => r.a > 0.4345 && r.a < 0.437),
   },
   {
-    // Honesty gate: diagnostic only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: diagnostic only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34506-honesty-gate-no-qed',
-    description: 'Diagnostic only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Diagnostic only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY.isRigorous === false &&
       /NO QED/.test(IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY.verdict) &&
+      /refereed bound is changed/i.test(IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34506_FOUR_TERM_HIGHER_ORDER_COEFF_WINDOW_STABILITY.verdict),
   },
 ];

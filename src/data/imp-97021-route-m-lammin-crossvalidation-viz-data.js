@@ -75,7 +75,7 @@ export const IMP97021_LANDMARKS = Object.freeze({
 });
 
 export const IMP97021_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every p, A, sigma-' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every p, A, sigma-' +
   'deviation, and SE(p) value plotted here is copied verbatim from imp-96999. This is an ' +
   'ESTIMATOR cross-validation on the same committed imp-96428 lam_min rungs, not a genuinely ' +
   'independent second-basis Gram rebuild (IMP96999_SUBGAP stays open). Measurement/reshaping ' +

@@ -50,7 +50,7 @@
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the resid(k) surrogate and the
  * factor identity are exact WITHIN that model only; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33962-attenuation-rung-by-rung-decomposition (the R3 "k~8.9" crossing this refines)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21 quarter-decade rungs)
@@ -237,7 +237,7 @@ export const IMP34003_F4_UNITY_CROSSING_LOCATOR = {
     'component model is NOT a rigorous asymptotic; the resid(k) surrogate and the factor identity are ' +
     'exact WITHIN the model only; changes no bound; establishes no operator positivity; imp-3066 ' +
     'K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33962 (the R3 "k~8.9" F4-unity crossing this refines); imp-33810 (the 21 quarter-decade ' +
     'rungs); imp-33922 (the endpoint F1..F4 slice); imp-33773 (the M2 sub-leading residual); ' +
@@ -277,13 +277,13 @@ export const IMP34003_F4_UNITY_CROSSING_LOCATOR_ASSERTIONS = [
       Math.abs(N_PEAK - 6.623562e8) < 1e4,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34003-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34003_F4_UNITY_CROSSING_LOCATOR.isRigorous === false &&
       /NO QED/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict),
   },

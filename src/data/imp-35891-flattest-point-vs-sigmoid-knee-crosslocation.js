@@ -60,8 +60,7 @@
  * imp-3220 / imp-3406 surrogate; instantiates no interval; derives no remainder;
  * discharges nothing; changes no bound; establishes no operator positivity;
  * C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb
- * GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35853-req4-required-height-continuous-sigma-knee (flattest-point locator, sigma ~ 0.407)
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (exponent-ramp inflection, [1e10,1e11])
@@ -76,7 +75,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP35853_REQ4_REQUIRED_HEIGHT_CONTINUOUS_SIGMA_KNEE } from './imp-35853-req4-required-height-continuous-sigma-knee.js';
 import { IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION } from './imp-33701-sigma-postpeak-ramp-curvature-inflection.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (no re-derivation, no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -194,7 +193,7 @@ export const IMP35891_FLATTEST_POINT_VS_SIGMOID_KNEE_CROSSLOCATION = {
     'the same imp-3220 / imp-3406 surrogate; instantiates no interval; derives no remainder; discharges nothing; ' +
     'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35853 (flattest-point locator, sigma ~ 0.407); imp-33701 (exponent-ramp inflection, [1e10,1e11]); ' +
     'imp-35889 (independent flattest-point height N ~ 7.20e9); imp-33582 (sigma-decay model; peak sigma_max ' +
@@ -243,7 +242,7 @@ export const IMP35891_FLATTEST_POINT_VS_SIGMOID_KNEE_CROSSLOCATION_ASSERTIONS = 
       LOG10_N_FLAT > 9.5 && LOG10_N_FLAT < 10.0,
   },
   {
-    // (6) honesty gate: cross-validation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (6) honesty gate: cross-validation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35891-crossvalidation-only-no-qed',
     description: 'cross-validation only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -255,7 +254,7 @@ export const IMP35891_FLATTEST_POINT_VS_SIGMOID_KNEE_CROSSLOCATION_ASSERTIONS = 
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

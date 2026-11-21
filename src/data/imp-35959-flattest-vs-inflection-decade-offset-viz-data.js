@@ -11,7 +11,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-35891 literals;
  * changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35891-flattest-point-vs-sigmoid-knee-crosslocation.js (source: both markers baked here)
  * @see imp-35853-req4-required-height-continuous-sigma-knee.js (flattest-point locator, sigma ~ 0.407)

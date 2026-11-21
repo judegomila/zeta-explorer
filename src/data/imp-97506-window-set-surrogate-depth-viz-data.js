@@ -12,8 +12,8 @@
  * PRESENTATION ONLY. Every point is the imp-97481 IMP97481_KERNEL.windowLimit
  * closed form evaluated verbatim. Establishes no operator positivity;
  * changes no bound; the b/4-ceiling was exploratory Route-M, load-bearing
- * for nothing; kappa_arith unchanged; Platt-Trudgian Lambda<=0.2 remains
- * SOTA; RH open; NO QED.
+ * for nothing; kappa_arith unchanged; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js (the exact closed form, kernel, and verdict)
  *

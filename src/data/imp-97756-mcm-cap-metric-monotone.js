@@ -53,7 +53,7 @@
  * any bound: the cap-independent 1/(720 d^3) tail budget (< 5.69e-11) still dwarfs any cap-to-infinity
  * shift of the +7.520579e-5 omega=10 gap regardless of the cap definition, so the primorial p_10#
  * stays the strict minimiser and the MCM onset stays exactly omega=11. MCM refuted; b/4 ceiling
- * untouched; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * untouched; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97736-mcm-cap-jitter-dps36.js  (RESULT 3 cap jitter: rel 0.03..4.6, ~30 percent cap shift; the named residual)
  * @see imp-97724-mcm-dps-cap-scaling-fit.js  (fit exponent 0.2401 SNR=1 vs 0.2150 SNR>=10; baseline caps)
@@ -149,7 +149,7 @@ export const IMP97756_HONEST_BANNER =
   'broad 0.03..4.6 oscillation, not point spikes). No bound moves: the cap-independent 1/(720 d^3) tail ' +
   'budget (< 5.69e-11) dwarfs any cap-to-infinity shift of the +7.520579e-5 omega=10 gap regardless of ' +
   'the cap definition, so the primorial p_10# stays the strict minimiser and the MCM onset stays ' +
-  'omega=11. MCM refuted; b/4 ceiling untouched. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'omega=11. MCM refuted; b/4 ceiling untouched. No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -203,7 +203,7 @@ const IMP97756_ASSERTIONS = [
       IMP97756_CAP_METRIC.anyBoundMoved === false &&
       IMP97756_CAP_METRIC.qed === false &&
       /NO QED/.test(IMP97756_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97756_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97756_HONEST_BANNER) &&
       /RH open/.test(IMP97756_HONEST_BANNER) &&
       /omega=11/.test(IMP97756_HONEST_BANNER),
     why: 'measurement/methodology only -- assessing a jitter-resistant cap metric leaves the omega=10 gap and omega=11 onset unchanged (the cap-independent tail budget dwarfs any cap shift), no bound moved, no QED.',

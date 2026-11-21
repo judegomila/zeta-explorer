@@ -171,7 +171,7 @@ export const IMP2709_KAPPA_T_INTERVAL_CERTIFICATE_ASSERTIONS = [
   {
     id: 'imp2709-floor-secures-etrunc-below-0.2',
     description:
-      'E_trunc(C_T=1, kappa_T=0.180) = gamma^{-0.180} . log gamma = 0.136823 < 0.2 (Platt-Trudgian SOTA); the floor gives a conservative upper bound on E_trunc since E_trunc is decreasing in kappa_T.',
+      'E_trunc(C_T=1, kappa_T=0.180) = gamma^{-0.180} . log gamma = 0.136823 < 0.2 (no refereed bound is changed); the floor gives a conservative upper bound on E_trunc since E_trunc is decreasing in kappa_T.',
     holds: () =>
       Math.abs(E_TRUNC_AT_FLOOR - 0.136823) < 1e-5
       && E_TRUNC_AT_FLOOR < PT_BOUND

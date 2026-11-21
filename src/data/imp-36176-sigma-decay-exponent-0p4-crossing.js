@@ -56,8 +56,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-DECADE exponent ladder, 0.4310 at [1e11,1e12])
  * @see imp-33604-sigma-exponent-estimator-crossvalidation (decade OLS = pointwise p at decade midpoint)
@@ -202,8 +201,8 @@ export const IMP36176_SIGMA_DECAY_EXPONENT_0P4_CROSSING = {
     'centre 3.16e11, and the exponent rises monotonely-but-deceleratingly toward the imp-3463 ' +
     '1/2. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33582 (per-DECADE exponent ladder, 0.4310 at [1e11,1e12]); imp-33604 (decade OLS = ' +
     'pointwise p at decade midpoint); imp-3529 (pointwise exponent p(N)); imp-3463 (far-tail ' +
@@ -256,13 +255,13 @@ export const IMP36176_SIGMA_DECAY_EXPONENT_0P4_CROSSING_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp36176-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP36176_SIGMA_DECAY_EXPONENT_0P4_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP36176_SIGMA_DECAY_EXPONENT_0P4_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP36176_SIGMA_DECAY_EXPONENT_0P4_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP36176_SIGMA_DECAY_EXPONENT_0P4_CROSSING.verdict),
   },
 ];
 

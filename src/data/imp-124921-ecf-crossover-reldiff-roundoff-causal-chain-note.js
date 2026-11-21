@@ -13,8 +13,8 @@
  * @see imp-124770-pair-ratio-identity-landmark-ladder.js (step 2: the reldiff growth ladder)
  * @see imp-124821-pairratio-deeptail-reldiff-roundoff-honest-status.js (step 3: the attribution)
  *
- * Ticket: imp-124921 (content, sonnet-4-6, sonnet). Reference note only; no bound on Lambda moves; PT Lambda <=
- * 0.2 remains SOTA; RH open; NO QED.
+ * Ticket: imp-124921 (content, sonnet-4-6, sonnet). Reference note only; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  */
 
 import { IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER } from './imp-124769-ecf-stencil-noise-floor-crossover.js';
@@ -79,7 +79,7 @@ if (
     IMP124921_ECF_CROSSOVER_RELDIFF_ROUNDOFF_CAUSAL_CHAIN_NOTE.isRigorous === false &&
     IMP124921_ECF_CROSSOVER_RELDIFF_ROUNDOFF_CAUSAL_CHAIN_NOTE.qed === false &&
     /NO QED/.test(IMP124921_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP124921_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124921_HONEST_BANNER) &&
     /RH open/.test(IMP124921_HONEST_BANNER)
   )
 ) {

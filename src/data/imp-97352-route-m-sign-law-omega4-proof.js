@@ -67,7 +67,7 @@
  * -------------------------------------------------------------------------------
  *     IMP97333_SIGN_TAIL_SUBGAP still open for omega >= 5. This module SHARPENS the boundary: the
  *     elementary domination proof is now known to succeed for omega <= 4 and to fail (Hall deficiency)
- *     at exactly omega = 5. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *     at exactly omega = 5. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97333-route-m-sign-law-proof-attempt.js (peel identity RESULT 1; elementary omega<=3 RESULT 2; positive-part certificate RESULT 3; subgap)
  * @see imp-97309-route-m-arith-tail-cancellation-assessment.js (complementary identity R(b)=mu(b)T(b); measured sign law; inter-level divergence)
@@ -192,11 +192,11 @@ export const IMP97352_VERDICT = Object.freeze({
     'negative terms, giving U(m) < 0 and hence T(b) < 0. The method has a SHARP wall at omega = 5, where ' +
     'the level-2 positive count C(omega-1,2) = 6 first exceeds the level-1 negative count omega-1 = 4 ' +
     '(Hall deficiency 2). omega >= 5 therefore still needs weighted inter-level cancellation, i.e. ' +
-    'IMP97333_SIGN_TAIL_SUBGAP. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'IMP97333_SIGN_TAIL_SUBGAP. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97352_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97333 sign law T(b) < 0 is now ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97333 sign law T(b) < 0 is now ' +
   'PROVED elementarily for omega(b) = 4 (all squarefree b) via a rigorous D_{p1}-monotonicity injection ' +
   '(giving U(m) < 0), extending the previous omega <= 3 range. The elementary domination method fails at ' +
   'exactly omega = 5 (Hall deficiency: C(4,2)=6 level-2 positives vs 4 level-1 negatives), so omega >= 5 ' +
@@ -266,7 +266,7 @@ const IMP97352_ASSERTIONS = [
       IMP97352_VERDICT.dominationWallOmega5 === true &&
       IMP97352_VERDICT.residualSubgap === 'IMP97333_SIGN_TAIL_SUBGAP' &&
       /NO QED/.test(IMP97352_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97352_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97352_HONEST_BANNER) &&
       /RH open/.test(IMP97352_HONEST_BANNER),
     why: 'honest partial: sign law proved for omega = 4 and the domination method shown to wall at omega = 5 -- no proof for all omega, no bound moved, no rigorous ceiling, no QED.',
   },

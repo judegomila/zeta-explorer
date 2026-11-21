@@ -57,4 +57,7 @@ test('the site bar is written as escaped markup that holds the page actions',asy
   assert.ok(!html.includes('<b>')&&!html.includes('<x>'));
   assert.ok(html.includes('Research<small>2 pages</small>'));
   assert.ok(html.endsWith('<div class="sb-right"><nav class="header-actions"></nav></div></nav>'));
+  assert.ok(!html.includes('sb-key'),'no Key results link unless the site has that page');
+  const withKey=renderSiteBar([{label:'Overview',sections:[{heading:'',items:[{to:'/key-results',label:'Key results'}]}]}]);
+  assert.ok(withKey.includes('<a class="sb-key" href="../#/key-results">Key results</a>'));
 });

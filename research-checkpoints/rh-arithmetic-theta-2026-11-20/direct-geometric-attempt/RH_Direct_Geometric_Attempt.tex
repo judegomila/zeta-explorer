@@ -1,0 +1,482 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in,headheight=15pt]{geometry}
+\usepackage{booktabs,array,enumitem,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\usepackage{xurl}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist{itemsep=3pt,topsep=4pt,leftmargin=1.6em}
+\allowdisplaybreaks
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathcal K}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\covol}{\operatorname{covol}}
+\numberwithin{equation}{section}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Twin-ladder geometry: a direct attempt}
+\fancyhead[R]{\small 21 November 2026}
+\fancyfoot[C]{\thepage}
+\hypersetup{pdftitle={An Explicit Theta Kernel for the Twin-Ladder Form},pdfauthor={Jude Gomila},pdfsubject={A direct geometric proof attempt, exact identities, and bounded obstructions; RH unproved}}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries An Explicit Theta Kernel\\[0.2em]for the Twin-Ladder Form}\par
+\vspace{0.4em}
+{\large A direct geometric proof attempt and its precise stopping point}\par
+\vspace{0.7em}
+Jude Gomila\par
+21 November 2026\par
+{\small AI-assisted mathematical derivation, computation, and internal review}
+\end{center}
+\vspace{0.4em}\hrule\vspace{0.4em}
+\textbf{Status.} This note constructs an explicit theta kernel whose exponential moments are exactly the complete Weil/Pick form. It proves limitations of specified positive factorizations and gives an interval certificate against one natural Gaussian comparison. Positive definiteness of the complete kernel remains unproved. This is a documented direct proof attempt, \textbf{not a proof of RH}. No claim of historical novelty or independent Lean verification is made.
+\vspace{0.4em}\hrule
+
+\begin{abstract}
+Starting from the actual Riemann theta kernel, we derive a continuous two-variable kernel with positive entries and an exact transform identity for the twin-ladder Pick form. Gaussian-weighted density shows that positive definiteness of this kernel is equivalent to the project's sparse Pick criterion, hence to RH. We attempt a positive Gaussian boundary factorization. The remainder has a rigorously negative value at the origin for the actual Riemann kernel. More generally, no positive rank-one channel built from a nonzero constant-coefficient polynomial derivative of the theta kernel can be subtracted while retaining positive definiteness; the real-axis growth of the completed logarithmic derivative rules this out. A second construction supplies a positive prime-delay graph energy, together with its unavoidable arithmetic counterterm; the latter is unbounded relative to the ordinary norm even on the sparse test space. An exact strongly log-concave Gaussian-mixture example independently tests the generic geometric assumptions. The unresolved step is a positive factorization outside the excluded class, or a whole-form comparison for the specified arithmetic form.
+\end{abstract}
+
+\section{The target and the normalization}
+
+Write
+\begin{equation}
+\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),\quad
+F(w)=\xi(\tfrac12+w),\quad L(w)=F'(w)/F(w).
+\end{equation}
+The completion and functional equation are standard \cite{dlmf-xi}. The function $F$ is real entire and even. Use the even extension of
+\begin{equation}\label{eq:kappa}
+\kappa(t)=\sum_{m\ge1}\left(2\pi^2m^4e^{9t/4}-3\pi m^2e^{5t/4}\right)e^{-\pi m^2e^t},\qquad t\ge0.
+\end{equation}
+The classical theta representation, in the normalization used in the prior manuscript \cite{project}, is
+\begin{equation}\label{eq:F}
+F(w)=\int_{\R}\kappa(t)e^{wt/2}\dd t.
+\end{equation}
+The kernel is smooth, strictly positive, even, and doubly exponentially decaying together with its derivatives. In particular, for suitable $C,c>0$,
+\begin{equation}\label{eq:decay}
+0<\kappa(t)\le C\exp(-c e^{|t|}).
+\end{equation}
+For $t\ge0$, positivity follows term by term from $2\pi m^2e^t>3$. The theta transformation supplies the even extension and smoothness at zero. The estimate follows from the $m=1$ exponential and a uniformly bounded tail after polynomial factors are absorbed into a smaller exponential constant.
+
+For distinct real $x_i>1/2$, the exact form studied in the project is
+\begin{equation}\label{eq:P}
+P_{ij}=\frac{L(x_i)+L(x_j)}{x_i+x_j},\qquad Q(b)=b^*Pb.
+\end{equation}
+All prime expansions in the earlier derivation are used only in their region of absolute convergence. No termwise continuation of the Euler product is used here.
+
+The earlier manuscript proves that positivity of every finite prefix on
+\begin{equation}\label{eq:sparse}
+x_j=1+\frac1{j+1}\qquad(j\ge1)
+\end{equation}
+is equivalent to RH \cite[Section 4]{project}. The forward implication uses finite Nevanlinna--Pick interpolation, a normal-family limit, and the holomorphic identity $F'=HF$, where $H$ has positive real part. Applying the identity theorem to $F'-HF$ avoids assuming that $F$ was zero-free. The reverse implication follows from the absolutely convergent zero-side Weil identity. This analytic criterion is a stated dependency of the present note.
+
+\section{An explicit two-variable theta kernel}
+
+For $t,u\in\R$, set
+\begin{equation}\label{eq:kernel}
+v=\frac{t+u}{2},\qquad w=\frac{t-u}{2},\qquad
+\boxed{\K(t,u)=\frac12\int_{|v|}^{\infty}r\,\kappa(r+w)\kappa(r-w)\dd r.}
+\end{equation}
+This definition uses the theta kernel alone. It does not use the zeros of $F$ or assume their location.
+
+\begin{theorem}[Exact transform identity]\label{thm:identity}
+The kernel $\K$ is continuous, real, symmetric, and satisfies
+\begin{equation}
+\K(t,u)>0,\qquad \K(-t,-u)=\K(t,u).
+\end{equation}
+For real $x,y>0$,
+\begin{equation}\label{eq:transform}
+\boxed{
+\iint_{\R^2}\K(t,u)e^{xt/2+yu/2}\dd t\dd u
+=\frac{F'(x)F(y)+F(x)F'(y)}{x+y}.}
+\end{equation}
+Consequently, if
+\begin{equation}\label{eq:fb}
+f_b(t)=\sum_j\frac{b_j}{F(x_j)}e^{x_jt/2},
+\end{equation}
+then
+\begin{equation}\label{eq:Qkernel}
+b^*Pb=\iint_{\R^2}\overline{f_b(t)}\K(t,u)f_b(u)\dd t\dd u.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The product $\kappa(r+w)\kappa(r-w)$ is even in $r$. Therefore the integral in \eqref{eq:kernel} is unchanged if its lower endpoint $|v|$ is replaced by $v$. Differentiating in the diagonal direction gives
+\begin{equation}\label{eq:transport}
+(\partial_t+\partial_u)\K(t,u)
+=-\frac{t+u}{4}\kappa(t)\kappa(u).
+\end{equation}
+Indeed, $\partial_t+\partial_u=\partial_v$. Integration by parts in $t$ and $u$ now yields
+\[
+\frac{x+y}{2}\iint\K e^{xt/2+yu/2}
+=\frac14\iint(t+u)\kappa(t)\kappa(u)e^{xt/2+yu/2}.
+\]
+Using \eqref{eq:F} proves \eqref{eq:transform}. Expanding \eqref{eq:fb} proves \eqref{eq:Qkernel}; division by $F(x_j)$ is allowed since $F(x)>0$ on the real axis.
+
+For justification of all boundary operations, put $M=\max(|t|,|u|)=|v|+|w|$. At least one of $|r+w|,|r-w|$ equals $r+|w|$. Equation \eqref{eq:decay} and boundedness of the other factor imply
+\[
+|\K(t,u)|\le C_1(1+M)\exp(-c_1e^M)
+\]
+for positive constants $C_1,c_1$. This follows by setting $r=|v|+h$ and using $e^h\ge1+h$. The bound absorbs every fixed exponential in $t,u$. It proves convergence, the required vanishing boundaries, and continuity by dominated convergence. Symmetry, simultaneous reflection, and entrywise strict positivity follow directly from \eqref{eq:kernel}.
+\end{proof}
+
+\textbf{The distinction that remains.} The inequality $\K(t,u)>0$ concerns individual entries. The proof needs
+\begin{equation}\label{eq:PSD}
+\sum_{i,j}\overline{c_i}c_j\K(t_i,t_j)\ge0
+\quad\text{for every finite set of real points and coefficients.}
+\end{equation}
+Entrywise positivity does not imply \eqref{eq:PSD}. Section~\ref{sec:control} gives an exact counterexample to a proposed deduction from generic shape conditions.
+
+\section{Why the complete kernel criterion is exact}
+
+\begin{theorem}[Density and the completion boundary]\label{thm:density}
+For the actual Riemann theta kernel, the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $\K$ is positive definite in the sense of \eqref{eq:PSD}.
+\item Every sparse prefix \eqref{eq:sparse} of \eqref{eq:P} is positive semidefinite.
+\item RH.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Let $\omega(t)=e^{-t^2}$ and $\dd\mu(t)=\omega(t)\dd t$. On $L^2(\mu)$, the kernel
+\[
+A(t,u)=\frac{\K(t,u)}{\omega(t)\omega(u)}
+\]
+defines a bounded self-adjoint Hilbert--Schmidt operator, since
+\[
+\iint|A|^2\dd\mu\dd\mu
+=\iint|\K(t,u)|^2e^{t^2+u^2}\dd t\dd u<\infty.
+\]
+The decay established in Theorem~\ref{thm:identity} proves the last inequality.
+
+The functions $e^{x_jt/2}$ span a dense subspace of $L^2(\mu)$. To see this, let $h$ be orthogonal to all of them. The function
+\[
+Z(z)=\int_{\R}\overline{h(t)}e^{zt/2}\dd\mu(t)
+\]
+is entire by Cauchy--Schwarz and Gaussian exponential integrability, uniformly on compact sets of $z$. It vanishes at $x_j\to1$, so it vanishes identically. On the imaginary axis this is the Fourier transform of the integrable function $\overline h\omega$. Fourier uniqueness gives $h=0$ almost everywhere.
+
+Condition (ii), the nonzero diagonal normalization by $F(x_j)$, and \eqref{eq:Qkernel} make $A$ nonnegative on this dense subspace. Boundedness extends the inequality to all of $L^2(\mu)$. Approximating point masses by smooth compactly supported test functions and using continuity of $\K$ gives (i). Conversely, (i) implies positivity of its integrals on compactly supported tests by Riemann sums, then positivity on $L^2(\mu)$ by density and boundedness. Equation \eqref{eq:Qkernel} gives (ii). The stated sparse criterion gives (ii)$\Leftrightarrow$(iii).
+\end{proof}
+
+The theorem makes the direct construction concrete, but it does not supply a new arithmetic inequality: proving \eqref{eq:PSD} is still RH-equivalent. A positive factorization of $\K$ would provide the desired Hilbert-space maps automatically, with the complete mixed terms retained. Factoring it only after assuming \eqref{eq:PSD} would be circular.
+
+The simultaneous reflection also permits the parity kernels
+\[
+\K_\pm(t,u)=\K(t,u)\pm\K(t,-u),\qquad t,u>0.
+\]
+Even and odd test functions reduce to these two kernels. Positivity of the full kernel is equivalent to positivity on both parity subspaces. Neither pointwise positivity of $\K$ nor the reflection identity establishes those two operator inequalities.
+
+\section{Attempt 1: a Gaussian boundary factorization}
+
+The Gaussian case suggests a particularly simple geometric construction. If $\kappa(t)=A e^{-\alpha t^2}$, direct integration gives
+\begin{equation}\label{eq:gaussian}
+\K(t,u)=\frac{\kappa(t)\kappa(u)}{8\alpha}.
+\end{equation}
+This is a rank-one Gram kernel. For the actual theta kernel, define, for any $\alpha>0$,
+\[
+d_\alpha(t)=t+\frac{\kappa'(t)}{2\alpha\kappa(t)}.
+\]
+\begin{proposition}[Exact Gaussian comparison identity]\label{prop:gauss}
+For the actual kernel,
+\begin{align}\label{eq:gaussian-remainder}
+\K(t,u)&=\frac{\kappa(t)\kappa(u)}{8\alpha}+\mathcal R_\alpha(t,u),\\
+\mathcal R_\alpha(t,u)
+&=\frac14\int_0^\infty
+\bigl(d_\alpha(t+s)+d_\alpha(u+s)\bigr)
+\kappa(t+s)\kappa(u+s)\dd s.\nonumber
+\end{align}
+\end{proposition}
+\begin{proof}
+The signed-endpoint version of \eqref{eq:kernel}, followed by $r=v+s$, gives
+\[
+\K(t,u)=\frac14\int_0^\infty(t+u+2s)\kappa(t+s)\kappa(u+s)\dd s.
+\]
+In the definition of $\mathcal R_\alpha$, the additional logarithmic-derivative term integrates to
+\[
+\frac1{8\alpha}\int_0^\infty\frac{\dd}{\dd s}
+\{\kappa(t+s)\kappa(u+s)\}\dd s
+=-\frac{\kappa(t)\kappa(u)}{8\alpha}.
+\]
+This proves the identity. The cancellation for negative $v$ uses evenness of $\kappa$; no positive integrand is being asserted for the signed-endpoint expression.
+\end{proof}
+
+A proposed direct proof would now need $\mathcal R_\alpha\succeq0$. That proposed step is false.
+
+\subsection{A certified failure on the actual theta kernel}
+
+Match the Gaussian curvature at zero:
+\begin{equation}\label{eq:alpha}
+\alpha_0=-\frac{\kappa''(0)}{2\kappa(0)}>0.
+\end{equation}
+High-precision exploratory values are
+\[
+\alpha_0\approx2.340863116187915,
+\quad \K(0,0)\approx0.010060677517940,
+\quad \frac{\kappa(0)^2}{8\alpha_0}\approx0.010655157466655.
+\]
+The separate interval calculation proves the strict rational statement
+\begin{equation}\label{eq:certified}
+\boxed{\mathcal R_{\alpha_0}(0,0)<-\frac1{2500}.}
+\end{equation}
+Thus this remainder fails even the one-point necessary condition for positive definiteness.
+
+The certificate uses eight theta terms, 160-bit Arb ball arithmetic, and interval Riemann sums over $[0,4]$ with 4096 subintervals. The omitted tails are bounded analytically. The resulting enclosures include
+\[
+0.009954<\K(0,0)<0.010167,
+\qquad
+0.01065515<\frac{\kappa(0)^2}{8\alpha_0}<0.01065516,
+\]
+and the actual computed upper endpoint for the difference is less than $-0.0004884$. The conservative displayed verdict \eqref{eq:certified} follows. Appendix~\ref{app:tails} gives the bounds; the accompanying script and JSON record reproduce the calculation. This is a finite ball-arithmetic certificate, not a Lean proof or an RH counterexample.
+
+\section{A stronger analytic obstruction to local positive channels}
+
+The Gaussian remainder failure is not repaired by choosing a different positive Gaussian coefficient. A simple growth argument excludes every such fixed rank-one subtraction.
+
+\begin{lemma}[Real-axis growth]\label{lem:growth}
+As real $x\to\infty$,
+\begin{equation}\label{eq:growth}
+L(x)=\frac12\log\frac{x}{2\pi}+O(x^{-1}),\qquad \frac{L(x)}x\longrightarrow0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $s=x+1/2>1$, logarithmic differentiation gives
+\[
+L(x)=\frac1s+\frac1{s-1}-\frac12\log\pi+
+\frac12\psi(s/2)+\frac{\zeta'(s)}{\zeta(s)}.
+\]
+The digamma expansion \cite[5.11.2]{dlmf-gamma} is $\psi(z)=\log z-1/(2z)+O(z^{-2})$. The absolutely convergent Euler series shows $\zeta'(s)/\zeta(s)=O(2^{-s})$ as $s\to\infty$. Substitution proves \eqref{eq:growth}.
+\end{proof}
+
+\begin{theorem}[No fixed local differential Gram channel]\label{thm:nolocal}
+Let $p$ be a nonzero complex polynomial, and set $g=p(\partial_t)\kappa$. For every $c>0$, the kernel
+\begin{equation}\label{eq:rankone}
+\K(t,u)-c\,g(t)\overline{g(u)}
+\end{equation}
+is not positive definite. In particular, $\mathcal R_\alpha$ in \eqref{eq:gaussian-remainder} is not positive definite for any $\alpha>0$.
+\end{theorem}
+\begin{proof}
+Repeated integration by parts is justified by theta decay and gives
+\[
+\int_\R g(t)e^{xt/2}\dd t=p(-x/2)F(x).
+\]
+If \eqref{eq:rankone} were positive definite, its quadratic integral on the real exponential $e^{xt/2}$ would be nonnegative. Compact cutoffs justify using that test if positivity is initially defined only on compactly supported functions. Theorem~\ref{thm:identity} would then give
+\[
+F(x)^2\left(\frac{L(x)}x-c|p(-x/2)|^2\right)\ge0.
+\]
+Since $F(x)>0$, this is impossible by Lemma~\ref{lem:growth}: a nonzero polynomial is either a nonzero constant or grows in modulus on this real ray. Take $p=1$ and $c=1/(8\alpha)$ for the final assertion.
+\end{proof}
+
+\begin{corollary}[The obstruction survives sparse tests]
+For every $c>0$, some sparse prefix satisfies
+\[
+P_n-c\mathbf1\mathbf1^*\not\succeq0.
+\]
+More generally, for each nonzero complex polynomial $p$ and each $c>0$, set $z_j=p(-x_j/2)$. There exists a finite prefix $n$, depending on $p$ and $c$, for which $P_n-czz^*\not\succeq0$.
+\end{corollary}
+\begin{proof}
+If all prefixes were nonnegative, the density argument in Theorem~\ref{thm:density}, applied to the bounded kernel operator obtained after subtracting the smooth, rapidly decaying rank-one term, would imply positivity of \eqref{eq:rankone}. This contradicts Theorem~\ref{thm:nolocal}.
+\end{proof}
+
+\textbf{Scope.} This excludes fixed positive channels consisting of constant-coefficient polynomial derivatives of the original theta kernel. It does not exclude nonlocal maps, variable-coefficient constructions, or approximations whose spaces and errors vary with a fixed finite test family. Nor does it assert that $\K$ itself has a negative direction. It explains why an independently positive local term cannot simply be retained while all remaining terms are declared positive.
+
+\section{An exact control for generic geometric assumptions}\label{sec:control}
+
+Let $\phi_{\sqrt8}(t)=(16\pi)^{-1/2}e^{-t^2/16}$ and define
+\begin{equation}\label{eq:mixture}
+\kappa_*(t)=3\phi_{\sqrt8}(t)+
+\frac12\phi_{\sqrt8}(t-2)+\frac12\phi_{\sqrt8}(t+2).
+\end{equation}
+It is even, analytic, strictly positive, and Gaussian-decaying. Its transform in exactly the convention \eqref{eq:F} is
+\[
+F_*(z)=e^{z^2}(3+\cosh z),\qquad
+L_*(z)=2z+\frac{\sinh z}{3+\cosh z}.
+\]
+It is also strongly log-concave. For a mixture of equal-variance Gaussians with means $A\in\{-2,0,2\}$ and variance $8$, differentiation of the normalized tilted weights gives
+\[
+(\log\kappa_*)''=-\frac18+\frac{\operatorname{Var}_t(A)}{64}
+\le-\frac1{16},
+\]
+since a random variable in $[-2,2]$ has variance at most $4$.
+
+Nevertheless its corresponding Pick form is indefinite. Put $a=\log2$, take $x=a$, $y=2a$, and $b=(1,-1)$. Both rates exceed $1/2$. The contribution of $2z$ to the Pick matrix is the constant matrix $2\mathbf1\mathbf1^*$, which cancels on $b$. The remaining logarithmic derivatives are
+\[
+\frac{\sinh a}{3+\cosh a}=\frac3{17},\qquad
+\frac{\sinh(2a)}{3+\cosh(2a)}=\frac{15}{41}.
+\]
+Therefore
+\begin{equation}\label{eq:negativecontrol}
+\boxed{b^*P_*b=\frac{2(3/17)-15/41}{6\log2}
+=-\frac3{1394\log2}<0.}
+\end{equation}
+Its off-axis zeros are explicit: $z=\pm\operatorname{arcosh}3+(2k+1)i\pi$.
+
+This is a counterexample to a deduction from positivity, reflection symmetry, smoothness, Gaussian decay, and strong log-concavity alone. It does not have the complete arithmetic structure, order, and decay of the Riemann theta kernel, and does not refute an argument that uses those additional facts. The exact rational calculation is included in the algebra checker.
+
+\section{Attempt 2: positive geometry on the prime-delay graph}
+
+There is also an independently defined positive construction directly on the prime-power rungs. Its full accounting shows why constructing positive edges does not alone finish the proof.
+
+Return to the original half-line test $v(t)=\sum b_j e^{-x_jt}$, and let $x_*=\min_jx_j>1/2$. Let $S_\ell v(t)=v(t+\ell)$, with norms on $L^2(0,\infty)$. Choose
+\[
+\frac12<a<2x_*-\frac12,
+\]
+and define
+\begin{align}
+\Gamma_a&=\sum_{n\ge2}\Lambda(n)n^{-a-1/2},&
+B_a(t)&=\sum_{2\le n\le e^t}\Lambda(n)n^{a-1/2},\\
+\mathcal D_a(v)&=\sum_{n\ge2}\Lambda(n)n^{a-1/2}
+\|S_{\log n}v-n^{-a}v\|_2^2\ge0.\label{eq:prime-energy}
+\end{align}
+Here $\Lambda$ denotes the von Mangoldt function. The map with $n$th component
+\[
+v\longmapsto\sqrt{\Lambda(n)}n^{(a-1/2)/2}(S_{\log n}v-n^{-a}v)
+\]
+is an actual Hilbert-space feature map. It is defined before any assertion about the sign of the target form.
+
+\begin{proposition}[The complete prime-square identity]\label{prop:prime-square}
+Writing $C_v(\ell)=\int_0^\infty v(t+\ell)\overline{v(t)}\dd t$, one has
+\begin{equation}\label{eq:prime-square}
+-2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\Re C_v(\log n)
+=\mathcal D_a(v)-\Gamma_a\|v\|_2^2-
+\int_0^\infty B_a(t)|v(t)|^2\dd t.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Expand each square in \eqref{eq:prime-energy}. Its mixed coefficient is exactly $-2\Lambda(n)/\sqrt n$. Its $n^{-2a}\|v\|^2$ contribution sums to $\Gamma_a\|v\|^2$. For the shifted norm, Tonelli's theorem gives
+\[
+\sum_{n\ge2}\Lambda(n)n^{a-1/2}\|S_{\log n}v\|^2
+=\int_0^\infty B_a(t)|v(t)|^2\dd t.
+\]
+If $A=\sum|b_j|$, then $\|S_{\log n}v\|^2\le A^2n^{-2x_*}/(2x_*)$. The shifted-norm series therefore converges under $a<2x_*-1/2$, while $\Gamma_a$ converges under $a>1/2$. These bounds also dominate the squared-difference series and justify every rearrangement.
+\end{proof}
+
+For the archimedean terms, set $\lambda_k=2k+5/2$,
+\[
+J_\lambda(t)=\int_0^\infty e^{-\lambda u}v(t+u)\dd u,
+\qquad H_\lambda=v-\lambda J_\lambda,
+\]
+\[
+E_\gamma(v)=\sum_{k\ge0}\left(|J_{\lambda_k}(0)|^2+
+\frac2{\lambda_k}\|H_{\lambda_k}\|^2\right),\qquad
+c_0=\tfrac12(\log\pi-\psi(5/4)).
+\]
+The exact arithmetic form in the prior manuscript \cite[Section 3]{project}, together with \eqref{eq:prime-square}, gives
+\begin{align}\label{eq:full-graph}
+Q_L(v)={}&E_\gamma(v)+|J_{-1/2}(0)|^2+\mathcal D_a(v)\\
+&-\|J_{-1/2}\|^2-
+\int_0^\infty(2c_0+\Gamma_a+B_a(t))|v(t)|^2\dd t.\nonumber
+\end{align}
+The positive geometry is explicit, but the negative terms are equally explicit. Setting $v(t)=e^{-at}f(t)$ rewrites the prime part as
+\[
+\mathcal D_a(v)=\sum_{n\ge2}\frac{\Lambda(n)}{n^{a+1/2}}
+\int_0^\infty e^{-2at}|f(t+\log n)-f(t)|^2\dd t.
+\]
+This is a weighted Dirichlet energy on prime-power edges of length $\log n$. The weight $B_a$ is the exact reverse-endpoint contribution on the half-line.
+
+\begin{theorem}[The counterterm is unbounded on the sparse space]\label{thm:unbounded}
+For the sparse rates \eqref{eq:sparse}, take $a=1$. There is no finite $C$ such that
+\[
+\int_0^\infty B_1(t)|v(t)|^2\dd t\le C\|v\|^2
+\]
+for all finite combinations of these exponentials.
+\end{theorem}
+\begin{proof}
+For $t\ge\log2$, retain the largest power of two at most $e^t$. It gives
+\[
+B_1(t)\ge\frac{\log2}{\sqrt2}e^{t/2}.
+\]
+For $w_m(t)=t^me^{-t}$, elementary gamma integrals yield
+\[
+\frac{\int e^{t/2}|w_m|^2\dd t}{\|w_m\|^2}
+=\left(\frac43\right)^{2m+1}.
+\]
+Since $e^{t/2}\le\sqrt2$ on $[0,\log2]$,
+\begin{equation}\label{eq:potential-growth}
+\frac{\int B_1|w_m|^2\dd t}{\|w_m\|^2}
+\ge\frac{\log2}{\sqrt2}
+\left[\left(\frac43\right)^{2m+1}-\sqrt2\right]\longrightarrow\infty.
+\end{equation}
+For each fixed $m$, divided differences of $x\mapsto e^{-xt}$ at $m+1$ distinct sparse nodes tending to $1$, multiplied by $(-1)^m m!$, give finite combinations $v_{m,N}$ tending pointwise to $w_m$. The integral formula for divided differences is an average of $t^m e^{-t\sum s_ix_i}$ over the simplex, so $|v_{m,N}(t)|\le t^me^{-t}$. Finally
+\[
+B_1(t)\le t\sum_{n\le e^t}\sqrt n\le te^{3t/2},
+\]
+so $(1+B_1)t^{2m}e^{-2t}$ is integrable. Dominated convergence transfers both norms in \eqref{eq:potential-growth} to the actual sparse test space. Every such finite combination lies in some finite prefix. This disproves the proposed uniform bound.
+\end{proof}
+
+This excludes a fixed ordinary-norm absorption of the arithmetic potential. A successful proof could still use a coupled inequality involving the gamma energy, pole functional, and full prime-gradient energy. The inequality required by \eqref{eq:full-graph} is precisely
+\begin{equation}\label{eq:coupled-target}
+\|J_{-1/2}\|^2+\int_0^\infty(2c_0+\Gamma_a+B_a)|v|^2\dd t
+\le E_\gamma(v)+|J_{-1/2}(0)|^2+\mathcal D_a(v).
+\end{equation}
+It has not been proved here. The square expansion is checked on 112 exact rational mixed-entry instances, with 28 controls detecting the omitted counterterm. The universal identity and unboundedness theorem rest on the displayed proofs.
+
+\section{What would complete the direct attempt}
+
+The explicit target is now \eqref{eq:kernel}. A completion would require an independently defined positive measure and features with
+\begin{equation}\label{eq:goal}
+\K(t,u)=\int\Phi_\lambda(t)\overline{\Phi_\lambda(u)}\dd\nu(\lambda),
+\qquad \nu\ge0,
+\end{equation}
+or the earlier whole-form approximation on every fixed sparse prefix, with a proved error tending to zero. Existence of \eqref{eq:goal} obtained from an assumed positive-definiteness theorem cannot prove that same theorem.
+
+The project already established that a Schur residual is a squared distance once the even, odd, and mixed entries are independently realized in one positive Hilbert space. Theorem~\ref{thm:identity} specifies the kernel those maps must reproduce. Theorems~\ref{thm:density} and \ref{thm:nolocal} then distinguish an exact reformulation from an actual positive construction and rule out a broad, explicitly delimited local construction.
+
+Related Hilbert-space and canonical-system approaches are established territory. Suzuki's work constructs a canonical system unconditionally in a restricted shifted range and identifies the extension toward all positive shifts as an RH criterion \cite{suzuki}. That literature supports the framework; it does not supply the missing factorization here.
+
+\textbf{Outcome of this attempt.} The complete kernel representation and the positive prime-delay geometry are established. The Gaussian positive-remainder construction fails, both by an analytic general obstruction and by a certified value for the actual theta kernel. The prime construction retains an unbounded arithmetic potential whose coupled domination is unproved. The complete kernel positivity theorem has not been proved. A viable construction must still control the complete arithmetic form, including its cancellations; the calculations here do not justify saying that a full proof is close.
+
+\appendix
+\section{Analytic bounds used in the interval certificate}\label{app:tails}
+
+Let $\kappa_8$ be the first eight terms of \eqref{eq:kappa}, and put $q=9$. For $r\ge0$, each omitted term is positive and bounded above by $2\pi^2m^4e^{-\pi m^2}$, because $e^{9r/4-\pi m^2e^r}$ is decreasing. Consecutive majorants have ratio
+\[
+\left(\frac{m+1}{m}\right)^4e^{-\pi(2m+1)}<\frac12\qquad(m\ge9).
+\]
+Consequently
+\begin{equation}
+0\le\kappa(r)-\kappa_8(r)\le\delta_0,
+\qquad \delta_0=4\pi^2q^4e^{-\pi q^2}.
+\end{equation}
+Writing $A=\pi m^2$, a term's second derivative at zero is
+\[
+e^{-A}\left(2A^4-14A^3+\frac{165}{8}A^2-\frac{75}{16}A\right).
+\]
+For $m\ge9$, the absolute polynomial is less than $3A^4$. The corresponding degree-eight geometric majorants also have ratio less than $1/2$. Thus
+\[
+|\kappa''(0)-\kappa_8''(0)|\le\delta_2,
+\qquad \delta_2=6\pi^4q^8e^{-\pi q^2}.
+\]
+These bounds give interval enclosures for \eqref{eq:alpha}, without numerical differentiation.
+
+On $r\ge4$, summing the first-term majorant with a geometric tail gives
+\[
+\kappa(r)\le4\pi^2e^{9r/4-\pi e^r}.
+\]
+Using $9r/2\le\pi e^r$ and $r\le e^r$ on that ray,
+\begin{align*}
+\frac12\int_4^\infty r\kappa(r)^2\dd r
+&\le8\pi^4\int_4^\infty r e^{9r/2-2\pi e^r}\dd r\\
+&\le8\pi^4\int_{e^4}^\infty e^{-\pi y}\dd y
+=8\pi^3e^{-\pi e^4}.
+\end{align*}
+The finite integral $\frac12\int_0^4r\kappa(r)^2\dd r$ is enclosed by evaluating the integrand on each closed interval of length $1/1024$, with the theta-tail ball included, then summing interval value times interval length. No unsupported quadrature error estimate is used. The ball-arithmetic library and parameters are recorded in the JSON output.
+
+\section{Numerical checks and their limits}
+
+The exploratory integral checker independently computes $F$ and $F'$ from the completed zeta formula and compares the resulting three-node sparse Pick matrix with the two-variable theta integral. At outer Gauss orders $64,96,144$, the maximum entrywise discrepancies are respectively approximately $6.5\cdot10^{-16}$, $5.2\cdot10^{-16}$, and $3.9\cdot10^{-16}$. These double-precision checks confirm normalization to the observed precision; they are not interval certificates.
+
+A seven-point kernel sample at $-1.5,-1,-0.5,0,0.5,1,1.5$, after diagonal normalization, has positive computed eigenvalues with smallest approximately $4.20\cdot10^{-5}$. This finite calculation does not establish the all-point condition in Theorem~\ref{thm:density}.
+
+The Gaussian obstruction has a different verification level: its strict negative sign follows from the interval calculation with the explicit analytic tails above. The general local-channel obstruction and the Gaussian-mixture control have analytic proofs. None of these computations evaluates or verifies the announced external Lean proof.
+
+\begin{thebibliography}{9}
+\bibitem{project} J. Gomila, \emph{The Twin-Ladder Weil Form and an Arithmetic Theta Completion Route}, research manuscript v0.1, 20 November 2026, Sections 2--4. Public source pinned at commit \texttt{694eb35f9144ad223d6f8a6afa7398a116146b1b}. \url{https://github.com/judegomila/zeta-explorer/tree/694eb35f9144ad223d6f8a6afa7398a116146b1b/research-checkpoints/rh-arithmetic-theta-2026-11-20/release-v0.1}.
+\bibitem{dlmf-xi} NIST Digital Library of Mathematical Functions, Section 25.4, Riemann xi definition and reflection formula. \url{https://dlmf.nist.gov/25.4}.
+\bibitem{dlmf-gamma} NIST Digital Library of Mathematical Functions, Section 5.11, especially formula 5.11.2 for the digamma asymptotic expansion. \url{https://dlmf.nist.gov/5.11}.
+\bibitem{suzuki} M. Suzuki, \emph{A canonical system of differential equations arising from the Riemann zeta-function}, arXiv:1204.1827v2, 2016. \url{https://arxiv.org/abs/1204.1827}.
+\end{thebibliography}
+\end{document}

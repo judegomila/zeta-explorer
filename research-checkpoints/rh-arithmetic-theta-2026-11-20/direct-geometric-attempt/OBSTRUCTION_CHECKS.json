@@ -1,0 +1,17 @@
+{
+  "status": "all exact symbolic and rational checks passed",
+  "checks": {
+    "two_rate_negative_control": true,
+    "first_hyperbolic_value": true,
+    "second_hyperbolic_value": true,
+    "strong_log_concavity_bound": true,
+    "theta_second_derivative_polynomial": true,
+    "second_derivative_tail_polynomial_bound": true,
+    "degree4_tail_ratio_below_half": true,
+    "degree8_tail_ratio_below_half": true,
+    "large_r_first_term_tail_ratio": true,
+    "large_r_exponent_absorption": true
+  },
+  "negative_control": "-3/(1394*log(2))",
+  "scope": "finite algebra and analytic-tail majorants; no RH proof or global positivity claim"
+}

@@ -4,6 +4,11 @@
 #
 # Invokes Claude Code CLI every 60 seconds to find and fix one issue.
 # Each run makes exactly one atomic improvement, verifies the build, and commits.
+#
+# Public repository: commits go through scripts/engine-commit.sh (allow-listed
+# paths only), pushes through scripts/engine-push.sh (branch engine/work only,
+# never main), and the engine refuses to start unless scripts/engine-preflight.sh
+# passes (git hooks installed, expected remote and branch).
 
 set -uo pipefail
 
@@ -68,7 +73,7 @@ IMPROVE_PROMPT='You are improving the ZPO Explorer / RH-attack project. Your tas
     completedByChannel: "subscription",
     The ticket may already have predicted "model" and "channel" fields — LEAVE THOSE ALONE. The completedByModel/completedByChannel pair records actuals for later routing-accuracy analysis.
 
-10. Create a git commit with a descriptive message.
+10. Commit with scripts/engine-commit.sh, naming every file you changed (see COMMIT PROTOCOL below), with a descriptive message.
 
 SYNTAX GOTCHAS (mandatory, learned from previous failures):
 - DO NOT write "dg_k*/dt" or "dg_k*/dtau" inside JSDoc comments — the "*/" prematurely closes the comment. Use "dg_{k*}/dt" in comments. In JS string literals it is fine.
@@ -84,6 +89,16 @@ RULES:
 - Always verify the build passes before committing
 - Focus on the src/ directory only
 - TICKET-ID CLAIM PROTOCOL: if you ever open a new ticket in improvement-queue.js, first run `node scripts/claim-ticket-id.mjs <proposed-id>` and use the printed id instead of your proposed id. This prevents concurrent Opus/Haiku agents from creating silent id collisions (see imp-446).'
+
+# Public-repository safety: start-up check and commit protocol
+# (see CONTRIBUTING.md, "Automated engines and agents").
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-prompt-shared.sh"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+IMPROVE_PROMPT="$IMPROVE_PROMPT
+
+$PROMPT_COMMIT_PROTOCOL"
 
 mkdir -p "$LOG_DIR"
 
@@ -139,6 +154,14 @@ do_start() {
       node "$SCRIPT_DIR/build-queue-index.mjs" >> "$log_file" 2>&1 || true
       # Snapshot commit hash before run to detect if Claude makes a new commit
       pre_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
+
+      # Public-repository safety: re-check before every model turn; stop if the
+      # clone is no longer safe to commit from (hooks removed, wrong branch, ...).
+      if ! engine_preflight >> "$log_file" 2>&1; then
+        echo "PREFLIGHT REFUSED: engine stopping (see $log_file)" | tee -a "$log_file"
+        rm -f "$PID_FILE"
+        break
+      fi
 
       # imp-880 follow-up: consult channel-quota.mjs before invoking claude.
       if [ -f "$SCRIPT_DIR/engine-channel-hook.sh" ]; then
@@ -295,10 +318,10 @@ EOF
       # partition cannot strand more than PUSH_EVERY runs of commits.
       # Only push when there are unpushed commits to avoid noisy log lines.
       if [ "$((run_count % PUSH_EVERY))" -eq 0 ]; then
-        unpushed=$(git -C "$PROJECT_DIR" log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+        unpushed=$(engine_unpushed_count)
         if [ "${unpushed:-0}" -gt 0 ]; then
           echo "AUTO-PUSH: $unpushed unpushed commit(s) — pushing (run #$run_count, every ${PUSH_EVERY} runs)..." | tee -a "$log_file"
-          git -C "$PROJECT_DIR" push >> "$log_file" 2>&1 \
+          "$SCRIPT_DIR/engine-push.sh" >> "$log_file" 2>&1 \
             && echo "AUTO-PUSH: success" | tee -a "$log_file" \
             || echo "AUTO-PUSH: push failed (non-fatal; will retry at next multiple of $PUSH_EVERY)" | tee -a "$log_file"
         else
@@ -397,7 +420,7 @@ do_status() {
 }
 
 case "${1:-}" in
-  start)  do_start ;;
+  start)  engine_preflight || { echo "Engine NOT started: start-up check refused (see above)."; exit 1; }; do_start ;;
   stop)   do_stop ;;
   status) do_status ;;
   *)

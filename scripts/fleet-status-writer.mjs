@@ -1,12 +1,23 @@
 #!/usr/bin/env node
-// Emits public/fleet-status.json — a small, committed snapshot of "are we working":
-// git check-in activity + engine fleet + queue burn-down + recent completions.
-// The Engine Room page fetches this client-side and auto-refreshes. Kept tiny so
-// it's cheap to import/serve and cheap to commit.
+// Emits the Engine Room status: git check-in activity + engine fleet + queue
+// burn-down + recent completions. The Engine Room page fetches it client-side.
+//
+// The output is PUBLIC (it is published to a gist the public page reads, and in
+// local dev it is served from dist/). public/fleet-status.json is git-ignored and
+// must not be committed. What may appear in the output is therefore fixed here:
+//   - commit subjects and improvement summaries, passed through the shared
+//     sanitiser (scripts/lib/public-sanitize.mjs);
+//   - counts (commits, workers, pending tickets) and model tier names;
+//   - a neutral channel label per engine ('api' or 'plan').
+// What must not appear: environment-variable or key names, quota or usage
+// numbers, account identifiers, host names, absolute paths, pids, log lines.
+// The assembled object is checked again before it is written; if anything
+// unpublishable is found the writer exits non-zero and writes nothing.
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import { sanitizeText, findViolations, loadSecretLiterals } from './lib/public-sanitize.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 // FLEET_STATUS_OUT lets the local dev server regenerate into a gitignored path
@@ -15,6 +26,9 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = process.env.FLEET_STATUS_OUT || path.join(ROOT, 'public', 'fleet-status.json');
 const sh = (cmd) => { try { return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return ''; } };
 const now = Date.now();
+const SECRET_LITERALS = loadSecretLiterals(ROOT);
+// free text from commit subjects and the improvements log: sanitise, then cap
+const pub = (text, max) => sanitizeText(String(text || ''), { scope: 'ledger', literals: SECRET_LITERALS }).text.slice(0, max);
 
 // ── git: check-in activity ──────────────────────────────────────────────────
 // latest REAL (non-status) commit, so the page shows actual work, not a snapshot bump
@@ -27,8 +41,10 @@ const NOSTATUS = '--invert-grep --grep="chore(status)"';
 const commitsLastHour = parseInt(sh(`git log --since="1 hour ago" ${NOSTATUS} --oneline | wc -l`) || '0', 10);
 const commits24h = parseInt(sh(`git log --since="24 hours ago" ${NOSTATUS} --oneline | wc -l`) || '0', 10);
 const localHead = sh('git rev-parse HEAD');
-// compare against the current branch's own remote (was hard-coded to origin/main)
-const branch = sh('git rev-parse --abbrev-ref HEAD 2>/dev/null') || 'main';
+// compare against the current branch's own remote (was hard-coded to origin/main).
+// Engines work on engine/work; main is advanced by pull request.
+const rawBranch = sh('git rev-parse --abbrev-ref HEAD 2>/dev/null') || 'main';
+const branch = /^[A-Za-z0-9._/-]{1,80}$/.test(rawBranch) ? rawBranch : 'main';
 const originHead = sh(`git rev-parse origin/${branch} 2>/dev/null`);
 const ahead = parseInt(sh(`git rev-list --count origin/${branch}..HEAD 2>/dev/null`) || '0', 10);
 
@@ -42,14 +58,16 @@ function freshHeartbeats(glob) {
   } catch { return 0; }
 }
 const running = (name) => sh(`pgrep -f "${name} start" | head -1`) !== '';
-const liveAgents = parseInt(sh('ps -eo command | grep "claude --print" | grep -v grep | wc -l') || '0', 10);
+// Only this fleet's own turns: every engine passes --strict-mcp-config. Other
+// sessions on the machine are not counted, and only the number is published.
+const liveAgents = parseInt(sh('ps -eo command | grep "claude --print --strict-mcp-config" | grep -v grep | wc -l') || '0', 10);
 const apiWorkers = freshHeartbeats('.heartbeat-api-pool-w');
 const engines = [
-  { name: 'API pool', channel: 'ANTHROPIC_API_KEY', model: 'opus-4-8', workers: running('auto-improve-api-pool.sh') ? Math.max(apiWorkers, 1) : 0, on: running('auto-improve-api-pool.sh') },
-  { name: 'Sonnet', channel: 'sonnet', model: 'sonnet-4-6', workers: running('auto-improve-sonnet.sh') ? 1 : 0, on: running('auto-improve-sonnet.sh') },
-  { name: 'Subscription', channel: 'subscription', model: 'opus-4-7', workers: running('auto-improve.sh') ? 1 : 0, on: running('auto-improve.sh') },
-  { name: 'Haiku', channel: 'subscription', model: 'haiku-4-5', workers: running('auto-improve-haiku.sh') ? 1 : 0, on: running('auto-improve-haiku.sh') },
-  { name: 'Fable frontier', channel: 'ANTHROPIC_API_KEY', model: 'fable-5', workers: running('auto-improve-fable.sh') ? 1 : 0, on: running('auto-improve-fable.sh') },
+  { name: 'API pool', channel: 'api', model: 'opus-4-8', workers: running('auto-improve-api-pool.sh') ? Math.max(apiWorkers, 1) : 0, on: running('auto-improve-api-pool.sh') },
+  { name: 'Sonnet', channel: 'plan', model: 'sonnet-4-6', workers: running('auto-improve-sonnet.sh') ? 1 : 0, on: running('auto-improve-sonnet.sh') },
+  { name: 'Opus', channel: 'plan', model: 'opus-4-7', workers: running('auto-improve.sh') ? 1 : 0, on: running('auto-improve.sh') },
+  { name: 'Haiku', channel: 'plan', model: 'haiku-4-5', workers: running('auto-improve-haiku.sh') ? 1 : 0, on: running('auto-improve-haiku.sh') },
+  { name: 'Fable frontier', channel: 'api', model: 'fable-5', workers: running('auto-improve-fable.sh') ? 1 : 0, on: running('auto-improve-fable.sh') },
 ];
 const totalWorkers = engines.reduce((n, e) => n + e.workers, 0);
 
@@ -71,14 +89,14 @@ try {
   recent = all.slice(-18).reverse().map((m) => {
     const summary = m[3].replace(/\\"/g, '"');
     const impMatch = summary.match(/imp-\d+/);
-    return { imp: impMatch ? impMatch[0] : '', category: m[2], at: m[1], summary: summary.slice(0, 140) };
+    return { imp: impMatch ? impMatch[0] : '', category: pub(m[2], 24), at: pub(m[1], 32), summary: pub(summary, 140) };
   });
 } catch {}
 
 const status = {
   generatedAt: new Date(now).toISOString(),
   git: {
-    lastSha, lastMessage: lastMsg.slice(0, 120), lastCommitAt: lastAt,
+    lastSha, lastMessage: pub(lastMsg, 120), lastCommitAt: lastAt,
     commitsLastHour, commits24h,
     synced: localHead && originHead ? localHead === originHead : null,
     unpushed: ahead,
@@ -88,6 +106,14 @@ const status = {
   queue: { pending, byModel, completed24h: commits24h },
   recent,
 };
+
+// Fail closed: the whole document, as it would be published, must pass the
+// same rules as ticket text. Nothing is written otherwise.
+const leaks = findViolations(JSON.stringify(status, null, 2), { scope: 'ledger', literals: SECRET_LITERALS });
+if (leaks.length) {
+  console.error(`fleet-status-writer: refusing to write, ${leaks.length} unpublishable item(s): ${leaks.slice(0, 5).map((v) => v.rule).join(', ')}`);
+  process.exit(3);
+}
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 // change-detection: ignore generatedAt so we only rewrite/commit on real change

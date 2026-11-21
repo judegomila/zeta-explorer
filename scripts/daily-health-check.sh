@@ -8,10 +8,10 @@
 # 4. Queue not empty — run autofill if drained
 # 5. Queue index fresh — rebuild if stale
 # 6. Stale rate-limit sentinel sweep — wipe .rate-limit-backoff-state* older than 24h (imp-1017)
-# 7. Git push — push any unpushed commits
+# 7. Git push — push any unpushed commits to the engine branch (never main)
 #
 # Usage: ./scripts/daily-health-check.sh
-# Intended to run via cron: 0 8 * * * cd /path/to/mathexplorer && ./scripts/daily-health-check.sh >> scripts/logs/daily-health.log 2>&1
+# Intended to run via cron: 0 8 * * * cd /path/to/zeta-explorer && ./scripts/daily-health-check.sh >> scripts/logs/daily-health.log 2>&1
 
 set -uo pipefail
 
@@ -143,11 +143,15 @@ for sentinel in \
 done
 
 # ── 7. Git push ─────────────────────────────────────────────────────────
-UNPUSHED=$(git log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+# Public repository: push only to the engine branch, through the checked helper.
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+UNPUSHED=$(engine_unpushed_count)
 if [ "$UNPUSHED" -gt 0 ]; then
-  echo "$LOG_PREFIX Git: $UNPUSHED unpushed commits — pushing..."
-  git push 2>&1 | tail -3
-  echo "$LOG_PREFIX Git: pushed"
+  echo "$LOG_PREFIX Git: $UNPUSHED unpushed commits — pushing to $ENGINE_BRANCH..."
+  if "$SCRIPT_DIR/engine-push.sh" 2>&1 | tail -5; then
+    echo "$LOG_PREFIX Git: push step finished"
+  fi
 else
   echo "$LOG_PREFIX Git: up to date with remote"
 fi

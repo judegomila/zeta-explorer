@@ -5,6 +5,13 @@ twice-daily health check, and the engine-watchdog supervisor. Templates use
 `__REPO_PATH__` and `__HOME__` placeholders so they're portable across
 machines and user accounts.
 
+> **Public repository.** Before any of these jobs is loaded for a clone, run
+> `scripts/install-engine-hooks.sh` in it and check out the branch
+> `engine/work`; every engine refuses to start otherwise
+> (`bash scripts/engine-preflight.sh` shows why). Engines push to
+> `engine/work`, never to `main`. See CONTRIBUTING.md, "Automated engines and
+> agents".
+
 ## Install
 
 ```bash
@@ -23,7 +30,7 @@ That script will:
 ## Manual install (if you don't want the setup script)
 
 ```bash
-REPO=/path/to/mathexplorer
+REPO=/path/to/zeta-explorer
 for label in com.mathexplorer.auto-improve com.mathexplorer.daily-health com.mathexplorer.engine-watchdog; do
   sed -e "s|__REPO_PATH__|$REPO|g" -e "s|__HOME__|$HOME|g" \
     "$REPO/scripts/launchd/${label}.plist.template" \

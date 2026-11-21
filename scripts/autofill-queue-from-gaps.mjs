@@ -15,6 +15,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { execSync } from 'child_process';
 import { join } from 'path';
+import { sanitizeForLedger } from './lib/public-sanitize.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const ROOT = process.cwd();
@@ -513,9 +514,12 @@ function main() {
 
   // Generate ticket entries
   let nextId = getMaxId() + 1;
+  // Public repository: every generated entry goes through the shared
+  // sanitiser; it throws (and nothing is written) if text that cannot be
+  // published is left after the rewrite.
   const entries = batch.map(t => {
     const id = nextId++;
-    return `  {
+    return sanitizeForLedger(`  {
     id: 'imp-${id}',
     title: ${JSON.stringify(t.title)},
     category: '${t.category}',
@@ -526,7 +530,7 @@ function main() {
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: '${t.complexity || "medium"}',
     completedAt: null,
-  }`;
+  }`);
   });
 
   // Insert before the META section (imp-442 block) or at end

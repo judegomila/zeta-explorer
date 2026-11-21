@@ -103,7 +103,8 @@
   ],
   "git": {
     "deploymentEnabled": {
-      "main": true
+      "main": true,
+      "engine/work": false
     }
   },
   "build": {

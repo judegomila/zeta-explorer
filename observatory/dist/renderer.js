@@ -1,4 +1,4 @@
-import {displayLogMagnitude,displayVisibility} from './display-field.js';
+import {displayLogMagnitude,displayVisibility,edgeFadeWeights} from './display-field.js';
 import * as THREE from './vendor/three.module.js';
 import { OrbitControls } from './vendor/OrbitControls.js';
 import { liftPoint, continueMaskedHeights } from './geometry.js';
@@ -33,7 +33,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale','edgeFade'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -50,6 +50,7 @@ function axisInterval(axis, value) {
 }
 
 const tmpColor = new THREE.Color();
+const FADE_TO = new THREE.Color(0x080e19); // the scene background
 const palettes = {
   critical: 0xe7f8b7, real: 0xc4e9ff, imag: 0xffbe81,
   direct: 0x79f7d2, dual: 0xd9a0ff, bridge: 0xffe3a4,
@@ -284,13 +285,16 @@ export class ZetaScene {
     // Masked samples keep no value or colour, but inherit a continued height
     // so the unresolved cap closes the surface instead of cratering it.
     const heights = continueMaskedHeights(Float64Array.from(data.valid, (ok, i) => ok ? this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]) : 0), data.valid, data.nx, data.ny, this.state.geometry);
+    const fade = this.state.edgeFade ? edgeFadeWeights(data.valid, data.nx, data.ny, { edges: this.state.geometry === 'plane' }) : null;
     for (let i = 0; i < count; i++) {
       const displacement = heights[i];
       for (let axis = 0; axis < 3; axis++) this.raised[3 * i + axis] = data.basePositions[3 * i + axis] + data.normals[3 * i + axis] * displacement;
       const c = this.colorPolar(this.sampleLogs[i],this.sampleArgs[i],data.bridge?.[i] ?? NaN,data.coords[2*i],data.coords[2*i+1]);
-      colors[3 * i] = c.r;
-      colors[3 * i + 1] = c.g;
-      colors[3 * i + 2] = c.b;
+      // Display only: dim toward the scene background where the drawn surface stops.
+      const w = fade ? fade[i] : 1;
+      colors[3 * i] = FADE_TO.r + (c.r - FADE_TO.r) * w;
+      colors[3 * i + 1] = FADE_TO.g + (c.g - FADE_TO.g) * w;
+      colors[3 * i + 2] = FADE_TO.b + (c.b - FADE_TO.b) * w;
     }
     const indices = [], maskedIndices = [];
     for (let j = 0; j < data.ny; j++) {
@@ -581,7 +585,7 @@ export class ZetaScene {
     this.state = { ...this.state, ...state };
     this.controls.autoRotate = !!this.state.autoRotate;
     if (!this.data) return;
-    const rebuild = ['height', 'heightMode', 'colorMode', 'phaseOffset', 'opacity', 'wireframe', 'exposure', 'heightReference', 'heightLocked', 'heightLogReference', 'displayDamping', 'displayDampingScale'].some(key => previous[key] !== this.state[key]);
+    const rebuild = ['height', 'heightMode', 'colorMode', 'phaseOffset', 'opacity', 'wireframe', 'exposure', 'heightReference', 'heightLocked', 'heightLogReference', 'displayDamping', 'displayDampingScale', 'edgeFade'].some(key => previous[key] !== this.state[key]);
     if (rebuild) {
       this.syncReference();
       this.buildSurface();

@@ -1,0 +1,427 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\conj}[1]{\overline{#1}}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Log}{Log}
+
+\title{Reflection-symmetric discs:\\
+a short certificate that the zeros of $\zeta$ below height $2000$\\
+are simple and lie on the critical line}
+\author{Jude Gomila}
+\date{Draft of 20 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A disc centred on the critical line is mapped to itself by the reflection
+$s \mapsto 1-\conj{s}$. If such a disc contains exactly one zero of the
+Riemann zeta function, counted with multiplicity, that zero is simple and
+lies on the critical line. We combine this elementary observation with
+winding numbers computed in ball arithmetic to certify that $\zeta$ has
+exactly $3034$ zeros in the rectangle $[-1,2]\times[-2000,2000]$, all simple
+and all on the line $\re s=\tfrac12$. The argument uses no Gram points, no
+Turing bound and no properties of Hardy's function: its correctness reduces to
+rigorous enclosures of $\zeta$ on small boxes, however those are computed. The verified
+height is far below what is known; the contribution is a short, self-contained
+and quickly reproducible argument, together with one independent certificate
+per zero. Nothing here bears on zeros above height $2000$.
+\end{abstract}
+
+\section{Introduction}
+
+Let $\zeta$ be the Riemann zeta function and write $s=\sigma+it$. The Riemann
+hypothesis asserts that every zero of $\zeta$ in the strip $0<\sigma<1$ has
+$\sigma=\tfrac12$. It has been verified numerically to great height: Platt and
+Trudgian \cite{PlattTrudgian} prove that all zeros with $0<t\le 3\cdot 10^{12}$
+lie on the critical line. Such verifications follow a method
+going back to Turing \cite{Turing} and developed by Brent \cite{Brent} and
+others: sign changes of Hardy's function $Z(t)$ locate zeros on the line, and
+a bound on the argument of $\zeta$ shows that no others exist.
+
+This note records a different and much more modest verification. It reaches
+only height $2000$, and it is not competitive in cost. What it offers is
+brevity. The whole argument is the argument principle applied to two kinds of
+contour, discs and one rectangle, with every winding number obtained from
+rigorous enclosures of $\zeta$ itself.
+
+\begin{theorem}\label{thm:main}
+Let $R=[-1,2]\times[-2000,2000]$. The function $\zeta$ has exactly $3034$
+zeros in $R$, counted with multiplicity. Each of them is simple and has real
+part $\tfrac12$. In particular $\zeta$ has exactly $1517$ zeros with
+$0<\im s<2000$, and all of them are simple and lie on the critical line.
+\end{theorem}
+
+The proof is computer-assisted. Section~\ref{sec:lemma} proves the lemma that
+turns a count into a location. Section~\ref{sec:winding} explains how a
+winding number is certified. Section~\ref{sec:cert} states the three computed
+facts and derives Theorem~\ref{thm:main} from them. Section~\ref{sec:trust}
+lists exactly what must be trusted, and Section~\ref{sec:limits} states the
+limits of the method.
+
+\paragraph{What is and is not new.}
+The statement of Theorem~\ref{thm:main} is a very special case of
+\cite{PlattTrudgian}. The lemma of Section~\ref{sec:lemma} is elementary and
+we make no claim of priority for it. The point of the note is the combination:
+a verification whose logic fits on a page, whose data are $1517$ discs and one
+rectangle, and which runs in about three minutes. The discs also serve a
+second purpose. Each is a certificate for one zero that can be checked on its
+own, and the interactive viewer that accompanies this note displays a zero as
+certified only when its disc matches a recorded one exactly.
+
+\section{The trap lemma}\label{sec:lemma}
+
+Write $\rho(s)=1-\conj{s}$ for the reflection in the line $\re s=\tfrac12$.
+Its fixed points are exactly the points of that line.
+
+\begin{lemma}[Trap lemma]\label{lem:trap}
+Let $D$ be a closed disc centred at a point of the line $\re s=\tfrac12$.
+Let $F$ be holomorphic on a neighbourhood of $D$ and satisfy
+\begin{equation}\label{eq:sym}
+  F(1-\conj{s})=\conj{F(s)}
+\end{equation}
+there. If $F$ has exactly one zero in $D$, counted with multiplicity, then
+that zero is simple and lies on the line $\re s=\tfrac12$.
+\end{lemma}
+
+\begin{proof}
+The reflection $\rho$ maps $D$ onto itself. By \eqref{eq:sym}, if $F(s_0)=0$
+then $F(\rho(s_0))=0$. Moreover the two zeros have the same multiplicity:
+\eqref{eq:sym} says $F=c\circ F\circ\rho$ with $c$ complex conjugation, and
+composition with the anti-holomorphic bijections $\rho$ and $c$ preserves the
+order of vanishing. If $s_0\in D$ were a zero with $\re s_0\neq\tfrac12$, then
+$\rho(s_0)\neq s_0$ would be a second zero in $D$, and $D$ would contain at
+least two zeros counted with multiplicity. Hence the single zero is fixed by
+$\rho$, so it lies on the line. A count of one means multiplicity one.
+\end{proof}
+
+The lemma applies to the completed function
+\[
+  \xi(s)=\tfrac12\,s(s-1)\,\pi^{-s/2}\,\Gamma\!\left(\tfrac{s}{2}\right)\zeta(s),
+\]
+which is entire, satisfies $\xi(s)=\xi(1-s)$, and is real on the real axis, so
+that $\xi(\conj{s})=\conj{\xi(s)}$. Together these give \eqref{eq:sym} for
+$F=\xi$.
+
+\begin{corollary}\label{cor:zeta}
+Let $D$ be a closed disc centred at $\tfrac12+it_0$ with $t_0>0$ and radius
+$r<t_0$. If $\zeta$ has exactly one zero in $D$, counted with multiplicity,
+then that zero is simple and lies on the critical line.
+\end{corollary}
+
+\begin{proof}
+Every point of $D$ has positive imaginary part. The factor
+$\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ is holomorphic and non-vanishing there:
+its only zeros and poles are at real points. So $\zeta$ and $\xi$ have the
+same zeros in $D$, with the same multiplicities, and Lemma~\ref{lem:trap}
+applies to $\xi$.
+\end{proof}
+
+The lemma converts a statement about \emph{how many} zeros a region holds
+into a statement about \emph{where} they are. Counting is what the argument
+principle does.
+
+\section{Certified winding numbers}\label{sec:winding}
+
+Let $\Gamma$ be a closed, piecewise smooth, positively oriented simple contour
+and $f$ a function meromorphic on a neighbourhood of $\Gamma$ and its
+interior, with no zero or pole on $\Gamma$. The winding number
+\[
+  W(f,\Gamma)=\frac{1}{2\pi}\,\Delta_\Gamma \arg f
+\]
+equals the number of zeros of $f$ inside $\Gamma$ minus the number of poles,
+both counted with multiplicity. We need a way to obtain $W$ exactly from
+finitely many rigorous evaluations.
+
+\begin{lemma}[Half-plane lemma]\label{lem:half}
+Let $P$ be a path from $a$ to $b$ and $f$ a function continuous on $P$ with
+$f(a)\neq0$. Suppose
+\begin{equation}\label{eq:half}
+  \re\frac{f(z)}{f(a)}>0\qquad\text{for all } z\in P .
+\end{equation}
+Then $f$ has no zero on $P$, and the continuous change of $\arg f$ along $P$
+is
+\[
+  \Delta_P\arg f=\Arg\frac{f(b)}{f(a)}\in\left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right),
+\]
+where $\Arg$ is the principal argument.
+\end{lemma}
+
+\begin{proof}
+Put $g=f/f(a)$. By \eqref{eq:half}, $g$ maps $P$ into the open right
+half-plane, so $g$ and hence $f$ do not vanish on $P$. The principal logarithm
+$\Log$ is continuous on that half-plane, so $z\mapsto\im\Log g(z)$ is a
+continuous choice of $\arg g$ along $P$. Its total change is
+$\Arg g(b)-\Arg g(a)=\Arg g(b)$, because $g(a)=1$. Finally $\arg f$ and
+$\arg g$ differ by a constant.
+\end{proof}
+
+\paragraph{The procedure.}
+Divide $\Gamma$ into consecutive pieces $P_1,\dots,P_n$, with $P_j$ running
+from $a_j$ to $b_j=a_{j+1}$ and $b_n=a_1$. If \eqref{eq:half} holds on every
+piece, then $f\neq0$ on $\Gamma$ and
+\begin{equation}\label{eq:sum}
+  W(f,\Gamma)=\frac{1}{2\pi}\sum_{j=1}^{n}\Arg\frac{f(b_j)}{f(a_j)} .
+\end{equation}
+Both the hypothesis and the sum are evaluated in ball arithmetic. A ball is a
+midpoint with a radius, and a ball-valued routine returns a ball guaranteed to
+contain the exact value for every point of its input ball.
+\begin{enumerate}[leftmargin=2em]
+\item For each endpoint, compute a ball $A_j\ni f(a_j)$ and check
+  $0\notin A_j$.
+\item For each piece, choose a box $B_j\supseteq P_j$ and compute a ball
+  $I_j\supseteq f(B_j)$. Check that the ball $I_j/A_j$ lies in the open right
+  half-plane. This proves \eqref{eq:half} on $P_j$. If the check fails, bisect
+  $P_j$ and repeat on the halves.
+\item Sum balls containing $\Arg\!\big(f(b_j)/f(a_j)\big)$ and divide by
+  $2\pi$. The result is a ball $T$ that contains $W(f,\Gamma)$.
+\item Since $W$ is an integer, if $T$ has radius less than $\tfrac14$ and
+  contains the integer $n_0$, then $W=n_0$.
+\end{enumerate}
+The procedure can fail to terminate at a given precision and bisection depth,
+in which case nothing is claimed. It cannot return a wrong integer, provided
+the enclosures are correct. In particular the result does not depend on any
+sampling density: the half-plane check is made on whole boxes, not on sample
+points.
+
+\section{The certificate}\label{sec:cert}
+
+\subsection{The data}
+
+The data are $N=1517$ pairs $(t_k,r_k)$, $t_1<\dots<t_N$, each number an
+IEEE double and therefore an exact dyadic rational, and the rectangle
+$R=[-1,2]\times[-2000,2000]$. Put
+\[
+  D_k=\{\,s:\ |s-(\tfrac12+it_k)|\le r_k\,\},\qquad k=1,\dots,N .
+\]
+The $t_k$ are approximations to the heights of the zeros; the radii are
+$r_k=\min\big(0.6,\ 0.4\,g_k\big)$, where $g_k$ is the distance from $t_k$ to
+the nearest other $t_j$, except that $r_1=0.35$. The first $25$ pairs are the
+ones the accompanying viewer draws. How the centres were found plays no part
+in the proof. They are proposals; the proof for each disc is its winding
+number.
+
+\subsection{Three computed facts}
+
+\begin{enumerate}[label=\textbf{(C\arabic*)},leftmargin=3em]
+\item\label{C1} \textbf{Discs.} For every $k$, $\zeta$ has no zero on
+  $\partial D_k$ and $W(\zeta,\partial D_k)=1$.
+\item\label{C2} \textbf{Rectangle.} $\zeta$ has no zero on $\partial R$ and
+  $W(\zeta,\partial R)=3033$.
+\item\label{C3} \textbf{Geometry.} In exact rational arithmetic,
+  $t_{k+1}-t_k>r_k+r_{k+1}$ for $1\le k<N$, $\;t_1-r_1>0$,
+  $\;t_N+r_N<2000$, and $r_k\le 0.6$ for all $k$.
+\end{enumerate}
+
+Facts \ref{C1} and \ref{C2} are obtained by the procedure of
+Section~\ref{sec:winding} with $f=\zeta$. For a disc, the circle is cut into
+$16$ equal arcs to begin with. An arc of angular fraction $\delta$ on a circle
+of radius $r$ has length $2\pi r\delta$, so every point of it is within
+$\pi r\delta$ of its midpoint; the box $B_j$ is the square of half-side
+$3.1416\,r\delta$ about the midpoint. For the rectangle, the sides are cut into
+$8$ (horizontal) or $64$ (vertical) segments to begin with, and each piece is
+its own box. Table~\ref{tab:stats} gives the sizes of the computation. The
+quantities in \ref{C3} are, to four figures,
+\[
+  \min_k\big(t_{k+1}-t_k-r_k-r_{k+1}\big)=0.0195,\qquad
+  t_1-r_1=13.78,\qquad t_N+r_N=1999.90 .
+\]
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+\toprule
+ & discs (all $1517$) & rectangle \\
+\midrule
+winding number & $1$ each & $3033$ \\
+boundary pieces after bisection & $517{,}522$ & $65{,}157$ \\
+pieces per contour, min / median / max & $82$ / $297$ / $2365$ & --- \\
+\bottomrule
+\end{tabular}
+\caption{Size of the certified computation. Working precision is $128$ bits
+and the bisection depth limit is $40$. The whole run takes about $200$ seconds
+on one core of a laptop.}
+\label{tab:stats}
+\end{table}
+
+\subsection{Proof of Theorem~\ref{thm:main}}
+
+\emph{One zero per disc.} The only pole of $\zeta$ is at $s=1$, which is not in
+any $D_k$ because every point of $D_k$ has imaginary part at least
+$t_1-r_1>0$ by \ref{C3}. So $\zeta$ is holomorphic on a neighbourhood of
+$D_k$, and by \ref{C1} and the argument principle it has exactly one zero in
+$D_k$, counted with multiplicity. Since $r_k<t_k$, Corollary~\ref{cor:zeta}
+shows that this zero, call it $\rho_k$, is simple and lies on the critical
+line.
+
+\emph{The zeros are distinct and lie in $R$.} By \ref{C3} the discs are
+pairwise disjoint: consecutive centres are further apart than the sum of the
+radii, and the centres are collinear and ordered. Each $D_k$ lies in the open
+upper half-plane, in the strip $-0.1\le\sigma\le1.1$, and below height
+$2000$, hence in the interior of $R$. Because
+$\zeta(\conj{s})=\conj{\zeta(s)}$, the conjugates $\conj{\rho_k}$ are simple
+zeros lying in the reflected discs $\conj{D_k}$, which are in the open lower
+half-plane and in the interior of $R$. The $2N=3034$ discs $D_k$,
+$\conj{D_k}$ are pairwise disjoint, so $\zeta$ has at least $3034$ distinct
+zeros in $R$.
+
+\emph{There are no others.} The function $\zeta$ is meromorphic on a
+neighbourhood of $R$ with exactly one pole inside, the simple pole at $s=1$.
+By \ref{C2} and the argument principle, the number of zeros of $\zeta$ in $R$,
+counted with multiplicity, is $3033+1=3034$. The $3034$ simple zeros found
+above therefore exhaust them. All are simple and on the critical line.
+
+\emph{The last sentence.} Every zero of $\zeta$ with non-zero imaginary part
+satisfies $0\le\re s\le1$, so those with $0<\im s<2000$ lie in $R$. They are
+the zeros in $R$ with positive imaginary part, namely $\rho_1,\dots,\rho_N$.
+\qed
+
+\begin{remark}
+The proof never uses that $\zeta$ has no real zeros in $[-1,2]$. That fact is
+a consequence: a real zero in $R$ would be a $3035$th.
+\end{remark}
+
+\begin{remark}
+The count $1517$ is not an input. It is forced by \ref{C2}: if a zero had
+been missed, or if a disc had held two, the totals $2N$ and $3034$ would not
+agree and no conclusion would be drawn.
+\end{remark}
+
+\section{What must be trusted}\label{sec:trust}
+
+The mathematical argument above is complete. The computed facts
+\ref{C1}--\ref{C3} depend on the following.
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Ball arithmetic.} Enclosures are computed with Arb
+  \cite{JohanssonArb}, through its Python binding \path{python-flint}
+  $0.9.0$, at $128$ bits. In particular Arb's routine for $\zeta$ on a ball
+  (see \cite{JohanssonHurwitz} for the underlying error bounds) must return a
+  ball containing $\zeta(z)$ for every $z$ in the input ball, as must the
+  routines for division, the complex exponential and the argument. The
+  argument of this note does not depend on which algorithm Arb uses
+  internally to evaluate $\zeta$, only on the enclosure property.
+\item \textbf{The driver.} A script of about $250$ lines implements the
+  procedure of Section~\ref{sec:winding}. Its logic is the four steps listed
+  there.
+\item \textbf{The geometry check.} Fact \ref{C3} is verified by a separate
+  short script, named below, in exact rational arithmetic on the recorded
+  doubles. It also checks that every recorded
+  winding number is $1$ and that the rectangle's is $3033$.
+\end{enumerate}
+Neither Arb nor the script has been formally verified, and the certificate has
+not been checked in a proof assistant. The result should be read as a
+computer-assisted proof in the usual sense of interval arithmetic, not as a
+formal one.
+
+\paragraph{Reproduction.}
+\sloppy
+The script, its output and this note are in the repository
+\url{https://github.com/judegomila/zeta-explorer}, under
+\path{observatory/}: the script is
+\path{scripts/experiments/zero-line-certificate.py} and the full record of
+discs, windings and piece counts is
+\path{dist/experiments/zero-line-certificate.json}; the geometry check is
+\path{scripts/experiments/check-certificate-geometry.py}. The record carries the
+SHA-256 digest of the script that produced it and the identifier
+\path{zeta-zeros-below-2000-arb-v2}.
+
+\section{Limits and remarks}\label{sec:limits}
+
+\paragraph{Finite height.}
+Theorem~\ref{thm:main} says nothing about zeros with $|\im s|\ge2000$. No
+finite computation of this kind can prove the Riemann hypothesis.
+
+\paragraph{Cost.}
+The method is not a substitute for Turing's. It evaluates $\zeta$ on
+two-dimensional boxes along contours that pass near zeros, where the image of
+a box winds quickly and many bisections are needed. The number of boundary
+pieces per disc in Table~\ref{tab:stats} already shows this. Methods based on
+$Z(t)$ work on the line alone and scale to heights twelve orders of magnitude
+beyond ours.
+
+\paragraph{Close zeros.}
+The radii shrink with the gaps between zeros. The smallest gap below height
+$2000$ is about $0.0975$, giving a smallest radius of about $0.039$. At
+greater heights, close pairs of zeros would force very small discs and
+correspondingly fine subdivisions.
+
+\paragraph{Other symmetric functions.}
+Lemma~\ref{lem:trap} uses only the symmetry \eqref{eq:sym}. It therefore
+applies to any holomorphic function with that symmetry, for example to the
+functions obtained from $\xi$ by the de Bruijn--Newman heat flow, for which
+the question of when all zeros lie on the line is the question of the sign of
+the de Bruijn--Newman constant \cite{RodgersTao}. This note certifies nothing
+about those functions.
+
+\paragraph{Height $2000$.}
+The height was chosen because it is the limit of the evaluator in the
+accompanying viewer, so that every zero the viewer can display is covered by
+a recorded disc.
+
+\begin{thebibliography}{9}
+
+\bibitem{Brent}
+R.~P. Brent,
+\emph{On the zeros of the Riemann zeta function in the critical strip},
+Mathematics of Computation \textbf{33} (1979), 1361--1372.
+
+\bibitem{JohanssonHurwitz}
+F.~Johansson,
+\emph{Rigorous high-precision computation of the Hurwitz zeta function and
+its derivatives},
+Numerical Algorithms \textbf{69} (2015), 253--270.
+
+\bibitem{JohanssonArb}
+F.~Johansson,
+\emph{Arb: efficient arbitrary-precision midpoint-radius interval arithmetic},
+IEEE Transactions on Computers \textbf{66} (2017), 1281--1292.
+
+\bibitem{PlattTrudgian}
+D.~Platt and T.~Trudgian,
+\emph{The Riemann hypothesis is true up to $3\cdot10^{12}$},
+Bulletin of the London Mathematical Society \textbf{53} (2021), 792--797.
+arXiv:2004.09765.
+
+\bibitem{RodgersTao}
+B.~Rodgers and T.~Tao,
+\emph{The de Bruijn--Newman constant is non-negative},
+Forum of Mathematics, Pi \textbf{8} (2020), e6.
+arXiv:1801.05914.
+
+\bibitem{Turing}
+A.~M. Turing,
+\emph{Some calculations of the Riemann zeta-function},
+Proceedings of the London Mathematical Society (3) \textbf{3} (1953), 99--117.
+
+\end{thebibliography}
+
+\end{document}

@@ -34,7 +34,7 @@ export const HORIZON_DEFAULTS=Object.freeze({farField:false});
 // The far field runs a long way along t (where the zeros continue) and a
 // short way across σ: far left of the strip |ζ| grows without bound and the
 // relief would stand as a wall in front of the window.
-export const HORIZON_SCENE=Object.freeze({width:12,depth:16,reach:150,side:10,growth:1.1});
+export const HORIZON_SCENE=Object.freeze({width:12,depth:16,reach:150,side:10,growth:1.1,maxStep:.3});
 const inside=(x)=>x>=0&&x<=1;
 
 /** A grid cell lies inside the window (and is drawn by the main surface). */
@@ -47,9 +47,9 @@ export function distanceToWindow(u,v){
   return Math.hypot(dx,dz);
 }
 
-/** Display fade: 1 at the window, 0 at the reach. Smoothstep in distance. */
+/** Display fade: 1 out to 60% of the reach, then smoothstep to 0 just before it. */
 export function horizonFade(distance,reach=HORIZON_SCENE.reach){
-  const x=Math.max(0,Math.min(1,distance/(.92*reach)));
+  const x=Math.max(0,Math.min(1,(distance/reach-.6)/.36));
   return 1-x*x*(3-2*x);
 }
 

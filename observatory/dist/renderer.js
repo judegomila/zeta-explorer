@@ -235,6 +235,13 @@ export class ZetaScene {
     this.needsRender = true;
   }
 
+  updateHorizonFog() {
+    if (!this.horizonFog || this.scene.fog !== this.horizonFog) return;
+    const d = this.camera.position.distanceTo(this.controls.target);
+    this.horizonFog.near = d + 12;
+    this.horizonFog.far = d + .9 * this.horizonReach;
+  }
+
   buildHorizon() {
     if (!this.horizonGroup) return;
     disposeTree(this.horizonGroup);
@@ -243,6 +250,13 @@ export class ZetaScene {
     // The scene's own exponential fog is near zero by the far field's reach,
     // so the window keeps its usual look; the vertex fade below closes the edge.
     if (this.controls) this.controls.maxDistance = on ? 150 : 100;
+    // Linear fog that follows the camera: clear up to what you are looking at,
+    // fading only towards the far end of the reach, at any zoom.
+    this.baseFog ??= this.scene.fog;
+    this.horizonFog ??= new THREE.Fog(0x080e19, 1, 2);
+    this.horizonReach = on ? h.reach : 0;
+    this.scene.fog = on ? this.horizonFog : this.baseFog;
+    this.updateHorizonFog();
     if (!on) { this.needsRender = true; return; }
     const { nu, nv, u, v } = h, n = nu * nv;
     const positions = new Float32Array(3 * n), colors = new Float32Array(3 * n), bg = new THREE.Color(0x080e19);
@@ -253,7 +267,7 @@ export class ZetaScene {
       if (!h.valid[k]) continue;
       const c = this.colorPolar(h.logAbs[k], h.arg[k], NaN, h.sigma[k], h.t[k]).clone();
       // Slightly dimmer than the window, so the window stays the focus.
-      c.multiplyScalar(.78).lerp(bg, 1 - horizonFadeAt(u[i], v[j]));
+      c.multiplyScalar(.92).lerp(bg, 1 - horizonFadeAt(u[i], v[j]));
       colors[3 * k] = c.r; colors[3 * k + 1] = c.g; colors[3 * k + 2] = c.b;
     }
     const indices = [];
@@ -809,6 +823,7 @@ export class ZetaScene {
     if (this.state.packets && !this.state.packetPaused) this.packetTime += delta * (this.state.flowSpeed ?? 1);
     const elapsed = this.packetTime;
     const moved = this.controls.update();
+    if (moved) this.updateHorizonFog();
     if (this.packetTracks.length && this.state.packets) {
       for (const track of this.packetTracks) {
         const progress = ((track.phase + track.direction * elapsed * 0.055) % 1 + 1) % 1;

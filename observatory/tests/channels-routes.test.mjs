@@ -260,7 +260,7 @@ test('model routes open the twin ladder and the nucleus, share their controls, a
   for(const key of ['channelsMode','researchMode','dynamicsMode','infinityMode','dualMode','fiberMode'])assert.equal(state[key],'off',key);
   assert.equal(state.geometry,'plane');assert.equal(state.projective,false);assert.equal(state.packets,false);
   app.setState(state);assert.equal(app.shareViewName(),name);
-  const changed={...state,ladderCentre:.8,ladderOffset:.1,ladderHeight:21.02,ladderPrimes:25,ladderRungs:4,ladderWeight:'unit',nucleusZ:115,nucleusCoupling:1.5,nucleusPluck:3};
+  const changed={...state,ladderCentre:.8,ladderOffset:.1,ladderHeight:21.02,ladderPrimes:150,ladderRungs:12,ladderWeight:'unit',ladderBeta:3.2,ladderPressure:1.5,ladderSpaceMode:'difference',ladderSpan:35,ladderThermoObs:'entropy',nucleusZ:115,nucleusCoupling:1.5,nucleusPluck:3};
   const url=encodeViewURL(origin,{state:changed},{...app.config,name});
   const restored=decodeViewURL(url,app.config);assert.equal(restored.valid,true,restored.error);
   for(const key of Object.keys(modelsState.MODELS_DEFAULTS))assert.equal(restored.session.state[key],changed[key],key);
@@ -269,6 +269,7 @@ test('model routes open the twin ladder and the nucleus, share their controls, a
  // Out-of-range and non-integer values are clamped and rounded, unknown enums ignored.
  const wild=app.validate({modelsMode:'ladder',ladderCentre:9,ladderPrimes:7.6,ladderRungs:-2,ladderWeight:'x',nucleusZ:1e6,nucleusPluck:9});
  assert.equal(wild.ladderCentre,1.5);assert.equal(wild.ladderPrimes,8);assert.equal(wild.ladderRungs,1);assert.equal(wild.ladderWeight,'mangoldt');
+ assert.equal(app.validate({modelsMode:'ladder',ladderPrimes:500,ladderBeta:9,ladderSpaceMode:'x',ladderThermoObs:'y'}).ladderPrimes,168);
  assert.equal(wild.nucleusZ,126);assert.equal(wild.nucleusPluck,2);
  // A model mode wins over a stale workbench flag; choosing another view leaves the model.
  const mixed=app.validate({modelsMode:'nucleus',channelsMode:'newton',geometry:'klein',projective:true});

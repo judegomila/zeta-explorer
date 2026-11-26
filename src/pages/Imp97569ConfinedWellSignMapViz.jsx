@@ -160,8 +160,7 @@ export default function Imp97569ConfinedWellSignMapViz() {
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         boundary and sample below is reused verbatim from imp-97537. Assessment
         only &mdash; no operator positivity, no coercivity constant, no bound
-        moves; interval-rigorous reach stays 2a&le;0.96; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        moves; interval-rigorous reach stays 2a&le;0.96; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
@@ -199,8 +198,7 @@ export default function Imp97569ConfinedWellSignMapViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97537 sign-map boundaries and the baked
         lambda_min(T_a[sigma_2]) table verbatim. Establishes no operator
-        positivity; changes no bound; Platt-Trudgian Lambda&le;0.2 remains
-        SOTA; RH open; NO QED.
+        positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

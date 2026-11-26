@@ -196,7 +196,7 @@ export default function Imp96475EtruncSensitivityViz() {
         imp-96451 baked row literals verbatim (only the log10(factor) projection and reference
         line are computed here, no re-fit, no zeros-bundle import). Component-model
         curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no
-        operator positivity; RH open; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        operator positivity; RH open. NO QED.
       </div>
     </div>
   );

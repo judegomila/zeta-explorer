@@ -1,4 +1,5 @@
 import React from 'react';
+import { PROGRAM_STATUS_AS_OF, PROGRAM_STATUS_BY_ID } from '../data/program-status-current.js';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
@@ -49,9 +50,17 @@ export default function FormalizationStatusPage() {
           <code>formalization/lean-aristotle/</code>: the five permutation-calculus projects plus the
           waves-2–3 15-target ledger (closed 15/15), alongside the frozen-rung file set. Autoformalization
           caveat applies throughout: proofs are kernel-verified; statement faithfulness warrants referee review.
-          Live Aristotle jobs (2026-09): the y-thaw package's O1 obligation is at Aristotle (job38,
-          in progress) — status on the formalization thread at <code>/threads</code> and{' '}
-          <code>/frontier-dag</code>.
+          The theorem behind the y-thaw package's O1 obligation (job38, sharp-mass monotonicity) is
+          delivered and builds with no <code>sorry</code>, with gates G1–G4 as hypotheses
+          (<code>formalization/lean-aristotle/sharp_mass_monotonicity/</code>); the gate computation is not done,
+          so O1 stays open.
+        </p>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, maxWidth: 800, padding: '8px 12px', borderRadius: 7, border: '1px solid var(--hairline)' }}>
+          <strong>Added in November 2026 (as of {PROGRAM_STATUS_AS_OF}).</strong> {PROGRAM_STATUS_BY_ID['lean-november'].statement}{' '}
+          Files: <code>research-checkpoints/rh-push-2026-11-16/fleet-lanes/lean-harmonic-rh-push/</code> and{' '}
+          <code>research-checkpoints/rh-push-2026-11-16/fleet-lanes/b-lean-eq48/</code>. The Lean check of the
+          zero-free half-plane Re s &gt; 7/8 (openai/math, rebuilt locally) is recorded at{' '}
+          <code>formalization/external/openai-math-qrh-verification.md</code>.
         </p>
 
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>✓ Proved (sorry-free, axiom-audited)</h2>

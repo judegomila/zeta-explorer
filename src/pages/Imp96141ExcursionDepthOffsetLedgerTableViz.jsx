@@ -74,8 +74,7 @@ export default function Imp96141ExcursionDepthOffsetLedgerTableViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing table of the
         imp-96108 offset-space ledger, tabulating per-height offset(T), the offset headroom below the
         max anchor C0_max, and the excursion depth d_reach(T) needed to lift the mean cap up to the max
-        cap at that height. It changes no Lambda bound and establishes no operator positivity.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
+        cap at that height. It changes no Lambda bound and establishes no operator positivity. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
@@ -129,7 +128,7 @@ export default function Imp96141ExcursionDepthOffsetLedgerTableViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96108
         baked ledger verbatim (no re-derivation of the Selberg-subtracted offset or the Odlyzko-fitted
         sd(C&nbsp;&minus;&nbsp;E) literals). Changes no bound, establishes no operator positivity, no
-        RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        RH claim. NO QED.
       </div>
     </div>
   );

@@ -156,7 +156,7 @@ export default function Imp97212RouteMResidualSignMagnitudeViz() {
         The imp-97140 exponent string <code>{IMP97169_SIGN_LAW_LABELS.imp97140String}</code> is
         data-inconsistent; the sign matches the imp-97167-corrected{' '}
         <code>{IMP97169_SIGN_LAW_LABELS.imp97167CorrectedString}</code> form. This is a measurement
-        display, not a new bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        display, not a new bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
@@ -187,8 +187,7 @@ export default function Imp97212RouteMResidualSignMagnitudeViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97169 viz-data leaf (every value reused verbatim from imp-97140, no re-derivation).
-        Changes no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2
-        remains SOTA; RH open; NO QED.
+        Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

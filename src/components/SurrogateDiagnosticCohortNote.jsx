@@ -18,8 +18,7 @@ export default function SurrogateDiagnosticCohortNote() {
       This is a diagnostic re-fit of an inherited surrogate, NOT an RH bound; the component model is
       the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb GUE-conditional
       per imp-486 untouched; C_C 1/8 ansatz (imp-2642/imp-2643) untouched; changes no bound, no
-      operator positivity established; imp-3066 K_a&gt;=0 untouched; NO QED; Platt-Trudgian
-      Lambda&lt;=0.2 remains SOTA.
+      operator positivity established; imp-3066 K_a&gt;=0 untouched; NO QED.
     </>
   );
 }

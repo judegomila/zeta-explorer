@@ -117,7 +117,7 @@ export default function Imp97111RouteMReachConfidenceLadderViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> only the trace ceiling
         T &asymp; 2.594e7 is rigorous; F, M inherit non-rigorous extrapolations. The 1-percent
         rung (N_top &asymp; 2.01e7) reaches &asymp;49% of N* -- a downward extrapolation. Changes
-        no &Lambda; bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        no &Lambda; bound; no refereed bound is changed; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
@@ -150,8 +150,7 @@ export default function Imp97111RouteMReachConfidenceLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97111 viz-data leaf (every value reused verbatim from imp-97060, no re-derivation).
-        Changes no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2
-        remains SOTA; RH open; NO QED.
+        Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

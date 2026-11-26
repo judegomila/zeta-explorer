@@ -1,0 +1,91 @@
+#!/bin/bash
+# Push check for the public repository. Installed into .git/hooks by
+# scripts/install-engine-hooks.sh. git passes: $1 remote name, $2 remote URL,
+# and on stdin one line per ref: <local ref> <local sha> <remote ref> <remote sha>.
+#
+# Rules
+#   - main (and legacy-main) deploys to production and is never pushed from an
+#     engine. A person may push it only with ZETA_ALLOW_MAIN_PUSH=1 set for
+#     that one command; the normal route is a pull request.
+#   - In engine mode (ZETA_ENGINE=1, or the engine branch is checked out) the only accepted
+#     destination is refs/heads/$ENGINE_BRANCH on the expected repository,
+#     as a fast-forward. No tags, no deletions, no other remotes.
+#   - Every pushed range is checked again: deny list, allow-list (engine mode),
+#     sanitiser rules on added lines and commit messages, gitleaks.
+set -u
+export GIT_TRACE2_EVENT=0
+remote_name="${1:-}"; remote_url="${2:-}"
+root="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "pre-push: not in a git work tree"; exit 1; }
+cd "$root" || exit 1
+
+ENGINE_BRANCH="${ENGINE_BRANCH:-engine/work}"
+ENGINE_REPO_SLUG="${ENGINE_REPO_SLUG:-judegomila/zeta-explorer}"
+PROTECTED_RE='^refs/heads/(main|legacy-main)$'
+ZERO=0000000000000000000000000000000000000000
+
+mode=human
+cur="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+if [ "${ZETA_ENGINE:-0}" = "1" ] || [ "$cur" = "$ENGINE_BRANCH" ]; then mode=engine; fi
+
+fail=0
+reject() { echo "pre-push: REJECTED: $*" >&2; fail=1; }
+
+command -v node >/dev/null 2>&1 || reject "node not found; cannot run scripts/engine-guard.mjs"
+command -v gitleaks >/dev/null 2>&1 || reject "gitleaks not found (brew install gitleaks)"
+
+url_ok=0
+case "$remote_url" in
+  *github.com[:/]"$ENGINE_REPO_SLUG"|*github.com[:/]"$ENGINE_REPO_SLUG".git|*github.com[:/]"$ENGINE_REPO_SLUG"/) url_ok=1 ;;
+esac
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -n "${local_ref:-}" ] || continue
+
+  if printf '%s\n' "$remote_ref" | grep -Eq "$PROTECTED_RE"; then
+    if [ "$mode" = engine ]; then
+      reject "$remote_ref deploys to production; engines push only to refs/heads/$ENGINE_BRANCH"; continue
+    elif [ "${ZETA_ALLOW_MAIN_PUSH:-0}" != "1" ]; then
+      reject "$remote_ref deploys to production; open a pull request (or set ZETA_ALLOW_MAIN_PUSH=1 for this one command)"; continue
+    fi
+  fi
+
+  if [ "$mode" = engine ]; then
+    [ "$url_ok" = 1 ] || { reject "remote '$remote_name' ($remote_url) is not github.com/$ENGINE_REPO_SLUG"; continue; }
+    [ "$remote_ref" = "refs/heads/$ENGINE_BRANCH" ] || { reject "engines push only to refs/heads/$ENGINE_BRANCH, not $remote_ref"; continue; }
+    [ "$local_sha" != "$ZERO" ] || { reject "engines do not delete remote branches"; continue; }
+    if [ "$remote_sha" != "$ZERO" ] && ! git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; then
+      reject "not a fast-forward of $remote_ref (engines never force-push)"; continue
+    fi
+  fi
+
+  case "$remote_ref" in refs/tags/*)
+    # Local tags of the old working copy hold session transcripts (audit finding 1).
+    [ "${ZETA_ALLOW_TAG_PUSH:-0}" = "1" ] && [ "$mode" != engine ] || { reject "tags are not pushed from this clone ($remote_ref)"; continue; } ;;
+  esac
+
+  [ "$local_sha" != "$ZERO" ] || continue   # a deletion by a person: nothing to scan
+
+  if [ "$remote_sha" != "$ZERO" ] && git cat-file -e "$remote_sha^{commit}" 2>/dev/null; then
+    base="$remote_sha"
+  else
+    base="$(git merge-base "$local_sha" "refs/remotes/${remote_name:-origin}/main" 2>/dev/null || true)"
+    [ -n "$base" ] || { reject "cannot find a base for $remote_ref (fetch ${remote_name:-origin} main first)"; continue; }
+  fi
+  [ "$base" != "$local_sha" ] || continue
+
+  if command -v node >/dev/null 2>&1; then
+    node scripts/engine-guard.mjs range "$base" "$local_sha" --mode "$mode" || reject "content check failed for $base..$local_sha"
+  fi
+  if command -v gitleaks >/dev/null 2>&1; then
+    if gitleaks git --help >/dev/null 2>&1; then
+      gitleaks git --redact --no-banner --log-level error -c .gitleaks.toml --log-opts="$base..$local_sha" . || reject "gitleaks found a secret in $base..$local_sha"
+    else
+      gitleaks detect --redact --no-banner -c .gitleaks.toml --log-opts="$base..$local_sha" || reject "gitleaks found a secret in $base..$local_sha"
+    fi
+  fi
+done
+
+if [ "$fail" -ne 0 ]; then
+  echo "pre-push: nothing was pushed. Do not bypass with --no-verify." >&2
+fi
+exit "$fail"

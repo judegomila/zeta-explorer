@@ -270,7 +270,7 @@ export default function VizFreezeFlowPage() {
             the normal-form value {MODULUS_LAST.toFixed(6)} keeps 26% more margin under Rex. Data grade:{' '}
             <strong>measured</strong> (dd evaluation, telescope identity to 2.6×10⁻¹⁴, cross-checked against the
             independent eval_E97 path). The picture proves no bound and makes no RH claim; it renders one ordering
-            lemma with one real data point. Λ ≤ 0.2 (Platt–Trudgian) remains the rigorous benchmark. NO QED.
+            lemma with one real data point. NO QED.
           </p>
         </div>
 

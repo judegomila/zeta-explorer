@@ -147,8 +147,7 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating the imp-95445 record. It compares two independent valid
-        every-octave certificates on a common off-lattice draw and changes no bound.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
+        every-octave certificates on a common off-lattice draw and changes no bound. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -237,7 +236,7 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
         firing depth. The two legs use different model Gram conventions, so "min" is a
         firing-depth comparison of two independent valid upper bounds, not a unified
         single certificate. Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

@@ -71,7 +71,7 @@ scripts/queue-index.json nextImprovementId for the id; do NOT read the full file
     summary: "...", files: [...], detail: "2-3 sentences",
     model: "fable-5", channel: "fable" },
 
-7. Create a git commit with a descriptive message that states clearly whether this was
+7. Commit with scripts/engine-commit.sh, naming every file you changed (see COMMIT PROTOCOL below), with a descriptive message that states clearly whether this was
 a RIGOROUS step or an honest PARTIAL. Never imply a closure that did not happen.'
 
 IMPROVE_PROMPT="You are the FABLE-5 FRONTIER tier of the ZPO Explorer / RH-attack engine — the
@@ -88,6 +88,16 @@ RULES:
 - This residual is DETERMINISTIC, not RH-hard — but do not overstate what one step buys.
 $PROMPT_COMMON_RULES_SUFFIX"
 
+# Public-repository safety: start-up check and commit protocol
+# (see CONTRIBUTING.md, "Automated engines and agents").
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-prompt-shared.sh"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+IMPROVE_PROMPT="$IMPROVE_PROMPT
+
+$PROMPT_COMMIT_PROTOCOL"
+
 mkdir -p "$LOG_DIR"
 
 # imp-95023: crash-checkpoint. A frontier turn dies mid-chain (SIGTERM from the
@@ -97,19 +107,27 @@ mkdir -p "$LOG_DIR"
 # run resumes from it instead of a partial tree being silently clobbered. It is
 # armed ONLY around the live claude invocation (set in run_once, cleared right
 # after) so normal status/oneshot exits never fire it, and it commits ONLY when
-# the tree is actually dirty. Shared-worktree caveat (see the concurrent-engine
-# memory): git add -A can sweep a sibling engine mid-write into the checkpoint --
-# accepted here because this only runs on abnormal death, the same window in
-# which orphaned work is otherwise lost; the label makes such commits auditable.
+# the tree is actually dirty.
+#
+# Public repository: the checkpoint no longer stages with `git add -A`. It goes
+# through scripts/engine-commit.sh, naming the research directories only, so it
+# can contain nothing outside the engine allow-list (no tmp/, logs, state or
+# .env files) and passes the same sanitiser and hooks as any other commit. If
+# any file under those directories is not committable, the helper rejects the
+# whole checkpoint and the work simply stays in the working tree, uncommitted.
+# Shared-worktree caveat (unchanged): the named directories can include a
+# sibling engine's uncommitted files; this runs only on abnormal death and the
+# label makes such commits auditable.
+_FABLE_CHECKPOINT_PATHS=(src formalization native rust rigorous lean research research-checkpoints research-inputs IMPROVEMENTS.md)
 _fable_checkpoint() {
   local st=$?
   cd "$PROJECT_DIR" 2>/dev/null || return "$st"
-  if ! git diff --quiet 2>/dev/null \
-     || ! git diff --cached --quiet 2>/dev/null \
-     || [ -n "$(git ls-files --others --exclude-standard 2>/dev/null)" ]; then
-    git add -A 2>/dev/null || true
-    git commit -m "engine-died checkpoint (fable, imp-95023): preserve mid-run work (exit $st)" \
-      >> "$LOG_DIR/checkpoint.log" 2>&1 || true
+  local present=() p
+  for p in "${_FABLE_CHECKPOINT_PATHS[@]}"; do [ -e "$p" ] && present+=("$p"); done
+  if [ "${#present[@]}" -gt 0 ] && [ -n "$(git status --porcelain -- "${present[@]}" 2>/dev/null)" ]; then
+    "$SCRIPT_DIR/engine-commit.sh" \
+      -m "engine-died checkpoint (fable, imp-95023): preserve mid-run work (exit $st)" \
+      -- "${present[@]}" >> "$LOG_DIR/checkpoint.log" 2>&1 || true
   fi
   return "$st"
 }
@@ -122,6 +140,13 @@ run_once() {
 
   node "$SCRIPT_DIR/build-queue-index.mjs" >> "$log_file" 2>&1 || true
   local pre_run_sha; pre_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
+
+  # Public-repository safety: re-check before every model turn.
+  if ! engine_preflight >> "$log_file" 2>&1; then
+    echo "PREFLIGHT REFUSED: no model turn this run (see $log_file)" | tee -a "$log_file"
+    echo "$log_file"
+    return 78
+  fi
 
   if ! command -v claude &>/dev/null; then
     echo "ERROR: 'claude' CLI not found in PATH" | tee -a "$log_file"
@@ -177,8 +202,8 @@ do_start() {
       fi
       # auto-push every 3 runs
       if [ "$((run_count % 3))" -eq 0 ]; then
-        unpushed=$(git -C "$PROJECT_DIR" log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
-        [ "${unpushed:-0}" -gt 0 ] && git -C "$PROJECT_DIR" push >> "$lf" 2>&1 || true
+        unpushed=$(engine_unpushed_count)
+        [ "${unpushed:-0}" -gt 0 ] && "$SCRIPT_DIR/engine-push.sh" >> "$lf" 2>&1 || true
       fi
       [ "$run_count" -lt "$MAX_RUNS" ] && sleep $((INTERVAL + extra))
     done
@@ -217,10 +242,10 @@ do_status() {
 }
 
 case "${1:-}" in
-  start)   do_start ;;
+  start)   engine_preflight || { echo "Engine NOT started: start-up check refused (see above)."; exit 1; }; do_start ;;
   stop)    do_stop ;;
   status)  do_status ;;
-  oneshot) do_oneshot ;;
+  oneshot) engine_preflight || { echo "Oneshot NOT run: start-up check refused (see above)."; exit 1; }; do_oneshot ;;
   *)
     echo "Usage: $0 {start|stop|status|oneshot}"
     echo "  oneshot - ONE Fable-5 deep run on the multi-body isolation constant (recommended first)"

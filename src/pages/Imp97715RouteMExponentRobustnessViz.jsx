@@ -80,8 +80,7 @@ export default function Imp97715RouteMExponentRobustnessViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97687 robustness bands verbatim (no re-derivation, no new
-        computation). Changes no bound; MCM stays refuted from omega=11; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        computation). Changes no bound; MCM stays refuted from omega=11; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

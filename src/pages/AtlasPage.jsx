@@ -99,7 +99,7 @@ const FRONTIER_CARDS = [
   {
     title: 'y-thaw · the 0.17759432 package',
     grade: 'candidate-unrefereed',
-    body: 'A delivered-face y-thaw of the sealed 0.1787854 candidate (129/800 + 0.1808²/2). Obligations O3/O5 certified across three integrators; O1/O2/O4/O6 open (O1 at Aristotle). A package value, not a bound.',
+    body: 'A delivered-face y-thaw of the sealed 0.1787854 candidate (129/800 + 0.1808²/2). 2 of 6 obligations closed (O3, O5, certified across three integrators); O1, O2, O4, O6 open (record of 2026-09-22) (the theorem behind O1 is Lean-checked with gates G1–G4 as hypotheses). A package value, not a bound.',
     links: [{ to: '/threads', label: 'Research threads' }, { to: '/frontier-dag', label: 'Frontier DAG' }],
   },
   {
@@ -141,7 +141,7 @@ const FRONTIER_CARDS = [
   {
     title: 'Signed twin ladder ↔ Catalan’s constant',
     grade: 'prose-proof',
-    body: 'The twin ladder’s χ₄-signed sibling has value G = β(2) = L(2,χ₄) (verified: Σχ₄(n)/n²=G, signed Euler product, "sign flip at p=2" = rung deletion). The same P̃₁ device that isolates ζ(2)/ζ(3) into a 2-period space lands G in a 5-period space ⟨1,G,π,π²,ln2⟩ — the π-column forced by the χ₄ functional equation. G irrationality remains OPEN; the Λ-core gives no lever.',
+    body: 'The twin ladder’s χ₄-signed sibling has value G = β(2) = L(2,χ₄) (verified: Σχ₄(n)/n²=G, signed Euler product, "sign flip at p=2" = rung deletion). The same P̃₁ device that isolates ζ(2)/ζ(3) into a 2-period space gives G − π + 2ln2 + π²/12, with five generators ⟨1,G,π,π²,ln2⟩. This count is not an obstruction (the solved conductor-3 case also gives five) and the π term is not forced (G − 3 + 3ln2 occurs in the same kernel family). G irrationality remains OPEN; the Λ-core gives no lever.',
     links: [{ to: '/catalan-signed-ladder', label: 'The signed ladder & the period wall' }, { to: '/diagrams', label: 'Section geometry' }],
   },
 ];

@@ -142,7 +142,7 @@ export default function Imp95319SplitRzVsSplitLooCollarViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model-family numeric
         illustration, not a new theorem. It changes no Lambda bound and establishes no operator
-        positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
+        positivity. RH does not
         follow from anything on this page. NO QED.
       </div>
 
@@ -198,7 +198,7 @@ export default function Imp95319SplitRzVsSplitLooCollarViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95319 baked viz-data (values recomputed independently from the imp-95249 LEMMA ANG-DET
         fence definition and the imp-95252 aBlkRho2R13 constant). Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

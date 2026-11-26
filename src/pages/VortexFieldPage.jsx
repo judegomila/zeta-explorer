@@ -10,7 +10,7 @@ import { ED, alpha } from '../styles/tokens.js';
  * The logarithmic derivative V(s) = xi'(s)/xi(s) (the Newman flow's phase
  * gradient, the analogue of V_t = H_t'(z)/H_t(z)) has a SIMPLE POLE at every
  * zero rho_k of xi -- a PHASE VORTEX. Around each, the winding number
- *   (1/2pi) oint_gamma V(s) . ds = +1
+ *   (1/(2pi i)) oint_gamma V(s) ds = +1
  * is exactly the argument principle: one enclosed zero per +1 of winding.
  *
  * We domain-color arg H(s) for the faithful local model H(s) = prod_k (s - rho_k)
@@ -19,7 +19,8 @@ import { ED, alpha } from '../styles/tokens.js';
  * sits on the critical line Re s = 1/2 -- a vertical row. Lower the heat-time
  * (the slider) and the real backward Dyson/Calogero-Moser flow attracts the
  * closest pair until it COLLIDES and leaves the line: an OFF-AXIS VORTEX, i.e.
- * an off-axis zero -- an RH violation. "Vortex exclusion" is exactly RH.
+ * an off-axis zero of this finite heat model. Only an off-axis zero of the
+ * undeformed Riemann xi function would violate RH.
  *
  * CEILING (per the project's route map + supercritical-winding-experiment):
  * the winding / vortex-exclusion picture re-derives Lambda >= 0 (Rodgers-Tao) and
@@ -466,10 +467,14 @@ export default function VortexFieldPage() {
             <strong>phase vortex</strong> — at every zero ρ. The phase{' '}
             <code>arg H(s)</code> winds once around each, so{' '}
             <strong>zeros ⟷ vortices</strong> with winding{' '}
-            <code>(1/2π)∮V·ds = +1</code>. Under RH every vortex sits on the critical
+            <code>(1/(2πi))∮V ds = +1</code>. Under RH every vortex of undeformed ξ sits on the critical
             line <code>Re s = ½</code>. Lower the heat-time and the real backward
             Dyson/Calogero-Moser flow attracts the closest pair until it collides and
-            leaves the line — an <em>off-axis zero</em> (an RH violation).
+            leaves the line in this finite model. Such a model collision does not establish an off-axis zero of the undeformed Riemann function.
+          </p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '12px 0 0', lineHeight: 1.6 }}>
+            <Link to="/sign-switching">Explore sign switching and bridge energy →</Link>{' '}
+            Link the local negative shear half-disk to its first-modal diameter, then compare the even and odd energies of the full Ξ boundary kernel.
           </p>
         </header>
 
@@ -537,7 +542,7 @@ export default function VortexFieldPage() {
               </div>
               <div style={{ fontSize: 11, color: offAxis ? 'var(--terra-dk)' : 'var(--green)', marginTop: 6 }}>
                 {offAxis
-                  ? `Backward Dyson flow: the closest pair COLLIDED at local heat-time t_c ≈ ${flow.collisionT.toFixed(3)} and left the line as an off-axis conjugate pair (σ = ½ ± δ) — an RH violation.`
+                  ? `Finite backward Dyson model: the closest pair COLLIDED at local heat-time t_c ≈ ${flow.collisionT.toFixed(3)} and left the line as an off-axis conjugate pair (σ = ½ ± δ). This is a model collision, not an RH counterexample.`
                   : `Forward Dyson flow: every zero on Re s = ½ (min height-gap ${flow.minGapNow.toFixed(3)}). Lower t to attract the closest (gold) pair toward collision.`}
               </div>
               <div style={{ fontSize: 10.5, color: 'var(--faint)', marginTop: 5, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
@@ -559,8 +564,8 @@ export default function VortexFieldPage() {
         <div className="card" style={{ marginTop: 20 }}>
           <h3 style={{ marginTop: 0, color: 'var(--brass-dk)' }}>What you're looking at — and the ceiling</h3>
           <ul style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
-            <li><strong>Vortices = zeros.</strong> Each colored singularity where all hues meet is a zero ρ of ξ; the phase winds +1 around it (the argument principle).</li>
-            <li><strong>Vortex exclusion ⟺ RH.</strong> Under RH every vortex lies on the dashed line Re s = ½. An off-axis vortex (terracotta) is an off-axis zero — exactly an RH violation.</li>
+            <li><strong>Vortices = zeros.</strong> Each colored singularity is a zero of the displayed finite product; its phase winds +1 around a simple zero (the argument principle). The initial zero locations approximate known zeros of ξ.</li>
+            <li><strong>Vortex exclusion ⟺ RH for undeformed ξ.</strong> RH says that every zero of the undeformed Riemann function lies on Re s = ½. Off-axis vortices produced by this finite heat model illustrate a permitted collision mechanism; they do not contradict RH.</li>
             <li><strong>Heat flow.</strong> The de Bruijn–Newman flow <code>H_t</code> drags vortices toward the line as t increases; Λ is the time below which off-axis vortices first appear. This is the same winding order parameter as the <Link to="/route-map">route map</Link>'s supercritical-winding thread.</li>
             <VizCeilingNote claim="Λ ≥ 0 (and makes RH visible)" />
           </ul>
@@ -585,3 +590,4 @@ export default function VortexFieldPage() {
     </div>
   );
 }
+

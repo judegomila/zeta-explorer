@@ -250,7 +250,7 @@ export default function VizWindowLandscapePage() {
             only <em>certified</em> statement on this window (imp-95213: outward-rounded Taylor balls, both charts,
             0 failures on u ∈ [{CERTIFIED_SLICE.uLo}, {CERTIFIED_SLICE.uHi}]). The window-1 full continuum run
             (W1-CERT, tier-2) is in progress; 54,109,011 windows lie beyond window 1 either way. No bound is proved
-            here, no RH claim; Platt–Trudgian Λ ≤ 0.2 remains SOTA. NO QED.
+            here, no RH claim. NO QED.
           </p>
         </div>
 

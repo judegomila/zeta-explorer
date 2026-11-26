@@ -11,15 +11,22 @@
 //   X(w) = 8 integral_0^infinity Phi(u) cosh(2wu) du.
 // Thus the fitted negative pivots and any "cone boundary" language describe
 // only the historical surrogate. They are INVALID FOR T3 and cannot constrain
-// the exact Riemann kernel. A correctly normalized 60-digit four-node numerical
-// check is positive, but is not a proof.
+// the exact Riemann kernel. The historical record reports a positive 60-digit
+// canonical four-node numerical check, not replayed here and not a proof.
+// The normalization mismatch itself already invalidates the surrogate transfer.
 //
-// The kernel, quadrature and LDL^T certificate are identical to
-// scripts/compute-imp-2424-Ka-tp-certificate.mjs (re-derived inline so this
-// script is self-contained). The historical numbers are retained for
-// reproducibility, with all exact-kernel inference retracted.
+// NUMERICAL SAFETY CORRECTION (2026-11-01)
+// The old inline sign flip / zero-pivot / nonfinite handling is invalidated.
+// This producer now reuses finite diagnostics from imp-2424's safety repair.
+// Its historical values remain in the data record, not as verified evidence.
+// No corrected full sweep has been replayed as part of this safety repair.
+// Neither floating LDL diagnostics nor a finite OLS fit is a certificate.
 
 import { performance } from 'node:perf_hooks';
+import { pathToFileURL } from 'node:url';
+import {
+  diagnoseMatrix, summarizeDiagnostics, pivotMagnitudeLogLogSlope,
+} from './lib/ka-matrix-diagnostics.mjs';
 
 // Historical imp-2424 surrogate (not the canonical completed-Riemann Phi).
 const N_PHI = 10;
@@ -49,10 +56,11 @@ function buildQuad() {
   }
   return { h, u, w };
 }
-const QUAD = buildQuad();
+let QUAD;
+function getQuad() { return QUAD ??= buildQuad(); }
 
 function precomputeForA(a) {
-  const { u } = QUAD;
+  const { u } = getQuad();
   const pc = new Float64Array(NU + 1);
   const ps = new Float64Array(NU + 1);
   for (let i = 0; i <= NU; i++) {
@@ -64,7 +72,7 @@ function precomputeForA(a) {
 }
 
 function channels(z, pc, ps) {
-  const { h, u, w } = QUAD;
+  const { h, u, w } = getQuad();
   let A = 0, B = 0, Ap = 0, Bp = 0;
   for (let i = 0; i <= NU; i++) {
     const zu = z * u[i];
@@ -77,24 +85,6 @@ function channels(z, pc, ps) {
   }
   const k = h / 3;
   return { A: A * k, B: B * k, Ap: Ap * k, Bp: Bp * k };
-}
-
-// symmetric LDL^T pivots (no pivoting); leading minors are prod of pivots.
-function ldlPivots(G, n) {
-  const L = Array.from({ length: n }, () => new Float64Array(n));
-  const d = new Float64Array(n);
-  for (let j = 0; j < n; j++) {
-    let sum = G[j][j];
-    for (let k = 0; k < j; k++) sum -= L[j][k] * L[j][k] * d[k];
-    d[j] = sum;
-    L[j][j] = 1;
-    for (let i = j + 1; i < n; i++) {
-      let s = G[i][j];
-      for (let k = 0; k < j; k++) s -= L[i][k] * L[j][k] * d[k];
-      L[i][j] = d[j] !== 0 ? s / d[j] : 0;
-    }
-  }
-  return d;
 }
 
 function gramMatrix(n, pre, halfSpan) {
@@ -119,71 +109,90 @@ function gramMatrix(n, pre, halfSpan) {
   return { G, z };
 }
 
-// Returns the SIGNED smallest leading principal minor and smallest pivot of the
-// diagonal-normalized correlation matrix C (unit |diagonal|), which isolates
-// genuine sign from conditioning.
-function normalizedMargin(G, n) {
-  for (let i = 0; i < n; i++)
-    for (let j = i + 1; j < n; j++) {
-      const m = 0.5 * (G[i][j] + G[j][i]);
-      G[i][j] = G[j][i] = m;
-    }
-  let diagPos = 0, diagNeg = 0;
-  for (let i = 0; i < n; i++) (G[i][i] >= 0 ? diagPos++ : diagNeg++);
-  const orient = diagNeg > diagPos ? -1 : 1;
-  const Go = orient === 1 ? G : G.map((r) => r.map((x) => -x));
-
-  const C = Array.from({ length: n }, () => new Float64Array(n));
-  for (let i = 0; i < n; i++)
-    for (let j = 0; j < n; j++)
-      C[i][j] = Go[i][j] / Math.sqrt(Math.abs(Go[i][i]) * Math.abs(Go[j][j]));
-
-  const d = ldlPivots(C, n);
-  let minPiv = Infinity, negPivots = 0;
-  let minor = 1, minMinorSigned = 1;
-  for (let i = 0; i < n; i++) {
-    if (d[i] < minPiv) minPiv = d[i];
-    if (d[i] <= 0) negPivots++;
-    minor *= d[i];
-    if (Math.abs(minor) < Math.abs(minMinorSigned)) minMinorSigned = minor;
-  }
-  return { minPivotSigned: minPiv, negativePivots: negPivots,
-           smallestMinorSigned: minMinorSigned, isPD: negPivots === 0 };
-}
-
-// Fit y = log|margin| against x = log n by ordinary least squares; return the
-// slope (decay exponent -p) and intercept. Also report the predominant sign of
-// the signed margins (to decide which side of the cone the limit approaches).
-function powerLawFit(series) {
-  const pts = series.filter((s) => Number.isFinite(s.margin) && s.margin !== 0);
-  if (pts.length < 2) return null;
-  const xs = pts.map((s) => Math.log(s.n));
-  const ys = pts.map((s) => Math.log(Math.abs(s.margin)));
-  const mx = xs.reduce((p, q) => p + q, 0) / xs.length;
-  const my = ys.reduce((p, q) => p + q, 0) / ys.length;
-  let num = 0, den = 0;
-  for (let i = 0; i < xs.length; i++) { num += (xs[i] - mx) * (ys[i] - my); den += (xs[i] - mx) ** 2; }
-  const slope = den !== 0 ? num / den : null;
-  const intercept = slope !== null ? my - slope * mx : null;
-  // residual R^2 of the log-log fit
-  let ssTot = 0, ssRes = 0;
-  for (let i = 0; i < ys.length; i++) {
-    ssTot += (ys[i] - my) ** 2;
-    const pred = intercept + slope * xs[i];
-    ssRes += (ys[i] - pred) ** 2;
-  }
-  const r2 = ssTot !== 0 ? 1 - ssRes / ssTot : null;
-  const allNeg = pts.every((s) => s.margin < 0);
-  const allPos = pts.every((s) => s.margin > 0);
+// Pure finite-matrix adapter. Keep the raw and normalized results distinct.
+// The helper uses positive diagonal congruence; it never changes G to -G.
+export function normalizedMargin(G) {
+  const diagnostic = diagnoseMatrix(G);
+  const normalized = diagnostic.normalized;
   return {
-    decayExponent: slope !== null ? -slope : null, // p in |margin| ~ C n^{-p}
-    coefficient: intercept !== null ? Math.exp(intercept) : null,
-    logLogR2: r2,
-    marginSign: allNeg ? -1 : allPos ? 1 : 0,
+    ...normalized,
+    minPivotSigned: normalized.minPivot,
+    smallestMinorSigned: normalized.smallestLeadingMinor,
+    isPD: normalized.isPositiveDefinite,
+    margin: normalized.minPivot,
+    raw: diagnostic,
+    normalized,
   };
 }
 
-function main() {
+// Finite OLS diagnostic only. Any missing/invalid cell blocks the fit;
+// there is no silent removal of failed cells and no inferred continuum limit.
+export function powerLawFit(series) {
+  if (!Array.isArray(series) || series.length < 2 ||
+      series.some(s => !s || !s.normalized)) return null;
+  const slope = pivotMagnitudeLogLogSlope(series);
+  if (slope === null) return null;
+  const xs = series.map(s => Math.log(s.n));
+  const ys = series.map(s => Math.log(Math.abs(s.normalized.minPivot)));
+  const mx = xs.reduce((p, q) => p + q, 0) / xs.length;
+  const my = ys.reduce((p, q) => p + q, 0) / ys.length;
+  const intercept = my - slope * mx;
+  const coefficient = Math.exp(intercept);
+  if (!Number.isFinite(coefficient) || coefficient === 0) return null;
+  let ssTot = 0, ssRes = 0;
+  for (let i = 0; i < ys.length; i++) {
+    ssTot += (ys[i] - my) ** 2;
+    ssRes += (ys[i] - (intercept + slope * xs[i])) ** 2;
+  }
+  const r2 = ssTot === 0 ? null : 1 - ssRes / ssTot;
+  if (r2 !== null && !Number.isFinite(r2)) return null;
+  const allNeg = series.every(s => s.normalized.minPivot < 0);
+  const allPos = series.every(s => s.normalized.minPivot > 0);
+  return {
+    status: 'finite-log-log-diagnostic', rigorous: false,
+    pointCount: series.length,
+    decayExponent: slope === 0 ? 0 : -slope,
+    coefficient, logLogR2: r2,
+    marginSign: allNeg ? -1 : allPos ? 1 : 0,
+    continuumInference: null,
+    scope: 'Descriptive fit of finite pivot magnitudes, not an asymptotic law, eigenvalue gap or positivity bound.',
+  };
+}
+
+export function summarizeRows(rows) {
+  const validRows = Array.isArray(rows) && rows.length > 0 &&
+    Array.from(rows).every(r => r && Array.isArray(r.series) && r.series.length > 0 &&
+      Array.from(r.series).every(s => s && s.normalized));
+  const cells = validRows ? rows.flatMap(r => r.series) : [];
+  const diagnostics = cells.map(s => s?.normalized);
+  const numerical = summarizeDiagnostics(diagnostics);
+  const complete = validRows &&
+    numerical.status === 'complete-numerical-diagnostics' &&
+    cells.every(s => Number.isFinite(s.normalized.minPivot));
+  const exponents = validRows ? rows.map(r => r.fit?.decayExponent) : [];
+  const allFitsAvailable = complete && exponents.every(Number.isFinite);
+  const sorted = allFitsAvailable ? [...exponents].sort((a, b) => a - b) : [];
+  const middle = Math.floor(sorted.length / 2);
+  const median = !sorted.length ? null : sorted.length % 2 ?
+    sorted[middle] : sorted[middle - 1] / 2 + sorted[middle] / 2;
+  return {
+    numerical,
+    allExpectedCellsDiagnosed: complete,
+    everyCompletedFiniteMarginNonpositive: complete ?
+      cells.every(s => s.normalized.minPivot <= 0) : null,
+    finiteFitMedianDecayExponent: median,
+    // Legacy fields are withdrawn, not false claims of the opposite verdict.
+    everyCellMarginNegativeOrZero: null,
+    allCellsMarginalOrPositive: null,
+    anyBoundedAwayNegative: null,
+    anyStrictlyPositiveFloor: null,
+    medianDecayExponent: null,
+    continuumStatus: 'not-inferred',
+    scope: 'Finite floating matrix diagnostics only; incomplete cells remain unknown and no continuum floor or limit follows.',
+  };
+}
+
+export function main() {
   const t0 = performance.now();
   // finer a-grid (12 values, geometric-ish spread) and larger n.
   const A_VALUES = [0.05, 0.1, 0.2, 0.35, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0];
@@ -196,51 +205,45 @@ function main() {
     const series = [];
     for (const n of N_VALUES) {
       const { G } = gramMatrix(n, pre, HALF_SPAN);
-      const m = normalizedMargin(G, n);
+      const m = normalizedMargin(G);
       series.push({
         n,
+        status: m.status,
+        reason: m.reason,
+        rigorous: false,
         minPivotSigned: m.minPivotSigned,
         smallestMinorSigned: m.smallestMinorSigned,
         negativePivots: m.negativePivots,
         isPD: m.isPD,
-        // The smallest SIGNED normalized pivot is the conditioning-robust margin
-        // (Sylvester: sign changes of the leading minors are governed by the
-        // pivots). The product-of-pivots minor underflows to 0 for large n and
-        // measures conditioning, not sign, so it is unusable as the margin.
-        margin: m.minPivotSigned,
+        margin: m.margin,
+        raw: m.raw,
+        normalized: m.normalized,
       });
     }
     const fit = powerLawFit(series);
-    // Power-law fit of the SURROGATE signed margin. It has no exact-kernel
-    // continuum interpretation.
     const last = series[series.length - 1];
-    let limitVerdict = 'inconclusive';
-    if (fit && fit.decayExponent !== null) {
-      if (fit.decayExponent > 0.15 && fit.marginSign === -1) limitVerdict = 'surrogate-marginal-fit';
-      else if (fit.decayExponent > 0.15 && fit.marginSign === 1) limitVerdict = 'surrogate-positive-shrinking';
-      else if (fit.marginSign === 1) limitVerdict = 'surrogate-positive';
-      else if (fit.marginSign === -1) limitVerdict = 'surrogate-bounded-negative';
-    }
     rows.push({
       a,
       series,
       fit,
       largestNMarginSigned: last.margin,
-      limitVerdict,
+      limitVerdict: 'not-inferred-from-finite-diagnostics',
     });
   }
-
-  const allMarginal = rows.every((r) =>
-    r.limitVerdict === 'surrogate-marginal-fit' || r.limitVerdict === 'surrogate-positive');
-  const anyBoundedNeg = rows.some((r) => r.limitVerdict === 'surrogate-bounded-negative');
-  const anyPositiveFloor = rows.some((r) =>
-    r.limitVerdict === 'surrogate-positive' || r.limitVerdict === 'surrogate-positive-shrinking');
 
   const out = {
     ticket: 'imp-2456',
     builtOn: 'imp-2424 (scripts/compute-imp-2424-Ka-tp-certificate.mjs)',
     status: 'SURROGATE / INVALID FOR T3',
     kernelModel: 'historical-surrogate-normalization',
+    numericalAlgorithm: 'sign-preserving-validated-floating-LDL',
+    rigorous: false,
+    proofClaim: false,
+    historicalDiagnostics: {
+      status: 'invalidated-pre-correction-not-current-evidence',
+      reason: 'Old orientation flip, zero-pivot substitution and nonfinite comparisons invalidated the diagnostic contract.',
+      correctedSweepDuringSafetyRepair: 'not-rerun',
+    },
     appliesToExactRiemannKernel: false,
     kernel: 'surrogate Wronskian matrix inherited from imp-2424',
     normalizationAudit: {
@@ -251,6 +254,7 @@ function main() {
     },
     correctedCanonicalFourNodeNumericalCheck: {
       status: 'positive-numerical-only',
+      provenance: 'Stored historical claim, not computed or replayed by this producer.',
       rigorous: false,
       precisionDigits: 60,
       a: 0.5,
@@ -263,28 +267,19 @@ function main() {
         1.4487899474e-7,
       ],
     },
-    quantity: 'smallest signed pivot of the SURROGATE diagonal-normalized matrix',
+    quantity: 'finite floating minimum pivot of the sign-preserving SURROGATE diagonal congruence, when available',
     grid: { halfSpan: HALF_SPAN },
     quadrature: { uMax: U_MAX, nodes: NU, rule: 'composite Simpson' },
     aValues: A_VALUES,
     nValues: N_VALUES,
     rows,
-    summary: {
-      everyCellMarginNegativeOrZero: rows.every((r) => r.series.every((s) => s.margin <= 1e-12)),
-      allCellsMarginalOrPositive: allMarginal,
-      anyBoundedAwayNegative: anyBoundedNeg,
-      anyStrictlyPositiveFloor: anyPositiveFloor,
-      medianDecayExponent: (() => {
-        const ps = rows.map((r) => r.fit && r.fit.decayExponent).filter((x) => Number.isFinite(x)).sort((x, y) => x - y);
-        return ps.length ? ps[Math.floor(ps.length / 2)] : null;
-      })(),
-    },
+    summary: summarizeRows(rows),
     elapsedMs: Math.round(performance.now() - t0),
     scope:
-      'SURROGATE FIT ONLY. No negative-minor or PSD-cone-boundary inference ' +
+      'FINITE SURROGATE DIAGNOSTICS ONLY. No continuum limit or floor is inferred. No negative-minor or PSD-cone-boundary inference ' +
       'applies to exact K_a or T3; no B_a^+, Lambda, or RH conclusion follows.',
   };
   process.stdout.write(JSON.stringify(out, null, 2) + '\n');
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

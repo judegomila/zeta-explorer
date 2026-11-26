@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { ED, STATUS as TK_STATUS } from '../styles/tokens.js';
@@ -707,7 +708,7 @@ const SEAM_CHAIN_STATUS = {
     'to build (imp-95276).',
     'Net: obligation (1) closed, obligation (2) open at the transcription layer, ' +
     'obligation (3) reduced to (1) + the imp-95212 port. Nothing here derives or moves a ' +
-    'bound; Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark.',
+    'bound; no refereed bound is changed.',
   ],
 };
 
@@ -2658,7 +2659,9 @@ const DYSON_LANE_RESIDUALS = [
     status: 'CLOSED (closed form)',
     body: [
       'The global asymmetric multi-body isolation constant c_glob is defined as the infimum of ' +
-      'all worsening-onset values rho(c) over all asymmetric multi-body environments. ' +
+      'all worsening-onset values rho(c) over all asymmetric multi-body environments in which ' +
+      'every adjacent gap is at least the gap of the pair (the minimal-gap hypothesis; without ' +
+      'it the infimum is 0). ' +
       'It is now CLOSED in closed form (2026-08-28): c_glob = c_half = 0.8980208880762339, the ' +
       'unique (0,1) root of R(rho) = 4 + 4rho - 4/rho - 4/(rho+1) - 2[psi(1+2/rho) - psi(1+1/rho)] ' +
       '— the universal rate bound d_1^2 (drho/ds) <= R(rho) holds for every admissible ' +
@@ -2693,7 +2696,7 @@ const DYSON_LANE_RESIDUALS = [
       'G6a-sub-hyperbolic (hyperbolic region bound) and G6a-sub-constant (constant region). ' +
       'Per imp-2640 NEGATIVE, C_H is undischargeable via the current approach, so the ' +
       'finite-N beat on Lambda remains an ESTIMATE, not a rigorous unconditional result. ' +
-      'The peer-reviewed benchmark remains Lambda <= 0.2; separately, the standalone repository presents ' +
+      'Separately, the standalone repository presents ' +
       'Lambda <= 0.1787854 as a computer-assisted candidate for an unconditional proof ' +
       'through an independent route. The bound is not established, has been reviewed by Dan Romik, and is ' +
       'not RH. The candidate does not close G6a or descend to zero.',
@@ -2777,7 +2780,7 @@ const DIP_DEPTH_RESIDUALS = [
       '(R^2 = 0.288) to rigorously PIN, so this sub-gap stays formally OPEN: deciding it needs 3+ ' +
       'independent unclipped interior heights beyond the existing 10^6-ordinate set, which the current ' +
       'data does not supply.',
-      'Assessment/measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'Assessment/measurement only; changes no bound; RH open; NO QED.',
     ],
     links: [],
   },
@@ -2804,7 +2807,7 @@ const ROUTE_M_RESIDUALS = [
       'plateau on the accessible range, but cannot rigorously exclude a centerline that creeps ' +
       'upward beyond N=10000 on a scale this window cannot resolve. Deciding the true asymptote ' +
       'needs a wider Gram ladder, not a further fit.',
-      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only, no bound is claimed.',
+      'RH open; no refereed bound is changed; NO QED. Measurement/fit only, no bound is claimed.',
     ],
     links: [],
   },
@@ -2822,7 +2825,7 @@ const ROUTE_M_RESIDUALS = [
       'one-signed (mean bias -0.0489), rms ~5.4x the in-sample rms and growing with N. The ' +
       'extrapolated fit has no out-of-sample predictive power; a new functional form (below-1 ' +
       'asymptote, added constant offset, or different 1/logN power) is required.',
-      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Pure-arithmetic evaluation of a baked fit, no refit, no bound is claimed.',
+      'RH open; no refereed bound is changed; NO QED. Pure-arithmetic evaluation of a baked fit, no refit, no bound is claimed.',
     ],
     links: [],
   },
@@ -2842,7 +2845,7 @@ const ROUTE_M_RESIDUALS = [
       'by ~12 decades in N. Because lam_max enters cond# only linearly while lam_min ~ N^-1.92 ' +
       'dominates, even an order-of-magnitude lam_max error moves the ceiling by a factor < 3 -- ' +
       'negligible against the ~1e12x margin, so the compute-binds-first verdict is robust to the extrapolation.',
-      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only, no Gram was rebuilt, no bound is claimed.',
+      'RH open; no refereed bound is changed; NO QED. Extrapolation only, no Gram was rebuilt, no bound is claimed.',
     ],
     links: [],
   },
@@ -2865,7 +2868,7 @@ const ROUTE_M_RESIDUALS = [
       'far extrapolation to N* ~ 4e7, not the local shape near N=24000; rejecting it from the ' +
       'data alone needs exact rungs reaching a substantial fraction of that scale, which is an ' +
       'O(N^3) V-table build currently CPU-blocked in-pool.',
-      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/analysis only, no Gram was rebuilt, no bound is claimed moved.',
+      'RH open; no refereed bound is changed; NO QED. Measurement/analysis only, no Gram was rebuilt, no bound is claimed moved.',
     ],
     links: [],
   },
@@ -2915,8 +2918,8 @@ const ROUTE_I_VERDICT = [
       'successor is the per-mode Rayleigh/min-max bound <v0|R_T|v0> (IMP96888_RAYLEIGH_TAIL_MAJORANT, ' +
       'imp-96888), which is within 1.17-2.24x of the measured residual.',
       'None of these three results proves operator positivity; the interval-rigorous certified reach stays ' +
-      '2a <= 0.96, IMP96749_UNIFORM_N_GAP_UNSETTLED remains open, RH is open, and Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA. Assessment/measurement only; NO QED.',
+      '2a <= 0.96, IMP96749_UNIFORM_N_GAP_UNSETTLED remains open, RH is open, and no refereed bound is changed' +
+      '. Assessment/measurement only; NO QED.',
     ],
     links: [],
   },
@@ -2954,7 +2957,7 @@ const KMAX5_FRONTIER_VERDICT = [
       '(SUB-GAP IMP96956_CONVERGED_KMAX5_100_UNPRODUCED). As it stands, the kmax=5 near-feasible frontier ' +
       'gives NO interval-certified extension past 2a<=0.96. The certified reach is unchanged, operator ' +
       'positivity is not established (the Rayleigh floors remain upper bounds), RH is open, and ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA. NO QED.',
+      'no refereed bound is changed. NO QED.',
       'HONEST STATUS on the 226-cell collapse itself (imp-96978): a follow-up decomposition of the worst ' +
       'reported cell (t=16.697, rigorous lower bound -0.2706) found the negative bound is a COARSE-GRID ' +
       '(hc) guard-resolution artifact, not a genuine sign change -- the true point value there is +1.054, ' +
@@ -2992,7 +2995,7 @@ const KMAX5_FRONTIER_VERDICT = [
       'and (b) the separate interpretive step from a T_a[sigma_2]>=0 certificate to full operator/Weil ' +
       'positivity (the Rayleigh floors remain upper bounds). Until then the project’s certified reach stays ' +
       '2a<=0.96, from the Toeplitz T_a certificate route above -- a different path from this flow-positivity ' +
-      'sweep. RH is open, Platt-Trudgian Lambda<=0.2 remains SOTA. NO QED.',
+      'sweep. RH is open, no refereed bound is changed. NO QED.',
     ],
     links: [],
   },
@@ -3032,7 +3035,7 @@ const ROUTE_C_DOUBLE_BLOCK_VERDICT = [
       'only remaining path is a BOUNDED shift-invert / resolvent reformulation (T+m)^{-1}, which collapses ' +
       'onto the open Route B (N,T) resolvent-truncation-rate envelope (imp-96827 / imp-96847 / imp-96848). ' +
       'IMP96749_UNIFORM_N_GAP_UNSETTLED remains open, the interval-rigorous certified reach stays 2a <= 0.96, ' +
-      'RH is open, and Platt-Trudgian Lambda <= 0.2 remains SOTA. NO operator positivity established; NO QED.',
+      'RH is open, and no refereed bound is changed. NO operator positivity established; NO QED.',
     ],
     links: [],
   },
@@ -3043,8 +3046,9 @@ export default function OpenFrontierPage() {
     <div className="page">
       <PageHeader
         title="Open Frontier (archive)"
-        subtitle="Archive of the T3 / Dyson / collision-flow lane and the R1, R2, G6a questions — the live frontier is tracked on /frontier-dag"
+        subtitle="Archive of the T3 / Dyson / collision-flow lane and the R1, R2, G6a questions"
       />
+      <SnapshotBanner date="2026-10-04">This page is an archive of one lane and is kept as written.</SnapshotBanner>
 
       <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid var(--accent)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
@@ -5277,7 +5281,7 @@ export default function OpenFrontierPage() {
           lower bound</strong>. The uniform-in-N positivity question (IMP96749_UNIFORM_N_GAP_UNSETTLED)
           stays open; the interval-rigorous certified reach remains exactly 2a &le; 0.96. No Ritz or
           Rayleigh value from this cohort should be re-cited as a certified floor. RH open;
-          Platt-Trudgian Lambda &le; 0.2 remains SOTA; NO QED.
+          no refereed bound is changed; NO QED.
         </p>
       </div>
 

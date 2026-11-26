@@ -161,7 +161,7 @@ export default function Imp96498SolverSpreadCountShiftCrossoverViz() {
         negligible (sub-ULP of a double-precision gamma_N), so neither curve carries any
         content there. Solver-path / conditioning diagnostic only, not rigorous; changes no
         bound; establishes no operator positivity; C_H isRigorousUpperBound stays false; no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

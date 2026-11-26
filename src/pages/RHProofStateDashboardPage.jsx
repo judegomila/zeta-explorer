@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath } from '../components/KaTeXMath.jsx';
@@ -203,6 +204,7 @@ export default function RHProofStateDashboardPage() {
 
         <div style={{ marginTop: 16, marginBottom: 24 }}>
           <h1 className="ed-h1">RH Proof State Dashboard</h1>
+          <SnapshotBanner date="2026-10-04">The verdict modules on this page are dated 2026-06-17 and 2026-06-18.</SnapshotBanner>
           <p className="ed-lbl">Related: <Link to="/state-of-program">current summary</Link></p>
           <div
             style={{

@@ -5,6 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { sanitizeForLedger } from './lib/public-sanitize.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const QUEUE_FILE = path.join(__dirname, '..', 'src', 'data', 'improvement-queue.js');
@@ -63,7 +64,9 @@ for (const t of raw) {
   e += `    rationale: '${rationale}',\n`;
   e += `    model: '${sq(defaultModel)}',\n`;
   e += '  },';
-  entries.push(e);
+  // Public repository: shared sanitiser on every entry; an entry that is still
+  // unpublishable after the rewrite is skipped, not written.
+  try { entries.push(sanitizeForLedger(e)); } catch (err) { skipped++; console.warn(`skipped ${id}: ${err.message}`); }
 }
 
 console.log(`prepared ${entries.length} tickets (skipped ${skipped} dup/empty); ids imp-${maxId + 1}..imp-${nextId - 1}`);

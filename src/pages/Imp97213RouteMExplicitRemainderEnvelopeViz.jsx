@@ -138,7 +138,7 @@ export default function Imp97213RouteMExplicitRemainderEnvelopeViz() {
         upper-bounds the measured relative L0/L1 residual on every sampled b (ratio &lt; 1
         throughout); it is tight (ratio &asymp; 0.16&ndash;0.20, green) on prime b and loose by 4&ndash;5
         orders of magnitude (ratio &asymp; 1e-5&ndash;1e-6, red) on primorial b. This is a measurement
-        display, not a new bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        display, not a new bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>

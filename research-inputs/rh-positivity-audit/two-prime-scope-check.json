@@ -1,0 +1,27 @@
+{
+  "status": "ARITHMETIC_AND_SCOPE_CHECK_ONLY",
+  "target_width": "11/10",
+  "active_prime_powers": [
+    2,
+    3
+  ],
+  "delta_w_at_0": "[-1.26856820119512795437277554508929811039911738, -1.26856820119512795437277554508929811039904851]",
+  "delta_w_at_pi_over_log3": "[1.26856820119512795437277554508929811039904851, 1.26856820119512795437277554508929811039911738]",
+  "formula": "w23(t)=w2(t)-2*log(3)/sqrt(3)*cos(t*log(3))",
+  "rejected_payloads": [
+    {
+      "certificate": "090",
+      "reason": "The one-prime symbol is valid only for 0 < width <= log(3)",
+      "first_atom": "9/10",
+      "atom_inside_target_support": true
+    },
+    {
+      "certificate": "096",
+      "reason": "The one-prime symbol is valid only for 0 < width <= log(3)",
+      "first_atom": "24/25",
+      "atom_inside_target_support": true
+    }
+  ],
+  "new_certificate_found": false,
+  "positivity_at_target_proved": false
+}

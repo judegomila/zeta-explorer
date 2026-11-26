@@ -736,7 +736,7 @@ const TIMELINE = [
     year: 2026,
     era: 'recent',
     title: 'AI fleet + human work — computer-assisted Lambda candidates',
-    content: "Running the twin-ladder barrier method, an autonomous AI fleet (Claude, Codex, and ChatGPT) together with human work produces computer-assisted candidates Lambda <= 0.1787854 (reviewed by Dan Romik, being prepared for public release) and a sharper Lambda <= 0.1758354, each certified in interval arithmetic with parts of the reduction Lean-checked. These are candidates, not peer-reviewed theorems: RH remains open and Platt-Trudgian Lambda <= 0.2 remains the rigorous benchmark. The program also establishes no-go theorems (flow-blindness; frozen-rung = Platt-Trudgian) showing the route caps at verified zero height.",
+    content: "Running the twin-ladder barrier method, an autonomous AI fleet (Claude, Codex, and ChatGPT) together with human work produces computer-assisted candidates Lambda <= 0.1787854 (reviewed by Dan Romik, publicly posted, not refereed) and a sharper Lambda <= 0.1758354, each certified in interval arithmetic with parts of the reduction Lean-checked. These are candidates, not peer-reviewed theorems: RH remains open and Platt-Trudgian Lambda <= 0.2 remains the rigorous benchmark. The program also establishes no-go theorems (flow-blindness; frozen-rung = Platt-Trudgian) showing the route caps at verified zero height.",
     math: '\\Lambda \\le 0.1758354 \\quad \\text{(computer-assisted candidate.)}',
     highlight: true,
   },

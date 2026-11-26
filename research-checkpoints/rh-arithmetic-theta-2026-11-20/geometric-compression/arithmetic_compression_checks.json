@@ -1,0 +1,26 @@
+{
+  "status": "all_exact_sanity_checks_passed",
+  "scope": "Finite rational/integer checks only; not Lean replay, a proof of universal statements, or RH verification.",
+  "zero_support_extension": {
+    "cases": 252,
+    "points": 26910,
+    "points_with_zero_coordinates": 16782
+  },
+  "necessary_injectivity_controls": {
+    "missing_fixed_initial_counterexample": true,
+    "missing_zero_tail_counterexample": true,
+    "duplicate_rows_detected": true
+  },
+  "cm_integral_minor_examples": {
+    "integral_gaussian_minors": 180,
+    "nonzero_label_differences": 179
+  },
+  "logarithmic_cost_algebra": {
+    "exact_frame_exponent_identities": 3321,
+    "rational_cost_coarsenings": 10560
+  },
+  "dimension_window": {
+    "exact_dimension_window_cases": 711,
+    "upper_bound_checked": "(1+1/(f*k))^(f*k); the standard <=e inequality is proved in prose"
+  }
+}

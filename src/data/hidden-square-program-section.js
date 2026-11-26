@@ -4,24 +4,13 @@
 // program" chain of reductions from off-diagonal commutator → measure
 // domination → endpoint-Hankel Volterra contraction.
 //
-// PURPOSE
-// -------
-// These three sections form ONE logical approach program against the no-ghost
-// theorem (Conj 17.3 / Ka ⪰ 0 for every a > 0). Each section reduces the
-// previous obstruction to a tighter, more numerically-tractable statement:
-//
-//   §25 (commutator):  K_a = K_a^diag + (off-diagonal shear) — diagonal
-//                      passive channel is positive; off-diagonal shear is
-//                      the exact obstruction. Hidden-square target stated.
-//   §26 (measure dom): reduce shear to a SCALAR measure-domination
-//                      inequality µ^pass_{a,Φ} ≥ ν_{a,Φ}.
-//   §27 (endpoint-Hankel): replace scalar domination with the sharper
-//                      block-positivity / Volterra-contraction target.
-//
-// The chain forms the ACTUAL computational program — every step is
-// numerically checkable via finite-window certificates, and the final
-// endpoint-Hankel Volterra contraction is the concrete target for a
-// rigorous proof.
+// HISTORICAL SCOPE
+// ----------------
+// This record preserves the May 28 §25–27 proposal and its conjecture names.
+// The June 18 verdict withdraws the bare Volterra contraction as a reduction;
+// it takes precedence over the historical chain and pilot descriptions below.
+// Finite algebraic identities survive, but an arithmetic identification with
+// the abstract positive block operator is not supplied by the norm bound.
 
 export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
   id: 'hidden-square-program-section',
@@ -30,10 +19,42 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
   paperSections: '§25 + §26 + §27',
   paperPageRange: '37-51',
   generatedAt: '2026-05-28T16:50:00Z',
+  currentStatus: Object.freeze({
+    status: 'WITHDRAWN-AS-A-REDUCTION',
+    effectiveDate: '2026-06-18',
+    reference: 'section26-verdict-volterra-not-a-reduction-2026-06-18',
+    notice: 'The May 28 bare-Volterra reduction was withdrawn on 2026-06-18. ' +
+      'Historical Conj 27.2 and its finite norm pilot are not current evidence for arithmetic kernel positivity.',
+  }),
+  // Status as reviewed on 2026-11-21 (research-checkpoints/key-results-stress-test-2026-11-21/hidden-square/).
+  statusNote: Object.freeze({
+    date: '2026-11-21',
+    summary: 'The statement ‖V_{a,Φ}‖ ≤ 1 for every a > 0 is false, and it is not equivalent to K_a ⪰ 0.',
+    points: Object.freeze([
+      'In the repository’s normalisation ‖V_{a,Φ}‖ ≤ 1 holds for a ≤ a* and fails for a ≥ 31.6214, with 31.6213 < a* < 31.6214 (this uses Φ ≥ 0; the bracket rests on the lane’s Arb certificate, not rerun, and two replays).',
+      'It is not equivalent to K_a ⪰ 0 in either direction: ‖V‖ scales as c² under Φ → cΦ, and K_a ⪰ 0 is scale-invariant.',
+      'For the Davenport-Heilbronn kernel ‖V‖ is 0.012 to 0.074 for a in [0.1, 0.6], where its K_a is indefinite, so the inequality does not separate ζ from a function with zeros off the line.',
+      'K_a is not K_a^diag + (off-diagonal shear): the complement of the shear is not positive semidefinite (value −9.04e-8 at z = 26.5 + 5i, a = 0.5).',
+      'Conjectures 15.1, 16.4, 16.6, 17.3, 18.1, 25.2 and 25.3 are separate phrasings of the Hermite-Biehler form of RH (K_a ⪰ 0 for every a > 0); they are not reduced to one norm statement.',
+      'Measured norms about 5000 times below 1 reflect the size of Φ² (‖V‖ = 4.576e-4 at a = 0.5) and is not evidence.',
+    ]),
+  }),
+  relativePositivity: Object.freeze({
+    scope: 'Finite Hermitian K = P + S, with P positive definite and S Hermitian.',
+    definitionMath: 'R=P^{-1/2}SP^{-1/2},\\qquad K=P^{1/2}(I+R)P^{1/2}',
+    criterionMath: 'K\\succeq0\\quad\\iff\\quad I+R\\succeq0',
+    normStatus: 'The bound ||R|| <= 1 is sufficient, not necessary in general.',
+    counterexample: Object.freeze({ passive: 1, shear: 2, kernel: 3, relative: 2 }),
+    counterexampleMath: 'P=1,\\quad S=2:\\quad K=3>0,\\quad R=2,\\quad\\|R\\|=2>1',
+    specialCase: 'Norm at most one is equivalent only with additional structure, such as a proved ' +
+      'symmetric spectrum of R or the normalized off-diagonal block [[I,V],[V*,I]].',
+    limitations: 'This finite criterion does not identify the arithmetic kernel with that block. ' +
+      'Semidefinite passive cores and infinite operators require separate compatibility and domain hypotheses.',
+  }),
 
   title: 'The Hidden-Square Program (§25–27)',
   oneLine:
-    'Three sequential reductions of the no-ghost obstruction: commutator → ' +
+    'Historical May 28 proposal, withdrawn as a reduction on June 18: commutator → ' +
     'measure domination → endpoint-Hankel Volterra contraction.',
 
   // ── §25 Off-Diagonal Commutator and the Hidden-Square Attempt ──────────
@@ -61,22 +82,19 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
     commutatorIntegrand:
       'C_a(w, z; u, v) = cosh(au) sinh(av) cos(zu) sin(w̄v) − sinh(au) cosh(av) sin(zu) cos(w̄v)',
     diagonalPassiveChannel:
-      'K_a^diag is the strict diagonal u = v part of the double integral; positive by construction',
+      'The strict diagonal u=v has zero du dv measure. The displayed one-dimensional K_a^diag is a separately defined positive comparison kernel, not a nonzero part of the original double integral.',
     offDiagonalObstruction:
-      'The u ≠ v part of the double integral is the off-diagonal shear: the exact obstruction to K_a ⪰ 0',
+      'Deleting u=v leaves the full double integral unchanged. For a comparison kernel P, derive the signed residual S=K_a-P separately.',
     keyConjecture25_2:
       'Conjecture 25.2 (Off-diagonal absorption / hidden square): For every a > 0 there exist a positive ' +
       'measure space (Ω_a, dν_a) and functions Ψ_a(z, ω), constructed DIRECTLY from the completed Riemann ' +
       'kernel Φ, such that K_a(w, z) = ∫_{Ω_a} Ψ_a(z, ω) Ψ_a(w̄, ω) dν_a(ω). Equivalent to no-ghost theorem.',
     keyConjecture25_3:
-      'Conjecture 25.3 (Triangular commutator absorption): There exists a Volterra/triangular transform T_a ' +
-      'on the kernel variable such that K_a = T_a^* K_a^diag T_a + L_a^* L_a, with L_a a positive residual.',
+      'Conjecture 25.3 (historical): an identity K_a=T_a^* P T_a+L_a^*L_a would suffice if proved with a separately defined P and controlled domains. The continuum-diagonal argument does not supply it.',
     finiteWindowConsequence:
-      'Practical: pick test set Z = {z_1, ..., z_N} ⊂ ℂ+, build matrices G_a(Z), G_a^diag(Z). The condition ' +
-      'λ_min(G_a^pass_{U}(Z)) > ‖G_a(Z) − G_a^pass_{U}(Z)‖_2 gives a finite-window no-ghost CERTIFICATE.',
+      'For a rigorously enclosed finite Gram matrix G=P+S with P positive, lambda_min(P)>||S|| certifies that matrix only. All points, windows, and shifts still require coverage.',
     verdict:
-      'Identifies positive diagonal passive channel + isolates off-diagonal shear as the exact obstruction. ' +
-      'Not yet RH — the symmetry argument that would close the hidden square is missing (§25.5).',
+      'The Wronskian identity survives. The claimed nonzero strict-diagonal channel does not. A hidden-square representation remains an open positivity target.',
   }),
 
   // ── §26 Measure Domination and Volterra Absorption ────────────────────
@@ -91,21 +109,15 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
     diagonalMeasureDensity:
       'dµ_{a,Φ}^diag/dτ = (1/(2π)) ∫_τ^∞ Φ(u)² sinh(2au) du',
     scalarDominationTarget:
-      'Sufficient condition for K_a ⪰ 0: µ_{a,Φ}^pass ≥ ν_{a,Φ} as positive measures, where ν_{a,Φ} is the ' +
-      'shear-control measure derived from the off-diagonal part.',
+      'A measure inequality µ_{a,Φ}^pass ≥ ν_{a,Φ} is sufficient only after proving that these measures control the exact signed residual. That derivation is not supplied by a strict-diagonal split.',
     keyConjecture26_3:
-      'Conjecture 26.3 (Scalar bridge-domination): For every a > 0 there exists a positive passive core ' +
-      'measure µ_{a,Φ}^pass — obtained from diagonal AND near-diagonal parts of the completed Riemann ' +
-      'kernel — such that µ_{a,Φ}^pass ≥ ν_{a,Φ}. If this holds, K_a ⪰ 0 for every a > 0 and no-ghost follows.',
+      'Conjecture 26.3 (historical scalar domination): a comparison-measure inequality is useful only after a valid bound on the exact signed residual is derived. Strict-diagonal mass cannot supply the passive core.',
     keyConjecture26_4:
-      'Conjecture 26.4 (Volterra absorption): For each a > 0, the off-diagonal shear of the shifted bridge ' +
-      'is absorbed by a Volterra/triangular transform of the diagonal channel.',
+      'Conjecture 26.4 (historical): Volterra absorption relative to a separately constructed positive comparison kernel is unproved.',
     structuralReduction:
-      'The hidden-square problem is reduced to a SCALAR measure-domination problem over the positive channel P_{Z,c}. ' +
-      'This is a 1D Stieltjes-style comparison — much more tractable than a 2D operator-kernel positivity question.',
+      'The displayed one-dimensional kernel and measure define a comparison object. They do not establish a reduction of the two-dimensional kernel to scalar domination.',
     verdict:
-      'Crucial reduction: the no-ghost theorem becomes a scalar measure-comparison inequality. The ' +
-      'remaining work is to construct µ_{a,Φ}^pass explicitly and verify the domination.',
+      'Open comparison proposal: prove the exact residual identity and its domination before using a scalar inequality as an RH step.',
   }),
 
   // ── §27 Endpoint-Hankel Renormalization ───────────────────────────────
@@ -119,18 +131,18 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
       'Volterra–Hankel object: one variable lives in the past endpoint interval [0, τ], the other lives in ' +
       'the future tail [τ, ∞). Past–future block structure.',
     whyRawDiagonalCannotDominate:
-      'The raw diagonal measure µ_{a,Φ}^diag cannot dominate ν_{a,Φ} pointwise because the shear has ' +
-      'mass that lives BETWEEN past and future endpoints — invisible to a diagonal-only measure.',
+      'The strict diagonal has zero product measure. A separately defined comparison measure has no automatic domination relation to the exact residual.',
     endpointBridgeNecessity:
-      'A KERNEL-SIDE endpoint bridge is required: the past-tail and future-tail contributions must be ' +
-      'individually renormalized before any domination can hold.',
+      'An endpoint bridge must retain the signed terms of the exact kernel. This audit does not prove every valid approach needs this construction.',
     blockPositivityFormulation:
-      'Hidden-square problem ⇔ block positivity [[I, V_{a,Φ}], [V_{a,Φ}^*, I]] ⪰ 0, where V_{a,Φ} is the ' +
+      'Historical May 28 claim (withdrawn as a reduction on 2026-06-18): hidden-square problem ⇔ ' +
+      'block positivity [[I, V_{a,Φ}], [V_{a,Φ}^*, I]] ⪰ 0, where V_{a,Φ} is the ' +
       'past–future Volterra operator built from Φ and sinh(a·).',
     keyConjecture27_2:
-      'Conjecture 27.2 (Endpoint-Hankel Volterra contraction): For every a > 0, the off-diagonal bridge ' +
+      'Historical Conjecture 27.2 (May 28; withdrawn as a reduction on 2026-06-18): For every a > 0, ' +
+      'the off-diagonal bridge ' +
       'shear operator V_{a,Φ} satisfies ‖V_{a,Φ}‖ ≤ 1 (operator norm in L²([0, ∞))). Equivalent to the ' +
-      'block-positivity condition, hence equivalent to K_a ⪰ 0.',
+      'block-positivity condition. It is not equivalent to K_a ⪰ 0, and it fails for a ≥ 31.6214.',
     finiteWindowDiagnostic:
       'For each finite window U, build the truncated V_{a,Φ,U} on L²([0, U]) and compute its operator norm. ' +
       'CAVEAT (section26-verdict-volterra-not-a-reduction-2026-06-18): the bare ‖V_{a,Φ,U}‖ is scale-' +
@@ -142,37 +154,43 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
       'REFUTED AS A REDUCTION (section26-verdict-volterra-not-a-reduction-2026-06-18, 2026-06-18). ' +
       'The claimed biconditional ‖V_{a,Φ}‖ ≤ 1 ⇔ K_a ⪰ 0 is FALSE: at the genuine Riemann Φ the two ' +
       'positivity conditions PROVABLY DECOUPLE, and the bare biconditional cannot be revived by any ' +
-      'scalar normalization. So ‖V‖ ≤ 1 is NOT the entire content of no-ghost = RH. The only surviving ' +
-      'target is the degree-0, scale-invariant relative bound ‖R‖ ≤ 1 ⇔ K_a ⪰ 0 for ' +
-      'R = G_pass^{−1/2} G_shear G_pass^{−1/2} — and that is RH-EQUIVALENT: a faithful, information-' +
-      'preserving restatement of K_a ⪰ 0, not a reduction to something cheaper. Platt–Trudgian Λ ≤ 0.2 ' +
-      'remains the rigorous SOTA.',
+      'scalar normalization. So ‖V‖ ≤ 1 is NOT the entire content of no-ghost = RH. The appropriate ' +
+      'finite relative-positivity criterion is K = P + S ⪰ 0 iff I + R ⪰ 0, for P > 0, S = S* and ' +
+      'R = P^(−1/2) S P^(−1/2). The norm bound ||R|| <= 1 is sufficient, not generally necessary ' +
+      '(P=1, S=2 gives K=3 and ||R||=2). A norm biconditional requires separately proved symmetric-spectrum ' +
+      'or off-diagonal block structure; it is not an established arithmetic identification. ' +
+      'Historical June 18 benchmark citation: Platt–Trudgian Λ ≤ 0.2; no new current bound is asserted here.',
   }),
 
-  // ── Synthesis: the chain of reductions ────────────────────────────────
+  // ── Historical synthesis: withdrawn chain of reductions ────────────────────────────────
   chainOfReductions: Object.freeze({
-    line1: '§17 no-ghost theorem: K_a ⪰ 0 for every a > 0',
-    line2: '§25 ↓ commutator decomposition: K_a = K_a^diag + (off-diagonal shear), K_a^diag ⪰ 0 by construction',
-    line3: '§25 ↓ hidden-square target (Conj 25.2 / 25.3): factor K_a = ∫ Ψ Ψ̄ dν via Φ alone',
-    line4: '§26 ↓ scalar measure domination (Conj 26.3): µ_{a,Φ}^pass ≥ ν_{a,Φ}',
-    line5: '§27 ↓ block positivity / Volterra contraction (Conj 27.2): ‖V_{a,Φ}‖ ≤ 1 in L²',
-    line6: 'Concrete numerical test: truncated operator norm at finite window',
+    line1: 'Historical May 28 proposal (withdrawn June 18): §17 no-ghost theorem: K_a ⪰ 0 for every a > 0',
+    line2: 'Historical May 28 proposal (withdrawn June 18): §25 ↓ commutator decomposition: K_a = K_a^diag + (off-diagonal shear), K_a^diag ⪰ 0 by construction [this identity does not hold; see statusNote]',
+    line3: 'Historical May 28 proposal (withdrawn June 18): §25 ↓ hidden-square target (Conj 25.2 / 25.3): factor K_a = ∫ Ψ Ψ̄ dν via Φ alone',
+    line4: 'Historical May 28 proposal (withdrawn June 18): §26 ↓ scalar measure domination (Conj 26.3): µ_{a,Φ}^pass ≥ ν_{a,Φ}',
+    line5: 'Historical May 28 proposal (withdrawn June 18): §27 ↓ block positivity / Volterra contraction (Conj 27.2): ‖V_{a,Φ}‖ ≤ 1 in L²',
+    line6: 'Historical May 28 proposal (withdrawn June 18): Concrete numerical test: truncated operator norm at finite window',
   }),
 
   // ── Implications for the wider proof program ─────────────────────────
   implicationsForRH: Object.freeze({
+    currentVerdict: 'Withdrawn as a reduction on 2026-06-18. The bare Volterra norm is not an established ' +
+      'equivalent criterion for arithmetic kernel positivity.',
+    finiteEvidence: 'The historical imp-1219-sub-volterra-norm-pilot is a diagnostic of the withdrawn ' +
+      'proposal, not empirical evidence for no-ghost. The separate finite-Gram package retains its own finite-only scope.',
+    remainingQuestion: 'A correctly normalized arithmetic factorization or comparison remains to be constructed. ' +
+      'The valid abstract block norm criterion alone supplies no such identification.',
+    historicalContext: 'The May 28 Route C and imp-1184 PCC discussion is preserved in the historical record as ' +
+      'program context, not as a proved prerequisite or surviving reduction.',
+  }),
+
+  historicalImplicationsForRH: Object.freeze({
     twinLadderConnection:
-      'Conjecture 25.2 IS the hidden-square form of Route C from §16 (closure-routes). The hidden-square ' +
-      'program is the explicit reduction of Route C to a concrete operator-theoretic target.',
+      'Conjecture 25.2 is the hidden-square target of Route C. It remains a positivity objective; the proposed intermediate reductions are not established.',
     sharedPCCObstruction:
-      'Per imp-1184: even after the three reductions, the off-diagonal shear of V_{a,Φ} ultimately involves ' +
-      'pair-correlation structure of Riemann zeros (via Φ). Without Montgomery PCC, even the operator-norm ' +
-      'bound is conditional. Same 50-year obstruction.',
+      'The imp-1184 PCC claim is route-specific. No result here proves Montgomery PCC is a prerequisite for the exact arithmetic positivity program.',
     whatThisGives:
-      'A CONCRETE NUMERICAL PROGRAM where every step is finite-window certifiable. Even without closing ' +
-      'PCC, the truncated V_{a,Φ,U} operator norm can be measured on real Riemann-zero data, giving ' +
-      'empirical evidence for the no-ghost conjecture at finite scale (analogous to imp-1162 / 1166 / 1183 ' +
-      'for the lin-stat universality).',
+      'A separation of the exact kernel, comparison proposals, and finite-matrix diagnostics. A small bare Volterra norm does not certify the RH target.',
     futureExperiment:
       'imp-1219-sub-volterra-norm-pilot: implement the truncated V_{a,Φ,U} operator on the imp-1162 grid, ' +
       'compute the operator norm for a ∈ {0.5, 0.2, 0.1, 0.05, 0.025}, verify ‖V‖ ≤ 1 empirically across ' +
@@ -246,7 +264,7 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION_ASSERTIONS = [
   },
   {
     id: 'imp1219-chain-of-reductions-six-lines',
-    why: 'The chain-of-reductions synthesis paragraph must have all 6 lines (no-ghost → commutator → ' +
+    why: 'The historical chain-of-reductions synthesis must retain all 6 lines (no-ghost → commutator → ' +
          'hidden-square → scalar domination → block positivity → numerical test). Missing any line ' +
          'breaks the pedagogical narrative.',
     holds: () => {
@@ -256,35 +274,55 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION_ASSERTIONS = [
     },
   },
   {
-    id: 'imp1219-final-target-is-volterra-norm',
-    why: 'The §27 endpoint-Hankel verdict must identify the concrete computational target as a single ' +
-         'operator-norm bound (‖V_{a,Φ}‖ ≤ 1). This is the actual numerical test that ties §25-27 to ' +
-         'finite-window verification.',
+    id: 'imp1219-volterra-target-is-historical',
+    why: 'Retain the historical operator-norm conjecture while making the June 18 withdrawal explicit.',
     holds: () => {
       const v = HIDDEN_SQUARE_PROGRAM_SECTION.endpointHankel.keyConjecture27_2;
-      return v.includes('V_{a,Φ}') && v.includes('1');
+      return v.includes('V_{a,Φ}') && v.includes('1') && v.includes('withdrawn') && v.includes('2026-06-18');
     },
   },
   {
     id: 'imp1219-twin-ladder-connection-named',
     why: 'The page must explicitly link Conj 25.2 to Route C of §16 (closure-routes) so readers see how ' +
          'the hidden-square program slots into the four-route framework.',
-    holds: () => HIDDEN_SQUARE_PROGRAM_SECTION.implicationsForRH.twinLadderConnection.includes('Route C'),
+    holds: () => HIDDEN_SQUARE_PROGRAM_SECTION.historicalImplicationsForRH.twinLadderConnection.includes('Route C'),
   },
   {
     id: 'imp1219-shared-pcc-obstruction-honest',
-    why: 'Per imp-1184: all live ESY-closure routes share Montgomery PCC. The hidden-square chain does ' +
-         'not bypass this obstruction. Honest scope MUST surface this so readers don\'t mistake the ' +
-         'chain of reductions for an unconditional path.',
+    why: 'Preserve the dated imp-1184 PCC discussion as historical context, not a proved current prerequisite.',
     holds: () => {
-      const i = HIDDEN_SQUARE_PROGRAM_SECTION.implicationsForRH.sharedPCCObstruction;
+      const i = HIDDEN_SQUARE_PROGRAM_SECTION.historicalImplicationsForRH.sharedPCCObstruction;
       return i.includes('PCC') && i.includes('imp-1184');
     },
   },
   {
     id: 'imp1219-future-experiment-named',
-    why: 'A concrete follow-up ticket (imp-1219-sub-volterra-norm-pilot) must be named so the reader has ' +
-         'an actionable next step from the page.',
-    holds: () => HIDDEN_SQUARE_PROGRAM_SECTION.implicationsForRH.futureExperiment.includes('volterra-norm-pilot'),
+    why: 'Preserve the historical imp-1219-sub-volterra-norm-pilot identifier without promoting its old verdict.',
+    holds: () => HIDDEN_SQUARE_PROGRAM_SECTION.historicalImplicationsForRH.futureExperiment.includes('volterra-norm-pilot'),
+  },
+  {
+    id: 'hidden-square-current-withdrawal-precedes-history',
+    why: 'A historical norm pilot must not override the later withdrawal.',
+    holds: () => HIDDEN_SQUARE_PROGRAM_SECTION.currentStatus.status === 'WITHDRAWN-AS-A-REDUCTION' &&
+      HIDDEN_SQUARE_PROGRAM_SECTION.currentStatus.effectiveDate === '2026-06-18',
+  },
+  {
+    id: 'hidden-square-relative-norm-is-only-sufficient',
+    why: 'P=1,S=2 is PSD but its normalized shear has norm2; the general criterion is I+R PSD.',
+    holds: () => {
+      const c = HIDDEN_SQUARE_PROGRAM_SECTION.relativePositivity.counterexample;
+      return c.passive > 0 && c.kernel === c.passive + c.shear &&
+        c.relative === c.shear / c.passive && c.kernel >= 0 && Math.abs(c.relative) > 1;
+    },
+  },
+  {
+    id: 'hidden-square-status-note-recorded',
+    why: '‖V‖ ≤ 1 fails for a ≥ 31.6214; the record must say so and must not assert equivalence with K_a ⪰ 0.',
+    holds: () => {
+      const r = HIDDEN_SQUARE_PROGRAM_SECTION;
+      return r.statusNote.points.some((p) => p.includes('31.6214')) &&
+        r.endpointHankel.keyConjecture27_2.includes('not equivalent to K_a') &&
+        r.chainOfReductions.line2.includes('does not hold');
+    },
   },
 ];

@@ -313,8 +313,7 @@ export default function TheoremBThresholdPage() {
           Context: the measured real-zero configurations sit at <InlineMath tex={"\\Theta(0) = 0.167 / 0.088 / 0.046"} />,
           far below even the unconditional <InlineMath tex={"1/4"} /> of Theorem&nbsp;A — so on the actual data the
           collision bound applies unconditionally; Theorem&nbsp;B and the excursion band are about the skeptical
-          worst case, not the tested rows. This does not change any Λ bound (the peer-reviewed benchmark stays
-          Platt–Trudgian <InlineMath tex={"\\Lambda \\le 0.2"} />); it sharpens one internal step of the finite-N program.
+          worst case, not the tested rows. This does not change any Λ bound; it sharpens one internal step of the finite-N program.
         </p>
       </div>
     </PostLayout>

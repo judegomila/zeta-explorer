@@ -51,8 +51,8 @@ export default function RouteMCohort2AuditIndexPage() {
         still unwired (imp-96722's glossary headword was separately wired into the{' '}
         <Link to="/">Concepts</Link> glossary) so their own verdicts are reader-reachable.
       </>}
-      byline={['mathexplorer', 'audit-index · no bound']}
-      ticker={<span>index · Platt–Trudgian Λ ≤ 0.2 stays SOTA</span>}
+      byline={['exploreriemann', 'audit-index · no bound']}
+      ticker={<span>index · moves no bound</span>}
       footer={<>
         Source audit: <code>imp-96707-orphan-consumer-audit-cohort2.js</code>
         <br /><br />← <Link to="/">the atlas</Link>
@@ -62,8 +62,7 @@ export default function RouteMCohort2AuditIndexPage() {
         <div className="tlab">Index only — wires existing modules, establishes nothing new</div>
         <p style={{ margin: 0 }}>
           Every entry below is imported verbatim from its own data module. This page performs
-          no re-derivation, moves no bound, and asserts no QED; Platt–Trudgian Λ ≤ 0.2 remains
-          SOTA and RH is open.
+          no re-derivation, moves no bound, and asserts no QED; RH is open.
         </p>
       </div>
 

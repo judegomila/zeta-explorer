@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
@@ -388,6 +389,7 @@ export default function HealthPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
             <div>
               <h1 className="ed-h1" style={{ marginBottom: 6 }}>Project Health</h1>
+              <SnapshotBanner date="2026-04-12">The proof-chain rows are a snapshot of that date; the metrics recompute on load.</SnapshotBanner>
               <p className="ed-lbl">Related: <Link to="/gap-closing">Unitarity-deficit gap analysis</Link> · <Link to="/dashboard">Model metrics dashboard</Link></p>
               <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 14 }}>
                 Live metrics, proof chain status, conditions, and Lean sorry counts in one view.

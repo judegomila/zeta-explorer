@@ -460,11 +460,13 @@ export default function FullStoryPage() {
       <h2>Where the story is now (2026-09)</h2>
       <p>
         The candidate ladder above ends at 0.1758354; the program has since assembled a{' '}
-        <strong>Λ ≤ 0.17759432 y-thaw package</strong> (candidate-unrefereed; 4/8 obligations
-        closed, O1 at Aristotle; a package value, not a bound) and derived a{' '}
+        <strong>Λ ≤ 0.17759432 y-thaw package</strong> (candidate-unrefereed; 2 of 6 obligations closed (O3, O5),
+        O1, O2, O4, O6 open, record of 2026-09-22; a package value, not a bound) and derived a{' '}
         <strong>Route VII compute floor U ≈ 0.145–0.150</strong> — below it requires arithmetic
-        input. The dated narrative continues on <Link to="/threads">/threads</Link>; the live
-        frontier is <Link to="/frontier-dag">/frontier-dag</Link>.
+        input. The dated narrative continues on <Link to="/threads">/threads</Link>; the frontier
+        graph of 2026-09-14 is <Link to="/frontier-dag">/frontier-dag</Link>. Since 2026-10-09 the smallest
+        recorded value is <Link to="/lambda-0116091">0.116091488672439</Link>, conditional on three inputs that are not
+        established (two unrefereed external results and this project’s own partly uncertified tables); status as of 2026-11-20 is at <Link to="/state-of-program">/state-of-program</Link>.
       </p>
     </PostLayout>
   );

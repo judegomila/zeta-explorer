@@ -97,8 +97,8 @@ export default function Imp97471McmTowerPerLevelMarginViz() {
         only. MCM (non-negativity of every iterated multiplicative difference
         of h = g/m) is VERIFIED, not proved, on the omega=5,6 squarefree
         classes in (2e5, 1e6]. This chart establishes no operator positivity
-        and moves no bound. MCM is FALSE from omega=11 (imp-97432); PT
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        and moves no bound. MCM is FALSE from omega=11 (imp-97432); no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -130,8 +130,7 @@ export default function Imp97471McmTowerPerLevelMarginViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97442 per-level minima verbatim; no re-solve.
         Establishes no operator positivity; changes no bound; the margin
-        narrows only at high omega (MCM refuted first at omega=11, imp-97432);
-        PT Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        narrows only at high omega (MCM refuted first at omega=11, imp-97432); RH open; NO QED.
       </div>
     </div>
   );

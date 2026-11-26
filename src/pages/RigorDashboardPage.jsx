@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import {
@@ -399,7 +400,7 @@ function TransparencyLedger() {
   );
 }
 
-// ── SOTA banner (imp-2670) ────────────────────────────────────────────
+// ── no-refereed-bound-change banner (imp-2670) ────────────────────────────────────────────
 const SOTA_TIERS = [
   {
     key: 'rigorous',
@@ -618,7 +619,7 @@ function CHWallFrontierPanel() {
     { label: 'C_THETA STATUS', value: v.cThetaStatus, color: AMBER },
     { label: 'DETERMINISTIC RESIDUAL', value: v.residual, color: GREEN },
     { label: 'FORECLOSED', value: v.foreclosed, color: RED },
-    // v.sota ("remains the rigorous SOTA" refrain) intentionally not rendered;
+    // v.sota ("no refereed bound is changed" refrain) intentionally not rendered;
     // PT Λ ≤ 0.2 is stated once, in the banner above.
   ];
   return (
@@ -751,7 +752,7 @@ function CHLipThreeProofsPanel() {
         padding: '8px 12px', fontSize: 11, color: RED_LIGHT, lineHeight: 1.6,
         fontFamily: MONO,
       }}>
-        {/* Strip the appended "remains the rigorous SOTA" refrain; PT is stated once in the banner. */}
+        {/* Strip the appended "no refereed bound is changed" refrain; PT is stated once in the banner. */}
         CAVEAT: {t.honest.replace(CH_WALL_FRONTIER.sota, '').trim()}
       </div>
     </div>
@@ -980,6 +981,7 @@ export default function RigorDashboardPage() {
         <HonestCeilingBanner variant="PROOF-CANDIDATE" />
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Rigor Dashboard</h1>
+          <SnapshotBanner date="2026-10-04">The proof-chain and route data on this page are dated 2026-06-19 to 2026-06-30.</SnapshotBanner>
           <FreshnessStamp />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Interactive proof-chain visualization with rigor-level coloring.
@@ -994,7 +996,7 @@ export default function RigorDashboardPage() {
         {/* Shared evidence-grade tier panel for the 0.1787854 candidate package */}
         <ProofTierSummary />
 
-        {/* SOTA banner (imp-2670) */}
+        {/* no-refereed-bound-change banner (imp-2670) */}
         <HonestSOTABanner />
 
         {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
@@ -1023,7 +1025,7 @@ export default function RigorDashboardPage() {
               &nbsp;|&nbsp; candidate commit {NEWMAN_LAMBDA_01787854_CANDIDATE.identity.packageCommit.slice(0, 12)}
             </div>
             <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
-              UNREFEREED — REVIEWED BY DAN ROMIK; BEING PREPARED FOR PUBLIC RELEASE · COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT RH
+              UNREFEREED — REVIEWED BY DAN ROMIK; PUBLICLY POSTED · COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT RH
             </div>
             <div style={{ fontSize: 12, color: 'var(--faint)', marginTop: 4 }}>
               The package supplies claimed compact-slab, final-time-half-strip, finite/tail,

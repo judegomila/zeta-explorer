@@ -115,8 +115,7 @@ export default function Imp95647ConditionNumberViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/presentation-only page re-plotting the frozen imp-95621
         condition-number threshold derivation (no re-derivation, no new claim).
-        It changes no bound and proves no RH-relevant theorem. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. NO QED.
+        It changes no bound and proves no RH-relevant theorem. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -183,8 +182,7 @@ export default function Imp95647ConditionNumberViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         rendering the frozen imp-95621 condition-number threshold derivation (no
         re-derivation). Supplies no off-lattice floor theorem, changes no
-        bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

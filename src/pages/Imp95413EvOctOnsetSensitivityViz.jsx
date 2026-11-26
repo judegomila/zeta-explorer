@@ -110,8 +110,7 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measures the
         closed-form COROLLARY EV-OCT certificate only (the same object imp-95250
-        bisected), not the exact pencil Lambda; changes no bound. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything
+        bisected), not the exact pencil Lambda; changes no bound. RH does not follow from anything
         on this page. NO QED.
       </div>
 

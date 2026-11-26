@@ -505,7 +505,7 @@ export default function HistoricalReasoningPage() {
                 <InlineMath tex={"K_a\\succeq0\\ \\forall a>0"} /> is an RH-equivalent target,
                 not a completed reduction below RH. Separately, the program presents
                 <InlineMath tex="\Lambda\le0.1787854" /> as a computer-assisted
-                candidate (reviewed by Dan Romik, being prepared for public release, unrefereed).
+                candidate (reviewed by Dan Romik, publicly posted, not refereed).
                 A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates,
                 Lean-checked y-transfer reduction and Lemma B3, unrefereed) and a conditional{' '}
                 <Link to="/permutation-architecture"><InlineMath tex="\Lambda\le0.14" /> completion

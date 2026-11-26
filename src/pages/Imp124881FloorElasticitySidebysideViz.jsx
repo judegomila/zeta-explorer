@@ -143,8 +143,8 @@ export default function Imp124881FloorElasticitySidebysideViz() {
         reusing the frozen imp-124772 (far-tail knee) and imp-124848 (interior peak) full-ladder OLS
         fits verbatim, over the same imp-33708 0.5x..5x E_trunc floor ladder. Conditional-share
         curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
-        asymptotic; no operator positivity established; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
-        SOTA; RH open; NO QED.
+        asymptotic; no operator positivity established; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

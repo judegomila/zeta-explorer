@@ -118,12 +118,16 @@ The derivation, annulus Dirichlet-to-Neumann reference operator, remaining coerc
 | Fixed strip ends | [?view=stripEnds](https://zeta-view.vercel.app/?view=stripEnds) | The real offset σ − ½ retained across logarithmic-height and reciprocal-height charts, with separate upper and lower ends. |
 | Damped Klein display | [?view=smoothKlein](https://zeta-view.vercel.app/?view=smoothKlein) | Positive Gaussian attenuation on the existing completed field. |
 | Dual conormal | [?view=dualTwistor](https://zeta-view.vercel.app/?view=dualTwistor) | The ℂℙ¹ family of tangent hyperplanes at the selected point or an exact infinity, anti-bridge, branch, or reciprocal-chart anchor. |
+| Twin-ladder model | `?view=twinLadder` | Finite prime ladders on two arms with an adjustable damping centre, packets, and the completed ξ bridge. |
+| Uranium-238 | `?view=uranium238` | Liquid-drop model of coupled surface oscillations, with measured ²³⁸U levels and resonance spacings beside it. |
 
 The end charts evaluate finite spectral points only. Gray and hatched regions distinguish unavailable or unresolved samples from known values. The finite-cutoff boundary diagnostic does not certify the remaining tail or a global energy bound. The Klein partner uses the exact nonlinear end-coordinate transformation and the completed function's conjugating symmetry.
 
 The Gaussian weight is exp(−|s−½|²/S²), with default scale S = 120. It preserves every finite zero and the phase away from zeros; it changes amplitudes and makes the weighted field nonholomorphic. For ξ, the weighted field admits a smooth, flat extension by zero at the spectral punctures, while ξ itself remains essential there. The renderer keeps raw samples, inspected values, cached fields, and bridge calculations unchanged. The end panel has its own exact/damped display control. No phase or original-function value is assigned to infinity.
 
 The dual view displays the family W = λ dQ₁ + μ dQ₂ for the two defining quadrics. It reports the bilinear point and tangent incidence residuals W·Z and W·T. There is a family of tangent hyperplanes, not a unique curve normal. Exact geometric infinity anchors require no ξ evaluation. See [the derivations and limits](docs/INFINITY-ENDS-DUAL.md) for the seam, strip metric, smooth-extension proof, full-energy distinction, and conormal conventions.
+
+The twin-ladder and uranium views are models with controls; neither evaluates ζ beyond the completed bridge readout, and neither is evidence about the Riemann hypothesis. See [the formulas, data sources and limits](docs/TWIN-LADDER-NUCLEUS.md).
 
 ### Share exactly the current view
 
@@ -179,8 +183,8 @@ For the actual heat family, `∂τ F = F_ss/4` and a simple zero satisfies `ρ�
 
 The Observatory is the front door of <https://exploreriemann.com> and is served from `/observatory/`.
 
-- `scripts/mount.mjs` runs in the site build after `vite build`. It builds the projective starter packs, copies `dist/` to the site output at `observatory/`, and writes `site-nav.json` from the research app's `src/data/nav-groups.js`.
-- `dist/site-bar.js` draws the single site header (brand, `Observatory | Research` switch, the research menus with page counts, then the Observatory's own actions) when `site-nav.json` is present. Served on its own, the Observatory shows its original header instead.
+- `scripts/mount.mjs` runs in the site build after `vite build`. It builds the projective starter packs, copies `dist/` to the site output at `observatory/`, and writes the single site header into the mounted `index.html` from the research app's `src/data/nav-groups.js`, so it is there on first paint.
+- `dist/site-bar.js` holds the markup for that header (brand, `Observatory | Research` switch, the research menus with page counts, then the Observatory's own actions) and its dropdown behaviour. Served on its own, the Observatory shows its original header instead.
 - `dist/tokens.css` is the single source for colours and fonts. `dist/site-head.css` holds the brand and mode switch used by the static pages.
 - `dist/learn/` is a ground-up introduction to the Riemann hypothesis. Its figures are computed in the browser from `dist/math.js`.
 - The research app's `index.html` redirects the bare site address to `./observatory/`. Its own pages are hash routes (`/#/…`) and are unaffected.

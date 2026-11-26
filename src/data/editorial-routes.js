@@ -9,6 +9,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/simulators',
   '/no-gos',
   '/results',
+  '/key-results',
   '/threads',
   '/state-of-field',
   '/permutation-architecture',
@@ -84,6 +85,18 @@ export const EDITORIAL_ROUTES = new Set([
   '/berry-keating-xp',
   '/connes-adelic',
   '/rh-attack',
+  '/rh-research-modules',
+  '/rh-arithmetic-foundation',
+  '/rh-suzuki-recurrence',
+  '/rh-prime-memory',
+  '/rh-finite-suzuki-certificate',
+  '/rh-whole-even-certificate',
+  '/rh-spectral-denominator-repair',
+  '/rh-spectral-head-theory',
+  '/rh-prime-retained-tail-certificate',
+  '/rh-channel-geometry',
+  '/rh-historical-routes',
+  '/rh-signed-complement',
   '/spectral-attack',
   '/theta-seizing-margin',
   '/theta-static-obstruction',
@@ -154,6 +167,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/viz-winding-dyson-flow',
   // Visualizations wave B + analysis/formalization
   '/vortex-field',
+  '/sign-switching',
   '/debruijn-departure',
   '/verified-height-lever',
   '/mollified-barrier-certificate',
@@ -220,3 +234,4 @@ export function isVizLegacyRoute(pathname) {
     pathname.startsWith('/viz-') || /imp\d/i.test(pathname) || VIZ_LEGACY_EXTRA.has(pathname)
   );
 }
+

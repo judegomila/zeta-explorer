@@ -114,7 +114,7 @@ export default function Imp95869TwoSidedEnvelopeViz() {
         recomputation of the already-verified imp-95825 / imp-95846 method (same
         sech-Toeplitz Rayleigh-quotient argument, no new cited input); every n=160 row is
         cross-checked against those frozen certified endpoints. Model seam family only.
-        Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; NO QED.
+        Changes no bound; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

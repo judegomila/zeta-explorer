@@ -272,8 +272,7 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95743 and imp-95885 modules verbatim (no re-derivation). Supplies no new bound,
-        establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

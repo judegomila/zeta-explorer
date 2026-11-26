@@ -163,8 +163,7 @@ export default function Imp95351Unif6VsUnif5AcrossRhoViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a floor-only measurement
         summary of an already-proven corollary, not a new theorem. It changes no Lambda bound and
-        establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of
-        the art. RH does not follow from anything on this page. NO QED.
+        establishes no operator positivity. RH does not follow from anything on this page. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -219,8 +218,7 @@ export default function Imp95351Unif6VsUnif5AcrossRhoViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95351 baked viz-data (both curves recomputed from the imp-95332 COROLLARY PEN-UNIF6 /
         imp-95331 COROLLARY PEN-UNIF5 closed forms, cross-checked at both grid endpoints against the
-        imp-95332 record). Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        imp-95332 record). Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

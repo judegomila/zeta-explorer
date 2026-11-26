@@ -147,8 +147,7 @@ export default function Imp95737HalfRetentionScaleViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95737_CAPTION} Derivation of
         an already-observed constant of the imp-95659&#47;imp-95693 twin-pair mechanism; model
-        seam family only; changes no Lambda bound; NO QED; Platt-Trudgian Lambda &lt;= 0.2
-        remains SOTA.
+        seam family only; changes no Lambda bound; NO QED.
       </div>
     </div>
   );

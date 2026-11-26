@@ -1,218 +1,89 @@
 \documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{xcolor}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black}
-
 \newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
-\newtheorem{proposition}{Proposition}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\theoremstyle{remark}
-\newtheorem{remark}{Remark}
-
-\newcommand{\LP}{\mathcal{LP}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Xibf}{\Xi}
-
-\title{\bf A flow-blindness no-go:\\ soft hypotheses cannot prove the Riemann Hypothesis}
-\author{mathexplorer research note (Lemma SL2)}
-\date{2026-08}
-
+\title{Flow-blindness with explicit hypothesis-class quantifiers}
+\author{mathexplorer research note (corrected SL2)}
+\date{September 30, 2026}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We record a precise, unconditional obstruction to a large class of proposed proofs
-of the Riemann Hypothesis (RH): those that would deduce RH from ``soft''
-(analytic, structural) hypotheses on the de Bruijn--Newman heat profile
-$\Phi$ --- evenness, positivity, doubly-exponential decay, log-concavity, total
-positivity. Multiplying $\Phi$ by the Gaussian $e^{-\varepsilon u^2}$ is exactly
-the de Bruijn backward heat flow at time $t=-\varepsilon$; it keeps $\Phi$ inside
-every one of those soft classes, yet by the Rodgers--Tao theorem
-$\Lambda\ge 0$ the resulting function has a non-real zero for \emph{every}
-$\varepsilon>0$. Hence no property of $\Phi$ that is stable under its own
-$\varepsilon$-backward-heat deformations can imply that its transform has only
-real zeros. Any proof of RH must use a property distinguishing $\Phi$ from these
-deformations --- necessarily an arithmetic property (the Jacobi theta / Euler
-product identity behind $\Phi$), which the heat flow destroys. This upgrades
-Newman's ``the Riemann hypothesis, if true, is only barely so'' from an aphorism
-to a formal no-go, and is the analytic twin of the frozen-rung$\Leftrightarrow$
-Platt--Trudgian inertia result: it re-derives, from de Bruijn--Newman flow
-rigidity rather than from Sylvester inertia, the conclusion that the only genuine
-lever in the program is verified zero height.
+A class containing the Riemann heat profile and its negative-time deformations
+cannot imply reality of all transform zeros. This follows from Rodgers--Tao.
+The membership hypothesis is essential. The result does not exclude analytic
+proofs using properties that distinguish the original profile from its deformations.
+This source supersedes the August 2026 note and its pre-existing PDF.
 \end{abstract}
 
-\section{Setup}
-
-\paragraph{The de Bruijn--Newman flow.} Let $\Phi\colon\R\to\R$ be the standard
-super-exponentially decaying de Bruijn--Newman profile,
+\section{Normalization and statement}
+Let $\Phi$ be the standard de Bruijn--Newman profile and set
 \[
-  \Phi(u)=\sum_{n\ge1}\bigl(2\pi^2 n^4 e^{9u}-3\pi n^2 e^{5u}\bigr)\,
-    e^{-\pi n^2 e^{4u}},
+ H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du,\qquad
+ \Xi(z)=8H_0(2z).
 \]
-which is even, strictly positive, and decays doubly exponentially. For $t\in\R$
-the de Bruijn heat flow of $\Phi$ is
-\begin{equation}\label{eq:Ht}
-  H_t(z)\;=\;\int_0^\infty e^{t u^2}\,\Phi(u)\,\cos(zu)\,du,
-\end{equation}
-an entire function of order $1$, real and even on $\R$. The de Bruijn--Newman
-constant $\Lambda$ is the threshold such that $H_t$ has \emph{only real zeros} if
-and only if $t\ge\Lambda$ \cite{deBruijn1950,Newman1976}. The Riemann Hypothesis
-is the statement $\Lambda\le 0$; since $H_0=\tfrac18\,\Xi(\,\cdot\,)$ with
-$\Xi(\lambda)=8\int_0^\infty\Phi(u)\cos(2\lambda u)\,du = c\,\xi(\tfrac12+i\lambda)$
-the completed Riemann $\xi$, RH is exactly ``$H_0$ has only real zeros.''
+Thus $H_0(z)=\Xi(z/2)/8$; the factor of two is not to be dropped.
+Up to this real rescaling, $H_0$ encodes the nontrivial zeta zeros.
+The de Bruijn--Newman constant is characterized by: $H_t$ has only real
+zeros if and only if $t\geq\Lambda$. Rodgers and Tao prove $\Lambda\geq0$.
 
-\paragraph{The Rodgers--Tao theorem.} Rodgers and Tao \cite{RodgersTao2020} proved
-\begin{equation}\label{eq:RT}
-  \Lambda\;\ge\;0 .
-\end{equation}
-Equivalently: for every $t<0$, $H_t$ has at least one non-real zero. (Newman
-\cite{Newman1976} had shown $\Lambda>-\infty$ and conjectured \eqref{eq:RT}.)
-
-\paragraph{The soft class.} Write $\mathcal S$ for the class of admissible profiles
-$\Psi\colon\R\to\R_{\ge0}$ that are even, strictly positive, log-concave, and decay
-faster than $e^{-c u^2}$ for every $c$ (doubly-exponential decay), together with any
-of the usual structural refinements (total positivity / P\'olya-frequency of the
-associated kernel, moment positivity, etc.). We call a hypothesis on the profile
-\emph{soft} if it defines a subclass $\mathcal H\subseteq\mathcal S$; and RH-\emph{stated-softly}
-is the assertion ``$\Psi\in\mathcal H \Rightarrow$ the transform of $\Psi$ has only
-real zeros.'' Every hypothesis used in the de Branges / twin-ladder positivity
-program (kernel positive-definiteness, log-concavity, Wronskian total positivity,
-decay, functional symmetry) is soft in this sense.
-
-\section{The backward flow stays soft but leaves the real-zero class}
-
-\begin{lemma}[Backward heat flow preserves $\mathcal S$]\label{lem:soft}
-For $\varepsilon>0$ set $\Phi_\varepsilon(u):=e^{-\varepsilon u^2}\Phi(u)$. Then
-$\Phi_\varepsilon\in\mathcal S$, and its cosine transform equals the backward flow,
-\[
-  \Xi_\varepsilon(\lambda):=8\!\int_0^\infty\!\Phi_\varepsilon(u)\cos(2\lambda u)\,du
-  \;=\;8\,H_{-\varepsilon}(2\lambda).
-\]
-\end{lemma}
-
-\begin{proof}
-The Gaussian $e^{-\varepsilon u^2}$ is even, strictly positive, and log-concave
-($-\varepsilon u^2$ concave), so the pointwise product $\Phi_\varepsilon$ is even,
-positive, and log-concave; its decay is at least that of $\Phi$. Total positivity is
-preserved because the Gaussian is a P\'olya frequency function and the P\'olya
-class is closed under multiplication. Thus $\Phi_\varepsilon\in\mathcal S$. The
-transform identity is immediate from \eqref{eq:Ht} with $t=-\varepsilon$ and the
-substitution $z=2\lambda$: $e^{-\varepsilon u^2}\Phi(u)$ under the cosine transform
-is $H_{-\varepsilon}$.
-\end{proof}
-
-\begin{theorem}[Flow-blindness]\label{thm:main}
-For every $\varepsilon>0$ the profile $\Phi_\varepsilon\in\mathcal S$ satisfies every
-soft hypothesis that $\Phi$ does, yet $\Xi_\varepsilon$ has a non-real zero. In
-particular $\Phi_\varepsilon$ is a counterexample to RH-stated-softly for the class
-$\mathcal H=\mathcal S$, and for every soft subclass containing the family
-$\{\Phi_\varepsilon:0<\varepsilon<\varepsilon_0\}$.
+\begin{theorem}
+Let $\mathcal H$ be a class of admissible profiles. Assume that $\Phi\in\mathcal H$
+and that $e^{-\varepsilon u^2}\Phi\in\mathcal H$ for every sufficiently small
+$\varepsilon>0$. It is false that the cosine transform of every profile in
+$\mathcal H$ has only real zeros.
 \end{theorem}
-
 \begin{proof}
-By Lemma~\ref{lem:soft}, $\Phi_\varepsilon\in\mathcal S$ and
-$\Xi_\varepsilon=8\,H_{-\varepsilon}(2\,\cdot\,)$. Since $-\varepsilon<0\le\Lambda$
-by \eqref{eq:RT}, $-\varepsilon<\Lambda$, so $H_{-\varepsilon}$ --- hence
-$\Xi_\varepsilon$ --- has a non-real zero. The soft hypotheses satisfied by $\Phi$
-are preserved by the multiplier $e^{-\varepsilon u^2}$ (Lemma~\ref{lem:soft}), so
-$\Phi_\varepsilon$ satisfies them too while failing ``all zeros real.''
+The transform of $e^{-\varepsilon u^2}\Phi$ is $H_{-\varepsilon}$.
+Since $-\varepsilon<0\leq\Lambda$, it has a nonreal zero, and is a counterexample
+to the proposed universal implication.
 \end{proof}
-
-\begin{corollary}[No soft proof of RH]\label{cor:nogo}
-Let $\mathcal H\subseteq\mathcal S$ be any soft class that is invariant under the
-backward-heat family, i.e.\ $\Psi\in\mathcal H\Rightarrow e^{-\varepsilon u^2}\Psi\in\mathcal H$
-for all small $\varepsilon>0$. Then RH-stated-softly for $\mathcal H$ is
-\emph{false}. Consequently no proof of RH whose hypotheses on the profile are
-flow-invariant can be correct: a correct proof must invoke a property of $\Phi$ not
-shared by its backward-heat deformations.
-\end{corollary}
-
-\begin{proof}
-Immediate from Theorem~\ref{thm:main}: $\Phi_\varepsilon\in\mathcal H$ for small
-$\varepsilon$ by invariance, and $\Xi_\varepsilon$ has a non-real zero, so the
-implication defining RH-stated-softly fails on $\Phi_\varepsilon$.
-\end{proof}
-
-\begin{remark}[What the distinguishing property must be]
-The property of $\Phi$ that its deformations $\Phi_\varepsilon$ lack is precisely the
-one destroyed by the heat flow: the exact arithmetic identity
-$\Xi=c\,\xi(\tfrac12+i\cdot)$ tying $\Phi$ to the Jacobi theta function and the Euler
-product. Multiplication by $e^{-\varepsilon u^2}$ breaks the functional
-equation's arithmetic origin while preserving all analytic softness. Thus any RH
-proof through this apparatus must, at some step, use prime-side input (e.g.\ Weil
-explicit-formula positivity), the classical device that converts prime information
-into zero-location information. No purely soft/estimate mechanism suffices.
-\end{remark}
-
-\section{Consequence for the twin-ladder / de Branges ``T3'' strip ladder}
-
-The program's sole global RH frontier (``T3'') asks, for every shift $a>0$, that a
-finite Hermitian kernel $D_{a,R}+K_a^{(S)}+K_{a,0}$ be positive semidefinite. With
-the repo transform pair
-$A_a(z)=8\!\int_0^\infty\!\Phi\cosh(2au)\cos(2zu)\,du$,
-$B_a(z)=8\!\int_0^\infty\!\Phi\sinh(2au)\sin(2zu)\,du$, one has the exact identity
-(machine-verified to $10^{-30}$ in the trigonometric core)
-\begin{equation}\label{eq:dagger}
-  E_a(z):=A_a(z)-iB_a(z)=\Xi(z+ia),\tag{$\dagger$}
-\end{equation}
-so $E_a$ is the Hermite--Biehler function of the $a$-shifted $\Xi$ and the kernel is
-its de Branges reproducing kernel \cite{deBranges1968}. Positivity of that kernel is
-equivalent to $E_a\in$ Hermite--Biehler, i.e.\ to ``$\Xi$ has no zero with
-$\Im>a$,'' i.e.\ to ``$\zeta$ has no zero with $\Re s>\tfrac12+a$.'' Thus T3 is the
-zero-free-strip statement in operator language, and ``T3$(a)$ for all $a>0$'' is RH.
 
 \begin{corollary}
-The T3 strip ladder cannot be closed by any soft/estimate mechanism. Its hypotheses
-(kernel positivity, Wronskian total positivity, decay, symmetry) are flow-invariant,
-so by Corollary~\ref{cor:nogo} they hold for $\Phi_\varepsilon$, whose $E_a^{(\varepsilon)}$
-fails Hermite--Biehler for all $a$ below some $b(\varepsilon)>0$. In particular no
-cancellation-sensitive Volterra estimate uniform over flow-stable profiles can force
-the strip: the family $\{\Phi_\varepsilon\}$ is an arbitrarily small deformation of
-$\Phi$ that the estimate would also have to control, but does not.
+A class containing $\Phi$ and closed under sufficiently small negative-time
+Gaussian multipliers cannot imply all-real transform zeros by membership alone.
 \end{corollary}
 
-\section{Relation to the rest of the program}
+\section{What is and is not preserved}
+The multiplier preserves evenness, positivity, and any pointwise decay upper bound
+for a positive profile. If $\log\Phi$ is concave, then
+$\log(e^{-\varepsilon u^2}\Phi)=\log\Phi-\varepsilon u^2$ is concave as well.
+These elementary observations do not prove that an arbitrary subclass
+of profiles is invariant. In particular, invariance of de Branges kernel
+positivity, Wronskian total positivity, or a P\'olya-frequency condition
+requires its own proof; none is supplied here. The former note's blanket
+pointwise-multiplication closure claim is withdrawn.
 
-\paragraph{Newman, made formal.} Newman's dictum that RH ``if true is only barely
-so'' \cite{Newman1976} is exactly \eqref{eq:RT}: the flow reaches all-real-zeros no
-earlier than $t=0$. Theorem~\ref{thm:main} turns this boundary-case rigidity into a
-proof-theoretic statement: the RH-true profile sits on the exact boundary of the
-soft class's real-zero region, so no flow-stable (soft) condition can separate it
-from the non-RH side.
+\section{The shifted identity and its scope}
+For
+\[
+ A_a(z)=8\int_0^\infty\Phi(u)\cosh(2au)\cos(2zu)\,du,\quad
+ B_a(z)=8\int_0^\infty\Phi(u)\sinh(2au)\sin(2zu)\,du,
+\]
+the cosine addition formula gives $A_a(z)-iB_a(z)=\Xi(z+ia)$.
+This is an identity, not a proof that the shifted function belongs to the
+Hermite--Biehler class. The full positivity program still requires its
+zero-location and operator-domain arguments.
 
-\paragraph{Twin of frozen-rung$\Leftrightarrow$Platt--Trudgian.} The frozen-rung
-result shows, via Sylvester inertia / Krein--Langer, that freezing the twin-ladder
-rungs reproduces Platt--Trudgian in operator language --- the route can never beat
-verified zero height. Theorem~\ref{thm:main} reaches the same ceiling from the
-opposite side: the analytic surplus a soft argument would need is precisely a
-zero-free strip, and no soft hypothesis can supply it. Both say: \emph{the only
-genuine lever is verified height}, now derived independently from inertia and from
-de Bruijn--Newman flow rigidity.
-
-\paragraph{Scope and honesty.} Theorem~\ref{thm:main} and Corollary~\ref{cor:nogo}
-are unconditional (they rest only on \cite{RodgersTao2020} and elementary closure
-properties). They do \emph{not} say RH is false or unprovable; they say a specific,
-large family of \emph{soft} strategies --- everything the twin-ladder/de~Branges
-positivity apparatus currently uses --- cannot work, and locate what a proof must
-add (prime-side arithmetic input). The value is negative-but-sharp: it retires the
-sub-threshold residual-grinding program and redirects effort to arithmetic
-mechanisms.
+\section{Research consequence}
+A successful hypothesis must exclude the negative-time counterexamples.
+Exact arithmetic structure is one possible way to do so. The theorem does not
+require that the distinguishing property be expressed through an Euler product,
+prove that verified zero height is the only useful lever, or rule out all
+analytic estimates and support-uniform arguments. It does not settle RH.
+In particular, it does not obstruct the logical implication from positivity
+for every compactly supported pole-free test to RH.
 
 \begin{thebibliography}{9}
-\bibitem{deBruijn1950} N.~G.~de Bruijn, \emph{The roots of trigonometric integrals},
-  Duke Math.\ J.\ \textbf{17} (1950), 197--226.
-\bibitem{Newman1976} C.~M.~Newman, \emph{Fourier transforms with only real zeros},
-  Proc.\ Amer.\ Math.\ Soc.\ \textbf{61} (1976), 245--251.
-\bibitem{RodgersTao2020} B.~Rodgers and T.~Tao, \emph{The de Bruijn--Newman
-  constant is non-negative}, Forum Math.\ Pi \textbf{8} (2020), e6.
-\bibitem{deBranges1968} L.~de Branges, \emph{Hilbert spaces of entire functions},
-  Prentice--Hall, 1968.
+\bibitem{RT} B. Rodgers and T. Tao,
+\emph{The de Bruijn--Newman constant is non-negative},
+Forum Math. Pi 8 (2020), e6,
+\url{https://arxiv.org/abs/1801.05914}.
+\bibitem{CC} A. Connes and C. Consani,
+\emph{Weil positivity and Trace formula: the archimedean place},
+Appendix C, Proposition C.1,
+\url{https://arxiv.org/abs/2006.13771}.
 \end{thebibliography}
-
 \end{document}

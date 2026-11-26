@@ -93,8 +93,7 @@ export default function Imp97409B4CeilingSignConditionOmegaClassesViz() {
         imp-97290). OPEN from &omega;={IMP97409_VERDICT.firstOpenOmega} (imp-97393): no violation of
         either condition was found in a full squarefree sweep over [2, 300000], and{' '}
         {IMP97409_VERDICT.magnitudeAsymptote}. The binding residual is {IMP97409_VERDICT.bindingResidual}.
-        This is a measurement/status display, not a new bound; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA; RH open; NO QED.
+        This is a measurement/status display, not a new bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
@@ -141,7 +140,7 @@ export default function Imp97409B4CeilingSignConditionOmegaClassesViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97409
         viz-data leaf (semiprime magRatio column derived by exact algebra from the imp-97290 ratio
         field; primorial ladder reused verbatim from imp-97393; no re-derivation). Changes no bound,
-        establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

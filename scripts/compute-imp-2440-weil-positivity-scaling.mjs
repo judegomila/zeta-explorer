@@ -8,8 +8,8 @@
 //   This script pushes the same explicit-formula machinery along three axes and
 //   tracks lambda_min:
 //     (a) DIMENSION   -- pack K = 6..16 even bump pairs into a FIXED support
-//                        window (denser centers) so the basis fills the relevant
-//                        function space at constant support;
+//                        window (denser centers) to sample a selected finite
+//                        bump family at constant support;
 //     (b) SUPPORT     -- fix K=8 and widen the support window (max center grows);
 //     (c) PARITY      -- add an ODD bump-pair block (sine transforms) and track
 //                        its own lambda_min.
@@ -32,18 +32,20 @@
 //   The prime sum truncates EXACTLY at n > exp(2*Lspan) because g_{ij}=f_i (conv)
 //   f_j is supported on |x| <= 2*Lspan (Lspan = bump radius + max center).
 //
-//   For ODD bump pairs f(x)=b(x-c)-b(x+c): F(r)=i*S(r) with S the sine transform,
-//   so h_{ij}=Re(F_i conj F_j)=S_i S_j and F(i/2)=int f e^{-x/2} dx -- identical
-//   assembly with sin in place of cos. Even and odd blocks are each independently
-//   PSD under RH; this script analyses them separately (cross-parity coupling is
-//   Hermitian and is out of scope here -- a negative eigenvalue in EITHER block
-//   would already disprove RH).
+//   CORRECTION 2026-11-01: for odd real f, put H=int f exp(-x/2) dx.
+//   S(i/2)=-iH, S(-i/2)=iH, so h=S_i*S_j has pole term -2H_iH_j.
+//   The historical +2HH^T odd block had an extra +4HH^T and is invalidated.
+//   The even convention remains +2HH^T. These floating matrices have no rigorous
+//   quadrature / transform-tail / rounding enclosure; a negative computed
+//   eigenvalue alone is not a negative actual Weil vector or an RH counterexample.
 //
 //   NUMERICAL EVIDENCE ONLY. Not a proof of RH.
 //
 // OUTPUT: JSON summary to stdout.
 
 import { performance } from 'node:perf_hooks';
+import { pathToFileURL } from 'node:url';
+import { weilPoleBlock, symmetricEigenDiagnostics, summarizeWeilRows } from '../src/math/weil-pick-safety.mjs';
 
 const LOG_PI = Math.log(Math.PI);
 
@@ -111,45 +113,11 @@ function rGrid(R, M) {
   return { h, r, w, scale: h / 3 };
 }
 
-// ---- Jacobi eigenvalue algorithm for real symmetric matrices ----
-function jacobiEig(Ain, n) {
-  const A = Ain.map((row) => Float64Array.from(row));
-  const V = Array.from({ length: n }, (_, i) => {
-    const v = new Float64Array(n); v[i] = 1; return v;
-  });
-  for (let sweep = 0; sweep < 100; sweep++) {
-    let off = 0;
-    for (let p = 0; p < n; p++) for (let q = p + 1; q < n; q++) off += A[p][q] * A[p][q];
-    if (off < 1e-30) break;
-    for (let p = 0; p < n; p++) {
-      for (let q = p + 1; q < n; q++) {
-        if (Math.abs(A[p][q]) < 1e-300) continue;
-        const theta = (A[q][q] - A[p][p]) / (2 * A[p][q]);
-        const t = Math.sign(theta || 1) / (Math.abs(theta) + Math.sqrt(theta * theta + 1));
-        const c = 1 / Math.sqrt(t * t + 1);
-        const s = t * c;
-        for (let k = 0; k < n; k++) {
-          const akp = A[k][p], akq = A[k][q];
-          A[k][p] = c * akp - s * akq;
-          A[k][q] = s * akp + c * akq;
-        }
-        for (let k = 0; k < n; k++) {
-          const apk = A[p][k], aqk = A[q][k];
-          A[p][k] = c * apk - s * aqk;
-          A[q][k] = s * apk + c * aqk;
-        }
-        for (let k = 0; k < n; k++) {
-          const vkp = V[k][p], vkq = V[k][q];
-          V[k][p] = c * vkp - s * vkq;
-          V[k][q] = s * vkp + c * vkq;
-        }
-      }
-    }
-  }
-  const eig = [];
-  for (let i = 0; i < n; i++) eig.push({ value: A[i][i], vec: V.map((row) => row[i]) });
-  eig.sort((a, b) => a.value - b.value);
-  return eig;
+// Finite residual-checked floating eigensolver; not an interval certificate.
+function jacobiEig(Ain) {
+  const result = symmetricEigenDiagnostics(Ain);
+  if (result.status !== 'diagnostic') throw new RangeError(result.reason);
+  return result;
 }
 
 // ---- bump pairs: smooth b(x)=exp(-1/(1-(x/L)^2)) on (-L,L) ----
@@ -236,6 +204,7 @@ function assembleGram(L, maxCenter, K, parity, gridG, phiTab, Dcache) {
     return arr;
   });
   const Fhalf = Fs.map(({ half }) => half);
+  const poleBlock = weilPoleBlock(Fhalf, parity);
 
   const W = Array.from({ length: K }, () => new Float64Array(K));
   for (let i = 0; i < K; i++) {
@@ -249,19 +218,21 @@ function assembleGram(L, maxCenter, K, parity, gridG, phiTab, Dcache) {
       }
       const arch = (archAcc * scG) / Math.PI;
       const prime = (primeAcc * scG) / Math.PI;
-      const pole = 2 * Fhalf[i] * Fhalf[j];
+      const pole = poleBlock[i][j];
       W[i][j] = W[j][i] = pole + arch + prime;
     }
   }
-  const eigW = jacobiEig(W, K);
+  const diagW = jacobiEig(W);
+  const eigW = diagW.eigenpairs;
 
-  // diagonal-normalized correlation form (unit |diagonal|) isolates genuine
-  // indefiniteness from the ill-conditioning of a near-dependent smooth basis.
+  // Diagonal congruence preserves inertia in exact arithmetic for nonzero scales.
+  // This floating normalization does not separate true indefiniteness from error.
   const C = Array.from({ length: K }, () => new Float64Array(K));
   for (let i = 0; i < K; i++)
     for (let j = 0; j < K; j++)
       C[i][j] = W[i][j] / Math.sqrt(Math.abs(W[i][i]) * Math.abs(W[j][j]));
-  const eigC = jacobiEig(C, K);
+  const diagC = jacobiEig(C);
+  const eigC = diagC.eigenpairs;
 
   // dominant components of the C min-eigvec => which centers stress positivity.
   const sv = eigC[0].vec;
@@ -271,6 +242,11 @@ function assembleGram(L, maxCenter, K, parity, gridG, phiTab, Dcache) {
     .slice(0, 3);
 
   return {
+    status: 'diagnostic',
+    certified: false,
+    eigenResidualW: diagW.relativeResidual,
+    eigenResidualC: diagC.relativeResidual,
+    quadratureAndTailEnclosed: false,
     K,
     parity,
     maxCenter: Number(maxCenter.toFixed(3)),
@@ -285,7 +261,16 @@ function assembleGram(L, maxCenter, K, parity, gridG, phiTab, Dcache) {
   };
 }
 
-function main() {
+// Catch individual block failures without silently discarding them.
+function checkedGram(...args) {
+  try { return assembleGram(...args); }
+  catch (error) {
+    return { status: 'invalid', certified: false, K: args[2], parity: args[3],
+      reason: error.message, lambdaMinC: null, lambdaMinW: null, psdC: false };
+  }
+}
+
+export function main() {
   const t0 = performance.now();
   const gridG = rGrid(120, 20000);
   const phiTab = new Float64Array(gridG.r.length);
@@ -295,40 +280,43 @@ function main() {
   // -------- calibration: reproduce imp-2427's 6-dim even basis --------
   // imp-2427 used L=1.6, centers [0,0.7,1.4,2.1,2.8,3.5] (maxCenter 3.5, K=6,
   // even spacing 0.7) and reported diagonal-normalized lambda_min = +2.4e-5.
-  const calib = assembleGram(1.6, 3.5, 6, 'even', gridG, phiTab, Dcache);
+  const calib = checkedGram(1.6, 3.5, 6, 'even', gridG, phiTab, Dcache);
 
   // -------- (a) DIMENSION sweep: fixed support, K = 6..16 --------
   const dimension = [];
   for (const K of [6, 8, 10, 12, 14, 16]) {
-    dimension.push(assembleGram(1.6, 3.5, K, 'even', gridG, phiTab, Dcache));
+    dimension.push(checkedGram(1.6, 3.5, K, 'even', gridG, phiTab, Dcache));
   }
 
   // -------- (b) SUPPORT sweep: fixed K=8, widen max center --------
   const support = [];
   for (const mc of [2.1, 3.5, 4.9]) {
-    support.push(assembleGram(1.6, mc, 8, 'even', gridG, phiTab, Dcache));
+    support.push(checkedGram(1.6, mc, 8, 'even', gridG, phiTab, Dcache));
   }
 
   // -------- (c) PARITY: odd bump-pair block, K = 6..12 --------
   const odd = [];
   for (const K of [6, 8, 10, 12]) {
-    odd.push(assembleGram(1.6, 3.5, K, 'odd', gridG, phiTab, Dcache));
+    odd.push(checkedGram(1.6, 3.5, K, 'odd', gridG, phiTab, Dcache));
   }
 
-  // -------- verdict: does lambda_min stay BOUNDED AWAY from 0 as the basis fills? --------
+  // -------- finite-sample diagnostics; no continuum floor claim --------
   const dimMins = dimension.map((r) => r.lambdaMinC);
   const oddMins = odd.map((r) => r.lambdaMinC);
-  const allEvenPSD = dimension.every((r) => r.psdC) && support.every((r) => r.psdC);
-  const allOddPSD = odd.every((r) => r.psdC);
-  const allPSD = allEvenPSD && allOddPSD;
-  const minEverSeen = Math.min(...dimMins, ...oddMins, ...support.map((r) => r.lambdaMinC));
-  // a diagonal-normalized lambda_min below this is indistinguishable from the
-  // linear-dependence / Jacobi noise floor of the near-dependent smooth basis.
+  const evenSummary = summarizeWeilRows([calib, ...dimension, ...support]);
+  const oddSummary = summarizeWeilRows(odd);
+  const summary = summarizeWeilRows([calib, ...dimension, ...support, ...odd]);
+  const allEvenPSD = evenSummary.allSampledAboveTolerance;
+  const allOddPSD = oddSummary.allSampledAboveTolerance;
+  const allPSD = summary.allSampledAboveTolerance;
+  const minEverSeen = summary.status === 'diagnostic'
+    ? Math.min(calib.lambdaMinC, ...dimMins, ...oddMins, ...support.map((r) => r.lambdaMinC)) : null;
+  // Chosen heuristic comparison scale only; not a proved numerical error bound.
   const CONDITIONING_FLOOR = 1e-9;
   const oddSinksToFloor =
-    oddMins[oddMins.length - 1] < CONDITIONING_FLOOR && oddMins[oddMins.length - 1] < oddMins[0];
-  // "robustly positive" = every block's margin stays above the conditioning floor.
-  const boundedAwayFromZero = minEverSeen > CONDITIONING_FLOOR;
+    oddSummary.status === 'diagnostic' && oddMins[oddMins.length - 1] < CONDITIONING_FLOOR && oddMins[oddMins.length - 1] < oddMins[0];
+  // Compare only the observed finite minimum with the chosen heuristic scale.
+  const finiteSampleMinimumExceedsHeuristicFloor = minEverSeen !== null && minEverSeen > CONDITIONING_FLOOR;
 
   const out = {
     ticket: 'imp-2440',
@@ -336,15 +324,16 @@ function main() {
     object:
       'Weil explicit-formula quadratic form on enriched compactly-supported test bases (dimension / support / parity sweeps), tracking lambda_min',
     method:
-      'Prime sum folded into a precomputed prime kernel D(r) = -2 sum_n Lambda(n) n^{-1/2} cos(r log n); W_{ij}=2F_i(i/2)F_j(i/2)+(1/pi)int F_iF_j (Phi_inf + D) dr. Diagonal-normalized (correlation) lambda_min reported as the indefiniteness proxy.',
+      'Prime sum folded into a precomputed prime kernel D(r) = -2 sum_n Lambda(n) n^{-1/2} cos(r log n); W_{ij}=paritySign*2H_iH_j+(1/pi)int F_iF_j (Phi_inf + D) dr; paritySign=+1 even, -1 odd. Diagonal-normalized (correlation) lambda_min reported as the indefiniteness proxy.',
     calibration: {
       note: 'reproduce imp-2427 6-dim even basis (L=1.6, maxCenter 3.5); target diagonal-normalized lambda_min ~ +2.4e-5',
       lambdaMinC: calib.lambdaMinC,
       lambdaMinW: calib.lambdaMinW,
-      matchesImp2427: Math.abs(calib.lambdaMinC - 2.4e-5) < 1e-5,
+      status: calib.status,
+      matchesImp2427: calib.status === 'diagnostic' && Math.abs(calib.lambdaMinC - 2.4e-5) < 1e-5,
     },
     dimensionSweep: {
-      note: 'K even bump pairs packed into fixed support (maxCenter 3.5); denser centers fill the function space at constant support',
+      note: 'K even bump pairs packed into fixed support (maxCenter 3.5); denser centers sample a finite family at constant support; no completeness claim',
       rows: dimension,
       lambdaMinCByK: dimMins,
     },
@@ -353,29 +342,37 @@ function main() {
       rows: support,
     },
     parityOddSweep: {
-      note: 'odd bump pairs b(x-c)-b(x+c) via sine transform; independently PSD under RH',
+      note: 'corrected odd sine-product pole sign; floating diagnostic only, no certified PSD',
       rows: odd,
       lambdaMinCByK: oddMins,
     },
     verdict: {
-      noNegativeEigenvalueAnywhere: allPSD,
-      allEvenBlocksPSD: allEvenPSD,
-      allOddBlocksPSD: allOddPSD,
-      smallestLambdaMinCSeen: Number(minEverSeen.toExponential(4)),
-      boundedAwayFromZero,
-      oddBlockSinksToConditioningFloor: oddSinksToFloor,
-      conditioningFloor: CONDITIONING_FLOOR,
-      reading:
-        'Weil positivity is NOT violated on any tested basis: every even (K=6..16, support to maxCenter 4.9) and odd (K=6..12) block is PSD, so the evidence is consistent with RH and is broadened well beyond the original 6-dim even check. HOWEVER the diagonal-normalized margin does NOT stay robustly bounded away from 0: the EVEN dimension sweep wanders non-monotonically in ~5e-7..7e-4, and the ODD block descends steadily (7e-10 -> 2e-12) as K grows, sinking BELOW the conditioning floor. At that scale lambda_min(C) is dominated by the linear dependence of the smooth bump basis, not by a genuine stress direction, so these richer bases neither certify a stable positive lower bound nor expose a negative direction.',
+      status: summary.status,
+      allSampledAboveTolerance: allPSD,
+      noNegativeEigenvalueAnywhere: null, // legacy literal claim withdrawn
+      positivityTolerance: -1e-8,
+      allEvenBlocksMeetTolerance: allEvenPSD,
+      allOddBlocksMeetTolerance: allOddPSD,
+      smallestLambdaMinCSeen: minEverSeen === null ? null : Number(minEverSeen.toExponential(4)),
+      finiteSampleMinimumExceedsHeuristicFloor,
+      oddFinalSampleBelowHeuristicFloorAndFirstSample: oddSinksToFloor,
+      heuristicFloor: CONDITIONING_FLOOR,
+      reading: summary.reading,
       namedSubGap: 'imp-2440-conditioning-floor',
-      subGapDescription:
-        'Beyond K~8 the diagonal-normalized lambda_min sinks into the bump-basis conditioning floor (~1e-11 for the odd block), so the test cannot distinguish "exactly PSD with a near-dependent basis" from "margin genuinely eroding to 0". Closing it needs a conditioning-robust basis (Gram-Schmidt / Slepian / Hermite-window orthogonalization) whose well-separated singular values let lambda_min be read below the current ~1e-9 resolution. The hardest test direction is the densest-center cluster (even: centers ~0.7-1.6; odd: outer centers ~2.6-3.5).',
-      caveat:
-        'Single-parity blocks only; cross-parity Hermitian coupling not assembled (a negative eigenvalue in either block alone would already disprove RH). NUMERICAL evidence only; consistent with RH, not a proof.',
+      subGapDescription: 'Rigorous transform-tail, quadrature and eigenvalue enclosures remain absent. The conditioning floor is a heuristic, not a certified error or continuum lower bound.',
+      caveat: 'Single-parity finite floating diagnostics only. Neither a positive nor negative numerical estimate settles the actual Weil form or RH.',
+      historicalInvalidated: {
+        oddMargins: '7e-10 -> 2e-12',
+        priorClaim: 'every even and odd tested block is PSD',
+        status: 'pre-correction-odd-output-invalidated',
+        reason: 'The old odd pole term added +4HH^T. These old numbers are not corrected results; even convention retained but still not certified.',
+      },
     },
     elapsedMs: Math.round(performance.now() - t0),
   };
   process.stdout.write(JSON.stringify(out, null, 2) + '\n');
 }
 
-main();
+// Importing this file for focused tests must not launch the expensive sweep.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+

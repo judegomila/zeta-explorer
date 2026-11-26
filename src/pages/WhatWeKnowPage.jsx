@@ -6,6 +6,9 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
 import { STATUS } from '../styles/tokens.js';
+import { RH_DIRECTION_AUDIT as AUDIT } from '../data/rh-direction-audit-2026-09-30.js';
+import { PROGRAM_STATUS_AS_OF, PROGRAM_STATUS_SUMMARY } from '../data/program-status-current.js';
+import { AsOfLine, CurrentStatusList } from '../components/ProgramStatus.jsx';
 
 const KIND_COLOR = { theorem: STATUS.proved.fg, barrier: STATUS.nogo.fg, equivalence: STATUS.rhequiv.fg };
 
@@ -46,20 +49,22 @@ const OVERCLAIMS = [
   ['§27 collapse identity', 'block-positivity ⟺ K_a-PSD refuted by a scale-invariance argument'],
   ['Volterra "5000× margin"', 'a homogeneity artifact — measuring a scale-miscalibrated operator'],
   ['finite-N*=10⁴ "beat"', 'an ESTIMATE, not rigorous — C_H is undischargeable'],
-  ['the operator "collapse"', 'RH-equivalent, a reformulation — not a reduction'],
+  ['the operator "collapse"', 'the bare norm equivalence is refuted; the exact signed positivity target remains open'],
+  ['pole-free positivity needs a separate pole-inclusive bridge for RH', 'all-support pole-free positivity already suffices'],
+  ['every analytic strategy is ruled out by flow-blindness', 'the class must contain the negative-time deformations'],
 ];
 
 export default function WhatWeKnowPage() {
   return (
     <PostLayout
       grade="NO-GO"
-      meta={[`${ROUTE_COUNT} mapped routes`, 'calibrated clarity']}
+      meta={[`${ROUTE_COUNT} mapped routes`, `as of ${PROGRAM_STATUS_AS_OF}`]}
       title="What We Know"
       dek={
         <>The consolidated, state of what this project has actually figured out about
         ζ, the Riemann Hypothesis, and the primes — where the walls are and why.</>
       }
-      byline={['mathexplorer', 'no RH proof · no beat of the Λ record']}
+      byline={['exploreriemann', 'no RH proof · no refereed bound of this project']}
       ticker={<span>no-go theorems · the remaining gap, located</span>}
       footer={<>
         Related: <Link to="/frontier-dag">The frontier DAG</Link>
@@ -73,13 +78,35 @@ export default function WhatWeKnowPage() {
       </>}
     >
       <p className="lead">
-        The discipline throughout is calibrated clarity — so the headline first:{' '}
-        <strong>RH is not proved. The standalone repository presents
-        Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof.
-        The bound is not established, has been reviewed by Dan Romik, and is not RH.</strong> Across{' '}
+        The headline first: <strong>{PROGRAM_STATUS_SUMMARY}</strong> Across{' '}
         <strong>{ROUTE_COUNT} mapped routes</strong>, every surviving route from a positive
         Newman bound to RH is still open, RH-equivalent, or dead.
       </p>
+      <AsOfLine />
+
+      <h2>Status as of {PROGRAM_STATUS_AS_OF}</h2>
+      <p>
+        Each entry names the file of the repository that supports it. The full list, including the Lean
+        formalisations, the Observatory and the repository, is at{' '}
+        <Link to="/state-of-program">/state-of-program</Link>; the selected results are at{' '}
+        <Link to="/key-results">/key-results</Link>.
+      </p>
+      <CurrentStatusList ids={['lambda-conditional-0116091', 'lambda-candidates-unconditional', 'lambda-route-p-0144997',
+        'lambda-third-party-0107965', 'zero-free', 'direct-attempts', 'obstruction-controls']} />
+
+      <h2>Research direction audit · {AUDIT.date}</h2>
+      <p><strong>{AUDIT.recommendation}</strong> {AUDIT.reason}</p>
+      <p>This is a research priority judgment, not a claim that a proof is close.</p>
+      <div style={{ overflowX: 'auto' }}>
+        <table>
+          <thead><tr><th scope="col">Direction</th><th scope="col">Assessment and next step</th></tr></thead>
+          <tbody>{AUDIT.routes.map((r) => (
+            <tr key={r.name}><th scope="row">{r.name}</th><td><strong>{r.status}.</strong> {r.next}</td></tr>
+          ))}</tbody>
+        </table>
+      </div>
+      <ul>{AUDIT.corrections.map((c) => <li key={c}>{c}</li>)}</ul>
+      <p><a href="https://arxiv.org/pdf/2006.13771#page=51" target="_blank" rel="noreferrer">Criterion: Connes–Consani, Appendix C, Proposition C.1</a>.</p>
 
       <figure style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '18px auto', background: 'var(--paper)' }}>
         <WireframeAnim kind="no-go-wall" />
@@ -87,7 +114,7 @@ export default function WhatWeKnowPage() {
 
       <h2>① Established results and the separately graded candidates</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
-        <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.</li>
+        <li><strong>Standalone Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established; it has been reviewed by Dan Romik and is publicly posted, not refereed. It is not RH.</li>
         <li><strong>Sharper Newman candidate:</strong> <strong>Λ ≤ 0.1758354</strong> — a computer-assisted candidate with four gates certified in Arb and a Lean-checked y-transfer reduction and Lemma B3. Unrefereed; not established. <Link to="/lambda-01758354-candidate">detail →</Link></li>
         <li><strong>Λ ≤ 0.14 completion contract:</strong> a conditional contract, <em>not a bound</em> — the freeze-calculus / [B_v, Π_p]-weld route reduces the strict value to exactly one open family: the enclosure |C_E,17| {'<'} 0.2796881955526147 on 690988 ≤ N ≤ 54799999. Nothing is claimed unless that family closes. <Link to="/permutation-architecture">detail →</Link></li>
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
@@ -97,19 +124,19 @@ export default function WhatWeKnowPage() {
       </ul>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
-        <div className="tlab">CURRENT FRONTIER (2026-09)</div>
+        <div className="tlab">FRONTIER ITEMS OF 2026-09 (superseded as the leading items; see the status list above)</div>
         <ul style={{ paddingLeft: 20, lineHeight: 1.75, margin: 0 }}>
-          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — candidate-unrefereed; 4 of 8 obligations closed, O1 at Aristotle; a package value, not a bound. Detail: <Link to="/threads">Research Threads</Link>.</li>
-          <li><strong>Route VII derived floor:</strong> the reachable-floor analysis puts the compute-derived floor at U ≈ 0.145–0.150; below it requires arithmetic input. Detail: <Link to="/frontier-dag">Frontier DAG</Link>.</li>
+          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — a package value, not a bound. 2 of its 6 obligations are closed (O3, O5); O1, O2, O4, O6 are open (record of 2026-09-22). The theorem behind O1 is Lean-checked with its gates G1–G4 as hypotheses; the gate computation is not done. Detail: <Link to="/threads">Research Threads</Link>.</li>
+          <li><strong>Route VII derived floor:</strong> the reachable-floor analysis of 2026-09 put the compute-derived floor at U ≈ 0.145–0.150, with arithmetic input required below it. The later conditional value 0.116091 uses such an input (the unrefereed half-plane Re s &gt; 7/8). Detail: <Link to="/frontier-dag">Frontier DAG</Link>.</li>
           <li><strong>Inertia-PCC verdict:</strong> the inertia route meets the same pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Detail: <Link to="/threads">Research Threads</Link>.</li>
         </ul>
       </div>
 
-      <h2>② The two frontier walls — fully characterized</h2>
+      <h2>② Two major obstacles in the historical route map</h2>
       <p>
-        Every surviving mapped route seeking to drive the positive bound all the way to
-        Λ = 0 funnels into one of two RH-hard objects. Both have been driven to ground by
-        deliberate skeptical push.
+        The collision estimates and exact kernel positivity are major unresolved objects.
+        Their appearance in several routes does not prove that every possible RH approach
+        encounters the same barrier.
       </p>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra, #b5563f)' }}>
@@ -127,13 +154,13 @@ export default function WhatWeKnowPage() {
       </div>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
-        <div className="tlab">§26 μ^pass / VOLTERRA — RH-EQUIVALENT</div>
+        <div className="tlab">§26 μ^pass / VOLTERRA — CORRECTED SCOPE</div>
         <div>
-          The elegant "7+ conjectures collapse to one operator-norm bound ‖V‖≤1" idea is
-          <strong> PCC-free</strong> (real, surprising) but <strong>not a reduction</strong>: the collapse
-          identity was refuted, and the surviving target is RH-equivalent — confirmed now at the
-          <em> operator</em> level. The endpoint-bridge measure is mass-feasible (budget 2,400–20,000× the
-          deficit) but the required <em>sign-positivity</em>, derived from Φ alone, <strong>is</strong> K_a ≥ 0 itself.
+          The bare Volterra norm equivalence was refuted. The continuum diagonal has zero
+          product measure, so a positive comparison kernel must be introduced separately.
+          For a finite matrix K=P+S with P positive definite, the exact condition is
+          I+P⁻¹ᐟ²SP⁻¹ᐟ² ≥ 0. Bounding the norm of that signed residual by 1 is sufficient,
+          but generally stronger than positivity.
         </div>
       </div>
 
@@ -141,19 +168,17 @@ export default function WhatWeKnowPage() {
         Detail: <Link to="/route-map">Route Map</Link> · <Link to="/rigor-dashboard">Rigor Dashboard</Link>
       </p>
 
-      <h2>③ The meta-finding (the most valuable result)</h2>
+      <h2>③ What the comparisons establish</h2>
       <p>
-        Across {ROUTE_COUNT} routes, a uniform pattern: <strong>every promising route, under
-        skeptical scrutiny, turns out to be either not rigorous (the C_H wall) or RH-equivalent
-        (a reformulation).</strong> There is no hidden shortcut below RH anywhere in the map — only
-        elegant restatements, each as hard as RH, and they all ultimately meet the same
-        two-sided pair-correlation / GUE wall. Knowing <em>precisely</em> where the walls are,
-        and that they are all the same wall, is the project's hardest-won knowledge.
+        Across {ROUTE_COUNT} mapped routes, keep exact identities, finite certificates,
+        numerical diagnostics, and open implications separate. An RH-equivalent target can
+        still be useful if it enables a new estimate or construction. Failure of one estimate
+        does not prove that every alternative is impossible, and pair correlation is not an
+        established prerequisite for the arithmetic positivity criterion.
       </p>
 
       <Pull>
-        There is no hidden shortcut below RH anywhere in the map — only elegant restatements,
-        each as hard as RH, all meeting the same wall.
+        The strongest next step is an independently checkable positivity certificate for the exact arithmetic form.
       </Pull>
 
       <h2>④ The no-go landscape — the walls, ours and the field's</h2>
@@ -169,7 +194,7 @@ export default function WhatWeKnowPage() {
       <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 20, marginBottom: 2 }}>Established results &amp; recognized barriers (the field)</h3>
       <NoGoList items={FIELD_NO_GOS} />
 
-      <h2>⑤ The verification discipline — six overclaims caught and withdrawn</h2>
+      <h2>⑤ The verification discipline — overclaims corrected</h2>
       <p style={{ color: 'var(--ink-soft)' }}>
         The map is trustworthy because confident-looking claims were independently refuted
         <em> before</em> they became results. The ledger:
@@ -193,10 +218,14 @@ export default function WhatWeKnowPage() {
       <h2>One-sentence version</h2>
       <TheoremBox label="Bottom line">
         <p style={{ margin: 0 }}>
-          The standalone repository presents
-          <strong> Λ ≤ 0.1787854</strong> as a computer-assisted candidate for an
+          As of {PROGRAM_STATUS_AS_OF}: the smallest value recorded here is{' '}
+          <Link to="/lambda-0116091"><strong>Λ ≤ 0.116091488672439</strong></Link>, conditional on three inputs
+          that are not established (the half-plane Re s &gt; 7/8 and D. J. Raymond’s chain, both unrefereed, and this
+          project’s own partly uncertified floor and kernel tables) and on the Platt–Trudgian verified height; it is
+          not an established bound.
+          <strong> Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an
           unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.
-          A sharper candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
+          A smaller candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
           Arb-certified gates + a Lean-checked y-transfer reduction and Lemma B3), is likewise unrefereed. The{' '}
           <Link to="/permutation-architecture"><strong>Λ ≤ 0.14</strong> completion contract</Link> is a
           conditional contract, not a bound — reduced to one open family. The exact global Twin Ladder

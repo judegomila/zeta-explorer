@@ -219,7 +219,7 @@ export default function Imp95886DecadeReachLedgerViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95863 decade ledger verbatim (no re-derivation). Supplies no new bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

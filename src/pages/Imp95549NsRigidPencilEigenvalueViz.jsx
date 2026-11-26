@@ -136,7 +136,7 @@ export default function Imp95549NsRigidPencilEigenvalueViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing chart of the
         imp-95530 THEOREM NS-RIGID (A4)(i) witness on one finite node set, not a new theorem. It
         changes no Lambda bound and establishes no operator positivity beyond what imp-95530
-        already recorded. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does
+        already recorded. RH does
         not follow from anything on this page. NO QED.
       </div>
 
@@ -195,7 +195,7 @@ export default function Imp95549NsRigidPencilEigenvalueViz() {
         flowedPickPencilMin from src/data/imp-95530-native-span-arithmetic-input-rigidity.js on a
         log-spaced eps grid and baking the result as literals
         (src/data/imp-95549-ns-rigid-pencil-eigenvalue-viz-data.js). Changes no bound, establishes
-        no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        no operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

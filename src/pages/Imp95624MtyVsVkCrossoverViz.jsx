@@ -159,8 +159,7 @@ export default function Imp95624MtyVsVkCrossoverViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a descriptive recomputation
         of the imp-95605 / imp-95519 sec 3(b) figures, sampled onto a curve for charting. It
-        changes no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything on this
+        changes no Lambda bound and establishes no operator positivity. RH does not follow from anything on this
         page. NO QED.
       </div>
 
@@ -216,8 +215,7 @@ export default function Imp95624MtyVsVkCrossoverViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95605 independent recomputation (itself verifying imp-95519 sec 3(b)). Changes no
-        bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda;
-        &le; 0.2 remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

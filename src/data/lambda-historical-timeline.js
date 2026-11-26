@@ -241,7 +241,7 @@ export const LAMBDA_TIMELINE = [
     accepted: false,
     method: 'Computer-assisted candidate for an unconditional bound via the twin-ladder mollified-barrier method (compact slab, final-time zero-free half-strip, 3,149,013-row interval-arithmetic replay, exact Polymath criterion weld). Reviewed by Dan Romik and publicly posted (judegomila.com/posts/riemann-lambda-0.1787854). Not yet a peer-reviewed publication; not itself RH.',
     citation: 'mathexplorer / zetaexplorer barrier-certificate package (2026); reviewed by Dan Romik.',
-    notes: 'Candidate, not the accepted SOTA. Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark; RH remains open.',
+    notes: 'Candidate: reviewed by Dan Romik, publicly posted, not refereed. RH remains open.',
   },
   {
     year: 2026,
@@ -253,7 +253,7 @@ export const LAMBDA_TIMELINE = [
     accepted: false,
     method: 'Sharper computer-assisted candidate: a revised mollifier and an extended finite lane certify four gates (each machine-checked in Arb interval arithmetic; the y-transfer reduction and Lemma B3 Lean-checked). Below the 0.1787854 candidate.',
     citation: 'mathexplorer / zetaexplorer four-gate barrier certificate (2026).',
-    notes: 'Candidate, unrefereed. Platt–Trudgian Λ ≤ 0.2 remains SOTA; RH remains open.',
+    notes: 'Candidate, unrefereed. RH remains open.',
   },
   {
     year: 2026,
@@ -263,9 +263,9 @@ export const LAMBDA_TIMELINE = [
     relation: '≤',
     status: 'computer-assisted candidate',
     accepted: false,
-    method: 'y-thaw package (stages 1+2, 2026-09): candidate-unrefereed. 4 of 8 obligations closed (O3, O5 certified); O1 at Aristotle; O2, O4, O6 open. A package value, not a bound — nothing is claimed unless all obligations close. Status per obligation on /frontier-dag and the y-thaw research thread.',
+    method: 'y-thaw package (stages 1+2, 2026-09): candidate-unrefereed. The package has six obligations O1–O6; as of the record of 2026-09-22, 2 of 6 are closed (O3 error budget and O5 site coverage, certified 2026-09-10) and 4 are open (O1, O2, O4, O6). The theorem behind O1 is Lean-checked with gates G1–G4 as hypotheses; the gate computation is not done, so O1 is open. A package value, not a bound — nothing is claimed unless all obligations close. Status per obligation on /frontier-dag and the y-thaw research thread.',
     citation: 'mathexplorer / zetaexplorer y-thaw obligation package (2026-09).',
-    notes: 'Candidate, unrefereed; obligations 4/8 closed. Platt–Trudgian Λ ≤ 0.2 remains SOTA; RH remains open.',
+    notes: 'Candidate, unrefereed; 2 of 6 obligations closed (O3, O5). RH remains open.',
   },
 ];
 

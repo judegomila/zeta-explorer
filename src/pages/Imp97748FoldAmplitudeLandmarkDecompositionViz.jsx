@@ -100,7 +100,7 @@ export default function Imp97748FoldAmplitudeLandmarkDecompositionViz() {
         page. K = sqrt(S/(2 phi_xx)) is the imp-97725 fold amplitude only AT the peak (L1); the
         L2/L3/L4 entries show how the numerator S and curvature phi_xx separately evolve downslope,
         not an extended fold law. Conditional-share diagnostic on the inherited imp-3220/imp-3406
-        extrapolation, NOT an RH bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open;
+        extrapolation, NOT an RH bound; no refereed bound is changed; RH open;
         NO QED.
       </div>
 

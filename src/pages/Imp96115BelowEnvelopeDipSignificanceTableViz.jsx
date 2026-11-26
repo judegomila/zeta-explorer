@@ -74,8 +74,7 @@ export default function Imp96115BelowEnvelopeDipSignificanceTableViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing table of the
         imp-96089 measurement, deciding which of the three imp-96049 below-envelope mean-anchor
         dips is a real number-variance excursion versus sampling noise. It changes no Lambda bound
-        and establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state
-        of the art. NO QED.
+        and establishes no operator positivity. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -124,7 +123,7 @@ export default function Imp96115BelowEnvelopeDipSignificanceTableViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96089
         baked verdict verbatim (no re-derivation). Changes no bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
     </div>
   );

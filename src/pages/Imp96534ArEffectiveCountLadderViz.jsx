@@ -186,8 +186,7 @@ export default function Imp96534ArEffectiveCountLadderViz() {
         theoretical GUE sine-process box correlations, not empirical zero covariances, so the
         AR-2/AR-3 figures are indicative, not precise; the headline z_cons floor is untouched.
         Derivation/measurement diagnostic only, not rigorous; changes no bound; establishes no
-        operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains
-        SOTA.
+        operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

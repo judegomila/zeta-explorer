@@ -1,0 +1,27 @@
+{
+  "status": "certified",
+  "scope": "counterexample to crude collar domination, not to Weil positivity or RH",
+  "precision_bits": 384,
+  "width": "33/20",
+  "g_definition": "(1-z^2)^4 sum_j integers[j]*z^(2j+1)/10^8; z=x/(33/40)",
+  "integers": [
+    -6458,
+    -245693,
+    1846367,
+    -11318672,
+    42196348,
+    -91489040,
+    100000000,
+    -43690323
+  ],
+  "norm_squared_exact": "778172507573970085804040385083/359656479766969658222167968750000000",
+  "cutoff": 400,
+  "gauss_order": 48,
+  "collar_form_upper_per_norm": "[-0.0122736652363120714498822013041629 +/- 9.38e-35]",
+  "full_weil_form_lower_per_norm": "[0.091113032977897041886227730549629 +/- 5.33e-34]",
+  "retained_mismatch_per_norm": "[0.14556479572386813152791998363792240542136079774855925228805617937147270828604134155949284248 +/- 2.92e-93]",
+  "tail_upper_per_norm": "[0.0421780975096590181917904443826103523229699571340642166503404432758133661518226583182796422091199715528117566107106 +/- 5.56e-116]",
+  "quadrature_error_per_norm": "[9.80370075985728415017121812841013454756120495518711053037912344839986219125281400116559818260312546508898814772828e-24 +/- 7.16e-138]",
+  "smooth_approximation": "g has four vanishing endpoint traces; approximate in H^4 and apply Q to obtain smooth pole-free witnesses",
+  "script_sha256": "a1fdfba23f269724f922f7d711a7699a9957ef71a6ede046bdeeadd3186b3e25"
+}

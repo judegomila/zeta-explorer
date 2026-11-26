@@ -73,7 +73,8 @@ export default function ProjectIndexPage() {
           <div style={{ marginBottom: 12, padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)' }}>
             <div style={{ color: 'var(--brass-dk)', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Where the program actually stands</div>
             <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6 }}>
-              RH is open. The program's frontier: computer-assisted candidates Λ ≤ 0.1787854 (reviewed by Dan
+              RH is open. As of 2026-11-20: the conditional value Λ ≤ 0.116091488672439 (depends on three inputs
+              that are not established), the unrefereed computer-assisted candidates Λ ≤ 0.1787854 (reviewed by Dan
               Romik) and Λ ≤ 0.1758354, plus a conditional Λ ≤ 0.14 completion contract reduced to one open
               family. Across the mapped routes, every shortcut below RH is either not rigorous or RH-equivalent —
               see the <Link to="/state-of-program">State of the Program</Link> and{' '}

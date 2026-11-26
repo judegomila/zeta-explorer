@@ -117,7 +117,7 @@ export default function Imp95268CollarOverpriceViz() {
         <strong style={{ color: 'var(--series-5)' }}>Honest status:</strong> this chart illustrates a
         MEASUREMENT (imp-95232 FINDING 1) of how far the count-uniform BL-LAT collar sits above
         the exact Lambda at finite N; it changes no bound, establishes no operator positivity,
-        and carries no RH claim. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art.
+        and carries no RH claim.
         NO QED.
       </div>
 
@@ -168,7 +168,7 @@ export default function Imp95268CollarOverpriceViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95268 baked viz-data (the imp-95232 FINDING 1 onLatticeBaseline / collarOverpriceVsX
         literals, copied verbatim, not re-derived). Changes no bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
     </div>
   );

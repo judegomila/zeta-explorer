@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
+import StatusNote from '../components/StatusNote.jsx';
 import { PT_FLOOR_AUDIT } from '../data/pt-floor-sensitivity-audit-2026-07-08.js';
 import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
 import { IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY } from '../data/imp-35678-finite-height-beat-vs-parity-regime-boundary.js';
@@ -28,7 +30,7 @@ export default function PtFloorSensitivityAuditPage() {
         binds the rigorous Λ ≤ 0.2 floor — the <strong>verified zero height X</strong>, the{' '}
         <strong>barrier min-modulus / mesh slack</strong>, or the <strong>AFE tail e_C</strong>?
       </>}
-      byline={['mathexplorer', 'diagnostic audit · no bound']}
+      byline={['exploreriemann', 'diagnostic audit · no bound']}
       ticker={<span>audit · Platt–Trudgian Λ ≤ 0.2 stays SOTA</span>}
       footer={<>
         Related: <Link to="/ht-corridor-certificates">H_t Corridor Certificates</Link>
@@ -37,6 +39,18 @@ export default function PtFloorSensitivityAuditPage() {
         <br /><br />← <Link to="/">the atlas</Link>
       </>}
     >
+      <SnapshotBanner date="2026-07-08">This audit concerns the accepted bound Λ ≤ 0.2 and the barrier-tightening class; it is kept as written. Values below 0.2 recorded since then are conditional or unrefereed.</SnapshotBanner>
+      <StatusNote item="pt-floor" recordsFormulation>
+        With the Euler-2 Lemma 10.1 of Polymath15 and the target 0.03, the admissible Λ is a function of the
+        verified zero height (0.20 at X = 5·10^12, 0.19 at X = 2·10^13), and re-certifying the compact barrier
+        check does not change it; this is printed in Polymath15, section 10. Verified height is not the only
+        lever: at the fixed height 3·10^12 a main-term calculation of the corner test passes at 0.197 with the
+        Euler-2 mollifier, 0.183 with primes 2, 3, 5, 0.181 with primes up to 7 and 0.180 with primes up to 11.
+        These figures omit error terms and the barrier run and are not bounds. The figure “e_C = 0.955” is the
+        mass of Polymath15 eq. (88) for the 0.22 theorem (e_C,0 ≤ 1.249e-3), the “10×” gap to the 0.19 row is 3.3×
+        in zero height, the interval table is at x ≤ 66 and is not evidence about the barrier at X ≈ 5·10^12,
+        and the three decompositions are not independent.
+      </StatusNote>
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
         <div className="tlab">Diagnostic audit — produces no bound, beats nothing; Platt–Trudgian Λ ≤ 0.2 stays SOTA</div>
         <p style={{ margin: 0 }}>

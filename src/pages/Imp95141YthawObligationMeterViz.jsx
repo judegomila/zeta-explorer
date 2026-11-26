@@ -65,7 +65,7 @@ export default function Imp95141YthawObligationMeterViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {candidateValue} is a
         package value, not a proven bound. Only 2 of the 6 obligations below are closed;
         the package cannot certify anything until O1, O2, O4, and O6 also close.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow
+        No refereed bound is changed. RH does not follow
         from anything on this page.
       </div>
 
@@ -120,7 +120,7 @@ export default function Imp95141YthawObligationMeterViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page reusing the
         imp-95140 YTHAW_OBLIGATION_LEDGER / YTHAW_OBLIGATION_SUMMARY literals verbatim (no new
         computation). Closes no obligation itself; makes the existing O1&ndash;O6 status legible
-        as a single progress meter. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. No QED.
+        as a single progress meter. No refereed bound is changed. No QED.
       </div>
     </div>
   );

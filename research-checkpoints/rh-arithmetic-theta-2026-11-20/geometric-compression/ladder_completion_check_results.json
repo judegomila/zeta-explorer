@@ -1,0 +1,212 @@
+{
+  "description": "Exact finite checks supporting completion-cost and window-obstruction proofs; no RH claim.",
+  "sympy_version": "1.14.0",
+  "passed": 21,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "rank_one_attains_index_cost",
+      "passed": true,
+      "index_squared": "49",
+      "hs_squared": "49",
+      "determinant_cost_exponential": "49",
+      "cost_exponential": "49",
+      "slack_exponential": "1",
+      "amgm_slack_exponential": "1"
+    },
+    {
+      "name": "rank_one_minimum_exact",
+      "passed": true
+    },
+    {
+      "name": "rank_two_strict_slack",
+      "passed": true,
+      "index_squared": "4",
+      "hs_squared": "5",
+      "determinant_cost_exponential": "4",
+      "cost_exponential": "25/4",
+      "slack_exponential": "25/16",
+      "amgm_slack_exponential": "25/16"
+    },
+    {
+      "name": "rank_two_slack_is_25_over_16",
+      "passed": true
+    },
+    {
+      "name": "pullback_metric_attains_equality",
+      "passed": true,
+      "index_squared": "4",
+      "hs_squared": "2",
+      "determinant_cost_exponential": "4",
+      "cost_exponential": "4",
+      "slack_exponential": "1",
+      "amgm_slack_exponential": "1"
+    },
+    {
+      "name": "anisotropic_metric_changes_hs_cost",
+      "passed": true
+    },
+    {
+      "name": "uniform_source_and_target_rescaling",
+      "passed": true,
+      "index_squared": "4",
+      "hs_squared": "125/9",
+      "determinant_cost_exponential": "4",
+      "cost_exponential": "25/4",
+      "slack_exponential": "25/16",
+      "amgm_slack_exponential": "25/16"
+    },
+    {
+      "name": "uniform_rescaling_leaves_complete_cost_unchanged",
+      "passed": true
+    },
+    {
+      "name": "skew_map_strict_slack",
+      "passed": true,
+      "index_squared": "4",
+      "hs_squared": "6",
+      "determinant_cost_exponential": "4",
+      "cost_exponential": "9",
+      "slack_exponential": "9/4",
+      "amgm_slack_exponential": "9/4"
+    },
+    {
+      "name": "rank_two_saturated_embedding_in_rank_three",
+      "passed": true,
+      "index_squared": "36",
+      "hs_squared": "193/5",
+      "determinant_cost_exponential": "36",
+      "cost_exponential": "37249/620",
+      "slack_exponential": "37249/22320",
+      "amgm_slack_exponential": "37249/22320"
+    },
+    {
+      "name": "prime_encoding_exact_rounding_X_25/2",
+      "passed": true,
+      "X": "25/2",
+      "m": 4,
+      "prime_exponents": {
+        "2": 31,
+        "3": 14,
+        "5": 6,
+        "7": 3,
+        "11": 0
+      },
+      "rounding_coefficients": {
+        "2": "3/4",
+        "3": "2/9",
+        "5": "0",
+        "7": "1/7",
+        "11": "6/11"
+      },
+      "Q_bit_length": 76
+    },
+    {
+      "name": "prime_encoding_exact_rounding_X_32",
+      "passed": true,
+      "X": "32",
+      "m": 6,
+      "prime_exponents": {
+        "2": 156,
+        "3": 74,
+        "5": 34,
+        "7": 21,
+        "11": 11,
+        "13": 8,
+        "17": 5,
+        "19": 4,
+        "23": 2,
+        "29": 0,
+        "31": 0
+      },
+      "rounding_coefficients": {
+        "2": "0",
+        "3": "4/9",
+        "5": "2/25",
+        "7": "3/7",
+        "11": "5/11",
+        "13": "10/13",
+        "17": "5/17",
+        "19": "2/19",
+        "23": "8/23",
+        "29": "18/29",
+        "31": "6/31"
+      },
+      "Q_bit_length": 526
+    },
+    {
+      "name": "prime_encoding_exact_rounding_X_81/4",
+      "passed": true,
+      "X": "81/4",
+      "m": 5,
+      "prime_exponents": {
+        "2": 74,
+        "3": 35,
+        "5": 15,
+        "7": 9,
+        "11": 4,
+        "13": 2,
+        "17": 0,
+        "19": 0
+      },
+      "rounding_coefficients": {
+        "2": "59/64",
+        "3": "0",
+        "5": "1/4",
+        "7": "13/28",
+        "11": "9/44",
+        "13": "41/52",
+        "17": "65/68",
+        "19": "25/76"
+      },
+      "Q_bit_length": 211
+    },
+    {
+      "name": "rh_tail_integral_antiderivative",
+      "passed": true
+    },
+    {
+      "name": "rh_tail_integral_vanishes_at_infinity",
+      "passed": true
+    },
+    {
+      "name": "rh_ramp_bound_constant",
+      "passed": true
+    },
+    {
+      "name": "window_bump_is_c2_at_endpoints",
+      "passed": true
+    },
+    {
+      "name": "window_bump_second_derivative_lower_bound_identity",
+      "passed": true
+    },
+    {
+      "name": "window_gap_support_and_convexity_j_0",
+      "passed": true,
+      "Y": "4096",
+      "X": "268435456",
+      "peak_to_sqrt_ratio": "128",
+      "derivative_upper": "3/16",
+      "convexity_margin_coefficient": "1/20"
+    },
+    {
+      "name": "window_gap_support_and_convexity_j_1",
+      "passed": true,
+      "Y": "68719476736",
+      "X": "75557863725914323419136",
+      "peak_to_sqrt_ratio": "524288",
+      "derivative_upper": "3/65536",
+      "convexity_margin_coefficient": "65521/81920"
+    },
+    {
+      "name": "window_gap_support_and_convexity_j_2",
+      "passed": true,
+      "Y": "324518553658426726783156020576256",
+      "X": "1684996666696914987166688442938726917102321526408785780068975640576",
+      "peak_to_sqrt_ratio": "36028797018963968",
+      "derivative_upper": "3/4503599627370496",
+      "convexity_margin_coefficient": "4503599627370481/5629499534213120"
+    }
+  ]
+}

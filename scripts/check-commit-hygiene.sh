@@ -1,6 +1,7 @@
 #!/bin/bash
 # Rejects staged paths and staged content that must not enter a public repository.
-# Run by pre-commit (see .pre-commit-config.yaml) or directly: scripts/check-commit-hygiene.sh
+# Run by pre-commit (see .pre-commit-config.yaml), by scripts/hooks/pre-commit
+# (installed with scripts/install-engine-hooks.sh), or directly: scripts/check-commit-hygiene.sh
 set -u
 fail=0
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
@@ -18,9 +19,9 @@ while IFS= read -r f; do
   fi
 done <<< "$staged"
 
-bad_content='/Users/[A-Za-z0-9._-]+/|/home/[a-z][a-z0-9._-]+/|-Users-[A-Za-z0-9]+-|sk-ant-[A-Za-z0-9]{8}|gh[pousr]_[A-Za-z0-9]{20}|github_pat_|api\.vercel\.com/v1/integrations/deploy|BEGIN [A-Z ]*PRIVATE KEY|<system-reminder>|claude --resume|\b192\.168\.[0-9]+\.[0-9]+|\b(prj|team)_[A-Za-z0-9]{20}'
+bad_content='/Users/[A-Za-z0-9._-]+/|/home/[a-z][a-z0-9._-]+/|-Users-[A-Za-z0-9]+-|sk-ant-[A-Za-z0-9]{8}|sk-ant-[a-z]+[0-9]*-[A-Za-z0-9_-]{20}|gh[pousr]_[A-Za-z0-9]{20}|github_pat_|api\.vercel\.com/v1/integrations/deploy|BEGIN [A-Z ]*PRIVATE KEY|<system-reminder>|claude --resume|\b192\.168\.[0-9]+\.[0-9]+|\b(prj|team)_[A-Za-z0-9]{20}'
 hits=$(git diff --cached -U0 --no-color --diff-filter=ACMR -- . ':(exclude)scripts/check-commit-hygiene.sh' ':(exclude)CONTRIBUTING.md' ':(exclude).gitleaks.toml' \
-  | grep -E '^\+[^+]' | grep -E -n "$bad_content" | grep -vE '/Users/(USER|Shared|xxxxxxxxxx)/|/home/(USER|user|runner)/|-Users-USER-' | cut -c1-160 | head -20)
+  | grep -E '^\+[^+]' | grep -E -n "$bad_content" | grep -vE '/Users/(USER|Shared|xxxxxxxxxx)/|/home/(USER|user|runner)/|-Users-USER-|sk-ant-api03-[A-Z_-]+([^A-Za-z0-9_-]|$)' | cut -c1-160 | head -20)
 if [ -n "$hits" ]; then
   echo "hygiene: staged content contains a home path, credential-shaped string or transcript marker:"
   echo "$hits"; fail=1

@@ -119,8 +119,7 @@ export default function Imp97300PalmMirrorFracLadderViz() {
         neutral rigid-lattice Palm 2-slot mirror count trails its asymptotic mean ln&nbsp;N/2 by
         a fixed additive constant 1/y0&nbsp;=&nbsp;6.0606 at every height, so frac(ln&nbsp;N)
         approaches 1 but never reaches it at any finite height. This sharpens (does not
-        replace) the imp-97127 height-effect verdict. No bound moves; Platt&ndash;Trudgian
-        &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA; RH open; NO QED.
+        replace) the imp-97127 height-effect verdict. No bound moves; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
@@ -164,7 +163,7 @@ export default function Imp97300PalmMirrorFracLadderViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97300 viz-data leaf (every value reused verbatim from the imp-97189 baked ladder,
         no re-derivation of the Palm 2-slot mirror kernel). Changes no bound, establishes no
-        operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        operator positivity; RH open; NO QED.
       </div>
     </div>
   );

@@ -152,7 +152,7 @@ export default function Imp95303ConfLbVsCoalNWindowPinchViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model-family numeric
         illustration, not a new theorem. It changes no Lambda bound and establishes no operator
-        positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
+        positivity. RH does not
         follow from anything on this page. NO QED.
       </div>
 
@@ -206,7 +206,7 @@ export default function Imp95303ConfLbVsCoalNWindowPinchViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95303 baked viz-data (curves recomputed independently from the imp-95286 / imp-95251
         documented closed forms). Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

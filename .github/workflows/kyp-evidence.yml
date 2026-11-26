@@ -1,0 +1,27 @@
+name: KYP evidence and finite-model regressions
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/pages/KypBoundedRealPage.jsx'
+      - 'src/data/kyp-bounded-real-section.js'
+      - 'scripts/kyp-evidence.test.mjs'
+      - '.github/workflows/kyp-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kyp-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Historical evidence labels, finite-model algebra and actual page rendering
+        run: node --test scripts/kyp-evidence.test.mjs

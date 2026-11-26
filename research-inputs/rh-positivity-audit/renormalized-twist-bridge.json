@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "scope": "renormalized twist identities and tails; not an RH proof",
+  "precision_bits": 192,
+  "checks": [
+    "exact Euler reconstruction and reversed-ratio control: 2,2",
+    "exact Euler reconstruction and reversed-ratio control: 2,3",
+    "exact Euler reconstruction and reversed-ratio control: 3,4",
+    "complex bridge local factors: sample 0",
+    "complex normalization and opposite-sign identity: sample 0",
+    "exhaustive sign expectation: sample 0",
+    "complex bridge local factors: sample 1",
+    "complex normalization and opposite-sign identity: sample 1",
+    "exhaustive sign expectation: sample 1",
+    "complex bridge local factors: sample 2",
+    "complex normalization and opposite-sign identity: sample 2",
+    "exhaustive sign expectation: sample 2",
+    "log remainder bound at [0.100000000000000000000000000000000000000000000000000000000 +/- 3.59e-59]",
+    "log remainder bound at [0.333333333333333333333333333333333333333333333333333333333 +/- 3.60e-58]",
+    "log remainder bound at 0.500000000000000000000000000000000000000000000000000000000",
+    "center infinite tails, positivity, and universal bounds"
+  ],
+  "check_count": 16,
+  "prime_cutoff": 10000,
+  "prime_count": 1229,
+  "absolute_log_tail_bound_enclosure": "[0.0544217687074829931972789115646258503401360544217687074830 +/- 4.62e-59]",
+  "center_limits": {
+    "all_plus": {
+      "finite_log_enclosure": "[0.750481266818467043346229667755213443808592679213011582 +/- 6.74e-55]",
+      "lower_bound_enclosure": "[2.00583312493529173674329920481044421019496942078512976 +/- 2.27e-54]",
+      "upper_bound_enclosure": "[2.23647962923486198293745776713434013383757383801326698 +/- 1.71e-54]"
+    },
+    "all_minus": {
+      "finite_log_enclosure": "[-3.31670487162488911831263232681923007765616247279056606 +/- 1.39e-54]",
+      "lower_bound_enclosure": "[0.0343509144085320315715534398956437557073283443149445477 +/- 6.57e-56]",
+      "upper_bound_enclosure": "[0.0383008533288383987464688053119308054903862840043725391 +/- 5.28e-56]"
+    },
+    "mean": {
+      "finite_log_enclosure": "[-0.84234601339889967809200688802730848990228740961891713 +/- 4.67e-54]",
+      "lower_bound_enclosure": "[0.407885907523704392133020667928008571294672490598901865 +/- 8.14e-55]",
+      "upper_bound_enclosure": "[0.454787844456486444873936428751284521244125164382257090 +/- 8.31e-55]"
+    }
+  },
+  "all_sign_center_bounds": "0.034 < R_epsilon(1/2,1/2) < 2.237",
+  "script_sha256": "d364808dd931be051e7a69e2762cf2cc53268db585b3a0bb997242c872eb0392"
+}

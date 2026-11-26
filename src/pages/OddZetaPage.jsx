@@ -5,6 +5,7 @@ import OddZetaViz from '../components/OddZetaViz.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { IRRATIONALITY_RESULTS, ZETA_EXACT, aperySequence } from '../math/odd-zeta.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ODD_ZETA_INCOMPRESSIBILITY_AUDIT as oddZetaAudit } from '../data/odd-zeta-incompressibility-audit-2026-08.js';
 
 // Odd Zeta Values & Irrationality — Apéry, Ball–Rivoal, Zudilin, and the
 // Twin-Ladder Bridge reading of the explicit formula.
@@ -48,15 +49,13 @@ function AperyLiveCalculator() {
         Live Irrationality-Measure Calculator
       </h2>
       <p style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 16, lineHeight: 1.6 }}>
-        Estimates <InlineMath tex={"\\mu(\\zeta(3))"} /> from Apery convergents{' '}
+        Plots finite-sample approximation slopes from Apery convergents{' '}
         <InlineMath tex={"a_n/b_n"} />. For each step, the local exponent{' '}
         <InlineMath tex={"\\mu_n = -\\log|\\text{error}_n| / \\log b_n"} /> measures how well that
-        convergent approximates <InlineMath tex={"\\zeta(3)"} />. A regression over all steps gives
-        the overall estimate.{' '}
-        <strong style={{ color: 'var(--terra-dk)' }}>Key insight:</strong>{' '}
-        <InlineMath tex={"\\mu_n > 2"} /> at each step is evidence that <InlineMath tex={"\\zeta(3)"} />{' '}
-        cannot be rational — a rational <InlineMath tex={"p/q"} /> cannot be approximated better
-        than <InlineMath tex={"1/q^2"} /> by other rationals.
+        convergent approximates <InlineMath tex={"\\zeta(3)"} />. The regression is a numerical
+        diagnostic, not an irrationality measure or proof: finitely many unusually good rational
+        approximations are compatible with a rational target. Apéry's theorem instead controls an
+        infinite sequence of nonzero integer linear forms together with their denominator growth.
       </p>
 
       <div className="control-group" style={{ marginBottom: 16 }}>
@@ -115,7 +114,7 @@ function AperyLiveCalculator() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 16 }}>
         {[
           {
-            label: 'OLS μ estimate',
+            label: 'finite OLS slope',
             value: muOLS !== null ? muOLS.toFixed(3) : '—',
             color: muOLS !== null && muOLS > 2 ? 'var(--green)' : 'var(--faint)',
           },
@@ -132,8 +131,8 @@ function AperyLiveCalculator() {
       </div>
 
       <p style={{ fontSize: 11, color: 'var(--faint)', marginTop: 12, fontStyle: 'italic' }}>
-        Each green row confirms the convergent approximates <InlineMath tex={"\\zeta(3)"} /> beyond the rational
-        threshold. The OLS estimate converges toward <InlineMath tex={"\\mu \\approx 5.5"} /> with more steps.
+        Green rows only flag local slopes above two. No finite row set certifies irrationality, and
+        the OLS slope should not be read as the rigorous upper bound on <InlineMath tex={"\\mu(\\zeta(3))"} />.
       </p>
     </div>
   );
@@ -204,9 +203,9 @@ export default function OddZetaPage() {
               <InlineMath tex={"n \\to \\infty"} />: the oscillator chain becomes nearly transparent.
             </p>
             <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
-              The irrationality of these values reflects the fact that the infinite product of
-              rational factors <InlineMath tex={"1/(1-p^{-n})"} /> cannot collapse to a rational
-              number — the primes encode "too much information" in their distribution.
+              This product representation is exact but does not determine rationality. Infinite
+              products of rational factors can have rational or irrational limits; a proof for an
+              odd zeta value must add quantitative arithmetic control of denominators and errors.
             </p>
           </div>
         </div>
@@ -274,16 +273,16 @@ export default function OddZetaPage() {
             arguments. Compare how the transfer function magnitude changes between even and odd{' '}
             <InlineMath tex={"s"} /> — at even integers the dual ladder provides <InlineMath tex={"\\pi"} />-dependent
             information, while at odd integers the dual maps to a trivial zero.
-            <strong style={{ color: 'var(--brass)' }}> Linear Independence</strong> tests whether{' '}
-            <InlineMath tex={"1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(2k+1)"} /> are linearly independent
-            over <InlineMath tex={"\\mathbb{Q}"} /> by searching for small integer relations. Watch the minimum
-            relation norm grow as you add more values — growth indicates independence.
-            <strong style={{ color: 'var(--terra-dk)' }}> Irrationality Measure</strong> estimates{' '}
-            <InlineMath tex={"\\mu(\\zeta(n))"} /> by finding the best rational approximations{' '}
+            <strong style={{ color: 'var(--brass)' }}> Model Gram Geometry</strong> displays a positive
+            Gram matrix built from prime-indexed feature vectors. Its determinant measures independence
+            of those model vectors only; it cannot test <InlineMath tex={"\\mathbb Q"} />-linear relations
+            among the numerical zeta values.
+            <strong style={{ color: 'var(--terra-dk)' }}> Approximation Slopes</strong> finds finite
+            continued-fraction approximations{' '}
             <InlineMath tex={"p/q"} /> and plotting <InlineMath tex={"\\log|\\zeta(n) - p/q|"} /> vs{' '}
-            <InlineMath tex={"\\log q"} />. The slope gives the irrationality exponent — compare against the
-            known bound <InlineMath tex={"\\mu(\\zeta(3)) \\leq 5.51"} /> and the generic expectation{' '}
-            <InlineMath tex={"\\mu = 2"} />.
+            <InlineMath tex={"\\log q"} />. The fitted slope is exploratory and is not a certified
+            irrationality exponent. The displayed <InlineMath tex={"\\mu(\\zeta(3)) \\leq 5.51"} /> value
+            is a separate rigorous theorem.
           </p>
         </div>
 
@@ -391,7 +390,7 @@ export default function OddZetaPage() {
             </table>
           </div>
           <p style={{ fontSize: 11, color: 'var(--faint)', marginTop: 12, fontStyle: 'italic' }}>
-            {'Ball-Rivoal guarantees infinitely many are irrational. As of 2024, only ζ(3) is individually confirmed irrational.'}
+            {'Ball–Rivoal guarantees infinitely many are irrational. As of August 2026, only ζ(3) is individually confirmed irrational.'}
           </p>
         </div>
 
@@ -468,9 +467,9 @@ export default function OddZetaPage() {
               anti-resonant modes where the dual ladder contributes nothing.
             </li>
             <li>
-              The <strong style={{ color: 'var(--ink)' }}>irrationality</strong> of odd zeta values is thus a statement
-              about the impossibility of "rational resonance" — the infinite product of prime factors
-              cannot be captured by any finite rational expression.
+              The absence of an even-style closed form is a useful visual analogy, but it does not imply
+              irrationality. No general principle prevents an infinite rational product from converging
+              to a rational number.
             </li>
           </ul>
         </div>
@@ -500,15 +499,13 @@ export default function OddZetaPage() {
             At <InlineMath tex={"s = 2n+1"} />, this becomes a sum over prime powers weighted by{' '}
             <InlineMath tex={"\\log p"} />, and the partial fraction expansion over the zeros gives:
           </p>
-          <BlockMath tex={"-\\frac{\\zeta'(2n+1)}{\\zeta(2n+1)} = 1 + \\sum_{\\rho} \\frac{1}{2n+1-\\rho} + \\text{(rational terms)}"} />
+          <BlockMath tex={"\\frac{\\xi'(s)}{\\xi(s)}=\\sum_{\\rho}^{*}\\frac{1}{s-\\rho}"} />
           <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 16 }}>
-            The irrationality of <InlineMath tex={"\\zeta(2n+1)"} /> is therefore intimately tied to the
-            distribution of zeros <InlineMath tex={"\\rho"} />. In the Twin-Ladder Bridge picture, the zeros determine the
-            transfer function poles, and the value <InlineMath tex={"\\zeta(2n+1)"} /> is the DC gain of a
-            specific filtered version of the ladder. The Ball-Rivoal well-poised integrals can be
-            reinterpreted as computing the "impulse response" of this filter at integer time-steps,
-            and their non-vanishing (which proves irrationality) reflects the fact that the infinite
-            chain of prime oscillators cannot produce a purely rational impulse response at odd frequencies.
+            Here the star denotes the standard symmetric/regularized interpretation for the completed
+            zeta function <InlineMath tex={"\\xi"} />. This identity links prime and zero spectra, but
+            it supplies no known implication for the rationality of an individual value{' '}
+            <InlineMath tex={"\\zeta(2n+1)"} />. The filter language is therefore an analogy, not a
+            reinterpretation of the Ball–Rivoal nonvanishing theorem.
           </p>
 
           <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)' }}>
@@ -517,204 +514,220 @@ export default function OddZetaPage() {
               The explicit formula decomposes <InlineMath tex={"\\zeta(s)"} /> into a product over primes (the
               ladder stages) and a sum over zeros (the resonances). At even integers, the functional equation
               relates both sides via <InlineMath tex={"\\Gamma"} />-factors that introduce <InlineMath tex={"\\pi"} />.
-              At odd integers, this bridge is broken:
+              At odd integers, the functional equation degenerates into a zero-times-pole limiting identity:
             </p>
-            <BlockMath tex={"\\underbrace{\\zeta(2n+1)}_{\\text{ladder output}} = \\underbrace{\\prod_p \\frac{1}{1 - p^{-(2n+1)}}}_{\\text{prime stages}} \\neq \\underbrace{\\frac{\\text{rational} \\times \\pi^{2n+1}}{\\text{rational}}}_{\\text{impossible}}"} />
+            <BlockMath tex={"\\zeta(2n+1)=\\prod_p(1-p^{-(2n+1)})^{-1},\\qquad \\zeta(-2n)=0"} />
             <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
-              The ladder output at odd frequencies cannot be expressed as a rational multiple of any power
-              of <InlineMath tex={"\\pi"} />, because the dual-ladder contribution (via the functional equation)
-              maps to a trivial zero. This "broken bridge" is the spectral origin of odd-zeta irrationality.
+              Unlike the even case, this gives no direct Bernoulli-number formula. It is not known that
+              <InlineMath tex={"\\zeta(2n+1)/\\pi^{2n+1}"} /> is irrational or even non-rational in
+              general, so the “broken bridge” explains the failure of this evaluation method, not the
+              arithmetic nature of the value.
             </p>
           </div>
         </div>
 
-        {/* ─── Algorithmic Information Theory Approach ─── */}
+        {/* ─── Audited information-theory route ─── */}
+        <div className="card" style={{ marginTop: 32, borderLeft: '3px solid var(--terra-dk)' }}>
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, color: 'var(--terra-dk)' }}>
+            Algorithmic Incompressibility: No-Go Theorem
+          </h2>
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
+            The ordinary Kolmogorov-complexity route is <strong style={{ color: 'var(--ink)' }}>refuted as
+            stated</strong>, rather than merely incomplete. If <InlineMath tex={"d_b(x,N)"} /> is a certified
+            <InlineMath tex={"N"} />-digit prefix of a fixed computable real, one fixed program reads{' '}
+            <InlineMath tex={"N,b"} /> and prints it. Hence
+          </p>
+          <BlockMath tex={"K(d_b(x,N)\\mid N,b)=O_x(1),\\qquad K(d_b(x,N))\\le K(N)+O_x(1)=O_x(\\log N)."} />
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
+            Every fixed <InlineMath tex={"\\zeta(k)"} /> with <InlineMath tex={"k>1"} /> is computable. For example,
+          </p>
+          <BlockMath tex={"0<\\zeta(k)-\\sum_{r=1}^{M}r^{-k}<\\frac{M^{1-k}}{k-1}"} />
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
+            is an effective error bound. Therefore the conjectured lower bound{' '}
+            <InlineMath tex={"K\\ge cN^\\alpha"} /> cannot hold for an odd zeta value: it would imply
+            noncomputability. Chaitin's <InlineMath tex={"\\Omega"} /> is different because it encodes the
+            undecidable halting set. The primes and the Euler product are computable, and the Euler product
+            itself is a short description. Ordinary Kolmogorov complexity does not charge for runtime or
+            for the number of prime factors evaluated.
+          </p>
+          <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-2) 30%, transparent)' }}>
+            <strong style={{ color: 'var(--terra-dk)', fontSize: 12 }}>Audit status: {oddZetaAudit.status}</strong>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '6px 0 0' }}>
+              The statement “rational iff prefix complexity is <InlineMath tex={"O(\\log N)"} />” is false:
+              every computable irrational, including <InlineMath tex={"\\sqrt2"} />, <InlineMath tex={"\\pi"} />,
+              and <InlineMath tex={"\\zeta(3)"} />, has the same upper bound. Maximum Shannon capacity also
+              says nothing about the complexity of one fixed output, and odd special values lie at{' '}
+              <InlineMath tex={"\\sigma=3,5,\\ldots"} />, not at <InlineMath tex={"\\sigma=1/2"} />.
+            </p>
+          </div>
+        </div>
+
         <div className="card" style={{ marginTop: 32, borderLeft: '3px solid var(--blue)' }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--blue)' }}>
-            Chaitin's Constant &amp; Algorithmic Information Theory
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, color: 'var(--blue)' }}>
+            The Rigorous Information Budget
           </h2>
-
-          <div style={{ marginBottom: 16, padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)' }}>
-            <h4 style={{ color: 'var(--terra-dk)', fontSize: 12, marginBottom: 6 }}>
-              Heuristic analogy &mdash; not a theorem
-            </h4>
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
-              Everything in this section and the next (the Kolmogorov-complexity &ldquo;proof strategy,&rdquo;
-              the <InlineMath tex={"K(\\zeta(2k+1)\\!\\mid\\! N) \\geq c_k N^{\\alpha_k}"} /> growth conjecture, and the
-              generating-function &ldquo;fundamental obstruction&rdquo;) is a <strong style={{ color: 'var(--ink)' }}>speculative
-              ZPO-flavored analogy, not a proof or a near-complete route</strong>. No step here is a theorem about odd
-              zeta values: the key claim that computing <InlineMath tex={"N"} /> digits forces information from all
-              primes up to <InlineMath tex={"\\sim 10^{N/(2n+1)}"} /> is unproven (and as stated is heuristic &mdash;
-              fast-converging series exist), and Chaitin&rsquo;s rational/<InlineMath tex={"O(\\log N)"} /> dichotomy does
-              not by itself yield any lower bound on <InlineMath tex={"K(\\zeta(2k+1)\\!\\mid\\! N)"} />. The genuine
-              theorems &mdash; Ap&eacute;ry (<InlineMath tex={"\\zeta(3)"} /> irrational), Ball&ndash;Rivoal
-              (infinitely many <InlineMath tex={"\\zeta(2k+1)"} /> irrational), and Zudilin (one of
-              <InlineMath tex={"\\zeta(5),\\zeta(7),\\zeta(9),\\zeta(11)"} /> irrational) &mdash; are stated separately
-              below and do not depend on any of this.
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
+            There is a useful information-theoretic reformulation, but its “bits” are arithmetic. For a
+            rational linear form <InlineMath tex={"\\ell_n=a_n\\zeta(5)-b_n"} /> and a clearing factor{' '}
+            <InlineMath tex={"D_n"} /> with <InlineMath tex={"D_na_n,D_nb_n\\in\\mathbb Z"} />, define
+          </p>
+          <BlockMath tex={"G_n=-\\log|\\ell_n|-\\log D_n."} />
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
+            A proof must certify <InlineMath tex={"\\ell_n\\ne0"} /> and{' '}
+            <InlineMath tex={"G_n\\to+\\infty"} />. Then the integer forms{' '}
+            <InlineMath tex={"D_n\\ell_n=A_n\\zeta(5)-B_n"} /> are nonzero and tend to zero, contradicting
+            any hypothetical <InlineMath tex={"\\zeta(5)=p/q"} />. This is the classical irrationality
+            architecture expressed as analytic cancellation bits minus denominator bits.
+          </p>
+          <div className="two-col" style={{ gap: 16 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', borderRadius: 8 }}>
+              <h3 style={{ color: 'var(--brass-dk)', fontSize: 13, marginBottom: 6 }}>Why naive truncation loses</h3>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+                With <InlineMath tex={"d_M=\\operatorname{lcm}(1,\\ldots,M)"} />, clearing the denominators
+                of <InlineMath tex={"\\sum_{r\\le M}r^{-5}"} /> costs{' '}
+                <InlineMath tex={"d_M^5=\\exp(5M+o(M))"} />, while the tail is only{' '}
+                <InlineMath tex={"\\sim1/(4M^4)"} />. The cleared error grows. Prime truncation encounters
+                the same exponential-denominator versus polynomial-tail barrier.
+              </p>
+            </div>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 8 }}>
+              <h3 style={{ color: 'var(--blue)', fontSize: 13, marginBottom: 6 }}>Digit-complexity salvage</h3>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+                Proving that the base-<InlineMath tex={"b"} /> expansion is not eventually periodic—via
+                factor complexity or finite-state dimension—would imply irrationality and is compatible
+                with computability. But no such theorem is known for <InlineMath tex={"\\zeta(5)"} />;
+                any finite digit sample is compatible with an eventually periodic continuation.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                A time-bounded version is valid only for <em>exact canonical digits</em>: rationals have a
+                constant-size, linear-time long-division program. Certified Cauchy approximations do not help;
+                fixed zeta values can be approximated in <InlineMath tex={"p^{3/2+o(1)}"} /> bit operations.
+                Exact digit extraction instead meets the Diophantine carry boundary{' '}
+                <InlineMath tex={"\\lVert b^N\\zeta(5)\\rVert"} />.
+              </p>
+            </div>
+          </div>
+          <div style={{ marginTop: 12, padding: 12, background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', borderRadius: 8 }}>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+              <strong style={{ color: 'var(--blue)' }}>One unconditional ensemble theorem:</strong>{' '}
+              Zudilin's result that at least one of{' '}
+              <InlineMath tex={"\\zeta(5),\\zeta(7),\\zeta(9),\\zeta(11)"} /> is irrational implies that their
+              simultaneous digit-vector word is aperiodic in every fixed base. Its factor complexity therefore
+              satisfies <InlineMath tex={"p_v(\\ell)\\ge \\ell+1"} /> for every{' '}
+              <InlineMath tex={"\\ell"} />. This is genuine odd-zeta information, but it does not identify which
+              coordinate is irrational.
             </p>
           </div>
+        </div>
 
-          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 16 }}>
-            Gregory Chaitin's work on algorithmic information theory provides a fundamentally different
-            angle on irrationality. His halting probability <InlineMath tex={"\\Omega = \\sum_{p \\text{ halts}} 2^{-|p|}"} />{' '}
-            is the prototypical algorithmically random number — its binary digits are maximally incompressible.
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-            <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)' }}>
-              <h3 style={{ color: 'var(--green)', fontSize: 14, marginBottom: 8 }}>The Key Insight</h3>
-              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-                If <InlineMath tex={"\\zeta(2n+1)"} /> were rational <InlineMath tex={"= a/b"} />, its binary expansion
-                would be eventually periodic. This means its Kolmogorov complexity would satisfy:
+        <div className="card" style={{ marginTop: 32, borderLeft: '3px solid var(--green)' }}>
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, color: 'var(--green)' }}>
+            Two Exact Research Frontiers
+          </h2>
+          <div className="two-col" style={{ gap: 16 }}>
+            <div style={{ padding: 12, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)' }}>
+              <h3 style={{ color: 'var(--green)', fontSize: 13, marginBottom: 6 }}>Internal: positive-cone / Farey</h3>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+                Exact kernels produce nested rational brackets <InlineMath tex={"I_n=(L_n,U_n)"} /> around{' '}
+                <InlineMath tex={"\\zeta(5)"} /> in every audited case through <InlineMath tex={"n=50"} />.
+                The proof target is to show that the least reduced denominator{' '}
+                <InlineMath tex={"h(I_n)\\to\\infty"} />, equivalently to prove recurring Stern–Brocot
+                exclusion signs or a uniform balanced-cylinder determinant inequality. Finite verification
+                is evidence only; denominator escape is essentially the irrationality step.
               </p>
-              <BlockMath tex={"K(\\zeta(2n+1)|_N) = O(\\log N) \\quad \\text{(rational bound)}"} />
-              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
-                But the Euler product requires ALL primes to compute, suggesting:
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The exact run certifies 187 continued-fraction entries and, conditionally on rationality, a
+                96-digit lower bound for the denominator. Empirically{' '}
+                <InlineMath tex={"-\\log_{10}(U_n-L_n)\\sim3.84583n"} /> and{' '}
+                <InlineMath tex={"\\log_{10}h(I_n)\\sim1.91890n"} />, but the exclusion side is irregular and the
+                elementary endpoint determinant bound deteriorates. No symbolic escape recurrence has emerged.
               </p>
-              <BlockMath tex={"K(\\zeta(2n+1)|_N) \\geq \\pi(e^{N^{1/(2n+1)}}) \\gg \\log N"} />
             </div>
-
-            <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)' }}>
-              <h3 style={{ color: 'var(--brass-dk)', fontSize: 14, marginBottom: 8 }}>Chaitin's Characterization</h3>
-              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-                Chaitin proved that a real number <InlineMath tex={"x"} /> is rational if and only if
-                <InlineMath tex={"K(x|_N) = O(\\log N)"} />, where <InlineMath tex={"K"} /> is Kolmogorov complexity.
-                For <InlineMath tex={"\\Omega"} />, <InlineMath tex={"K(\\Omega|_N) \\geq N - O(1)"} /> (maximally random).
+            <div style={{ padding: 12, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)' }}>
+              <h3 style={{ color: 'var(--blue)', fontSize: 13, marginBottom: 6 }}>External: Brown 2026</h3>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+                Brown's multi-parameter Mellin/transfinite-diameter criterion suggests lifting the
+                Brown–Zudilin <InlineMath tex={"M_{0,8}"} /> family from one parameter ray to growing
+                projected moment modules. A viable application must prove infinitely many moment
+                determinants are nonzero, clear the exact denominator lattices, and establish a strict
+                transfinite-diameter/denominator product below one. The criterion is proved, but no{' '}
+                <InlineMath tex={"\\zeta(5)"} /> application is currently complete.
               </p>
-              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
-                <strong style={{ color: 'var(--ink)' }}>The Twin-Ladder Bridge connection:</strong> The Euler product is an
-                "infinite program" for computing <InlineMath tex={"\\zeta(n)"} /> — each prime adds information
-                that cannot be derived from the others. The irrationality of odd zeta values reflects
-                the irreducible computational content of the prime distribution.
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The head-on source audit found that the five-LCM denominator input is explicitly called
+                experimental, its exact normalization fails even at the strictly interior symmetric point,
+                and the displayed projected residue contour has a factor-two error plus missing wall terms.
+                The reproduced scalar budget is therefore conditional:{' '}
+                <InlineMath tex={"C_0=-31.55297"} /> and <InlineMath tex={"C_2=49.60575"} />, leaving{' '}
+                <InlineMath tex={"C_0+C_2=18.05278"} /> nats, or <InlineMath tex={"26.04465"} /> missing bits,
+                per step.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The first five-ray box is <InlineMath tex={"Q"} />-degenerate but not moment-degenerate:{' '}
+                <InlineMath tex={"Q(a(v))=0"} /> off the origin, while its first rational tail has determinant{' '}
+                <InlineMath tex={"95/2^{20}"} />. Exact HPL reduction now certifies the complete degree-two and
+                rectangular <InlineMath tex={"n=2"} /> moment tables, rather than recognizing them numerically.
+                On the <InlineMath tex={"e_1"} /> ray it also gives
+              </p>
+              <BlockMath tex={"I'(ne_1)=-\\frac{(H_n^{(2)})^2-H_n^{(4)}}{4n}\\sim-\\frac{\\pi^4}{240n}."} />
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                Its nonrational generating function proves, by Kronecker's theorem, infinitely many nonzero
+                principal Hankel determinants without relying on the printed scalar recurrence. Nonvanishing is
+                therefore real progress, but it is no longer the leading obstruction.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The arithmetic and analytic shortcuts fail more sharply. The proposed five-LCM multiplier gives{' '}
+                <InlineMath tex={"d_4^5 I'(2,2,2,2,2)=-6897/5"} />, so even the candidate correction factor{' '}
+                <InlineMath tex={"12"} /> fails. More generally, exact partial fractions prove{' '}
+                <InlineMath tex={"v_p(I')=-1"} /> and <InlineMath tex={"pI'\\equiv4\\pmod p"} /> for prime{' '}
+                <InlineMath tex={"p=2n+1"} />, while <InlineMath tex={"p\\nmid d_{2n}^5"} />. Thus no fixed factor
+                repairs this lattice on the cone. The wall corrections form an unbounded Leray-jet tower rather than a
+                fixed face measure, so ordinary Andréief and the old real path-polytope capacity do not apply.
+                The former <InlineMath tex={"e^{-13/4}"} /> benchmark is therefore withdrawn, not retained as a
+                proof-ready target.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The remaining rank-one capacity target is now closed structurally. Writing{' '}
+                <InlineMath tex={"\\det M_n=\\det R_n(\\zeta(5)-s_n)"} />, every multiplier that makes the{' '}
+                <InlineMath tex={"\\zeta(5)"} /> coefficient a nonzero integer satisfies{' '}
+                <InlineMath tex={"|d_n\\det R_n|\\ge1"} />. On the old origin-containing comparison region, the
+                full and constant-deleted Vandermonde suprema differ by at most the factor{' '}
+                <InlineMath tex={"N_n"} />, so both determinants have the same leading capacity exponent.
+                Therefore the hoped-for strict normalization rate below <InlineMath tex={"3.09990"} /> is
+                impossible for that common absolute-capacity argument. The exact <InlineMath tex={"n=2"} />
+                primitive rate <InlineMath tex={"2.77593"} /> is a pre-asymptotic symmetry cancellation, not a
+                route around the obstruction.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                A larger exact four-ray certificate reaches tail size <InlineMath tex={"224"} /> at{' '}
+                <InlineMath tex={"n=5"} />. Its primitive rates rise{' '}
+                <InlineMath tex={"1.95857,\\,2.37462,\\,2.50584,\\,2.56840"} /> while the Schur denominator keeps a
+                positive exponential rate—useful diagnostics, but consistent with the no-go. Separately, an
+                explicit holonomic counterexample proves that one-ray Kronecker nonrationality and zero global
+                annihilator do not imply nonsingular multivariate boxes.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                Two Brown-style routes remain honest: a genuinely relative estimate for{' '}
+                <InlineMath tex={"|\\zeta(5)-s_n|"} /> that beats the reduced denominator{' '}
+                <InlineMath tex={"q_n"} />, or a higher-rank period module. An exact strict-positive
+                five-direction candidate has a nonsingular 6-by-6 <InlineMath tex={"Q"} />-matrix and nonzero
+                Mellin Jacobian, but its capacity is only numerical, its conditional denominator rate already
+                loses, and the projected <InlineMath tex={"I'"} /> cycle remains unconstructed.
               </p>
             </div>
           </div>
-
-          <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)' }}>
-            <h4 style={{ color: 'var(--blue)', fontSize: 12, marginBottom: 8 }}>Proof Strategy via Kolmogorov Complexity</h4>
-            <ol style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 2 }}>
-              <li><strong>Step 1:</strong> Show computing N digits of <InlineMath tex={"\\zeta(2n+1)"} /> requires primes up to <InlineMath tex={"\\sim 10^{N/(2n+1)}"} /> <span style={{ color: 'var(--terra-dk)' }}>[Gap]</span></li>
-              <li><strong>Step 2:</strong> Therefore <InlineMath tex={"K(\\zeta(2n+1)|_N) \\geq \\pi(10^{N/(2n+1)})"} /> <span style={{ color: 'var(--brass-dk)' }}>[Conditional on Step 1]</span></li>
-              <li><strong>Step 3:</strong> This exceeds <InlineMath tex={"O(\\log N)"} /> for all <InlineMath tex={"N"} /> <span style={{ color: 'var(--green)' }}>[Elementary]</span></li>
-              <li><strong>Step 4:</strong> By Chaitin's theorem, <InlineMath tex={"\\zeta(2n+1) \\notin \\mathbb{Q}"} /> <span style={{ color: 'var(--brass-dk)' }}>[Conditional on Steps 1-3]</span></li>
+          <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--brass) 8%, transparent)', borderRadius: 8 }}>
+            <h3 style={{ color: 'var(--brass-dk)', fontSize: 13, marginBottom: 6 }}>Next falsifiable computation</h3>
+            <ol style={{ margin: '0 0 0 18px', color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
+              {oddZetaAudit.nextExperiment.map(step => <li key={step}>{step}</li>)}
             </ol>
-            <p style={{ color: 'var(--terra-dk)', fontSize: 11, marginTop: 8, fontStyle: 'italic' }}>
-              Critical gap: Step 1 requires proving that each prime individually contributes to the N-th digit —
-              the information-theoretic analog of Apery's algebraic independence argument.
-            </p>
           </div>
+          <p style={{ color: 'var(--faint)', fontSize: 11, lineHeight: 1.7, marginTop: 12 }}>
+            Research status, 29 August 2026. Neither frontier is presented as a proof of{' '}
+            <InlineMath tex={"\\zeta(5)"} /> irrationality.
+          </p>
         </div>
 
-        {/* ─── Kolmogorov Complexity and Irrationality ─── */}
-        <div className="card" style={{ marginTop: 32, borderLeft: '3px solid var(--brass)' }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--brass)' }}>
-            Kolmogorov Complexity and Irrationality
-          </h2>
-
-          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
-            Chaitin's constant <InlineMath tex={"\\Omega"} /> is the archetypal algorithmically random real number.
-            Its defining property is that its prefix-free Kolmogorov complexity is maximal:
-          </p>
-          <BlockMath tex={"K(\\Omega \\!\\mid\\! n) \\;\\geq\\; n - O(1)"} />
-          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 12 }}>
-            meaning that no program substantially shorter than <InlineMath tex={"n"} /> bits can produce the
-            first <InlineMath tex={"n"} /> bits of <InlineMath tex={"\\Omega"} />. This stands in sharp contrast
-            to rational numbers, whose binary expansions are eventually periodic and hence have
-            complexity <InlineMath tex={"K(q \\!\\mid\\! n) = O(\\log n)"} />.
-          </p>
-
-          <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)', marginBottom: 16 }}>
-            <h3 style={{ color: 'var(--brass)', fontSize: 14, marginBottom: 8 }}>
-              Ap&eacute;ry's Theorem and Kolmogorov Complexity
-            </h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
-              The irrationality of <InlineMath tex={"\\zeta(3)"} /> (Ap&eacute;ry's theorem, 1979) tells us
-              that <InlineMath tex={"\\zeta(3)"} /> cannot be expressed as a ratio <InlineMath tex={"a/b"} /> with{' '}
-              <InlineMath tex={"a, b \\in \\mathbb{Z}"} />. In complexity-theoretic terms, this means:
-            </p>
-            <BlockMath tex={"K(\\zeta(3) \\!\\mid\\! N) \\;\\neq\\; O(\\log N)"} />
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-              The digits of <InlineMath tex={"\\zeta(3)"} /> contain "too much information" to be captured by a
-              finite description of a repeating pattern, confirming that its complexity grows faster
-              than the logarithmic bound characteristic of rationals.
-            </p>
-          </div>
-
-          <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)', marginBottom: 16 }}>
-            <h3 style={{ color: 'var(--brass-dk)', fontSize: 14, marginBottom: 8 }}>
-              Conjectural High Complexity of Odd Zeta Values
-            </h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
-              It is conjectured that all odd zeta values <InlineMath tex={"\\zeta(2k+1)"} /> have high
-              Kolmogorov complexity, far exceeding the <InlineMath tex={"O(\\log N)"} /> threshold for
-              rationality. More precisely, the conjecture asserts:
-            </p>
-            <BlockMath tex={"K(\\zeta(2k+1) \\!\\mid\\! N) \\;\\geq\\; c_k \\cdot N^{\\alpha_k} \\quad \\text{for some } c_k > 0, \\; \\alpha_k > 0"} />
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-              This would imply not only irrationality but also transcendence, since algebraic irrational
-              numbers still have <InlineMath tex={"K(\\alpha \\!\\mid\\! N) = O(\\log N)"} /> relative to any
-              algebraic number field containing them.
-            </p>
-          </div>
-
-          <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)', marginBottom: 16 }}>
-            <h3 style={{ color: 'var(--blue)', fontSize: 14, marginBottom: 8 }}>
-              Connection to ZPO: Information Content of the Ladder
-            </h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
-              In the Twin-Ladder Bridge twin-ladder framework, the "information content" of{' '}
-              <InlineMath tex={"\\zeta(2k+1)"} /> relates directly to how many prime oscillator harmonics
-              are needed to approximate it to a given precision. To compute{' '}
-              <InlineMath tex={"N"} /> digits of <InlineMath tex={"\\zeta(2k+1)"} />, the Euler product
-              requires contributions from primes up to:
-            </p>
-            <BlockMath tex={"p \\leq P_N \\sim \\exp\\!\\left(\\frac{N \\log 10}{2k+1}\\right)"} />
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-              Each prime stage <InlineMath tex={"H_p(2k+1) = (1 - p^{-(2k+1)})^{-1}"} /> injects
-              irreducible information into the ladder output, and no finite subset of stages can
-              reproduce the exact value — the prime oscillator chain is information-theoretically
-              incompressible.
-            </p>
-          </div>
-
-          <div style={{ padding: 16, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)', marginBottom: 16 }}>
-            <h3 style={{ color: 'var(--green)', fontSize: 14, marginBottom: 8 }}>
-              The Generating Function for Odd Zeta Values
-            </h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
-              All odd zeta values are encoded simultaneously in the generating function:
-            </p>
-            <BlockMath tex={"\\mathcal{Z}_{\\text{odd}}(x) = \\sum_{k=1}^{\\infty} \\zeta(2k+1)\\, x^{2k+1}"} />
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-              This function concentrates the full "odd zeta spectrum" into a single analytic object.
-              Its singularity structure encodes the collective irrationality properties of all{' '}
-              <InlineMath tex={"\\zeta(2k+1)"} /> simultaneously, and its radius of convergence{' '}
-              <InlineMath tex={"|x| < 1"} /> reflects the decay rate of the ladder's transfer function
-              across harmonics.
-            </p>
-          </div>
-
-          <div style={{ padding: 16, background: 'color-mix(in srgb, var(--brass) 8%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--brass) 20%, transparent)' }}>
-            <h3 style={{ color: 'var(--brass)', fontSize: 14, marginBottom: 8 }}>
-              Complexity vs. Closed Forms: The Fundamental Obstruction
-            </h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
-              If <InlineMath tex={"\\zeta(2k+1)"} /> were rational for all <InlineMath tex={"k"} />, then the
-              generating function <InlineMath tex={"\\mathcal{Z}_{\\text{odd}}(x)"} /> would be a rational
-              function of <InlineMath tex={"x"} />, and the ladder's transfer function would admit a
-              simple closed form:
-            </p>
-            <BlockMath tex={"\\zeta(2k+1) = \\frac{a_k}{b_k} \\;\\;\\forall\\, k \\quad \\Longrightarrow \\quad \\mathcal{Z}_{\\text{odd}}(x) = \\frac{P(x)}{Q(x)} \\quad \\text{for polynomials } P, Q"} />
-            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
-              But this would contradict the known complexity of the prime distribution. The primes
-              are distributed with enough irregularity (captured by the prime number theorem and its
-              error terms) that the infinite product over prime oscillator stages cannot collapse to
-              a rational transfer function. The Kolmogorov complexity of the prime sequence itself —{' '}
-              <InlineMath tex={"K(p_1, \\ldots, p_n) \\sim n \\log n"} /> — propagates through the Euler
-              product to prevent any such simplification.
-            </p>
-          </div>
-        </div>
 
         {/* ─── Related Pages ─── */}
         <div className="card" style={{ marginTop: 32, borderColor: 'var(--hairline)' }}>
@@ -726,7 +739,7 @@ export default function OddZetaPage() {
             <Link to="/fourier" style={{ color: 'var(--blue)' }}>Fourier Domain</Link>{' '}
             (spectral decomposition of primes and the explicit formula),{' '}
             <Link to="/info-theory" style={{ color: 'var(--green)' }}>Information Theory</Link>{' '}
-            (Kolmogorov complexity and algorithmic randomness of zeta values),{' '}
+            (the computability audit and arithmetic information budget),{' '}
             <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)' }}>Spectral Approach</Link>{' '}
             (unified potential and Fourier-information synthesis).
           </p>

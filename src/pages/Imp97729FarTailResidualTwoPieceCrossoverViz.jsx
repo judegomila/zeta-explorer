@@ -152,8 +152,8 @@ export default function Imp97729FarTailResidualTwoPieceCrossoverViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97702 ladder verbatim (no re-derivation, no new computation).
-        Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
-        SOTA; RH open; NO QED.
+        Conditional-share diagnostic, NOT an RH bound; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

@@ -62,7 +62,7 @@ IMPROVE_PROMPT_API='You are improving the ZPO Explorer / RH-attack project on th
     completedByChannel: "api",
     LEAVE any predicted model/channel fields ALONE.
 
-10. Create a git commit with a descriptive message mentioning the imp-NNN id.
+10. Commit with scripts/engine-commit.sh, naming every file you changed (see COMMIT PROTOCOL below), with a descriptive message mentioning the imp-NNN id.
 
 SYNTAX GOTCHAS (mandatory):
 - DO NOT write "*/" inside a JSDoc comment (it closes the comment). Use "dg_{k*}/dt" form in comments.
@@ -81,6 +81,16 @@ if [ -f "$SCRIPT_DIR/.env" ]; then
   . "$SCRIPT_DIR/.env"
   set +a
 fi
+
+# Public-repository safety: start-up check and commit protocol
+# (see CONTRIBUTING.md, "Automated engines and agents").
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-prompt-shared.sh"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+IMPROVE_PROMPT_API="$IMPROVE_PROMPT_API
+
+$PROMPT_COMMIT_PROTOCOL"
 
 mkdir -p "$LOG_DIR"
 
@@ -143,6 +153,14 @@ do_start() {
       # Always refresh queue-index before a run -- the cycle helper reads it.
       node "$SCRIPT_DIR/build-queue-index.mjs" >> "$log_file" 2>&1 || true
       pre_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
+
+      # Public-repository safety: re-check before every model turn; stop if the
+      # clone is no longer safe to commit from (hooks removed, wrong branch, ...).
+      if ! engine_preflight >> "$log_file" 2>&1; then
+        echo "PREFLIGHT REFUSED: engine stopping (see $log_file)" | tee -a "$log_file"
+        rm -f "$PID_FILE"
+        break
+      fi
 
       # Channel-quota hook still applies: even though this engine IS the
       # api channel, the hook may recommend "wait" if both subscription
@@ -278,10 +296,10 @@ EOF
 
       # Auto-push every N clean runs (mirrors auto-improve.sh PUSH_EVERY).
       if [ "$((run_count % PUSH_EVERY))" -eq 0 ]; then
-        unpushed=$(git -C "$PROJECT_DIR" log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+        unpushed=$(engine_unpushed_count)
         if [ "${unpushed:-0}" -gt 0 ]; then
           echo "AUTO-PUSH (api): $unpushed unpushed commit(s) -- pushing at run #$run_count..." | tee -a "$log_file"
-          git -C "$PROJECT_DIR" push >> "$log_file" 2>&1 \
+          "$SCRIPT_DIR/engine-push.sh" >> "$log_file" 2>&1 \
             && echo "AUTO-PUSH (api): success" | tee -a "$log_file" \
             || echo "AUTO-PUSH (api): push failed (non-fatal; will retry)" | tee -a "$log_file"
         else
@@ -372,7 +390,7 @@ do_status() {
 }
 
 case "${1:-}" in
-  start)  do_start ;;
+  start)  engine_preflight || { echo "Engine NOT started: start-up check refused (see above)."; exit 1; }; do_start ;;
   stop)   do_stop ;;
   status) do_status ;;
   *)

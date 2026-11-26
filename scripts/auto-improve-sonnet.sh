@@ -60,7 +60,7 @@ _SONNET_STEPS='1. MANDATORY FIRST STEP: read scripts/queue-index.json and collec
       completedByChannel: "sonnet",
       The ticket may already have predicted "model" and "channel" fields — LEAVE THOSE ALONE. completedBy* records actuals for routing-accuracy analysis.
 
-9. Create a git commit with a descriptive message.'
+9. Commit with scripts/engine-commit.sh, naming every file you changed (see COMMIT PROTOCOL below), with a descriptive message.'
 
 IMPROVE_PROMPT="You are the SONNET tier of the ZPO Explorer / RH-attack auto-improvement engine. Your task:
 
@@ -73,6 +73,16 @@ $PROMPT_SYNTAX_GOTCHAS
 RULES:
 - Never pick tickets outside the sonnet-4-6 tier — other engines handle those
 $PROMPT_COMMON_RULES_SUFFIX"
+
+# Public-repository safety: start-up check and commit protocol
+# (see CONTRIBUTING.md, "Automated engines and agents").
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-prompt-shared.sh"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+IMPROVE_PROMPT="$IMPROVE_PROMPT
+
+$PROMPT_COMMIT_PROTOCOL"
 
 mkdir -p "$LOG_DIR"
 
@@ -125,6 +135,14 @@ do_start() {
       node "$SCRIPT_DIR/build-queue-index.mjs" >> "$log_file" 2>&1 || true
       # Snapshot commit hash before run to detect if Claude makes a new commit
       pre_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
+
+      # Public-repository safety: re-check before every model turn; stop if the
+      # clone is no longer safe to commit from (hooks removed, wrong branch, ...).
+      if ! engine_preflight >> "$log_file" 2>&1; then
+        echo "PREFLIGHT REFUSED: engine stopping (see $log_file)" | tee -a "$log_file"
+        rm -f "$PID_FILE"
+        break
+      fi
 
       # imp-880 follow-up: consult channel-quota.mjs before invoking claude.
       if [ -f "$SCRIPT_DIR/engine-channel-hook.sh" ]; then
@@ -198,8 +216,8 @@ else:
         open(f_path, 'w').write(text[:i] + nc + text[i+600:])
         print("remediate: flipped " + tid + " to completed")
 PYEOF
-            git -C "$PROJECT_DIR" add src/data/improvement-queue.js >> "$log_file" 2>&1 || true
-            git -C "$PROJECT_DIR" diff --cached --quiet || git -C "$PROJECT_DIR" commit -m "fix(meta): auto-remediate status-flip drift for $commit_imp" >> "$log_file" 2>&1 || true
+            # One named file, through the staging helper (allow-list, sanitiser, hooks).
+            "$SCRIPT_DIR/engine-commit.sh" -m "fix(meta): auto-remediate status-flip drift for $commit_imp" -- src/data/improvement-queue.js >> "$log_file" 2>&1 || true
           fi
         fi
       fi
@@ -240,10 +258,10 @@ EOF
       # Auto-push every 5 clean runs (mirrors auto-improve.sh, added
       # 2026-05-19 — overnight commits piled up unpushed when Opus 4.7 stalled).
       if [ "$((run_count % 5))" -eq 0 ]; then
-        unpushed=$(git -C "$PROJECT_DIR" log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+        unpushed=$(engine_unpushed_count)
         if [ "${unpushed:-0}" -gt 0 ]; then
           echo "AUTO-PUSH (sonnet): $unpushed unpushed commit(s) — pushing at run #$run_count..." | tee -a "$log_file"
-          git -C "$PROJECT_DIR" push >> "$log_file" 2>&1 \
+          "$SCRIPT_DIR/engine-push.sh" >> "$log_file" 2>&1 \
             && echo "AUTO-PUSH (sonnet): success" | tee -a "$log_file" \
             || echo "AUTO-PUSH (sonnet): push failed (non-fatal; will retry)" | tee -a "$log_file"
         fi
@@ -331,7 +349,7 @@ do_status() {
 }
 
 case "${1:-}" in
-  start)  do_start ;;
+  start)  engine_preflight || { echo "Engine NOT started: start-up check refused (see above)."; exit 1; }; do_start ;;
   stop)   do_stop ;;
   status) do_status ;;
   *)

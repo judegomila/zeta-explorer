@@ -2,13 +2,13 @@ import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   oddZetaValue, aperySequence, oddZetaAsTransferFunction,
-  linearIndependenceTest, irrationalityMeasure, oddZetaDecay,
+  modelGramGeometry, approximationSlopeDiagnostic, oddZetaDecay,
   eulerProductTrace, transferFunctionDecayComparison,
 } from '../math/odd-zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { ED, alpha } from '../styles/tokens.js';
 
-const TABS = ['Values & Convergence', 'Apéry Sequences', 'Transfer Function', 'Linear Independence', 'Irrationality Measure'];
+const TABS = ['Values & Convergence', 'Apéry Sequences', 'Transfer Function', 'Model Gram Geometry', 'Approximation Slopes'];
 const TAB_COLORS = [ED.series3, ED.series1, ED.series5, ED.series4, ED.series2];
 
 // ─── Shared canvas drawing helpers ──────────────────────────────────────────
@@ -790,8 +790,9 @@ function IntegerRelationPanel({ data }) {
       <p style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 10, lineHeight: 1.5 }}>
         Searches for the smallest nonzero integer combination{' '}
         <InlineMath tex={"c_0 \\cdot 1 + c_1 \\cdot \\zeta(3) + \\cdots + c_k \\cdot \\zeta(2k+1)"} />.
-        A growing minimum residual as dimension increases is evidence of{' '}
-        <InlineMath tex={"\\mathbb{Q}"} />-linear independence.
+        This bounded brute-force search is a visualization only. Failure to find a
+        relation—especially with float64 inputs—does not provide evidence or a lower
+        bound for <InlineMath tex={"\\mathbb{Q}"} />-linear independence.
       </p>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 11 }}>
@@ -816,7 +817,7 @@ function IntegerRelationPanel({ data }) {
                   color: row.minResidual < 1e-12 ? 'var(--series-2)' : 'var(--series-3)',
                   textAlign: 'right', padding: '4px 8px', fontWeight: 600,
                 }}>
-                  {row.minResidual < 1e-15 ? '0 (dependent!)' : row.minResidual.toExponential(3)}
+                  {row.minResidual < 1e-15 ? '0 (float64)' : row.minResidual.toExponential(3)}
                 </td>
                 <td style={{ color: 'var(--ink-soft)', padding: '4px 8px' }}>
                   {'[' + row.bestCoeffs.join(', ') + ']'}
@@ -832,21 +833,21 @@ function IntegerRelationPanel({ data }) {
         </p>
       )}
       <p style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 6, fontStyle: 'italic' }}>
-        No zero residual found = no integer relation within this bound.
-        Ball-Rivoal proves infinitely many{' '}<InlineMath tex={"\\zeta(2k+1)"} /> are{' '}
-        <InlineMath tex={"\\mathbb{Q}"} />-linearly independent.
+        “No zero residual” means only that this finite coefficient box and numerical
+        precision found none. Ball–Rivoal's theorem instead proves that the rational
+        span of the odd zeta values has unbounded dimension.
       </p>
     </div>
   );
 }
 
-// ─── Tab 4: Linear Independence ─────────────────────────────────────────────
+// ─── Tab 4: model Gram geometry ─────────────────────────────────────────────
 
 function LinearIndependenceTab({ maxOdd, numPrimes }) {
   const canvasRef = useRef();
 
   const data = useMemo(
-    () => linearIndependenceTest(maxOdd, numPrimes),
+    () => modelGramGeometry(maxOdd, numPrimes),
     [maxOdd, numPrimes]
   );
 
@@ -938,8 +939,8 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
 
     // Determinant info
     const detStr = data.determinant !== 0
-      ? `det = ${data.determinant.toExponential(3)}`
-      : 'det = 0 (DEPENDENT)';
+      ? `model det = ${data.determinant.toExponential(3)}`
+      : 'model det = 0';
     const detColor = data.determinant !== 0 ? ED.series3 : ED.series2;
     ctx.fillStyle = detColor;
     ctx.font = 'bold 10px var(--font-mono)';
@@ -995,9 +996,9 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
         style={{ width: '100%', height: 380, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: 'Dimension', value: `${data.dimension}`, color: ED.brass },
-          { label: 'log10(det)', value: isFinite(data.logDeterminant) ? data.logDeterminant.toFixed(2) : '-\u221E', color: data.determinant !== 0 ? ED.series3 : ED.series2 },
-          { label: 'Near Dependencies', value: `${data.nearDependencies.length}`, color: data.nearDependencies.length > 0 ? ED.series2 : ED.series3 },
+          { label: 'Feature dimension', value: `${data.dimension}`, color: ED.brass },
+          { label: 'log10(model det)', value: isFinite(data.logDeterminant) ? data.logDeterminant.toFixed(2) : '-\u221E', color: data.determinant !== 0 ? ED.series3 : ED.series2 },
+          { label: 'Near-parallel pairs', value: `${data.nearDependencies.length}`, color: data.nearDependencies.length > 0 ? ED.series2 : ED.series3 },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
@@ -1009,9 +1010,10 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
         <p style={{ margin: '0 0 6px' }}>The Gram matrix uses the inner product:</p>
         <BlockMath tex={"\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\frac{\\log p}{(p^m-1)(p^n-1)}"} />
         <p style={{ margin: '6px 0 0' }}>
-          A nonzero determinant supports linear independence of{' '}
+          A nonzero determinant proves independence only for the prime-indexed feature
+          vectors defined by this inner product. It has no implication for rational
+          linear relations among the numerical values{' '}
           <InlineMath tex={"\\{1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(" + maxOdd + ")\\}"} />.
-          Ball-Rivoal proved <InlineMath tex={"\\dim \\geq c \\cdot \\log s"} />.
         </p>
       </div>
       <IntegerRelationPanel data={data} />
@@ -1019,13 +1021,13 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
   );
 }
 
-// ─── Tab 5: Irrationality Measure ───────────────────────────────────────────
+// ─── Tab 5: finite approximation slopes ─────────────────────────────────────
 
-function IrrationalityMeasureTab({ selectedN }) {
+function ApproximationSlopesTab({ selectedN }) {
   const [maxDenom, setMaxDenom] = useState(5000);
   const canvasRef = useRef();
 
-  const data = useMemo(() => irrationalityMeasure(selectedN, maxDenom), [selectedN, maxDenom]);
+  const data = useMemo(() => approximationSlopeDiagnostic(selectedN, maxDenom), [selectedN, maxDenom]);
 
   const draw = useCallback(() => {
     const c = initCanvas(canvasRef);
@@ -1079,7 +1081,7 @@ function IrrationalityMeasureTab({ selectedN }) {
       }
     });
 
-    // Reference line for irrationality measure μ
+    // Visual reference line: rigorous bound for ζ(3), finite fitted slope otherwise.
     const mu = data.aperyBound || data.measureEstimate;
     if (approxs.length >= 2 && isFinite(mu)) {
       // Line: log|error| = -mu * log(q) + const
@@ -1112,7 +1114,7 @@ function IrrationalityMeasureTab({ selectedN }) {
       ctx.textAlign = 'right';
       const muLabel = data.aperyBound
         ? `\u03BC \u2264 ${mu.toFixed(3)} (known)`
-        : `\u03BC \u2248 ${mu.toFixed(2)} (est.)`;
+        : `finite slope \u2248 ${mu.toFixed(2)}`;
       ctx.fillText(muLabel, w - margin.right - 4, margin.top + 28);
     }
 
@@ -1192,7 +1194,7 @@ function IrrationalityMeasureTab({ selectedN }) {
     // Legend
     const legendItems = [
       { color: ED.series2, label: 'Best approximations p/q', dash: false, dot: true },
-      { color: ED.brass, label: `Slope \u03BC ${data.aperyBound ? '\u2264 ' + mu.toFixed(3) + ' (known)' : '\u2248 ' + (mu || 0).toFixed(2) + ' (est.)'}`, dash: true, dot: false },
+      { color: ED.brass, label: data.aperyBound ? `Known \u03BC \u2264 ${mu.toFixed(3)}` : `Finite slope \u2248 ${(mu || 0).toFixed(2)}`, dash: true, dot: false },
       { color: ED.series3, label: '\u03BC = 2 (all irrationals)', dash: true, dot: false },
     ];
     const legendX = margin.left + 8;
@@ -1245,7 +1247,7 @@ function IrrationalityMeasureTab({ selectedN }) {
         <div className="control-group">
           <label>Max Denominator</label>
           <input type="range" min="500" max="20000" step="500" value={maxDenom}
-            title="Maximum denominator q for continued fraction approximations p/q — larger values probe finer rational approximations and improve the irrationality measure estimate"
+            title="Maximum denominator q for this finite continued-fraction diagnostic; increasing it does not certify an irrationality measure"
             onChange={e => setMaxDenom(+e.target.value)} />
           <span className="control-value">{maxDenom}</span>
         </div>
@@ -1255,7 +1257,7 @@ function IrrationalityMeasureTab({ selectedN }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginTop: 12 }}>
         {[
           { label: `\u03B6(${selectedN})`, value: data.value?.toFixed(10) || 'N/A', color: ED.series2 },
-          { label: '\u03BC Estimate', value: data.measureEstimate?.toFixed(2) || 'N/A', color: ED.brass },
+          { label: 'Finite slope', value: data.measureEstimate?.toFixed(2) || 'N/A', color: ED.brass },
           { label: 'Known Bound', value: data.aperyBound ? `\u2264 ${data.aperyBound}` : 'Unknown', color: data.aperyBound ? ED.series3 : ED.inkFaint },
           { label: 'Irrational?', value: data.isProvenIrrational ? 'PROVEN' : 'Open', color: data.isProvenIrrational ? ED.series3 : ED.brass },
         ].map(m => (
@@ -1266,8 +1268,9 @@ function IrrationalityMeasureTab({ selectedN }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
-        The irrationality measure <InlineMath tex={"\\mu"} /> bounds how well <InlineMath tex={"\\zeta(n)"} /> can be
-        approximated by rationals: <InlineMath tex={"|\\zeta(n) - p/q| > c/q^{\\mu}"} /> for large <InlineMath tex="q" />.
+        The chart displays finitely many float64 continued-fraction convergents. Its fitted slope is not
+        a certified irrationality measure and cannot establish irrationality. A rigorous measure theorem
+        requires a uniform asymptotic inequality for all sufficiently large <InlineMath tex="q" />.
         {selectedN === 3 && (
           <span> For <InlineMath tex={"\\zeta(3)"} />, Rhin & Viola (2001) proved <InlineMath tex={"\\mu \\leq 5.513891"} />.</span>
         )}
@@ -1346,10 +1349,11 @@ export default function OddZetaViz() {
       )}
       {activeTab === 1 && (
         <div className="tab-explainer accent-blue">
-          Ap&eacute;ry&rsquo;s remarkable recurrence generates rational convergents <InlineMath tex={"a_n/b_n \\to \\zeta(3)"} /> at
-          geometric rate <InlineMath tex={"\\sim (1+\\sqrt{2})^{-4n}"} />. This speed proves irrationality: no rational
-          number can be approximated this fast by other rationals.
-          <strong> Look for:</strong> error dropping exponentially (straight line on log scale).
+          Ap&eacute;ry&rsquo;s recurrence generates rational convergents <InlineMath tex={"a_n/b_n \\to \\zeta(3)"} /> at
+          geometric rate <InlineMath tex={"\\sim (1+\\sqrt{2})^{-4n}"} />. The full proof also establishes
+          exact denominator bounds and nonzero integer linear forms; convergence in the step index alone
+          would not prove irrationality. <strong> Look for:</strong> the analytic decay that must beat
+          arithmetic denominator growth.
         </div>
       )}
       {activeTab === 2 && (
@@ -1362,19 +1366,18 @@ export default function OddZetaViz() {
       )}
       {activeTab === 3 && (
         <div className="tab-explainer accent-orange">
-          The Gram matrix <InlineMath tex={"\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\log p / (p^m-1)(p^n-1)"} /> tests
-          linear independence of <InlineMath tex={"\\{1, \\zeta(3), \\zeta(5), \\ldots\\}"} /> over <InlineMath tex={"\\mathbb{Q}"} />.
-          A nonzero determinant implies independence (consistent with Rivoal&rsquo;s theorem).
-          <strong> Look for:</strong> positive determinant and low cosine angles between pairs.
+          The displayed Gram matrix comes from prime-indexed model feature vectors. A nonzero determinant
+          proves independence of those vectors in this chosen inner product, not{' '}
+          <InlineMath tex={"\\mathbb Q"} />-linear independence of the numerical zeta values.
+          <strong> Look for:</strong> geometry of the model features, with no arithmetic conclusion attached.
         </div>
       )}
       {activeTab === 4 && (
         <div className="tab-explainer accent-red">
-          The irrationality measure <InlineMath tex={"\\mu"} /> bounds how well <InlineMath tex={"\\zeta(n)"} /> can be
-          approximated by rationals: <InlineMath tex={"|\\zeta(n) - p/q| > c/q^\\mu"} />. For <InlineMath tex={"\\zeta(3)"} />,
-          Rhin &amp; Viola proved <InlineMath tex={"\\mu \\leq 5.51"} />. We estimate <InlineMath tex={"\\mu"} /> from the
-          slope of <InlineMath tex={"\\log|error|"} /> vs <InlineMath tex={"\\log q"} /> in continued fraction convergents.
-          <strong> Look for:</strong> the slope of the log-log plot giving the measure estimate.
+          The points are finite continued-fraction diagnostics. For <InlineMath tex={"\\zeta(3)"} />,
+          Rhin &amp; Viola separately proved <InlineMath tex={"\\mu \\leq 5.51"} />; the plot does not derive
+          that theorem. For higher odd zeta values even individual irrationality remains open.
+          <strong> Look for:</strong> finite approximation behavior, not a proof certificate.
         </div>
       )}
 
@@ -1383,7 +1386,7 @@ export default function OddZetaViz() {
         {activeTab === 1 && <AperyTab />}
         {activeTab === 2 && <TransferTab selectedN={selectedN} numPrimes={numPrimes} />}
         {activeTab === 3 && <LinearIndependenceTab maxOdd={maxOdd} numPrimes={numPrimes} />}
-        {activeTab === 4 && <IrrationalityMeasureTab selectedN={selectedN} />}
+        {activeTab === 4 && <ApproximationSlopesTab selectedN={selectedN} />}
       </div>
     </div>
   );

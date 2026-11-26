@@ -103,8 +103,8 @@ export default function Imp97467CrossoverFractionToleranceLadderViz() {
         only. The crossover fraction x*(eps) = A(b)/b (largest a/b with the
         linearized Vasyunin profile accurate to eps) is tabulated across the
         b-ladder at four tolerances; it establishes no operator positivity and
-        moves no bound. The rigorous anchor stays T = 2.594e7; PT
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        moves no bound. The rigorous anchor stays T = 2.594e7; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -156,7 +156,7 @@ export default function Imp97467CrossoverFractionToleranceLadderViz() {
         consuming the imp-97441 x*(eps) table verbatim; no re-solve.
         Establishes no operator positivity; changes no bound; the imp-97437
         effective-curvature fixed point (kappa_eff = 0.0995) fits this table
-        only in the mid-band eps ~ 1%-2%; PT Lambda&le;0.2 remains SOTA; RH
+        only in the mid-band eps ~ 1%-2%; RH
         open; NO QED.
       </div>
     </div>

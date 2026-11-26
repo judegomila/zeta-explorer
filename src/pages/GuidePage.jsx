@@ -10,7 +10,7 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
    the source-of-truth data modules (RESULTS_COUNT, FULL_ROUTE_MAP, the no-go
    arrays) so the guide can never drift from the pages it summarizes. New prose is
    limited to Act 1 (plain-language RH) and the bridge sentences between acts.
-   Honesty rules apply verbatim: PT Λ≤0.2 is the peer-reviewed SOTA, candidates
+   Honesty rules apply verbatim: candidates
    are not bounds, RH is open, no false QED, functional language only. */
 
 const ZetaStripLive = lazy(() => import('../components/ZetaStripLive.jsx'));
@@ -64,9 +64,9 @@ export default function GuidePage() {
       grade="GUIDE"
       meta={['start here', 'no prior background assumed']}
       title="A guide to the Riemann Hypothesis"
-      dek="What it says, why it is hard, every major line of attack — the field's and this project's — and exactly where each one stops. Nothing here is claimed beyond what is established: Platt–Trudgian Λ ≤ 0.2 is the accepted bound and RH is open."
+      dek="What it says, why it is hard, every major line of attack — the field's and this project's — and exactly where each one stops. Nothing here is claimed beyond what is established: this project's values below 0.2 are unrefereed candidates or conditional on named inputs, and RH is open."
       byline={['exploreriemann', 'assembled from the graded results, route map, and no-go ledger']}
-      ticker={<span>{RESULTS_COUNT} graded results · {FULL_ROUTE_MAP.totalRoutes} closure routes · {noGoCount} no-go findings · PT Λ≤0.2 SOTA · RH open</span>}
+      ticker={<span>{RESULTS_COUNT} graded results · {FULL_ROUTE_MAP.totalRoutes} closure routes · {noGoCount} no-go findings · RH open</span>}
       footer={<>
         Go deeper: <Link to="/atlas">the atlas</Link>{' · '}
         <Link to="/state-of-field">state of the field</Link>{' · '}
@@ -159,12 +159,16 @@ export default function GuidePage() {
       <p>
         This project attacks RH mainly through the de Bruijn–Newman constant{' '}
         <InlineMath tex="\Lambda" />, where <InlineMath tex="\text{RH} \iff \Lambda \le 0" />.
-        The peer-reviewed state of the art is <InlineMath tex="\Lambda \le 0.2" />{' '}
-        (Platt–Trudgian), with <InlineMath tex="\Lambda \ge 0" /> proved (Rodgers–Tao). This
+        The peer-reviewed bounds are <InlineMath tex="\Lambda \le 0.2" />{' '}
+        (Platt–Trudgian) and <InlineMath tex="\Lambda \ge 0" /> (Rodgers–Tao). This
         project's lower candidate values — {' '}
         <Link to="/lambda-01758354-candidate">0.1758354</Link>,{' '}
         <Link to="/newman-lambda-01787854-candidate">0.1787854</Link>, the y-thaw package —
-        are computer-assisted and <em>unrefereed</em>: they are candidates, not bounds.
+        are computer-assisted and <em>unrefereed</em>: they are candidates, not bounds. The smallest
+        value recorded here, <Link to="/lambda-0116091">0.116091488672439</Link>, is conditional on two
+        unrefereed results (the zero-free half-plane <InlineMath tex="\Re s > 7/8" /> and D. J. Raymond's
+        decreasing-barrier chain); it is not an established bound. Status as of 2026-11-20:{' '}
+        <Link to="/state-of-program">state of the program</Link>.
       </p>
       <p>
         The honest current state is that every mapped route reduces to one of three things —
@@ -189,8 +193,7 @@ export default function GuidePage() {
       <p style={{ fontSize: 13.5, color: 'var(--faint)' }}>
         A grade never promotes: a candidate stays a candidate until refereed, a contract
         establishes no bound, a no-go closes a route family. The full graded ledger is at{' '}
-        <Link to="/results">results</Link>. Platt–Trudgian <InlineMath tex="\Lambda \le 0.2" />{' '}
-        remains the accepted bound; RH is open.
+        <Link to="/results">results</Link>. RH is open.
       </p>
     </PostLayout>
   );

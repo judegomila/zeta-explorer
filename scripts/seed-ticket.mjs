@@ -25,6 +25,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+import { sanitizeForLedger } from './lib/public-sanitize.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -181,6 +182,22 @@ function buildTicketEntry(args) {
 
 const args = parseArgs(process.argv);
 validateArgs(args);
+
+// Public repository: every free-text field goes through the shared sanitiser
+// before it is written (home and machine paths become placeholders, key-shaped
+// strings and account identifiers are redacted, transcript text is dropped).
+// If something unpublishable is left after the rewrite, nothing is written.
+for (const field of ['title', 'description', 'rationale', 'proof-section']) {
+  if (typeof args[field] !== 'string') continue;
+  try {
+    const clean = sanitizeForLedger(args[field]);
+    if (clean !== args[field]) console.warn(`seed-ticket: --${field} was sanitised for the public repository`);
+    args[field] = clean;
+  } catch (e) {
+    console.error(`seed-ticket: --${field} rejected: ${e.message}`);
+    process.exit(1);
+  }
+}
 
 const ticketId = args.id;
 const isDryRun = args['dry-run'] === true;

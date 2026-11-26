@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "exact edge inverse and finite-rank lemma algebra; prime-7 geometry only, not a positivity certificate",
+  "checks": [
+    "F^2=E and EF=F",
+    "exact inverse",
+    "wrong sign rejected",
+    "orthonormal inclusion",
+    "constrained minimizer",
+    "orthogonal energy identity",
+    "prime-7 chain geometry",
+    "prime-7 norm and old tail margin"
+  ],
+  "precision_bits": 192,
+  "next_chain_norm": "[1.17600762495498596371072424420979593932607305112012089317 +/- 5.28e-57]",
+  "old_tail_floor_T400": "[1.21161369505806454947150201888321191650588613850815886575 +/- 9.81e-57]",
+  "prime7_positivity_certified": false,
+  "script_sha256": "6595c3313441fc7780f786ab9aef3de9a20e63debeb20e68ac833c0d757f05c8"
+}

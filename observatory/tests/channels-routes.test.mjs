@@ -10,6 +10,7 @@ import {encodeViewURL,decodeViewURL,sanitizeViewCamera,sanitizeViewProbe} from '
 import * as channelsState from '../dist/channels-state.js';
 import * as infinityState from '../dist/infinity.js';
 import * as dualState from '../dist/dual.js';
+import * as modelsState from '../dist/models.js';
 import * as displayState from '../dist/display-field.js';
 import {HOLE_DEFAULTS,HOLE_LIMITS} from '../dist/domain.js';
 import {RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets} from '../dist/research-state.js';
@@ -49,7 +50,7 @@ function actualApp(){
   activeElement:{tagName:'BODY'},body:{append(){}},
   addEventListener:(name,callback)=>listeners.set(name,callback)};
  const context=vm.createContext({
-  ...channelsState,...infinityState,...dualState,...displayState,HOLE_DEFAULTS,HOLE_LIMITS,ZERO_HEIGHTS,NUMERICS,isQuotientGeometry,domainFor,fieldKey,performance,document,
+  ...channelsState,...infinityState,...dualState,...modelsState,...displayState,HOLE_DEFAULTS,HOLE_LIMITS,ZERO_HEIGHTS,NUMERICS,isQuotientGeometry,domainFor,fieldKey,performance,document,
   RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets,
   DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig,
   sanitizeViewCamera,sanitizeViewProbe,Blob,clearTimeout,setTimeout,
@@ -248,3 +249,32 @@ test('main keyboard controls target Channels while text entry inside its shadow 
  assert.equal(app.effects.filter(e=>e==='channels-play').length,1);assert.equal(app.effects.filter(e=>e==='channels-reset').length,1);
 });
 
+
+test('model routes open the twin ladder and the nucleus, share their controls, and leave cleanly',()=>{
+ const app=actualApp();
+ for(const [name,mode] of [['twinLadder','ladder'],['uranium238','nucleus']]){
+  const decoded=decodeViewURL(origin+'?view='+name,app.config);
+  assert.equal(decoded.valid,true,decoded.error);assert.equal(decoded.name,name);
+  const state=decoded.session.state;
+  assert.equal(state.modelsMode,mode);
+  for(const key of ['channelsMode','researchMode','dynamicsMode','infinityMode','dualMode','fiberMode'])assert.equal(state[key],'off',key);
+  assert.equal(state.geometry,'plane');assert.equal(state.projective,false);assert.equal(state.packets,false);
+  app.setState(state);assert.equal(app.shareViewName(),name);
+  const changed={...state,ladderCentre:.8,ladderOffset:.1,ladderHeight:21.02,ladderPrimes:25,ladderRungs:4,ladderWeight:'unit',nucleusZ:115,nucleusCoupling:1.5,nucleusPluck:3};
+  const url=encodeViewURL(origin,{state:changed},{...app.config,name});
+  const restored=decodeViewURL(url,app.config);assert.equal(restored.valid,true,restored.error);
+  for(const key of Object.keys(modelsState.MODELS_DEFAULTS))assert.equal(restored.session.state[key],changed[key],key);
+  assert.equal(encodeViewURL(url,restored.session,{...app.config,name}),url);
+ }
+ // Out-of-range and non-integer values are clamped and rounded, unknown enums ignored.
+ const wild=app.validate({modelsMode:'ladder',ladderCentre:9,ladderPrimes:7.6,ladderRungs:-2,ladderWeight:'x',nucleusZ:1e6,nucleusPluck:9});
+ assert.equal(wild.ladderCentre,1.5);assert.equal(wild.ladderPrimes,8);assert.equal(wild.ladderRungs,1);assert.equal(wild.ladderWeight,'mangoldt');
+ assert.equal(wild.nucleusZ,126);assert.equal(wild.nucleusPluck,2);
+ // A model mode wins over a stale workbench flag; choosing another view leaves the model.
+ const mixed=app.validate({modelsMode:'nucleus',channelsMode:'newton',geometry:'klein',projective:true});
+ assert.equal(mixed.modelsMode,'nucleus');assert.equal(mixed.channelsMode,'off');assert.equal(mixed.geometry,'plane');assert.equal(mixed.projective,false);
+ app.applyPreset('uranium238');assert.equal(app.getState().modelsMode,'nucleus');
+ app.selectMount('sphere',false);assert.equal(app.getState().modelsMode,'off');assert.equal(app.getState().geometry,'sphere');
+ app.applyPreset('twinLadder');app.applyPreset('channels');assert.equal(app.getState().modelsMode,'off');assert.equal(app.getState().channelsMode,'channels');
+ app.applyPreset('twinLadder');assert.equal(app.session().camera,null);assert.equal(app.session().state.modelsMode,'ladder');
+});

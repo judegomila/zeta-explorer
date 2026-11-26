@@ -306,7 +306,7 @@ export const RESULTS = [
 
   // ── candidates (computer-assisted, unrefereed; none is a bound) ────────────
   {
-    statement: 'Λ ≤ 0.1787854 candidate: sealed computer-assisted package (v3) with a 3.15M-row Arb certificate and a three-piece final-time half-strip closure; private review only — not peer-reviewed, not a bound.',
+    statement: 'Λ ≤ 0.1787854 candidate: sealed computer-assisted package (v3) with a 3.15M-row Arb certificate and a three-piece final-time half-strip closure; reviewed by Dan Romik and publicly posted — not refereed, not a bound.',
     grade: 'candidate-unrefereed',
     verification: ['sealed v3 package (review-01787854-v3)', 'independent-audit summary', '3.15M-row Arb certificate'],
     thread: 'candidate-01787854',
@@ -322,7 +322,7 @@ export const RESULTS = [
     date: '2026-08',
   },
   {
-    statement: '0.17759432 y-thaw package value (129/800 + 0.1808²/2): O3 and O5 close under our toolchain, O1/O2/O4/O6 remain open — a package value, not a candidate and not a bound, until the obligation ledger closes.',
+    statement: '0.17759432 y-thaw package value (129/800 + 0.1808²/2): 2 of 6 obligations closed (O3 and O5, under our toolchain), O1/O2/O4/O6 open (record of 2026-09-22) — a package value, not a candidate and not a bound, until the obligation ledger closes.',
     grade: 'candidate-unrefereed',
     verification: ['obligation ledger O1–O6 (module imp-95140)', 'stages 1+2 frozen (module imp-95208)'],
     thread: 'y-thaw',

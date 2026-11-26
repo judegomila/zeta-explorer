@@ -234,8 +234,7 @@ export default function Imp97367KreinCsharpCoupledNTGridViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97206 committed arrays verbatim (no re-solve, no new numerics). Rayleigh-Ritz upper
-        bounds only; establishes no operator positivity; changes no bound; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        bounds only; establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

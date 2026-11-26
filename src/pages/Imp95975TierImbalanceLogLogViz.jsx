@@ -151,7 +151,7 @@ export default function Imp95975TierImbalanceLogLogViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only plot of an
         already-computed finite-difference sweep. It changes no Lambda bound and establishes no
-        operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art.
+        operator positivity.
         Catalan G irrationality stays OPEN; Sun arXiv:2609.04176 is single-author and unrefereed.
         RH does not follow from anything on this page. NO QED.
       </div>
@@ -204,8 +204,7 @@ export default function Imp95975TierImbalanceLogLogViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95975 baked viz-data (values copied verbatim from the imp-95925 sweep, no
-        re-derivation). Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        re-derivation). Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

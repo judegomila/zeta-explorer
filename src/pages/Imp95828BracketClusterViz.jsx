@@ -124,8 +124,7 @@ export default function Imp95828BracketClusterViz() {
         height, not a genuine finite-height feature; the imp-95722 max-based
         C0&nbsp;=&nbsp;0.3337 is pinned by this artifact height, but since it
         is an upper envelope this only makes the true correction more
-        conservative. It changes no bound and proves no RH-relevant theorem.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO
+        conservative. It changes no bound and proves no RH-relevant theorem. NO
         QED.
       </div>
 
@@ -194,8 +193,7 @@ export default function Imp95828BracketClusterViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         rendering the frozen imp-95806 tabulation (no re-derivation). Supplies
-        no new bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no new bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

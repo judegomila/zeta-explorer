@@ -136,8 +136,7 @@ export default function Imp96215UshapePeakAccidentViz() {
         }}
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> Measurement/derivation only, not
-        rigorous. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian
-        Lambda &lt;= 0.2 remains SOTA; NO QED.
+        rigorous. Changes no bound, establishes no operator positivity, no RH claim; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

@@ -1,0 +1,23 @@
+{
+  "status": "INTERVAL_REPLAY_PASSED",
+  "width": "9/10",
+  "payload_source": "src/data/rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js",
+  "payload_json_sha256": "176f83c8a39aa2be413e683262fb9913ce00ea28a8d7c898e5cc5ab631a907b9",
+  "interpretation": "exact decimal coefficients; lattice ks/50; smooth compact tests",
+  "compact": {
+    "checked_cells": 2929,
+    "accepted_cells": 1465,
+    "lower_bound_interval": "[0.0132816883218461008649910762888196912919710812, 0.0132816883218461008649910762888196912919710812]"
+  },
+  "periodic_top_family": {
+    "checked_cells": 2771,
+    "accepted_cells": 1386,
+    "lower_bound_interval": "[-0.848823501714323924574660557224770670396792772, -0.848823501714323924574660557224770670396792772]"
+  },
+  "tail_bracket_interval": "[0.150290719733502635983161415832916955883383383, 0.150290719733502635983161415832916955883770814]",
+  "rh_proved": false,
+  "support_extended": false,
+  "elapsed_seconds": 37.14,
+  "mpmath_version": "1.3.0",
+  "checker_sha256": "f146a9431c425d22bd9a8c94c6825a82a158f631b2bc957b93613f48591e24e2"
+}

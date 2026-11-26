@@ -28,7 +28,7 @@ export default function ZeroDensityScopingPage() {
             'The barrier is gated by the verified height X (a computation certifying N=0 off-line up to X). ' +
             'A density estimate is a POSITIVE upper bound on off-line zeros — it can never certify N=0, so it ' +
             'cannot replace or reduce X. Even the full Density Hypothesis moves rigorous Λ by exactly zero. ' +
-            'Platt–Trudgian Λ ≤ 0.2 stays SOTA. NO QED.'
+            'No refereed bound is changed. NO QED.'
           }
         />
 

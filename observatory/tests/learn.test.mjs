@@ -47,3 +47,14 @@ test('the site bar accepts only well-formed internal routes and counts pages',as
   assert.equal(siteHref('/atlas'),'../#/atlas');
   assert.deepEqual(cleanNav('nope'),[]);
 });
+
+test('the site bar is written as escaped markup that holds the page actions',async()=>{
+  const {renderSiteBar}=await import('../dist/site-bar.js');
+  const html=renderSiteBar([{label:'Tools & <b>',sections:[{heading:'',items:[{to:'/a',label:'"A" <x>'},{to:'/b',label:'B'}]}]}],'<nav class="header-actions"></nav>');
+  assert.match(html,/^<nav class="site-bar" aria-label="Site sections">/);
+  assert.ok(html.includes('Tools &amp; &lt;b&gt;<small>2</small>'));
+  assert.ok(html.includes('<a href="../#/a">&quot;A&quot; &lt;x&gt;</a>'));
+  assert.ok(!html.includes('<b>')&&!html.includes('<x>'));
+  assert.ok(html.includes('Research<small>2 pages</small>'));
+  assert.ok(html.endsWith('<div class="sb-right"><nav class="header-actions"></nav></div></nav>'));
+});

@@ -121,7 +121,7 @@ export default function Imp96216RouteBDMarginColumnGamma1000TableViz() {
         imp-96186 measurement, which extends the worst-support (N=32) on-line signed-force margin
         column rho(32,T) from gamma_500 (T~811, imp-96167) to gamma_1000 (T~1419) and re-fits both
         candidate laws on the full 17-point column. It changes no Lambda bound and establishes no
-        operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
+        operator positivity. NO QED.
       </div>
 
       <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
@@ -173,7 +173,7 @@ export default function Imp96216RouteBDMarginColumnGamma1000TableViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96186
         baked column and refit literals verbatim (no re-derivation). Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

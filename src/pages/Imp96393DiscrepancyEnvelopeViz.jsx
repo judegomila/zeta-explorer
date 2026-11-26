@@ -161,7 +161,7 @@ export default function Imp96393DiscrepancyEnvelopeViz() {
         of unfolded length L(T); at these heights (and at 3e12) there are no computed Riemann
         zeros, so this cross-validates two closed-form evaluations of the same envelope, not a
         measurement of actual zeros. Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

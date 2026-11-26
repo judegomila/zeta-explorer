@@ -103,7 +103,7 @@ export const SYNTHESIS_LAMBDA_LEDGER = Object.freeze({
   accepted: Object.freeze({ value: '0.2', grade: 'PROVED (peer-reviewed; Platt–Trudgian 2021)', note: 'the accepted benchmark; unchanged by the campaign' }),
   candidates: Object.freeze([
     Object.freeze({ value: '0.1758354', grade: 'computer-assisted candidate (unreviewed, unpublished)', note: 'Polymath-track; route 8 recomposes it exactly; routes 2, 7 leave it unchanged' }),
-    Object.freeze({ value: '0.1787854', grade: 'private unreviewed candidate', note: 'unchanged (route 2)' }),
+    Object.freeze({ value: '0.1787854', grade: 'publicly posted candidate, not refereed', note: 'unchanged (route 2)' }),
   ]),
   unconditionalOnQRH: Object.freeze({
     exact: '36319092148717/250000000000000', dec: '0.145276368594868',

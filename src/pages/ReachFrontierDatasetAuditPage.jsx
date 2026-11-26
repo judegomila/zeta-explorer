@@ -33,8 +33,8 @@ export default function ReachFrontierDatasetAuditPage() {
         list of the required length is cached anywhere in this project. This page surfaces both
         verdicts, which previously lived only in module prose.
       </>}
-      byline={['mathexplorer', 'audit-index · no bound']}
-      ticker={<span>index · Platt–Trudgian Λ ≤ 0.2 stays SOTA</span>}
+      byline={['exploreriemann', 'audit-index · no bound']}
+      ticker={<span>index · moves no bound</span>}
       footer={<>
         Source modules: <code>imp-96753-basis-c-reach-dataset-requirement.js</code>,{' '}
         <code>imp-96754-gmin-ladder-reach-frontier.js</code>
@@ -45,7 +45,7 @@ export default function ReachFrontierDatasetAuditPage() {
         <div className="tlab">Index only — wires existing modules, establishes nothing new</div>
         <p style={{ margin: 0 }}>
           Every claim below is imported verbatim from its own data module. This page performs no
-          re-derivation, moves no bound, and asserts no QED; Platt–Trudgian Λ ≤ 0.2 remains SOTA and
+          re-derivation, moves no bound, and asserts no QED and
           RH is open.
         </p>
       </div>

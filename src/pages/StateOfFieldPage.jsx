@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner, CurrentStatusList } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ED } from '../styles/tokens.js';
@@ -154,6 +155,9 @@ export default function StateOfFieldPage() {
           confirmation of their statistics, and a pinning of RH to a knife-edge — and the field’s own
           leaders say current methods cannot reach RH without genuinely new arithmetic input.
         </p>
+
+        <SnapshotBanner date="2026-08-27">The survey entries below end at that date. Two later items from outside this project are listed here from the repository record; neither is refereed.</SnapshotBanner>
+        <CurrentStatusList ids={['zero-free', 'lambda-third-party-0107965']} />
 
         <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '22px 0 6px' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>the unifying obstruction</div>

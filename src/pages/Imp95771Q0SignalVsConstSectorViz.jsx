@@ -94,8 +94,8 @@ export default function Imp95771Q0SignalVsConstSectorViz() {
         measurement/presentation-only page re-plotting the frozen imp-95746 four-moduli
         literals (no re-derivation, no new computation). It changes no bound and proves
         no RH-relevant theorem. Catalan G irrationality is OPEN; Sun arXiv:2609.04176
-        remains single-author and unrefereed; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains state of the art. NO QED.
+        remains single-author and unrefereed; no refereed bound is changed.
+         NO QED.
       </div>
 
       <div

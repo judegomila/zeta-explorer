@@ -129,7 +129,7 @@ export default function Imp95587LegBStraddleVsRatioViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> witness-completeness
         only -- two fixed windows, no uniformity claim, no bound moves. LEG B
         substance is the imp-95443 uniformity-over-depth-and-size race, left
-        untouched here. NO QED; Platt-Trudgian Lambda &le; 0.2 remains SOTA; RH
+        untouched here. NO QED; no refereed bound is changed; RH
         open.
       </div>
     </div>

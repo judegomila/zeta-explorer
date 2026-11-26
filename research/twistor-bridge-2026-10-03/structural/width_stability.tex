@@ -1,0 +1,67 @@
+\section{A proved interval of arithmetic widths}
+The one-width certificate has a quantitative open neighborhood. This is obtained by an analytical perturbation bound, rather than interpolation between numerical samples.
+
+\begin{proposition}[Uniform width stability]\label{prop:widthlipschitz}
+For $a,b\in[1/5,3/10]$ and $1<L\leq3/2$,
+\[
+ \|\mathsf H_{a,L}-\mathsf H_{b,L}\|\leq500|a-b|.
+\]
+Consequently, throughout
+\[
+ \frac14-\frac1{50000000}\leq a\leq\frac14+\frac1{50000000},
+ \qquad 1<L\leq\frac32,
+\]
+we have
+\[
+ \|\mathsf H_{a,L}\|\leq\frac{99999}{100000}=0.99999,
+ \qquad I\pm\mathsf H_{a,L}\succeq\frac1{100000}I.
+\]
+The width interval is $[0.24999998,0.25000002]$.
+\end{proposition}
+\begin{proof}
+It suffices to work at $L=3/2$ and then compress. Set $V=2\log(3/2)<1$, $q(t)=1-e^{-2t}$, and write
+\[
+ f_a(t)=e^{-t/2}g_a(e^{-t})=C_a(A_a(t)-P_a(t)),\qquad
+ C_a=\frac{2\pi^a}{\Gamma(a)},
+\]
+\[
+ A_a(t)=e^{-(5/2-a)t}q(t)^{a-1},\quad
+ P_a(t)=ae^{(1/2-a)t}I_a(t),\quad
+ I_a(t)=\int_0^{q(t)}x^{a-1}(1-x)^{1/2-a}\,dx.
+\]
+All bounds below hold for $a\in[1/5,3/10]$ and $0<t\leq V$. Log-convexity gives $\Gamma(1+a)\geq e^{-\gamma a}$, so $C_a<2$. The digamma recurrence and monotonicity on $[1,2]$ give $|\psi(a)|<6$, hence $|\partial_a\log C_a|<8$.
+
+Since $q(t)\geq2t/(1+2t)\geq2t/3$, we have $A_a(t)\leq(3/2)t^{-4/5}$ and
+$|\partial_a A_a(t)|\leq(3/2)t^{-4/5}(t-\log t+1/2)$. Integrating up to $V<1$ yields
+\[
+ \int A_a\leq\frac{15}{2},\qquad
+ \int|\partial_a A_a|\leq\frac32\left(\frac56+25+\frac52\right)=\frac{85}{2}.
+\]
+Also $I_a\leq5$. Since $-\log(1-x)\leq2t<2$ on its interval,
+\[
+ |\partial_a I_a|\leq\int_0^1x^{-4/5}(-\log x+2)\,dx=35.
+\]
+The inequalities $e^{(1/2-a)t}<3/2$ and $a\leq3/10$ therefore imply
+\[
+ \int P_a\leq\frac94,\qquad
+ \int|\partial_aP_a|\leq\frac32\left(5(1+3/10)+(3/10)35\right)=\frac{51}{2}.
+\]
+Consequently
+\[
+ \|f_a\|_1\leq\frac{39}{2}<20,\qquad
+ \|\partial_af_a\|_1\leq2\left[8\left(\frac{15}{2}+\frac94\right)+\frac{85}{2}+\frac{51}{2}\right]=292<300.
+\]
+The logarithmic arithmetic kernel is
+$K_a(t)=f_a(t)+\rho_a f_a(t-\log2)\mathbf1_{t>\log2}$,
+where $\rho_a=(2^a-2^{-a})/\sqrt2$. For $a\leq1/2$,
+$0\leq\rho_a\leq1/2$ and $0<\rho_a'\leq(3/2)\log2<3/2$.
+Thus
+\[
+ \|\partial_aK_a\|_{L^1(0,V)}
+ \leq\frac32\,292+\frac32\frac{39}{2}
+ =\frac{1869}{4}<500.
+\]
+The displayed integrable majorants justify differentiation in $L^1$ and the fundamental theorem of calculus. Young's convolution inequality, after reflection, proves the operator Lipschitz bound. Finally Theorem~\ref{thm:signed} gives
+$49999/50000+500/50000000=99999/100000$.
+\end{proof}
+This fixed positive interval does not approach zero width. Its role is to establish genuine parameter stability of the local certificate; it supplies no all-width or all-window conclusion.

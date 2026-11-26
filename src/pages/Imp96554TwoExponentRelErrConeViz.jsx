@@ -174,7 +174,7 @@ export default function Imp96554TwoExponentRelErrConeViz() {
         exponent-fit-reach verdict and the imp-96493 anchor measurements verbatim (the only new
         computation is evaluating the two power laws and the cone bounds over a plotting grid).
         Presentation / measurement diagnostic only; changes no bound; establishes no operator
-        positivity; RH open; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; the
+        positivity; RH open; NO QED; the
         zero-side route stays PCC/GRH-gated.
       </div>
     </div>

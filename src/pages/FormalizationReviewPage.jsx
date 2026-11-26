@@ -27,7 +27,7 @@ export default function FormalizationReviewPage() {
           }}
         >
           REVIEW SNAPSHOT 2026-07-20 — this dashboard's data is frozen at that date. The
-          formalization effort has since grown (20+ Lean projects; the O1 obligation is at Aristotle).
+          formalization effort has since grown (20+ Lean projects; the theorem behind the O1 obligation is Lean-checked with its gates as hypotheses; further Lean files were added in November 2026).
           Live status: <Link to="/formalization-status" style={{ color: 'var(--brass-dk)' }}>/formalization-status</Link>
           {' · '}the formalization thread on <Link to="/threads" style={{ color: 'var(--brass-dk)' }}>/threads</Link>.
         </div>

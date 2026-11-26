@@ -208,7 +208,7 @@ export default function Imp96661KreinFtCurveViz() {
         certificate coefficient tables; the results are baked as literals in the imp-96661 viz-data leaf,
         never imported at runtime. Presentation only; changes no bound; establishes no new operator
         positivity; the interval-verified conclusion (T_a[sigma_2] &gt;= 0 for 2a &lt;= 0.96) is
-        unaffected. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA. RH open. NO QED.
+        unaffected. RH open. NO QED.
       </div>
     </div>
   );

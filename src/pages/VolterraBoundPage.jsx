@@ -22,6 +22,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+import StatusNote from '../components/StatusNote.jsx';
 
 const THREADS = [
   {
@@ -83,6 +84,13 @@ export default function VolterraBoundPage() {
     <div className="ed-root">
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <StatusNote item="hidden-square" recordsFormulation>
+          The inequality ‖V_{'{'}a,Φ{'}'}‖ ≤ 1 holds for a ≤ a* and fails for a ≥ 31.6214, with
+          31.6213 &lt; a* &lt; 31.6214 (repository normalisation). It is not equivalent to K_a ≥ 0 in either direction,
+          so the §15-27 conjectures do not reduce to it and it is not RH-equivalent. It holds for the
+          Davenport-Heilbronn kernel where that kernel’s K_a is indefinite. Measured norms about 5000 times below 1
+          reflect the size of Φ² and are not evidence.
+        </StatusNote>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
 
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>

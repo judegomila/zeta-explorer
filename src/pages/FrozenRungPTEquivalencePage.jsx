@@ -43,8 +43,7 @@ export default function FrozenRungPTEquivalencePage() {
         <p style={{ fontSize: 15 }}>
           The &ldquo;can never beat verified height&rdquo; (inertia) half is a THEOREM. The full
           equivalence is CONJECTURAL, gated on two named lemmas (L1 plausible, L2 open). It yields
-          NO Λ improvement — it reproduces exactly Λ ≤ 0.1787854 / 0.2. Platt–Trudgian Λ ≤ 0.2
-          remains the accepted SOTA. No QED.
+          NO Λ improvement — it reproduces exactly Λ ≤ 0.1787854 / 0.2. No QED.
         </p>
       <AnimationEmbed id="frozen-rung-pt" />
 

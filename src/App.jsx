@@ -26,6 +26,7 @@ const StateOfFieldPage = lazy(() => import('./pages/StateOfFieldPage.jsx'));
 const PermutationArchitecturePage = lazy(() => import('./pages/PermutationArchitecturePage.jsx'));
 const LambdaCandidate01758354Page = lazy(() => import('./pages/LambdaCandidate01758354Page.jsx'));
 const LambdaQrhConditionalPage = lazy(() => import('./pages/LambdaQrhConditionalPage.jsx'));
+const KeyResultsPage = lazy(() => import('./pages/KeyResultsPage.jsx'));
 const AutonomousFleetPage = lazy(() => import('./pages/AutonomousFleetPage.jsx'));
 const CriticalLineProportionPage = lazy(() => import('./pages/CriticalLineProportionPage.jsx'));
 const PapersDownloadPage = lazy(() => import('./pages/PapersDownloadPage.jsx'));
@@ -68,6 +69,8 @@ const SurrogateModelPage = lazy(() => import('./pages/SurrogateModelPage.jsx'));
 const PascalPage = lazy(() => import('./pages/PascalPage.jsx'));
 const ZXCalculusPage = lazy(() => import('./pages/ZXCalculusPage.jsx'));
 const RHAttackPage = lazy(() => import('./pages/RHAttackPage.jsx'));
+const RHResearchModulesPage = lazy(() => import('./pages/RHResearchModulesPage.jsx'));
+const RHResearchModulePage = lazy(() => import('./pages/RHResearchModulePage.jsx'));
 const InformationTheoryPage = lazy(() => import('./pages/InformationTheoryPage.jsx'));
 const FormalProofPage = lazy(() => import('./pages/FormalProofPage.jsx'));
 const OddZetaPage = lazy(() => import('./pages/OddZetaPage.jsx'));
@@ -146,6 +149,7 @@ const IrrationalityPipelinePage = lazy(() => import('./pages/IrrationalityPipeli
 const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
+const SignSwitchingPage = lazy(() => import('./pages/SignSwitchingPage.jsx'));
 const VizWindingDysonFlowPage = lazy(() => import('./pages/VizWindingDysonFlowPage.jsx'));
 const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
@@ -2453,6 +2457,7 @@ function AppShell() {
           <Route path="/simulators" element={<SimulatorsPage />} />
           <Route path="/no-gos" element={<NoGosPage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/key-results" element={<KeyResultsPage />} />
           <Route path="/threads" element={<ThreadsPage />} />
           <Route path="/state-of-field" element={<StateOfFieldPage />} />
           <Route path="/permutation-architecture" element={<PermutationArchitecturePage />} />
@@ -2502,6 +2507,19 @@ function AppShell() {
           <Route path="/pascal" element={<PascalPage />} />
           <Route path="/zx-calculus" element={<ZXCalculusPage />} />
           <Route path="/rh-attack" element={<RHAttackPage />} />
+          <Route path="/rh-research-modules" element={<RHResearchModulesPage />} />
+          <Route path="/rh-arithmetic-theta-geometry" element={<RHResearchModulePage moduleId="arithmetic-theta-geometry" />} />
+          <Route path="/rh-arithmetic-foundation" element={<RHResearchModulePage moduleId="arithmetic-foundation" />} />
+          <Route path="/rh-suzuki-recurrence" element={<RHResearchModulePage moduleId="suzuki-recurrence" />} />
+          <Route path="/rh-prime-memory" element={<RHResearchModulePage moduleId="prime-memory" />} />
+          <Route path="/rh-finite-suzuki-certificate" element={<RHResearchModulePage moduleId="finite-suzuki-certificate" />} />
+          <Route path="/rh-whole-even-certificate" element={<RHResearchModulePage moduleId="whole-even-certificate" />} />
+          <Route path="/rh-spectral-denominator-repair" element={<RHResearchModulePage moduleId="spectral-denominator-repair" />} />
+          <Route path="/rh-spectral-head-theory" element={<RHResearchModulePage moduleId="spectral-head-theory" />} />
+          <Route path="/rh-prime-retained-tail-certificate" element={<RHResearchModulePage moduleId="prime-retained-tail-certificate" />} />
+          <Route path="/rh-channel-geometry" element={<RHResearchModulePage moduleId="channel-geometry" />} />
+          <Route path="/rh-historical-routes" element={<RHResearchModulePage moduleId="historical-routes" />} />
+          <Route path="/rh-signed-complement" element={<RHResearchModulePage moduleId="signed-complement" />} />
           <Route path="/info-theory" element={<InformationTheoryPage />} />
           <Route path="/formal-proof" element={<FormalProofPage />} />
           <Route path="/odd-zeta" element={<OddZetaPage />} />
@@ -2679,6 +2697,7 @@ function AppShell() {
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
+          <Route path="/sign-switching" element={<SignSwitchingPage />} />
           <Route path="/viz-winding-dyson-flow" element={<VizWindingDysonFlowPage />} />
           <Route path="/viz-near-zero" element={<VizNearZeroPage />} />
           <Route path="/visual-geometries" element={<VisualGeometriesPage />} />
@@ -4873,3 +4892,4 @@ export default function App() {
     </MathModalProvider>
   );
 }
+

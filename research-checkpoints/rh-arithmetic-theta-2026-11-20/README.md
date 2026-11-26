@@ -33,3 +33,17 @@ The follow-up is recorded in [RESULT.md](twin-ladder-refinement/RESULT.md). It c
 | [REVIEW.md](twin-ladder-refinement/REVIEW.md) | Internal review scope, exact-check instructions, and unresolved obligations. |
 
 No claim of novelty is made for Weil positivity, classical interpolation criteria, or standard Stieltjes/heat-transform equivalences. The project-specific contribution must be evaluated at the level of its exact identities, normalizations, estimates and constructions.
+
+## Geometric compression and public app
+
+The [version 0.2 geometric continuation](geometric-compression/README.md) contains the [revised manuscript](geometric-compression/RH_Geometric_Compression.pdf), editable source, complete finite proofs, four exact checkers, a source map and static snapshot, internal reviews, and [proof obligations](geometric-compression/PROOF_OBLIGATIONS.md). Read the [public app page](https://exploreriemann.com/#/rh-arithmetic-theta-geometry) for the main statements and downloads.
+
+The continuation removes the support factor in the minor-label packing sum, proves exact complete-cost minimization and the scalar/lattice equivalence, isolates the rank/prime-window calculation, and distinguishes the actual character-window route from a full-ray criterion. It locates the generic S76 supplier and the selected family construction used by the visible Main route. The current pin is `c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2`; its source tree is byte-identical to the earlier pin.
+
+The decisive independent arithmetic cost or whole-form comparison remains unproved in this synthesis. The deep selected-source suppliers and complete formal proof have not been independently verified here. The earlier release and refinement above are unchanged; the geometric manuscript is revised. See [PUBLICATION.md](PUBLICATION.md) for provenance.
+
+## Direct geometric attempt — 21 November 2026
+
+The [direct geometric attempt](direct-geometric-attempt/README.md) supplies an explicit two-variable theta kernel whose exponential moments equal the complete Weil/Pick form, including all mixed terms. It proves an obstruction to fixed polynomial differential Gram channels and certifies the failure of a natural Gaussian comparison for the actual theta kernel. A second construction gives positive energy on prime-power edges with its exact arithmetic counterterm, which is unbounded relative to the ordinary norm on the sparse test space.
+
+Read the [11-page manuscript](direct-geometric-attempt/RH_Direct_Geometric_Attempt.pdf) or its [public download](https://exploreriemann.com/research/rh/arithmetic-theta-geometry/RH_Direct_Geometric_Attempt.pdf). The package includes complete derivations, internal reviews, exact checkers, an interval sign certificate, exploratory normalization checks, and checksums. **Positive definiteness of the complete kernel and the coupled arithmetic inequality remain unproved; this release is not a proof of RH.**

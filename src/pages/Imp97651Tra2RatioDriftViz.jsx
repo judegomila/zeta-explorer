@@ -127,7 +127,7 @@ export default function Imp97651Tra2RatioDriftViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97599 tr(A2) ladder literals verbatim (no re-derivation, no new
         computation). Decides only the tail MODEL (algebraic, not geometric); no constant is pinned as
-        rigorous. Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        rigorous. Changes no bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

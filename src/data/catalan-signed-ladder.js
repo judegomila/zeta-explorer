@@ -26,15 +26,32 @@ const Z2 = (PI * PI) / 6; // ζ(2)
 export const CATALAN_SIGNED_LADDER = Object.freeze({
   id: 'catalan-signed-ladder',
   title: 'The signed twin ladder and Catalan’s constant',
-  status: 'VERIFIED correspondence + RIGOROUS obstruction (for the listed mechanisms); G irrationality OPEN in the peer-reviewed literature; claimed by an internal OpenAI model in openai/math (2026-10-06), Lean-formalized per the repository, not peer-reviewed',
+  status: 'VERIFIED correspondence and two exact integral identities; the generator count is NOT an obstruction and the π-column is NOT forced; G irrationality OPEN in the peer-reviewed literature; claimed by an internal OpenAI model in openai/math (2026-10-06), Lean-formalized per the repository, not peer-reviewed',
   oneLine:
     'Catalan’s constant G is the twin ladder’s signed (χ₄) value: '
-    + 'Σχ₄(n)/n² = G, a self-dual signed ladder. The same device that '
-    + 'isolates ζ(2)/ζ(3) into a 2-period space lands G in a 5-period space '
-    + '⟨1, G, π, π², ln2⟩ — the extra π-column, forced by the '
-    + 'χ₄ functional equation, is exactly why the mechanisms tested here do not reach G’s '
-    + 'irrationality (open in the peer-reviewed literature; an external Lean-formalized claim '
-    + 'appeared in openai/math on 2026-10-06, not peer-reviewed).',
+    + 'Σχ₄(n)/n² = G, a self-dual signed ladder. The shifted-Legendre device gives '
+    + '5ζ(2) − 8 for the ζ kernel and G − π + 2ln2 + π²/12 for the signed kernel. '
+    + 'The count of 2 generators against 5 is not an obstruction, and the '
+    + 'π term is not forced. G’s irrationality is open in the peer-reviewed literature; an external '
+    + 'Lean-formalized claim appeared in openai/math on 2026-10-06, not peer-reviewed.',
+
+  // Status as reviewed on 2026-11-21 (research-checkpoints/key-results-stress-test-2026-11-21/catalan-ladder/).
+  // The sections below this field record the program as formulated; this field governs.
+  statusNote: {
+    date: '2026-11-21',
+    summary:
+      'The two integral identities on this page hold. They do not give a "period-dimension obstruction '
+      + '(2 versus 5)", and the π-column is not forced.',
+    points: [
+      'Correct: ∫∫ (2x−1)(2y−1)/(1−xy) dx dy = 5ζ(2) − 8 and ∫∫ (2x−1)(2y−1)/(1+x²y²) dx dy = G − π + 2ln2 + π²/12 over the unit square (confirmed by 60-digit quadrature and by hand).',
+      '"Dimension 5" is a count of generators, an upper bound on the dimension of a span. Linear independence of 1, G, π, π², ln2 is not known.',
+      'The count does not separate the open case from a solved one: the same device on the conductor-3 kernel 1/(1+xy+x²y²) gives 9I = −9L(2,χ₋₃) + 2π² − 18π/√3 + 18ln3, and at degree 3 all five of 1, L(2,χ₋₃), π², π/√3, ln3 occur, while L(2,χ₋₃) is proved irrational (Calegari–Dimitrov–Tang). So the entry for L(2,χ₋₃) in the triage table below is 5 generators under this device, not "dim ≤ 3".',
+      'The π term is not forced. In the same kernel family, P₀(x)P₂(y) on 1/(1+x²y²) gives G − 3 + 3ln2 and P₀P₀ gives G alone. Zudilin’s 2003 recurrence gives rational u_n, v_n with u_n G − v_n → 0, forms in 1 and G only.',
+      'Those known forms do not prove irrationality because they decay at rate 2.406 per step (5 ln φ) against denominators growing at about 6.77 (proved bound 8.77); the cause is not a π term.',
+      'Calegari–Dimitrov–Tang, Remark 11.1.17, says of two specific approximant families for G that the required inequalities fail by a wide margin; the paper has no conductor-indexed inequality with a bounded margin for conductor 4. Rivoal–Zudilin 2003 has seven numbers β(2)…β(14); the six-number result β(2)…β(12) is Zudilin 2019.',
+      'In the net-exponent test below, "inflating β just past α" is not backed by a computation.',
+    ],
+  },
 
   // 1 — the verified correspondence (all checked numerically below)
   correspondence: {
@@ -161,7 +178,7 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
   verdict: {
     heading: 'Verdict',
     correspondence: 'VERIFIED: Σχ₄(n)/n²=G, signed Euler product, sign-flip-at-p=2 = rung deletion, self-dual bridge.',
-    obstruction: 'RIGOROUS: exact closed forms 5ζ(2)−8 (dim 2) and G−π+2ln2+π²/12 (dim 5).',
+    obstruction: 'NOT an obstruction. The exact closed forms 5ζ(2)−8 and G−π+2ln2+π²/12 hold; the generator counts 2 and 5 do not obstruct anything (the solved conductor-3 case also gives 5).',
     lever:
       'The de Bruijn / Λ / H_t core is about ZERO LOCATION (GRH for χ₄) — orthogonal to '
       + 'the irrationality of the VALUE L(2,χ₄). It provides no lever. The one type-match is the '
@@ -259,6 +276,13 @@ export const CATALAN_SIGNED_LADDER_ASSERTIONS = Object.freeze([
       && /Not peer-reviewed/.test(CATALAN_SIGNED_LADDER.verdict.externalClaim)
       && /not peer-reviewed/.test(CATALAN_SIGNED_LADDER.status)
       && /OPEN in the peer-reviewed literature/.test(CATALAN_SIGNED_LADDER.verdict.open),
+  },
+  {
+    name: 'status note recorded: generator count is not an obstruction, π-column not forced',
+    check: () => /NOT an obstruction/.test(CATALAN_SIGNED_LADDER.status)
+      && /NOT an obstruction/.test(CATALAN_SIGNED_LADDER.verdict.obstruction)
+      && CATALAN_SIGNED_LADDER.statusNote.points.some((p) => /G − 3 \+ 3ln2/.test(p))
+      && Math.abs((G - 3 + 3 * LN2) - -0.004592864142945) < 1e-12,
   },
   {
     name: 'Sun 2026 preprint flagged UNVERIFIED',

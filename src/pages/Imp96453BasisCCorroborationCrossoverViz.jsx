@@ -174,8 +174,7 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         a floor model calibrated only on accessible L (&le; 960). The PT-anchor headroom marked
         above is the imp-96430 model figure; imp-96448 directly measured the anchor floor and
         found the true headroom is ~640, not ~3.7e5 &mdash; see that module for the reconciled
-        figure. Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        figure. Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
 
       <div
@@ -208,8 +207,7 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         noisy ppp-transition regime, so neither is a converged floor &mdash; but the current
         best (most recent, most sharpened) estimate of the corroboration reach is L* &asymp; 8e7&ndash;9.5e7,
         roughly 1.1&ndash;1.2 decades past the PT anchor, not the multi-decade band charted above.
-        Measurement/extrapolation only; changes no bound; RH open; Platt&ndash;Trudgian &Lambda;
-        &le; 0.2 remains SOTA. NO QED.
+        Measurement/extrapolation only; changes no bound; RH open. NO QED.
       </div>
 
       <div

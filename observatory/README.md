@@ -121,7 +121,7 @@ The derivation, annulus Dirichlet-to-Neumann reference operator, remaining coerc
 | Twin-ladder model | `?view=twinLadder` | Finite prime ladders on two arms with an adjustable damping centre, packets, and the completed ξ bridge. |
 | Twin-ladder sections | `?view=twinLadder&state={"ladderPanel":"rails"}` | Rails and bridge, limiting temperature (`temperature`) and vacuum energy (`vacuum`) of the completed function. |
 | Heavy nuclei | `?view=uranium238` | Liquid-drop model with a `nucleus` setting (²³²Th to ²⁹⁴Og), level statistics of measured resonances and of zeros, and the trend with mass. |
-| Horizon | `?view=horizon` | Schwarzschild quantities beside the gamma-factor and two-rail scattering functions; an analogy with its refuted rows shown. |
+| Horizon | `?view=horizonModel` | Schwarzschild quantities beside the gamma-factor and two-rail scattering functions; an analogy with its refuted rows shown. |
 
 The end charts evaluate finite spectral points only. Gray and hatched regions distinguish unavailable or unresolved samples from known values. The finite-cutoff boundary diagnostic does not certify the remaining tail or a global energy bound. The Klein partner uses the exact nonlinear end-coordinate transformation and the completed function's conjugating symmetry.
 

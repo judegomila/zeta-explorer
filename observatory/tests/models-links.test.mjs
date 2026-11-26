@@ -53,7 +53,7 @@ test('links inside the methods page resolve',()=>{
     const state=JSON.parse(decodeURIComponent(query));
     for(const [key,value] of Object.entries(state))assert.ok(MODELS_ENUMS[key].includes(value),`${key}=${value}`);
   }
-  assert.ok(methods.includes('href="./?view=horizon"'));
+  assert.ok(methods.includes('href="./?view=horizonModel"'));
 });
 
 test('section texts keep to the wording rules',()=>{

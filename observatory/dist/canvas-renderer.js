@@ -1,4 +1,4 @@
-import {displayLogMagnitude,displayVisibility} from './display-field.js';
+import {displayLogMagnitude,displayVisibility,edgeFadeWeights} from './display-field.js';
 import * as numerical from './math.js';
 const { evaluate, NUMERICS } = numerical;
 import { liftPoint, continueMaskedHeights } from './geometry.js';
@@ -31,7 +31,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale','playing'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale','edgeFade','playing'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -200,7 +200,7 @@ export class CanvasZetaScene {
     this.refreshProbe();
   }
   makeFaces(stride){
-    const d=this.data,faces=[];
+    const d=this.data,faces=[],fade=this.state.edgeFade?edgeFadeWeights(d.valid,d.nx,d.ny,{edges:this.state.geometry==='plane'}):null;
     const make=(ids)=>{
       const masked=ids.some(k=>!d.valid[k]);if(masked&&(this.state.geometry==='plane'||d.hole))return;
       const points=ids.map(k=>this.raised[k]);
@@ -212,7 +212,7 @@ export class CanvasZetaScene {
       if(finite(ref))for(const k of ids){const amplitude=Math.exp(this.sampleLogs[k]-ref);re+=amplitude*Math.cos(this.sampleArgs[k]);im+=amplitude*Math.sin(this.sampleArgs[k]);}
       const logAbs=finite(ref)?ref+Math.log(Math.hypot(re,im)/3):-Infinity,arg=Math.atan2(im,re);
       const bridge=ids.every(k=>finite(d.bridge?.[k]))?ids.reduce((x,k)=>x+d.bridge[k],0)/3:NaN;
-      faces.push({ids,points,masked,color:masked?'#142033':this.colorPolar(logAbs,arg,bridge,shade,ids.reduce((a,k)=>a+d.coords[2*k],0)/3,ids.reduce((a,k)=>a+d.coords[2*k+1],0)/3)});
+      faces.push({ids,points,masked,fade:fade?(fade[ids[0]]+fade[ids[1]]+fade[ids[2]])/3:1,color:masked?'#142033':this.colorPolar(logAbs,arg,bridge,shade,ids.reduce((a,k)=>a+d.coords[2*k],0)/3,ids.reduce((a,k)=>a+d.coords[2*k+1],0)/3)});
     };
     const cell=(i,j,i2,j2)=>{
       // Never bridge a masked interior just because coarse corners are valid.
@@ -273,7 +273,7 @@ export class CanvasZetaScene {
   updateStyle(state){
     const old=this.state,previousLogReference=this.logReference;this.state={...this.state,...state};
     this.syncReference();
-    if(this.data&&['projective','height','heightMode','heightReference','heightLocked','heightLogReference','colorMode','phaseOffset','opacity','wireframe','exposure','contours','critical','zeros','vortices','ladder','packets','seams','playing','displayDamping','displayDampingScale'].some(k=>old[k]!==this.state[k]))this.prepare();
+    if(this.data&&['projective','height','heightMode','heightReference','heightLocked','heightLogReference','colorMode','phaseOffset','opacity','wireframe','exposure','contours','critical','zeros','vortices','ladder','packets','seams','playing','displayDamping','displayDampingScale','edgeFade'].some(k=>old[k]!==this.state[k]))this.prepare();
     this.preparedSignature=renderStyleSignature(this.state);
     if(this.data&&old.playing!==this.state.playing)this.refreshProbe();
     if(this.data&&(previousLogReference!==this.logReference||old.playing!==this.state.playing)){
@@ -365,7 +365,7 @@ export class CanvasZetaScene {
     objects.sort((a,b)=>a.depth-b.depth);
     for(const o of objects){
       if(o.type==='face'){
-        const {p,face}=o;ctx.beginPath();ctx.moveTo(p[0][0],p[0][1]);ctx.lineTo(p[1][0],p[1][1]);ctx.lineTo(p[2][0],p[2][1]);ctx.closePath();ctx.fillStyle=face.color;ctx.globalAlpha=face.masked?.9:(this.state.opacity??.98);ctx.fill();ctx.strokeStyle=face.color;ctx.lineWidth=.6;ctx.stroke();
+        const {p,face}=o;ctx.beginPath();ctx.moveTo(p[0][0],p[0][1]);ctx.lineTo(p[1][0],p[1][1]);ctx.lineTo(p[2][0],p[2][1]);ctx.closePath();ctx.fillStyle=face.color;ctx.globalAlpha=face.masked?.9:(this.state.opacity??.98)*face.fade;ctx.fill();ctx.strokeStyle=face.color;ctx.lineWidth=.6;ctx.stroke();
         if(this.state.wireframe){ctx.strokeStyle=face.masked?'#334157':'#d0e0f0';ctx.globalAlpha=.16;ctx.lineWidth=.55;ctx.stroke();}ctx.globalAlpha=1;
         this.faceHits.push(o);
       }else if(o.type==='line'){

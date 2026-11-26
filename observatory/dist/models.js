@@ -8,6 +8,7 @@ export const MODELS_DEFAULTS=Object.freeze({
   modelsMode:'off',
   ladderCentre:.5,ladderOffset:.25,ladderHeight:14.134725,ladderPrimes:8,ladderRungs:2,
   ladderBeta:0,ladderPressure:0,ladderWidth:.35,ladderSpeed:1,ladderWeight:'mangoldt',
+  ladderSpaceMode:'both',ladderSpan:20,ladderThermoObs:'logZ',
   nucleusZ:92,nucleusN:146,nucleusBeta2:.286,nucleusCoupling:.5,nucleusWidth:.05,
   nucleusPluck:2,nucleusSpeed:1,
   // Sections inside the workbenches, and the controls they add.
@@ -22,19 +23,21 @@ export const MODELS_ENUMS=Object.freeze({
   nucleus:['U238','Th232','U235','Pu240','Pu242','Pu244','Cm248','Cf252','Og294'],
   nucleusPanel:['drop','statistics','trend'],
   ladderWeight:['mangoldt','unit'],
+  ladderSpaceMode:['both','direct','dual','difference'],
+  ladderThermoObs:['logZ','meanEll','entropy','armGap'],
   nucleusPluck:[2,3,4,5,6],
 });
 /** [min, max, step]. A step of 1 marks an integer control. */
 export const MODELS_LIMITS=Object.freeze({
   ladderCentre:[0,1.5,.005],ladderOffset:[0,1,.005],ladderHeight:[0,90,.01],
-  ladderPrimes:[1,40,1],ladderRungs:[1,12,1],ladderBeta:[0,2,.01],ladderPressure:[0,1,.005],
-  ladderWidth:[.1,1,.01],ladderSpeed:[0,4,.1],
+  ladderPrimes:[1,168,1],ladderRungs:[1,12,1],ladderBeta:[0,4,.01],ladderPressure:[0,2,.005],
+  ladderWidth:[.1,1,.01],ladderSpeed:[0,4,.1],ladderSpan:[5,45,1],
   nucleusZ:[70,126,1],nucleusN:[100,190,1],nucleusBeta2:[0,.6,.002],nucleusCoupling:[0,3,.01],
   nucleusWidth:[0,1,.005],nucleusSpeed:[.1,4,.1],
   railsA:[.01,3,.005],railsT0:[0,1900,1],railsSpan:[10,400,5],railsTerms:[2,20000,1],
   horizonMass:[-1,10,.05],horizonRadius:[1.13,6,.005],horizonDistance:[-1,20,.05],
 });
-export const MODELS_VIEW_NAMES=Object.freeze({ladder:'twinLadder',nucleus:'uranium238',horizon:'horizon'});
+export const MODELS_VIEW_NAMES=Object.freeze({ladder:'twinLadder',nucleus:'uranium238',horizon:'horizonModel'});
 
 export function normalizeModelsConfig(input={}){
   const out={...MODELS_DEFAULTS};
@@ -67,7 +70,7 @@ export function createModelsPresets(defaults={}){
       note:'Finite prime ladders on two arms with an adjustable damping centre, moving packets and the completed ξ bridge. A finite experiment, not ζ.'},
     uranium238:{settings:{...base,modelsMode:'nucleus'},
       note:'Liquid-drop model of coupled surface oscillations of uranium-238: which modes are stable, and where the quadrupole gives way. A textbook collective model, not a many-body calculation.'},
-    horizon:{settings:{...base,modelsMode:'horizon'},
+    horizonModel:{settings:{...base,modelsMode:'horizon'},
       note:'Horizon model: Schwarzschild quantities beside the gamma-factor and two-rail scattering functions. An analogy with stated breaks; it establishes nothing about black holes or about the Riemann hypothesis.'},
   };
 }

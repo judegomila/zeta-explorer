@@ -1,6 +1,6 @@
 # Twin-ladder model and the liquid-drop nucleus
 
-Three workbenches opened by the **Twin ladder**, **Uranium-238** and **Horizon** buttons (`?view=twinLadder`, `?view=uranium238`, `?view=horizon`), each with sections chosen by tabs (settings `ladderPanel`, `nucleusPanel`). All are models with controls. None evaluates anything about the Riemann hypothesis, and the interface says so on screen.
+Three workbenches opened by the **Twin ladder**, **Uranium-238** and **Horizon** buttons (`?view=twinLadder`, `?view=uranium238`, `?view=horizonModel`), each with sections chosen by tabs (settings `ladderPanel`, `nucleusPanel`). All are models with controls. None evaluates anything about the Riemann hypothesis, and the interface says so on screen.
 
 Code: `dist/twin-ladder-model.js`, `dist/nucleus-model.js`, `dist/nucleus-data.js` (numbers only), `dist/models.js` (shared state), `dist/models-panel.js` (drawing). Sections 4–10: `dist/rails-model.js`, `dist/spectral-stats.js`, `dist/horizon-model.js`, `dist/models-sections.js`, `dist/models-links.js`, `dist/rails-data.js`, `dist/nuclides-data.js`. Tests: `tests/twin-ladder-model.test.mjs`, `tests/nucleus-model.test.mjs`, `tests/rails-model.test.mjs`, `tests/spectral-stats.test.mjs`, `tests/horizon-model.test.mjs`, `tests/models-links.test.mjs`, and the model route tests in `tests/channels-routes.test.mjs`.
 
@@ -20,7 +20,19 @@ The direct arm sits at σ₊ = c + a and turns as exp(−iTℓ); the dual arm si
 
   is exactly 0 at c = ½ for every a and T, because |ξ(s)| = |ξ(1 − s̄)|, and is antisymmetric about ½. The balance plot draws both curves so the difference is visible: the balance belongs to the completed function, not to the finite ladders.
 - **Scope.** With log p weights the direct sum truncates −ζ′/ζ(σ + iT), which converges only for σ > 1. At c = ½ it is a finite signal, not ζ. The zero ticks on the height scan are reference marks; the finite sums do not vanish there.
-- **Display.** Rung and packet heights are scaled by the same ladder at c = ½, a = 0, β = P = 0, so changing the damping visibly shrinks or grows an arm. Rungs longer than ℓ = 8 are summed but not drawn. The height scan is scaled to its oscillating part, since at T = 0 every rung is aligned.
+- **Display.** Rung and packet heights are scaled by the same ladder at c = ½, a = 0, β = P = 0, so changing the damping visibly shrinks or grows an arm. Rungs too faint to see (below 10⁻³ of the largest amplitude) are summed but not drawn. The height scan is scaled to its oscillating part, since at T = 0 every rung is aligned.
+
+### Packets, temperature and pressure (finite model)
+
+Added panels, all finite sums of the same model:
+
+- **Packet carriers.** Re ψ and Im ψ of both packets on the hero's ℓ axis, with ±|ψ| shaded. Each lane has its own printed scale.
+- **Packet spacetime.** |ψ(ℓ, T)| over ℓ and a window T ± ΔT around the current height (`ladderSpan`, default 20), for the direct arm, the dual arm, both, or |ψ₊| − |ψ₋| (`ladderSpaceMode`). Rows sit on a fixed T lattice (ΔT/80) and are cached, so scrolling only computes new rows; a Gaussian kernel per configuration (`packetKernel`, cut off at 6h, relative weight below 1.5·10⁻⁸) makes each row a set of multiply-adds (`packetRow`). Colour is |ψ| over the window maximum, square-root scaled. Drag vertically to set T.
+- **Temperature–pressure map.** Rung weights w = b(p)·exp(−βℓ − Pℓ²). Over β ∈ [0, 4], P ∈ [0, 2] (`thermoGrid`, 64 × 32) the map shows log Z = log Σ w, ⟨ℓ⟩ = Σ wℓ / Z, the entropy S = −Σ q log q of q = w/Z, or |D₊| − |D₋| at T with the weights in both arms (`ladderThermoObs`; symmetric log colour). Click or drag to set β and P. `thermalEnsemble` and `thermoValue` give the same numbers pointwise; tests check the grid against them and log Z against Σ Λ(n) n^(−β).
+- **Thermal weight profile.** q = w/Z against ℓ, with ⟨ℓ⟩ marked and e^S as an effective rung count.
+- **More ladders.** Primes come from a sieve up to 1000 (168 primes; the first 40 are the previous list) and up to 12 rungs. The ℓ axis fits the longest rung whose amplitude on either arm is at least 10⁻³ of the largest; fainter rungs are summed but not drawn, and the hero says how many.
+
+**Status.** β = 1/Θ and P are model parameters, not a temperature or pressure of ζ. With log p weights and P = 0, Z is a truncation of −ζ′/ζ(β), which diverges for β ≤ 1 as primes are added; every value on screen is finite because the sum is. These panels are illustrations of the finite model and say nothing about the Riemann hypothesis. The completed ξ bridge is unchanged.
 
 ## 2. Liquid-drop nucleus
 
@@ -117,7 +129,7 @@ Not available, and shown as such: β₂ for ²³⁵U and ²⁹⁴Og; barriers fo
 
 The trend section plots fissility x = (Z²/A)/50.1 and C₂ = Eₛ(1 − x)/π against Z²/A to the point where C₂ vanishes, with barriers, half-lives, spontaneous-fission branches and β₂. The infinite-mass statement (no sequence of charged nuclei reaches infinite mass; the bulk is already a saturated Fermi liquid; the realised limit is a neutron star) is established nuclear physics quoted from the source; its counterpart on the zeta side, overlapping resonances at κ = (a/π) log(t/2π) > 1, is an analogy.
 
-## 9. Horizon model (`?view=horizon`)
+## 9. Horizon model (`?view=horizonModel`)
 
 Code: `dist/horizon-model.js`. A model analogy; it establishes nothing about black holes or about the Riemann hypothesis.
 

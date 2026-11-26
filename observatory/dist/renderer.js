@@ -1,4 +1,4 @@
-import {displayLogMagnitude,displayVisibility} from './display-field.js';
+import {displayLogMagnitude,displayVisibility,edgeFadeWeights,cellInWindow,horizonFadeAt} from './display-field.js';
 import * as THREE from './vendor/three.module.js';
 import { OrbitControls } from './vendor/OrbitControls.js';
 import { liftPoint, continueMaskedHeights } from './geometry.js';
@@ -33,7 +33,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale','edgeFade'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -50,6 +50,7 @@ function axisInterval(axis, value) {
 }
 
 const tmpColor = new THREE.Color();
+const FADE_TO = new THREE.Color(0x080e19); // the scene background
 const palettes = {
   critical: 0xe7f8b7, real: 0xc4e9ff, imag: 0xffbe81,
   direct: 0x79f7d2, dual: 0xd9a0ff, bridge: 0xffe3a4,
@@ -172,6 +173,8 @@ export class ZetaScene {
     front.position.set(1, -3, 7);
     this.scene.add(front);
     this.surfaceGroup = new THREE.Group();
+    this.horizonGroup = new THREE.Group();
+    this.horizon = null;
     this.overlayGroup = new THREE.Group();
     this.guideGroup = new THREE.Group();
     this.probeGroup = new THREE.Group();
@@ -222,6 +225,53 @@ export class ZetaScene {
     if(this.previousGeometry!==state.geometry){this.previousGeometry=state.geometry;this.resetCamera('perspective');}
     this.onStatus({type:'render',vertices:data.valid.length,faces:this.indices.length/3,heightScale:this.reference,reference:this.reference,logReference:this.logReference,preparedCacheHit});
     this.needsRender=true;
+  }
+
+  /** Far-field data for the plane (horizon.js), or null to remove it. */
+  setHorizon(horizon) {
+    if (horizon === this.horizon) return;
+    this.horizon = horizon;
+    this.buildHorizon();
+    this.needsRender = true;
+  }
+
+  buildHorizon() {
+    if (!this.horizonGroup) return;
+    disposeTree(this.horizonGroup);
+    const h = this.horizon, on = !!(h && this.state.farField && this.state.geometry === 'plane' && this.data);
+    if (!this.horizonGroup.parent && this.scene) this.scene.add(this.horizonGroup);
+    // The scene's own exponential fog is near zero by the far field's reach,
+    // so the window keeps its usual look; the vertex fade below closes the edge.
+    if (this.controls) this.controls.maxDistance = on ? 150 : 100;
+    if (!on) { this.needsRender = true; return; }
+    const { nu, nv, u, v } = h, n = nu * nv;
+    const positions = new Float32Array(3 * n), colors = new Float32Array(3 * n), bg = new THREE.Color(0x080e19);
+    const heights = Float64Array.from(h.valid, (ok, k) => ok ? this.heightPolar(h.logAbs[k], h.arg[k]) : 0);
+    for (let j = 0; j < nv; j++) for (let i = 0; i < nu; i++) {
+      const k = j * nu + i;
+      positions[3 * k] = (u[i] - .5) * 12; positions[3 * k + 1] = heights[k]; positions[3 * k + 2] = (v[j] - .5) * 16;
+      if (!h.valid[k]) continue;
+      const c = this.colorPolar(h.logAbs[k], h.arg[k], NaN, h.sigma[k], h.t[k]).clone();
+      // Slightly dimmer than the window, so the window stays the focus.
+      c.multiplyScalar(.78).lerp(bg, 1 - horizonFadeAt(u[i], v[j]));
+      colors[3 * k] = c.r; colors[3 * k + 1] = c.g; colors[3 * k + 2] = c.b;
+    }
+    const indices = [];
+    for (let j = 0; j < nv - 1; j++) for (let i = 0; i < nu - 1; i++) {
+      if (cellInWindow(u[i], u[i + 1], v[j], v[j + 1])) continue;
+      const a = j * nu + i, b = a + 1, c = a + nu, d = c + 1;
+      if (h.valid[a] && h.valid[b] && h.valid[c]) indices.push(a, c, b);
+      if (h.valid[b] && h.valid[c] && h.valid[d]) indices.push(b, c, d);
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ vertexColors: true, side: THREE.DoubleSide, roughness: .62, metalness: .04 }));
+    mesh.name = 'far-field';
+    this.horizonGroup.add(mesh);
+    this.needsRender = true;
   }
 
   syncReference() {
@@ -284,13 +334,16 @@ export class ZetaScene {
     // Masked samples keep no value or colour, but inherit a continued height
     // so the unresolved cap closes the surface instead of cratering it.
     const heights = continueMaskedHeights(Float64Array.from(data.valid, (ok, i) => ok ? this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]) : 0), data.valid, data.nx, data.ny, this.state.geometry);
+    const fade = this.state.edgeFade ? edgeFadeWeights(data.valid, data.nx, data.ny, { edges: this.state.geometry === 'plane' && !this.state.farField }) : null;
     for (let i = 0; i < count; i++) {
       const displacement = heights[i];
       for (let axis = 0; axis < 3; axis++) this.raised[3 * i + axis] = data.basePositions[3 * i + axis] + data.normals[3 * i + axis] * displacement;
       const c = this.colorPolar(this.sampleLogs[i],this.sampleArgs[i],data.bridge?.[i] ?? NaN,data.coords[2*i],data.coords[2*i+1]);
-      colors[3 * i] = c.r;
-      colors[3 * i + 1] = c.g;
-      colors[3 * i + 2] = c.b;
+      // Display only: dim toward the scene background where the drawn surface stops.
+      const w = fade ? fade[i] : 1;
+      colors[3 * i] = FADE_TO.r + (c.r - FADE_TO.r) * w;
+      colors[3 * i + 1] = FADE_TO.g + (c.g - FADE_TO.g) * w;
+      colors[3 * i + 2] = FADE_TO.b + (c.b - FADE_TO.b) * w;
     }
     const indices = [], maskedIndices = [];
     for (let j = 0; j < data.ny; j++) {
@@ -581,11 +634,12 @@ export class ZetaScene {
     this.state = { ...this.state, ...state };
     this.controls.autoRotate = !!this.state.autoRotate;
     if (!this.data) return;
-    const rebuild = ['height', 'heightMode', 'colorMode', 'phaseOffset', 'opacity', 'wireframe', 'exposure', 'heightReference', 'heightLocked', 'heightLogReference', 'displayDamping', 'displayDampingScale'].some(key => previous[key] !== this.state[key]);
+    const rebuild = ['farField', 'height', 'heightMode', 'colorMode', 'phaseOffset', 'opacity', 'wireframe', 'exposure', 'heightReference', 'heightLocked', 'heightLogReference', 'displayDamping', 'displayDampingScale', 'edgeFade'].some(key => previous[key] !== this.state[key]);
     if (rebuild) {
       this.syncReference();
       this.buildSurface();
     }
+    if (rebuild || previous.geometry !== this.state.geometry || previous.farField !== this.state.farField) this.buildHorizon();
     if (rebuild || ['projective', 'contours', 'critical', 'zeros', 'vortices', 'ladder', 'packets', 'seams'].some(key => previous[key] !== this.state[key])) this.buildOverlays();
     this.preparedSignature=renderStyleSignature(this.state);
     if(previous.playing!==this.state.playing)this.refreshProbe();

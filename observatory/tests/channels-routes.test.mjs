@@ -260,7 +260,7 @@ test('model routes open the twin ladder and the nucleus, share their controls, a
   for(const key of ['channelsMode','researchMode','dynamicsMode','infinityMode','dualMode','fiberMode'])assert.equal(state[key],'off',key);
   assert.equal(state.geometry,'plane');assert.equal(state.projective,false);assert.equal(state.packets,false);
   app.setState(state);assert.equal(app.shareViewName(),name);
-  const changed={...state,ladderCentre:.8,ladderOffset:.1,ladderHeight:21.02,ladderPrimes:25,ladderRungs:4,ladderWeight:'unit',nucleusZ:115,nucleusCoupling:1.5,nucleusPluck:3};
+  const changed={...state,ladderCentre:.8,ladderOffset:.1,ladderHeight:21.02,ladderPrimes:150,ladderRungs:12,ladderWeight:'unit',ladderBeta:3.2,ladderPressure:1.5,ladderSpaceMode:'difference',ladderSpan:35,ladderThermoObs:'entropy',nucleusZ:115,nucleusCoupling:1.5,nucleusPluck:3};
   const url=encodeViewURL(origin,{state:changed},{...app.config,name});
   const restored=decodeViewURL(url,app.config);assert.equal(restored.valid,true,restored.error);
   for(const key of Object.keys(modelsState.MODELS_DEFAULTS))assert.equal(restored.session.state[key],changed[key],key);
@@ -269,6 +269,7 @@ test('model routes open the twin ladder and the nucleus, share their controls, a
  // Out-of-range and non-integer values are clamped and rounded, unknown enums ignored.
  const wild=app.validate({modelsMode:'ladder',ladderCentre:9,ladderPrimes:7.6,ladderRungs:-2,ladderWeight:'x',nucleusZ:1e6,nucleusPluck:9});
  assert.equal(wild.ladderCentre,1.5);assert.equal(wild.ladderPrimes,8);assert.equal(wild.ladderRungs,1);assert.equal(wild.ladderWeight,'mangoldt');
+ assert.equal(app.validate({modelsMode:'ladder',ladderPrimes:500,ladderBeta:9,ladderSpaceMode:'x',ladderThermoObs:'y'}).ladderPrimes,168);
  assert.equal(wild.nucleusZ,126);assert.equal(wild.nucleusPluck,2);
  // A model mode wins over a stale workbench flag; choosing another view leaves the model.
  const mixed=app.validate({modelsMode:'nucleus',channelsMode:'newton',geometry:'klein',projective:true});
@@ -287,16 +288,18 @@ test('sections, the nucleus parameter and the horizon view are routed, shared an
  assert.equal(plain.session.state.nucleusZ,92);assert.equal(plain.session.state.nucleusN,146);
  assert.equal(open('twinLadder').session.state.ladderPanel,'ladder');
  // The horizon view.
- const horizon=open('horizon');assert.equal(horizon.valid,true,horizon.error);assert.equal(horizon.name,'horizon');
+ const horizon=open('horizonModel');assert.equal(horizon.valid,true,horizon.error);assert.equal(horizon.name,'horizonModel');
  assert.equal(horizon.session.state.modelsMode,'horizon');assert.equal(modelsState.modelsSection(horizon.session.state),'horizon');
  for(const key of ['channelsMode','researchMode','dynamicsMode','infinityMode','dualMode','fiberMode'])assert.equal(horizon.session.state[key],'off',key);
- app.setState(horizon.session.state);assert.equal(app.shareViewName(),'horizon');
- app.applyPreset('horizon');assert.equal(app.getState().modelsMode,'horizon');assert.equal(app.session().camera,null);
+ app.setState(horizon.session.state);assert.equal(app.shareViewName(),'horizonModel');
+ app.applyPreset('horizonModel');assert.equal(app.getState().modelsMode,'horizon');assert.equal(app.session().camera,null);
  app.selectMount('sphere',false);assert.equal(app.getState().modelsMode,'off');
+ // ?view=horizon stays the far-field plane view; it does not open the workbench.
+ const farField=open('horizon');assert.equal(farField.valid,true,farField.error);assert.equal(farField.session.state.modelsMode,'off');assert.equal(farField.session.state.farField,true);
  // Every section and every nucleus round-trips through a shared link.
  const cases=[['twinLadder',{ladderPanel:'rails',railsA:.1,railsT0:1000,railsSpan:60,railsTerms:500}],['twinLadder',{ladderPanel:'temperature',railsA:.05}],
   ['twinLadder',{ladderPanel:'vacuum',vacuumLadder:'primes',railsA:1}],['uranium238',{nucleusPanel:'statistics',nucleus:'Th232'}],
-  ['uranium238',{nucleusPanel:'trend',nucleus:'Og294',nucleusZ:118,nucleusN:176}],['horizon',{horizonMass:6.6,horizonRadius:1.2,horizonDistance:.3,railsA:.25}]];
+  ['uranium238',{nucleusPanel:'trend',nucleus:'Og294',nucleusZ:118,nucleusN:176}],['horizonModel',{horizonMass:6.6,horizonRadius:1.2,horizonDistance:.3,railsA:.25}]];
  for(const [name,extra] of cases){
   const decoded=open(name,extra);assert.equal(decoded.valid,true,decoded.error);
   for(const [key,value] of Object.entries(extra))assert.equal(decoded.session.state[key],value,key);

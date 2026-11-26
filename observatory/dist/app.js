@@ -151,7 +151,7 @@ function syncUI(){
  $('displayDampingNote').textContent='Display: exp(−|s−½|² / '+state.displayDampingScale+'²) × '+(state.function==='heat'?'Fτ':'ξ')+'. Phase fades with amplitude. Inspector, contours, zero counts and numerical exports use the original field. Gray remains unevaluated.';
 
  const modelsActive=state.modelsMode!=='off';document.body.dataset.models=String(modelsActive);$('modelsWorkbench').dataset.modelsView=state.modelsMode;
- for(const [id,mode]of [['ladderModelBtn','ladder'],['nucleusModelBtn','nucleus'],['horizonModelBtn','horizon']]){$(id).classList.toggle('active',state.modelsMode===mode);$(id).setAttribute('aria-pressed',String(state.modelsMode===mode));}
+ for(const [id,mode]of [['ladderModelBtn','ladder'],['nucleusModelBtn','nucleus'],['blackHoleBtn','blackHole']]){$(id).classList.toggle('active',state.modelsMode===mode);$(id).setAttribute('aria-pressed',String(state.modelsMode===mode));}
  modelsPanel?.update(state);
  const dynamicsActive=state.dynamicsMode!=='off',researchActive=state.researchMode!=='off',channelsActive=state.channelsMode!=='off';document.body.dataset.dynamics=String(dynamicsActive);document.body.dataset.research=String(researchActive);document.body.dataset.channels=String(channelsActive);
  $('channelsWorkbench').hidden=!channelsActive;$('channelsBtn').classList.toggle('active',channelsActive);$('channelsBtn').setAttribute('aria-pressed',String(channelsActive));$('pngBtn').hidden=channelsActive||modelsActive;channelsPanel?.update(state);
@@ -331,7 +331,7 @@ $('dualPanelBtn').onclick=()=>{$('dualWorkbench').scrollIntoView({block:'start',
 $('channelsBtn').onclick=()=>{applyPreset('channels');closeDrawers();$('channelsWorkbench').scrollIntoView({block:'start'});};
 $('ladderModelBtn').onclick=()=>{applyPreset('twinLadder');closeDrawers();};
 $('nucleusModelBtn').onclick=()=>{applyPreset('uranium238');closeDrawers();};
-$('horizonModelBtn').onclick=()=>{applyPreset('horizonModel');closeDrawers();};
+$('blackHoleBtn').onclick=()=>{applyPreset('blackHole');closeDrawers();};
 $('researchBtn').onclick=()=>{applyPreset('bridgeShear');closeDrawers();$('researchWorkbench').scrollIntoView({block:'start'});};
 $('dynamicsBtn').onclick=()=>{infinityPanel?.pause();channelsPanel?.pause();dynamicsPanel?.pause();researchPanel?.pause();applyPreset('dynamics');closeDrawers();$('dynamicsWorkbench').scrollIntoView({block:'start'});};
 $('spinorBtn').onclick=()=>selectFiber('spinor');$('twistorBtn').onclick=()=>selectFiber('twistor');

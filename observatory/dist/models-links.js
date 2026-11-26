@@ -37,7 +37,7 @@ export const SECTION_LINKS=Object.freeze({
   drop:{primary:'nucleus',panels:['nucleus','nucleus','nucleus',null],learn:'here',site:[SITE.results]},
   statistics:{primary:'level-statistics',panels:['level-statistics','spacing-ratio','number-variance','porter-thomas'],learn:'zeros',site:[SITE.results]},
   trend:{primary:'heavy-nuclei',panels:['heavy-nuclei','heavy-nuclei','heavy-nuclei','heavy-nuclei'],learn:'here',site:[SITE.fluid]},
-  horizon:{primary:'horizon',panels:['horizon-counting','porter-thomas','horizon-buchdahl','horizon-temperature'],learn:'known',site:[SITE.fluid,SITE.results]},
+  blackHole:{primary:'black-hole',panels:['black-hole-counting','porter-thomas','black-hole-buchdahl','black-hole-temperature'],learn:'known',site:[SITE.fluid,SITE.results]},
 });
 
 /** Every link of a section as {label, href, kind}; `site` entries only when mounted. */

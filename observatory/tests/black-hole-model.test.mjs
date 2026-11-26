@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {evaluatePolar} from '../dist/math.js';
-import {SI,horizonConfig,schwarzschildRadius,hawkingTemperature,tolmanTemperature,localTemperature,localAcceleration,horizonEntropy,evaporationTime,infallTime,
-  quasiNormalMode,asymptoticMode,BUCHDAHL,centralPressure,horizonNumbers,TEMPERATURE_MARKS,gammaPhase,gammaDelay,smoothDelay,gammaPole,resonancePoles,
-  lorentzianDelay,transmission,railLevels,zeroCount,zeroExponent,horizonLogStates,DICTIONARY} from '../dist/horizon-model.js';
+import {SI,blackHoleConfig,schwarzschildRadius,hawkingTemperature,tolmanTemperature,localTemperature,localAcceleration,blackHoleEntropy,evaporationTime,infallTime,
+  quasiNormalMode,asymptoticMode,BUCHDAHL,centralPressure,blackHoleNumbers,TEMPERATURE_MARKS,gammaPhase,gammaDelay,smoothDelay,gammaPole,resonancePoles,
+  lorentzianDelay,transmission,railLevels,zeroCount,zeroExponent,blackHoleLogStates,DICTIONARY} from '../dist/black-hole-model.js';
 import {timeDelay} from '../dist/rails-model.js';
 import {ZETA_ZEROS_1000} from '../dist/rails-data.js';
 
@@ -12,12 +12,12 @@ const close=(a,b,tol=1e-9)=>assert.ok(Math.abs(a-b)<=tol,`${a} vs ${b}`);
 
 test('Schwarzschild numbers for one solar mass match the values quoted in the source',()=>{
   const M=SI.solarMass;
-  rel(schwarzschildRadius(M),2953.25,1e-4);rel(hawkingTemperature(M),6.170e-8,1e-3);rel(horizonEntropy(M),1.0489e77,1e-3);
+  rel(schwarzschildRadius(M),2953.25,1e-4);rel(hawkingTemperature(M),6.170e-8,1e-3);rel(blackHoleEntropy(M),1.0489e77,1e-3);
   rel(evaporationTime(M)/SI.year,2.10e67,5e-3);rel(infallTime(M),15.5e-6,5e-3);
   const q=quasiNormalMode(M);rel(q.frequency,12070,2e-3);rel(q.dampingTime,.0554e-3,2e-3);
   // Scaling laws.
-  rel(hawkingTemperature(10*M),hawkingTemperature(M)/10,1e-12);rel(horizonEntropy(10*M),100*horizonEntropy(M),1e-12);
-  rel(horizonLogStates(M),4.555e76,1e-3);
+  rel(hawkingTemperature(10*M),hawkingTemperature(M)/10,1e-12);rel(blackHoleEntropy(10*M),100*blackHoleEntropy(M),1e-12);
+  rel(blackHoleLogStates(M),4.555e76,1e-3);
   close(asymptoticMode(0).im,-1/8);close(asymptoticMode(3).im-asymptoticMode(2).im,-1/4);
 });
 
@@ -29,7 +29,7 @@ test('local temperature: mass-independent near the horizon, Hawking temperature 
   rel(tolmanTemperature(M,1e9),hawkingTemperature(M),1e-8);
   // Tolman's relation reduces to ħc/2πk_Bℓ with ℓ ≈ 2 r_s √(r/r_s − 1) the proper distance.
   const x=1+1e-8,ell=2*rs*Math.sqrt(x-1);rel(tolmanTemperature(M,x),localTemperature(ell),1e-6);
-  const n=horizonNumbers({logMass:1,logDistance:0});rel(n.local,localTemperature(SI.fm),1e-12);rel(n.rs,10*rs,1e-12);rel(n.solarMasses,10,1e-12);
+  const n=blackHoleNumbers({logMass:1,logDistance:0});rel(n.local,localTemperature(SI.fm),1e-12);rel(n.rs,10*rs,1e-12);rel(n.solarMasses,10,1e-12);
 });
 
 test('Buchdahl bound: the central pressure of a uniform star has a simple pole at R = 9/8 r_s',()=>{
@@ -37,8 +37,8 @@ test('Buchdahl bound: the central pressure of a uniform star has a simple pole a
   // Residue 3/16 in R/r_s − 9/8, as stated in the source.
   for(const d of [1e-4,1e-5])rel(centralPressure(9/8+d)*d,3/16,20*d);
   assert.ok(centralPressure(3)>centralPressure(6));rel(centralPressure(1e6),.25e-6,1e-3);
-  const c=horizonConfig({radius:0,logMass:99,a:-1,logDistance:1e9});assert.deepEqual(c,{logMass:10,a:.01,radius:1.13,logDistance:20});
-  assert.ok(horizonNumbers({radius:1.13}).pressure>30);
+  const c=blackHoleConfig({radius:0,logMass:99,a:-1,logDistance:1e9});assert.deepEqual(c,{logMass:10,a:.01,radius:1.13,logDistance:20});
+  assert.ok(blackHoleNumbers({radius:1.13}).pressure>30);
 });
 
 test('the gamma factor carries the smooth delay; the zeros enter only through the two-rail function',()=>{

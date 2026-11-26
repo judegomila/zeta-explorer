@@ -34,7 +34,7 @@ const TAU=2*Math.PI,LOGPI=Math.log(Math.PI);
 const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 const num=(x,fallback)=>typeof x==='number'&&Number.isFinite(x)?x:fallback;
 
-export function horizonConfig(input={}){
+export function blackHoleConfig(input={}){
   return {
     logMass:clamp(num(input.logMass,0),-1,10),          // log10(M / M☉)
     a:clamp(num(input.a,.5),.01,3),
@@ -58,7 +58,7 @@ export const localTemperature=metres=>SI.hbar*SI.c/(TAU*SI.kB*metres);
 /** Proper acceleration c²/ℓ of the static observer at proper distance ℓ. */
 export const localAcceleration=metres=>SI.c*SI.c/metres;
 /** Bekenstein–Hawking entropy 4πGM²/ħc in units of k_B. */
-export const horizonEntropy=kg=>4*Math.PI*SI.G*kg*kg/(SI.hbar*SI.c);
+export const blackHoleEntropy=kg=>4*Math.PI*SI.G*kg*kg/(SI.hbar*SI.c);
 /** 5120πG²M³/ħc⁴: black-body photon estimate without greybody factors, in seconds. */
 export const evaporationTime=kg=>5120*Math.PI*SI.G**2*kg**3/(SI.hbar*SI.c**4);
 /** Proper time from horizon to r = 0 along a radial geodesic falling from rest at the horizon limit: πGM/c³. */
@@ -83,11 +83,11 @@ export function centralPressure(x){
   const q=Math.sqrt(1-1/x);return (1-q)/(3*q-1);
 }
 
-export function horizonNumbers(input){
-  const c=horizonConfig(input),kg=SI.solarMass*10**c.logMass,rs=schwarzschildRadius(kg),ell=SI.fm*10**c.logDistance;
+export function blackHoleNumbers(input){
+  const c=blackHoleConfig(input),kg=SI.solarMass*10**c.logMass,rs=schwarzschildRadius(kg),ell=SI.fm*10**c.logDistance;
   const tLoc=localTemperature(ell);
   return {config:c,kg,solarMasses:10**c.logMass,rs,hawking:hawkingTemperature(kg),local:tLoc,localMeV:tLoc*SI.kB/SI.MeV,
-    distance:ell,distanceOverRs:ell/rs,acceleration:localAcceleration(ell),entropy:horizonEntropy(kg),
+    distance:ell,distanceOverRs:ell/rs,acceleration:localAcceleration(ell),entropy:blackHoleEntropy(kg),
     evaporationYears:evaporationTime(kg)/SI.year,infall:infallTime(kg),qnm:quasiNormalMode(kg),
     stellarRadius:c.radius*rs,pressure:centralPressure(c.radius),buchdahlRadius:BUCHDAHL*rs};
 }
@@ -145,7 +145,7 @@ export const zeroCount=E=>E>TAU?smoothZeroCount(E):0;
 /** d ln N / d ln E of the zero-counting law. */
 export function zeroExponent(E){const N=smoothZeroCount(E);return E/TAU*Math.log(E/TAU)/N;}
 /** log10 of the number of horizon states, S / ln 10, if exp(S) counts states (an assumption). */
-export const horizonLogStates=kg=>horizonEntropy(kg)/Math.LN10;
+export const blackHoleLogStates=kg=>blackHoleEntropy(kg)/Math.LN10;
 
 /**
  * Candidate correspondences between the zeta side and a horizon, with the

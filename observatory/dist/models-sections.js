@@ -10,7 +10,7 @@
  * matters, and nothing is offered as evidence for or against RH.
  */
 import { ZERO_HEIGHTS, evaluatePolar } from './math.js';
-import { railsInput, horizonInput, nucleusInput } from './models.js';
+import { railsInput, blackHoleInput, nucleusInput } from './models.js';
 import { C, TAU, clamp, fmt, sig, esc, surface, label, line, dot, frame, curve, linspace, ticks, staircase, legend } from './models-draw.js';
 import { railsConfig, railScan, delayPositivity, overlap, timeDelay, delayParts, varianceSeries, varianceExpansion, roundedVariance,
   truncatedVariance, measuredDelayVariance, heightLog, primeJitter, regularisedLadderSum, jitterConstant, ZETA_MINUS_ONE, sawtooth,
@@ -20,8 +20,8 @@ import { ENSEMBLES, ENSEMBLE_LABELS, SPACING_DENSITIES, SPACING_LAWS, RATIO_DENS
   histogram, levelStatistics, widthStatistics, porterThomas } from './spectral-stats.js';
 import { NUCLIDES, NUCLIDE_IDS } from './nuclides-data.js';
 import { dropEnergies, stiffness } from './nucleus-model.js';
-import { horizonNumbers, BUCHDAHL, centralPressure, TEMPERATURE_MARKS, gammaDelay, gammaPole, railLevels, transmission, zeroCount, zeroExponent,
-  DICTIONARY, SI, localTemperature } from './horizon-model.js';
+import { blackHoleNumbers, BUCHDAHL, centralPressure, TEMPERATURE_MARKS, gammaDelay, gammaPole, railLevels, transmission, zeroCount, zeroExponent,
+  DICTIONARY, SI, localTemperature } from './black-hole-model.js';
 
 const LAW_COLORS={goe:C.direct,gue:C.dual,poisson:C.dim};
 const LAW_DASH={goe:[5,3],gue:[5,3],poisson:[2,4]};
@@ -340,11 +340,11 @@ function drawTrend(panel){
 }
 
 // =============================================================================
-// Horizon model
+// Black hole horizon model
 // =============================================================================
 const kelvin=T=>`${sig(T,4)} K`;
-function drawHorizon(panel){
-  const s=panel.state,c=railsConfig(railsInput(s)),n=horizonNumbers(horizonInput(s)),a=c.a,xr=[c.t0,c.t0+c.span];
+function drawBlackHole(panel){
+  const s=panel.state,c=railsConfig(railsInput(s)),n=blackHoleNumbers(blackHoleInput(s)),a=c.a,xr=[c.t0,c.t0+c.span];
   const scan=railsScanCached(panel,600);
   {const {ctx,w,h}=surface(panel.canvas('hero')),imTop=Math.max(3,0),imBottom=-Math.max(1.2,a*1.6);
     // upper part: time delay; lower part: the complex E plane
@@ -453,7 +453,7 @@ export const SECTIONS=Object.freeze({
       'Deformation from the measured B(E2; 0⁺ → 2⁺) in two evaluations. None exists for the odd-A ²³⁵U or for ²⁹⁴Og.'],
     note:'Liquid-drop numbers are model values; measured values are quoted with their evaluation and are not fitted. Infinite mass (stated from the source paper, established nuclear physics): a charged nucleus cannot be taken to infinite mass, since the liquid-drop barrier is gone near Z ≈ 120 to 140 and with Z/A fixed the binding energy turns negative above A ≈ 1340. The bulk of a heavy nucleus already is a saturated Fermi liquid (density 0.16 fm⁻³, about 16 MeV per nucleon); the object that realises the limit is a neutron star, bound by gravity, which ends at about 2.0 to 2.3 solar masses. ANALOGY only: the two-rail system has a limit of the same spectral kind, overlapping resonances, reached logarithmically in height; it has no bulk medium and no counterpart of the Coulomb–surface competition.',
     aria:'Fissility and quadrupole stiffness against Z squared over A for nine heavy nuclides',draw:drawTrend},
-  horizon:{mode:'horizon',tab:'Horizon',eyebrow:'MODEL ANALOGY · SCHWARZSCHILD HORIZON',title:'What a horizon supplies, and what is put in by hand.',
+  blackHole:{mode:'blackHole',tab:'Black hole horizon',eyebrow:'MODEL ANALOGY · SCHWARZSCHILD HORIZON',title:'What a horizon supplies, and what is put in by hand.',
     lede:'Near a Schwarzschild horizon time translation acts as a dilation. On even functions the dilation has the scattering factor Γ_R(½ + iE)/Γ_R(½ − iE), the gamma factor of ζ. That factor is all the geometry supplies. The two-rail function S_a, whose resonances sit at the zeros shifted by −ia, is inserted by hand. This view draws both, with the Schwarzschild numbers for a chosen mass. It is a model analogy and establishes nothing about black holes or about the Riemann hypothesis.',
     heads:[['COUNTING LAWS','ZEROS · NUCLEUS · HORIZON'],['REDUCED WIDTHS','TWO-RAIL SYSTEM'],['BUCHDAHL BOUND','UNIFORM-DENSITY STAR'],['LOCAL TEMPERATURE','STATIC OBSERVER']],
     captions:['THEOREM: N(E) ~ (E/2π) log E for the zeros, a law with logarithmic exponent tending to 1. A nucleus has exponent about 10 to 12 at the neutron separation energy (fitted model); a horizon has 2S if e^S counts states (an assumption). NO COUNTERPART: no many-body system considered has the law E log E.',
@@ -461,11 +461,11 @@ export const SECTIONS=Object.freeze({
       'THEOREM (Buchdahl): a static fluid sphere with isotropic pressure and density not increasing outwards has R > (9/8) r_s. For uniform density the central pressure has a simple pole there. Tested as a counterpart of the pole of ζ at σ = 1 and refuted.',
       'THEOREM: a static observer at proper distance ℓ from the horizon sees T_loc = ħc/(2πk_B ℓ), whatever the mass; far away it falls to the Hawking temperature. Freely falling matter sees neither. Marks: temperatures of nuclear and QCD matter, for scale only.'],
     note:'Labels. IDENTITY: the horizon S-matrix on even functions is the gamma factor, which equals ζ(½ − iE)/ζ(½ + iE) identically; in that ratio every nontrivial zero cancels, so it carries no information on the zeros. IDENTITY: the poles of S_a are at g − i(a ∓ b) for a zero pair of displacement ± b. EQUIVALENT TO RH: all resonances of S_a have the same width 2a for every a > 0. THEOREM: for a ≥ ½ the function S_a has no pole in the upper half-plane. ANALOGY: “no growing mode” is the same kind of statement as mode stability of Schwarzschild, where it follows from a positive conserved energy that is proved; for ζ the positive form is the thing to be proved. Not supplied by the geometry: any wave equation whose Jost function is ζ or ξ. No black-hole quantity is computed independently and then found to equal a zero.',
-    aria:'Time delay of the two-rail function and of the gamma factor, above the complex energy plane with the resonance poles',draw:drawHorizon},
+    aria:'Time delay of the two-rail function and of the gamma factor, above the complex energy plane with the resonance poles',draw:drawBlackHole},
 });
 /** Sections of each workbench, in tab order. The first two are drawn by models-panel.js itself. */
 export const MODE_SECTIONS=Object.freeze({
   ladder:[['ladder','Finite ladders'],['rails','Rails and bridge'],['temperature','Limiting temperature'],['vacuum','Vacuum energy']],
   nucleus:[['drop','Liquid drop'],['statistics','Level statistics'],['trend','Trend with mass']],
-  horizon:[['horizon','Horizon']],
+  blackHole:[['blackHole','Black hole horizon']],
 });

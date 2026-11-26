@@ -21,10 +21,10 @@ test('every section of every workbench has links, and every link target exists',
   for(const anchor of targets.learn)assert.ok(learnIds.has(anchor),`learn/#${anchor} exists`);
   // Sections without a prior home on the methods page have their own heading there.
   for(const anchor of ['rails','rails-primes','rails-passivity','limiting-temperature','vacuum-energy','vacuum-balance','level-statistics','spacing-ratio',
-    'number-variance','porter-thomas','heavy-nuclei','horizon','horizon-temperature','horizon-buchdahl','horizon-counting'])
+    'number-variance','porter-thomas','heavy-nuclei','black-hole','black-hole-temperature','black-hole-buchdahl','black-hole-counting'])
     assert.match(methods,new RegExp(`<h[23] id="${anchor}">`),anchor);
   // The methods page lists them in its contents.
-  for(const anchor of ['rails','limiting-temperature','vacuum-energy','level-statistics','heavy-nuclei','horizon','nucleus'])
+  for(const anchor of ['rails','limiting-temperature','vacuum-energy','level-statistics','heavy-nuclei','black-hole','nucleus'])
     assert.ok(methods.includes(`<a href="#${anchor}">`),`contents entry for ${anchor}`);
 });
 
@@ -53,7 +53,7 @@ test('links inside the methods page resolve',()=>{
     const state=JSON.parse(decodeURIComponent(query));
     for(const [key,value] of Object.entries(state))assert.ok(MODELS_ENUMS[key].includes(value),`${key}=${value}`);
   }
-  assert.ok(methods.includes('href="./?view=horizonModel"'));
+  assert.ok(methods.includes('href="./?view=blackHole"'));
 });
 
 test('section texts keep to the wording rules',()=>{
@@ -67,7 +67,7 @@ test('section texts keep to the wording rules',()=>{
   assert.match(SECTIONS.rails.note,/THEOREM[^]*EQUIVALENT TO RH[^]*finite window shows nothing/);
   assert.match(SECTIONS.vacuum.note,/one-point balance[^]*FALSE[^]*two-point[^]*any point set[^]*no information on zeros/);
   assert.match(SECTIONS.statistics.note,/cannot separate GOE from GUE/);assert.match(SECTIONS.statistics.note,/None of this is evidence about the Riemann hypothesis/);
-  assert.match(SECTIONS.horizon.lede,/model analogy and establishes nothing about black holes or about the Riemann hypothesis/);
+  assert.match(SECTIONS.blackHole.lede,/model analogy and establishes nothing about black holes or about the Riemann hypothesis/);
   assert.match(SECTIONS.temperature.lede,/a = ½ is the inverse temperature β\s*= 1/);
   const methodsNew=methods.slice(methods.indexOf('<h2 id="rails">'),methods.indexOf('<h2 id="heat">'));
   assert.doesNotMatch(methodsNew,banned);

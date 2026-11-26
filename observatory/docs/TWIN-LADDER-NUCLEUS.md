@@ -1,8 +1,8 @@
 # Twin-ladder model and the liquid-drop nucleus
 
-Three workbenches opened by the **Twin ladder**, **Uranium-238** and **Horizon** buttons (`?view=twinLadder`, `?view=uranium238`, `?view=horizonModel`), each with sections chosen by tabs (settings `ladderPanel`, `nucleusPanel`). All are models with controls. None evaluates anything about the Riemann hypothesis, and the interface says so on screen.
+Three workbenches opened by the **Twin ladder**, **Uranium-238** and **Black hole** buttons (`?view=twinLadder`, `?view=uranium238`, `?view=blackHole`), each with sections chosen by tabs (settings `ladderPanel`, `nucleusPanel`). All are models with controls. None evaluates anything about the Riemann hypothesis, and the interface says so on screen.
 
-Code: `dist/twin-ladder-model.js`, `dist/nucleus-model.js`, `dist/nucleus-data.js` (numbers only), `dist/models.js` (shared state), `dist/models-panel.js` (drawing). Sections 4–10: `dist/rails-model.js`, `dist/spectral-stats.js`, `dist/horizon-model.js`, `dist/models-sections.js`, `dist/models-links.js`, `dist/rails-data.js`, `dist/nuclides-data.js`. Tests: `tests/twin-ladder-model.test.mjs`, `tests/nucleus-model.test.mjs`, `tests/rails-model.test.mjs`, `tests/spectral-stats.test.mjs`, `tests/horizon-model.test.mjs`, `tests/models-links.test.mjs`, and the model route tests in `tests/channels-routes.test.mjs`.
+Code: `dist/twin-ladder-model.js`, `dist/nucleus-model.js`, `dist/nucleus-data.js` (numbers only), `dist/models.js` (shared state), `dist/models-panel.js` (drawing). Sections 4–10: `dist/rails-model.js`, `dist/spectral-stats.js`, `dist/black-hole-model.js`, `dist/models-sections.js`, `dist/models-links.js`, `dist/rails-data.js`, `dist/nuclides-data.js`. Tests: `tests/twin-ladder-model.test.mjs`, `tests/nucleus-model.test.mjs`, `tests/rails-model.test.mjs`, `tests/spectral-stats.test.mjs`, `tests/black-hole-model.test.mjs`, `tests/models-links.test.mjs`, and the model route tests in `tests/channels-routes.test.mjs`.
 
 ## 1. Twin ladder
 
@@ -96,6 +96,8 @@ Code: `dist/rails-model.js`. `?view=twinLadder&state={"ladderPanel":"rails"}`.
 
 ## 6. Limiting temperature (twin-ladder workbench)
 
+Not the temperature–pressure map of the finite model above: that map weights a finite set of rungs by β and P; this tab works with the full prime series on the line Re s = ½ + a.
+
     V(a) = ½ Σ Λ(n)² n^(−1−2a) = 1/(8a²) − 0.786575535662477614 + 6.02404097319776 a + …   (|a| < ¼)
 
 - **Drawn.** 4V(a) (infinite-height variance of τ_a), the three-term expansion, the rounded form (1 − e^(−2aL))/(2a²) with L = log(t/2π) and its small-a form L/a − L², the measured variance of 2 Re ζ′/ζ on the chosen window at thirteen thicknesses and at the chosen a, and reference points from the source at t = 10⁴ and 10⁶. Small panels: 8a²V(a), the fluctuating part on the window, the energy −ζ′/ζ(β) of the prime gas.
@@ -129,9 +131,9 @@ Not available, and shown as such: β₂ for ²³⁵U and ²⁹⁴Og; barriers fo
 
 The trend section plots fissility x = (Z²/A)/50.1 and C₂ = Eₛ(1 − x)/π against Z²/A to the point where C₂ vanishes, with barriers, half-lives, spontaneous-fission branches and β₂. The infinite-mass statement (no sequence of charged nuclei reaches infinite mass; the bulk is already a saturated Fermi liquid; the realised limit is a neutron star) is established nuclear physics quoted from the source; its counterpart on the zeta side, overlapping resonances at κ = (a/π) log(t/2π) > 1, is an analogy.
 
-## 9. Horizon model (`?view=horizonModel`)
+## 9. Black hole horizon model (`?view=blackHole`)
 
-Code: `dist/horizon-model.js`. A model analogy; it establishes nothing about black holes or about the Riemann hypothesis.
+Code: `dist/black-hole-model.js`. A model analogy; it establishes nothing about black holes or about the Riemann hypothesis.
 
 - **Drawn.** Time delay of the two-rail function S_a (inserted by hand) and of the gamma factor Γ_R(½+iE)/Γ_R(½−iE) (what the horizon supplies); the complex E plane with resonances at g − ia and the gamma poles at i(2n+½); counting laws; reduced widths against Porter–Thomas; the central pressure of a uniform star with the Buchdahl bound R = (9/8) r_s; local temperature ħc/(2πk_Bℓ) against proper distance with the Hawking temperature.
 - **Numbers with units.** r_s, T_H, T_loc (K and MeV), entropy, least-damped l = 2 mode (Mω = 0.37367 − 0.08896i, Leaver), evaporation and infall times. Constants: CODATA 2018, IAU nominal solar mass.

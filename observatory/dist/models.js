@@ -14,10 +14,10 @@ export const MODELS_DEFAULTS=Object.freeze({
   // Sections inside the workbenches, and the controls they add.
   ladderPanel:'ladder',railsA:.5,railsT0:10,railsSpan:40,railsTerms:2000,vacuumLadder:'perfect',
   nucleus:'U238',nucleusPanel:'drop',
-  horizonMass:0,horizonRadius:3,horizonDistance:1.5,
+  blackHoleMass:0,blackHoleRadius:3,blackHoleDistance:1.5,
 });
 export const MODELS_ENUMS=Object.freeze({
-  modelsMode:['off','ladder','nucleus','horizon'],
+  modelsMode:['off','ladder','nucleus','blackHole'],
   ladderPanel:['ladder','rails','temperature','vacuum'],
   vacuumLadder:['perfect','primes'],
   nucleus:['U238','Th232','U235','Pu240','Pu242','Pu244','Cm248','Cf252','Og294'],
@@ -35,9 +35,9 @@ export const MODELS_LIMITS=Object.freeze({
   nucleusZ:[70,126,1],nucleusN:[100,190,1],nucleusBeta2:[0,.6,.002],nucleusCoupling:[0,3,.01],
   nucleusWidth:[0,1,.005],nucleusSpeed:[.1,4,.1],
   railsA:[.01,3,.005],railsT0:[0,1900,1],railsSpan:[10,400,5],railsTerms:[2,20000,1],
-  horizonMass:[-1,10,.05],horizonRadius:[1.13,6,.005],horizonDistance:[-1,20,.05],
+  blackHoleMass:[-1,10,.05],blackHoleRadius:[1.13,6,.005],blackHoleDistance:[-1,20,.05],
 });
-export const MODELS_VIEW_NAMES=Object.freeze({ladder:'twinLadder',nucleus:'uranium238',horizon:'horizonModel'});
+export const MODELS_VIEW_NAMES=Object.freeze({ladder:'twinLadder',nucleus:'uranium238',blackHole:'blackHole'});
 
 export function normalizeModelsConfig(input={}){
   const out={...MODELS_DEFAULTS};
@@ -58,9 +58,9 @@ export const ladderInput=s=>({centre:s.ladderCentre,offset:s.ladderOffset,primes
 export const nucleusInput=s=>({Z:s.nucleusZ,N:s.nucleusN,beta2:s.nucleusBeta2,coupling:s.nucleusCoupling,
   width:s.nucleusWidth,pluck:s.nucleusPluck});
 export const railsInput=s=>({a:s.railsA,t0:s.railsT0,span:s.railsSpan,terms:s.railsTerms});
-export const horizonInput=s=>({logMass:s.horizonMass,a:s.railsA,radius:s.horizonRadius,logDistance:s.horizonDistance});
+export const blackHoleInput=s=>({logMass:s.blackHoleMass,a:s.railsA,radius:s.blackHoleRadius,logDistance:s.blackHoleDistance});
 /** The section shown inside the active workbench. */
-export const modelsSection=s=>s.modelsMode==='ladder'?s.ladderPanel:s.modelsMode==='nucleus'?s.nucleusPanel:s.modelsMode==='horizon'?'horizon':'off';
+export const modelsSection=s=>s.modelsMode==='ladder'?s.ladderPanel:s.modelsMode==='nucleus'?s.nucleusPanel:s.modelsMode==='blackHole'?'blackHole':'off';
 
 export function createModelsPresets(defaults={}){
   const base={...defaults,...MODELS_DEFAULTS,geometry:'plane',projective:false,fiberMode:'off',dynamicsMode:'off',
@@ -70,7 +70,7 @@ export function createModelsPresets(defaults={}){
       note:'Finite prime ladders on two arms with an adjustable damping centre, moving packets and the completed ξ bridge. A finite experiment, not ζ.'},
     uranium238:{settings:{...base,modelsMode:'nucleus'},
       note:'Liquid-drop model of coupled surface oscillations of uranium-238: which modes are stable, and where the quadrupole gives way. A textbook collective model, not a many-body calculation.'},
-    horizonModel:{settings:{...base,modelsMode:'horizon'},
-      note:'Horizon model: Schwarzschild quantities beside the gamma-factor and two-rail scattering functions. An analogy with stated breaks; it establishes nothing about black holes or about the Riemann hypothesis.'},
+    blackHole:{settings:{...base,modelsMode:'blackHole'},
+      note:'Black hole horizon model: Schwarzschild quantities beside the gamma-factor and two-rail scattering functions. An analogy with stated breaks; it establishes nothing about black holes or about the Riemann hypothesis.'},
   };
 }

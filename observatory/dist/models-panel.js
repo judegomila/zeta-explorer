@@ -16,7 +16,7 @@ import { SECTION_LINKS, sectionLinks, methodsLink } from './models-links.js';
 
 const evaluateXi=(sigma,t)=>evaluatePolar(sigma,t,'xi',0);
 const frac=x=>x-Math.floor(x);
-const PRESET_OF={ladder:'twinLadder',nucleus:'uranium238',horizon:'horizonModel'};
+const PRESET_OF={ladder:'twinLadder',nucleus:'uranium238',blackHole:'blackHole'};
 const ANIMATED=new Set(['ladder','drop']);
 const theta=beta=>beta>0?fmt(1/beta,beta<.01?0:2):'∞';
 const THERMO_NAMES={logZ:'log Z',meanEll:'⟨ℓ⟩',entropy:'S',armGap:'|D₊| − |D₋|'};
@@ -42,15 +42,15 @@ const LADDER_CONTROLS=[
   {key:'ladderSpan',label:'Spacetime window ±ΔT',digits:0,hint:'Height range of the packet spacetime map.'},
 ];
 const RAILS_CONTROLS=[
-  {key:'railsA',label:'Bridge thickness a',digits:3,hint:'The line is Re s = ½ + a. Theorem range: a ≥ ½.',sections:'rails temperature vacuum horizon'},
-  {key:'railsT0',label:'Window start t₀',digits:0,hint:'Heights up to 2000 are evaluated in the browser.',sections:'rails temperature vacuum horizon'},
-  {key:'railsSpan',label:'Window length',digits:0,hint:'The window is t₀ ≤ t ≤ t₀ + length.',sections:'rails temperature vacuum horizon'},
+  {key:'railsA',label:'Bridge thickness a',digits:3,hint:'The line is Re s = ½ + a. Theorem range: a ≥ ½.',sections:'rails temperature vacuum blackHole'},
+  {key:'railsT0',label:'Window start t₀',digits:0,hint:'Heights up to 2000 are evaluated in the browser.',sections:'rails temperature vacuum blackHole'},
+  {key:'railsSpan',label:'Window length',digits:0,hint:'The window is t₀ ≤ t ≤ t₀ + length.',sections:'rails temperature vacuum blackHole'},
   {key:'railsTerms',label:'Prime-series terms n ≤ N',digits:0,hint:'Cut of −2 Σ Λ(n) n^(−½−a) cos(t log n).',sections:'rails'},
 ];
-const HORIZON_CONTROLS=[
-  {key:'horizonMass',label:'Mass log₁₀(M / M☉)',digits:2,hint:'Sets r_s, the Hawking temperature, the entropy and the ringing mode.',sections:'horizon'},
-  {key:'horizonRadius',label:'Stellar radius R / r_s',digits:3,hint:'A static fluid star needs R > 9/8 r_s (Buchdahl).',sections:'horizon'},
-  {key:'horizonDistance',label:'Proper distance log₁₀(ℓ / fm)',digits:2,hint:'Distance of a static observer from the horizon.',sections:'horizon'},
+const BLACK_HOLE_CONTROLS=[
+  {key:'blackHoleMass',label:'Mass log₁₀(M / M☉)',digits:2,hint:'Sets r_s, the Hawking temperature, the entropy and the ringing mode.',sections:'blackHole'},
+  {key:'blackHoleRadius',label:'Stellar radius R / r_s',digits:3,hint:'A static fluid star needs R > 9/8 r_s (Buchdahl).',sections:'blackHole'},
+  {key:'blackHoleDistance',label:'Proper distance log₁₀(ℓ / fm)',digits:2,hint:'Distance of a static observer from the horizon.',sections:'blackHole'},
 ];
 const NUCLEUS_CONTROLS=[
   {key:'nucleusZ',label:'Protons Z',digits:0,hint:'Charge drives the Coulomb term.'},
@@ -61,7 +61,7 @@ const NUCLEUS_CONTROLS=[
   {key:'nucleusSpeed',label:'Display speed',digits:1,hint:'Slows or speeds the display clock only.',sections:'drop'},
 ];
 
-const ALL_CONTROLS=()=>[...LADDER_CONTROLS,...RAILS_CONTROLS,...HORIZON_CONTROLS,...NUCLEUS_CONTROLS];
+const ALL_CONTROLS=()=>[...LADDER_CONTROLS,...RAILS_CONTROLS,...BLACK_HOLE_CONTROLS,...NUCLEUS_CONTROLS];
 function slider(spec){
   const [lo,hi,step]=MODELS_LIMITS[spec.key];
   return `<label class="models-control"${spec.sections?` data-models-sections="${spec.sections}"`:''}><span>${spec.label}<output data-models-out="${spec.key}"></output></span><input type="range" min="${lo}" max="${hi}" step="${step}" data-models-control="${spec.key}" aria-label="${spec.label}"><small>${spec.hint}</small></label>`;
@@ -80,7 +80,7 @@ export class ModelsPanel {
       <header class="models-heading">
         <div><span class="models-eyebrow" data-models="eyebrow"></span><h3 data-models="title"></h3><p data-models="lede"></p></div>
         <div class="models-tabs" role="tablist" aria-label="Model">
-          <button role="tab" data-models-mode="ladder">Twin ladder</button><button role="tab" data-models-mode="nucleus">Nucleus</button><button role="tab" data-models-mode="horizon">Horizon</button>
+          <button role="tab" data-models-mode="ladder">Twin ladder</button><button role="tab" data-models-mode="nucleus">Nucleus</button><button role="tab" data-models-mode="blackHole">Black hole horizon</button>
         </div>
       </header>
       <div class="models-subnav">
@@ -90,14 +90,14 @@ export class ModelsPanel {
       <div class="models-body">
         <aside class="models-controls" aria-label="Model controls">
           <div class="models-transport"><button data-models-action="play" class="models-primary"></button><button data-models-action="reset">Reset</button></div>
-          <div data-models-sections="rails temperature vacuum horizon" class="models-group">
+          <div data-models-sections="rails temperature vacuum blackHole" class="models-group">
             <div class="models-chips" aria-label="Thickness presets"><button data-models-set='{"railsA":1}'>a = 1</button><button data-models-set='{"railsA":0.5}'>a = ½</button><button data-models-set='{"railsA":0.25}'>a = ¼</button><button data-models-set='{"railsA":0.05}'>a = 0.05</button><button data-models-set='{"railsT0":10,"railsSpan":40}'>First zeros</button><button data-models-set='{"railsT0":1000,"railsSpan":200}'>t ≈ 1000</button></div>
             ${RAILS_CONTROLS.map(slider).join('')}
             <label class="models-control" data-models-sections="vacuum"><span>Ladder</span><select data-models-control="vacuumLadder" aria-label="Ladder"><option value="perfect">Perfect ladder · spacing 1</option><option value="primes">Prime-corrected · rail B_a</option></select><small>The prime-corrected ladder displaces each rung by the phase of ζ.</small></label>
           </div>
-          <div data-models-sections="horizon" class="models-group">
-            <div class="models-chips" aria-label="Mass presets"><button data-models-set='{"horizonMass":0}'>1 M☉</button><button data-models-set='{"horizonMass":1}'>10 M☉</button><button data-models-set='{"horizonMass":6.6}'>4 × 10⁶ M☉</button><button data-models-set='{"horizonRadius":1.125}'>R = 9/8 r_s</button></div>
-            ${HORIZON_CONTROLS.map(slider).join('')}
+          <div data-models-sections="blackHole" class="models-group">
+            <div class="models-chips" aria-label="Mass presets"><button data-models-set='{"blackHoleMass":0}'>1 M☉</button><button data-models-set='{"blackHoleMass":1}'>10 M☉</button><button data-models-set='{"blackHoleMass":6.6}'>4 × 10⁶ M☉</button><button data-models-set='{"blackHoleRadius":1.125}'>R = 9/8 r_s</button></div>
+            ${BLACK_HOLE_CONTROLS.map(slider).join('')}
           </div>
           <div data-models-sections="drop statistics trend" class="models-group">
             <label class="models-control"><span>Nucleus</span><select data-models-control="nucleus" aria-label="Nucleus">${Object.values(NUCLIDES).map(n=>`<option value="${n.id}">${n.label} · ${n.name}</option>`).join('')}</select><small>Sets Z, N and the measured β₂ where one exists.</small></label>

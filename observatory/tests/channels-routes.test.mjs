@@ -278,3 +278,39 @@ test('model routes open the twin ladder and the nucleus, share their controls, a
  app.applyPreset('twinLadder');app.applyPreset('channels');assert.equal(app.getState().modelsMode,'off');assert.equal(app.getState().channelsMode,'channels');
  app.applyPreset('twinLadder');assert.equal(app.session().camera,null);assert.equal(app.session().state.modelsMode,'ladder');
 });
+
+test('sections, the nucleus parameter and the horizon view are routed, shared and clamped',()=>{
+ const app=actualApp(),open=(name,extra)=>decodeViewURL(origin+'?view='+name+(extra?'&state='+encodeURIComponent(JSON.stringify(extra)):''),app.config);
+ // ?view=uranium238 keeps its meaning: uranium-238 in the liquid-drop section.
+ const plain=open('uranium238');assert.equal(plain.valid,true,plain.error);
+ assert.equal(plain.session.state.modelsMode,'nucleus');assert.equal(plain.session.state.nucleus,'U238');assert.equal(plain.session.state.nucleusPanel,'drop');
+ assert.equal(plain.session.state.nucleusZ,92);assert.equal(plain.session.state.nucleusN,146);
+ assert.equal(open('twinLadder').session.state.ladderPanel,'ladder');
+ // The horizon view.
+ const horizon=open('horizon');assert.equal(horizon.valid,true,horizon.error);assert.equal(horizon.name,'horizon');
+ assert.equal(horizon.session.state.modelsMode,'horizon');assert.equal(modelsState.modelsSection(horizon.session.state),'horizon');
+ for(const key of ['channelsMode','researchMode','dynamicsMode','infinityMode','dualMode','fiberMode'])assert.equal(horizon.session.state[key],'off',key);
+ app.setState(horizon.session.state);assert.equal(app.shareViewName(),'horizon');
+ app.applyPreset('horizon');assert.equal(app.getState().modelsMode,'horizon');assert.equal(app.session().camera,null);
+ app.selectMount('sphere',false);assert.equal(app.getState().modelsMode,'off');
+ // Every section and every nucleus round-trips through a shared link.
+ const cases=[['twinLadder',{ladderPanel:'rails',railsA:.1,railsT0:1000,railsSpan:60,railsTerms:500}],['twinLadder',{ladderPanel:'temperature',railsA:.05}],
+  ['twinLadder',{ladderPanel:'vacuum',vacuumLadder:'primes',railsA:1}],['uranium238',{nucleusPanel:'statistics',nucleus:'Th232'}],
+  ['uranium238',{nucleusPanel:'trend',nucleus:'Og294',nucleusZ:118,nucleusN:176}],['horizon',{horizonMass:6.6,horizonRadius:1.2,horizonDistance:.3,railsA:.25}]];
+ for(const [name,extra] of cases){
+  const decoded=open(name,extra);assert.equal(decoded.valid,true,decoded.error);
+  for(const [key,value] of Object.entries(extra))assert.equal(decoded.session.state[key],value,key);
+  assert.equal(modelsState.modelsSection(decoded.session.state),extra.ladderPanel??extra.nucleusPanel??'horizon');
+  const url=encodeViewURL(origin,decoded.session,{...app.config,name});
+  const again=decodeViewURL(url,app.config);assert.equal(again.valid,true,again.error);
+  for(const key of Object.keys(modelsState.MODELS_DEFAULTS))assert.equal(again.session.state[key],decoded.session.state[key],key);
+  assert.equal(encodeViewURL(url,again.session,{...app.config,name}),url);
+ }
+ for(const id of modelsState.MODELS_ENUMS.nucleus)assert.equal(open('uranium238',{nucleus:id}).session.state.nucleus,id);
+ // Unknown values fall back to the defaults; numbers are clamped and rounded.
+ const wild=app.validate({modelsMode:'horizon',ladderPanel:'x',nucleusPanel:7,nucleus:'Fe56',vacuumLadder:'both',railsA:-3,railsT0:1e9,railsSpan:1,railsTerms:12.6,horizonMass:99,horizonRadius:0,horizonDistance:-50});
+ assert.equal(wild.ladderPanel,'ladder');assert.equal(wild.nucleusPanel,'drop');assert.equal(wild.nucleus,'U238');assert.equal(wild.vacuumLadder,'perfect');
+ assert.equal(wild.railsA,.01);assert.equal(wild.railsT0,1900);assert.equal(wild.railsSpan,10);assert.equal(wild.railsTerms,13);
+ assert.equal(wild.horizonMass,10);assert.equal(wild.horizonRadius,1.13);assert.equal(wild.horizonDistance,-1);
+ assert.equal(modelsState.modelsSection(app.validate({modelsMode:'off'})),'off');
+});

@@ -5,20 +5,19 @@
  * The animation clocks are local and are never written into a shared view.
  */
 import { ZERO_HEIGHTS, evaluatePolar } from './math.js';
-import { MODELS_LIMITS, ladderInput, nucleusInput } from './models.js';
+import { MODELS_LIMITS, MODELS_ENUMS, ladderInput, nucleusInput, modelsSection } from './models.js';
 import { ladderRungs, armDamping, armSum, armWalk, packetValue, heightScan, finiteBalance, bridgeBalance, ladderConfig } from './twin-ladder-model.js';
-import { MODES, DROP, coupledModes, amplitudesAt, shapeProfile, rotorEnergy, SPACING_LAWS, uniformSpacings, zeroSpacings, ksDistance } from './nucleus-model.js';
+import { MODES, DROP, coupledModes, amplitudesAt, shapeProfile, rotorEnergy } from './nucleus-model.js';
 import { U238_DATA } from './nucleus-data.js';
+import { NUCLIDES } from './nuclides-data.js';
+import { C, MODE_COLORS, TAU, clamp, fmt, sig, esc, surface, label, line } from './models-draw.js';
+import { SECTIONS, MODE_SECTIONS } from './models-sections.js';
+import { SECTION_LINKS, sectionLinks, methodsLink } from './models-links.js';
 
-const TAU=2*Math.PI;
-const C={direct:'#7bdeef',dual:'#f3b462',bridge:'#d7f7ad',finite:'#b3acdf',grid:'#223246',axis:'#3a4c62',text:'#9db0c4',dim:'#62758a',
-  proton:'#ff8a66',neutron:'#7fb1ff',surface:'#63d6c4',coulomb:'#ff7d8a',bad:'#ff7d8a',good:'#8dffb0'};
-const MODE_COLORS=['#7bdeef','#f3b462','#d7f7ad','#e1a2d5','#b3acdf'];
-const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
-const fmt=(x,d=3)=>Number.isFinite(x)?x.toFixed(d).replace('-','−'):'—';
-const sig=(x,d=3)=>Number.isFinite(x)?(Math.abs(x)>=1e4||Math.abs(x)<1e-3&&x!==0?x.toExponential(d-1):x.toPrecision(d)).replace('-','−'):'—';
 const evaluateXi=(sigma,t)=>evaluatePolar(sigma,t,'xi',0);
 const frac=x=>x-Math.floor(x);
+const PRESET_OF={ladder:'twinLadder',nucleus:'uranium238',horizon:'horizon'};
+const ANIMATED=new Set(['ladder','drop']);
 
 const LADDER_CONTROLS=[
   {key:'ladderCentre',label:'Damping centre c',digits:3,hint:'Arms sit at c ± a. ξ balances only at c = ½.'},
@@ -31,40 +30,37 @@ const LADDER_CONTROLS=[
   {key:'ladderPressure',label:'Pressure P',digits:3,hint:'Convex weight exp(−P·(m log p)²).'},
   {key:'ladderSpeed',label:'Display speed',digits:1,hint:'Height units per second while playing.'},
 ];
+const RAILS_CONTROLS=[
+  {key:'railsA',label:'Bridge thickness a',digits:3,hint:'The line is Re s = ½ + a. Theorem range: a ≥ ½.',sections:'rails temperature vacuum horizon'},
+  {key:'railsT0',label:'Window start t₀',digits:0,hint:'Heights up to 2000 are evaluated in the browser.',sections:'rails temperature vacuum horizon'},
+  {key:'railsSpan',label:'Window length',digits:0,hint:'The window is t₀ ≤ t ≤ t₀ + length.',sections:'rails temperature vacuum horizon'},
+  {key:'railsTerms',label:'Prime-series terms n ≤ N',digits:0,hint:'Cut of −2 Σ Λ(n) n^(−½−a) cos(t log n).',sections:'rails'},
+];
+const HORIZON_CONTROLS=[
+  {key:'horizonMass',label:'Mass log₁₀(M / M☉)',digits:2,hint:'Sets r_s, the Hawking temperature, the entropy and the ringing mode.',sections:'horizon'},
+  {key:'horizonRadius',label:'Stellar radius R / r_s',digits:3,hint:'A static fluid star needs R > 9/8 r_s (Buchdahl).',sections:'horizon'},
+  {key:'horizonDistance',label:'Proper distance log₁₀(ℓ / fm)',digits:2,hint:'Distance of a static observer from the horizon.',sections:'horizon'},
+];
 const NUCLEUS_CONTROLS=[
   {key:'nucleusZ',label:'Protons Z',digits:0,hint:'Charge drives the Coulomb term.'},
   {key:'nucleusN',label:'Neutrons N',digits:0,hint:'Adds surface without adding charge.'},
-  {key:'nucleusBeta2',label:'Static deformation β₂',digits:3,hint:'Measured value for ²³⁸U is about 0.29.'},
-  {key:'nucleusCoupling',label:'Mode coupling κ',digits:2,hint:'Illustrative: mixes λ with λ ± 2.'},
-  {key:'nucleusWidth',label:'Damping width Γ (MeV)',digits:3,hint:'Amplitude decays as exp(−Γt/2ħ).'},
-  {key:'nucleusSpeed',label:'Display speed',digits:1,hint:'Slows or speeds the display clock only.'},
+  {key:'nucleusBeta2',label:'Static deformation β₂',digits:3,hint:'Measured value for ²³⁸U is about 0.29.',sections:'drop'},
+  {key:'nucleusCoupling',label:'Mode coupling κ',digits:2,hint:'Illustrative: mixes λ with λ ± 2.',sections:'drop'},
+  {key:'nucleusWidth',label:'Damping width Γ (MeV)',digits:3,hint:'Amplitude decays as exp(−Γt/2ħ).',sections:'drop'},
+  {key:'nucleusSpeed',label:'Display speed',digits:1,hint:'Slows or speeds the display clock only.',sections:'drop'},
 ];
 
+const ALL_CONTROLS=()=>[...LADDER_CONTROLS,...RAILS_CONTROLS,...HORIZON_CONTROLS,...NUCLEUS_CONTROLS];
 function slider(spec){
   const [lo,hi,step]=MODELS_LIMITS[spec.key];
-  return `<label class="models-control"><span>${spec.label}<output data-models-out="${spec.key}"></output></span><input type="range" min="${lo}" max="${hi}" step="${step}" data-models-control="${spec.key}" aria-label="${spec.label}"><small>${spec.hint}</small></label>`;
-}
-
-/** Size a canvas to its box at device resolution; returns CSS-pixel context. */
-function surface(canvas){
-  const view=canvas.ownerDocument?.defaultView,dpr=Math.min(view?.devicePixelRatio||1,2);
-  const w=Math.max(1,canvas.clientWidth),h=Math.max(1,canvas.clientHeight);
-  if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
-  const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
-  return {ctx,w,h};
-}
-function label(ctx,text,x,y,{color=C.text,size=10,align='left',font='ui-monospace,SFMono-Regular,Consolas,monospace'}={}){
-  ctx.font=`${size}px ${font}`;ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.fillText(text,x,y);
-}
-function line(ctx,x0,y0,x1,y1,color,width=1,dash=null){
-  ctx.save();ctx.strokeStyle=color;ctx.lineWidth=width;if(dash)ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x1,y1);ctx.stroke();ctx.restore();
+  return `<label class="models-control"${spec.sections?` data-models-sections="${spec.sections}"`:''}><span>${spec.label}<output data-models-out="${spec.key}"></output></span><input type="range" min="${lo}" max="${hi}" step="${step}" data-models-control="${spec.key}" aria-label="${spec.label}"><small>${spec.hint}</small></label>`;
 }
 
 export class ModelsPanel {
   constructor(container,{onChange=()=>{},onPreset=()=>{}}={}){
     if(!container)throw new Error('ModelsPanel requires a mount element.');
     this.container=container;this.onChange=onChange;this.onPreset=onPreset;
-    this.state=null;this.mode='off';this.playing=false;this.raf=0;this.last=0;
+    this.state=null;this.mode='off';this.section='off';this.viewKey='';this.playing=false;this.raf=0;this.last=0;
     this.height=14.134725;this.clock=0;this.spin=0;this.cache={};
     const view=container.ownerDocument?.defaultView;
     this.view=view;this.reducedMotion=!!view?.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -73,32 +69,46 @@ export class ModelsPanel {
       <header class="models-heading">
         <div><span class="models-eyebrow" data-models="eyebrow"></span><h3 data-models="title"></h3><p data-models="lede"></p></div>
         <div class="models-tabs" role="tablist" aria-label="Model">
-          <button role="tab" data-models-mode="ladder">Twin ladder</button><button role="tab" data-models-mode="nucleus">Uranium-238</button>
+          <button role="tab" data-models-mode="ladder">Twin ladder</button><button role="tab" data-models-mode="nucleus">Nucleus</button><button role="tab" data-models-mode="horizon">Horizon</button>
         </div>
       </header>
+      <div class="models-subnav">
+        <div class="models-sections" data-models="sections" role="tablist" aria-label="Section"></div>
+        <nav class="models-links" data-models="links" aria-label="Mathematics behind this view"></nav>
+      </div>
       <div class="models-body">
         <aside class="models-controls" aria-label="Model controls">
           <div class="models-transport"><button data-models-action="play" class="models-primary"></button><button data-models-action="reset">Reset</button></div>
+          <div data-models-sections="rails temperature vacuum horizon" class="models-group">
+            <div class="models-chips" aria-label="Thickness presets"><button data-models-set='{"railsA":1}'>a = 1</button><button data-models-set='{"railsA":0.5}'>a = ½</button><button data-models-set='{"railsA":0.25}'>a = ¼</button><button data-models-set='{"railsA":0.05}'>a = 0.05</button><button data-models-set='{"railsT0":10,"railsSpan":40}'>First zeros</button><button data-models-set='{"railsT0":1000,"railsSpan":200}'>t ≈ 1000</button></div>
+            ${RAILS_CONTROLS.map(slider).join('')}
+            <label class="models-control" data-models-sections="vacuum"><span>Ladder</span><select data-models-control="vacuumLadder" aria-label="Ladder"><option value="perfect">Perfect ladder · spacing 1</option><option value="primes">Prime-corrected · rail B_a</option></select><small>The prime-corrected ladder displaces each rung by the phase of ζ.</small></label>
+          </div>
+          <div data-models-sections="horizon" class="models-group">
+            <div class="models-chips" aria-label="Mass presets"><button data-models-set='{"horizonMass":0}'>1 M☉</button><button data-models-set='{"horizonMass":1}'>10 M☉</button><button data-models-set='{"horizonMass":6.6}'>4 × 10⁶ M☉</button><button data-models-set='{"horizonRadius":1.125}'>R = 9/8 r_s</button></div>
+            ${HORIZON_CONTROLS.map(slider).join('')}
+          </div>
+          <div data-models-sections="drop statistics trend" class="models-group">
+            <label class="models-control"><span>Nucleus</span><select data-models-control="nucleus" aria-label="Nucleus">${Object.values(NUCLIDES).map(n=>`<option value="${n.id}">${n.label} · ${n.name}</option>`).join('')}</select><small>Sets Z, N and the measured β₂ where one exists.</small></label>
+          </div>
           <div data-models-panel="ladder">
             <div class="models-chips" aria-label="Damping centre presets"><button data-models-set='{"ladderCentre":0.5}'>c = ½</button><button data-models-set='{"ladderCentre":1}'>c = 1</button><button data-models-set='{"ladderCentre":0.25}'>c = ¼</button><button data-models-set='{"ladderHeight":14.134725}'>First zero</button></div>
             ${LADDER_CONTROLS.map(slider).join('')}
             <label class="models-control"><span>Rung weight</span><select data-models-control="ladderWeight" aria-label="Rung weight"><option value="mangoldt">log p · von Mangoldt</option><option value="unit">1 · bare powers</option></select><small>log p makes the direct sum a truncation of −ζ′/ζ.</small></label>
           </div>
-          <div data-models-panel="nucleus">
-            <div class="models-chips" aria-label="Nucleus presets"><button data-models-set='{"nucleusZ":92,"nucleusN":146,"nucleusBeta2":0.286}'>²³⁸U</button><button data-models-set='{"nucleusZ":115,"nucleusN":146}'>Past the threshold</button><button data-models-set='{"nucleusBeta2":0}'>Spherical</button><button data-models-action="pluck">Pluck again</button></div>
+          <div data-models-panel="nucleus" data-models-sections="drop trend">
+            <div class="models-chips" aria-label="Nucleus presets"><button data-models-set='{"nucleus":"U238","nucleusZ":92,"nucleusN":146,"nucleusBeta2":0.286}'>²³⁸U</button><button data-models-set='{"nucleusZ":115,"nucleusN":146}'>Past the threshold</button><button data-models-set='{"nucleusBeta2":0}' data-models-sections="drop">Spherical</button><button data-models-action="pluck" data-models-sections="drop">Pluck again</button></div>
             ${NUCLEUS_CONTROLS.map(slider).join('')}
-            <label class="models-control"><span>Plucked mode</span><select data-models-control="nucleusPluck" aria-label="Plucked multipole"><option value="2">λ = 2 · quadrupole</option><option value="3">λ = 3 · octupole</option><option value="4">λ = 4 · hexadecapole</option><option value="5">λ = 5</option><option value="6">λ = 6</option></select><small>The surface is displaced in this multipole and released.</small></label>
+            <label class="models-control" data-models-sections="drop"><span>Plucked mode</span><select data-models-control="nucleusPluck" aria-label="Plucked multipole"><option value="2">λ = 2 · quadrupole</option><option value="3">λ = 3 · octupole</option><option value="4">λ = 4 · hexadecapole</option><option value="5">λ = 5</option><option value="6">λ = 6</option></select><small>The surface is displaced in this multipole and released.</small></label>
           </div>
         </aside>
         <div class="models-stage">
           <div class="models-hero"><canvas data-models-canvas="hero"></canvas><span class="models-status" data-models="status" role="status"></span></div>
           <dl class="models-readouts" data-models="readouts"></dl>
           <div class="models-grid">
-            <article><div class="models-mini"><span data-models="h1"></span><span data-models="t1"></span></div><canvas data-models-canvas="a"></canvas><p data-models="c1"></p></article>
-            <article><div class="models-mini"><span data-models="h2"></span><span data-models="t2"></span></div><canvas data-models-canvas="b"></canvas><p data-models="c2"></p></article>
-            <article><div class="models-mini"><span data-models="h3"></span><span data-models="t3"></span></div><canvas data-models-canvas="c"></canvas><p data-models="c3"></p></article>
-            <article data-models="fourth"><div class="models-mini"><span data-models="h4"></span><span data-models="t4"></span></div><canvas data-models-canvas="d"></canvas><p data-models="c4"></p></article>
+            ${[['a',1],['b',2],['c',3],['d',4]].map(([name,i])=>`<article${i===4?' data-models="fourth"':''}><div class="models-mini"><span data-models="h${i}"></span><span data-models="t${i}"></span></div><canvas data-models-canvas="${name}"></canvas><p data-models="c${i}"></p><a class="models-math" data-models="m${i}" target="_blank" rel="noopener">Mathematics ↗</a></article>`).join('\n            ')}
           </div>
+          <div class="models-table" data-models="table"></div>
           <p class="models-note" data-models="note"></p>
         </div>
       </div>`;
@@ -115,47 +125,54 @@ export class ModelsPanel {
 
   // ---- application interface ----------------------------------------------
   update(state){
-    const previous=this.mode;this.state=state;this.mode=state.modelsMode;
+    const previous=this.mode,previousView=this.viewKey;this.state=state;this.mode=state.modelsMode;this.section=modelsSection(state);
     const active=this.mode!=='off';
     this.container.hidden=!active;
-    if(!active){this.stop();return;}
-    if(previous!==this.mode){this.describe();this.clock=0;this.playing=!this.reducedMotion;}
+    if(!active){this.stop();this.viewKey='';return;}
+    this.viewKey=this.mode+'/'+this.section+'/'+state.nucleus;
+    if(previousView!==this.viewKey)this.describe();
+    if(previous!==this.mode){this.clock=0;this.playing=!this.reducedMotion;}
     if(!this.playing||previous!==this.mode||Math.abs(state.ladderHeight-this.committedHeight)>1e-9)this.height=state.ladderHeight;
     this.committedHeight=state.ladderHeight;
     const key=JSON.stringify(nucleusInput(state));
     if(key!==this.nucleusKey){this.nucleusKey=key;this.clock=0;}
     this.syncControls();this.draw();
-    if(this.playing)this.start();
+    if(this.playing&&ANIMATED.has(this.section))this.start();else this.stop();
   }
-  pause(){if(this.playing){this.playing=false;this.commitHeight();this.syncControls();}this.stop();}
+  pause(){if(this.playing){this.playing=false;this.commitHeight();this.syncControls();}this.stop();clearTimeout(this.deferTimer);this.deferTimer=0;}
   togglePlay(){this.playing=!this.playing;if(this.playing)this.start();else{this.stop();this.commitHeight();}this.syncControls();}
-  destroy(){this.stop();this.resizeObserver?.disconnect();}
+  destroy(){this.stop();clearTimeout(this.deferTimer);this.resizeObserver?.disconnect();}
   redraw(){this.draw();}
 
   // ---- events ----------------------------------------------------------------
   commitHeight(){
-    if(this.mode!=='ladder'||!this.state)return;
+    if(this.section!=='ladder'||!this.state)return;
     const [lo,hi]=MODELS_LIMITS.ladderHeight,value=clamp(Math.round(this.height*100)/100,lo,hi);
     if(Math.abs(value-this.state.ladderHeight)>1e-9)this.onChange({ladderHeight:value});
   }
   onInput(event){
     const key=event.target?.dataset?.modelsControl;if(!key)return;
-    const raw=event.target.value,value=event.target.tagName==='SELECT'&&key==='ladderWeight'?raw:Number(raw);
+    const raw=event.target.value,value=typeof MODELS_ENUMS[key]?.[0]==='string'?raw:Number(raw);
     if(key==='ladderHeight')this.height=value;
-    this.onChange({[key]:value},{mode:event.type==='change'?'push':'replace'});
+    const patch={[key]:value};
+    if(key==='nucleus'&&NUCLIDES[value]){
+      // Choosing a nucleus sets the model's Z and N, and β₂ where a measured value exists.
+      const n=NUCLIDES[value];patch.nucleusZ=n.Z;patch.nucleusN=n.N;if(n.beta2)patch.nucleusBeta2=Math.round(n.beta2.raman2001[0]*500)/500;this.clock=0;
+    }
+    this.onChange(patch,{mode:event.type==='change'?'push':'replace'});
   }
   onClick(event){
     const button=event.target?.closest?.('button');if(!button||!this.container.contains(button))return;
     const {modelsMode,modelsAction,modelsSet}=button.dataset;
-    if(modelsMode&&modelsMode!==this.mode){this.onPreset(modelsMode==='ladder'?'twinLadder':'uranium238');return;}
+    if(modelsMode&&modelsMode!==this.mode){this.onPreset(PRESET_OF[modelsMode]);return;}
     if(modelsSet){const patch=JSON.parse(modelsSet);if('ladderHeight'in patch)this.height=patch.ladderHeight;this.clock=0;this.onChange(patch,{mode:'push'});return;}
     if(modelsAction==='play')this.togglePlay();
     else if(modelsAction==='pluck'){this.clock=0;this.draw();}
-    else if(modelsAction==='reset'){this.clock=0;this.onPreset(this.mode==='ladder'?'twinLadder':'uranium238');}
+    else if(modelsAction==='reset'){this.clock=0;this.cache={};this.onPreset(PRESET_OF[this.mode]);}
   }
   /** Drag on the height scan to set T, on the balance plot to set c. */
   onPointer(event){
-    if(this.mode!=='ladder')return;
+    if(this.section!=='ladder')return;
     const canvas=event.currentTarget,isScan=canvas===this.canvas('b');
     const apply=e=>{
       const box=canvas.getBoundingClientRect(),u=clamp((e.clientX-box.left-34)/(box.width-46),0,1);
@@ -168,16 +185,16 @@ export class ModelsPanel {
   }
 
   // ---- clock -----------------------------------------------------------------
-  start(){if(!this.raf&&this.view?.requestAnimationFrame){this.last=0;this.raf=this.view.requestAnimationFrame(this.frame);}}
+  start(){if(!this.raf&&ANIMATED.has(this.section)&&this.view?.requestAnimationFrame){this.last=0;this.raf=this.view.requestAnimationFrame(this.frame);}}
   stop(){if(this.raf)this.view?.cancelAnimationFrame?.(this.raf);this.raf=0;}
   frame(now){
-    this.raf=0;if(!this.playing||this.mode==='off'||this.container.hidden)return;
+    this.raf=0;if(!this.playing||this.mode==='off'||this.container.hidden||!ANIMATED.has(this.section))return;
     const dt=this.last?Math.min(.1,(now-this.last)/1000):0;this.last=now;this.advance(dt);this.draw();
     this.raf=this.view.requestAnimationFrame(this.frame);
   }
   /** Advance the local clocks by dt seconds of display time. */
   advance(dt){
-    if(this.mode==='ladder'){
+    if(this.section==='ladder'){
       const [lo,hi]=MODELS_LIMITS.ladderHeight;this.height+=dt*this.state.ladderSpeed;
       if(this.height>hi)this.height=lo;
       const input=this.container.querySelector('[data-models-control="ladderHeight"]'),out=this.container.querySelector('[data-models-out="ladderHeight"]');
@@ -188,33 +205,55 @@ export class ModelsPanel {
   }
 
   // ---- text ------------------------------------------------------------------
+  /** Run `compute` after the current frame and redraw; returns the cached value or undefined. */
+  defer(key,compute){
+    this.deferred??=new Map();
+    if(this.deferred.has(key))return this.deferred.get(key);
+    if(this.deferKey===key)return undefined;
+    clearTimeout(this.deferTimer);this.deferKey=key;
+    const run=()=>{this.deferTimer=0;if(this.deferKey!==key)return;if(this.deferred.size>24)this.deferred.clear();this.deferred.set(key,compute());this.deferKey='';this.draw();};
+    if(this.view?.setTimeout)this.deferTimer=this.view.setTimeout(run,30);else run();
+    return this.deferred.get(key);
+  }
+  status(text,tone){this.el('status').textContent=text;this.el('status').dataset.tone=tone;}
+  table(html){const el=this.el('table');if(this.tableHTML!==html){this.tableHTML=html;el.innerHTML=html;}el.hidden=!html;}
   describe(){
-    const ladder=this.mode==='ladder',set=(name,text)=>{this.el(name).textContent=text;};
-    set('eyebrow',ladder?'FINITE MODEL · PRIME LADDERS':'COLLECTIVE MODEL · LIQUID DROP');
-    set('title',ladder?'Two ladders, one bridge.':'Which oscillations hold the nucleus together?');
-    set('lede',ladder
-      ?'Every prime carries a ladder of rungs at log-lengths m·log p. The direct arm is damped at c + a and the dual arm at c − a. Move the damping centre and watch the two arms, their packets and the bridge between them.'
-      :'A heavy nucleus rings like a charged liquid drop. Surface tension restores each ripple; electric repulsion works against it. Add protons until the quadrupole gives way, and couple the modes to see stability change.');
-    const heads=ladder
-      ?[['PHASOR WALKS','TIP TO TAIL'],['HEIGHT SCAN','DRAG TO SET T'],['BRIDGE BALANCE','DRAG TO SET c'],['','']]
-      :[['MODE STIFFNESS','SURFACE − COULOMB'],['MODE AMPLITUDES','AFTER THE PLUCK'],['ROTATIONAL LADDER','MEASURED vs RIGID ROTOR'],['LEVEL REPULSION','CUMULATIVE SPACINGS']];
-    const captions=ladder
-      ?['Each rung is an arrow of length its amplitude; the arm sum is where the chain ends. Cyan: direct. Amber: dual.',
+    const section=this.section,spec=SECTIONS[section],ladder=section==='ladder',set=(name,text)=>{this.el(name).textContent=text;};
+    const nuclide=NUCLIDES[this.state.nucleus]??NUCLIDES.U238;
+    const text=spec??(ladder?{eyebrow:'FINITE MODEL · PRIME LADDERS',title:'Two ladders, one bridge.',
+      lede:'Every prime carries a ladder of rungs at log-lengths m·log p. The direct arm is damped at c + a and the dual arm at c − a. Move the damping centre and watch the two arms, their packets and the bridge between them.',
+      heads:[['PHASOR WALKS','TIP TO TAIL'],['HEIGHT SCAN','DRAG TO SET T'],['BRIDGE BALANCE','DRAG TO SET c'],['','']],
+      captions:['Each rung is an arrow of length its amplitude; the arm sum is where the chain ends. Cyan: direct. Amber: dual.',
         'Magnitude of the two finite arm sums along the height axis. Ticks mark the first zeros of ζ for reference; the finite sums are not ζ.',
-        'Green: the completed bridge of ξ, exactly zero at c = ½ for every a and T. Violet: the bare finite arms, which have no balanced centre.','']
-      :['Bars up: surface tension. Bars down: Coulomb repulsion. The dot is the net stiffness C; a mode with C below zero is unstable. Numbers: uncoupled ħω in MeV.',
+        'Green: the completed bridge of ξ, exactly zero at c = ½ for every a and T. Violet: the bare finite arms, which have no balanced centre.',''],
+      note:'Finite experiment. With log p weights the direct sum truncates −ζ′/ζ(σ + iT), which converges only for σ > 1; at c = ½ it is a model, not ζ. The balance at c = ½ belongs to the completed function ξ through |ξ(s)| = |ξ(1 − s̄)|. Nothing here tests or proves the Riemann hypothesis.',
+      aria:'Twin prime ladders with rung phasors, packet envelopes and the bridge between the arms',hideFourth:true}
+    :{eyebrow:'COLLECTIVE MODEL · LIQUID DROP',title:'Which oscillations hold the nucleus together?',
+      lede:'A heavy nucleus rings like a charged liquid drop. Surface tension restores each ripple; electric repulsion works against it. Add protons until the quadrupole gives way, and couple the modes to see stability change.',
+      heads:[['MODE STIFFNESS','SURFACE − COULOMB'],['MODE AMPLITUDES','AFTER THE PLUCK'],['ROTATIONAL LADDER','MEASURED vs RIGID ROTOR'],['','']],
+      captions:['Bars up: surface tension. Bars down: Coulomb repulsion. The dot is the net stiffness C; a mode with C below zero is unstable. Numbers: uncoupled ħω in MeV.',
         'Amplitude of each multipole after the pluck. Coupling passes the motion between modes of the same parity.',
-        'Measured ground-band levels of ²³⁸U beside a rigid rotor fixed by the 2⁺ level. A ladder of a different kind: its rungs follow J(J+1).',
-        this.spacingCaption()];
-    heads.forEach(([h,t],i)=>{set('h'+(i+1),h);set('t'+(i+1),t);set('c'+(i+1),captions[i]);});
-    this.el('fourth').hidden=ladder;
-    set('note',ladder
-      ?'Finite experiment. With log p weights the direct sum truncates −ζ′/ζ(σ + iT), which converges only for σ > 1; at c = ½ it is a model, not ζ. The balance at c = ½ belongs to the completed function ξ through |ξ(s)| = |ξ(1 − s̄)|. Nothing here tests or proves the Riemann hypothesis.'
-      :'Textbook liquid-drop model, not a many-body calculation. Shell structure, pairing and rotation are absent; liquid-drop energies overshoot observed band heads; the coupling κ and the width Γ are illustrative. Measured values are quoted with their sources in Methods. The comparison with ζ is the shared statistics of level repulsion and nothing more.');
-    for(const panel of this.container.querySelectorAll('[data-models-panel]'))panel.hidden=panel.dataset.modelsPanel!==this.mode;
+        nuclide.id==='U238'?'Measured ground-band levels of ²³⁸U beside a rigid rotor fixed by the 2⁺ level. A ladder of a different kind: its rungs follow J(J+1).':`The measured ground band is loaded for ²³⁸U only; for ${nuclide.label} it is not available here.`,''],
+      note:`Textbook liquid-drop model, not a many-body calculation. Shell structure, pairing and rotation are absent; liquid-drop energies overshoot observed band heads; the coupling κ and the width Γ are illustrative. Measured values are quoted with their sources in Methods. ${nuclide.label}: half-life ${nuclide.halfLife.text.replace(/E\+?(-?\d+)/,' × 10^$1').replace(' Y',' yr')}; ${nuclide.notes[0]} The spacing statistics are in the Level statistics section.`,
+      aria:'Nucleons of the model nucleus following the oscillating liquid-drop surface',hideFourth:true});
+    set('eyebrow',text.eyebrow);set('title',text.title);set('lede',text.lede);
+    const anchors=SECTION_LINKS[section]?.panels??[];
+    text.heads.forEach(([h,t],i)=>{set('h'+(i+1),h);set('t'+(i+1),t);set('c'+(i+1),text.captions[i]);
+      const link=this.el('m'+(i+1));link.hidden=!anchors[i];if(anchors[i])link.href=methodsLink(anchors[i]);});
+    this.el('fourth').hidden=!!text.hideFourth;
+    set('note',text.note);
+    const mounted=!!this.container.ownerDocument?.querySelector?.('.site-bar');
+    this.el('links').innerHTML=sectionLinks(section,{mounted}).map(l=>`<a href="${esc(l.href)}" data-kind="${l.kind}"${l.kind==='site'?'':' target="_blank" rel="noopener"'}>${esc(l.label)} ↗</a>`).join('');
+    this.el('sections').innerHTML=(MODE_SECTIONS[this.mode]??[]).map(([key,name])=>`<button role="tab" aria-selected="${key===section}" class="${key===section?'active':''}" data-models-set='${JSON.stringify({[this.mode==='ladder'?'ladderPanel':'nucleusPanel']:key})}'>${esc(name)}</button>`).join('');
+    this.el('sections').hidden=(MODE_SECTIONS[this.mode]??[]).length<2;
+    for(const group of this.container.querySelectorAll('[data-models-sections]'))group.hidden=!group.dataset.modelsSections.split(' ').includes(section);
+    for(const panel of this.container.querySelectorAll('[data-models-panel]'))if(!panel.dataset.modelsSections)panel.hidden=panel.dataset.modelsPanel!==section;
     for(const tab of this.container.querySelectorAll('[data-models-mode]')){const on=tab.dataset.modelsMode===this.mode;tab.classList.toggle('active',on);tab.setAttribute('aria-selected',String(on));}
-    this.canvas('hero').setAttribute('aria-label',ladder?'Twin prime ladders with rung phasors, packet envelopes and the bridge between the arms':'Nucleons of the model nucleus following the oscillating liquid-drop surface');
+    this.container.querySelector('[data-models-action="play"]').hidden=!ANIMATED.has(section);
+    this.container.dataset.modelsSection=section;
+    this.canvas('hero').setAttribute('aria-label',text.aria);
     this.canvas('hero').setAttribute('role','img');
+    if(!spec)this.table('');
   }
   syncControls(){
     const s=this.state;if(!s)return;
@@ -223,16 +262,11 @@ export class ModelsPanel {
       if(this.container.ownerDocument?.activeElement!==input||input.tagName==='SELECT')input.value=String(value);
     }
     for(const out of this.container.querySelectorAll('[data-models-out]')){
-      const key=out.dataset.modelsOut,spec=[...LADDER_CONTROLS,...NUCLEUS_CONTROLS].find(c=>c.key===key);
+      const key=out.dataset.modelsOut,spec=ALL_CONTROLS().find(c=>c.key===key);
       out.textContent=fmt(key==='ladderHeight'?this.height:s[key],spec?.digits??2);
     }
     const play=this.container.querySelector('[data-models-action="play"]');
     play.textContent=this.playing?'Pause':'Play';play.setAttribute('aria-pressed',String(this.playing));
-  }
-  spacingCaption(){
-    const ks=sample=>['goe','gue','poisson'].map(name=>`${name==='poisson'?'Poisson':name.toUpperCase()} ${fmt(ksDistance(sample,SPACING_LAWS[name]),2)}`).join(', ');
-    const resonances=uniformSpacings(U238_DATA.resonances),zeros=zeroSpacings(ZERO_HEIGHTS);
-    return `Neutron resonances of ²³⁸U and unfolded zeros of ζ both avoid small gaps. Dashed: Wigner surmises for GOE and GUE; dotted: Poisson. Largest distance to each law: ²³⁸U (${resonances.length} gaps) ${ks(resonances)}; ζ (${zeros.length} gaps) ${ks(zeros)}. Samples this small cannot tell GOE from GUE.`;
   }
   readouts(rows){
     this.el('readouts').innerHTML=rows.map(([name,value,tone])=>`<div${tone?` data-tone="${tone}"`:''}><dt>${name}</dt><dd>${value}</dd></div>`).join('');
@@ -241,7 +275,8 @@ export class ModelsPanel {
   // ---- drawing ---------------------------------------------------------------
   draw(){
     if(!this.state||this.mode==='off'||this.container.hidden)return;
-    if(this.mode==='ladder')this.drawLadder();else this.drawNucleus();
+    const spec=SECTIONS[this.section];
+    if(spec)spec.draw(this);else if(this.section==='ladder')this.drawLadder();else this.drawNucleus();
   }
 
   drawLadder(){
@@ -402,7 +437,6 @@ export class ModelsPanel {
     this.nucleusStiffness(modes);
     this.nucleusTraces(modes,t);
     this.nucleusBand();
-    this.nucleusSpacings();
     const lowest=modes.normal[0],zs=DROP.hbar*1e21;
     this.el('status').textContent=modes.stable?'All coupled modes stable':'Unstable mode · the drop gives way';
     this.el('status').dataset.tone=modes.stable?'good':'bad';
@@ -496,6 +530,7 @@ export class ModelsPanel {
 
   nucleusBand(){
     const {ctx,w,h}=surface(this.canvas('c')),band=U238_DATA.groundBand,left=30,right=10,top=14,bottom=16;
+    if(this.state.nucleus!=='U238'){label(ctx,'ground band: not available for this nucleus',w/2,h/2,{color:C.dim,size:10,align:'center'});return;}
     const max=band[band.length-1].energy*1.04,Y=e=>h-bottom-e/max*(h-top-bottom),e2=band[0].energy;
     const mid=(left+w-right)/2,m0=left+4,m1=mid-22,r0=mid+22,r1=w-right-4;
     label(ctx,'measured',(m0+m1)/2,top-3,{color:C.direct,size:8,align:'center'});label(ctx,'rigid rotor',(r0+r1)/2,top-3,{color:C.dual,size:8,align:'center'});
@@ -509,27 +544,5 @@ export class ModelsPanel {
         label(ctx,fmt(level.energy,0),left-2,Y(level.energy)+3,{color:C.dim,size:7,align:'right'});}
     }
     label(ctx,'keV',left-2,top-3,{color:C.dim,size:7,align:'right'});
-  }
-
-  nucleusSpacings(){
-    const {ctx,w,h}=surface(this.canvas('d')),left=26,right=10,top=12,bottom=20,sMax=3;
-    const X=s=>left+s/sMax*(w-left-right),Y=f=>h-bottom-f*(h-top-bottom);
-    line(ctx,left,h-bottom,w-right,h-bottom,C.axis);line(ctx,left,top,left,h-bottom,C.axis);
-    const laws=[['poisson',C.dim,[2,4]],['goe',C.direct,[5,3]],['gue',C.dual,[5,3]]];
-    for(const [name,color,dash] of laws){
-      ctx.save();ctx.strokeStyle=color;ctx.lineWidth=1;ctx.setLineDash(dash);ctx.beginPath();
-      for(let i=0;i<=120;i++){const s=sMax*i/120,x=X(s),y=Y(SPACING_LAWS[name](s));i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();ctx.restore();
-    }
-    this.cache.spacings??={resonances:U238_DATA.resonances.length>2?uniformSpacings(U238_DATA.resonances):[],zeros:zeroSpacings(ZERO_HEIGHTS)};
-    const sets=[[this.cache.spacings.resonances,C.direct],[this.cache.spacings.zeros,C.dual]];
-    for(const [sample,color] of sets){
-      if(!sample.length)continue;
-      const sorted=[...sample].sort((a,b)=>a-b),n=sorted.length;
-      ctx.strokeStyle=color;ctx.lineWidth=1.7;ctx.beginPath();ctx.moveTo(X(0),Y(0));
-      sorted.forEach((s,i)=>{const x=X(Math.min(s,sMax));ctx.lineTo(x,Y(i/n));ctx.lineTo(x,Y((i+1)/n));});ctx.lineTo(X(sMax),Y(1));ctx.stroke();
-    }
-    label(ctx,'²³⁸U + n resonances',w-right,h-bottom-18,{color:C.direct,size:8,align:'right'});label(ctx,'ζ zeros, unfolded',w-right,h-bottom-6,{color:C.dual,size:8,align:'right'});
-    for(const s of [0,1,2,3])label(ctx,String(s),X(s),h-7,{color:C.dim,size:8,align:'center'});
-    label(ctx,'1',left-4,Y(1)+3,{color:C.dim,size:8,align:'right'});label(ctx,'spacing / mean',w-right,h-7,{color:C.dim,size:8,align:'right'});
   }
 }

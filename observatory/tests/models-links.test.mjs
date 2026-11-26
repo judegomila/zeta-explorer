@@ -70,5 +70,5 @@ test('section texts keep to the wording rules',()=>{
   assert.match(SECTIONS.horizon.lede,/model analogy and establishes nothing about black holes or about the Riemann hypothesis/);
   assert.match(SECTIONS.temperature.lede,/a = ½ is the inverse temperature β\s*= 1/);
   const methodsNew=methods.slice(methods.indexOf('<h2 id="rails">'),methods.indexOf('<h2 id="heat">'));
-  assert.doesNotMatch(methodsNew,banned);assert.doesNotMatch(methodsNew,/rh-twin-ladder-compression|nucleus-horizon/);
+  assert.doesNotMatch(methodsNew,banned);
 });

@@ -19,9 +19,9 @@ export { HORIZON_DEFAULTS, HORIZON_SCENE, cellInWindow, distanceToWindow, horizo
  */
 
 /** Outward steps from an edge: first step `first`, growing by `growth` until `reach`. */
-export function outwardSteps(first,reach,growth=HORIZON_SCENE.growth){
+export function outwardSteps(first,reach,growth=HORIZON_SCENE.growth,maxStep=Infinity){
   const out=[];let d=0,h=first;
-  while(d<reach){d=Math.min(reach,d+h);out.push(d);h*=growth;}
+  while(d<reach){d=Math.min(reach,d+h);out.push(d);h=Math.min(h*growth,maxStep);}
   return out;
 }
 
@@ -33,12 +33,14 @@ export function horizonAxes(state,{reach=HORIZON_SCENE.reach,side=HORIZON_SCENE.
   const base=sampleAxes({...state,geometry:'plane'}),W=HORIZON_SCENE.width,D=HORIZON_SCENE.depth;
   // Inner knots are thinned to every second one: the window itself is drawn by
   // the main surface, and only the edge rows/columns must match it exactly.
-  const extend=(axis,size,reach)=>{
+  // Along t the step is capped (HORIZON_SCENE.maxStep) so zero bands stay
+  // resolved all the way out: zeros near t = 300 are under one scene unit apart.
+  const extend=(axis,size,reach,maxStep)=>{
     const n=axis.length-1,du=(axis[1]-axis[0])*size,dv=(axis[n]-axis[n-1])*size;
-    const lo=outwardSteps(du,reach,growth).map(d=>-d/size).reverse(),hi=outwardSteps(dv,reach,growth).map(d=>1+d/size);
+    const lo=outwardSteps(du,reach,growth,maxStep).map(d=>-d/size).reverse(),hi=outwardSteps(dv,reach,growth,maxStep).map(d=>1+d/size);
     return Float64Array.from([...lo,...axis,...hi]);
   };
-  return {u:extend(base.u,W,side),v:extend(base.v,D,reach)};
+  return {u:extend(base.u,W,side,Infinity),v:extend(base.v,D,reach,HORIZON_SCENE.maxStep)};
 }
 
 /** Sample the far field. Window-interior knots are skipped (the main surface draws them). */

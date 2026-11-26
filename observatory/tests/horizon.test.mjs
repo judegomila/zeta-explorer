@@ -25,7 +25,7 @@ test('far-field axes keep every window knot, so the seam has no cracks',()=>{
 
 test('far-field samples are the exact function, and the window interior is left to the main surface',()=>{
   const h=sampleHorizon(plane);
-  assert.ok(h.evaluated>1000&&h.evaluated<60000);
+  assert.ok(h.evaluated>1000&&h.evaluated<200000);
   let checked=0;
   for(let k=0;k<h.valid.length;k+=997){
     if(h.interior[k]){assert.equal(h.valid[k],0);continue;}
@@ -34,7 +34,7 @@ test('far-field samples are the exact function, and the window interior is left 
     assert.equal(h.logAbs[k],f.logAbs);assert.equal(h.arg[k],f.arg);checked++;
   }
   assert.ok(checked>10);
-  assert.ok(Math.max(...h.t)>300,'reaches well past the window along t');
+  assert.ok(h.t.reduce((a,b)=>Math.max(a,b),-Infinity)>300,'reaches well past the window along t');
 });
 
 test('cells inside the window are skipped; fade is 1 at the window and 0 at the reach',()=>{

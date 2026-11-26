@@ -113,10 +113,13 @@ export default function HomePageEditorial() {
       {/* hero */}
       <div className="ed-hero"><div className="ed-full"><div className="ed-herogrid">
         <div>
-          <h1>Let's solve the <em className="ed-terra">Riemann Hypothesis</em></h1>
-          <div className="ed-stand">An open engine room for the Riemann Hypothesis (RH ⇔ Λ = 0). It runs the twin-ladder
-            model, interactive simulators, and an autonomous fleet of AI engines pushing barrier bounds on Λ —
-            with a live ledger of results, no-go theorems, and open problems. Contributions are welcome.</div>
+          <h1>Explore the map of the <em className="ed-terra">Riemann zeta function</em></h1>
+          <div className="ed-stand">A workbench for the zeta function, the primes and the Riemann Hypothesis. It maps ζ on
+            the plane, sphere and torus, runs the twin-ladder model, and builds physical models of the hypothesis: a
+            prime gas, nuclear resonances and a horizon. It keeps a ledger of results, no-go theorems and open
+            problems. A Lean 4 proof of the Riemann Hypothesis by L. Alpöge, with Claude, was certified as a formal
+            statement and proof by the Lean FRO and the Mathlib Initiative on 21 November 2026; no human referee
+            report on the mathematics has been published. Contributions are welcome.</div>
           <div style={{ marginTop: 16 }}>
             <Link className="ed-btn" to="/key-results" style={{ color: 'var(--paper)', display: 'inline-block' }}>Key results →</Link>
           </div>

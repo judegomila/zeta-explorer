@@ -119,7 +119,9 @@ The derivation, annulus Dirichlet-to-Neumann reference operator, remaining coerc
 | Damped Klein display | [?view=smoothKlein](https://zeta-view.vercel.app/?view=smoothKlein) | Positive Gaussian attenuation on the existing completed field. |
 | Dual conormal | [?view=dualTwistor](https://zeta-view.vercel.app/?view=dualTwistor) | The ℂℙ¹ family of tangent hyperplanes at the selected point or an exact infinity, anti-bridge, branch, or reciprocal-chart anchor. |
 | Twin-ladder model | `?view=twinLadder` | Finite prime ladders on two arms with an adjustable damping centre, packets, and the completed ξ bridge. |
-| Uranium-238 | `?view=uranium238` | Liquid-drop model of coupled surface oscillations, with measured ²³⁸U levels and resonance spacings beside it. |
+| Twin-ladder sections | `?view=twinLadder&state={"ladderPanel":"rails"}` | Rails and bridge, limiting temperature (`temperature`) and vacuum energy (`vacuum`) of the completed function. |
+| Heavy nuclei | `?view=uranium238` | Liquid-drop model with a `nucleus` setting (²³²Th to ²⁹⁴Og), level statistics of measured resonances and of zeros, and the trend with mass. |
+| Horizon | `?view=horizon` | Schwarzschild quantities beside the gamma-factor and two-rail scattering functions; an analogy with its refuted rows shown. |
 
 The end charts evaluate finite spectral points only. Gray and hatched regions distinguish unavailable or unresolved samples from known values. The finite-cutoff boundary diagnostic does not certify the remaining tail or a global energy bound. The Klein partner uses the exact nonlinear end-coordinate transformation and the completed function's conjugating symmetry.
 
@@ -127,7 +129,7 @@ The Gaussian weight is exp(−|s−½|²/S²), with default scale S = 120. It pr
 
 The dual view displays the family W = λ dQ₁ + μ dQ₂ for the two defining quadrics. It reports the bilinear point and tangent incidence residuals W·Z and W·T. There is a family of tangent hyperplanes, not a unique curve normal. Exact geometric infinity anchors require no ξ evaluation. See [the derivations and limits](docs/INFINITY-ENDS-DUAL.md) for the seam, strip metric, smooth-extension proof, full-energy distinction, and conormal conventions.
 
-The twin-ladder and uranium views are models with controls; neither evaluates ζ beyond the completed bridge readout, and neither is evidence about the Riemann hypothesis. See [the formulas, data sources and limits](docs/TWIN-LADDER-NUCLEUS.md).
+The twin-ladder, nucleus and horizon views are models with controls. The rails, limiting-temperature and vacuum sections evaluate ξ and ζ on finite windows only; none of the views is evidence about the Riemann hypothesis. See [the formulas, data sources and limits](docs/TWIN-LADDER-NUCLEUS.md).
 
 ### Share exactly the current view
 

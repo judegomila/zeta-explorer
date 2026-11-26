@@ -18,6 +18,8 @@ export function cleanNav(raw){
   })).filter(section=>section.items.length)})).filter(group=>group.label&&group.sections.length);
 }
 
+const KEY_RESULTS='/key-results';
+
 /** Pages listed under a group, or under the whole navigation. */
 export const pageCount=groups=>[].concat(groups).reduce((n,group)=>n+group.sections.reduce((m,section)=>m+section.items.length,0),0);
 
@@ -38,6 +40,9 @@ export function renderSiteBar(nav,actions=''){
     // Two modes of one site: this visual workbench, and the written research.
     +'<div class="sb-mode" title="Switch between the visual Observatory and the research programme">'
     +'<span aria-current="page">Observatory</span><a href="'+esc(siteHref('/'))+'">Research<small>'+total+' pages</small></a></div>'
+    // The research programme's summary page, when the site has one, is always one click away.
+    +(nav.some(group=>group.sections.some(section=>section.items.some(item=>item.to===KEY_RESULTS)))
+      ?'<a class="sb-key" href="'+esc(siteHref(KEY_RESULTS))+'">Key results</a>':'')
     +'<div class="sb-groups">'+nav.map(dropdown).join('')+'</div>'
     +'<details class="sb-menu"><summary>Research menu<small>'+total+'</small></summary><div class="sb-panel">'+nav.map(dropdown).join('')+'</div></details>'
     +'<div class="sb-right">'+actions+'</div></nav>';
